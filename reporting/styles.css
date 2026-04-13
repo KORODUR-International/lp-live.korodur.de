@@ -431,6 +431,157 @@ h1, h2, h3, h4, h5 {
 .area-card[data-area="IT Tooling & Enablement"] { border-top-color: #78716c; }
 .area-card[data-area="Wissensaufbau"] { border-top-color: #6b7280; }
 
+/* --- Delta Badges --- */
+.delta {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 8px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.delta--up {
+  color: #15803d;
+  background: rgba(39, 174, 96, .12);
+}
+
+.delta--down {
+  color: #b91c1c;
+  background: rgba(231, 76, 60, .12);
+}
+
+.delta--neutral {
+  color: var(--muted);
+  background: var(--light-gray);
+}
+
+/* --- Executive Summary --- */
+.executive-summary {
+  display: flex;
+  gap: 16px;
+  background: var(--white);
+  border-radius: var(--card-radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  border-left: 4px solid var(--secondary);
+}
+
+.executive-summary__icon {
+  color: var(--secondary);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.executive-summary__content {
+  flex: 1;
+}
+
+.executive-summary__title {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.executive-summary__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.executive-summary__list li {
+  font-size: .85rem;
+  color: var(--primary);
+  line-height: 1.4;
+  padding-left: 16px;
+  position: relative;
+}
+
+.executive-summary__list li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* --- Project Pipeline --- */
+.pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  padding: 8px 0;
+}
+
+.pipeline__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.pipeline__count {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.pipeline__label {
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--muted);
+  margin-top: 4px;
+  text-align: center;
+}
+
+.pipeline__arrow {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-70%);
+  color: var(--mid-gray);
+  z-index: 1;
+}
+
+.pipeline__stage--idee .pipeline__count { color: var(--muted); }
+.pipeline__stage--konzept .pipeline__count { color: #6b7280; }
+.pipeline__stage--geplant .pipeline__count { color: #3b82f6; }
+.pipeline__stage--in_bearbeitung .pipeline__count { color: var(--secondary); }
+.pipeline__stage--in_review .pipeline__count { color: #a855f7; }
+.pipeline__stage--erledigt .pipeline__count { color: var(--success); }
+
+.pipeline__paused {
+  font-size: .75rem;
+  color: var(--warning);
+  font-weight: 700;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* --- Area Card Completion Rate Colors --- */
+.area-card__stat-value--rate {
+  font-size: 1.2rem;
+}
+
+.area-card__stat-value--good {
+  color: var(--success);
+}
+
+.area-card__stat-value--warn {
+  color: var(--danger);
+}
+
 /* --- Footer --- */
 .footer {
   text-align: center;
@@ -510,6 +661,20 @@ h1, h2, h3, h4, h5 {
 
   .area-grid {
     grid-template-columns: 1fr;
+  }
+
+  .pipeline {
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .pipeline__stage {
+    flex: 0 0 30%;
+  }
+
+  .pipeline__arrow {
+    display: none;
   }
 }
 

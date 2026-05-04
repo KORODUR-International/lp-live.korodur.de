@@ -1,0 +1,108 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-W19",
+    "generated_at": "2026-05-04T08:15:11.422623+00:00",
+    "notion_space": "KORODUR",
+    "version": "1.1"
+  },
+  "totals": {
+    "areas": 5,
+    "projects": 35,
+    "tasks": 219,
+    "tasks_open": 35,
+    "tasks_in_progress": 13,
+    "tasks_done": 167,
+    "databases": 34,
+    "processes": 0
+  },
+  "projects_by_status": {
+    "erledigt": 8,
+    "stopp": 10,
+    "pending": 1,
+    "in_bearbeitung": 11,
+    "konzept": 4,
+    "laufend": 1
+  },
+  "areas": [
+    {
+      "name": "Marketing",
+      "group": "Marketing",
+      "emoji": "📣",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 16,
+        "open": 5,
+        "in_progress": 1,
+        "done": 9
+      },
+      "databases": 5,
+      "processes": 0
+    },
+    {
+      "name": "CRM & Sales Operations",
+      "group": "Marketing",
+      "emoji": "📊",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 3,
+        "open": 2,
+        "in_progress": 0,
+        "done": 1
+      },
+      "databases": 1,
+      "processes": 0
+    },
+    {
+      "name": "Internationalisierung",
+      "group": "Strategie",
+      "emoji": "🌍",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 22,
+        "open": 4,
+        "in_progress": 2,
+        "done": 15
+      },
+      "databases": 1,
+      "processes": 0
+    },
+    {
+      "name": "IT, Tooling & Enablement",
+      "group": "Strategie",
+      "emoji": "🛠️",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 12,
+        "open": 8,
+        "in_progress": 0,
+        "done": 4
+      },
+      "databases": 2,
+      "processes": 0
+    },
+    {
+      "name": "Wissensaufbau",
+      "group": "Strategie",
+      "emoji": "📚",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 18,
+        "open": 11,
+        "in_progress": 0,
+        "done": 6
+      },
+      "databases": 10,
+      "processes": 0
+    }
+  ]
+}

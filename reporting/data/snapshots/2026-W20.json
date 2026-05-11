@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-W20",
+    "generated_at": "2026-05-11T08:56:27.840966+00:00",
+    "notion_space": "KORODUR",
+    "version": "1.1"
+  },
+  "totals": {
+    "areas": 5,
+    "projects": 23,
+    "tasks": 220,
+    "tasks_open": 35,
+    "tasks_in_progress": 10,
+    "tasks_done": 172,
+    "databases": 34,
+    "processes": 0
+  },
+  "projects_by_status": {
+    "erledigt": 8,
+    "stopp": 10,
+    "pending": 1,
+    "in_bearbeitung": 4
+  },
+  "areas": [
+    {
+      "name": "Marketing",
+      "group": "Marketing",
+      "emoji": "📣",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 15,
+        "open": 3,
+        "in_progress": 2,
+        "done": 10
+      },
+      "databases": 7,
+      "processes": 0
+    },
+    {
+      "name": "CRM & Sales Operations",
+      "group": "Marketing",
+      "emoji": "📊",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 4,
+        "open": 3,
+        "in_progress": 0,
+        "done": 1
+      },
+      "databases": 1,
+      "processes": 0
+    },
+    {
+      "name": "Internationalisierung",
+      "group": "Strategie",
+      "emoji": "🌍",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 22,
+        "open": 4,
+        "in_progress": 2,
+        "done": 15
+      },
+      "databases": 1,
+      "processes": 0
+    },
+    {
+      "name": "IT, Tooling & Enablement",
+      "group": "Strategie",
+      "emoji": "🛠️",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 12,
+        "open": 8,
+        "in_progress": 0,
+        "done": 4
+      },
+      "databases": 2,
+      "processes": 0
+    },
+    {
+      "name": "Wissensaufbau",
+      "group": "Strategie",
+      "emoji": "📚",
+      "projects": {
+        "total": 0
+      },
+      "tasks": {
+        "total": 20,
+        "open": 13,
+        "in_progress": 0,
+        "done": 6
+      },
+      "databases": 11,
+      "processes": 0
+    }
+  ]
+}

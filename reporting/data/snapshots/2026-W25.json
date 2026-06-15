@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-W25",
-    "generated_at": "2026-06-15T12:38:36.950575+00:00",
+    "generated_at": "2026-06-15T15:20:42.699486+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -12,7 +12,8 @@
     "done": 34,
     "in_progress": 2,
     "open": 52,
-    "blocked": 4
+    "blocked": 4,
+    "discarded": 0
   },
   "by_status": {
     "Backlog": 51,
@@ -24,28 +25,29 @@
   },
   "by_owner": {
     "Human": 10,
-    "Claude": 40,
+    "Claude": 68,
     "Either": 14,
-    "none": 28
+    "none": 0
   },
   "by_priority": {
     "P0": 0,
     "P1": 15,
-    "P2": 36,
+    "P2": 64,
     "P3": 13,
-    "none": 28
+    "none": 0
   },
   "areas": [
     {
       "name": "Marketing",
-      "total": 45,
-      "done": 27,
+      "total": 73,
+      "done": 30,
       "in_progress": 1,
-      "open": 15,
-      "blocked": 2,
+      "open": 39,
+      "blocked": 3,
+      "discarded": 0,
       "by_owner": {
         "Human": 6,
-        "Claude": 30,
+        "Claude": 58,
         "Either": 9,
         "none": 0
       }
@@ -57,6 +59,7 @@
       "in_progress": 0,
       "open": 0,
       "blocked": 0,
+      "discarded": 0,
       "by_owner": {
         "Human": 0,
         "Claude": 0,
@@ -71,6 +74,7 @@
       "in_progress": 0,
       "open": 3,
       "blocked": 0,
+      "discarded": 0,
       "by_owner": {
         "Human": 1,
         "Claude": 0,
@@ -85,6 +89,7 @@
       "in_progress": 0,
       "open": 4,
       "blocked": 1,
+      "discarded": 0,
       "by_owner": {
         "Human": 2,
         "Claude": 3,
@@ -99,6 +104,7 @@
       "in_progress": 1,
       "open": 6,
       "blocked": 0,
+      "discarded": 0,
       "by_owner": {
         "Human": 1,
         "Claude": 7,
@@ -113,25 +119,12 @@
       "in_progress": 0,
       "open": 0,
       "blocked": 0,
+      "discarded": 0,
       "by_owner": {
         "Human": 0,
         "Claude": 0,
         "Either": 0,
         "none": 0
-      }
-    },
-    {
-      "name": "Nicht zugeordnet",
-      "total": 28,
-      "done": 3,
-      "in_progress": 0,
-      "open": 24,
-      "blocked": 1,
-      "by_owner": {
-        "Human": 0,
-        "Claude": 0,
-        "Either": 0,
-        "none": 28
       }
     }
   ],
@@ -143,11 +136,12 @@
       "in_progress": 1,
       "open": 36,
       "blocked": 2,
+      "discarded": 0,
       "by_owner": {
         "Human": 2,
-        "Claude": 29,
+        "Claude": 57,
         "Either": 9,
-        "none": 28
+        "none": 0
       }
     },
     {
@@ -157,6 +151,7 @@
       "in_progress": 1,
       "open": 5,
       "blocked": 0,
+      "discarded": 0,
       "by_owner": {
         "Human": 1,
         "Claude": 7,
@@ -171,6 +166,7 @@
       "in_progress": 0,
       "open": 5,
       "blocked": 0,
+      "discarded": 0,
       "by_owner": {
         "Human": 2,
         "Claude": 0,
@@ -185,6 +181,7 @@
       "in_progress": 0,
       "open": 2,
       "blocked": 1,
+      "discarded": 0,
       "by_owner": {
         "Human": 2,
         "Claude": 2,
@@ -199,6 +196,7 @@
       "in_progress": 0,
       "open": 2,
       "blocked": 0,
+      "discarded": 0,
       "by_owner": {
         "Human": 1,
         "Claude": 0,
@@ -213,6 +211,7 @@
       "in_progress": 0,
       "open": 1,
       "blocked": 0,
+      "discarded": 0,
       "by_owner": {
         "Human": 1,
         "Claude": 1,
@@ -227,6 +226,7 @@
       "in_progress": 0,
       "open": 0,
       "blocked": 1,
+      "discarded": 0,
       "by_owner": {
         "Human": 1,
         "Claude": 0,
@@ -241,6 +241,7 @@
       "in_progress": 0,
       "open": 1,
       "blocked": 0,
+      "discarded": 0,
       "by_owner": {
         "Human": 0,
         "Claude": 1,

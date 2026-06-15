@@ -264,6 +264,11 @@ function renderExecutiveSummary(data, prev) {
     highlights.push(`<strong>${t.blocked}</strong> Items blockiert — brauchen Entscheidung`);
   }
 
+  // Discarded (closed as "not planned")
+  if ((t.discarded || 0) > 0) {
+    highlights.push(`<strong>${t.discarded}</strong> Items verworfen (als „not planned" geschlossen) — zählen nicht als erledigt`);
+  }
+
   // Untriaged
   const untriaged = data.areas.find(a => a.name === 'Nicht zugeordnet');
   if (untriaged && untriaged.total > 0) {
@@ -316,12 +321,14 @@ function renderStatusBar(data, prev) {
         ${barSegment(t.in_progress, total, 'progress', `${t.in_progress} In Arbeit`)}
         ${barSegment(t.blocked, total, 'blocked', `${t.blocked} Blocked`)}
         ${barSegment(t.done, total, 'done', `${t.done} Erledigt`)}
+        ${barSegment(t.discarded || 0, total, 'discarded', `${t.discarded} Verworfen`)}
       </div>
       <div class="status-legend">
         <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--mid-gray)"></span>Offen: ${t.open} ${deltaHtml(delta(t.open, pt?.open))}</span>
         <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--secondary)"></span>In Arbeit: ${t.in_progress} ${deltaHtml(delta(t.in_progress, pt?.in_progress))}</span>
         <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--warn)"></span>Blocked: ${t.blocked} ${deltaHtml(delta(t.blocked, pt?.blocked))}</span>
         <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--success)"></span>Erledigt: ${t.done} ${deltaHtml(delta(t.done, pt?.done))}</span>
+        ${(t.discarded || 0) > 0 ? `<span class="status-legend__item"><span class="status-legend__dot" style="background:var(--danger)"></span>Verworfen: ${t.discarded} ${deltaHtml(delta(t.discarded, pt?.discarded))}</span>` : ''}
       </div>
     </div>
   `;

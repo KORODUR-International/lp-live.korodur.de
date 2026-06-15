@@ -802,3 +802,5 @@ h1, h2, h3, h4, h5 {
 @media (max-width: 760px) {
   .split-row { grid-template-columns: 1fr; }
 }
+
+.status-bar__segment--discarded { background: var(--danger); }

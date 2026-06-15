@@ -144,77 +144,90 @@ function deltaHtml(d, suffix) {
   return `<span class="delta ${cls}">${sign}${d}${suffix || ''}</span>`;
 }
 
+// ─── Area display meta (emoji + strategic group) ─────
+const AREA_META = {
+  'Marketing':              { emoji: '📣', group: 'Marketing' },
+  'CRM & Sales Ops':        { emoji: '📊', group: 'Marketing' },
+  'Internationalisierung':  { emoji: '🌍', group: 'Strategie' },
+  'Wissensaufbau':          { emoji: '📚', group: 'Strategie' },
+  'AI & Infrastruktur':     { emoji: '🤖', group: 'Strategie' },
+  'Strategie':              { emoji: '🎯', group: 'Strategie' },
+  'Nicht zugeordnet':       { emoji: '❓', group: 'Triage' },
+};
+function areaMeta(name) {
+  return AREA_META[name] || { emoji: '📁', group: 'Sonstige' };
+}
+
+const MONTHS_SHORT_DE = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+function monthLabel(ym) {
+  const [y, m] = ym.split('-');
+  return `${MONTHS_SHORT_DE[parseInt(m, 10) - 1]} ${y.slice(2)}`;
+}
+
 // ─── Render Dashboard ────────────────────────────────
 function renderDashboard(data, prev) {
   const main = document.getElementById('main');
   const t = data.totals;
   const pt = prev ? prev.totals : null;
-  const tasksDonePercent = t.tasks > 0 ? Math.round((t.tasks_done / t.tasks) * 100) : 0;
+  const donePercent = t.items > 0 ? Math.round((t.done / t.items) * 100) : 0;
 
   main.innerHTML = `
-    <!-- Snapshot Title -->
     <div class="snapshot-header fade-in">
-      <h1 class="snapshot-header__title">SPACE HEALTH DASHBOARD</h1>
+      <h1 class="snapshot-header__title">WORK COCKPIT — REPORTING</h1>
       <p class="snapshot-header__sub">
-        KORODUR Notion Workspace &mdash; ${data._meta.snapshot_date}
-        ${data._meta.demo ? ' <span class="header__badge">DEMO-DATEN</span>' : ''}
+        ${data._meta.source || 'KORODUR Work Cockpit'} &mdash; ${data._meta.snapshot_date}
       </p>
     </div>
 
-    <!-- Executive Summary -->
     ${renderExecutiveSummary(data, prev)}
 
-    <!-- KPI Row -->
     <div class="kpi-row">
       <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Areas</div>
-        <div class="kpi-card__value kpi-card__value--accent">${t.areas}</div>
-        <div class="kpi-card__detail">Verantwortungsbereiche ${deltaHtml(delta(t.areas, pt?.areas))}</div>
+        <div class="kpi-card__label">Items gesamt</div>
+        <div class="kpi-card__value kpi-card__value--accent">${t.items}</div>
+        <div class="kpi-card__detail">${donePercent}% erledigt ${deltaHtml(delta(t.items, pt?.items))}</div>
       </div>
       <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Projekte</div>
-        <div class="kpi-card__value">${t.projects}</div>
-        <div class="kpi-card__detail">${data.projects_by_status.erledigt || 0} abgeschlossen ${deltaHtml(delta(t.projects, pt?.projects))}</div>
+        <div class="kpi-card__label">Erledigt</div>
+        <div class="kpi-card__value">${t.done}</div>
+        <div class="kpi-card__detail">Status: Done ${deltaHtml(delta(t.done, pt?.done))}</div>
       </div>
       <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Aufgaben</div>
-        <div class="kpi-card__value">${t.tasks}</div>
-        <div class="kpi-card__detail">${tasksDonePercent}% erledigt ${deltaHtml(delta(t.tasks_done, pt?.tasks_done))}</div>
+        <div class="kpi-card__label">In Arbeit</div>
+        <div class="kpi-card__value">${t.in_progress}</div>
+        <div class="kpi-card__detail">In Progress + Review ${deltaHtml(delta(t.in_progress, pt?.in_progress))}</div>
       </div>
       <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Datenbanken</div>
-        <div class="kpi-card__value">${t.databases}</div>
-        <div class="kpi-card__detail">Wissensbasis ${deltaHtml(delta(t.databases, pt?.databases))}</div>
+        <div class="kpi-card__label">Offen</div>
+        <div class="kpi-card__value">${t.open}</div>
+        <div class="kpi-card__detail">Backlog + Ready ${deltaHtml(delta(t.open, pt?.open))}</div>
       </div>
-      <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Prozesse</div>
-        <div class="kpi-card__value">${t.processes}</div>
-        <div class="kpi-card__detail">Dokumentiert ${deltaHtml(delta(t.processes, pt?.processes))}</div>
+      <div class="kpi-card fade-in ${t.blocked > 0 ? 'kpi-card--warn' : ''}">
+        <div class="kpi-card__label">Blocked</div>
+        <div class="kpi-card__value ${t.blocked > 0 ? 'kpi-card__value--warn' : ''}">${t.blocked}</div>
+        <div class="kpi-card__detail">Blockiert ${deltaHtml(delta(t.blocked, pt?.blocked))}</div>
       </div>
     </div>
 
-    <!-- Project Pipeline -->
-    ${renderProjectPipeline(data)}
+    ${renderStatusBar(data, prev)}
 
-    <!-- Task Status -->
-    ${renderTaskStatus(data, prev)}
+    <div class="split-row">
+      ${renderOwnerSplit(data)}
+      ${renderDoneByMonth(data)}
+    </div>
 
-    <!-- Areas: Marketing -->
-    <h3 class="area-grid-title fade-in">MARKETING</h3>
+    ${renderPriority(data)}
+
+    <h3 class="area-grid-title fade-in">BEREICHE</h3>
     <div class="area-grid">
-      ${data.areas.filter(a => a.group === 'Marketing').map(a => renderAreaCard(a, prev)).join('')}
+      ${data.areas.filter(a => a.total > 0).map(a => renderAreaCard(a, prev)).join('')}
     </div>
 
-    <!-- Areas: Strategie -->
-    <h3 class="area-grid-title fade-in">STRATEGIE</h3>
-    <div class="area-grid">
-      ${data.areas.filter(a => a.group === 'Strategie').map(a => renderAreaCard(a, prev)).join('')}
-    </div>
+    ${renderProjectsTable(data)}
 
-    <!-- Footer -->
     <div class="footer">
-      KORODUR Space Health Dashboard &mdash; Generiert am ${new Date(data._meta.generated_at).toLocaleDateString('de-DE')}
-      &mdash; <a href="https://github.com/korodur/Korodur-Reporting" target="_blank">GitHub</a>
+      KORODUR Work Cockpit Reporting &mdash; Generiert am ${new Date(data._meta.generated_at).toLocaleDateString('de-DE')}
+      &mdash; <a href="https://github.com/KORODUR-International/korodur-reporting" target="_blank">GitHub</a>
     </div>
   `;
 }
@@ -226,35 +239,47 @@ function renderExecutiveSummary(data, prev) {
   const pt = prev ? prev.totals : null;
 
   if (pt) {
-    const newTasks = delta(t.tasks_done, pt.tasks_done);
-    if (newTasks > 0) highlights.push(`<strong>${newTasks}</strong> Aufgaben seit letztem Snapshot erledigt`);
-
-    const newProjects = delta(t.projects, pt.projects);
-    if (newProjects > 0) highlights.push(`<strong>${newProjects}</strong> neue Projekte hinzugekommen`);
-    if (newProjects < 0) highlights.push(`<strong>${Math.abs(newProjects)}</strong> Projekte konsolidiert`);
-
-    const newDBs = delta(t.databases, pt.databases);
-    if (newDBs > 0) highlights.push(`<strong>${newDBs}</strong> neue Datenbanken aufgebaut`);
+    const newDone = delta(t.done, pt.done);
+    if (newDone > 0) highlights.push(`<strong>${newDone}</strong> Items seit letztem Snapshot erledigt`);
+    const newItems = delta(t.items, pt.items);
+    if (newItems > 0) highlights.push(`<strong>${newItems}</strong> neue Items im Backlog`);
   }
 
-  // Best performing area (highest done count)
-  const bestArea = [...data.areas].sort((a, b) => b.tasks.done - a.tasks.done)[0];
-  if (bestArea && bestArea.tasks.done > 0) {
-    highlights.push(`St\u00e4rkster Bereich: <strong>${bestArea.emoji} ${bestArea.name}</strong> (${bestArea.tasks.done} erledigte Aufgaben)`);
+  // Done this month
+  const months = Object.keys(data.done_by_month || {});
+  if (months.length) {
+    const last = months[months.length - 1];
+    highlights.push(`<strong>${data.done_by_month[last]}</strong> Items erledigt in ${monthLabel(last)}`);
   }
 
-  // Area needing attention (most open tasks, zero done)
-  const attentionArea = data.areas
-    .filter(a => a.tasks.done === 0 && a.tasks.open > 0)
-    .sort((a, b) => b.tasks.open - a.tasks.open)[0];
-  if (attentionArea) {
-    highlights.push(`Aufmerksamkeit: <strong>${attentionArea.emoji} ${attentionArea.name}</strong> &mdash; ${attentionArea.tasks.open} offene Aufgaben, 0 erledigt`);
+  // Strongest area by done
+  const real = data.areas.filter(a => a.name !== 'Nicht zugeordnet' && a.total > 0);
+  const bestArea = [...real].sort((a, b) => b.done - a.done)[0];
+  if (bestArea && bestArea.done > 0) {
+    highlights.push(`Stärkster Bereich: <strong>${areaMeta(bestArea.name).emoji} ${bestArea.name}</strong> (${bestArea.done} erledigt)`);
   }
 
-  // Overall completion rate
-  if (t.tasks > 0) {
-    const rate = Math.round((t.tasks_done / t.tasks) * 100);
-    highlights.push(`Gesamt-Erledigungsquote: <strong>${rate}%</strong>`);
+  // Blocked warning
+  if (t.blocked > 0) {
+    highlights.push(`<strong>${t.blocked}</strong> Items blockiert — brauchen Entscheidung`);
+  }
+
+  // Untriaged
+  const untriaged = data.areas.find(a => a.name === 'Nicht zugeordnet');
+  if (untriaged && untriaged.total > 0) {
+    highlights.push(`<strong>${untriaged.total}</strong> Items noch nicht zugeordnet (Triage offen)`);
+  }
+
+  // Claude share
+  const o = data.by_owner || {};
+  const ownerTotal = (o.Human || 0) + (o.Claude || 0) + (o.Either || 0);
+  if (ownerTotal > 0) {
+    const claudePct = Math.round((((o.Claude || 0) + (o.Either || 0)) / ownerTotal) * 100);
+    highlights.push(`<strong>${claudePct}%</strong> der zugewiesenen Items sind Claude-fähig (Claude/Either)`);
+  }
+
+  if (t.items > 0) {
+    highlights.push(`Gesamt-Erledigungsquote: <strong>${Math.round((t.done / t.items) * 100)}%</strong>`);
   }
 
   if (highlights.length === 0) return '';
@@ -276,60 +301,105 @@ function renderExecutiveSummary(data, prev) {
   `;
 }
 
-// ─── Project Pipeline ────────────────────────────────
-function renderProjectPipeline(data) {
-  const s = data.projects_by_status;
-  const total = data.totals.projects;
+// ─── Status Bar (overall) ────────────────────────────
+function renderStatusBar(data, prev) {
+  const t = data.totals;
+  const pt = prev ? prev.totals : null;
+  const total = t.items;
   if (!total) return '';
-
-  const stages = [
-    { key: 'idee',            label: 'Idee',            count: s.idee || 0 },
-    { key: 'konzept',         label: 'Konzept',         count: s.konzept || 0 },
-    { key: 'geplant',         label: 'Geplant',         count: s.geplant || 0 },
-    { key: 'in_bearbeitung',  label: 'In Bearbeitung',  count: (s.in_bearbeitung || 0) + (s.laufend || 0) },
-    { key: 'in_review',       label: 'Review',          count: s.in_review || 0 },
-    { key: 'erledigt',        label: 'Erledigt',        count: s.erledigt || 0 },
-  ];
-
-  // Pending/Stopp as separate info
-  const paused = (s.stopp || 0) + (s.pending || 0);
 
   return `
     <div class="status-section fade-in">
-      <h3 class="status-section__title">PROJEKT-PIPELINE</h3>
-      <div class="pipeline">
-        ${stages.map((stage, i) => `
-          <div class="pipeline__stage pipeline__stage--${stage.key}">
-            <div class="pipeline__count">${stage.count}</div>
-            <div class="pipeline__label">${stage.label}</div>
-            ${i < stages.length - 1 ? '<div class="pipeline__arrow"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' : ''}
-          </div>
-        `).join('')}
+      <h3 class="status-section__title">ITEMS NACH STATUS</h3>
+      <div class="status-bar">
+        ${barSegment(t.open, total, 'todo', `${t.open} Offen`)}
+        ${barSegment(t.in_progress, total, 'progress', `${t.in_progress} In Arbeit`)}
+        ${barSegment(t.blocked, total, 'blocked', `${t.blocked} Blocked`)}
+        ${barSegment(t.done, total, 'done', `${t.done} Erledigt`)}
       </div>
-      ${paused > 0 ? `<div class="pipeline__paused">${paused} Projekte pausiert (Stopp/Pending)</div>` : ''}
+      <div class="status-legend">
+        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--mid-gray)"></span>Offen: ${t.open} ${deltaHtml(delta(t.open, pt?.open))}</span>
+        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--secondary)"></span>In Arbeit: ${t.in_progress} ${deltaHtml(delta(t.in_progress, pt?.in_progress))}</span>
+        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--warn)"></span>Blocked: ${t.blocked} ${deltaHtml(delta(t.blocked, pt?.blocked))}</span>
+        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--success)"></span>Erledigt: ${t.done} ${deltaHtml(delta(t.done, pt?.done))}</span>
+      </div>
     </div>
   `;
 }
 
-// ─── Task Status Bar ─────────────────────────────────
-function renderTaskStatus(data, prev) {
-  const t = data.totals;
-  const pt = prev ? prev.totals : null;
-  const total = t.tasks;
+// ─── Owner Split (Human / Claude / Either) ───────────
+function renderOwnerSplit(data) {
+  const o = data.by_owner || {};
+  const human = o.Human || 0, claude = o.Claude || 0, either = o.Either || 0, none = o.none || 0;
+  const assigned = human + claude + either;
+  if (assigned + none === 0) return '';
+  const seg = (c, type, label) => {
+    if (!c) return '';
+    const pct = Math.max((c / assigned) * 100, 6);
+    return `<div class="status-bar__segment status-bar__segment--${type}" style="width:${pct}%">${pct > 10 ? c : ''}</div>`;
+  };
+
+  return `
+    <div class="status-section fade-in split-row__col">
+      <h3 class="status-section__title">HUMAN / CLAUDE-SPLIT</h3>
+      <div class="status-bar">
+        ${seg(human, 'human', human)}
+        ${seg(claude, 'claude', claude)}
+        ${seg(either, 'either', either)}
+      </div>
+      <div class="status-legend">
+        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--owner-human)"></span>Human: ${human}</span>
+        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--owner-claude)"></span>Claude: ${claude}</span>
+        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--owner-either)"></span>Either: ${either}</span>
+        ${none ? `<span class="status-legend__item"><span class="status-legend__dot" style="background:var(--mid-gray)"></span>Ohne: ${none}</span>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// ─── Done by Month ───────────────────────────────────
+function renderDoneByMonth(data) {
+  const dbm = data.done_by_month || {};
+  const keys = Object.keys(dbm);
+  if (!keys.length) return '';
+  const max = Math.max(...keys.map(k => dbm[k]));
+
+  return `
+    <div class="status-section fade-in split-row__col">
+      <h3 class="status-section__title">ERLEDIGT / MONAT</h3>
+      <div class="month-chart">
+        ${keys.map(k => `
+          <div class="month-chart__col">
+            <div class="month-chart__bar-wrap">
+              <div class="month-chart__value">${dbm[k]}</div>
+              <div class="month-chart__bar" style="height:${Math.max((dbm[k] / max) * 100, 6)}%"></div>
+            </div>
+            <div class="month-chart__label">${monthLabel(k)}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// ─── Priority breakdown ──────────────────────────────
+function renderPriority(data) {
+  const p = data.by_priority || {};
+  const order = ['P0', 'P1', 'P2', 'P3'];
+  const total = order.reduce((s, k) => s + (p[k] || 0), 0) + (p.none || 0);
   if (!total) return '';
 
   return `
     <div class="status-section fade-in">
-      <h3 class="status-section__title">AUFGABEN NACH STATUS</h3>
-      <div class="status-bar">
-        ${barSegment(t.tasks_open, total, 'todo', `${t.tasks_open} Offen`)}
-        ${barSegment(t.tasks_in_progress, total, 'progress', `${t.tasks_in_progress} Aktiv`)}
-        ${barSegment(t.tasks_done, total, 'done', `${t.tasks_done} Erledigt`)}
-      </div>
-      <div class="status-legend">
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--mid-gray)"></span>Offen: ${t.tasks_open} ${deltaHtml(delta(t.tasks_open, pt?.tasks_open))}</span>
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--secondary)"></span>In Arbeit: ${t.tasks_in_progress} ${deltaHtml(delta(t.tasks_in_progress, pt?.tasks_in_progress))}</span>
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--success)"></span>Erledigt: ${t.tasks_done} ${deltaHtml(delta(t.tasks_done, pt?.tasks_done))}</span>
+      <h3 class="status-section__title">NACH PRIORITÄT</h3>
+      <div class="prio-row">
+        ${order.map(k => `
+          <div class="prio-chip prio-chip--${k.toLowerCase()}">
+            <span class="prio-chip__key">${k}</span>
+            <span class="prio-chip__count">${p[k] || 0}</span>
+          </div>
+        `).join('')}
+        ${p.none ? `<div class="prio-chip prio-chip--none"><span class="prio-chip__key">Ohne</span><span class="prio-chip__count">${p.none}</span></div>` : ''}
       </div>
     </div>
   `;
@@ -338,65 +408,98 @@ function renderTaskStatus(data, prev) {
 // ─── Status Bar Segment Helper ───────────────────────
 function barSegment(count, total, type, label) {
   if (!count) return '';
-  const pct = Math.max((count / total) * 100, 5);
+  const pct = Math.max((count / total) * 100, 4);
   return `<div class="status-bar__segment status-bar__segment--${type}" style="width:${pct}%">${pct > 8 ? label : ''}</div>`;
 }
 
 // ─── Area Card ───────────────────────────────────────
 function renderAreaCard(area, prev) {
-  const p = area.projects;
-  const t = area.tasks;
-  const taskTotal = t.total || 1;
-  const completionRate = Math.round((t.done / taskTotal) * 100);
+  const meta = areaMeta(area.name);
+  const total = area.total || 1;
+  const completionRate = Math.round((area.done / total) * 100);
+  const donePct = (area.done / total) * 100;
+  const progressPct = (area.in_progress / total) * 100;
+  const blockedPct = (area.blocked / total) * 100;
+  const openPct = (area.open / total) * 100;
 
-  const openPct = (t.open / taskTotal) * 100;
-  const progressPct = (t.in_progress / taskTotal) * 100;
-  const donePct = (t.done / taskTotal) * 100;
-
-  // Find previous area data for delta
   const prevArea = prev ? prev.areas.find(a => a.name === area.name) : null;
-  const tasksDelta = prevArea ? delta(t.done, prevArea.tasks.done) : null;
-  const projectsDelta = prevArea ? delta(p.total, prevArea.projects.total) : null;
+  const doneDelta = prevArea ? delta(area.done, prevArea.done) : null;
+  const totalDelta = prevArea ? delta(area.total, prevArea.total) : null;
+
+  const o = area.by_owner || {};
 
   return `
     <div class="area-card fade-in" data-area="${area.name}">
       <div class="area-card__header">
-        <span class="area-card__emoji">${area.emoji}</span>
+        <span class="area-card__emoji">${meta.emoji}</span>
         <span class="area-card__name">${area.name}</span>
-        <span class="area-card__group-tag">${area.group}</span>
+        <span class="area-card__group-tag">${meta.group}</span>
       </div>
       <div class="area-card__stats">
         <div class="area-card__stat">
-          <span class="area-card__stat-label">Projekte</span>
-          <span class="area-card__stat-value">${p.total} ${deltaHtml(projectsDelta)}</span>
-        </div>
-        <div class="area-card__stat">
-          <span class="area-card__stat-label">Aufgaben</span>
-          <span class="area-card__stat-value">${t.total}</span>
+          <span class="area-card__stat-label">Items</span>
+          <span class="area-card__stat-value">${area.total} ${deltaHtml(totalDelta)}</span>
         </div>
         <div class="area-card__stat">
           <span class="area-card__stat-label">Erledigungsquote</span>
           <span class="area-card__stat-value area-card__stat-value--rate ${completionRate >= 50 ? 'area-card__stat-value--good' : completionRate === 0 ? 'area-card__stat-value--warn' : ''}">${completionRate}%</span>
         </div>
         <div class="area-card__stat">
-          <span class="area-card__stat-label">Prozesse</span>
-          <span class="area-card__stat-value">${area.processes}</span>
+          <span class="area-card__stat-label">Blocked</span>
+          <span class="area-card__stat-value ${area.blocked > 0 ? 'area-card__stat-value--warn' : ''}">${area.blocked}</span>
+        </div>
+        <div class="area-card__stat">
+          <span class="area-card__stat-label">Claude/Either</span>
+          <span class="area-card__stat-value">${(o.Claude || 0) + (o.Either || 0)}</span>
         </div>
 
         <div class="area-card__mini-bar">
-          <div class="area-card__mini-bar-label">Aufgaben-Fortschritt</div>
+          <div class="area-card__mini-bar-label">Status-Verteilung</div>
           <div class="mini-bar">
             <div class="mini-bar__seg mini-bar__seg--done" style="width:${donePct}%"></div>
             <div class="mini-bar__seg mini-bar__seg--progress" style="width:${progressPct}%"></div>
+            <div class="mini-bar__seg mini-bar__seg--blocked" style="width:${blockedPct}%"></div>
             <div class="mini-bar__seg mini-bar__seg--open" style="width:${openPct}%"></div>
           </div>
           <div class="area-card__task-counts">
-            <span class="area-card__task-count"><strong>${t.done}</strong> erledigt ${deltaHtml(tasksDelta)}</span>
-            <span class="area-card__task-count"><strong>${t.in_progress}</strong> aktiv</span>
-            <span class="area-card__task-count"><strong>${t.open}</strong> offen</span>
+            <span class="area-card__task-count"><strong>${area.done}</strong> erledigt ${deltaHtml(doneDelta)}</span>
+            <span class="area-card__task-count"><strong>${area.in_progress}</strong> aktiv</span>
+            <span class="area-card__task-count"><strong>${area.open}</strong> offen</span>
           </div>
         </div>
       </div>
+    </div>
+  `;
+}
+
+// ─── Projects Table (by repository) ──────────────────
+function renderProjectsTable(data) {
+  const projects = data.projects || [];
+  if (!projects.length) return '';
+
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">NACH PROJEKT (REPOSITORY)</h3>
+      <table class="proj-table">
+        <thead>
+          <tr><th>Repository</th><th>Items</th><th>Erledigt</th><th>In Arbeit</th><th>Offen</th><th>Blocked</th><th>Quote</th></tr>
+        </thead>
+        <tbody>
+          ${projects.map(p => {
+            const repoShort = p.name.includes('/') ? p.name.split('/')[1] : p.name;
+            const rate = p.total ? Math.round((p.done / p.total) * 100) : 0;
+            return `<tr>
+              <td class="proj-table__name" title="${p.name}">${repoShort}</td>
+              <td>${p.total}</td>
+              <td>${p.done}</td>
+              <td>${p.in_progress}</td>
+              <td>${p.open}</td>
+              <td class="${p.blocked > 0 ? 'proj-table__warn' : ''}">${p.blocked}</td>
+              <td>${rate}%</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
     </div>
   `;
 }

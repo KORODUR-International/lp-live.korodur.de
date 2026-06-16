@@ -1,54 +1,54 @@
 {
   "_meta": {
     "snapshot_date": "2026-W25",
-    "generated_at": "2026-06-15T16:39:06.676758+00:00",
+    "generated_at": "2026-06-16T11:01:56.074650+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "2.0"
   },
   "totals": {
-    "items": 97,
-    "done": 36,
-    "in_progress": 2,
-    "open": 53,
-    "blocked": 6,
+    "items": 109,
+    "done": 39,
+    "in_progress": 6,
+    "open": 57,
+    "blocked": 7,
     "discarded": 0
   },
   "by_status": {
-    "Backlog": 52,
+    "Backlog": 56,
     "Ready": 1,
     "In Progress": 2,
-    "In Review": 0,
-    "Blocked": 6,
-    "Done": 36
+    "In Review": 4,
+    "Blocked": 7,
+    "Done": 39
   },
   "by_owner": {
-    "Human": 10,
-    "Claude": 69,
-    "Either": 18,
+    "Human": 11,
+    "Claude": 70,
+    "Either": 28,
     "none": 0
   },
   "by_priority": {
     "P0": 0,
-    "P1": 16,
-    "P2": 67,
-    "P3": 14,
+    "P1": 17,
+    "P2": 75,
+    "P3": 17,
     "none": 0
   },
   "areas": [
     {
       "name": "Marketing",
-      "total": 77,
-      "done": 32,
-      "in_progress": 1,
-      "open": 40,
-      "blocked": 4,
+      "total": 89,
+      "done": 35,
+      "in_progress": 5,
+      "open": 44,
+      "blocked": 5,
       "discarded": 0,
       "by_owner": {
-        "Human": 6,
-        "Claude": 59,
-        "Either": 12,
+        "Human": 7,
+        "Claude": 60,
+        "Either": 22,
         "none": 0
       }
     },
@@ -131,16 +131,16 @@
   "projects": [
     {
       "name": "sfleischmann-3steps2/KORODUR-Sanierung_app",
-      "total": 72,
-      "done": 31,
-      "in_progress": 1,
-      "open": 37,
-      "blocked": 3,
+      "total": 84,
+      "done": 34,
+      "in_progress": 5,
+      "open": 41,
+      "blocked": 4,
       "discarded": 0,
       "by_owner": {
-        "Human": 2,
-        "Claude": 58,
-        "Either": 12,
+        "Human": 3,
+        "Claude": 59,
+        "Either": 22,
         "none": 0
       }
     },
@@ -251,6 +251,6 @@
     }
   ],
   "done_by_month": {
-    "2026-06": 36
+    "2026-06": 39
   }
 }

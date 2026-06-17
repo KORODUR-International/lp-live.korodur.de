@@ -1,99 +1,99 @@
 {
   "_meta": {
     "snapshot_date": "2026-W25",
-    "generated_at": "2026-06-16T11:01:56.074650+00:00",
+    "generated_at": "2026-06-17T10:45:49.305510+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "2.0"
   },
   "totals": {
-    "items": 109,
-    "done": 39,
-    "in_progress": 6,
-    "open": 57,
-    "blocked": 7,
+    "items": 118,
+    "done": 42,
+    "in_progress": 15,
+    "open": 55,
+    "blocked": 6,
     "discarded": 0
   },
   "by_status": {
-    "Backlog": 56,
+    "Backlog": 54,
     "Ready": 1,
     "In Progress": 2,
-    "In Review": 4,
-    "Blocked": 7,
-    "Done": 39
+    "In Review": 13,
+    "Blocked": 6,
+    "Done": 42
   },
   "by_owner": {
     "Human": 11,
-    "Claude": 70,
-    "Either": 28,
+    "Claude": 80,
+    "Either": 27,
     "none": 0
   },
   "by_priority": {
     "P0": 0,
-    "P1": 17,
-    "P2": 75,
+    "P1": 20,
+    "P2": 81,
     "P3": 17,
     "none": 0
   },
   "areas": [
     {
       "name": "Marketing",
-      "total": 89,
-      "done": 35,
+      "total": 90,
+      "done": 38,
       "in_progress": 5,
-      "open": 44,
+      "open": 42,
       "blocked": 5,
       "discarded": 0,
       "by_owner": {
         "Human": 7,
-        "Claude": 60,
-        "Either": 22,
+        "Claude": 62,
+        "Either": 21,
         "none": 0
       }
     },
     {
       "name": "CRM & Sales Ops",
-      "total": 0,
+      "total": 1,
       "done": 0,
-      "in_progress": 0,
+      "in_progress": 1,
       "open": 0,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 0,
         "Claude": 0,
-        "Either": 0,
+        "Either": 1,
         "none": 0
       }
     },
     {
       "name": "Internationalisierung",
-      "total": 3,
+      "total": 8,
       "done": 0,
-      "in_progress": 0,
+      "in_progress": 5,
       "open": 3,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 1,
-        "Claude": 0,
+        "Claude": 5,
         "Either": 2,
         "none": 0
       }
     },
     {
       "name": "Wissensaufbau",
-      "total": 7,
+      "total": 9,
       "done": 1,
-      "in_progress": 0,
+      "in_progress": 3,
       "open": 4,
-      "blocked": 2,
+      "blocked": 1,
       "discarded": 0,
       "by_owner": {
         "Human": 2,
-        "Claude": 3,
-        "Either": 2,
+        "Claude": 6,
+        "Either": 1,
         "none": 0
       }
     },
@@ -131,16 +131,31 @@
   "projects": [
     {
       "name": "sfleischmann-3steps2/KORODUR-Sanierung_app",
-      "total": 84,
-      "done": 34,
+      "total": 85,
+      "done": 37,
       "in_progress": 5,
-      "open": 41,
+      "open": 39,
       "blocked": 4,
       "discarded": 0,
       "by_owner": {
         "Human": 3,
-        "Claude": 59,
-        "Either": 22,
+        "Claude": 61,
+        "Either": 21,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-produktdatenbank",
+      "total": 12,
+      "done": 1,
+      "in_progress": 8,
+      "open": 2,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 10,
+        "Either": 0,
         "none": 0
       }
     },
@@ -155,21 +170,6 @@
       "by_owner": {
         "Human": 1,
         "Claude": 7,
-        "Either": 1,
-        "none": 0
-      }
-    },
-    {
-      "name": "KORODUR-International/korodur-produktdatenbank",
-      "total": 5,
-      "done": 1,
-      "in_progress": 0,
-      "open": 2,
-      "blocked": 2,
-      "discarded": 0,
-      "by_owner": {
-        "Human": 2,
-        "Claude": 2,
         "Either": 1,
         "none": 0
       }
@@ -191,16 +191,16 @@
     },
     {
       "name": "(Draft / kein Repo)",
-      "total": 2,
+      "total": 3,
       "done": 0,
-      "in_progress": 0,
+      "in_progress": 1,
       "open": 2,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 1,
         "Claude": 0,
-        "Either": 1,
+        "Either": 2,
         "none": 0
       }
     },
@@ -251,6 +251,6 @@
     }
   ],
   "done_by_month": {
-    "2026-06": 39
+    "2026-06": 42
   }
 }

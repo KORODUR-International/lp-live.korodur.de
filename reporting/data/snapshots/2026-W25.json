@@ -1,54 +1,54 @@
 {
   "_meta": {
     "snapshot_date": "2026-W25",
-    "generated_at": "2026-06-19T10:18:40.717458+00:00",
+    "generated_at": "2026-06-20T08:46:55.952960+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "2.0"
   },
   "totals": {
-    "items": 175,
+    "items": 191,
     "done": 65,
-    "in_progress": 30,
-    "open": 75,
+    "in_progress": 36,
+    "open": 85,
     "blocked": 5,
     "discarded": 0
   },
   "by_status": {
-    "Backlog": 72,
+    "Backlog": 82,
     "Ready": 3,
-    "In Progress": 4,
+    "In Progress": 10,
     "In Review": 26,
     "Blocked": 5,
     "Done": 65
   },
   "by_owner": {
-    "Human": 14,
-    "Claude": 108,
-    "Either": 53,
+    "Human": 15,
+    "Claude": 120,
+    "Either": 56,
     "none": 0
   },
   "by_priority": {
     "P0": 1,
-    "P1": 51,
-    "P2": 103,
-    "P3": 20,
+    "P1": 58,
+    "P2": 111,
+    "P3": 21,
     "none": 0
   },
   "areas": [
     {
       "name": "Marketing",
-      "total": 134,
+      "total": 150,
       "done": 58,
-      "in_progress": 17,
-      "open": 54,
+      "in_progress": 23,
+      "open": 64,
       "blocked": 5,
       "discarded": 0,
       "by_owner": {
-        "Human": 9,
-        "Claude": 82,
-        "Either": 43,
+        "Human": 10,
+        "Claude": 94,
+        "Either": 46,
         "none": 0
       }
     },
@@ -131,16 +131,16 @@
   "projects": [
     {
       "name": "sfleischmann-3steps2/KORODUR-Website",
-      "total": 129,
+      "total": 144,
       "done": 57,
-      "in_progress": 16,
-      "open": 52,
+      "in_progress": 22,
+      "open": 61,
       "blocked": 4,
       "discarded": 0,
       "by_owner": {
-        "Human": 5,
-        "Claude": 86,
-        "Either": 38,
+        "Human": 6,
+        "Claude": 98,
+        "Either": 40,
         "none": 0
       }
     },
@@ -175,6 +175,21 @@
       }
     },
     {
+      "name": "KORODUR-International/korodur-referenzverzeichnis",
+      "total": 6,
+      "done": 0,
+      "in_progress": 1,
+      "open": 5,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 0,
+        "Either": 6,
+        "none": 0
+      }
+    },
+    {
       "name": "KORODUR-International/korodur-ausschreibungstexte",
       "total": 5,
       "done": 0,
@@ -186,21 +201,6 @@
         "Human": 2,
         "Claude": 0,
         "Either": 3,
-        "none": 0
-      }
-    },
-    {
-      "name": "KORODUR-International/korodur-referenzverzeichnis",
-      "total": 5,
-      "done": 0,
-      "in_progress": 1,
-      "open": 4,
-      "blocked": 0,
-      "discarded": 0,
-      "by_owner": {
-        "Human": 0,
-        "Claude": 0,
-        "Either": 5,
         "none": 0
       }
     },

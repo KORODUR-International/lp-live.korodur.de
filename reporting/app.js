@@ -168,7 +168,26 @@ function renderTimeline() {
   const asc = [...availableSnapshots].reverse();
   const currentKey = currentSnapshot._meta.snapshot_date;
   const idx = Math.max(0, asc.indexOf(currentKey));
-  const single = asc.length < 2;
+  const n = asc.length;
+  const single = n < 2;
+
+  // One tick per snapshot, positioned to line up with the slider thumb travel
+  // (thumb is 18px, so its centre runs from 9px to width-9px). Labels are
+  // thinned to ~7 max so they never overlap; first + last always labelled.
+  const labelEvery = Math.max(1, Math.ceil(n / 7));
+  const ticks = asc.map((key, i) => {
+    const frac = n > 1 ? i / (n - 1) : 0.5;
+    const off = (9 - frac * 18).toFixed(1);
+    const showLabel = i === 0 || i === n - 1 || i % labelEvery === 0;
+    return `
+      <button type="button" class="timeline__tick ${i === idx ? 'is-active' : ''}"
+              data-i="${i}" style="left:calc(${(frac * 100).toFixed(2)}% + ${off}px)"
+              onclick="scrubTimeline(${i})" title="${formatSnapshotLabel(key)}"
+              aria-label="${formatSnapshotLabel(key)}">
+        <span class="timeline__tick-dot"></span>
+        ${showLabel ? `<span class="timeline__tick-label">${shortDayLabel(key)}</span>` : ''}
+      </button>`;
+  }).join('');
 
   return `
     <div class="timeline fade-in">
@@ -176,15 +195,18 @@ function renderTimeline() {
         <span class="timeline__label">Zeitverlauf</span>
         <span class="timeline__current" id="timeline-current">${formatSnapshotLabel(currentKey)}</span>
       </div>
-      <input type="range" class="timeline__slider" id="timeline-slider"
-             min="0" max="${Math.max(0, asc.length - 1)}" step="1" value="${idx}"
-             ${single ? 'disabled' : ''}
-             oninput="previewTimeline(this.value)" onchange="scrubTimeline(this.value)"
-             aria-label="Snapshot-Datum wählen">
-      <div class="timeline__ends">
-        <span>${asc.length ? formatSnapshotLabel(asc[0]) : ''}</span>
-        <span>${single ? 'Verlauf baut sich täglich auf' : `${asc.length} Tage`}</span>
-        <span>${asc.length ? formatSnapshotLabel(asc[asc.length - 1]) : ''}</span>
+      <div class="timeline__track">
+        <input type="range" class="timeline__slider" id="timeline-slider"
+               min="0" max="${Math.max(0, n - 1)}" step="1" value="${idx}"
+               ${single ? 'disabled' : ''}
+               oninput="previewTimeline(this.value)" onchange="scrubTimeline(this.value)"
+               aria-label="Snapshot-Datum wählen">
+        <div class="timeline__ticks">${ticks}</div>
+      </div>
+      <div class="timeline__hint">
+        ${single
+          ? 'Verlauf baut sich täglich auf'
+          : `<span class="timeline__hint-icon">↔</span> Tag wählen — Punkt antippen oder Regler ziehen · ${n} Tage`}
       </div>
     </div>
   `;
@@ -193,9 +215,12 @@ function renderTimeline() {
 // Live label update while dragging (no fetch, keeps the drag smooth)
 function previewTimeline(val) {
   const asc = [...availableSnapshots].reverse();
-  const key = asc[parseInt(val, 10)];
+  const i = parseInt(val, 10);
+  const key = asc[i];
   const el = document.getElementById('timeline-current');
   if (el && key) el.textContent = formatSnapshotLabel(key);
+  document.querySelectorAll('.timeline__tick').forEach(t =>
+    t.classList.toggle('is-active', parseInt(t.dataset.i, 10) === i));
 }
 
 // Load the selected snapshot on release
@@ -344,6 +369,30 @@ function monthLabel(ym) {
   return `${MONTHS_SHORT_DE[parseInt(m, 10) - 1]} ${y.slice(2)}`;
 }
 
+// ─── ISO calendar week helpers ───────────────────────
+function weekLabel(key) {
+  // key: YYYY-Www → "KW 25"
+  const w = parseInt(key.split('-W')[1], 10);
+  return `KW ${w}`;
+}
+// Monday of an ISO week (UTC) — week 1 is the week containing Jan 4th.
+function isoWeekMonday(year, week) {
+  const jan4 = new Date(Date.UTC(year, 0, 4));
+  const jan4Dow = (jan4.getUTCDay() + 6) % 7; // Mon=0 … Sun=6
+  const monday = new Date(jan4);
+  monday.setUTCDate(jan4.getUTCDate() - jan4Dow + (week - 1) * 7);
+  return monday;
+}
+// Tooltip text for a week bar, e.g. "KW 25 · 16.06.–22.06.2026"
+function weekRangeTitle(key) {
+  const [y, w] = key.split('-W').map(Number);
+  const mon = isoWeekMonday(y, w);
+  const sun = new Date(mon);
+  sun.setUTCDate(mon.getUTCDate() + 6);
+  const dm = d => `${String(d.getUTCDate()).padStart(2, '0')}.${String(d.getUTCMonth() + 1).padStart(2, '0')}.`;
+  return `KW ${w} · ${dm(mon)}–${dm(sun)}${sun.getUTCFullYear()}`;
+}
+
 // ─── Render Dashboard ────────────────────────────────
 function renderDashboard(data, prev) {
   const main = document.getElementById('main');
@@ -402,7 +451,7 @@ function renderDashboard(data, prev) {
 
     <div class="split-row">
       ${renderOwnerSplit(data)}
-      ${renderDoneByMonth(data)}
+      ${renderDoneByWeek(data)}
     </div>
 
     ${renderPriority(data)}
@@ -548,6 +597,33 @@ function renderOwnerSplit(data) {
         <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--owner-claude)"></span>Claude: ${claude}</span>
         <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--owner-either)"></span>Either: ${either}</span>
         ${none ? `<span class="status-legend__item"><span class="status-legend__dot" style="background:var(--mid-gray)"></span>Ohne: ${none}</span>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// ─── Done by Calendar Week (KW) ──────────────────────
+// Falls back to the monthly view for legacy snapshots without done_by_week.
+function renderDoneByWeek(data) {
+  const dbw = data.done_by_week || {};
+  let keys = Object.keys(dbw).sort();
+  if (!keys.length) return renderDoneByMonth(data);
+  keys = keys.slice(-8); // keep the chart readable as weeks accumulate
+  const max = Math.max(...keys.map(k => dbw[k]));
+
+  return `
+    <div class="status-section fade-in split-row__col">
+      <h3 class="status-section__title">ERLEDIGT / KW</h3>
+      <div class="month-chart">
+        ${keys.map(k => `
+          <div class="month-chart__col" title="${weekRangeTitle(k)}">
+            <div class="month-chart__bar-wrap">
+              <div class="month-chart__value">${dbw[k]}</div>
+              <div class="month-chart__bar" style="height:${Math.max((dbw[k] / max) * 100, 6)}%"></div>
+            </div>
+            <div class="month-chart__label">${weekLabel(k)}</div>
+          </div>
+        `).join('')}
       </div>
     </div>
   `;

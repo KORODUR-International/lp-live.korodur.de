@@ -862,18 +862,47 @@ h1, h2, h3, h4, h5 {
   box-shadow: 0 1px 4px rgba(0,45,89,.3);
   cursor: pointer;
 }
-.timeline__ends {
+/* clickable date ticks under the slider — make the steps discoverable */
+.timeline__track { position: relative; }
+.timeline__ticks { position: relative; height: 34px; margin-top: 8px; }
+.timeline__tick {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.timeline__tick-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--mid-gray);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 1px var(--light-gray);
+  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.timeline__tick:hover .timeline__tick-dot { background: var(--secondary); transform: scale(1.25); }
+.timeline__tick.is-active .timeline__tick-dot {
+  background: var(--secondary);
+  transform: scale(1.4);
+  box-shadow: 0 0 0 3px rgba(0,124,186,.25);
+}
+.timeline__tick-label { font-size: .68rem; color: var(--muted); white-space: nowrap; }
+.timeline__tick:hover .timeline__tick-label { color: var(--secondary); }
+.timeline__tick.is-active .timeline__tick-label { color: var(--secondary); font-weight: 700; }
+.timeline__hint {
+  margin-top: 6px;
   font-size: .72rem;
   color: var(--muted);
+  text-align: center;
 }
-.timeline__ends span:nth-child(2) {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .04em;
-}
+.timeline__hint-icon { font-weight: 700; margin-right: 2px; }
 
 /* ─── Trend chart (development over time) ───────────── */
 .trend-chart {

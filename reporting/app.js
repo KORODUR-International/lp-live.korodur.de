@@ -1,7 +1,7 @@
 /**
  * KORODUR Space Health Dashboard v2
- * Loads weekly JSON snapshots and renders KPIs, Trends, Executive Summary,
- * Project Pipeline and Area Cards.
+ * Loads daily JSON snapshots and renders KPIs, the trend chart, KPI sparklines,
+ * a date timeline, the Executive Summary, Project Pipeline and Area Cards.
  */
 
 // In dev: symlink src/data -> ../data; in production (GitHub Pages): data/ is at root
@@ -15,17 +15,32 @@ const MONTHS_DE = [
 // ─── State ───────────────────────────────────────────
 let currentSnapshot = null;
 let previousSnapshot = null;
-let availableSnapshots = [];
+let availableSnapshots = [];   // newest-first (index.json order)
+let timeseries = [];           // ascending by date — drives chart + sparklines
 
 // ─── Init ────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
   await discoverSnapshots();
+  await loadTimeseries();
   if (availableSnapshots.length > 0) {
     await loadSnapshot(availableSnapshots[0]);
   } else {
     showEmpty();
   }
 });
+
+// ─── Timeseries (compact per-day totals) ─────────────
+async function loadTimeseries() {
+  try {
+    const res = await fetch(SNAPSHOTS_DIR + 'timeseries.json');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        timeseries = data.filter(r => r && r.date).sort((a, b) => a.date.localeCompare(b.date));
+      }
+    }
+  } catch { /* chart/sparklines simply stay hidden */ }
+}
 
 // ─── Snapshot Discovery ──────────────────────────────
 async function discoverSnapshots() {
@@ -117,18 +132,183 @@ function renderSidebar() {
 
 // ─── Format Helpers ──────────────────────────────────
 function formatSnapshotLabel(key) {
+  // Daily key: YYYY-MM-DD
+  const dayMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(key);
+  if (dayMatch) {
+    const [, y, m, d] = dayMatch;
+    return `${parseInt(d, 10)}. ${MONTHS_DE[parseInt(m, 10) - 1]} ${y}`;
+  }
+  // Legacy weekly key (archive): YYYY-Www
   if (key.includes('-W')) {
     const [year, weekPart] = key.split('-W');
     return `KW ${parseInt(weekPart, 10)} ${year}`;
   }
+  // Legacy monthly key (archive): YYYY-MM
   const [year, month] = key.split('-');
   return `${MONTHS_DE[parseInt(month, 10) - 1]} ${year}`;
+}
+
+// Short label for chart axes / sparklines (e.g. "17.06.")
+function shortDayLabel(dateStr) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr || '');
+  if (m) return `${m[3]}.${m[2]}.`;
+  return dateStr || '';
 }
 
 function updateHeaderMeta(key) {
   const el = document.getElementById('header-meta');
   if (!el || !currentSnapshot) return;
   el.textContent = `Snapshot: ${formatSnapshotLabel(key)}`;
+}
+
+// ─── Timeline Slider ─────────────────────────────────
+// availableSnapshots is newest-first; the slider runs oldest → newest.
+function renderTimeline() {
+  if (!currentSnapshot) return '';
+  const asc = [...availableSnapshots].reverse();
+  const currentKey = currentSnapshot._meta.snapshot_date;
+  const idx = Math.max(0, asc.indexOf(currentKey));
+  const single = asc.length < 2;
+
+  return `
+    <div class="timeline fade-in">
+      <div class="timeline__head">
+        <span class="timeline__label">Zeitverlauf</span>
+        <span class="timeline__current" id="timeline-current">${formatSnapshotLabel(currentKey)}</span>
+      </div>
+      <input type="range" class="timeline__slider" id="timeline-slider"
+             min="0" max="${Math.max(0, asc.length - 1)}" step="1" value="${idx}"
+             ${single ? 'disabled' : ''}
+             oninput="previewTimeline(this.value)" onchange="scrubTimeline(this.value)"
+             aria-label="Snapshot-Datum wählen">
+      <div class="timeline__ends">
+        <span>${asc.length ? formatSnapshotLabel(asc[0]) : ''}</span>
+        <span>${single ? 'Verlauf baut sich täglich auf' : `${asc.length} Tage`}</span>
+        <span>${asc.length ? formatSnapshotLabel(asc[asc.length - 1]) : ''}</span>
+      </div>
+    </div>
+  `;
+}
+
+// Live label update while dragging (no fetch, keeps the drag smooth)
+function previewTimeline(val) {
+  const asc = [...availableSnapshots].reverse();
+  const key = asc[parseInt(val, 10)];
+  const el = document.getElementById('timeline-current');
+  if (el && key) el.textContent = formatSnapshotLabel(key);
+}
+
+// Load the selected snapshot on release
+function scrubTimeline(val) {
+  const asc = [...availableSnapshots].reverse();
+  const key = asc[parseInt(val, 10)];
+  if (key) loadSnapshot(key);
+}
+
+// ─── Trend Chart (development over time) ─────────────
+const TREND_METRICS = [
+  { key: 'items',       label: 'Items gesamt', color: 'var(--primary)' },
+  { key: 'open',        label: 'Offen',        color: '#9aa7b4' },
+  { key: 'in_progress', label: 'In Arbeit',    color: 'var(--secondary)' },
+  { key: 'done',        label: 'Erledigt',     color: 'var(--success)' },
+  { key: 'blocked',     label: 'Blocked',      color: 'var(--warn)' },
+];
+
+function renderTrendChart() {
+  const series = timeseries;
+  if (!series || series.length < 2) {
+    return `
+      <div class="status-section fade-in">
+        <h3 class="status-section__title">ENTWICKLUNG IM ZEITVERLAUF</h3>
+        <p class="trend-empty">
+          Die Verlaufskurve baut sich ab jetzt täglich auf. Ab dem zweiten
+          Snapshot erscheinen hier die Linien für Items, Offen, In Arbeit,
+          Erledigt und Blocked.
+        </p>
+      </div>
+    `;
+  }
+
+  const W = 820, H = 300, padL = 34, padR = 18, padT = 16, padB = 30;
+  const t0 = new Date(series[0].date).getTime();
+  const tN = new Date(series[series.length - 1].date).getTime();
+  const span = Math.max(1, tN - t0);
+  const maxVal = Math.max(
+    1,
+    ...series.flatMap(r => TREND_METRICS.map(m => r[m.key] || 0))
+  );
+  const yMax = Math.ceil(maxVal * 1.1 / 5) * 5 || 5;
+
+  const sx = d => padL + ((new Date(d).getTime() - t0) / span) * (W - padL - padR);
+  const sy = v => padT + (1 - v / yMax) * (H - padT - padB);
+
+  // horizontal grid lines (0, ¼, ½, ¾, max)
+  const grid = [0, 0.25, 0.5, 0.75, 1].map(f => {
+    const v = Math.round(yMax * f);
+    const y = sy(v);
+    return `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" class="trend__grid"/>
+            <text x="${padL - 6}" y="${y + 3}" class="trend__ytick">${v}</text>`;
+  }).join('');
+
+  const lines = TREND_METRICS.map(m => {
+    const pts = series.map(r => `${sx(r.date).toFixed(1)},${sy(r[m.key] || 0).toFixed(1)}`).join(' ');
+    const last = series[series.length - 1];
+    const lx = sx(last.date), ly = sy(last[m.key] || 0);
+    return `
+      <polyline points="${pts}" fill="none" stroke-width="2.5"
+                stroke-linejoin="round" stroke-linecap="round" style="stroke:${m.color}"/>
+      <circle cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="3.2" style="fill:${m.color}"/>
+    `;
+  }).join('');
+
+  // x-axis date ticks: first, middle, last
+  const tickIdx = [...new Set([0, Math.floor((series.length - 1) / 2), series.length - 1])];
+  const xticks = tickIdx.map(i => {
+    const r = series[i];
+    return `<text x="${sx(r.date).toFixed(1)}" y="${H - 8}" class="trend__xtick"
+                  text-anchor="${i === 0 ? 'start' : i === series.length - 1 ? 'end' : 'middle'}">${shortDayLabel(r.date)}</text>`;
+  }).join('');
+
+  const legend = TREND_METRICS.map(m =>
+    `<span class="trend-legend__item"><span class="trend-legend__dot" style="background:${m.color}"></span>${m.label}</span>`
+  ).join('');
+
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">ENTWICKLUNG IM ZEITVERLAUF</h3>
+      <svg class="trend-chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img"
+           aria-label="Verlauf der Kennzahlen über die Zeit">
+        ${grid}
+        ${lines}
+        ${xticks}
+      </svg>
+      <div class="trend-legend">${legend}</div>
+    </div>
+  `;
+}
+
+// ─── KPI Sparkline (tiny inline trend) ───────────────
+function sparkline(metric, color) {
+  const series = timeseries;
+  if (!series || series.length < 2) return '';
+  const vals = series.map(r => r[metric] || 0);
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const range = max - min || 1;
+  const W = 100, H = 26, pad = 3;
+  const pts = vals.map((v, i) => {
+    const x = pad + (i / (vals.length - 1)) * (W - 2 * pad);
+    const y = pad + (1 - (v - min) / range) * (H - 2 * pad);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  const lastX = pad + (W - 2 * pad);
+  const lastY = pad + (1 - (vals[vals.length - 1] - min) / range) * (H - 2 * pad);
+  return `
+    <svg class="kpi-spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points="${pts.join(' ')}" fill="none" stroke-width="1.6"
+                stroke-linejoin="round" stroke-linecap="round" style="stroke:${color}"/>
+      <circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="2" style="fill:${color}"/>
+    </svg>
+  `;
 }
 
 // ─── Delta Helper ────────────────────────────────────
@@ -175,9 +355,11 @@ function renderDashboard(data, prev) {
     <div class="snapshot-header fade-in">
       <h1 class="snapshot-header__title">WORK COCKPIT — REPORTING</h1>
       <p class="snapshot-header__sub">
-        ${data._meta.source || 'KORODUR Work Cockpit'} &mdash; ${data._meta.snapshot_date}
+        ${data._meta.source || 'KORODUR Work Cockpit'} &mdash; ${formatSnapshotLabel(data._meta.snapshot_date)}
       </p>
     </div>
+
+    ${renderTimeline()}
 
     ${renderExecutiveSummary(data, prev)}
 
@@ -186,28 +368,35 @@ function renderDashboard(data, prev) {
         <div class="kpi-card__label">Items gesamt</div>
         <div class="kpi-card__value kpi-card__value--accent">${t.items}</div>
         <div class="kpi-card__detail">${donePercent}% erledigt ${deltaHtml(delta(t.items, pt?.items))}</div>
+        ${sparkline('items', 'var(--primary)')}
       </div>
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Erledigt</div>
         <div class="kpi-card__value">${t.done}</div>
         <div class="kpi-card__detail">Status: Done ${deltaHtml(delta(t.done, pt?.done))}</div>
+        ${sparkline('done', 'var(--success)')}
       </div>
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">In Arbeit</div>
         <div class="kpi-card__value">${t.in_progress}</div>
         <div class="kpi-card__detail">In Progress + Review ${deltaHtml(delta(t.in_progress, pt?.in_progress))}</div>
+        ${sparkline('in_progress', 'var(--secondary)')}
       </div>
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Offen</div>
         <div class="kpi-card__value">${t.open}</div>
         <div class="kpi-card__detail">Backlog + Ready ${deltaHtml(delta(t.open, pt?.open))}</div>
+        ${sparkline('open', 'var(--muted)')}
       </div>
       <div class="kpi-card fade-in ${t.blocked > 0 ? 'kpi-card--warn' : ''}">
         <div class="kpi-card__label">Blocked</div>
         <div class="kpi-card__value ${t.blocked > 0 ? 'kpi-card__value--warn' : ''}">${t.blocked}</div>
         <div class="kpi-card__detail">Blockiert ${deltaHtml(delta(t.blocked, pt?.blocked))}</div>
+        ${sparkline('blocked', 'var(--warn)')}
       </div>
     </div>
+
+    ${renderTrendChart()}
 
     ${renderStatusBar(data, prev)}
 

@@ -1,0 +1,62 @@
+[
+  {
+    "date": "2026-06-15",
+    "items": 97,
+    "done": 36,
+    "in_progress": 2,
+    "open": 53,
+    "blocked": 6,
+    "discarded": 0,
+    "by_owner": {
+      "Human": 10,
+      "Claude": 69,
+      "Either": 18,
+      "none": 0
+    }
+  },
+  {
+    "date": "2026-06-16",
+    "items": 109,
+    "done": 39,
+    "in_progress": 6,
+    "open": 57,
+    "blocked": 7,
+    "discarded": 0,
+    "by_owner": {
+      "Human": 11,
+      "Claude": 70,
+      "Either": 28,
+      "none": 0
+    }
+  },
+  {
+    "date": "2026-06-17",
+    "items": 118,
+    "done": 42,
+    "in_progress": 15,
+    "open": 55,
+    "blocked": 6,
+    "discarded": 0,
+    "by_owner": {
+      "Human": 11,
+      "Claude": 80,
+      "Either": 27,
+      "none": 0
+    }
+  },
+  {
+    "date": "2026-06-22",
+    "items": 191,
+    "done": 71,
+    "in_progress": 30,
+    "open": 85,
+    "blocked": 5,
+    "discarded": 0,
+    "by_owner": {
+      "Human": 15,
+      "Claude": 120,
+      "Either": 56,
+      "none": 0
+    }
+  }
+]

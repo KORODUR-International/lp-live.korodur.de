@@ -12,20 +12,20 @@
     { "id": "ai-infra", "name": "AI & Infrastruktur", "farbe": "#4a3aa7", "farbeDunkel": "#9085e9" }
   ],
   "fixpunkte": [
-    { "id": "fix-epf", "datum": "2026-07-31", "titel": "EPF: Auftritt-Paket entscheiden", "typ": "entscheidung", "status": "offen", "klaerung": true, "details": "Paket fuer den Messeauftritt entscheiden." },
+    { "id": "fix-epf", "datum": "2026-07-31", "titel": "EPF: Auftritt-Paket entscheiden", "typ": "entscheidung", "status": "offen", "klaerung": true, "details": "Paket für den Messeauftritt entscheiden." },
     { "id": "fix-archipoint", "datum": "2026-09-23", "zeitraum": { "von": "2026-09-22", "bis": "2026-09-24" }, "titel": "ArchiPoint Rivercruise (Messe-Pilot)", "typ": "schluessel", "status": "offen", "klaerung": false, "details": "Kompletter Durchlauf des neuen Messe- und Kampagnenprozesses." }
   ],
   "lanes": [
     {
       "id": "content", "area": "marketing", "name": "Content & Redaktion",
-      "hinweis": "Zwei Produktionsstraenge: LinkedIn + Meta (Crosspost)",
+      "hinweis": "Zwei Produktionsstränge: LinkedIn + Meta (Crosspost)",
       "balken": { "start": "2026-07-13", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": "weitere Formate",
       "meilensteine": [
         { "id": "con-softstart", "datum": "2026-08-01", "titel": "Soft-Start Facebook + Instagram", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Start aus vorproduziertem Batch; Vollbetrieb folgt mit sauberer Vorplanung." },
-        { "id": "con-kpi", "datum": "2026-08-31", "titel": "KPI-Set validiert, Produktionsrollen fix", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Kanal-Analyse als Baseline; KPI-Set bestaetigt; Produktionsrollen mit Wochenstunden benannt." },
-        { "id": "con-vollbetrieb", "datum": "2026-09-01", "titel": "Vollbetrieb 2 Beitraege/Woche", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Mit 4-6 Wochen Vorplanung auf beiden Straengen." },
-        { "id": "con-q1", "datum": "2026-10-15", "titel": "Quartalsprozess 1 durchlaufen, Formate-Baukasten V1", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Schwerpunkt, Brainstorm, Auswahl, Vorproduktion; Baukasten: One-Pager, Beitraege, Mockups, Visualisierungen, Schichtgrafiken." },
-        { "id": "con-q2", "datum": "2026-12-31", "titel": "Durchlauf 2; lueckenloses Grundrauschen seit September", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Messbar: ab September durchgehend 2 Beitraege/Woche; aktive Kanal-Bewirtschaftung als fester Prozess." }
+        { "id": "con-kpi", "datum": "2026-08-31", "titel": "KPI-Set validiert, Produktionsrollen fix", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Kanal-Analyse als Baseline; KPI-Set bestätigt; Produktionsrollen mit Wochenstunden benannt." },
+        { "id": "con-vollbetrieb", "datum": "2026-09-01", "titel": "Vollbetrieb 2 Beiträge/Woche", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Mit 4-6 Wochen Vorplanung auf beiden Strängen." },
+        { "id": "con-q1", "datum": "2026-10-15", "titel": "Quartalsprozess 1 durchlaufen, Formate-Baukasten V1", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Schwerpunkt, Brainstorm, Auswahl, Vorproduktion; Baukasten: One-Pager, Beiträge, Mockups, Visualisierungen, Schichtgrafiken." },
+        { "id": "con-q2", "datum": "2026-12-31", "titel": "Durchlauf 2; lückenloses Grundrauschen seit September", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Messbar: ab September durchgehend 2 Beiträge/Woche; aktive Kanal-Bewirtschaftung als fester Prozess." }
       ]
     },
     {
@@ -33,9 +33,9 @@
       "hinweis": "Kritischer Pfad; enge GF-Abstimmung; Marker bewusst schlank",
       "balken": { "start": "2026-07-13", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": null,
       "meilensteine": [
-        { "id": "web-menue", "datum": "2026-07-31", "titel": "Menuestruktur steht", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "" },
+        { "id": "web-menue", "datum": "2026-07-31", "titel": "Menüstruktur steht", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "" },
         { "id": "web-entwicklung", "datum": "2026-08-31", "titel": "Entwicklung abgeschlossen", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "" },
-        { "id": "web-pruefung", "datum": "2026-09-30", "titel": "Inhaltliche Pruefung abgeschlossen, Content-Freeze", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Restabnahmen, Rechtstexte und Sprach-Reviews muessen hier durch sein; danach nur noch Korrekturen." },
+        { "id": "web-pruefung", "datum": "2026-09-30", "titel": "Inhaltliche Prüfung abgeschlossen, Content-Freeze", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Restabnahmen, Rechtstexte und Sprach-Reviews müssen hier durch sein; danach nur noch Korrekturen." },
         { "id": "web-launch1", "datum": "2026-10-15", "titel": "Launch V1 neue korodur.de", "typ": "schluessel", "status": "offen", "klaerung": true, "details": "Launch der neuen korodur.de; Golive-Sprachen EN+FR." },
         { "id": "web-launch2", "datum": "2026-11-30", "titel": "Launch V2: Inhalte nachgezogen", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Nachgezogene Inhalte nach V1." }
       ]
@@ -45,21 +45,21 @@
       "hinweis": "Prozess-Ownership Messeorganisation; Marketing liefert Assets",
       "balken": { "start": "2026-07-13", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": "Marketingimpulse ins Vertriebsteam",
       "meilensteine": [
-        { "id": "mes-vortermin", "datum": "2026-08-15", "titel": "Vortermin: Rollen geklaert, Kampagnen-Playbook abgenommen", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Voraussetzung fuer QG2." },
+        { "id": "mes-vortermin", "datum": "2026-08-15", "titel": "Vortermin: Rollen geklärt, Kampagnen-Playbook abgenommen", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Voraussetzung für QG2." },
         { "id": "mes-qg2", "datum": "2026-09-08", "titel": "QG2: Prozessschritte und SLAs definiert", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "" },
         { "id": "mes-pilot", "datum": "2026-09-23", "titel": "Messe-Pilot durchlaufen", "typ": "schluessel", "status": "offen", "klaerung": false, "details": "Kompletter Durchlauf: Kampagne im CRM, Leads erfasst, Nachverfolgung nach SLA." },
-        { "id": "mes-doku", "datum": "2026-12-31", "titel": "Prozess dokumentiert, zweite Anwendung", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Mit dem Team abgestimmt; 2026 = ueben, 2027 = Marketingimpulse." }
+        { "id": "mes-doku", "datum": "2026-12-31", "titel": "Prozess dokumentiert, zweite Anwendung", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Mit dem Team abgestimmt; 2026 = üben, 2027 = Marketingimpulse." }
       ]
     },
     {
       "id": "crm-daten", "area": "crm", "name": "CRM-Datenfundament",
-      "hinweis": "Bestaetigt 14.07.",
+      "hinweis": "Bestätigt 14.07.",
       "balken": { "start": "2026-07-20", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": null,
       "meilensteine": [
-        { "id": "crmd-mvp", "datum": "2026-08-15", "titel": "MVP Objektdaten-Anreicherung laeuft", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Abruf ueber die Schnittstelle: Objekte der letzten vier Wochen, Anreicherung ueber Research. Lernbasis fuer die gemeinsame Konzeption. Termin ist Annahme." },
+        { "id": "crmd-mvp", "datum": "2026-08-15", "titel": "MVP Objektdaten-Anreicherung läuft", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Abruf über die Schnittstelle: Objekte der letzten vier Wochen, Anreicherung über Research. Lernbasis für die gemeinsame Konzeption. Termin ist Annahme." },
         { "id": "crmd-konzept", "datum": "2026-08-31", "titel": "Gemeinsame Konzeption CRM-Datenoptimierung", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "" },
-        { "id": "crmd-refpull", "datum": "2026-09-13", "titel": "Referenz-Pull aus dem CRM (lesend)", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Lesender Abruf fuer den Referenzprozess. Schreibzugriff ist bewusst nicht im Scope 2026." },
-        { "id": "crmd-report", "datum": "2026-12-31", "titel": "Woechentlicher Sales-Report aus CRM-Echtdaten", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Sichtbarer Nutzen fuer die Geschaeftsfuehrung; Datenqualitaets-Regeln terminiert." }
+        { "id": "crmd-refpull", "datum": "2026-09-13", "titel": "Referenz-Pull aus dem CRM (lesend)", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Lesender Abruf für den Referenzprozess. Schreibzugriff ist bewusst nicht im Scope 2026." },
+        { "id": "crmd-report", "datum": "2026-12-31", "titel": "Wöchentlicher Sales-Report aus CRM-Echtdaten", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Sichtbarer Nutzen für die Geschäftsführung; Datenqualitäts-Regeln terminiert." }
       ]
     },
     {
@@ -67,18 +67,18 @@
       "hinweis": "Essenziell (14.07.); gemeinsam mit dem Vertrieb",
       "balken": { "start": "2026-08-01", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": "Optimierung fortlaufend",
       "meilensteine": [
-        { "id": "vtp-aufnahme", "datum": "2026-09-30", "titel": "Vertriebsprozess aufgenommen und dokumentiert", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "End-to-End verstehen: Lead-Aufnahme auf der Messe, zeitgerechte CRM-Erfassung, professionelle Nachverfolgung. Termin ist Annahme, noch zu bestaetigen." },
-        { "id": "vtp-schnittstellen", "datum": "2026-10-31", "titel": "Kritische Schnittstellen priorisiert, Optimierungen definiert", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Termin ist Annahme, noch zu bestaetigen." }
+        { "id": "vtp-aufnahme", "datum": "2026-09-30", "titel": "Vertriebsprozess aufgenommen und dokumentiert", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "End-to-End verstehen: Lead-Aufnahme auf der Messe, zeitgerechte CRM-Erfassung, professionelle Nachverfolgung. Termin ist Annahme, noch zu bestätigen." },
+        { "id": "vtp-schnittstellen", "datum": "2026-10-31", "titel": "Kritische Schnittstellen priorisiert, Optimierungen definiert", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Termin ist Annahme, noch zu bestätigen." }
       ]
     },
     {
       "id": "pdb", "area": "wissensaufbau", "name": "Produktdatenbank",
-      "hinweis": "Mehrjaehrig; Meilensteine werden im Kick-off geschaerft",
-      "balken": { "start": "2026-07-13", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": "Ausbau (mehrjaehrig)",
+      "hinweis": "Mehrjährig; Meilensteine werden im Kick-off geschärft",
+      "balken": { "start": "2026-07-13", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": "Ausbau (mehrjährig)",
       "meilensteine": [
-        { "id": "pdb-m1", "datum": "2026-07-27", "titel": "M1 Kick-off-Workshop Wattenscheid", "typ": "schluessel", "status": "offen", "klaerung": false, "details": "Workshop mit Technik: Vision (mehrjaehrig) und Zielbild 2026; offene Fachfragen entscheiden; Arbeits-Sequenz vereinbaren. Weitere Meilensteine werden hier definiert." },
+        { "id": "pdb-m1", "datum": "2026-07-27", "titel": "M1 Kick-off-Workshop Wattenscheid", "typ": "schluessel", "status": "offen", "klaerung": false, "details": "Workshop mit Technik: Vision (mehrjährig) und Zielbild 2026; offene Fachfragen entscheiden; Arbeits-Sequenz vereinbaren. Weitere Meilensteine werden hier definiert." },
         { "id": "pdb-m2", "datum": "2026-09-30", "titel": "M2 Konzept dokumentiert, Property-Registry verifiziert", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "" },
-        { "id": "pdb-m3", "datum": "2026-12-30", "titel": "M3 TDS-Prototyp fuer eine Produktfamilie", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Automatische Generierung technischer Datenblaetter aus der Datenbank." }
+        { "id": "pdb-m3", "datum": "2026-12-30", "titel": "M3 TDS-Prototyp für eine Produktfamilie", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Automatische Generierung technischer Datenblätter aus der Datenbank." }
       ]
     },
     {
@@ -86,31 +86,31 @@
       "hinweis": "Dachmantel Wissenssicherung; Schnittstellen Technik und CRM",
       "balken": { "start": "2026-07-13", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": null,
       "meilensteine": [
-        { "id": "ref-triage", "datum": "2026-08-31", "titel": "Referenz-Triage fuer den Launch abgeschlossen", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Im August hat die Website-Triage Vorrang vor der Bestands-Hebung." },
+        { "id": "ref-triage", "datum": "2026-08-31", "titel": "Referenz-Triage für den Launch abgeschlossen", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Im August hat die Website-Triage Vorrang vor der Bestands-Hebung." },
         { "id": "ref-index", "datum": "2026-09-30", "titel": "Master-Index Altbestand abgeschlossen", "typ": "entscheidung", "status": "offen", "klaerung": false, "details": "Alle Quellen indexiert; Beschluss zum Umgang mit fehlenden Altdaten." },
         { "id": "ref-ausbau", "datum": "2026-12-15", "titel": "Zielzahl erreicht: 20 Referenzen ausgearbeitet", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Konservative Zielzahl (Beschluss 14.07.): 20 Referenzen im Drei-Ausgaben-Format (Web, One-Pager, Social)." }
       ]
     },
     {
       "id": "uebersetzungen", "area": "international", "name": "Übersetzungen",
-      "hinweis": "Parallelstrang; laeuft im Hintergrund, Zuarbeit auf Anfrage",
+      "hinweis": "Parallelstrang; läuft im Hintergrund, Zuarbeit auf Anfrage",
       "balken": { "start": "2026-07-13", "ende": "2026-12-31" }, "stil": "parallel", "weiter2027": "Sprachen-Ausbau",
       "meilensteine": [
-        { "id": "ueb-zusagen", "datum": "2026-07-31", "titel": "Review-Zusagen fuer EN und Rechtstexte eingeholt", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Externe Abhaengigkeiten nur mit zugesagtem Liefertermin planen." },
-        { "id": "ueb-golive", "datum": "2026-10-15", "titel": "Golive-Sprachen EN+FR live", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Mit dem Website-Launch V1; iterativ verbesserte Uebersetzungen, danach weiter trainieren." },
+        { "id": "ueb-zusagen", "datum": "2026-07-31", "titel": "Review-Zusagen für EN und Rechtstexte eingeholt", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Externe Abhängigkeiten nur mit zugesagtem Liefertermin planen." },
+        { "id": "ueb-golive", "datum": "2026-10-15", "titel": "Golive-Sprachen EN+FR live", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Mit dem Website-Launch V1; iterativ verbesserte Übersetzungen, danach weiter trainieren." },
         { "id": "ueb-training", "datum": "2026-10-31", "titel": "EN+FR sauber trainiert", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Ziel: nur noch wenige Korrekturen aus dem muttersprachlichen Review. Konkrete Zielwerte noch festzulegen." },
         { "id": "ueb-prios", "datum": "2026-12-31", "titel": "Sprachen 2027 priorisiert (mit Export)", "typ": "entscheidung", "status": "offen", "klaerung": false, "details": "Fokus 2026: EN+FR. IT und PL laufen nebenher auf Abruf. Ausbau weiterer Sprachen 2027 in Abstimmung mit dem Export." }
       ]
     },
     {
       "id": "lokale-ki", "area": "ai-infra", "name": "Lokale KI",
-      "hinweis": "Erster Use Case fuer die Geschaeftsfuehrung",
+      "hinweis": "Erster Use Case für die Geschäftsführung",
       "balken": { "start": "2026-07-13", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": "Produktdaten-Use-Case; AI-Strategie",
       "meilensteine": [
         { "id": "ki-uc1", "datum": "2026-07-31", "titel": "Use Case 1 definiert", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "" },
         { "id": "ki-test", "datum": "2026-08-31", "titel": "Use Case 1 im Testing", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "" },
         { "id": "ki-vision", "datum": "2026-10-31", "titel": "Vision + Konzept: lokale KI im Netzwerk", "typ": "entscheidung", "status": "offen", "klaerung": false, "details": "Mehrbenutzer-Zugriff im Netzwerk; Hardware und Budgetrahmen als GF-Entscheidung." },
-        { "id": "ki-jahresende", "datum": "2026-12-31", "titel": "Setup laeuft, erster dokumentierter Analysedurchlauf", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Jahresend-Scope wird nach dem Use-Case-Testing geschaerft." }
+        { "id": "ki-jahresende", "datum": "2026-12-31", "titel": "Setup läuft, erster dokumentierter Analysedurchlauf", "typ": "meilenstein", "status": "offen", "klaerung": true, "details": "Jahresend-Scope wird nach dem Use-Case-Testing geschärft." }
       ]
     },
     {
@@ -119,13 +119,13 @@
       "balken": { "start": "2026-07-13", "ende": "2026-12-31" }, "stil": "normal", "weiter2027": null,
       "meilensteine": [
         { "id": "org-repo", "datum": "2026-07-20", "titel": "Website-Repository in die Organisation migriert", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "" },
-        { "id": "org-repos", "datum": "2026-09-30", "titel": "Repository-Landschaft bereinigt", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Ruhende Repositories archiviert, offene Altbestaende uebernommen oder geschlossen." },
+        { "id": "org-repos", "datum": "2026-09-30", "titel": "Repository-Landschaft bereinigt", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Ruhende Repositories archiviert, offene Altbestände übernommen oder geschlossen." },
         { "id": "org-notion", "datum": "2026-10-15", "titel": "Wissens-Space konsolidiert", "typ": "meilenstein", "status": "offen", "klaerung": false, "details": "Struktur auf Areas und Kernschwerpunkte; wenige wertvolle Dokumente statt Ablage-Wildwuchs." }
       ]
     }
   ],
   "geparkt": [
-    { "titel": "Sales-Playbook-Ausbau mit dem Vertriebsteam", "wiedervorlage": "2026-10-15", "hinweis": "Geparkt bis nach dem Website-Launch; Interview-Format laeuft weiter." },
+    { "titel": "Sales-Playbook-Ausbau mit dem Vertriebsteam", "wiedervorlage": "2026-10-15", "hinweis": "Geparkt bis nach dem Website-Launch; Interview-Format läuft weiter." },
     { "titel": "Vermarktungs- und Vertriebsprogramme je Kompetenzfeld", "wiedervorlage": null, "hinweis": "Ownership Vertrieb/GF; Marketing liefert Assets auf Anfrage." },
     { "titel": "Interner Hub / Intranet-Touchpoint", "wiedervorlage": null, "hinweis": "Geht in der Space-Konsolidierung auf." }
   ]

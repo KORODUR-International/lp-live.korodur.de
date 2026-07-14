@@ -1,54 +1,54 @@
 {
   "_meta": {
     "snapshot_date": "2026-07-14",
-    "generated_at": "2026-07-14T07:55:37.925535+00:00",
+    "generated_at": "2026-07-14T16:02:44.999131+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "2.0"
   },
   "totals": {
-    "items": 314,
+    "items": 319,
     "done": 188,
-    "in_progress": 11,
-    "open": 102,
-    "blocked": 9,
+    "in_progress": 12,
+    "open": 105,
+    "blocked": 10,
     "discarded": 4
   },
   "by_status": {
-    "Backlog": 83,
-    "Ready": 19,
+    "Backlog": 85,
+    "Ready": 20,
     "In Progress": 6,
-    "In Review": 5,
-    "Blocked": 9,
+    "In Review": 6,
+    "Blocked": 10,
     "Done": 192
   },
   "by_owner": {
     "Human": 29,
-    "Claude": 200,
-    "Either": 84,
+    "Claude": 204,
+    "Either": 85,
     "none": 1
   },
   "by_priority": {
     "P0": 3,
-    "P1": 132,
-    "P2": 154,
+    "P1": 136,
+    "P2": 155,
     "P3": 24,
     "none": 1
   },
   "areas": [
     {
       "name": "Marketing",
-      "total": 229,
+      "total": 230,
       "done": 151,
       "in_progress": 3,
       "open": 64,
-      "blocked": 7,
+      "blocked": 8,
       "discarded": 4,
       "by_owner": {
         "Human": 15,
         "Claude": 155,
-        "Either": 59,
+        "Either": 60,
         "none": 0
       }
     },
@@ -69,15 +69,15 @@
     },
     {
       "name": "Internationalisierung",
-      "total": 19,
+      "total": 20,
       "done": 15,
-      "in_progress": 0,
+      "in_progress": 1,
       "open": 3,
       "blocked": 1,
       "discarded": 0,
       "by_owner": {
         "Human": 1,
-        "Claude": 14,
+        "Claude": 15,
         "Either": 4,
         "none": 0
       }
@@ -99,15 +99,15 @@
     },
     {
       "name": "AI & Infrastruktur",
-      "total": 22,
+      "total": 25,
       "done": 9,
       "in_progress": 5,
-      "open": 8,
+      "open": 11,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 1,
-        "Claude": 13,
+        "Claude": 16,
         "Either": 8,
         "none": 0
       }
@@ -146,16 +146,16 @@
   "projects": [
     {
       "name": "sfleischmann-3steps2/KORODUR-Website",
-      "total": 211,
+      "total": 212,
       "done": 142,
       "in_progress": 0,
       "open": 60,
-      "blocked": 5,
+      "blocked": 6,
       "discarded": 4,
       "by_owner": {
         "Human": 13,
         "Claude": 148,
-        "Either": 49,
+        "Either": 50,
         "none": 1
       }
     },
@@ -176,15 +176,15 @@
     },
     {
       "name": "KORODUR-International/korodur-operating-model",
-      "total": 21,
+      "total": 24,
       "done": 9,
       "in_progress": 5,
-      "open": 7,
+      "open": 10,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 1,
-        "Claude": 13,
+        "Claude": 16,
         "Either": 7,
         "none": 0
       }
@@ -221,15 +221,15 @@
     },
     {
       "name": "KORODUR-International/korodur-translation",
-      "total": 9,
+      "total": 10,
       "done": 8,
-      "in_progress": 0,
+      "in_progress": 1,
       "open": 0,
       "blocked": 1,
       "discarded": 0,
       "by_owner": {
         "Human": 0,
-        "Claude": 7,
+        "Claude": 8,
         "Either": 2,
         "none": 0
       }

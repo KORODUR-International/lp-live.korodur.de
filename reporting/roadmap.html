@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KORODUR Work Cockpit — Reporting</title>
+  <title>KORODUR Work Cockpit — Roadmap</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
-  <div class="app">
+  <div class="app app--roadmap">
     <!-- Header -->
     <header class="header">
       <div class="header__brand">
         <span class="header__title">KORODUR<span class="header__dot">.</span> WORK COCKPIT</span>
         <nav class="header__nav" aria-label="Bereiche">
-          <a href="index.html" class="header__nav-link is-active" aria-current="page">Dashboard</a>
-          <a href="roadmap.html" class="header__nav-link">Roadmap</a>
+          <a href="index.html" class="header__nav-link">Dashboard</a>
+          <a href="roadmap.html" class="header__nav-link is-active" aria-current="page">Roadmap</a>
         </nav>
       </div>
       <div>
@@ -23,23 +23,15 @@
       </div>
     </header>
 
-    <!-- Sidebar -->
-    <nav class="sidebar" aria-label="Snapshot-Navigation">
-      <div class="sidebar__section-title">Snapshots</div>
-      <ul id="snapshot-list" class="sidebar__list">
-        <li style="padding:20px;color:var(--muted);font-size:.85rem;">Lade...</li>
-      </ul>
-    </nav>
-
     <!-- Main Content -->
-    <main id="main" class="main">
+    <main id="main" class="main main--roadmap">
       <div class="loading">
         <div class="loading__spinner"></div>
-        Lade Dashboard...
+        Lade Roadmap...
       </div>
     </main>
   </div>
 
-  <script src="app.js"></script>
+  <script src="roadmap.js"></script>
 </body>
 </html>

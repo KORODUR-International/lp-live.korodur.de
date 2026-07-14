@@ -1,7 +1,8 @@
 /**
  * KORODUR Space Health Dashboard v2
- * Loads daily JSON snapshots and renders KPIs, the trend chart, KPI sparklines,
- * a date timeline, the Executive Summary, Project Pipeline and Area Cards.
+ * Loads daily JSON snapshots and renders KPIs, the trend chart with weekly
+ * done bars, KPI sparklines, a date timeline, owner split, priorities,
+ * area cards and the project table.
  */
 
 // In dev: symlink src/data -> ../data; in production (GitHub Pages): data/ is at root
@@ -231,15 +232,17 @@ function scrubTimeline(val) {
 }
 
 // ─── Trend Chart (development over time) ─────────────
+// Order mirrors the KPI tiles: Erledigt, In Arbeit, Blockiert, Offen, Gesamt.
 const TREND_METRICS = [
-  { key: 'items',       label: 'Items gesamt', color: 'var(--primary)' },
-  { key: 'open',        label: 'Offen',        color: '#9aa7b4' },
-  { key: 'in_progress', label: 'In Arbeit',    color: 'var(--secondary)' },
   { key: 'done',        label: 'Erledigt',     color: 'var(--success)' },
-  { key: 'blocked',     label: 'Blocked',      color: 'var(--warn)' },
+  { key: 'in_progress', label: 'In Arbeit',    color: 'var(--secondary)' },
+  { key: 'blocked',     label: 'Blockiert',    color: 'var(--warn)' },
+  { key: 'open',        label: 'Offen',        color: '#9aa7b4' },
+  { key: 'items',       label: 'Items gesamt', color: 'var(--primary)' },
 ];
 
-function renderTrendChart() {
+function renderTrendChart(data) {
+  const doneBars = renderDoneByWeek(data);
   const series = timeseries;
   if (!series || series.length < 2) {
     return `
@@ -247,9 +250,10 @@ function renderTrendChart() {
         <h3 class="status-section__title">ENTWICKLUNG IM ZEITVERLAUF</h3>
         <p class="trend-empty">
           Die Verlaufskurve baut sich ab jetzt täglich auf. Ab dem zweiten
-          Snapshot erscheinen hier die Linien für Items, Offen, In Arbeit,
-          Erledigt und Blocked.
+          Snapshot erscheinen hier die Linien für Erledigt, In Arbeit,
+          Blockiert, Offen und Items gesamt.
         </p>
+        ${doneBars}
       </div>
     `;
   }
@@ -308,6 +312,7 @@ function renderTrendChart() {
         ${xticks}
       </svg>
       <div class="trend-legend">${legend}</div>
+      ${doneBars}
     </div>
   `;
 }
@@ -410,15 +415,7 @@ function renderDashboard(data, prev) {
 
     ${renderTimeline()}
 
-    ${renderExecutiveSummary(data, prev)}
-
     <div class="kpi-row">
-      <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Items gesamt</div>
-        <div class="kpi-card__value kpi-card__value--accent">${t.items}</div>
-        <div class="kpi-card__detail">${donePercent}% erledigt ${deltaHtml(delta(t.items, pt?.items))}</div>
-        ${sparkline('items', 'var(--primary)')}
-      </div>
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Erledigt</div>
         <div class="kpi-card__value">${t.done}</div>
@@ -431,27 +428,30 @@ function renderDashboard(data, prev) {
         <div class="kpi-card__detail">In Progress + Review ${deltaHtml(delta(t.in_progress, pt?.in_progress))}</div>
         ${sparkline('in_progress', 'var(--secondary)')}
       </div>
+      <div class="kpi-card fade-in ${t.blocked > 0 ? 'kpi-card--warn' : ''}">
+        <div class="kpi-card__label">Blockiert</div>
+        <div class="kpi-card__value ${t.blocked > 0 ? 'kpi-card__value--warn' : ''}">${t.blocked}</div>
+        <div class="kpi-card__detail">Status: Blocked ${deltaHtml(delta(t.blocked, pt?.blocked))}</div>
+        ${sparkline('blocked', 'var(--warn)')}
+      </div>
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Offen</div>
         <div class="kpi-card__value">${t.open}</div>
         <div class="kpi-card__detail">Backlog + Ready ${deltaHtml(delta(t.open, pt?.open))}</div>
         ${sparkline('open', 'var(--muted)')}
       </div>
-      <div class="kpi-card fade-in ${t.blocked > 0 ? 'kpi-card--warn' : ''}">
-        <div class="kpi-card__label">Blocked</div>
-        <div class="kpi-card__value ${t.blocked > 0 ? 'kpi-card__value--warn' : ''}">${t.blocked}</div>
-        <div class="kpi-card__detail">Blockiert ${deltaHtml(delta(t.blocked, pt?.blocked))}</div>
-        ${sparkline('blocked', 'var(--warn)')}
+      <div class="kpi-card fade-in">
+        <div class="kpi-card__label">Items gesamt</div>
+        <div class="kpi-card__value kpi-card__value--accent">${t.items}</div>
+        <div class="kpi-card__detail">${donePercent}% erledigt${(t.discarded || 0) > 0 ? ` · ${t.discarded} verworfen` : ''} ${deltaHtml(delta(t.items, pt?.items))}</div>
+        ${sparkline('items', 'var(--primary)')}
       </div>
     </div>
 
-    ${renderTrendChart()}
-
-    ${renderStatusBar(data, prev)}
+    ${renderTrendChart(data)}
 
     <div class="split-row">
       ${renderOwnerSplit(data)}
-      ${renderDoneByWeek(data)}
     </div>
 
     ${renderPriority(data)}
@@ -465,109 +465,7 @@ function renderDashboard(data, prev) {
 
     <div class="footer">
       KORODUR Work Cockpit Reporting &mdash; Generiert am ${new Date(data._meta.generated_at).toLocaleDateString('de-DE')}
-      &mdash; <a href="https://github.com/KORODUR-International/korodur-reporting" target="_blank">GitHub</a>
-    </div>
-  `;
-}
-
-// ─── Executive Summary ───────────────────────────────
-function renderExecutiveSummary(data, prev) {
-  const highlights = [];
-  const t = data.totals;
-  const pt = prev ? prev.totals : null;
-
-  if (pt) {
-    const newDone = delta(t.done, pt.done);
-    if (newDone > 0) highlights.push(`<strong>${newDone}</strong> Items seit letztem Snapshot erledigt`);
-    const newItems = delta(t.items, pt.items);
-    if (newItems > 0) highlights.push(`<strong>${newItems}</strong> neue Items im Backlog`);
-  }
-
-  // Done this month
-  const months = Object.keys(data.done_by_month || {});
-  if (months.length) {
-    const last = months[months.length - 1];
-    highlights.push(`<strong>${data.done_by_month[last]}</strong> Items erledigt in ${monthLabel(last)}`);
-  }
-
-  // Strongest area by done
-  const real = data.areas.filter(a => a.name !== 'Nicht zugeordnet' && a.total > 0);
-  const bestArea = [...real].sort((a, b) => b.done - a.done)[0];
-  if (bestArea && bestArea.done > 0) {
-    highlights.push(`Stärkster Bereich: <strong>${areaMeta(bestArea.name).emoji} ${bestArea.name}</strong> (${bestArea.done} erledigt)`);
-  }
-
-  // Blocked warning
-  if (t.blocked > 0) {
-    highlights.push(`<strong>${t.blocked}</strong> Items blockiert — brauchen Entscheidung`);
-  }
-
-  // Discarded (closed as "not planned")
-  if ((t.discarded || 0) > 0) {
-    highlights.push(`<strong>${t.discarded}</strong> Items verworfen (als „not planned" geschlossen) — zählen nicht als erledigt`);
-  }
-
-  // Untriaged
-  const untriaged = data.areas.find(a => a.name === 'Nicht zugeordnet');
-  if (untriaged && untriaged.total > 0) {
-    highlights.push(`<strong>${untriaged.total}</strong> Items noch nicht zugeordnet (Triage offen)`);
-  }
-
-  // Claude share
-  const o = data.by_owner || {};
-  const ownerTotal = (o.Human || 0) + (o.Claude || 0) + (o.Either || 0);
-  if (ownerTotal > 0) {
-    const claudePct = Math.round((((o.Claude || 0) + (o.Either || 0)) / ownerTotal) * 100);
-    highlights.push(`<strong>${claudePct}%</strong> der zugewiesenen Items sind Claude-fähig (Claude/Either)`);
-  }
-
-  if (t.items > 0) {
-    highlights.push(`Gesamt-Erledigungsquote: <strong>${Math.round((t.done / t.items) * 100)}%</strong>`);
-  }
-
-  if (highlights.length === 0) return '';
-
-  return `
-    <div class="executive-summary fade-in">
-      <div class="executive-summary__icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" fill="currentColor"/>
-        </svg>
-      </div>
-      <div class="executive-summary__content">
-        <div class="executive-summary__title">Highlights</div>
-        <ul class="executive-summary__list">
-          ${highlights.map(h => `<li>${h}</li>`).join('')}
-        </ul>
-      </div>
-    </div>
-  `;
-}
-
-// ─── Status Bar (overall) ────────────────────────────
-function renderStatusBar(data, prev) {
-  const t = data.totals;
-  const pt = prev ? prev.totals : null;
-  const total = t.items;
-  if (!total) return '';
-
-  return `
-    <div class="status-section fade-in">
-      <h3 class="status-section__title">ITEMS NACH STATUS</h3>
-      <div class="status-bar">
-        ${barSegment(t.open, total, 'todo', `${t.open} Offen`)}
-        ${barSegment(t.in_progress, total, 'progress', `${t.in_progress} In Arbeit`)}
-        ${barSegment(t.blocked, total, 'blocked', `${t.blocked} Blocked`)}
-        ${barSegment(t.done, total, 'done', `${t.done} Erledigt`)}
-        ${barSegment(t.discarded || 0, total, 'discarded', `${t.discarded} Verworfen`)}
-      </div>
-      <div class="status-legend">
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--mid-gray)"></span>Offen: ${t.open} ${deltaHtml(delta(t.open, pt?.open))}</span>
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--secondary)"></span>In Arbeit: ${t.in_progress} ${deltaHtml(delta(t.in_progress, pt?.in_progress))}</span>
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--warn)"></span>Blocked: ${t.blocked} ${deltaHtml(delta(t.blocked, pt?.blocked))}</span>
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--success)"></span>Erledigt: ${t.done} ${deltaHtml(delta(t.done, pt?.done))}</span>
-        ${(t.discarded || 0) > 0 ? `<span class="status-legend__item"><span class="status-legend__dot" style="background:var(--danger)"></span>Verworfen: ${t.discarded} ${deltaHtml(delta(t.discarded, pt?.discarded))}</span>` : ''}
-      </div>
+      &mdash; <a href="https://github.com/KORODUR-International/korodur-operating-model" target="_blank">GitHub</a>
     </div>
   `;
 }
@@ -603,6 +501,7 @@ function renderOwnerSplit(data) {
 }
 
 // ─── Done by Calendar Week (KW) ──────────────────────
+// Sub-block inside the trend section ("Zeitverlauf").
 // Falls back to the monthly view for legacy snapshots without done_by_week.
 function renderDoneByWeek(data) {
   const dbw = data.done_by_week || {};
@@ -612,8 +511,8 @@ function renderDoneByWeek(data) {
   const max = Math.max(...keys.map(k => dbw[k]));
 
   return `
-    <div class="status-section fade-in split-row__col">
-      <h3 class="status-section__title">ERLEDIGT / KW</h3>
+    <div class="trend-sub">
+      <h4 class="trend-sub__title">ERLEDIGT / KW</h4>
       <div class="month-chart">
         ${keys.map(k => `
           <div class="month-chart__col" title="${weekRangeTitle(k)}">
@@ -637,8 +536,8 @@ function renderDoneByMonth(data) {
   const max = Math.max(...keys.map(k => dbm[k]));
 
   return `
-    <div class="status-section fade-in split-row__col">
-      <h3 class="status-section__title">ERLEDIGT / MONAT</h3>
+    <div class="trend-sub">
+      <h4 class="trend-sub__title">ERLEDIGT / MONAT</h4>
       <div class="month-chart">
         ${keys.map(k => `
           <div class="month-chart__col">
@@ -675,13 +574,6 @@ function renderPriority(data) {
       </div>
     </div>
   `;
-}
-
-// ─── Status Bar Segment Helper ───────────────────────
-function barSegment(count, total, type, label) {
-  if (!count) return '';
-  const pct = Math.max((count / total) * 100, 4);
-  return `<div class="status-bar__segment status-bar__segment--${type}" style="width:${pct}%">${pct > 8 ? label : ''}</div>`;
 }
 
 // ─── Area Card ───────────────────────────────────────

@@ -1,0 +1,325 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-07-14",
+    "generated_at": "2026-07-14T07:43:27.266116+00:00",
+    "source": "GitHub Projects v2 — KORODUR Work Cockpit",
+    "org": "KORODUR-International",
+    "project_number": 1,
+    "version": "2.0"
+  },
+  "totals": {
+    "items": 314,
+    "done": 188,
+    "in_progress": 11,
+    "open": 102,
+    "blocked": 9,
+    "discarded": 4
+  },
+  "by_status": {
+    "Backlog": 83,
+    "Ready": 19,
+    "In Progress": 6,
+    "In Review": 5,
+    "Blocked": 9,
+    "Done": 192
+  },
+  "by_owner": {
+    "Human": 29,
+    "Claude": 200,
+    "Either": 84,
+    "none": 1
+  },
+  "by_priority": {
+    "P0": 3,
+    "P1": 132,
+    "P2": 154,
+    "P3": 24,
+    "none": 1
+  },
+  "areas": [
+    {
+      "name": "Marketing",
+      "total": 229,
+      "done": 151,
+      "in_progress": 3,
+      "open": 64,
+      "blocked": 7,
+      "discarded": 4,
+      "by_owner": {
+        "Human": 15,
+        "Claude": 155,
+        "Either": 59,
+        "none": 0
+      }
+    },
+    {
+      "name": "CRM & Sales Ops",
+      "total": 11,
+      "done": 2,
+      "in_progress": 1,
+      "open": 8,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 3,
+        "Either": 6,
+        "none": 0
+      }
+    },
+    {
+      "name": "Internationalisierung",
+      "total": 19,
+      "done": 15,
+      "in_progress": 0,
+      "open": 3,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 14,
+        "Either": 4,
+        "none": 0
+      }
+    },
+    {
+      "name": "Wissensaufbau",
+      "total": 27,
+      "done": 10,
+      "in_progress": 2,
+      "open": 14,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 7,
+        "Claude": 14,
+        "Either": 6,
+        "none": 0
+      }
+    },
+    {
+      "name": "AI & Infrastruktur",
+      "total": 22,
+      "done": 9,
+      "in_progress": 5,
+      "open": 8,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 13,
+        "Either": 8,
+        "none": 0
+      }
+    },
+    {
+      "name": "Strategie",
+      "total": 5,
+      "done": 0,
+      "in_progress": 0,
+      "open": 5,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 3,
+        "Claude": 1,
+        "Either": 1,
+        "none": 0
+      }
+    },
+    {
+      "name": "Nicht zugeordnet",
+      "total": 1,
+      "done": 1,
+      "in_progress": 0,
+      "open": 0,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 0,
+        "Either": 0,
+        "none": 1
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "sfleischmann-3steps2/KORODUR-Website",
+      "total": 211,
+      "done": 142,
+      "in_progress": 0,
+      "open": 60,
+      "blocked": 5,
+      "discarded": 4,
+      "by_owner": {
+        "Human": 13,
+        "Claude": 148,
+        "Either": 49,
+        "none": 1
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-referenzverzeichnis",
+      "total": 26,
+      "done": 12,
+      "in_progress": 2,
+      "open": 11,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 14,
+        "Either": 10,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-operating-model",
+      "total": 21,
+      "done": 9,
+      "in_progress": 5,
+      "open": 7,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 13,
+        "Either": 7,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-produktdatenbank",
+      "total": 20,
+      "done": 12,
+      "in_progress": 1,
+      "open": 6,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 3,
+        "Claude": 13,
+        "Either": 4,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-crm",
+      "total": 15,
+      "done": 2,
+      "in_progress": 1,
+      "open": 12,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 5,
+        "Claude": 3,
+        "Either": 7,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-translation",
+      "total": 9,
+      "done": 8,
+      "in_progress": 0,
+      "open": 0,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 7,
+        "Either": 2,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-ausschreibungstexte",
+      "total": 4,
+      "done": 2,
+      "in_progress": 0,
+      "open": 2,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 0,
+        "Either": 2,
+        "none": 0
+      }
+    },
+    {
+      "name": "(Draft / kein Repo)",
+      "total": 3,
+      "done": 0,
+      "in_progress": 1,
+      "open": 2,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 0,
+        "Either": 2,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-tds-output",
+      "total": 2,
+      "done": 0,
+      "in_progress": 1,
+      "open": 1,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 1,
+        "Either": 1,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-rapidset",
+      "total": 2,
+      "done": 1,
+      "in_progress": 0,
+      "open": 1,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 1,
+        "Either": 0,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-military",
+      "total": 1,
+      "done": 0,
+      "in_progress": 0,
+      "open": 0,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 0,
+        "Either": 0,
+        "none": 0
+      }
+    }
+  ],
+  "done_by_month": {
+    "2026-06": 126,
+    "2026-07": 62
+  },
+  "done_by_week": {
+    "2026-W24": 34,
+    "2026-W25": 42,
+    "2026-W26": 40,
+    "2026-W27": 45,
+    "2026-W28": 23,
+    "2026-W29": 4
+  }
+}

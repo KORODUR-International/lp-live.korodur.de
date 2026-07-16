@@ -452,9 +452,8 @@ function renderDashboard(data, prev) {
 
     <div class="split-row">
       ${renderOwnerSplit(data)}
+      ${renderPriority(data)}
     </div>
-
-    ${renderPriority(data)}
 
     <h3 class="area-grid-title fade-in">BEREICHE</h3>
     <div class="area-grid">
@@ -462,6 +461,8 @@ function renderDashboard(data, prev) {
     </div>
 
     ${renderProjectsTable(data)}
+
+    ${renderBlockedReasons(data)}
 
     <div class="footer">
       KORODUR Work Cockpit Reporting &mdash; Generiert am ${new Date(data._meta.generated_at).toLocaleDateString('de-DE')}
@@ -553,15 +554,70 @@ function renderDoneByMonth(data) {
   `;
 }
 
-// ─── Priority breakdown ──────────────────────────────
+// ─── Priority per status (status x priority bars) ────
+// One horizontal bar per Bearbeitungsphase, segmented P0–P3 (+ Ohne),
+// each row normalised to 100% — the tiles carry the absolute counts.
+// Falls back to the old chip row for legacy snapshots without the field.
+const PRIO_SEGMENTS = [
+  { key: 'P0',   label: 'P0',   color: 'var(--danger)',    dark: true },
+  { key: 'P1',   label: 'P1',   color: 'var(--warn)',      dark: true },
+  { key: 'P2',   label: 'P2',   color: 'var(--secondary)', dark: true },
+  { key: 'P3',   label: 'P3',   color: '#9aa7b4',          dark: true },
+  { key: 'none', label: 'Ohne', color: 'var(--light-gray)', dark: false },
+];
+const PRIO_STATUS_ROWS = [
+  { key: 'open',        label: 'Offen' },
+  { key: 'in_progress', label: 'In Arbeit' },
+  { key: 'blocked',     label: 'Blockiert' },
+  { key: 'done',        label: 'Erledigt' },
+];
+
 function renderPriority(data) {
+  const bsp = data.by_status_priority;
+  if (!bsp) return renderPriorityChips(data);
+
+  const rows = PRIO_STATUS_ROWS.map(row => {
+    const dist = bsp[row.key] || {};
+    const total = PRIO_SEGMENTS.reduce((s, seg) => s + (dist[seg.key] || 0), 0);
+    const segs = total === 0
+      ? '<div class="prio-bar__empty">keine Items</div>'
+      : PRIO_SEGMENTS.map(seg => {
+          const c = dist[seg.key] || 0;
+          if (!c) return '';
+          const pct = (c / total) * 100;
+          return `<div class="prio-bar__seg ${seg.dark ? '' : 'prio-bar__seg--light'}"
+                       style="flex-grow:${c};background:${seg.color}"
+                       title="${row.label} · ${seg.label}: ${c}">${pct > 9 ? c : ''}</div>`;
+        }).join('');
+    return `
+      <div class="prio-bar__label">${row.label}</div>
+      <div class="prio-bar__count">${total}</div>
+      <div class="prio-bar">${segs}</div>
+    `;
+  }).join('');
+
+  const legend = PRIO_SEGMENTS.map(seg =>
+    `<span class="status-legend__item"><span class="status-legend__dot" style="background:${seg.color}"></span>${seg.label}</span>`
+  ).join('');
+
+  return `
+    <div class="status-section fade-in split-row__col">
+      <h3 class="status-section__title">PRIORITÄT JE STATUS</h3>
+      <div class="prio-grid">${rows}</div>
+      <div class="status-legend">${legend}</div>
+    </div>
+  `;
+}
+
+// Legacy chip row (snapshots before by_status_priority existed)
+function renderPriorityChips(data) {
   const p = data.by_priority || {};
   const order = ['P0', 'P1', 'P2', 'P3'];
   const total = order.reduce((s, k) => s + (p[k] || 0), 0) + (p.none || 0);
   if (!total) return '';
 
   return `
-    <div class="status-section fade-in">
+    <div class="status-section fade-in split-row__col">
       <h3 class="status-section__title">NACH PRIORITÄT</h3>
       <div class="prio-row">
         ${order.map(k => `
@@ -666,6 +722,37 @@ function renderProjectsTable(data) {
       </table>
     </div>
   `;
+}
+
+// ─── Blocked reasons (below the projects table) ──────
+// Shows Bereich + Grund per blocked item — never issue titles (public page,
+// private repos). Missing Grund renders as a visible triage signal.
+// Older snapshots without blocked_items simply skip the section.
+function renderBlockedReasons(data) {
+  const items = data.blocked_items;
+  if (!Array.isArray(items) || items.length === 0) return '';
+
+  const bullets = items.map(b => {
+    const meta = areaMeta(b.bereich);
+    const grund = b.grund
+      ? escapeHtml(b.grund)
+      : '<em class="blocked-list__open">Grund offen</em>';
+    return `<li><span class="blocked-list__area">${meta.emoji} ${escapeHtml(b.bereich)}</span> — ${grund}</li>`;
+  }).join('');
+
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">BLOCKIERT — GRÜNDE</h3>
+      <ul class="blocked-list">${bullets}</ul>
+    </div>
+  `;
+}
+
+// Board text fields go through here before touching the DOM.
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[c]));
 }
 
 // ─── Empty State ─────────────────────────────────────

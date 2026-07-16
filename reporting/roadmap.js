@@ -11,6 +11,15 @@ const MONTH_NAMES = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'S
 const TYP_LABEL = { meilenstein: 'Meilenstein', schluessel: 'Schlüsselereignis', entscheidung: 'Entscheidungspunkt', fixpunkt: 'Externer Fixpunkt' };
 const STATUS_LABEL = { offen: 'offen', erreicht: 'erreicht', verschoben: 'verschoben', entfallen: 'entfallen' };
 
+// Confidence: öffentlich nur als Symbol (Herleitung/Prozente bleiben intern).
+// hoch ●●● / mittel ●●○ / niedrig ●○○
+const CONF_SYMBOL = { hoch: '●●●', mittel: '●●○', niedrig: '●○○' };
+const CONF_LABEL = { hoch: 'hoch', mittel: 'mittel', niedrig: 'niedrig' };
+function confSymbolHtml(conf) {
+  if (!conf || !CONF_SYMBOL[conf]) return '';
+  return `<span class="rm-conf rm-conf--${conf}" title="Confidence: ${CONF_LABEL[conf]}" aria-label="Confidence ${CONF_LABEL[conf]}">${CONF_SYMBOL[conf]}</span>`;
+}
+
 // Zoom-Stufen (Konzept §4). start/ende null = Zeitraum aus der JSON.
 const ZOOMS = [
   { key: 'q3', label: 'Q3', start: '2026-07-01', ende: '2026-09-30', outlook: false },
@@ -163,7 +172,7 @@ function labelHtml(m, idx) {
   const done = m.status === 'erreicht' ? '✓ ' : '';
   const moved = m.status === 'verschoben' ? ' (verschoben)' : '';
   return `<div class="rm-mslabel rm-mslabel--${side}" style="${anchor}">
-    <span class="rm-mslabel__d">${fmtShort(m.datum)}</span> ${done}${warn}<b>${esc(m.titel)}</b>${moved}
+    <span class="rm-mslabel__d">${fmtShort(m.datum)}</span> ${done}${warn}<b>${esc(m.titel)}</b>${confSymbolHtml(m.confidence)}${moved}
   </div>`;
 }
 
@@ -192,6 +201,18 @@ function laneRowHtml(lane) {
       barHtml = `<div class="rm-bar${dashed ? ' rm-bar--dashed' : ''}" data-lanebtn="${esc(lane.id)}" style="left:${b0}%;width:${b1 - b0}%;--rm-c:${color}"></div>`;
     }
   }
+
+  // Segmente: einzelne (meist gestrichelte/vorläufige) Balkenabschnitte über dem Lane-Balken
+  let segHtml = '';
+  if (Array.isArray(lane.segmente)) {
+    segHtml = lane.segmente.map(s => {
+      const s0 = Math.max(0, pct(s.von));
+      const s1 = Math.min(100, pct(s.bis));
+      if (s1 <= s0) return '';
+      const segDashed = s.stil === 'gestrichelt' || s.stil === 'vorlaeufig';
+      return `<div class="rm-bar rm-bar--seg${segDashed ? ' rm-bar--dashed' : ''}" style="left:${s0}%;width:${s1 - s0}%;--rm-c:${color}" title="vorläufig ${fmtShort(s.von)} bis ${fmtShort(s.bis)}"></div>`;
+    }).join('');
+  }
   const gridHtml = monthsInWindow().slice(1).map(m => `<div class="rm-grid-v" style="left:${m.left}%"></div>`).join('');
   const today = DATA.heute || todayIso();
   const todayHtml = inWindow(today) ? `<div class="rm-today" style="left:${pct(today)}%"></div>` : '';
@@ -208,7 +229,7 @@ function laneRowHtml(lane) {
       </div>
     </div>
     <div class="rm-lane__zone">
-      ${gridHtml}${todayHtml}${barHtml}
+      ${gridHtml}${todayHtml}${barHtml}${segHtml}
       ${ms.map(m => rangeHtml(m, color)).join('')}
       ${ms.map((m, i) => labelHtml(m, i)).join('')}
       ${ms.map(m => markerHtml(m, lane.id, color)).join('')}
@@ -347,6 +368,8 @@ function detailHtml() {
       ${m.erreichtAm ? ' am ' + fmtDate(m.erreichtAm) : ''} ${issueLink ? ' · Issue ' + issueLink : ''}
     </p>
     ${m.details ? `<p class="rm-detail__body">${esc(m.details)}</p>` : ''}
+    ${m.confidence ? `<p class="rm-detail__body">Confidence: <b>${CONF_LABEL[m.confidence]}</b> ${confSymbolHtml(m.confidence)}</p>` : ''}
+    ${m.abhaengigkeit ? `<p class="rm-detail__body">Abhängigkeit: ${esc(m.abhaengigkeit)}</p>` : ''}
     ${m.klaerung ? `<p class="rm-detail__warn">⚠ Abhängigkeit bzw. Termin noch zu klären</p>` : ''}
     ${lane ? `<button type="button" class="rm-detail__backlink" data-lanebtn="${esc(lane.id)}">Alle Meilensteine von „${esc(lane.name)}" zeigen</button>` : ''}
   </div>`;
@@ -395,9 +418,10 @@ function legendHtml() {
     <span class="rm-legend__item"><span class="rm-shape rm-shape--dec"></span> Entscheidungspunkt</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--fix"></span> Externer Fixpunkt</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--solid"></span> committed</span>
-    <span class="rm-legend__item"><span class="rm-shape rm-shape--dash"></span> läuft im Hintergrund / nicht committed</span>
+    <span class="rm-legend__item"><span class="rm-shape rm-shape--dash"></span> läuft im Hintergrund / nicht committed bzw. vorläufig</span>
     <span class="rm-legend__item">⚠ Abhängigkeit / zu klären</span>
     <span class="rm-legend__item">✓ erreicht</span>
+    <span class="rm-legend__item">Confidence: <span class="rm-conf rm-conf--hoch">●●●</span> hoch · <span class="rm-conf rm-conf--mittel">●●○</span> mittel · <span class="rm-conf rm-conf--niedrig">●○○</span> niedrig</span>
   </div>`;
 }
 
@@ -441,7 +465,9 @@ function bindTooltip(root) {
       tip.innerHTML = `
         <div class="rm-tip__date">${fmtDate(m.datum)} · ${lane ? esc(areaOf(lane.area).name) + ' · ' + esc(lane.name) : 'Externer Fixpunkt'}</div>
         <div class="rm-tip__title">${m.status === 'erreicht' ? '✓ ' : ''}${esc(m.titel)}</div>
+        ${m.confidence ? `<div class="rm-tip__conf">Confidence: ${CONF_LABEL[m.confidence]} ${confSymbolHtml(m.confidence)}</div>` : ''}
         ${m.details ? `<div class="rm-tip__body">${esc(m.details)}</div>` : ''}
+        ${m.abhaengigkeit ? `<div class="rm-tip__dep">Abhängigkeit: ${esc(m.abhaengigkeit)}</div>` : ''}
         ${m.klaerung ? `<div class="rm-tip__warn">⚠ Abhängigkeit / zu klären</div>` : ''}
         <div class="rm-tip__hint">Klick für Details</div>`;
       tip.style.display = 'block';

@@ -1,16 +1,16 @@
 {
   "_meta": {
     "snapshot_date": "2026-07-16",
-    "generated_at": "2026-07-16T06:14:05.270927+00:00",
+    "generated_at": "2026-07-16T08:03:00.582330+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "2.0"
   },
   "totals": {
-    "items": 321,
-    "done": 194,
-    "in_progress": 13,
+    "items": 329,
+    "done": 196,
+    "in_progress": 19,
     "open": 99,
     "blocked": 10,
     "discarded": 5
@@ -19,20 +19,20 @@
     "Backlog": 83,
     "Ready": 16,
     "In Progress": 4,
-    "In Review": 9,
+    "In Review": 15,
     "Blocked": 10,
-    "Done": 199
+    "Done": 201
   },
   "by_owner": {
     "Human": 29,
-    "Claude": 206,
+    "Claude": 214,
     "Either": 85,
     "none": 1
   },
   "by_priority": {
     "P0": 3,
-    "P1": 138,
-    "P2": 155,
+    "P1": 140,
+    "P2": 161,
     "P3": 24,
     "none": 1
   },
@@ -47,7 +47,7 @@
     "in_progress": {
       "P0": 0,
       "P1": 10,
-      "P2": 2,
+      "P2": 8,
       "P3": 1,
       "none": 0
     },
@@ -60,7 +60,7 @@
     },
     "done": {
       "P0": 2,
-      "P1": 93,
+      "P1": 95,
       "P2": 86,
       "P3": 12,
       "none": 1
@@ -129,30 +129,30 @@
     },
     {
       "name": "AI & Infrastruktur",
-      "total": 27,
-      "done": 15,
-      "in_progress": 4,
+      "total": 34,
+      "done": 17,
+      "in_progress": 9,
       "open": 8,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 1,
-        "Claude": 18,
+        "Claude": 25,
         "Either": 8,
         "none": 0
       }
     },
     {
       "name": "Strategie",
-      "total": 5,
+      "total": 6,
       "done": 0,
-      "in_progress": 1,
+      "in_progress": 2,
       "open": 4,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 3,
-        "Claude": 1,
+        "Claude": 2,
         "Either": 1,
         "none": 0
       }
@@ -191,15 +191,15 @@
     },
     {
       "name": "KORODUR-International/korodur-operating-model",
-      "total": 26,
-      "done": 15,
-      "in_progress": 4,
+      "total": 30,
+      "done": 17,
+      "in_progress": 6,
       "open": 7,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 1,
-        "Claude": 18,
+        "Claude": 22,
         "Either": 7,
         "none": 0
       }
@@ -236,15 +236,15 @@
     },
     {
       "name": "KORODUR-International/korodur-crm",
-      "total": 15,
+      "total": 19,
       "done": 2,
-      "in_progress": 1,
+      "in_progress": 5,
       "open": 12,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 5,
-        "Claude": 3,
+        "Claude": 7,
         "Either": 7,
         "none": 0
       }
@@ -384,7 +384,7 @@
   ],
   "done_by_month": {
     "2026-06": 126,
-    "2026-07": 68
+    "2026-07": 70
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -392,6 +392,6 @@
     "2026-W26": 40,
     "2026-W27": 45,
     "2026-W28": 23,
-    "2026-W29": 10
+    "2026-W29": 12
   }
 }

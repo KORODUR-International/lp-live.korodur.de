@@ -406,15 +406,15 @@
   },
   {
     "date": "2026-07-16",
-    "items": 321,
-    "done": 194,
-    "in_progress": 13,
+    "items": 329,
+    "done": 196,
+    "in_progress": 19,
     "open": 99,
     "blocked": 10,
     "discarded": 5,
     "by_owner": {
       "Human": 29,
-      "Claude": 206,
+      "Claude": 214,
       "Either": 85,
       "none": 1
     }

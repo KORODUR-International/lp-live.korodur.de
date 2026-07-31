@@ -1280,3 +1280,50 @@ h1, h2, h3, h4, h5 {
   .aw-rules { grid-template-columns: 1fr; }
   .aw-meta { gap: 14px; }
 }
+
+/* ─── Redaktions-Segment (v1) ───────────────────────── */
+.ampel {
+  display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  margin-right: 6px; vertical-align: baseline;
+}
+.ampel--ok   { background: var(--success); }
+.ampel--warn { background: var(--warn); }
+.ampel--crit { background: var(--danger); }
+
+.kpi-card__unit { font-size: 1rem; font-weight: normal; color: var(--muted); }
+
+.funnel {
+  display: flex; height: 34px; border-radius: 6px; overflow: hidden; gap: 2px;
+}
+.funnel__seg {
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: .85rem; font-weight: bold; min-width: 4px;
+}
+.funnel__discarded { font-size: .8rem; color: var(--muted); margin-left: auto; }
+
+.kampagne { margin-bottom: 18px; }
+.kampagne__head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 6px;
+}
+.kampagne__name { font-weight: bold; color: var(--primary); }
+.kampagne__count { font-size: .85rem; color: var(--muted); }
+.kampagne__detail { font-size: .8rem; color: var(--muted); margin-top: 6px; }
+
+/* Segment-Zeile auf der Reporting-Startseite */
+.segment-strip { margin-bottom: 24px; }
+.segment-strip__title {
+  font-size: .78rem; letter-spacing: 1.5px; color: var(--muted);
+  margin-bottom: 10px;
+}
+.seg-card {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  background: #fff; border: 1px solid #e3e9ef; border-left: 5px solid var(--secondary);
+  border-radius: 8px; padding: 14px 20px; text-decoration: none; color: inherit;
+  transition: box-shadow .15s ease;
+}
+.seg-card:hover { box-shadow: 0 2px 10px rgba(0, 45, 89, .12); }
+.seg-card__name { font-weight: bold; color: var(--primary); }
+.seg-card__kpi { font-size: .9rem; color: var(--muted); }
+.seg-card__kpi strong { color: var(--primary); }
+.seg-card__link { margin-left: auto; font-size: .85rem; color: var(--secondary); font-weight: bold; }

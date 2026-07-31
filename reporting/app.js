@@ -100,6 +100,7 @@ async function loadSnapshot(key) {
 
     renderDashboard(currentSnapshot, previousSnapshot);
     updateHeaderMeta(key);
+    loadSegmentStrip();
   } catch (err) {
     main.innerHTML = `<div class="loading">Fehler beim Laden: ${err.message}</div>`;
   }
@@ -448,6 +449,8 @@ function renderDashboard(data, prev) {
       </div>
     </div>
 
+    <div id="segment-strip"></div>
+
     ${renderTrendChart(data)}
 
     <div class="split-row">
@@ -753,6 +756,44 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   }[c]));
+}
+
+// ─── Segment-Zeile (Fach-Segmente neben dem Board) ───
+// Zeigt die Ampelwerte des Redaktions-Segments, sofern schon Snapshots da
+// sind. Fehlt die Datenquelle (Secret noch nicht gesetzt), bleibt die Zeile
+// einfach weg — die Board-Seite bricht nie.
+async function loadSegmentStrip() {
+  const host = document.getElementById('segment-strip');
+  if (!host) return;
+  try {
+    const idxRes = await fetch('data/redaktion/index.json');
+    if (!idxRes.ok) return;
+    const keys = await idxRes.json();
+    if (!Array.isArray(keys) || keys.length === 0) return;
+    const res = await fetch('data/redaktion/' + keys[0] + '.json');
+    if (!res.ok) return;
+    const d = await res.json();
+
+    const [lo, hi] = d.puffer_ziel || [8, 12];
+    const state = (d.puffer >= lo && d.puffer <= hi) ? 'ok'
+      : (d.puffer >= Math.ceil(lo / 2) || d.puffer > hi) ? 'warn' : 'crit';
+    const freq = (d.frequenz || {}).pro_woche_linkedin ?? 0;
+
+    host.innerHTML = `
+      <div class="segment-strip fade-in">
+        <div class="segment-strip__title">SEGMENTE</div>
+        <a class="seg-card" href="redaktion.html">
+          <span class="ampel ampel--${state}"></span>
+          <span class="seg-card__name">📝 Redaktion</span>
+          <span class="seg-card__kpi">Puffer <strong>${d.puffer}</strong> (Ziel ${lo}&ndash;${hi})</span>
+          <span class="seg-card__kpi">Vorlauf <strong>${d.vorlauf_wochen} Wo</strong></span>
+          <span class="seg-card__kpi">LinkedIn <strong>${freq}/Wo</strong></span>
+          <span class="seg-card__kpi">In Pr&uuml;fung <strong>${(d.totals || {}).in_pruefung || 0}</strong></span>
+          <span class="seg-card__link">Details &rarr;</span>
+        </a>
+      </div>
+    `;
+  } catch { /* Segment-Zeile ist optional */ }
 }
 
 // ─── Empty State ─────────────────────────────────────

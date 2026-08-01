@@ -644,5 +644,21 @@
       "Either": 94,
       "none": 1
     }
+  },
+  {
+    "date": "2026-08-01",
+    "items": 350,
+    "done": 200,
+    "in_progress": 18,
+    "open": 117,
+    "blocked": 10,
+    "discarded": 5,
+    "bereit": 15,
+    "by_owner": {
+      "Human": 30,
+      "Claude": 225,
+      "Either": 94,
+      "none": 1
+    }
   }
 ]

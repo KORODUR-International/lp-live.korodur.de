@@ -680,9 +680,9 @@
   {
     "date": "2026-08-03",
     "items": 360,
-    "done": 207,
-    "in_progress": 24,
-    "open": 113,
+    "done": 212,
+    "in_progress": 20,
+    "open": 112,
     "blocked": 11,
     "discarded": 5,
     "bereit": 10,

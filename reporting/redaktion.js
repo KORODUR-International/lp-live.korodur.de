@@ -1,7 +1,7 @@
 /* ============================================
-   KORODUR Work Cockpit — Redaktion
+   KORODUR Work Cockpit, Redaktion
    Rendert data/redaktion/<datum>.json (Tages-Aggregat des Notion-
-   Redaktionsplans) + timeseries.json. Read-only, nur Aggregatzahlen —
+   Redaktionsplans) + timeseries.json. Read-only, nur Aggregatzahlen,
    keine Beitragstitel, keine Personen (öffentliche Seite).
    In dev: symlink src/data -> ../data; in production: data/ liegt im Root.
    ============================================ */
@@ -71,6 +71,13 @@ function ampelDot(state) {
   return `<span class="ampel ampel--${state}" aria-hidden="true"></span>`;
 }
 
+// Fehlt ein Wert im Snapshot, stand hier bisher wortwoertlich "undefined" auf
+// einer Seite, die ohne Login erreichbar ist. Ein fehlender Wert ist auch keine
+// Null: "n. v." sagt "nicht gemessen", eine 0 wuerde eine Messung behaupten.
+function fehltZeichen(v) {
+  return (v === null || v === undefined || Number.isNaN(v)) ? 'n.&nbsp;v.' : v;
+}
+
 // ─── Render ──────────────────────────────────────────
 function renderRedaktion(d) {
   const main = document.getElementById('main');
@@ -80,29 +87,35 @@ function renderRedaktion(d) {
 
   main.innerHTML = `
     <div class="snapshot-header fade-in">
-      <h1 class="snapshot-header__title">REDAKTION — SOCIAL MEDIA PIPELINE</h1>
+      <h1 class="snapshot-header__title">REDAKTION: SOCIAL MEDIA PIPELINE</h1>
       <p class="snapshot-header__sub">
-        ${d._meta.source} &mdash; ${redFormatDate(d._meta.snapshot_date)}
+        ${d._meta.source} &middot; ${redFormatDate(d._meta.snapshot_date)}
+        &middot; ${d.gesamt ?? 0} Beitr&auml;ge im Redaktionsplan
       </p>
     </div>
 
     <div class="kpi-row">
       <div class="kpi-card fade-in ${pState === 'crit' ? 'kpi-card--warn' : ''}">
         <div class="kpi-card__label">${ampelDot(pState)} Puffer</div>
-        <div class="kpi-card__value ${pState === 'crit' ? 'kpi-card__value--warn' : ''}">${d.puffer}</div>
+        <div class="kpi-card__value ${pState === 'crit' ? 'kpi-card__value--warn' : ''}">${fehltZeichen(d.puffer)}</div>
         <div class="kpi-card__detail">Freigegeben + eingeplant &middot; Ziel ${(d.puffer_ziel || [8, 12]).join('&ndash;')}</div>
         ${redSparkline('puffer', 'var(--primary)')}
       </div>
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Vorlauf</div>
-        <div class="kpi-card__value">${d.vorlauf_wochen}<span class="kpi-card__unit"> Wo</span></div>
+        <div class="kpi-card__value">${fehltZeichen(d.vorlauf_wochen)}<span class="kpi-card__unit"> Wo</span></div>
         <div class="kpi-card__detail">Terminierte Beitr&auml;ge voraus &middot; Ziel 8&ndash;12 Wochen</div>
         ${redSparkline('vorlauf_wochen', 'var(--secondary)')}
       </div>
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Frequenz</div>
         <div class="kpi-card__value">${freq.pro_woche_linkedin ?? 0}<span class="kpi-card__unit">/Wo</span></div>
-        <div class="kpi-card__detail">LinkedIn, &Oslash; letzte 4 Wochen &middot; Ziel ${(freq.ziel_linkedin || [2, 3]).join('&ndash;')}</div>
+        <div class="kpi-card__detail">
+          LinkedIn, &Oslash; letzte 4 Wochen &middot; Ziel ${(freq.ziel_linkedin || [2, 3]).join('&ndash;')}
+          ${d.gepostet_ohne_datum
+            ? `<br><span class="kpi-card__hint">${d.gepostet_ohne_datum} geposteten Beitr&auml;gen fehlt das Ver&ouml;ffentlicht-Datum, sie fehlen in dieser Zahl</span>`
+            : ''}
+        </div>
       </div>
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">In Pr&uuml;fung</div>
@@ -124,17 +137,43 @@ function renderRedaktion(d) {
     ${renderKampagnen(d)}
 
     <div class="footer">
-      Redaktions-Segment &mdash; Quelle: Notion-Redaktionsplan (nur Aggregatzahlen)
-      &mdash; Generiert am ${new Date(d._meta.generated_at).toLocaleDateString('de-DE')}
-      &mdash; <a href="https://github.com/KORODUR-International/korodur-operating-model" target="_blank">GitHub</a>
+      Redaktions-Segment &middot; Quelle: Notion-Redaktionsplan (nur Aggregatzahlen)
+      &middot; Generiert am ${new Date(d._meta.generated_at).toLocaleDateString('de-DE')}
+      &middot; <a href="https://github.com/KORODUR-International/korodur-operating-model" target="_blank">GitHub</a>
     </div>
   `;
 }
 
 // ─── Pipeline-Funnel ─────────────────────────────────
+const FUNNEL_TITLE = 'PIPELINE: VON DER IDEE ZUM POST';
+
 function renderFunnel(t) {
   const total = FUNNEL.reduce((s, f) => s + (t[f.key] || 0), 0);
-  if (!total) return '';
+
+  // Unbekannter Status: laut statt still. Zeigt an, dass das Mapping in
+  // scripts/fetch_redaktion.py hinter dem Notion-Schema herhinkt.
+  // Der Hinweis steht bewusst vor dem total-Guard: benennt Notion das Statusset
+  // um, fallen alle Zeilen nach "unbekannt", der Funnel ist leer, und genau dann
+  // muss die Warnung auf der Seite stehen und nicht nur im Action-Log.
+  const unbekannt = t.unbekannt
+    ? `<span class="funnel__discarded">+ ${t.unbekannt} mit unbekanntem Status (nicht im Funnel)</span>` : '';
+
+  if (!total) {
+    if (!unbekannt) return '';
+    return `
+      <div class="status-section fade-in">
+        <h3 class="status-section__title">${FUNNEL_TITLE}</h3>
+        <p class="funnel-empty">
+          Kein Beitrag liegt in einer bekannten Pipeline-Stufe, unbekannter
+          Status: ${t.unbekannt}. Wir m&uuml;ssen das Mapping in
+          <code>scripts/fetch_redaktion.py</code> ans Notion-Schema nachziehen,
+          bis dahin ist die Pipeline hier blind.
+        </p>
+        <div class="status-legend">${unbekannt}</div>
+      </div>
+    `;
+  }
+
   const segs = FUNNEL.map(f => {
     const c = t[f.key] || 0;
     if (!c) return '';
@@ -145,14 +184,12 @@ function renderFunnel(t) {
   const legend = FUNNEL.map(f =>
     `<span class="status-legend__item"><span class="status-legend__dot" style="background:${f.color}"></span>${f.label}: ${t[f.key] || 0}</span>`
   ).join('');
-  const verworfen = t.verworfen
-    ? `<span class="funnel__discarded">+ ${t.verworfen} verworfen (z&auml;hlen nicht)</span>` : '';
 
   return `
     <div class="status-section fade-in">
-      <h3 class="status-section__title">PIPELINE — VON DER IDEE ZUM POST</h3>
+      <h3 class="status-section__title">${FUNNEL_TITLE}</h3>
       <div class="funnel">${segs}</div>
-      <div class="status-legend">${legend}${verworfen}</div>
+      <div class="status-legend">${legend}${unbekannt}</div>
     </div>
   `;
 }
@@ -251,12 +288,35 @@ function redSparkline(metric, color) {
 function renderPostedByWeek(d) {
   const pbw = d.posted_by_week || {};
   const keys = Object.keys(pbw).sort().slice(-8);
-  if (!keys.length) return '';
+
+  // Dieselbe Falle wie im Funnel: ein fruehes return '' verschluckt die
+  // Gesamtzahl mit. Gibt es datierte Posts, aber keinen Wochenschluessel, dann
+  // ist die Zahl gerade die interessante Information und darf nicht verschwinden.
+  if (!keys.length) {
+    const mitDatumOhneFenster = d.gepostet_mit_datum ?? 0;
+    if (!mitDatumOhneFenster) return '';
+    return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">GEPOSTET / KW</h3>
+      <p class="chart-note">Gepostet mit Datum: ${mitDatumOhneFenster}, keine Wochenverteilung im Snapshot.</p>
+    </div>`;
+  }
+
   const max = Math.max(...keys.map(k => pbw[k]));
+
+  // Das Chart ist ein Fenster, kein Gesamtbild. Ohne die Gesamtzahl sähe jeder
+  // Beitrag außerhalb des Fensters wie ein verlorener Beitrag aus.
+  const imFenster = keys.reduce((s, k) => s + pbw[k], 0);
+  const mitDatum = d.gepostet_mit_datum ?? imFenster;
+  const note = mitDatum > imFenster
+    ? `Gepostet mit Datum: ${mitDatum} insgesamt, davon ${imFenster} im
+       gezeigten Fenster der letzten ${keys.length} Wochen`
+    : `Gepostet mit Datum: ${mitDatum}, gezeigt sind die letzten ${keys.length} Wochen`;
 
   return `
     <div class="status-section fade-in">
       <h3 class="status-section__title">GEPOSTET / KW</h3>
+      <p class="chart-note">${note}</p>
       <div class="month-chart">
         ${keys.map(k => `
           <div class="month-chart__col" title="${k}">
@@ -274,6 +334,9 @@ function renderPostedByWeek(d) {
 
 // ─── Kampagnen ───────────────────────────────────────
 function renderKampagnen(d) {
+  // Solange der Redaktionsplan keine Property "Kampagne" hat, gibt es nichts
+  // zu zeigen: Block ausblenden statt leer rendern (Issue #84/#85).
+  if (d.kampagnen_verfuegbar === false) return '';
   const ks = d.kampagnen || [];
   if (!ks.length) return '';
   const esc = s => String(s).replace(/[&<>"']/g, c => ({
@@ -315,7 +378,7 @@ function renderEmpty() {
   const main = document.getElementById('main');
   main.innerHTML = `
     <div class="snapshot-header fade-in">
-      <h1 class="snapshot-header__title">REDAKTION — SOCIAL MEDIA PIPELINE</h1>
+      <h1 class="snapshot-header__title">REDAKTION: SOCIAL MEDIA PIPELINE</h1>
       <p class="snapshot-header__sub">Notion-Redaktionsplan (Aggregat)</p>
     </div>
     <div class="loading">

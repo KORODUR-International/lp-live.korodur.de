@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2026-08-03",
+    "ideen": 26,
+    "in_arbeit": 7,
+    "in_pruefung": 36,
+    "freigegeben": 0,
+    "eingeplant": 3,
+    "gepostet": 18,
+    "unbekannt": 0,
+    "puffer": 3,
+    "vorlauf_wochen": 1.0
+  }
+]

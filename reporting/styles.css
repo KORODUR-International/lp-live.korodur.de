@@ -232,6 +232,13 @@ h1, h2, h3, h4, h5 {
   margin-top: 4px;
 }
 
+/* Datenschuld-Hinweis unter einer KPI (z. B. fehlende Veroeffentlicht-Daten) */
+.kpi-card__hint {
+  display: inline-block;
+  margin-top: 3px;
+  color: var(--warn);
+}
+
 /* --- Project Status Bar --- */
 .status-section {
   background: var(--white);
@@ -1300,6 +1307,21 @@ h1, h2, h3, h4, h5 {
   color: #fff; font-size: .85rem; font-weight: bold; min-width: 4px;
 }
 .funnel__discarded { font-size: .8rem; color: var(--muted); margin-left: auto; }
+/* Funnel ohne eine einzige bekannte Stufe: dann ist der Hinweis die Aussage
+   der Sektion und darf nicht wie eine Fussnote aussehen. */
+.funnel-empty {
+  font-size: .85rem;
+  color: var(--danger);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.funnel-empty code { font-size: .8rem; }
+/* Fensterhinweis unter einem Chart (z. B. letzte n Wochen) */
+.chart-note {
+  font-size: .8rem;
+  color: var(--muted);
+  margin: -6px 0 12px;
+}
 
 .kampagne { margin-bottom: 18px; }
 .kampagne__head {

@@ -1016,9 +1016,11 @@ h1, h2, h3, h4, h5 {
 .rm-head__progress { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; min-width: 260px; }
 .rm-head__count { font-size: .85rem; color: var(--primary); }
 
-.rm-progress { height: 8px; border-radius: 20px; background: var(--mid-gray); overflow: hidden; flex: 1; min-width: 60px; }
+.rm-progress { height: 8px; border-radius: 20px; background: var(--mid-gray); overflow: hidden; flex: 1; min-width: 60px; display: flex; }
 .rm-progress--big { height: 10px; width: 260px; flex: none; }
-.rm-progress__fill { height: 100%; border-radius: 20px; background: var(--rm-c, var(--secondary)); }
+.rm-progress__fill { height: 100%; border-radius: 20px; background: var(--rm-c, var(--secondary)); flex: none; }
+/* Verzugsanteil direkt hinter dem erreichten Anteil */
+.rm-progress__late { height: 100%; border-radius: 20px; background: var(--danger); opacity: .85; flex: none; }
 
 /* Toolbar: Zoom, Toggles, Area-Filter */
 .rm-toolbar { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; padding: 14px 24px; margin-bottom: 16px; }
@@ -1052,6 +1054,8 @@ h1, h2, h3, h4, h5 {
 .rm-shape--dec { width: 10px; height: 10px; border: 2.5px solid var(--muted); border-radius: 50%; }
 .rm-shape--fix { width: 10px; height: 10px; background: var(--muted); border-radius: 50%; }
 .rm-shape--dash { width: 22px; border-top: 2px dashed var(--muted); }
+.rm-shape--late { width: 9px; height: 9px; background: var(--danger); transform: rotate(45deg); border-radius: 2px; }
+.rm-shape--moved { width: 9px; height: 9px; background: var(--muted); transform: rotate(45deg); border-radius: 2px; box-shadow: 0 0 0 2px var(--white), 0 0 0 3.5px var(--warning); margin: 0 3px; }
 
 /* Chart-Grundgerüst */
 .rm-chart { padding: 10px 0 22px; margin-bottom: 16px; }
@@ -1104,6 +1108,8 @@ h1, h2, h3, h4, h5 {
   transform: translate(-50%, -50%) rotate(45deg);
   border: 0; border-radius: 2px; background: var(--rm-c); color: var(--rm-c);
   box-shadow: 0 0 0 2px var(--white); cursor: pointer;
+  /* über .rm-bar--seg (z-index 2), sonst verschwinden Marker unter Lane-Segmenten */
+  z-index: 3;
 }
 .rm-marker--schluessel { width: 16px; height: 16px; box-shadow: 0 0 0 2.5px var(--white), 0 0 0 4px var(--rm-c); }
 .rm-marker--entscheidung { transform: translate(-50%, -50%); border-radius: 50%; background: var(--white); box-shadow: 0 0 0 2px var(--white), 0 0 0 3.5px var(--rm-c); }
@@ -1199,6 +1205,22 @@ h1, h2, h3, h4, h5 {
 
 /* Balken-Segment (vorläufiger/gestrichelter Abschnitt über dem Lane-Balken) */
 .rm-bar--seg { z-index: 2; }
+
+/* ===== Verzug: überfällige Termine (abgeleiteter Zustand, kein Statuswert) =====
+   Der Marker selbst wird über --rm-c rot eingefärbt (siehe markerHtml), damit die
+   box-shadow-Ebene für is-moved und is-selected frei bleibt. */
+.rm-mslabel__d.is-late { color: var(--danger); font-weight: 800; }
+.rm-table__d.is-late { color: var(--danger); font-weight: 700; }
+.rm-detail__d.is-late { color: var(--danger); font-weight: 700; }
+.rm-late { color: var(--danger); font-weight: 700; }
+.rm-lane__late { font-size: .68rem; color: var(--danger); font-weight: 700; white-space: nowrap; }
+.rm-latechip {
+  display: inline-block; font-size: .68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; border-radius: 20px; padding: 2px 9px;
+  background: rgba(231,76,60,.12); color: var(--danger); white-space: nowrap;
+}
+.rm-dotlate { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--danger); vertical-align: middle; }
+.rm-tip__late { color: var(--danger); font-weight: 700; font-size: .75rem; margin-top: 4px; }
 
 @media (max-width: 900px) {
   .rm-row { grid-template-columns: 170px minmax(560px, 1fr) 0px; }
@@ -1345,7 +1367,313 @@ h1, h2, h3, h4, h5 {
   transition: box-shadow .15s ease;
 }
 .seg-card:hover { box-shadow: 0 2px 10px rgba(0, 45, 89, .12); }
+/* Mehrere Segmente untereinander, ohne dass sie aneinanderkleben */
+.seg-card + .seg-card { margin-top: 10px; }
 .seg-card__name { font-weight: bold; color: var(--primary); }
 .seg-card__kpi { font-size: .9rem; color: var(--muted); }
 .seg-card__kpi strong { color: var(--primary); }
 .seg-card__link { margin-left: auto; font-size: .85rem; color: var(--secondary); font-weight: bold; }
+
+/* ─── Referenz-Segment (referenzen.html / referenzen.js) ──────────
+   Namespace .rf- ; nutzt die CD-Variablen oben. Bewusst dieselben
+   Bausteine wie das Board-Segment (kpi-card, status-section, funnel,
+   month-chart, trend-chart), damit der spaetere Umzug in eine
+   gemeinsame Inhalte-Seite reines Verschieben bleibt. */
+
+/* Bandueberschrift ueber einem Block */
+.band {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 30px 0 12px;
+}
+.band:first-of-type { margin-top: 8px; }
+.band h3 {
+  font-size: .92rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: var(--primary);
+}
+.band span { font-size: .82rem; color: var(--muted); }
+
+/* Zielbalken */
+.rf-goal {
+  background: linear-gradient(135deg, var(--primary), #00437f);
+  color: var(--white);
+  border-radius: var(--card-radius);
+  padding: 26px 28px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+.rf-goal__label {
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: #8fb4d6;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.rf-goal__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.rf-goal__value { font-size: 2.9rem; font-weight: 800; line-height: 1; }
+.rf-goal__value small { font-size: 1.05rem; color: #8fb4d6; font-weight: 700; }
+.rf-goal__side { text-align: right; font-size: .82rem; color: #b9c6d4; line-height: 1.6; }
+.rf-goal__track {
+  background: rgba(255,255,255,.15);
+  border-radius: var(--radius);
+  height: 28px;
+  overflow: hidden;
+  display: flex;
+}
+.rf-goal__seg { height: 100%; }
+.rf-goal__ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: .7rem;
+  color: #8fb4d6;
+  margin-top: 6px;
+}
+.rf-goal__leg {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  font-size: .78rem;
+  color: #b9c6d4;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.rf-goal__leg i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-right: 7px;
+  vertical-align: -1px;
+}
+.rf-goal__note { font-size: .76rem; color: #8fb4d6; margin-top: 12px; line-height: 1.55; }
+
+/* Prozesskette */
+.rf-chain {
+  display: grid;
+  grid-template-columns: 190px 1fr 52px;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+.rf-chain__n {
+  font-size: .8rem;
+  font-weight: 700;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: var(--primary);
+}
+.rf-chain__t {
+  background: var(--light-gray);
+  border-radius: 6px;
+  height: 30px;
+  overflow: hidden;
+}
+.rf-chain__b { height: 100%; border-radius: 6px; min-width: 2px; }
+.rf-chain__v {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-align: right;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.rf-chain__sub {
+  font-size: .72rem;
+  color: var(--muted);
+  margin: -2px 0 12px 204px;
+  line-height: 1.4;
+}
+
+/* Gesamtbestand-Stapel */
+.rf-stack {
+  display: flex;
+  height: 52px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.rf-stack div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1rem;
+  min-width: 3px;
+}
+.rf-stack__key {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.rf-stack__item {
+  border-left: 4px solid;
+  padding: 8px 12px;
+  background: #fafbfc;
+  border-radius: 0 6px 6px 0;
+}
+.rf-stack__item b {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--primary);
+}
+.rf-stack__item span { font-size: .78rem; color: var(--muted); line-height: 1.4; display: block; }
+
+/* Datenschuld-Zeilen */
+.rf-ds {
+  display: grid;
+  grid-template-columns: 200px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+  font-size: .82rem;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+.rf-ds__n { text-align: right; font-weight: 700; }
+.rf-ds__t { background: var(--light-gray); border-radius: 5px; height: 18px; overflow: hidden; }
+.rf-ds__b { height: 100%; border-radius: 5px; background: var(--warn); min-width: 2px; }
+.rf-ds__v { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+.rf-ds__h {
+  grid-column: 2 / -1;
+  font-size: .72rem;
+  color: var(--muted);
+  margin: -2px 0 10px;
+}
+
+/* Einsatzbereiche */
+.rf-eb {
+  display: grid;
+  grid-template-columns: 300px 1fr 46px 44px 82px;
+  gap: 10px;
+  align-items: center;
+  font-size: .82rem;
+  color: var(--primary);
+  margin-bottom: 7px;
+}
+.rf-eb__head {
+  font-size: .63rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted);
+  font-weight: 800;
+  margin-bottom: 9px;
+}
+.rf-eb__n { text-align: right; font-weight: 700; }
+.rf-eb__head .rf-eb__n { font-weight: 800; }
+.rf-eb__t { background: var(--light-gray); border-radius: 5px; height: 20px; overflow: hidden; }
+.rf-eb__b { height: 100%; border-radius: 5px; min-width: 2px; }
+.rf-eb__v {
+  text-align: right;
+  font-weight: 800;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+.rf-eb__head .rf-eb__v, .rf-eb__head .rf-eb__r { font-size: .63rem; font-weight: 800; }
+.rf-eb__r { text-align: right; color: var(--muted); font-weight: 700; font-variant-numeric: tabular-nums; }
+.rf-eb__m { font-size: .72rem; text-align: left; }
+.rf-tag {
+  display: inline-block;
+  min-width: 20px;
+  text-align: center;
+  padding: 1px 7px;
+  border-radius: 20px;
+  font-size: .7rem;
+  font-weight: 800;
+  color: var(--muted);
+  background: var(--mid-gray);
+}
+.rf-tag--hoch { background: var(--primary); color: var(--white); }
+.rf-luecke { color: var(--danger); font-weight: 800; }
+.rf-ueberhang { color: var(--warning); font-weight: 800; }
+
+/* Fliesstext und Fazit unter einem Block */
+.rf-text { font-size: .86rem; color: var(--primary); line-height: 1.6; }
+.rf-verdict {
+  font-size: .84rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px solid var(--light-gray);
+}
+.rf-verdict b { color: var(--primary); }
+.rf-warn { color: var(--danger); }
+.rf-note-top { margin: 12px 0 0; }
+
+/* Nicht gemessen: sichtbar als Hinweis, nie als Nullwert */
+.rf-nv {
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  background: #fffcf5;
+  border-left: 4px solid var(--warn);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  margin-top: 16px;
+}
+.rf-nv b { color: #b57608; display: block; margin-bottom: 4px; }
+
+.month-chart__label small { color: var(--mid-gray); font-size: .68rem; }
+
+@media (max-width: 860px) {
+  .rf-chain { grid-template-columns: 104px 1fr 42px; gap: 8px; }
+  .rf-chain__n { font-size: .68rem; }
+  .rf-chain__sub { margin-left: 0; }
+  .rf-eb { grid-template-columns: 128px 1fr 38px 32px 56px; font-size: .72rem; gap: 6px; }
+  .rf-eb__n { font-size: .68rem; }
+  .rf-ds { grid-template-columns: 120px 1fr 34px; gap: 8px; }
+  .rf-ds__n { font-size: .72rem; }
+  .rf-goal__top { flex-direction: column; align-items: flex-start; }
+  .rf-goal__side { text-align: left; }
+}
+
+/* ─── Umbruchfaehige Kopfzeile ────────────────────────────────────
+   Die Navigation war inline-flex ohne Umbruch in einer Grid-Zeile
+   fester Hoehe (--header-h). Mit dem fuenften Reiter (Referenzen)
+   passt sie ab etwa 800 Pixel Breite nicht mehr in eine Zeile, und
+   dann lief die ganze Seite seitlich aus dem Viewport, samt Inhalt.
+   Ein Breakpoint haette nur die Grenze verschoben; stattdessen darf
+   die Kopfzeile jetzt immer umbrechen und ihre Zeile mitwachsen.
+   Am Schreibtisch aendert sich nichts: min-height haelt die 64 Pixel.
+   Gilt fuer alle Seiten, sie teilen sich diese Kopfzeile. */
+.app { grid-template-rows: minmax(var(--header-h), auto) 1fr; }
+.header {
+  flex-wrap: wrap;
+  min-height: var(--header-h);
+  padding: 8px 32px;
+  gap: 8px 16px;
+}
+.header__brand { flex-wrap: wrap; }
+.header__nav { flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .header { padding: 10px 16px; align-items: flex-start; }
+  .header__brand { gap: 8px; }
+  .header__title { font-size: .95rem; }
+  .header__nav { margin-left: 0; gap: 4px 6px; }
+  .header__nav-link { padding: 5px 9px; font-size: .76rem; }
+}
+
+@media (max-width: 560px) {
+  .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .kpi-card { padding: 14px 16px; }
+  .kpi-card__value { font-size: 1.7rem; }
+  .rf-eb { grid-template-columns: 112px 1fr 32px 28px 48px; gap: 5px; }
+  .rf-stack__key { grid-template-columns: 1fr; }
+  .month-chart { gap: 6px; }
+}

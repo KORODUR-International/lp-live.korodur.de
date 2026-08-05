@@ -22,5 +22,17 @@
     "unbekannt": 1,
     "puffer": 2,
     "vorlauf_wochen": 0.0
+  },
+  {
+    "date": "2026-08-05",
+    "ideen": 27,
+    "in_arbeit": 7,
+    "in_pruefung": 30,
+    "freigegeben": 4,
+    "eingeplant": 2,
+    "gepostet": 20,
+    "unbekannt": 1,
+    "puffer": 6,
+    "vorlauf_wochen": 0.0
   }
 ]

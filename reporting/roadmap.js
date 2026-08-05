@@ -35,6 +35,14 @@ const todayIso = () => {
   const d = new Date();
   return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 };
+// Einzige Heute-Quelle: dieselbe wie der Heute-Strich, sonst weicht die rote
+// Markierung von der Linie ab, die sie erklärt.
+const heuteIso = () => (DATA && DATA.heute) || todayIso();
+// „Überfällig" ist ein zur Laufzeit abgeleiteter Zustand, kein fünfter Statuswert
+// und kein Feld in der JSON. Entfallene Termine werden nie rot.
+const isLate = m => m.datum < heuteIso() && m.status !== 'erreicht' && m.status !== 'entfallen';
+const LATE_LABEL = 'überfällig';
+const lateChipHtml = '<span class="rm-latechip">überfällig</span>';
 const state = {
   zoom: 'h2p',
   fix: false,               // externe Fixpunkte (Standard: ausgeblendet, Review 14.07.)
@@ -88,14 +96,28 @@ function monthsInWindow() {
   return months;
 }
 
-// Fortschritt: erreicht / (gesamt ohne entfallen); verschoben zählt als offen
+// Fortschritt: erreicht / (gesamt ohne entfallen); verschoben zählt als offen.
+// late immer auf dem vollen Meilensteinsatz der Lane, nie auf der gefilterten
+// Sicht: sonst springt die Zahl beim Umschalten der Toolbar.
 function progress(meilensteine) {
   const rel = meilensteine.filter(m => m.status !== 'entfallen');
-  return { done: rel.filter(m => m.status === 'erreicht').length, total: rel.length };
+  return {
+    done: rel.filter(m => m.status === 'erreicht').length,
+    total: rel.length,
+    late: rel.filter(isLate).length,
+  };
 }
 function overallProgress() {
   const all = DATA.lanes.flatMap(l => l.meilensteine);
   return progress(all);
+}
+// Balken: erreichter Anteil in Area-Farbe, Verzugsanteil in Rot direkt dahinter.
+function progressBarHtml(p, color, big) {
+  const share = n => (p.total ? (n / p.total) * 100 : 0);
+  return `<div class="rm-progress${big ? ' rm-progress--big' : ''}">
+      <div class="rm-progress__fill" style="width:${share(p.done)}%;--rm-c:${color}"></div>
+      ${p.late ? `<div class="rm-progress__late" style="width:${share(p.late)}%"></div>` : ''}
+    </div>`;
 }
 
 function visibleMs(list) {
@@ -154,13 +176,18 @@ function findMs(id) {
 /* --- Marker-HTML --- */
 function markerHtml(m, laneId, color) {
   const x = pct(m.datum);
+  const late = isLate(m);
   const cls = ['rm-marker', 'rm-marker--' + m.typ];
   if (m.status === 'erreicht') cls.push('is-done');
   if (m.status === 'verschoben') cls.push('is-moved');
+  if (late) cls.push('is-late');
   if (state.selected && state.selected.kind === 'ms' && state.selected.id === m.id) cls.push('is-selected');
-  return `<button type="button" class="${cls.join(' ')}" style="left:${x}%;--rm-c:${color}"
+  // Verzug färbt den Marker über --rm-c ein, statt einen vierten Ring zu legen:
+  // is-moved und is-selected belegen die box-shadow-Ebene bereits.
+  const c = late ? 'var(--danger)' : color;
+  return `<button type="button" class="${cls.join(' ')}" style="left:${x}%;--rm-c:${c}"
     data-ms="${esc(m.id)}" data-lane="${esc(laneId || '')}"
-    aria-label="${esc(m.titel)} (${fmtDate(m.datum)})"></button>`;
+    aria-label="${esc(m.titel)} (${fmtDate(m.datum)}${late ? ', ' + LATE_LABEL : ''})"></button>`;
 }
 function labelHtml(m, idx) {
   const x = pct(m.datum);
@@ -171,8 +198,9 @@ function labelHtml(m, idx) {
   const warn = m.klaerung ? '⚠ ' : '';
   const done = m.status === 'erreicht' ? '✓ ' : '';
   const moved = m.status === 'verschoben' ? ' (verschoben)' : '';
+  const lateCls = isLate(m) ? ' is-late' : '';
   return `<div class="rm-mslabel rm-mslabel--${side}" style="${anchor}">
-    <span class="rm-mslabel__d">${fmtShort(m.datum)}</span> ${done}${warn}<b>${esc(m.titel)}</b>${confSymbolHtml(m.confidence)}${moved}
+    <span class="rm-mslabel__d${lateCls}">${fmtShort(m.datum)}</span> ${done}${warn}<b>${esc(m.titel)}</b>${confSymbolHtml(m.confidence)}${moved}
   </div>`;
 }
 
@@ -214,7 +242,7 @@ function laneRowHtml(lane) {
     }).join('');
   }
   const gridHtml = monthsInWindow().slice(1).map(m => `<div class="rm-grid-v" style="left:${m.left}%"></div>`).join('');
-  const today = DATA.heute || todayIso();
+  const today = heuteIso();
   const todayHtml = inWindow(today) ? `<div class="rm-today" style="left:${pct(today)}%"></div>` : '';
   const selCls = state.selected && state.selected.kind === 'lane' && state.selected.id === lane.id ? ' is-selected' : '';
 
@@ -224,8 +252,9 @@ function laneRowHtml(lane) {
       <button type="button" class="rm-lane__name" data-lanebtn="${esc(lane.id)}">${esc(lane.name)}</button>
       ${lane.hinweis ? `<div class="rm-lane__note">${esc(lane.hinweis)}</div>` : ''}
       <div class="rm-lane__progress">
-        <div class="rm-progress"><div class="rm-progress__fill" style="width:${p.total ? (p.done / p.total) * 100 : 0}%;--rm-c:${color}"></div></div>
+        ${progressBarHtml(p, color)}
         <span class="rm-lane__count">${p.done}/${p.total}</span>
+        ${p.late ? `<span class="rm-lane__late">${p.late} ${LATE_LABEL}</span>` : ''}
       </div>
     </div>
     <div class="rm-lane__zone">
@@ -260,7 +289,7 @@ function fixRowHtml() {
 function chartHtml() {
   const months = monthsInWindow();
   const z = zoomDef();
-  const today = DATA.heute || todayIso();
+  const today = heuteIso();
   const lanes = activeLanes();
   const groups = [];
   let last = null;
@@ -298,13 +327,19 @@ function chartHtml() {
 function toolbarHtml() {
   const toggle = (id, label, on) =>
     `<label class="rm-toggle"><input type="checkbox" data-toggle="${id}" ${on ? 'checked' : ''}><span>${label}</span></label>`;
+  // Fixpunkte zählen nicht in die Erfüllungsquote (ein externer Ausfall darf die
+  // eigene Leistungsaussage nicht einfärben), bekommen aber einen Hinweispunkt.
+  const fixLate = DATA.fixpunkte.filter(isLate).length;
+  const fixLabel = 'Externe Fixpunkte' + (fixLate
+    ? ` <span class="rm-dotlate" role="img" title="${fixLate} ${fixLate === 1 ? 'externer Fixpunkt' : 'externe Fixpunkte'} ${LATE_LABEL}" aria-label="${fixLate} ${LATE_LABEL}"></span>`
+    : '');
   return `
   <div class="status-section rm-toolbar">
     <div class="rm-toolbar__group" role="group" aria-label="Zeitraum">
       ${ZOOMS.map(z => `<button type="button" class="rm-zoombtn${state.zoom === z.key ? ' is-active' : ''}" data-zoom="${z.key}">${z.label}</button>`).join('')}
     </div>
     <div class="rm-toolbar__group">
-      ${toggle('fix', 'Externe Fixpunkte', state.fix)}
+      ${toggle('fix', fixLabel, state.fix)}
       ${toggle('dec', 'Entscheidungspunkte', state.decisions)}
       ${toggle('done', 'Erreichte', state.achieved)}
     </div>
@@ -333,7 +368,7 @@ function detailHtml() {
       <div class="rm-detail__head">
         <span class="rm-swatch" style="background:${color}"></span>
         <h3 class="rm-detail__title">${esc(lane.name)}</h3>
-        <span class="rm-detail__meta">${esc(areaOf(lane.area).name)}${zeitraumTxt}${lane.weiter2027 ? ' · 2027: ' + esc(lane.weiter2027) : ''} · Fortschritt ${p.done}/${p.total}</span>
+        <span class="rm-detail__meta">${esc(areaOf(lane.area).name)}${zeitraumTxt}${lane.weiter2027 ? ' · 2027: ' + esc(lane.weiter2027) : ''} · Fortschritt ${p.done}/${p.total}${p.late ? ` · <span class="rm-late">${p.late} ${LATE_LABEL}</span>` : ''}</span>
         <button type="button" class="rm-detail__close" data-close aria-label="Schließen">×</button>
       </div>
       ${lane.hinweis ? `<p class="rm-detail__note">${esc(lane.hinweis)}</p>` : ''}
@@ -341,9 +376,10 @@ function detailHtml() {
         ${lane.meilensteine.map(m => `
           <li class="rm-detail__item${m.status === 'entfallen' ? ' is-gone' : ''}">
             <button type="button" class="rm-detail__mslink" data-ms="${esc(m.id)}" data-lane="${esc(lane.id)}">
-              <span class="rm-detail__d">${fmtShort(m.datum)}</span>
+              <span class="rm-detail__d${isLate(m) ? ' is-late' : ''}">${fmtShort(m.datum)}</span>
               ${m.status === 'erreicht' ? '✓ ' : ''}${m.klaerung ? '⚠ ' : ''}${esc(m.titel)}
               <span class="rm-detail__status rm-detail__status--${m.status}">${STATUS_LABEL[m.status] || esc(m.status)}</span>
+              ${isLate(m) ? lateChipHtml : ''}
             </button>
           </li>`).join('')}
       </ul>
@@ -365,8 +401,10 @@ function detailHtml() {
     </div>
     <p class="rm-detail__body">
       Status: <span class="rm-detail__status rm-detail__status--${m.status}">${STATUS_LABEL[m.status] || esc(m.status)}</span>
+      ${isLate(m) ? lateChipHtml : ''}
       ${m.erreichtAm ? ' am ' + fmtDate(m.erreichtAm) : ''} ${issueLink ? ' · Issue ' + issueLink : ''}
     </p>
+    ${isLate(m) ? `<p class="rm-detail__warn">Termin überschritten: geplant war ${fmtDate(m.datum)}</p>` : ''}
     ${m.details ? `<p class="rm-detail__body">${esc(m.details)}</p>` : ''}
     ${m.confidence ? `<p class="rm-detail__body">Confidence: <b>${CONF_LABEL[m.confidence]}</b> ${confSymbolHtml(m.confidence)}</p>` : ''}
     ${m.abhaengigkeit ? `<p class="rm-detail__body">Abhängigkeit: ${esc(m.abhaengigkeit)}</p>` : ''}
@@ -397,15 +435,17 @@ function tableHtml() {
     <table class="proj-table rm-table">
       <thead><tr><th>Datum</th><th>Area</th><th>Kernschwerpunkt</th><th>Meilenstein</th><th>Typ</th><th>Status</th></tr></thead>
       <tbody>
-        ${rows.map(r => `
+        ${rows.map(r => {
+          const late = isLate(r.m);
+          return `
         <tr class="${r.m.status === 'entfallen' ? 'is-gone' : ''}">
-          <td class="rm-table__d">${fmtDate(r.m.datum)}</td>
+          <td class="rm-table__d${late ? ' is-late' : ''}">${fmtDate(r.m.datum)}</td>
           <td>${esc(r.area)}</td>
           <td>${esc(r.lane)}</td>
           <td class="proj-table__name">${r.m.klaerung ? '⚠ ' : ''}${esc(r.m.titel)}</td>
           <td>${TYP_LABEL[r.m.typ] || esc(r.m.typ)}</td>
-          <td><span class="rm-detail__status rm-detail__status--${r.m.status}">${STATUS_LABEL[r.m.status] || esc(r.m.status)}</span></td>
-        </tr>`).join('')}
+          <td><span class="rm-detail__status rm-detail__status--${r.m.status}">${STATUS_LABEL[r.m.status] || esc(r.m.status)}</span>${late ? ' ' + lateChipHtml : ''}</td>
+        </tr>`; }).join('')}
       </tbody>
     </table>
   </details>`;
@@ -419,6 +459,8 @@ function legendHtml() {
     <span class="rm-legend__item"><span class="rm-shape rm-shape--fix"></span> Externer Fixpunkt</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--solid"></span> committed</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--dash"></span> läuft im Hintergrund / nicht committed bzw. vorläufig</span>
+    <span class="rm-legend__item"><span class="rm-shape rm-shape--late"></span> Termin überschritten</span>
+    <span class="rm-legend__item"><span class="rm-shape rm-shape--moved"></span> verschoben</span>
     <span class="rm-legend__item">⚠ Abhängigkeit / zu klären</span>
     <span class="rm-legend__item">✓ erreicht</span>
     <span class="rm-legend__item">Confidence: <span class="rm-conf rm-conf--hoch">●●●</span> hoch · <span class="rm-conf rm-conf--mittel">●●○</span> mittel · <span class="rm-conf rm-conf--niedrig">●○○</span> niedrig</span>
@@ -465,6 +507,7 @@ function bindTooltip(root) {
       tip.innerHTML = `
         <div class="rm-tip__date">${fmtDate(m.datum)} · ${lane ? esc(areaOf(lane.area).name) + ' · ' + esc(lane.name) : 'Externer Fixpunkt'}</div>
         <div class="rm-tip__title">${m.status === 'erreicht' ? '✓ ' : ''}${esc(m.titel)}</div>
+        ${isLate(m) ? `<div class="rm-tip__late">Termin überschritten</div>` : ''}
         ${m.confidence ? `<div class="rm-tip__conf">Confidence: ${CONF_LABEL[m.confidence]} ${confSymbolHtml(m.confidence)}</div>` : ''}
         ${m.details ? `<div class="rm-tip__body">${esc(m.details)}</div>` : ''}
         ${m.abhaengigkeit ? `<div class="rm-tip__dep">Abhängigkeit: ${esc(m.abhaengigkeit)}</div>` : ''}
@@ -497,8 +540,8 @@ function render() {
         <div class="rm-head__meta">Stand ${fmtDate(DATA.stand)} · Version ${esc(DATA.version)}${DATA.hinweis ? ' · ' + esc(DATA.hinweis.split('.')[0]) : ''}</div>
       </div>
       <div class="rm-head__progress">
-        <span class="rm-head__count"><b>${p.done}</b> von <b>${p.total}</b> Meilensteinen erreicht</span>
-        <div class="rm-progress rm-progress--big"><div class="rm-progress__fill" style="width:${p.total ? (p.done / p.total) * 100 : 0}%;--rm-c:var(--secondary)"></div></div>
+        <span class="rm-head__count"><b>${p.done}</b> von <b>${p.total}</b> Meilensteinen erreicht${p.late ? ` · <span class="rm-late"><b>${p.late}</b> ${LATE_LABEL}</span>` : ''}</span>
+        ${progressBarHtml(p, 'var(--secondary)', true)}
       </div>
     </div>
     ${toolbarHtml()}

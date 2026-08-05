@@ -759,41 +759,86 @@ function escapeHtml(s) {
 }
 
 // ─── Segment-Zeile (Fach-Segmente neben dem Board) ───
-// Zeigt die Ampelwerte des Redaktions-Segments, sofern schon Snapshots da
-// sind. Fehlt die Datenquelle (Secret noch nicht gesetzt), bleibt die Zeile
-// einfach weg — die Board-Seite bricht nie.
+// Zeigt die Kernzahlen der Fach-Segmente, sofern schon Snapshots da sind.
+// Jedes Segment laedt fuer sich: fehlt eine Datenquelle (Secret noch nicht
+// gesetzt, Notion-Ausfall), faellt nur diese Karte weg, nie die ganze Zeile
+// und nie die Board-Seite.
 async function loadSegmentStrip() {
   const host = document.getElementById('segment-strip');
   if (!host) return;
+
+  const karten = (await Promise.all([segRedaktion(), segReferenzen()])).filter(Boolean);
+  if (!karten.length) return;
+
+  host.innerHTML = `
+    <div class="segment-strip fade-in">
+      <div class="segment-strip__title">SEGMENTE</div>
+      ${karten.join('')}
+    </div>
+  `;
+}
+
+// Neuesten Snapshot eines Segments holen. Fehlt etwas, gibt es null statt
+// einer Ausnahme, damit ein Segment das andere nicht mitreisst.
+async function segLatest(dir) {
   try {
-    const idxRes = await fetch('data/redaktion/index.json');
-    if (!idxRes.ok) return;
+    const idxRes = await fetch(dir + 'index.json');
+    if (!idxRes.ok) return null;
     const keys = await idxRes.json();
-    if (!Array.isArray(keys) || keys.length === 0) return;
-    const res = await fetch('data/redaktion/' + keys[0] + '.json');
-    if (!res.ok) return;
-    const d = await res.json();
+    if (!Array.isArray(keys) || keys.length === 0) return null;
+    const res = await fetch(dir + keys[0] + '.json');
+    if (!res.ok) return null;
+    return await res.json();
+  } catch { return null; }
+}
 
-    const [lo, hi] = d.puffer_ziel || [8, 12];
-    const state = (d.puffer >= lo && d.puffer <= hi) ? 'ok'
-      : (d.puffer >= Math.ceil(lo / 2) || d.puffer > hi) ? 'warn' : 'crit';
-    const freq = (d.frequenz || {}).pro_woche_linkedin ?? 0;
+async function segRedaktion() {
+  const d = await segLatest('data/redaktion/');
+  if (!d) return '';
 
-    host.innerHTML = `
-      <div class="segment-strip fade-in">
-        <div class="segment-strip__title">SEGMENTE</div>
-        <a class="seg-card" href="redaktion.html">
-          <span class="ampel ampel--${state}"></span>
-          <span class="seg-card__name">📝 Redaktion</span>
-          <span class="seg-card__kpi">Puffer <strong>${d.puffer}</strong> (Ziel ${lo}&ndash;${hi})</span>
-          <span class="seg-card__kpi">Vorlauf <strong>${d.vorlauf_wochen} Wo</strong></span>
-          <span class="seg-card__kpi">LinkedIn <strong>${freq}/Wo</strong></span>
-          <span class="seg-card__kpi">In Pr&uuml;fung <strong>${(d.totals || {}).in_pruefung || 0}</strong></span>
-          <span class="seg-card__link">Details &rarr;</span>
-        </a>
-      </div>
-    `;
-  } catch { /* Segment-Zeile ist optional */ }
+  const [lo, hi] = d.puffer_ziel || [8, 12];
+  const state = (d.puffer >= lo && d.puffer <= hi) ? 'ok'
+    : (d.puffer >= Math.ceil(lo / 2) || d.puffer > hi) ? 'warn' : 'crit';
+  const freq = (d.frequenz || {}).pro_woche_linkedin ?? 0;
+
+  return `
+    <a class="seg-card" href="redaktion.html">
+      <span class="ampel ampel--${state}"></span>
+      <span class="seg-card__name">📝 Redaktion</span>
+      <span class="seg-card__kpi">Puffer <strong>${d.puffer}</strong> (Ziel ${lo}&ndash;${hi})</span>
+      <span class="seg-card__kpi">Vorlauf <strong>${d.vorlauf_wochen} Wo</strong></span>
+      <span class="seg-card__kpi">LinkedIn <strong>${freq}/Wo</strong></span>
+      <span class="seg-card__kpi">In Pr&uuml;fung <strong>${(d.totals || {}).in_pruefung || 0}</strong></span>
+      <span class="seg-card__link">Details &rarr;</span>
+    </a>
+  `;
+}
+
+async function segReferenzen() {
+  const d = await segLatest('data/snapshots/referenzen/');
+  if (!d) return '';
+
+  const t = d.totals || {};
+  const z = d.ziel || {};
+  const ziel = z.zielwert || 0;
+  const erarbeitet = z.ab_de_freigabe || 0;
+  // Ampel am Jahresziel, nicht am Bestand: der Bestand ist ueberwiegend
+  // Altbestand und sagt nichts ueber unseren Fortschritt.
+  const state = !ziel ? 'warn'
+    : erarbeitet >= ziel ? 'ok'
+      : erarbeitet > 0 ? 'warn' : 'crit';
+
+  return `
+    <a class="seg-card" href="referenzen.html">
+      <span class="ampel ampel--${state}"></span>
+      <span class="seg-card__name">🏗️ Referenzen</span>
+      <span class="seg-card__kpi">Jahresziel <strong>${erarbeitet}/${ziel}</strong> Prio&nbsp;A</span>
+      <span class="seg-card__kpi">Bestand <strong>${d.gesamt ?? 0}</strong></span>
+      <span class="seg-card__kpi">In Arbeit <strong>${t.in_arbeit || 0}</strong></span>
+      <span class="seg-card__kpi">Datenschuld <strong>${(d.datenschuld || {}).eintraege_betroffen ?? 0}</strong></span>
+      <span class="seg-card__link">Details &rarr;</span>
+    </a>
+  `;
 }
 
 // ─── Empty State ─────────────────────────────────────

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-08-05",
-    "generated_at": "2026-08-05T05:57:57.294875+00:00",
+    "generated_at": "2026-08-05T08:26:51.842205+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -9,9 +9,9 @@
   },
   "totals": {
     "items": 395,
-    "done": 232,
+    "done": 235,
     "in_progress": 17,
-    "open": 113,
+    "open": 110,
     "blocked": 16,
     "discarded": 17,
     "bereit": 17
@@ -19,11 +19,11 @@
   "by_status": {
     "Backlog": 88,
     "Bereit": 17,
-    "Beansprucht": 8,
+    "Beansprucht": 5,
     "In Progress": 7,
     "In Review": 10,
     "Blocked": 16,
-    "Done": 249
+    "Done": 252
   },
   "by_owner": {
     "Human": 42,
@@ -41,8 +41,8 @@
   "by_status_priority": {
     "open": {
       "P0": 1,
-      "P1": 37,
-      "P2": 64,
+      "P1": 35,
+      "P2": 63,
       "P3": 11,
       "none": 0
     },
@@ -62,8 +62,8 @@
     },
     "done": {
       "P0": 5,
-      "P1": 118,
-      "P2": 95,
+      "P1": 120,
+      "P2": 96,
       "P3": 13,
       "none": 1
     }
@@ -132,9 +132,9 @@
     {
       "name": "AI & Infrastruktur",
       "total": 46,
-      "done": 26,
+      "done": 29,
       "in_progress": 5,
-      "open": 15,
+      "open": 12,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
@@ -179,9 +179,9 @@
     {
       "name": "KORODUR-International/korodur-operating-model",
       "total": 55,
-      "done": 32,
+      "done": 35,
       "in_progress": 2,
-      "open": 21,
+      "open": 18,
       "blocked": 0,
       "discarded": 0,
       "by_owner": {
@@ -411,7 +411,7 @@
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
-    "2026-08": 31
+    "2026-08": 34
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -421,6 +421,6 @@
     "2026-W28": 23,
     "2026-W29": 16,
     "2026-W31": 1,
-    "2026-W32": 31
+    "2026-W32": 34
   }
 }

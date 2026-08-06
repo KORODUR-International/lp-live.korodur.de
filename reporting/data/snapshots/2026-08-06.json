@@ -1,0 +1,445 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-08-06",
+    "generated_at": "2026-08-06T08:24:52.396888+00:00",
+    "source": "GitHub Projects v2 — KORODUR Work Cockpit",
+    "org": "KORODUR-International",
+    "project_number": 1,
+    "version": "2.0"
+  },
+  "totals": {
+    "items": 437,
+    "done": 252,
+    "in_progress": 19,
+    "open": 132,
+    "blocked": 17,
+    "discarded": 17,
+    "bereit": 30
+  },
+  "by_status": {
+    "Backlog": 93,
+    "Bereit": 30,
+    "Beansprucht": 9,
+    "In Progress": 9,
+    "In Review": 10,
+    "Blocked": 17,
+    "Done": 269
+  },
+  "by_owner": {
+    "Human": 49,
+    "Claude": 277,
+    "Either": 110,
+    "none": 1
+  },
+  "by_priority": {
+    "P0": 8,
+    "P1": 207,
+    "P2": 191,
+    "P3": 30,
+    "none": 1
+  },
+  "by_status_priority": {
+    "open": {
+      "P0": 2,
+      "P1": 47,
+      "P2": 71,
+      "P3": 12,
+      "none": 0
+    },
+    "in_progress": {
+      "P0": 0,
+      "P1": 14,
+      "P2": 4,
+      "P3": 1,
+      "none": 0
+    },
+    "blocked": {
+      "P0": 0,
+      "P1": 10,
+      "P2": 5,
+      "P3": 2,
+      "none": 0
+    },
+    "done": {
+      "P0": 6,
+      "P1": 133,
+      "P2": 98,
+      "P3": 14,
+      "none": 1
+    }
+  },
+  "areas": [
+    {
+      "name": "Marketing",
+      "total": 296,
+      "done": 181,
+      "in_progress": 6,
+      "open": 83,
+      "blocked": 11,
+      "discarded": 15,
+      "by_owner": {
+        "Human": 28,
+        "Claude": 186,
+        "Either": 81,
+        "none": 1
+      }
+    },
+    {
+      "name": "CRM & Sales Ops",
+      "total": 12,
+      "done": 2,
+      "in_progress": 1,
+      "open": 9,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 3,
+        "Claude": 3,
+        "Either": 6,
+        "none": 0
+      }
+    },
+    {
+      "name": "Internationalisierung",
+      "total": 20,
+      "done": 15,
+      "in_progress": 1,
+      "open": 2,
+      "blocked": 1,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 15,
+        "Either": 4,
+        "none": 0
+      }
+    },
+    {
+      "name": "Wissensaufbau",
+      "total": 38,
+      "done": 15,
+      "in_progress": 4,
+      "open": 15,
+      "blocked": 3,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 8,
+        "Claude": 23,
+        "Either": 7,
+        "none": 0
+      }
+    },
+    {
+      "name": "AI & Infrastruktur",
+      "total": 61,
+      "done": 36,
+      "in_progress": 7,
+      "open": 17,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 5,
+        "Claude": 45,
+        "Either": 11,
+        "none": 0
+      }
+    },
+    {
+      "name": "Strategie",
+      "total": 10,
+      "done": 3,
+      "in_progress": 0,
+      "open": 6,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 4,
+        "Claude": 5,
+        "Either": 1,
+        "none": 0
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "sfleischmann-3steps2/KORODUR-Website",
+      "total": 238,
+      "done": 155,
+      "in_progress": 1,
+      "open": 56,
+      "blocked": 10,
+      "discarded": 16,
+      "by_owner": {
+        "Human": 20,
+        "Claude": 160,
+        "Either": 57,
+        "none": 1
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-operating-model",
+      "total": 56,
+      "done": 35,
+      "in_progress": 2,
+      "open": 19,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 5,
+        "Claude": 38,
+        "Either": 13,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-referenzverzeichnis",
+      "total": 45,
+      "done": 17,
+      "in_progress": 3,
+      "open": 23,
+      "blocked": 2,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 5,
+        "Claude": 25,
+        "Either": 15,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-produktdatenbank",
+      "total": 26,
+      "done": 15,
+      "in_progress": 2,
+      "open": 7,
+      "blocked": 2,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 4,
+        "Claude": 18,
+        "Either": 4,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-crm",
+      "total": 19,
+      "done": 2,
+      "in_progress": 5,
+      "open": 12,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 5,
+        "Claude": 7,
+        "Either": 7,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-redaktion",
+      "total": 18,
+      "done": 11,
+      "in_progress": 1,
+      "open": 6,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 10,
+        "Either": 6,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-lokale-ki",
+      "total": 13,
+      "done": 6,
+      "in_progress": 2,
+      "open": 4,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 3,
+        "Claude": 9,
+        "Either": 1,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-translation",
+      "total": 10,
+      "done": 8,
+      "in_progress": 1,
+      "open": 0,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 8,
+        "Either": 2,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-ausschreibungstexte",
+      "total": 4,
+      "done": 2,
+      "in_progress": 0,
+      "open": 1,
+      "blocked": 0,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 0,
+        "Either": 2,
+        "none": 0
+      }
+    },
+    {
+      "name": "(Draft / kein Repo)",
+      "total": 3,
+      "done": 0,
+      "in_progress": 1,
+      "open": 2,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 0,
+        "Either": 2,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-tds-output",
+      "total": 2,
+      "done": 0,
+      "in_progress": 1,
+      "open": 1,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 1,
+        "Either": 1,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-rapidset",
+      "total": 2,
+      "done": 1,
+      "in_progress": 0,
+      "open": 1,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 1,
+        "Either": 0,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-military",
+      "total": 1,
+      "done": 0,
+      "in_progress": 0,
+      "open": 0,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 0,
+        "Either": 0,
+        "none": 0
+      }
+    }
+  ],
+  "blocked_items": [
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Marketing",
+      "grund": null
+    },
+    {
+      "bereich": "Internationalisierung",
+      "grund": null
+    },
+    {
+      "bereich": "Wissensaufbau",
+      "grund": "Wartet nur noch auf #25 (Dublette ArtNr 1220052 + MICROTOP-Nummern). #22 ist durch."
+    },
+    {
+      "bereich": "Wissensaufbau",
+      "grund": null
+    },
+    {
+      "bereich": "Wissensaufbau",
+      "grund": null
+    },
+    {
+      "bereich": "AI & Infrastruktur",
+      "grund": null
+    },
+    {
+      "bereich": "Strategie",
+      "grund": null
+    }
+  ],
+  "done_by_month": {
+    "2026-06": 126,
+    "2026-07": 75,
+    "2026-08": 51
+  },
+  "done_by_week": {
+    "2026-W24": 34,
+    "2026-W25": 42,
+    "2026-W26": 40,
+    "2026-W27": 45,
+    "2026-W28": 23,
+    "2026-W29": 16,
+    "2026-W31": 1,
+    "2026-W32": 51
+  }
+}

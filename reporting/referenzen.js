@@ -50,12 +50,16 @@ const REF_OHNE_STATUS = { key: 'ohne_status', label: 'Ohne Status', color: 'var(
 // verwechseln mit der Anzeigereihenfolge der Website (KORODUR-Website#496).
 // Schwerindustrie und Industrie & Produktion stehen beide auf Prio 1, deshalb
 // steht in der Spalte zweimal die 1 und danach die 3.
-// Die Namen muessen wortgleich zu den Notion-Optionen sein.
+// Die Namen muessen wortgleich zu den Notion-Optionen sein. Am 06.08.2026 war
+// das einen halben Tag lang nicht der Fall: der vierte Bereich hiess bis dahin
+// "Außenflächen / ..." und fiel dadurch mit 46 Nennungen in die offene
+// Zuordnung, waehrend die Tabelle ihn mit 0 auswies. Seither wacht das
+// Begriffs-Gate darueber (.verbotene-begriffe).
 const REF_EINSATZBEREICHE = [
   { name: 'Schwerindustrie', prio: 1 },
   { name: 'Industrie & Produktion', prio: 1 },
   { name: 'Lager & Logistik', prio: 3 },
-  { name: 'Außenflächen / Luftverkehr & öffentlicher Verkehr', prio: 4 },
+  { name: 'Luftverkehr & öffentlicher Verkehr', prio: 4 },
   { name: 'Parkdeck & Tiefgarage', prio: 5 },
   { name: 'Verkauf & Ausstellung', prio: 6 },
 ];

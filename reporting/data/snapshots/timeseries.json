@@ -743,17 +743,17 @@
   },
   {
     "date": "2026-08-07",
-    "items": 451,
-    "done": 255,
+    "items": 465,
+    "done": 257,
     "in_progress": 24,
-    "open": 111,
+    "open": 122,
     "blocked": 44,
-    "discarded": 17,
-    "bereit": 26,
+    "discarded": 18,
+    "bereit": 24,
     "by_owner": {
-      "Human": 59,
-      "Claude": 287,
-      "Either": 104,
+      "Human": 62,
+      "Claude": 293,
+      "Either": 109,
       "none": 1
     }
   }

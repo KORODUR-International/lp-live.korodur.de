@@ -1,53 +1,53 @@
 {
   "_meta": {
     "snapshot_date": "2026-08-09",
-    "generated_at": "2026-08-09T06:44:32.924276+00:00",
+    "generated_at": "2026-08-09T19:15:43.175621+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "2.0"
   },
   "totals": {
-    "items": 469,
-    "done": 261,
-    "in_progress": 25,
-    "open": 121,
+    "items": 488,
+    "done": 262,
+    "in_progress": 26,
+    "open": 138,
     "blocked": 44,
     "discarded": 18,
-    "bereit": 28
+    "bereit": 34
   },
   "by_status": {
-    "Backlog": 86,
-    "Bereit": 28,
-    "Beansprucht": 7,
+    "Backlog": 95,
+    "Bereit": 34,
+    "Beansprucht": 9,
     "In Progress": 6,
-    "In Review": 19,
+    "In Review": 20,
     "Blocked": 44,
-    "Done": 279
+    "Done": 280
   },
   "by_owner": {
-    "Human": 65,
-    "Claude": 293,
-    "Either": 110,
+    "Human": 68,
+    "Claude": 304,
+    "Either": 115,
     "none": 1
   },
   "by_priority": {
-    "P0": 9,
-    "P1": 219,
-    "P2": 201,
-    "P3": 39,
+    "P0": 11,
+    "P1": 223,
+    "P2": 212,
+    "P3": 41,
     "none": 1
   },
   "by_status_priority": {
     "open": {
       "P0": 0,
-      "P1": 40,
-      "P2": 61,
-      "P3": 20,
+      "P1": 44,
+      "P2": 72,
+      "P3": 22,
       "none": 0
     },
     "in_progress": {
-      "P0": 1,
+      "P0": 2,
       "P1": 14,
       "P2": 8,
       "P3": 2,
@@ -61,7 +61,7 @@
       "none": 0
     },
     "done": {
-      "P0": 7,
+      "P0": 8,
       "P1": 140,
       "P2": 99,
       "P3": 14,
@@ -71,29 +71,29 @@
   "areas": [
     {
       "name": "Marketing",
-      "total": 303,
+      "total": 309,
       "done": 187,
-      "in_progress": 12,
-      "open": 61,
+      "in_progress": 14,
+      "open": 65,
       "blocked": 28,
       "discarded": 15,
       "by_owner": {
         "Human": 36,
-        "Claude": 191,
-        "Either": 75,
+        "Claude": 194,
+        "Either": 78,
         "none": 1
       }
     },
     {
       "name": "CRM & Sales Ops",
-      "total": 14,
+      "total": 15,
       "done": 2,
       "in_progress": 1,
-      "open": 9,
+      "open": 10,
       "blocked": 2,
       "discarded": 0,
       "by_owner": {
-        "Human": 5,
+        "Human": 6,
         "Claude": 2,
         "Either": 7,
         "none": 0
@@ -101,61 +101,61 @@
     },
     {
       "name": "Internationalisierung",
-      "total": 20,
+      "total": 22,
       "done": 15,
       "in_progress": 1,
-      "open": 2,
+      "open": 4,
       "blocked": 1,
       "discarded": 1,
       "by_owner": {
-        "Human": 1,
-        "Claude": 15,
+        "Human": 2,
+        "Claude": 16,
         "Either": 4,
         "none": 0
       }
     },
     {
       "name": "Wissensaufbau",
-      "total": 39,
+      "total": 41,
       "done": 15,
       "in_progress": 2,
-      "open": 13,
+      "open": 15,
       "blocked": 7,
       "discarded": 2,
       "by_owner": {
-        "Human": 10,
-        "Claude": 22,
+        "Human": 11,
+        "Claude": 23,
         "Either": 7,
         "none": 0
       }
     },
     {
       "name": "AI & Infrastruktur",
-      "total": 82,
-      "done": 39,
-      "in_progress": 9,
-      "open": 32,
+      "total": 87,
+      "done": 40,
+      "in_progress": 8,
+      "open": 37,
       "blocked": 2,
       "discarded": 0,
       "by_owner": {
         "Human": 9,
-        "Claude": 58,
+        "Claude": 63,
         "Either": 15,
         "none": 0
       }
     },
     {
       "name": "Strategie",
-      "total": 11,
+      "total": 14,
       "done": 3,
       "in_progress": 0,
-      "open": 4,
+      "open": 7,
       "blocked": 4,
       "discarded": 0,
       "by_owner": {
         "Human": 4,
-        "Claude": 5,
-        "Either": 2,
+        "Claude": 6,
+        "Either": 4,
         "none": 0
       }
     }
@@ -163,59 +163,59 @@
   "projects": [
     {
       "name": "sfleischmann-3steps2/KORODUR-Website",
-      "total": 243,
+      "total": 246,
       "done": 161,
-      "in_progress": 0,
-      "open": 41,
+      "in_progress": 1,
+      "open": 43,
       "blocked": 25,
       "discarded": 16,
       "by_owner": {
         "Human": 29,
-        "Claude": 164,
-        "Either": 49,
+        "Claude": 166,
+        "Either": 50,
         "none": 1
       }
     },
     {
-      "name": "KORODUR-International/korodur-operating-model",
-      "total": 67,
+      "name": "KORODUR-International/korodur-review-reporting",
+      "total": 76,
       "done": 35,
       "in_progress": 4,
-      "open": 26,
+      "open": 35,
       "blocked": 2,
       "discarded": 0,
       "by_owner": {
-        "Human": 9,
-        "Claude": 44,
-        "Either": 14,
+        "Human": 10,
+        "Claude": 50,
+        "Either": 16,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-referenzverzeichnis",
-      "total": 49,
+      "total": 50,
       "done": 17,
       "in_progress": 8,
-      "open": 20,
+      "open": 21,
       "blocked": 4,
       "discarded": 0,
       "by_owner": {
         "Human": 5,
-        "Claude": 28,
+        "Claude": 29,
         "Either": 16,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-produktdatenbank",
-      "total": 26,
+      "total": 27,
       "done": 15,
       "in_progress": 2,
-      "open": 6,
+      "open": 7,
       "blocked": 3,
       "discarded": 0,
       "by_owner": {
-        "Human": 4,
+        "Human": 5,
         "Claude": 18,
         "Either": 4,
         "none": 0
@@ -223,15 +223,30 @@
     },
     {
       "name": "KORODUR-International/korodur-crm",
-      "total": 21,
+      "total": 22,
       "done": 2,
       "in_progress": 5,
-      "open": 10,
+      "open": 11,
       "blocked": 3,
       "discarded": 1,
       "by_owner": {
-        "Human": 7,
+        "Human": 8,
         "Claude": 6,
+        "Either": 8,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-redaktion",
+      "total": 21,
+      "done": 12,
+      "in_progress": 3,
+      "open": 4,
+      "blocked": 2,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 11,
         "Either": 8,
         "none": 0
       }
@@ -239,8 +254,8 @@
     {
       "name": "KORODUR-International/korodur-lokale-ki",
       "total": 19,
-      "done": 8,
-      "in_progress": 2,
+      "done": 9,
+      "in_progress": 1,
       "open": 8,
       "blocked": 1,
       "discarded": 0,
@@ -252,31 +267,16 @@
       }
     },
     {
-      "name": "KORODUR-International/korodur-redaktion",
-      "total": 18,
-      "done": 12,
-      "in_progress": 2,
-      "open": 2,
-      "blocked": 2,
-      "discarded": 0,
-      "by_owner": {
-        "Human": 2,
-        "Claude": 10,
-        "Either": 6,
-        "none": 0
-      }
-    },
-    {
       "name": "KORODUR-International/korodur-translation",
-      "total": 10,
+      "total": 11,
       "done": 8,
       "in_progress": 1,
-      "open": 0,
+      "open": 1,
       "blocked": 1,
       "discarded": 0,
       "by_owner": {
         "Human": 0,
-        "Claude": 8,
+        "Claude": 9,
         "Either": 2,
         "none": 0
       }
@@ -553,7 +553,7 @@
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
-    "2026-08": 60
+    "2026-08": 61
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -563,6 +563,6 @@
     "2026-W28": 23,
     "2026-W29": 16,
     "2026-W31": 1,
-    "2026-W32": 60
+    "2026-W32": 61
   }
 }

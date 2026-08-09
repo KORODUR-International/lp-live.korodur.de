@@ -775,17 +775,17 @@
   },
   {
     "date": "2026-08-09",
-    "items": 469,
-    "done": 261,
-    "in_progress": 25,
-    "open": 121,
+    "items": 488,
+    "done": 262,
+    "in_progress": 26,
+    "open": 138,
     "blocked": 44,
     "discarded": 18,
-    "bereit": 28,
+    "bereit": 34,
     "by_owner": {
-      "Human": 65,
-      "Claude": 293,
-      "Either": 110,
+      "Human": 68,
+      "Claude": 304,
+      "Either": 115,
       "none": 1
     }
   }

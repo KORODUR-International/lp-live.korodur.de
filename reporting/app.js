@@ -469,7 +469,7 @@ function renderDashboard(data, prev) {
 
     <div class="footer">
       KORODUR Work Cockpit Reporting &mdash; Generiert am ${new Date(data._meta.generated_at).toLocaleDateString('de-DE')}
-      &mdash; <a href="https://github.com/KORODUR-International/korodur-operating-model" target="_blank">GitHub</a>
+      &mdash; <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank">GitHub</a>
     </div>
   `;
 }

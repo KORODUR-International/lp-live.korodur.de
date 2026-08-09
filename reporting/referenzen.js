@@ -54,12 +54,13 @@ const REF_OHNE_STATUS = { key: 'ohne_status', label: 'Ohne Status', color: 'var(
 // das einen halben Tag lang nicht der Fall: der vierte Bereich hiess bis dahin
 // "Außenflächen / ..." und fiel dadurch mit 46 Nennungen in die offene
 // Zuordnung, waehrend die Tabelle ihn mit 0 auswies. Seither wacht das
-// Begriffs-Gate darueber (.verbotene-begriffe).
+// Begriffs-Gate darueber (.verbotene-begriffe). Zweite Umbenennung 07.08.2026
+// (Abstimmung MH): der vierte Bereich heisst jetzt "Infrastruktur".
 const REF_EINSATZBEREICHE = [
   { name: 'Schwerindustrie', prio: 1 },
   { name: 'Industrie & Produktion', prio: 1 },
   { name: 'Lager & Logistik', prio: 3 },
-  { name: 'Luftverkehr & öffentlicher Verkehr', prio: 4 },
+  { name: 'Infrastruktur', prio: 4 },
   { name: 'Parkdeck & Tiefgarage', prio: 5 },
   { name: 'Verkauf & Ausstellung', prio: 6 },
 ];
@@ -172,9 +173,9 @@ function renderReferenzen(d) {
     <div class="footer">
       Referenz-Segment &middot; Quelle: Notion-Referenzverzeichnis (nur Aggregatzahlen)
       &middot; Kennzahlen-Definitionen:
-      <a href="https://github.com/KORODUR-International/korodur-operating-model/blob/main/docs/kennzahlen-referenzen.md" target="_blank">docs/kennzahlen-referenzen.md</a>
+      <a href="https://github.com/KORODUR-International/korodur-review-reporting/blob/main/docs/kennzahlen-referenzen.md" target="_blank">docs/kennzahlen-referenzen.md</a>
       &middot; Generiert am ${new Date(d._meta.generated_at).toLocaleDateString('de-DE')}
-      &middot; <a href="https://github.com/KORODUR-International/korodur-operating-model" target="_blank">GitHub</a>
+      &middot; <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank">GitHub</a>
     </div>
   `;
 }

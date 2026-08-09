@@ -139,7 +139,7 @@ function renderRedaktion(d) {
     <div class="footer">
       Redaktions-Segment &middot; Quelle: Notion-Redaktionsplan (nur Aggregatzahlen)
       &middot; Generiert am ${new Date(d._meta.generated_at).toLocaleDateString('de-DE')}
-      &middot; <a href="https://github.com/KORODUR-International/korodur-operating-model" target="_blank">GitHub</a>
+      &middot; <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank">GitHub</a>
     </div>
   `;
 }

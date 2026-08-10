@@ -1,0 +1,125 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-08-10",
+    "generated_at": "2026-08-10T07:20:19.331782+00:00",
+    "source": "Notion: KORODUR Referenzverzeichnis (Aggregat)",
+    "version": "1.1",
+    "hinweis": "Nur Aggregate. Objekttitel, Personen-, Betreiber-, Verarbeiter-, GU- und Architektennamen sowie Orte werden bewusst nicht gelesen.",
+    "unbekannte_status": {}
+  },
+  "gesamt": 172,
+  "totals": {
+    "offen": 35,
+    "in_arbeit": 5,
+    "in_abnahme": 0,
+    "freigegeben": 0,
+    "veroeffentlicht": 130,
+    "ohne_status": 2,
+    "unbekannt": 0
+  },
+  "by_status": {
+    "offen": 32,
+    "Zu Bearbeiten": 3,
+    "In Bearbeitung - inhaltlich": 2,
+    "Inhaltlich bearbeitet": 3,
+    "In Bearbeitung - Design": 0,
+    "Onepager erstellt": 0,
+    "Abnahme/Review fachlich": 0,
+    "DE-Freigabe": 0,
+    "Übersetzung": 0,
+    "Veröffentlicht": 130,
+    "(ohne)": 2
+  },
+  "by_ursprung": {
+    "Website": 130,
+    "Manuell": 24,
+    "Formular": 17,
+    "Bilderordner": 1
+  },
+  "freigabestatus": {
+    "Öffentlich": 103,
+    "Freigabe offen": 37,
+    "Öffentlich (anonymisiert)": 28,
+    "(ohne)": 3,
+    "Intern": 1
+  },
+  "ziel": {
+    "zielwert": 20,
+    "prioritaet": "high",
+    "high_gesamt": 24,
+    "ab_de_freigabe": 0,
+    "veroeffentlicht": 0,
+    "high_by_bucket": {
+      "offen": 19,
+      "in_arbeit": 5,
+      "in_abnahme": 0,
+      "freigegeben": 0,
+      "veroeffentlicht": 0,
+      "ohne_status": 0,
+      "unbekannt": 0
+    }
+  },
+  "zulauf": {
+    "je_monat": {
+      "2026-01": 5,
+      "2026-02": 1,
+      "2026-03": 0,
+      "2026-04": 1,
+      "2026-05": 0,
+      "2026-06": 7,
+      "2026-07": 27,
+      "2026-08": 1
+    },
+    "basis": "Übermittelt am (created_time)",
+    "ohne_ursprung": "Website",
+    "ausgeschlossen": 130
+  },
+  "durchsatz": {
+    "freigegeben_je_monat": null,
+    "veroeffentlicht_je_monat": null,
+    "messbar": false,
+    "grund": "Die Felder 'Freigegeben am' und 'Veröffentlicht am' gibt es im Referenzverzeichnis nicht (Stand 03.08.2026, bewusst nicht angelegt). Ohne Datumsstempel je Stufe können wir keinen Durchsatz je Monat messen. Der Wert steht deshalb auf null und nicht auf 0."
+  },
+  "datenschuld": {
+    "nennungen": {
+      "ohne_status": 2,
+      "ohne_produkt_relation": 8,
+      "freigabe_offen": 37,
+      "ohne_einsatzbereich": 41
+    },
+    "nennungen_gesamt": 88,
+    "eintraege_betroffen": 67,
+    "eintraege_gesamt": 172
+  },
+  "einsatzbereiche": {
+    "nennungen_gesamt": 156,
+    "eintraege_mit_nennung": 131,
+    "eintraege_gesamt": 172,
+    "items": [
+      {
+        "name": "Verkauf & Ausstellung",
+        "nennungen": 44
+      },
+      {
+        "name": "Infrastruktur",
+        "nennungen": 40
+      },
+      {
+        "name": "Industrie & Produktion",
+        "nennungen": 27
+      },
+      {
+        "name": "Lager & Logistik",
+        "nennungen": 25
+      },
+      {
+        "name": "Schwerindustrie",
+        "nennungen": 13
+      },
+      {
+        "name": "Parkdeck & Tiefgarage",
+        "nennungen": 7
+      }
+    ]
+  }
+}

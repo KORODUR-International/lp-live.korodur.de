@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "week": "2026-W32",
+    "range": [
+      "2026-08-03",
+      "2026-08-09"
+    ],
+    "generated_at": "2026-08-10T15:52:02.026438+00:00",
+    "source_dir": "imports/social/2026-08-10"
+  },
+  "linkedin": {
+    "posts": 3,
+    "impressions": 701,
+    "impressions_unique": 382,
+    "clicks": 56,
+    "reactions": 22,
+    "comments": 1,
+    "shares": 0,
+    "interactions": 23,
+    "engagement_rate": 0.1127
+  },
+  "facebook": {
+    "posts": 1,
+    "views": 61,
+    "interactions": 3
+  },
+  "instagram": {
+    "posts": 1,
+    "views": null,
+    "interactions": null
+  }
+}

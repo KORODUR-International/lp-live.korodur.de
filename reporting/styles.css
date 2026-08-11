@@ -1677,3 +1677,72 @@ h1, h2, h3, h4, h5 {
   .rf-stack__key { grid-template-columns: 1fr; }
   .month-chart { gap: 6px; }
 }
+
+/* ─── Redaktion GF-Dashboard (Issue #141) ──────────────────────────
+   Additive Ergänzungen für die Sichtbarkeits-/Ampel-Sektionen. Referenz:
+   konzepte/mockup-redaktion-dashboard-2026-08-10.html. Bestehende Klassen
+   (.kpi-card, .status-section, .funnel*, .ampel dot) bleiben unverändert
+   und werden hier nur um neue Varianten/Komponenten ergänzt. */
+
+.section-title {
+  color: var(--primary);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin: 26px 0 10px;
+}
+.section-title:first-child { margin-top: 0; }
+.section-title small {
+  color: var(--muted);
+  font-weight: normal;
+  letter-spacing: 0;
+  margin-left: 8px;
+  text-transform: none;
+}
+
+.kpi-card__value--hero { font-size: 2.9rem; }
+.kpi-card__delta { font-size: .78rem; font-weight: 700; margin-top: 2px; }
+.kpi-card__delta--up { color: var(--success); }
+.kpi-card__delta--down { color: var(--danger); }
+.kpi-card__delta small { color: var(--muted); font-weight: normal; }
+
+/* Ampel als Badge mit Label (im Unterschied zum reinen .ampel-Punkt, der
+   in app.js weiterverwendet wird und unverändert bleibt). */
+.ampel-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: .72rem; font-weight: 700; border-radius: 20px;
+  padding: 2px 9px 2px 6px; margin-left: 6px; vertical-align: middle;
+}
+.ampel-badge__dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.ampel-badge--ok   { background: #e7f6ec; color: #1c7c43; }
+.ampel-badge--ok .ampel-badge__dot { background: var(--success); }
+.ampel-badge--warn { background: #fdf3e3; color: #9a6a10; }
+.ampel-badge--warn .ampel-badge__dot { background: var(--warn); }
+.ampel-badge--crit { background: #fceceb; color: #b03a2e; }
+.ampel-badge--crit .ampel-badge__dot { background: var(--danger); }
+
+.chart-wrap { overflow-x: auto; }
+.vis-svg text, .status-section svg text { font-family: Arial, Helvetica, sans-serif; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; font-size: .8rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+/* Zielband-Meter (Puffer-Kachel) */
+.meter { margin-top: 10px; }
+.meter__scale { position: relative; height: 14px; background: #dfe8f0; border-radius: 7px; }
+.meter__band { position: absolute; top: 0; bottom: 0; background: #b5d9c6; }
+.meter__fill { position: absolute; top: 0; bottom: 0; left: 0; background: var(--secondary); border-radius: 7px 0 0 7px; }
+.meter__marker { position: absolute; top: -3px; bottom: -3px; width: 3px; background: var(--primary); border-radius: 2px; }
+.meter__ticks { display: flex; justify-content: space-between; font-size: .68rem; color: var(--muted); margin-top: 4px; }
+
+.grid-2 { display: grid; grid-template-columns: 1.55fr 1fr; gap: 14px; align-items: stretch; }
+@media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* Tabellenansicht für die Sichtbarkeits-Kurve, Barrierefreiheit + Fallback
+   zum kontrastarmen Facebook-Cyan in der Linie. */
+details.tbl { margin-top: 12px; font-size: .78rem; color: var(--muted); }
+details.tbl summary { cursor: pointer; color: var(--secondary); }
+details.tbl table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; width: 100%; }
+details.tbl th, details.tbl td { border: 1px solid var(--mid-gray); padding: 4px 10px; text-align: right; }
+details.tbl th:first-child, details.tbl td:first-child { text-align: left; }

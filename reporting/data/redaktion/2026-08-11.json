@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-08-11",
+    "generated_at": "2026-08-11T06:56:39.569783+00:00",
+    "source": "Notion, KORODUR Redaktionsplan (Aggregat)",
+    "version": "1.2",
+    "unbekannte_status": {
+      "Idee": 1
+    }
+  },
+  "gesamt": 90,
+  "totals": {
+    "ideen": 27,
+    "in_arbeit": 6,
+    "in_pruefung": 21,
+    "freigegeben": 10,
+    "eingeplant": 4,
+    "gepostet": 21,
+    "unbekannt": 1
+  },
+  "by_status": {
+    "offen": 25,
+    "Info erforderlich": 2,
+    "in Bearbeitung": 6,
+    "Bearbeitung durch AI": 0,
+    "In Prüfung": 21,
+    "freigegeben": 10,
+    "eingeplant & getimed": 4,
+    "gepostet": 21
+  },
+  "gepostet_ohne_datum": 21,
+  "gepostet_mit_datum": 0,
+  "puffer": 14,
+  "puffer_ziel": [
+    10,
+    15
+  ],
+  "vorlauf_wochen": 3.9,
+  "geplant_zukunft": 8,
+  "frequenz": {
+    "posted_28_tage": 0,
+    "posted_28_tage_linkedin": 0,
+    "pro_woche": 0.0,
+    "pro_woche_linkedin": 0.0,
+    "ziel_linkedin": [
+      2,
+      3
+    ]
+  },
+  "posted_by_week": {},
+  "posted_by_week_fenster_wochen": 10,
+  "kampagnen_verfuegbar": false,
+  "kampagnen": []
+}

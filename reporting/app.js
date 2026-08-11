@@ -696,8 +696,63 @@ function renderAreaCard(area, prev) {
 }
 
 // ─── Projects Table (by repository) ──────────────────
+// Repo-Rename-Mapping (Issue #128): dieses Repo hiess bis 2026-07-11
+// "korodur-reporting", bis 2026-08-08 "korodur-operating-model", seit
+// 2026-08-09 "korodur-review-reporting". scripts/fetch_snapshot.py speichert
+// je Snapshot-Tag den damals von GitHub gelieferten Namen, historische
+// Snapshot-Dateien bleiben dabei unangetastet. Seit dem Repo-Split am
+// 09.08.2026 gibt es zusaetzlich ein NEUES, eigenstaendiges Repo, das wieder
+// "korodur-operating-model" heisst -- ab diesem Datum ist der alte Name also
+// zweideutig. Ohne Mapping saehe die Tabelle beim Durchblaettern alter
+// Snapshots so aus, als waere aus einem 40-Item-Projekt ueber Nacht ein
+// 5-Item-Projekt geworden, obwohl es zwei verschiedene Repos sind. Fix lebt
+// bewusst hier im Render-Layer, nicht in den Snapshot-Dateien selbst.
+const PROJECT_RENAME_CUTOFF_DATE = '2026-08-09'; // letzter Tag, an dem der alte Name noch dieses Repo meint
+const PROJECT_LEGACY_NAMES = new Set([
+  'KORODUR-International/korodur-reporting',
+  'KORODUR-International/korodur-operating-model',
+]);
+const PROJECT_CURRENT_NAME = 'KORODUR-International/korodur-review-reporting';
+
+function projectDisplayName(rawName, snapshotDate) {
+  if (snapshotDate && snapshotDate <= PROJECT_RENAME_CUTOFF_DATE && PROJECT_LEGACY_NAMES.has(rawName)) {
+    return PROJECT_CURRENT_NAME;
+  }
+  return rawName;
+}
+
+// Wendet das Rename-Mapping an und summiert Zeilen, die dadurch denselben
+// Namen bekommen (defensiv -- in den echten Daten kollidiert das nicht,
+// siehe Datumsgrenze oben, aber die Tabelle darf nie zwei Zeilen mit
+// identischem Namen zeigen).
+function mergeRenamedProjects(projects, snapshotDate) {
+  const byName = new Map();
+  for (const p of projects) {
+    const name = projectDisplayName(p.name, snapshotDate);
+    const existing = byName.get(name);
+    if (!existing) {
+      byName.set(name, { ...p, name });
+      continue;
+    }
+    existing.total += p.total;
+    existing.done += p.done;
+    existing.in_progress += p.in_progress;
+    existing.open += p.open;
+    existing.blocked += p.blocked;
+    existing.discarded += p.discarded;
+    if (p.by_owner) {
+      existing.by_owner = existing.by_owner || {};
+      for (const [owner, count] of Object.entries(p.by_owner)) {
+        existing.by_owner[owner] = (existing.by_owner[owner] || 0) + count;
+      }
+    }
+  }
+  return [...byName.values()];
+}
+
 function renderProjectsTable(data) {
-  const projects = data.projects || [];
+  const snapshotDate = data._meta && data._meta.snapshot_date;
+  const projects = mergeRenamedProjects(data.projects || [], snapshotDate);
   if (!projects.length) return '';
 
   return `

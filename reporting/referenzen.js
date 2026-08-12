@@ -30,9 +30,9 @@ const REF_MONTHS_KURZ = [
 // sie auseinanderlaufen.
 const REF_BUCKETS = [
   { key: 'offen', label: 'Offen', color: 'var(--muted)',
-    statuses: ['offen', 'Zu Bearbeiten'] },
+    statuses: ['offen', 'Zu Bearbeiten', 'Musterfläche intern'] },
   { key: 'in_arbeit', label: 'In Arbeit', color: 'var(--secondary)',
-    statuses: ['In Bearbeitung - inhaltlich', 'Inhaltlich bearbeitet', 'In Bearbeitung - Design'] },
+    statuses: ['In Bearbeitung - inhaltlich', 'Inhaltlich bearbeitet', 'In Bearbeitung - Design', 'Bilder & Nutzungsrechte sind geklärt'] },
   { key: 'in_abnahme', label: 'In Abnahme', color: '#6b5b95',
     statuses: ['Onepager erstellt', 'Abnahme/Review fachlich'] },
   { key: 'freigegeben', label: 'Freigegeben', color: '#7dd0a5',

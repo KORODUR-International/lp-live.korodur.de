@@ -852,5 +852,21 @@
       "Either": 126,
       "none": 1
     }
+  },
+  {
+    "date": "2026-08-14",
+    "items": 526,
+    "done": 286,
+    "in_progress": 23,
+    "open": 148,
+    "blocked": 49,
+    "discarded": 20,
+    "bereit": 38,
+    "by_owner": {
+      "Human": 77,
+      "Claude": 321,
+      "Either": 127,
+      "none": 1
+    }
   }
 ]

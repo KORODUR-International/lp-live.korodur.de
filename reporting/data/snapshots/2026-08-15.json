@@ -1,0 +1,594 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-08-15",
+    "generated_at": "2026-08-15T06:27:41.747331+00:00",
+    "source": "GitHub Projects v2 — KORODUR Work Cockpit",
+    "org": "KORODUR-International",
+    "project_number": 1,
+    "version": "2.0"
+  },
+  "totals": {
+    "items": 551,
+    "done": 311,
+    "in_progress": 15,
+    "open": 165,
+    "blocked": 39,
+    "discarded": 21,
+    "bereit": 47
+  },
+  "by_status": {
+    "Backlog": 110,
+    "Bereit": 47,
+    "Beansprucht": 8,
+    "In Progress": 8,
+    "In Review": 7,
+    "Blocked": 39,
+    "Done": 332
+  },
+  "by_owner": {
+    "Human": 81,
+    "Claude": 330,
+    "Either": 138,
+    "none": 2
+  },
+  "by_priority": {
+    "P0": 11,
+    "P1": 252,
+    "P2": 241,
+    "P3": 45,
+    "none": 2
+  },
+  "by_status_priority": {
+    "open": {
+      "P0": 0,
+      "P1": 56,
+      "P2": 87,
+      "P3": 22,
+      "none": 0
+    },
+    "in_progress": {
+      "P0": 2,
+      "P1": 8,
+      "P2": 5,
+      "P3": 0,
+      "none": 0
+    },
+    "blocked": {
+      "P0": 1,
+      "P1": 19,
+      "P2": 18,
+      "P3": 1,
+      "none": 0
+    },
+    "done": {
+      "P0": 8,
+      "P1": 165,
+      "P2": 118,
+      "P3": 18,
+      "none": 2
+    }
+  },
+  "areas": [
+    {
+      "name": "Marketing",
+      "total": 322,
+      "done": 205,
+      "in_progress": 8,
+      "open": 69,
+      "blocked": 25,
+      "discarded": 15,
+      "by_owner": {
+        "Human": 39,
+        "Claude": 199,
+        "Either": 83,
+        "none": 1
+      }
+    },
+    {
+      "name": "CRM & Sales Ops",
+      "total": 17,
+      "done": 2,
+      "in_progress": 0,
+      "open": 13,
+      "blocked": 2,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 6,
+        "Claude": 2,
+        "Either": 9,
+        "none": 0
+      }
+    },
+    {
+      "name": "Internationalisierung",
+      "total": 23,
+      "done": 15,
+      "in_progress": 0,
+      "open": 5,
+      "blocked": 2,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 16,
+        "Either": 5,
+        "none": 0
+      }
+    },
+    {
+      "name": "Wissensaufbau",
+      "total": 44,
+      "done": 17,
+      "in_progress": 0,
+      "open": 21,
+      "blocked": 4,
+      "discarded": 2,
+      "by_owner": {
+        "Human": 13,
+        "Claude": 23,
+        "Either": 8,
+        "none": 0
+      }
+    },
+    {
+      "name": "AI & Infrastruktur",
+      "total": 117,
+      "done": 62,
+      "in_progress": 7,
+      "open": 44,
+      "blocked": 1,
+      "discarded": 3,
+      "by_owner": {
+        "Human": 14,
+        "Claude": 75,
+        "Either": 28,
+        "none": 0
+      }
+    },
+    {
+      "name": "Strategie",
+      "total": 22,
+      "done": 6,
+      "in_progress": 0,
+      "open": 12,
+      "blocked": 4,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 5,
+        "Claude": 12,
+        "Either": 5,
+        "none": 0
+      }
+    },
+    {
+      "name": "Redaktion",
+      "total": 5,
+      "done": 3,
+      "in_progress": 0,
+      "open": 1,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 3,
+        "Either": 0,
+        "none": 0
+      }
+    },
+    {
+      "name": "Nicht zugeordnet",
+      "total": 1,
+      "done": 1,
+      "in_progress": 0,
+      "open": 0,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 0,
+        "Either": 0,
+        "none": 1
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "sfleischmann-3steps2/KORODUR-Website",
+      "total": 257,
+      "done": 166,
+      "in_progress": 1,
+      "open": 49,
+      "blocked": 25,
+      "discarded": 16,
+      "by_owner": {
+        "Human": 29,
+        "Claude": 170,
+        "Either": 57,
+        "none": 1
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-review-reporting",
+      "total": 92,
+      "done": 52,
+      "in_progress": 3,
+      "open": 33,
+      "blocked": 2,
+      "discarded": 2,
+      "by_owner": {
+        "Human": 15,
+        "Claude": 56,
+        "Either": 21,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-referenzverzeichnis",
+      "total": 55,
+      "done": 30,
+      "in_progress": 4,
+      "open": 17,
+      "blocked": 4,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 8,
+        "Claude": 31,
+        "Either": 16,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-produktdatenbank",
+      "total": 30,
+      "done": 16,
+      "in_progress": 0,
+      "open": 13,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 6,
+        "Claude": 18,
+        "Either": 6,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-crm",
+      "total": 26,
+      "done": 3,
+      "in_progress": 4,
+      "open": 15,
+      "blocked": 3,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 8,
+        "Claude": 6,
+        "Either": 12,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-lokale-ki",
+      "total": 24,
+      "done": 10,
+      "in_progress": 1,
+      "open": 12,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 6,
+        "Claude": 13,
+        "Either": 5,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-redaktion",
+      "total": 21,
+      "done": 13,
+      "in_progress": 2,
+      "open": 6,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 11,
+        "Either": 8,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-operating-model",
+      "total": 15,
+      "done": 6,
+      "in_progress": 0,
+      "open": 9,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 10,
+        "Either": 3,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-translation",
+      "total": 13,
+      "done": 8,
+      "in_progress": 0,
+      "open": 3,
+      "blocked": 2,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 9,
+        "Either": 4,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-skills",
+      "total": 7,
+      "done": 3,
+      "in_progress": 0,
+      "open": 3,
+      "blocked": 0,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 4,
+        "Either": 1,
+        "none": 1
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-ausschreibungstexte",
+      "total": 4,
+      "done": 2,
+      "in_progress": 0,
+      "open": 1,
+      "blocked": 0,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 0,
+        "Either": 2,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-tds-output",
+      "total": 2,
+      "done": 0,
+      "in_progress": 0,
+      "open": 1,
+      "blocked": 1,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 1,
+        "Either": 1,
+        "none": 0
+      }
+    },
+    {
+      "name": "(Draft / kein Repo)",
+      "total": 2,
+      "done": 0,
+      "in_progress": 0,
+      "open": 2,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 0,
+        "Either": 1,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-rapidset",
+      "total": 2,
+      "done": 1,
+      "in_progress": 0,
+      "open": 1,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 1,
+        "Either": 1,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-military",
+      "total": 1,
+      "done": 1,
+      "in_progress": 0,
+      "open": 0,
+      "blocked": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 0,
+        "Either": 0,
+        "none": 0
+      }
+    }
+  ],
+  "blocked_items": [
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Abnahme durch den Vertrieb (Hubert): Vorqualifikations-Logik und Routing"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Artikelnummern aus der Produktdatenbank für elf Produkte (produktdatenbank#25)"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Entscheidung der Geschäftsführung zum Bereichszuschnitt"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Entscheidung der Geschäftsführung zum Bereichszuschnitt"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Fachangaben der Technik (Frank): Fugenraster, Schnittzeitpunkt, Fugentypen"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Freigabe der Geschäftsführung: Vertriebsmodell-Aussage und Ansprechpartner"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Merge des One-Pager-Schleif-Branch (#14)"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Neuschnitt nach der Bildrechte-Entscheidung (#68); der angenommene Gate-Status existiert im Schema nicht"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Produktfotos aus dem Fotostudio (Marketing)"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Technik-Freigabe der Industrieboden-Claims: CO2 und Sperrzeiten"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Technik-Input: W-270-Aussage Microtop und Dokumentensatz SDB/DoP KOROCRETE"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Termin mit Technik und Vertrieb: Sign-off Checkpoint-Katalog"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf Termin mit der Technik: Abstimmung PDP-Soll-Mockup"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf den Anforderungs-Termin mit Technik und Vertrieb: Befüllung der Matrix"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf den nachzuholenden Abstimmungstermin Einsatzbereiche und Use-Cases"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf die Technik (Frank): Säure-Grenzwerte, CEMENT-ALL-Tag, WHG-Z-Nummer"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf die Technik (Frank): finale Fünfer-Liste Schadensbilder und Mapping auf Belastungs-Tags"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf fachliche Freigabe der Technik (Frank): CO2- und Lebensdauer-Aussagen"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf fachliche Freigabe der Technik (Frank): Entwurf abrieb-verschleiss.mdx"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf fachliche Freigabe der Technik (Frank): Entwurf absandung-festigkeitsverlust.mdx"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf fachliche Freigabe der Technik (Frank): Entwurf feuchte-whg.mdx"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf fachliche Freigabe der Technik (Frank): Entwurf risse.mdx"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf fachliche Freigabe der Technik (Frank): FAQ-Entwurf"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf fachliche Freigabe der Technik (Frank): Klassifizierungswerte je Kernprodukt und Sperrzeit-Claim"
+    },
+    {
+      "bereich": "Marketing",
+      "grund": "Wartet auf zwei Restfragen zum Bildrechte-Modell (#68): Umgang mit den verbliebenen Haken und Zukunft des Prozesspapiers"
+    },
+    {
+      "bereich": "CRM & Sales Ops",
+      "grund": "Bewusst zurückgestellt: der Prozess wird zuerst manuell aufgebaut, ein automatisierter Abruf kommt danach"
+    },
+    {
+      "bereich": "CRM & Sales Ops",
+      "grund": "Bewusst zurückgestellt: wartet auf eine abgestimmte CRM-Prozess- und Datenstrategie im Team"
+    },
+    {
+      "bereich": "Internationalisierung",
+      "grund": "Wartet auf Rücklauf der muttersprachlichen Prüfung Französisch; Prüfer noch nicht benannt"
+    },
+    {
+      "bereich": "Internationalisierung",
+      "grund": "Wartet auf Rücklauf der muttersprachlichen Prüfung Polnisch (Daniel)"
+    },
+    {
+      "bereich": "Wissensaufbau",
+      "grund": "Wartet auf die Zielbild-Entscheidung TDS (tds-output#2)"
+    },
+    {
+      "bereich": "Wissensaufbau",
+      "grund": "Wartet auf die finale Abstimmung mit dem Projektteam, nicht vor Ende August 2026"
+    },
+    {
+      "bereich": "Wissensaufbau",
+      "grund": "Wartet auf fachliche Freigabe der Technik (Frank): vier Verkehrsbeton-Claims"
+    },
+    {
+      "bereich": "Wissensaufbau",
+      "grund": "Wartet auf fachliche Freigabe der Technik: CO2- und Lebensdauer-Claims Rapid Set"
+    },
+    {
+      "bereich": "AI & Infrastruktur",
+      "grund": "Wartet auf neue Basismessung mit erweitertem Testset (#15)"
+    },
+    {
+      "bereich": "Strategie",
+      "grund": "Wartet auf B2B-Eckdaten der Geschäftsführung: Kapazität, MOQ, Palettierung, Lieferfähigkeit"
+    },
+    {
+      "bereich": "Strategie",
+      "grund": "Wartet auf Entscheidung der Geschäftsführung: Führungsschicht Variante A oder B"
+    },
+    {
+      "bereich": "Strategie",
+      "grund": "Wartet auf Entscheidung der Geschäftsführung: juristische Abnahme intern oder extern"
+    },
+    {
+      "bereich": "Strategie",
+      "grund": "Wartet auf den ersten Monats-Review-Lauf am 14.08.2026 (#98)"
+    },
+    {
+      "bereich": "Redaktion",
+      "grund": "Wartet auf Zugang und Export aus der Social-Media-Verwaltung"
+    }
+  ],
+  "done_by_month": {
+    "2026-06": 126,
+    "2026-07": 75,
+    "2026-08": 110
+  },
+  "done_by_week": {
+    "2026-W24": 34,
+    "2026-W25": 42,
+    "2026-W26": 40,
+    "2026-W27": 45,
+    "2026-W28": 23,
+    "2026-W29": 16,
+    "2026-W31": 1,
+    "2026-W32": 66,
+    "2026-W33": 44
+  }
+}

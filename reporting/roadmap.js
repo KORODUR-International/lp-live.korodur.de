@@ -6,6 +6,9 @@
    ============================================ */
 
 const ROADMAP_URL = 'data/roadmap/roadmap-2026.json';
+// Aenderungsprotokoll (#164). Optional: fehlt die Datei, rendert die Seite
+// unveraendert weiter. Die Roadmap darf nie an ihrer Historie scheitern.
+const HISTORIE_URL = 'data/roadmap/roadmap-historie.json';
 
 const MONTH_NAMES = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
 const TYP_LABEL = { meilenstein: 'Meilenstein', schluessel: 'Schlüsselereignis', entscheidung: 'Entscheidungspunkt', fixpunkt: 'Externer Fixpunkt' };
@@ -29,6 +32,33 @@ const ZOOMS = [
 ];
 
 let DATA = null;
+let HISTORIE = {};   // {meilenstein-id: {verschiebungen, tageGesamt, stehengelassen, ...}}
+
+// Ein Satz zur Vorgeschichte eines Meilensteins, oder '' wenn es keine gibt.
+// Bewusst nur im Detail-Panel: im Zeitstrahl waere es Rauschen, und die
+// oeffentliche Aussage muss knapp und unangreifbar bleiben (ROADMAP-MODUL §5).
+function historieText(id) {
+  const k = HISTORIE[id];
+  if (!k) return '';
+  const teile = [];
+  if (k.verschiebungen === 1) {
+    teile.push(`einmal verschoben, ${k.tageGesamt >= 0 ? '+' : ''}${k.tageGesamt} Tage`);
+  } else if (k.verschiebungen > 1) {
+    teile.push(`${k.verschiebungen}-mal verschoben, insgesamt ${k.tageGesamt >= 0 ? '+' : ''}${k.tageGesamt} Tage`);
+  }
+  if (k.stehengelassen === 1) {
+    teile.push(`einmal überfällig stehen geblieben (seit ${fmtDate(k.ueberfaelligSeit)})`);
+  } else if (k.stehengelassen > 1) {
+    teile.push(`${k.stehengelassen}-mal überfällig stehen geblieben (seit ${fmtDate(k.ueberfaelligSeit)})`);
+  }
+  return teile.join(' · ');
+}
+
+// Ab zweimal gilt Regel 6: Abstimmung statt drittem Datum.
+function brauchtAbstimmung(id) {
+  const k = HISTORIE[id];
+  return !!k && (k.verschiebungen >= 2 || k.stehengelassen >= 2);
+}
 let AREA = {};              // areaId -> {name, farbe}
 const areaOf = id => AREA[id] || { name: id || 'Unbekannt', farbe: 'var(--muted)' };
 const todayIso = () => {
@@ -405,6 +435,8 @@ function detailHtml() {
       ${m.erreichtAm ? ' am ' + fmtDate(m.erreichtAm) : ''} ${issueLink ? ' · Issue ' + issueLink : ''}
     </p>
     ${isLate(m) ? `<p class="rm-detail__warn">Termin überschritten: geplant war ${fmtDate(m.datum)}</p>` : ''}
+    ${historieText(m.id) ? `<p class="rm-detail__body">Verlauf: ${esc(historieText(m.id))}</p>` : ''}
+    ${brauchtAbstimmung(m.id) ? `<p class="rm-detail__warn">Kein weiteres Datum ohne Abstimmung${m.issue ? '' : ' (Abstimmung noch nicht verknüpft)'}</p>` : ''}
     ${m.details ? `<p class="rm-detail__body">${esc(m.details)}</p>` : ''}
     ${m.confidence ? `<p class="rm-detail__body">Confidence: <b>${CONF_LABEL[m.confidence]}</b> ${confSymbolHtml(m.confidence)}</p>` : ''}
     ${m.abhaengigkeit ? `<p class="rm-detail__body">Abhängigkeit: ${esc(m.abhaengigkeit)}</p>` : ''}
@@ -603,6 +635,12 @@ function update() {
       In der lokalen Entwicklung: <code>ln -s ../data src/data</code> anlegen. (${esc(err.message)})</div>`;
     document.getElementById('header-meta').textContent = 'Roadmap · Daten fehlen';
     return;
+  }
+  try {
+    const res = await fetch(HISTORIE_URL);
+    if (res.ok) HISTORIE = (await res.json()).kennzahlen || {};
+  } catch (err) {
+    HISTORIE = {};   // Protokoll ist Zusatznutzen, kein Renderblocker
   }
   DATA.areas.forEach(a => { AREA[a.id] = a; });
   const h2p = ZOOMS.find(z => z.key === 'h2p');

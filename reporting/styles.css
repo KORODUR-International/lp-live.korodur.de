@@ -659,6 +659,8 @@ h1, h2, h3, h4, h5 {
 .status-bar__segment--claude { background: var(--owner-claude); }
 .status-bar__segment--either { background: var(--owner-either); color: var(--primary); }
 .mini-bar__seg--blocked { background: var(--warn); }
+/* On Hold: bewusst zurueckgestellt, deshalb ruhig und nicht in Warnfarbe (#166). */
+.mini-bar__seg--on-hold { background: var(--light-gray); }
 
 /* split row — one card spans full width, two share it */
 .split-row {

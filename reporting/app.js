@@ -435,10 +435,17 @@ function renderDashboard(data, prev) {
         <div class="kpi-card__detail">Status: Blocked ${deltaHtml(delta(t.blocked, pt?.blocked))}</div>
         ${sparkline('blocked', 'var(--warn)')}
       </div>
+      ${t.on_hold === undefined ? '' : `
+      <div class="kpi-card fade-in">
+        <div class="kpi-card__label">Zurückgestellt</div>
+        <div class="kpi-card__value">${t.on_hold}</div>
+        <div class="kpi-card__detail">Status: On Hold ${deltaHtml(delta(t.on_hold, pt?.on_hold))}</div>
+        ${sparkline('on_hold', 'var(--muted)')}
+      </div>`}
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Offen</div>
         <div class="kpi-card__value">${t.open}</div>
-        <div class="kpi-card__detail">Backlog + Ready ${deltaHtml(delta(t.open, pt?.open))}</div>
+        <div class="kpi-card__detail">Backlog + Bereit + Beansprucht ${deltaHtml(delta(t.open, pt?.open))}</div>
         ${sparkline('open', 'var(--muted)')}
       </div>
       <div class="kpi-card fade-in">
@@ -572,6 +579,7 @@ const PRIO_STATUS_ROWS = [
   { key: 'open',        label: 'Offen' },
   { key: 'in_progress', label: 'In Arbeit' },
   { key: 'blocked',     label: 'Blockiert' },
+  { key: 'on_hold',     label: 'Zurückgestellt' },
   { key: 'done',        label: 'Erledigt' },
 ];
 
@@ -579,7 +587,8 @@ function renderPriority(data) {
   const bsp = data.by_status_priority;
   if (!bsp) return renderPriorityChips(data);
 
-  const rows = PRIO_STATUS_ROWS.map(row => {
+  // Ältere Snapshots kennen on_hold nicht: Zeile dann weglassen statt leer zeigen.
+  const rows = PRIO_STATUS_ROWS.filter(row => bsp[row.key]).map(row => {
     const dist = bsp[row.key] || {};
     const total = PRIO_SEGMENTS.reduce((s, seg) => s + (dist[seg.key] || 0), 0);
     const segs = total === 0
@@ -643,6 +652,7 @@ function renderAreaCard(area, prev) {
   const donePct = (area.done / total) * 100;
   const progressPct = (area.in_progress / total) * 100;
   const blockedPct = (area.blocked / total) * 100;
+  const onHoldPct = ((area.on_hold || 0) / total) * 100;
   const openPct = (area.open / total) * 100;
 
   const prevArea = prev ? prev.areas.find(a => a.name === area.name) : null;
@@ -682,6 +692,7 @@ function renderAreaCard(area, prev) {
             <div class="mini-bar__seg mini-bar__seg--done" style="width:${donePct}%"></div>
             <div class="mini-bar__seg mini-bar__seg--progress" style="width:${progressPct}%"></div>
             <div class="mini-bar__seg mini-bar__seg--blocked" style="width:${blockedPct}%"></div>
+            <div class="mini-bar__seg mini-bar__seg--on-hold" style="width:${onHoldPct}%"></div>
             <div class="mini-bar__seg mini-bar__seg--open" style="width:${openPct}%"></div>
           </div>
           <div class="area-card__task-counts">

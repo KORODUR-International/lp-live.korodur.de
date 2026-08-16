@@ -1,0 +1,1256 @@
+{
+  "version": 1,
+  "letzteFeststellung": "2026-08-16",
+  "stand": {
+    "web-struktur": {
+      "lane": "Website",
+      "datum": "2026-07-31",
+      "status": "erreicht",
+      "titel": "Struktur und Produkt-Scope abgestimmt"
+    },
+    "web-pdp": {
+      "lane": "Website",
+      "datum": "2026-09-15",
+      "status": "verschoben",
+      "titel": "PDP-Konzept abgestimmt"
+    },
+    "web-refkonzept": {
+      "lane": "Website",
+      "datum": "2026-08-20",
+      "status": "offen",
+      "titel": "Referenzdetailseite: Konzept und Datenpunkte fixiert"
+    },
+    "web-loesungsfinder": {
+      "lane": "Website",
+      "datum": "2026-08-31",
+      "status": "offen",
+      "titel": "Lösungsfinder Industrieboden abgestimmt"
+    },
+    "web-daten": {
+      "lane": "Website",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Produktdaten technisch geklärt und validiert"
+    },
+    "web-freeze": {
+      "lane": "Website",
+      "datum": "2026-10-15",
+      "status": "offen",
+      "titel": "Muttersprachliche Prüfung Go-Live-Umfang abgeschlossen; Content-Freeze"
+    },
+    "web-launch1": {
+      "lane": "Website",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Launch V1 neue korodur.de (DE/EN/FR)"
+    },
+    "web-v2": {
+      "lane": "Website",
+      "datum": "2026-12-05",
+      "status": "offen",
+      "titel": "V2: Ratgeber-/Fachartikelbereich live, Inhalte nachgezogen"
+    },
+    "con-workflow": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-07-31",
+      "status": "erreicht",
+      "titel": "Workflow Content, Redaktion, Planung definiert (V1)"
+    },
+    "con-softstart": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-08-15",
+      "status": "erreicht",
+      "titel": "Soft-Launch Facebook + Instagram"
+    },
+    "con-prozess": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-08-15",
+      "status": "offen",
+      "titel": "Redaktionsprozess steht komplett"
+    },
+    "con-kpi": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-08-31",
+      "status": "offen",
+      "titel": "KPI-Set definiert, Reporting aufgebaut"
+    },
+    "con-q4planung": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-09-20",
+      "status": "offen",
+      "titel": "Redaktionsplanung Q4 durchgeführt"
+    },
+    "con-vollbetrieb": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, min. 4 Wochen Vorplanung"
+    },
+    "con-styleguide": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Visueller Style Guide V1 (Bildgenerierung & Grafik)"
+    },
+    "con-jahresplanung": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-12-05",
+      "status": "offen",
+      "titel": "Jahres-Redaktionsplanung 2027"
+    },
+    "vp-definition": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-08-24",
+      "status": "verschoben",
+      "titel": "Prozessschritte, SLAs und Verantwortlichkeiten definiert"
+    },
+    "vp-pilot": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-09-23",
+      "status": "offen",
+      "titel": "Messe-Pilot durchlaufen"
+    },
+    "vp-workshop": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Workshop Vertriebsteam: Prozess gemeinsam fixiert"
+    },
+    "vp-kpi": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "KPI-Set Vertrieb definiert"
+    },
+    "vp-dod": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "Prozess im Unternehmen implementiert"
+    },
+    "vp-reporting": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-12-31",
+      "status": "offen",
+      "titel": "Monatliches GF-Reporting läuft"
+    },
+    "dat-regeltermin": {
+      "lane": "CRM-Datenfundament",
+      "datum": "2026-07-31",
+      "status": "offen",
+      "titel": "14-tägiger Regeltermin Datenbereinigung etabliert"
+    },
+    "dat-testlauf": {
+      "lane": "CRM-Datenfundament",
+      "datum": "2026-08-10",
+      "status": "offen",
+      "titel": "Testlauf Objektdaten-Anreicherung"
+    },
+    "dat-mvp": {
+      "lane": "CRM-Datenfundament",
+      "datum": "2026-08-15",
+      "status": "offen",
+      "titel": "MVP Objektdaten-Anreicherung läuft"
+    },
+    "dat-strategie": {
+      "lane": "CRM-Datenfundament",
+      "datum": "2026-08-20",
+      "status": "offen",
+      "titel": "Strategiefestlegung Datenbereinigung mit dem Vertriebsteam"
+    },
+    "dat-kernfelder": {
+      "lane": "CRM-Datenfundament",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "Kritische Kernfelder bereinigt und filterbar"
+    },
+    "pdb-m1": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-07-27",
+      "status": "erreicht",
+      "titel": "M1 Kick-off-Workshop Wattenscheid"
+    },
+    "pdb-m2": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-09-30",
+      "status": "entfallen",
+      "titel": "M2 Technik-Konzept / Vision V1 liegt vor"
+    },
+    "pdb-stammdaten": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Produktstammdaten vollständig, Kernprodukte technisch validiert"
+    },
+    "pdb-dop": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-10-15",
+      "status": "offen",
+      "titel": "Leistungserklärungen (DoP) generierbar in DE, EN und FR"
+    },
+    "pdb-msds": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Sicherheitsdatenblätter im Zieldesign verfügbar"
+    },
+    "pdb-epd": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "EPDs mit einheitlichem Deckblatt im KORODUR-Design"
+    },
+    "pdb-m3": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-11-15",
+      "status": "entfallen",
+      "titel": "M3 Produktdatenbank V1 validiert (Notion)"
+    },
+    "pdb-pdp": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "Produktdetailseiten werden laufend aus der Produktdatenbank versorgt"
+    },
+    "pdb-m4a": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-11-30",
+      "status": "entfallen",
+      "titel": "M4a Zielbild TDS-Prozess konzipiert"
+    },
+    "pdb-m4b": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-12-15",
+      "status": "entfallen",
+      "titel": "M4b TDS-Prototyp: erste Dokumente automatisiert aus der Datenbank"
+    },
+    "pdb-tds": {
+      "lane": "Produktdatenbank",
+      "datum": "2026-12-20",
+      "status": "offen",
+      "titel": "Technische Datenblätter (TDS) generierbar in DE, EN und FR"
+    },
+    "ref-erstkontakt": {
+      "lane": "Referenzen",
+      "datum": "2026-08-07",
+      "status": "erreicht",
+      "titel": "Erstkontakt-Runde Außendienst abgeschlossen, Interview-Termine stehen"
+    },
+    "ref-triage": {
+      "lane": "Referenzen",
+      "datum": "2026-08-31",
+      "status": "offen",
+      "titel": "Referenz-Triage für den Launch abgeschlossen"
+    },
+    "ref-crm-pull": {
+      "lane": "Referenzen",
+      "datum": "2026-09-13",
+      "status": "offen",
+      "titel": "Referenz-Pull aus dem CRM (lesend)"
+    },
+    "ref-index": {
+      "lane": "Referenzen",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Master-Index Altbestand abgeschlossen"
+    },
+    "ref-monat": {
+      "lane": "Referenzen",
+      "datum": "2026-10-15",
+      "status": "offen",
+      "titel": "Format Referenz des Monats startet"
+    },
+    "ref-highlight": {
+      "lane": "Referenzen",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Erste Highlight-Referenz ausgearbeitet"
+    },
+    "ref-ausbau": {
+      "lane": "Referenzen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Zielzahl erreicht: 20 Referenzen ausgearbeitet"
+    },
+    "ueb-golive": {
+      "lane": "Übersetzungen",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Golive-Sprachen EN+FR live"
+    },
+    "ueb-strategie": {
+      "lane": "Übersetzungen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Strategie Internationalisierung 2027 steht; Training IT+PL angelaufen"
+    },
+    "ki-uc1": {
+      "lane": "Lokale KI",
+      "datum": "2026-07-31",
+      "status": "erreicht",
+      "titel": "Use Case 1 definiert"
+    },
+    "ki-test": {
+      "lane": "Lokale KI",
+      "datum": "2026-08-31",
+      "status": "offen",
+      "titel": "Use Case 1 im Testing"
+    },
+    "ki-vision": {
+      "lane": "Lokale KI",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Vision + Konzept: lokale KI im Netzwerk"
+    },
+    "ki-jahresende": {
+      "lane": "Lokale KI",
+      "datum": "2026-12-31",
+      "status": "offen",
+      "titel": "Setup läuft, erster dokumentierter Analysedurchlauf"
+    },
+    "org-repo": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-07-20",
+      "status": "erreicht",
+      "titel": "Website-Repository in die Organisation migriert"
+    },
+    "org-grundgeruest": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-08-15",
+      "status": "offen",
+      "titel": "Notion-Grundgerüst der neuen Struktur steht"
+    },
+    "org-repos": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Repository-Landschaft bereinigt"
+    },
+    "org-notion": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-10-15",
+      "status": "offen",
+      "titel": "Wissens-Space konsolidiert"
+    },
+    "fix-epf": {
+      "lane": "Externe Fixpunkte",
+      "datum": "2026-07-31",
+      "status": "erreicht",
+      "titel": "EPF: Auftritt-Paket entscheiden"
+    },
+    "fix-archipoint": {
+      "lane": "Externe Fixpunkte",
+      "datum": "2026-09-23",
+      "status": "offen",
+      "titel": "ArchiPoint Rivercruise (Messe-Pilot)"
+    }
+  },
+  "aenderungen": [
+    {
+      "festgestellt": "2026-07-14",
+      "id": "con-jahresplanung",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-05"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "con-kpi",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "con-prozess",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "con-q4planung",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-20"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "con-softstart",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-01"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "con-styleguide",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "con-vollbetrieb",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "con-workflow",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "dat-kernfelder",
+      "lane": "CRM-Datenfundament",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "dat-mvp",
+      "lane": "CRM-Datenfundament",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "dat-regeltermin",
+      "lane": "CRM-Datenfundament",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "dat-strategie",
+      "lane": "CRM-Datenfundament",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-20"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "dat-testlauf",
+      "lane": "CRM-Datenfundament",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-10"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "fix-archipoint",
+      "lane": "Externe Fixpunkte",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-23"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "fix-epf",
+      "lane": "Externe Fixpunkte",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ki-jahresende",
+      "lane": "Lokale KI",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ki-uc1",
+      "lane": "Lokale KI",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ki-vision",
+      "lane": "Lokale KI",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "org-grundgeruest",
+      "lane": "Organisation & Enablement",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "org-notion",
+      "lane": "Organisation & Enablement",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "org-repo",
+      "lane": "Organisation & Enablement",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-07-20"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "org-repos",
+      "lane": "Organisation & Enablement",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "pdb-m1",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-07-27"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "pdb-m2",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "pdb-m3",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "pdb-m4a",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "pdb-m4b",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ref-ausbau",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ref-crm-pull",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-13"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ref-erstkontakt",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-07"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ref-highlight",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ref-index",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ref-triage",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ueb-golive",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ueb-strategie",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "vp-dod",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "vp-kpi",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "vp-pilot",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-23"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "vp-reporting",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "vp-workshop",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "web-daten",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "web-freeze",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "web-launch1",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "web-pdp",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-10"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "web-refkonzept",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-20"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "web-struktur",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "web-v2",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-05"
+    },
+    {
+      "festgestellt": "2026-07-14",
+      "id": "ref-monat",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-dop",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-epd",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-msds",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-pdp",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-stammdaten",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-tds",
+      "lane": "Produktdatenbank",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-20"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-m1",
+      "lane": "Produktdatenbank",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-m2",
+      "lane": "Produktdatenbank",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-m3",
+      "lane": "Produktdatenbank",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-m4a",
+      "lane": "Produktdatenbank",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "pdb-m4b",
+      "lane": "Produktdatenbank",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "con-softstart",
+      "lane": "Content & Redaktion",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-01",
+      "neu": "2026-08-01"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "con-workflow",
+      "lane": "Content & Redaktion",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "dat-regeltermin",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "fix-epf",
+      "lane": "Externe Fixpunkte",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "ki-uc1",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "org-repo",
+      "lane": "Organisation & Enablement",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-20",
+      "neu": "2026-07-20"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "web-struktur",
+      "lane": "Website",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "web-loesungsfinder",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "con-softstart",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-08-01",
+      "neu": "2026-08-15",
+      "tage": 14
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "con-softstart",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "con-workflow",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "ki-uc1",
+      "lane": "Lokale KI",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "org-repo",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "ref-erstkontakt",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "web-struktur",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "web-struktur",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Struktur, Produkt-Scope und Lösungsfinder abgestimmt",
+      "neu": "Struktur und Produkt-Scope abgestimmt"
+    },
+    {
+      "festgestellt": "2026-08-04",
+      "id": "fix-epf",
+      "lane": "Externe Fixpunkte",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-15",
+      "id": "con-softstart",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "verschoben",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-15",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-08-15",
+      "neu": "2026-08-24",
+      "tage": 9
+    },
+    {
+      "festgestellt": "2026-08-15",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-08-15",
+      "id": "web-pdp",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-08-10",
+      "neu": "2026-09-15",
+      "tage": 36
+    },
+    {
+      "festgestellt": "2026-08-15",
+      "id": "web-pdp",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-08-15",
+      "id": "dat-regeltermin",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-08-15",
+      "id": "dat-testlauf",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-10",
+      "neu": "2026-08-10"
+    },
+    {
+      "festgestellt": "2026-08-16",
+      "id": "con-prozess",
+      "lane": "Content & Redaktion",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-15",
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-08-16",
+      "id": "dat-mvp",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-15",
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-08-16",
+      "id": "dat-regeltermin",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-08-16",
+      "id": "dat-testlauf",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-10",
+      "neu": "2026-08-10"
+    },
+    {
+      "festgestellt": "2026-08-16",
+      "id": "org-grundgeruest",
+      "lane": "Organisation & Enablement",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-15",
+      "neu": "2026-08-15"
+    }
+  ],
+  "kennzahlen": {
+    "con-softstart": {
+      "verschiebungen": 1,
+      "tageGesamt": 14,
+      "letzteVerschiebung": "2026-08-04",
+      "stehengelassen": 1,
+      "ueberfaelligSeit": "2026-08-01"
+    },
+    "con-workflow": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 1,
+      "ueberfaelligSeit": "2026-07-31"
+    },
+    "dat-regeltermin": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 3,
+      "ueberfaelligSeit": "2026-07-31"
+    },
+    "fix-epf": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 1,
+      "ueberfaelligSeit": "2026-07-31"
+    },
+    "ki-uc1": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 1,
+      "ueberfaelligSeit": "2026-07-31"
+    },
+    "org-repo": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 1,
+      "ueberfaelligSeit": "2026-07-20"
+    },
+    "web-struktur": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 1,
+      "ueberfaelligSeit": "2026-07-31"
+    },
+    "vp-definition": {
+      "verschiebungen": 1,
+      "tageGesamt": 9,
+      "letzteVerschiebung": "2026-08-15",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-pdp": {
+      "verschiebungen": 1,
+      "tageGesamt": 36,
+      "letzteVerschiebung": "2026-08-15",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "dat-testlauf": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 2,
+      "ueberfaelligSeit": "2026-08-10"
+    },
+    "con-prozess": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 1,
+      "ueberfaelligSeit": "2026-08-15"
+    },
+    "dat-mvp": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 1,
+      "ueberfaelligSeit": "2026-08-15"
+    },
+    "org-grundgeruest": {
+      "verschiebungen": 0,
+      "tageGesamt": 0,
+      "letzteVerschiebung": null,
+      "stehengelassen": 1,
+      "ueberfaelligSeit": "2026-08-15"
+    }
+  }
+}

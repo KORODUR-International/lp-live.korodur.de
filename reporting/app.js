@@ -866,14 +866,18 @@ async function segRedaktion() {
   const state = (d.puffer >= lo && d.puffer <= hi) ? 'ok'
     : (d.puffer >= Math.ceil(lo / 2) || d.puffer > hi) ? 'warn' : 'crit';
   const freq = (d.frequenz || {}).pro_woche_linkedin ?? 0;
+  // Deutsches Dezimalkomma. Vor Issue #175 stand hier dauerhaft "0/Wo", der
+  // englische Punkt war deshalb nie sichtbar.
+  const dez = n => Number(n || 0).toLocaleString('de-DE',
+    { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return `
     <a class="seg-card" href="redaktion.html">
       <span class="ampel ampel--${state}"></span>
       <span class="seg-card__name">📝 Redaktion</span>
       <span class="seg-card__kpi">Puffer <strong>${d.puffer}</strong> (Ziel ${lo}&ndash;${hi})</span>
-      <span class="seg-card__kpi">Vorlauf <strong>${d.vorlauf_wochen} Wo</strong></span>
-      <span class="seg-card__kpi">LinkedIn <strong>${freq}/Wo</strong></span>
+      <span class="seg-card__kpi">Vorlauf <strong>${dez(d.vorlauf_wochen)} Wo</strong></span>
+      <span class="seg-card__kpi">LinkedIn <strong>${dez(freq)}/Wo</strong></span>
       <span class="seg-card__kpi">In Pr&uuml;fung <strong>${(d.totals || {}).in_pruefung || 0}</strong></span>
       <span class="seg-card__link">Details &rarr;</span>
     </a>

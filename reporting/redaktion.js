@@ -530,14 +530,24 @@ function renderFreqChart(d) {
     <div class="chart-wrap">
       <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Ver&ouml;ffentlichte Beitr&auml;ge je Kalenderwoche">${s}</svg>
     </div>
-    ${hatFallback ? '<p class="chart-note">* aus dem Notion-Redaktionsplan (Datumsfeld "ver&ouml;ffentlicht"), nicht aus dem Plattform-Export.</p>' : ''}
+    ${hatFallback ? `<p class="chart-note">* aus dem Notion-Redaktionsplan (Datumsfeld "${datumsfeld(d)}"), nicht aus dem Plattform-Export.</p>` : ''}
   `;
 }
 
+// Welches Notion-Datumsfeld die Kadenz traegt, steht seit Issue #175 im
+// Snapshot. Bis 10.08.2026 war das "veroeffentlicht" (Ist-Datum), seither
+// "geplant" (Plan-Datum). Der Unterschied gehoert auf die Seite: sonst liest
+// sich ein Naeherungswert wie eine Messung. Aeltere Snapshots ohne das Feld
+// stammen aus der Zeit davor.
+function datumsfeld(d) {
+  return ((d || {})._meta || {}).datumsquelle || 'ver&ouml;ffentlicht';
+}
+
 function renderBottomRow(d) {
+  const feld = datumsfeld(d);
   const quelle = socSeries.length
-    ? 'j&uuml;ngste Woche aus dem LinkedIn-Export, davor aus dem Notion-Redaktionsplan'
-    : 'aus dem Notion-Redaktionsplan (Datumsfeld)';
+    ? `j&uuml;ngste Woche aus dem LinkedIn-Export, davor aus dem Notion-Redaktionsplan (Feld "${feld}")`
+    : `aus dem Notion-Redaktionsplan (Feld "${feld}")`;
   return `
     <div class="grid-2">
       <div class="status-section fade-in">
@@ -564,6 +574,13 @@ function renderFunnel(t) {
   const unbekannt = t.unbekannt
     ? `<span class="funnel__discarded">+ ${t.unbekannt} mit unbekanntem Status (nicht im Funnel)</span>` : '';
 
+  // Abgelehnt ist kein Mapping-Fehler, sondern eine Entscheidung: der Beitrag
+  // kommt nie heraus. Er steht neben dem Funnel, damit die Summe der Stufen
+  // weiter der Pipeline entspricht und die Ablehnung trotzdem sichtbar bleibt
+  // (Issue #175, Statusmodell vom 11.08.2026).
+  const abgelehnt = t.abgelehnt
+    ? `<span class="funnel__discarded">+ ${t.abgelehnt} abgelehnt (nicht im Funnel)</span>` : '';
+
   if (!total) {
     if (!unbekannt) return '';
     return `
@@ -575,7 +592,7 @@ function renderFunnel(t) {
           <code>scripts/fetch_redaktion.py</code> ans Notion-Schema nachziehen,
           bis dahin ist die Pipeline hier blind.
         </p>
-        <div class="status-legend">${unbekannt}</div>
+        <div class="status-legend">${unbekannt}${abgelehnt}</div>
       </div>
     `;
   }
@@ -599,7 +616,7 @@ function renderFunnel(t) {
     <div class="status-section fade-in">
       <h3 class="status-section__title">${FUNNEL_TITLE}</h3>
       <div class="funnel">${segs}</div>
-      <div class="status-legend">${legend}${unbekannt}</div>
+      <div class="status-legend">${legend}${unbekannt}${abgelehnt}</div>
     </div>
   `;
 }

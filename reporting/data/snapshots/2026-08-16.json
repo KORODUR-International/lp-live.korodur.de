@@ -1,25 +1,25 @@
 {
   "_meta": {
     "snapshot_date": "2026-08-16",
-    "generated_at": "2026-08-16T06:29:34.405622+00:00",
+    "generated_at": "2026-08-16T07:47:36.898265+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "2.0"
   },
   "totals": {
-    "items": 561,
+    "items": 562,
     "done": 324,
     "in_progress": 13,
-    "open": 163,
+    "open": 164,
     "blocked": 35,
     "on_hold": 5,
     "discarded": 21,
-    "bereit": 50
+    "bereit": 51
   },
   "by_status": {
     "Backlog": 105,
-    "Bereit": 50,
+    "Bereit": 51,
     "Beansprucht": 8,
     "In Progress": 7,
     "In Review": 6,
@@ -29,14 +29,14 @@
   },
   "by_owner": {
     "Human": 81,
-    "Claude": 337,
+    "Claude": 338,
     "Either": 141,
     "none": 2
   },
   "by_priority": {
     "P0": 11,
     "P1": 260,
-    "P2": 241,
+    "P2": 242,
     "P3": 47,
     "none": 2
   },
@@ -44,7 +44,7 @@
     "open": {
       "P0": 0,
       "P1": 55,
-      "P2": 86,
+      "P2": 87,
       "P3": 22,
       "none": 0
     },
@@ -144,16 +144,16 @@
     },
     {
       "name": "AI & Infrastruktur",
-      "total": 124,
+      "total": 125,
       "done": 70,
       "in_progress": 3,
-      "open": 44,
+      "open": 45,
       "blocked": 4,
       "on_hold": 0,
       "discarded": 3,
       "by_owner": {
         "Human": 15,
-        "Claude": 80,
+        "Claude": 81,
         "Either": 29,
         "none": 0
       }
@@ -226,16 +226,16 @@
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 98,
+      "total": 99,
       "done": 59,
       "in_progress": 2,
-      "open": 34,
+      "open": 35,
       "blocked": 1,
       "on_hold": 0,
       "discarded": 2,
       "by_owner": {
         "Human": 15,
-        "Claude": 60,
+        "Claude": 61,
         "Either": 23,
         "none": 0
       }

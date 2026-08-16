@@ -1,36 +1,35 @@
 {
   "_meta": {
     "snapshot_date": "2026-08-16",
-    "generated_at": "2026-08-16T06:29:36.065878+00:00",
+    "generated_at": "2026-08-16T07:47:37.714217+00:00",
     "source": "Notion, KORODUR Redaktionsplan (Aggregat)",
-    "version": "1.2",
-    "unbekannte_status": {
-      "Idee": 1,
-      "abgelehnt": 1
-    }
+    "version": "1.3",
+    "unbekannte_status": {},
+    "datumsquelle": "geplant"
   },
   "gesamt": 88,
   "totals": {
-    "ideen": 32,
+    "ideen": 33,
     "in_arbeit": 0,
     "in_pruefung": 9,
     "freigegeben": 17,
     "eingeplant": 4,
     "gepostet": 24,
-    "unbekannt": 2
+    "abgelehnt": 1,
+    "unbekannt": 0
   },
   "by_status": {
+    "Idee": 1,
     "offen": 28,
     "Info erforderlich": 4,
-    "in Bearbeitung": 0,
-    "Bearbeitung durch AI": 0,
     "In Prüfung": 9,
     "freigegeben": 17,
     "eingeplant & getimed": 4,
-    "gepostet": 24
+    "gepostet": 24,
+    "abgelehnt": 1
   },
-  "gepostet_ohne_datum": 24,
-  "gepostet_mit_datum": 0,
+  "gepostet_ohne_datum": 2,
+  "gepostet_mit_datum": 22,
   "puffer": 21,
   "puffer_ziel": [
     10,
@@ -39,16 +38,27 @@
   "vorlauf_wochen": 8.1,
   "geplant_zukunft": 13,
   "frequenz": {
-    "posted_28_tage": 0,
-    "posted_28_tage_linkedin": 0,
-    "pro_woche": 0.0,
-    "pro_woche_linkedin": 0.0,
+    "posted_28_tage": 5,
+    "posted_28_tage_linkedin": 5,
+    "pro_woche": 1.2,
+    "pro_woche_linkedin": 1.2,
     "ziel_linkedin": [
       2,
       3
     ]
   },
-  "posted_by_week": {},
+  "posted_by_week": {
+    "2026-W06": 1,
+    "2026-W07": 2,
+    "2026-W08": 1,
+    "2026-W10": 1,
+    "2026-W12": 1,
+    "2026-W13": 2,
+    "2026-W14": 3,
+    "2026-W24": 1,
+    "2026-W32": 1,
+    "2026-W33": 4
+  },
   "posted_by_week_fenster_wochen": 10,
   "kampagnen_verfuegbar": false,
   "kampagnen": []

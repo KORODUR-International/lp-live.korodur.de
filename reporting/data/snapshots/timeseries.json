@@ -887,18 +887,18 @@
   },
   {
     "date": "2026-08-16",
-    "items": 562,
-    "done": 324,
-    "in_progress": 13,
-    "open": 164,
-    "blocked": 35,
-    "on_hold": 5,
+    "items": 570,
+    "done": 327,
+    "in_progress": 12,
+    "open": 163,
+    "blocked": 38,
+    "on_hold": 9,
     "discarded": 21,
-    "bereit": 51,
+    "bereit": 52,
     "by_owner": {
       "Human": 81,
-      "Claude": 338,
-      "Either": 141,
+      "Claude": 345,
+      "Either": 142,
       "none": 2
     }
   }

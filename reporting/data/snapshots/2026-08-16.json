@@ -1,78 +1,78 @@
 {
   "_meta": {
     "snapshot_date": "2026-08-16",
-    "generated_at": "2026-08-16T07:47:36.898265+00:00",
+    "generated_at": "2026-08-16T09:25:59.037200+00:00",
     "source": "GitHub Projects v2 — KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "2.0"
   },
   "totals": {
-    "items": 562,
-    "done": 324,
-    "in_progress": 13,
-    "open": 164,
-    "blocked": 35,
-    "on_hold": 5,
+    "items": 570,
+    "done": 327,
+    "in_progress": 12,
+    "open": 163,
+    "blocked": 38,
+    "on_hold": 9,
     "discarded": 21,
-    "bereit": 51
+    "bereit": 52
   },
   "by_status": {
-    "Backlog": 105,
-    "Bereit": 51,
+    "Backlog": 103,
+    "Bereit": 52,
     "Beansprucht": 8,
-    "In Progress": 7,
-    "In Review": 6,
-    "Blocked": 35,
-    "On Hold": 5,
-    "Done": 345
+    "In Progress": 8,
+    "In Review": 4,
+    "Blocked": 38,
+    "On Hold": 9,
+    "Done": 348
   },
   "by_owner": {
     "Human": 81,
-    "Claude": 338,
-    "Either": 141,
+    "Claude": 345,
+    "Either": 142,
     "none": 2
   },
   "by_priority": {
-    "P0": 11,
-    "P1": 260,
-    "P2": 242,
-    "P3": 47,
+    "P0": 12,
+    "P1": 265,
+    "P2": 243,
+    "P3": 48,
     "none": 2
   },
   "by_status_priority": {
     "open": {
       "P0": 0,
       "P1": 55,
-      "P2": 87,
-      "P3": 22,
+      "P2": 85,
+      "P3": 23,
       "none": 0
     },
     "in_progress": {
-      "P0": 2,
-      "P1": 9,
+      "P0": 3,
+      "P1": 7,
       "P2": 2,
       "P3": 0,
       "none": 0
     },
     "blocked": {
       "P0": 1,
-      "P1": 15,
-      "P2": 18,
+      "P1": 17,
+      "P2": 19,
       "P3": 1,
       "none": 0
     },
     "on_hold": {
       "P0": 0,
-      "P1": 3,
-      "P2": 1,
+      "P1": 6,
+      "P2": 2,
       "P3": 1,
       "none": 0
     },
     "done": {
       "P0": 8,
-      "P1": 174,
-      "P2": 121,
+      "P1": 176,
+      "P2": 122,
       "P3": 19,
       "none": 2
     }
@@ -81,11 +81,11 @@
     {
       "name": "Marketing",
       "total": 324,
-      "done": 207,
-      "in_progress": 8,
-      "open": 71,
-      "blocked": 23,
-      "on_hold": 0,
+      "done": 209,
+      "in_progress": 7,
+      "open": 67,
+      "blocked": 22,
+      "on_hold": 4,
       "discarded": 15,
       "by_owner": {
         "Human": 39,
@@ -128,32 +128,32 @@
     },
     {
       "name": "Wissensaufbau",
-      "total": 44,
+      "total": 45,
       "done": 17,
       "in_progress": 1,
-      "open": 18,
+      "open": 19,
       "blocked": 3,
       "on_hold": 3,
       "discarded": 2,
       "by_owner": {
         "Human": 13,
         "Claude": 23,
-        "Either": 8,
+        "Either": 9,
         "none": 0
       }
     },
     {
       "name": "AI & Infrastruktur",
-      "total": 125,
-      "done": 70,
-      "in_progress": 3,
-      "open": 45,
-      "blocked": 4,
+      "total": 132,
+      "done": 71,
+      "in_progress": 4,
+      "open": 46,
+      "blocked": 8,
       "on_hold": 0,
       "discarded": 3,
       "by_owner": {
         "Human": 15,
-        "Claude": 81,
+        "Claude": 88,
         "Either": 29,
         "none": 0
       }
@@ -162,8 +162,8 @@
       "name": "Strategie",
       "total": 23,
       "done": 9,
-      "in_progress": 1,
-      "open": 10,
+      "in_progress": 0,
+      "open": 11,
       "blocked": 3,
       "on_hold": 0,
       "discarded": 0,
@@ -226,16 +226,16 @@
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 99,
-      "done": 59,
+      "total": 104,
+      "done": 60,
       "in_progress": 2,
       "open": 35,
-      "blocked": 1,
+      "blocked": 5,
       "on_hold": 0,
       "discarded": 2,
       "by_owner": {
         "Human": 15,
-        "Claude": 61,
+        "Claude": 66,
         "Either": 23,
         "none": 0
       }
@@ -243,11 +243,11 @@
     {
       "name": "KORODUR-International/korodur-referenzverzeichnis",
       "total": 57,
-      "done": 32,
+      "done": 33,
       "in_progress": 3,
-      "open": 20,
-      "blocked": 2,
-      "on_hold": 0,
+      "open": 16,
+      "blocked": 1,
+      "on_hold": 4,
       "discarded": 0,
       "by_owner": {
         "Human": 9,
@@ -258,17 +258,17 @@
     },
     {
       "name": "KORODUR-International/korodur-produktdatenbank",
-      "total": 30,
+      "total": 31,
       "done": 16,
       "in_progress": 0,
-      "open": 12,
+      "open": 13,
       "blocked": 0,
       "on_hold": 2,
       "discarded": 0,
       "by_owner": {
         "Human": 6,
         "Claude": 18,
-        "Either": 6,
+        "Either": 7,
         "none": 0
       }
     },
@@ -322,16 +322,16 @@
     },
     {
       "name": "KORODUR-International/korodur-operating-model",
-      "total": 15,
-      "done": 7,
-      "in_progress": 1,
-      "open": 7,
+      "total": 17,
+      "done": 8,
+      "in_progress": 0,
+      "open": 9,
       "blocked": 0,
       "on_hold": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 1,
-        "Claude": 10,
+        "Claude": 12,
         "Either": 4,
         "none": 0
       }
@@ -476,10 +476,6 @@
     },
     {
       "bereich": "Marketing",
-      "grund": "Wartet auf Merge des One-Pager-Schleif-Branch (#14)"
-    },
-    {
-      "bereich": "Marketing",
       "grund": "Wartet auf Produktfotos aus dem Fotostudio (Marketing)"
     },
     {
@@ -575,6 +571,22 @@
       "grund": "Wartet auf neue Basismessung mit erweitertem Testset (#15)"
     },
     {
+      "bereich": "AI & Infrastruktur",
+      "grund": "Wartet auf rr#179 und rr#180: app.js-Umbau braucht bereinigte Sektion und Snapshot v3"
+    },
+    {
+      "bereich": "AI & Infrastruktur",
+      "grund": "Wartet auf rr#179: gleiche Datei scripts/fetch_snapshot.py"
+    },
+    {
+      "bereich": "AI & Infrastruktur",
+      "grund": "Wartet auf rr#180, rr#181 und om#34: Datengrundlage, Layout und Dependency-Inventur"
+    },
+    {
+      "bereich": "AI & Infrastruktur",
+      "grund": "Wartet auf rr#181: baut auf dem neuen Layout auf, gleiche Dateien"
+    },
+    {
       "bereich": "Strategie",
       "grund": "Wartet auf B2B-Eckdaten der Geschäftsführung: Kapazität, MOQ, Palettierung, Lieferfähigkeit"
     },
@@ -594,7 +606,7 @@
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
-    "2026-08": 123
+    "2026-08": 126
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -605,6 +617,6 @@
     "2026-W29": 16,
     "2026-W31": 1,
     "2026-W32": 66,
-    "2026-W33": 57
+    "2026-W33": 60
   }
 }

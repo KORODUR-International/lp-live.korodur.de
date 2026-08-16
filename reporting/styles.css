@@ -773,30 +773,6 @@ h1, h2, h3, h4, h5 {
 .prio-chip--p3 { border-left-color: var(--mid-gray); }
 .prio-chip--none { border-left-color: var(--mid-gray); opacity: .75; }
 
-/* blocked reasons list */
-.blocked-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.blocked-list li {
-  font-size: .85rem;
-  color: var(--primary);
-  line-height: 1.4;
-  padding-left: 16px;
-  position: relative;
-}
-.blocked-list li::before {
-  content: '\2022';
-  position: absolute;
-  left: 0;
-  color: var(--warn);
-  font-weight: 700;
-}
-.blocked-list__area { font-weight: 700; }
-.blocked-list__open { color: var(--warn); font-style: normal; font-weight: 700; }
-
 /* projects table */
 .proj-table {
   width: 100%;

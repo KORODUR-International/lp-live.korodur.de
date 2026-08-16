@@ -340,48 +340,6 @@
       }
     }
   ],
-  "blocked_items": [
-    {
-      "bereich": "Marketing",
-      "grund": null
-    },
-    {
-      "bereich": "Marketing",
-      "grund": null
-    },
-    {
-      "bereich": "Marketing",
-      "grund": null
-    },
-    {
-      "bereich": "Marketing",
-      "grund": null
-    },
-    {
-      "bereich": "Marketing",
-      "grund": null
-    },
-    {
-      "bereich": "Marketing",
-      "grund": null
-    },
-    {
-      "bereich": "Marketing",
-      "grund": null
-    },
-    {
-      "bereich": "Marketing",
-      "grund": null
-    },
-    {
-      "bereich": "Internationalisierung",
-      "grund": null
-    },
-    {
-      "bereich": "Wissensaufbau",
-      "grund": null
-    }
-  ],
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 74

@@ -472,8 +472,6 @@ function renderDashboard(data, prev) {
 
     ${renderProjectsTable(data)}
 
-    ${renderBlockedReasons(data)}
-
     <div class="footer">
       KORODUR Work Cockpit Reporting &mdash; Generiert am ${new Date(data._meta.generated_at).toLocaleDateString('de-DE')}
       &mdash; <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank">GitHub</a>
@@ -791,37 +789,6 @@ function renderProjectsTable(data) {
       </table>
     </div>
   `;
-}
-
-// ─── Blocked reasons (below the projects table) ──────
-// Shows Bereich + Grund per blocked item — never issue titles (public page,
-// private repos). Missing Grund renders as a visible triage signal.
-// Older snapshots without blocked_items simply skip the section.
-function renderBlockedReasons(data) {
-  const items = data.blocked_items;
-  if (!Array.isArray(items) || items.length === 0) return '';
-
-  const bullets = items.map(b => {
-    const meta = areaMeta(b.bereich);
-    const grund = b.grund
-      ? escapeHtml(b.grund)
-      : '<em class="blocked-list__open">Grund offen</em>';
-    return `<li><span class="blocked-list__area">${meta.emoji} ${escapeHtml(b.bereich)}</span> — ${grund}</li>`;
-  }).join('');
-
-  return `
-    <div class="status-section fade-in">
-      <h3 class="status-section__title">BLOCKIERT — GRÜNDE</h3>
-      <ul class="blocked-list">${bullets}</ul>
-    </div>
-  `;
-}
-
-// Board text fields go through here before touching the DOM.
-function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, c => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-  }[c]));
 }
 
 // ─── Segment-Zeile (Fach-Segmente neben dem Board) ───

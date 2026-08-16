@@ -12,6 +12,14 @@
       "Claude": 69,
       "Either": 18,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 52,
+      "Ready": 1,
+      "In Progress": 2,
+      "In Review": 0,
+      "Blocked": 6,
+      "Done": 36
     }
   },
   {
@@ -27,6 +35,14 @@
       "Claude": 70,
       "Either": 28,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 56,
+      "Ready": 1,
+      "In Progress": 2,
+      "In Review": 4,
+      "Blocked": 7,
+      "Done": 39
     }
   },
   {
@@ -42,6 +58,14 @@
       "Claude": 80,
       "Either": 27,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 54,
+      "Ready": 1,
+      "In Progress": 2,
+      "In Review": 13,
+      "Blocked": 6,
+      "Done": 42
     }
   },
   {
@@ -57,6 +81,14 @@
       "Claude": 120,
       "Either": 56,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 82,
+      "Ready": 3,
+      "In Progress": 4,
+      "In Review": 26,
+      "Blocked": 5,
+      "Done": 71
     }
   },
   {
@@ -72,6 +104,14 @@
       "Claude": 120,
       "Either": 56,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 80,
+      "Ready": 3,
+      "In Progress": 4,
+      "In Review": 26,
+      "Blocked": 5,
+      "Done": 73
     }
   },
   {
@@ -87,6 +127,14 @@
       "Claude": 123,
       "Either": 58,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 85,
+      "Ready": 3,
+      "In Progress": 4,
+      "In Review": 16,
+      "Blocked": 4,
+      "Done": 86
     }
   },
   {
@@ -102,6 +150,14 @@
       "Claude": 125,
       "Either": 63,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 81,
+      "Ready": 2,
+      "In Progress": 4,
+      "In Review": 16,
+      "Blocked": 4,
+      "Done": 98
     }
   },
   {
@@ -117,6 +173,14 @@
       "Claude": 123,
       "Either": 59,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 68,
+      "Ready": 0,
+      "In Progress": 4,
+      "In Review": 4,
+      "Blocked": 5,
+      "Done": 118
     }
   },
   {
@@ -132,6 +196,14 @@
       "Claude": 123,
       "Either": 59,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 68,
+      "Ready": 0,
+      "In Progress": 4,
+      "In Review": 4,
+      "Blocked": 5,
+      "Done": 118
     }
   },
   {
@@ -147,6 +219,14 @@
       "Claude": 123,
       "Either": 59,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 68,
+      "Ready": 0,
+      "In Progress": 4,
+      "In Review": 4,
+      "Blocked": 5,
+      "Done": 118
     }
   },
   {
@@ -162,6 +242,14 @@
       "Claude": 123,
       "Either": 59,
       "none": 0
+    },
+    "by_status": {
+      "Backlog": 68,
+      "Ready": 0,
+      "In Progress": 4,
+      "In Review": 4,
+      "Blocked": 5,
+      "Done": 118
     }
   },
   {
@@ -177,6 +265,14 @@
       "Claude": 138,
       "Either": 64,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 72,
+      "Ready": 11,
+      "In Progress": 5,
+      "In Review": 4,
+      "Blocked": 5,
+      "Done": 126
     }
   },
   {
@@ -192,6 +288,14 @@
       "Claude": 143,
       "Either": 64,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 70,
+      "Ready": 12,
+      "In Progress": 4,
+      "In Review": 8,
+      "Blocked": 4,
+      "Done": 130
     }
   },
   {
@@ -207,6 +311,14 @@
       "Claude": 161,
       "Either": 65,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 65,
+      "Ready": 14,
+      "In Progress": 3,
+      "In Review": 4,
+      "Blocked": 6,
+      "Done": 155
     }
   },
   {
@@ -222,6 +334,14 @@
       "Claude": 161,
       "Either": 65,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 65,
+      "Ready": 14,
+      "In Progress": 3,
+      "In Review": 4,
+      "Blocked": 6,
+      "Done": 155
     }
   },
   {
@@ -237,6 +357,14 @@
       "Claude": 170,
       "Either": 69,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 64,
+      "Ready": 20,
+      "In Progress": 3,
+      "In Review": 4,
+      "Blocked": 7,
+      "Done": 165
     }
   },
   {
@@ -252,6 +380,14 @@
       "Claude": 170,
       "Either": 69,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 64,
+      "Ready": 20,
+      "In Progress": 3,
+      "In Review": 4,
+      "Blocked": 7,
+      "Done": 165
     }
   },
   {
@@ -267,6 +403,14 @@
       "Claude": 170,
       "Either": 69,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 64,
+      "Ready": 20,
+      "In Progress": 3,
+      "In Review": 4,
+      "Blocked": 7,
+      "Done": 165
     }
   },
   {
@@ -282,6 +426,14 @@
       "Claude": 170,
       "Either": 69,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 64,
+      "Ready": 20,
+      "In Progress": 3,
+      "In Review": 4,
+      "Blocked": 7,
+      "Done": 165
     }
   },
   {
@@ -297,6 +449,14 @@
       "Claude": 180,
       "Either": 71,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 69,
+      "Ready": 22,
+      "In Progress": 4,
+      "In Review": 5,
+      "Blocked": 8,
+      "Done": 168
     }
   },
   {
@@ -312,6 +472,14 @@
       "Claude": 180,
       "Either": 71,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 69,
+      "Ready": 22,
+      "In Progress": 4,
+      "In Review": 5,
+      "Blocked": 8,
+      "Done": 168
     }
   },
   {
@@ -327,6 +495,14 @@
       "Claude": 193,
       "Either": 73,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 72,
+      "Ready": 22,
+      "In Progress": 4,
+      "In Review": 8,
+      "Blocked": 8,
+      "Done": 178
     }
   },
   {
@@ -342,6 +518,14 @@
       "Claude": 194,
       "Either": 73,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 72,
+      "Ready": 22,
+      "In Progress": 4,
+      "In Review": 5,
+      "Blocked": 8,
+      "Done": 182
     }
   },
   {
@@ -357,6 +541,14 @@
       "Claude": 196,
       "Either": 78,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 77,
+      "Ready": 22,
+      "In Progress": 5,
+      "In Review": 5,
+      "Blocked": 8,
+      "Done": 183
     }
   },
   {
@@ -372,6 +564,14 @@
       "Claude": 196,
       "Either": 78,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 77,
+      "Ready": 17,
+      "In Progress": 5,
+      "In Review": 5,
+      "Blocked": 8,
+      "Done": 188
     }
   },
   {
@@ -387,6 +587,14 @@
       "Claude": 204,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 85,
+      "Ready": 20,
+      "In Progress": 6,
+      "In Review": 6,
+      "Blocked": 10,
+      "Done": 192
     }
   },
   {
@@ -402,6 +610,14 @@
       "Claude": 204,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 84,
+      "Ready": 19,
+      "In Progress": 4,
+      "In Review": 7,
+      "Blocked": 10,
+      "Done": 195
     }
   },
   {
@@ -417,6 +633,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 15,
+      "Blocked": 10,
+      "Done": 201
     }
   },
   {
@@ -432,6 +656,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -447,6 +679,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -462,6 +702,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -477,6 +725,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -492,6 +748,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -507,6 +771,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -522,6 +794,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -537,6 +817,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -552,6 +840,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -567,6 +863,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -582,6 +886,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -597,6 +909,14 @@
       "Claude": 214,
       "Either": 85,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 4,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -612,6 +932,14 @@
       "Claude": 214,
       "Either": 86,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 83,
+      "Ready": 16,
+      "In Progress": 5,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -627,6 +955,14 @@
       "Claude": 219,
       "Either": 89,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 89,
+      "Ready": 18,
+      "In Progress": 5,
+      "In Review": 11,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -643,6 +979,15 @@
       "Claude": 225,
       "Either": 94,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 93,
+      "Bereit": 15,
+      "Beansprucht": 9,
+      "In Progress": 6,
+      "In Review": 12,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -659,6 +1004,15 @@
       "Claude": 225,
       "Either": 94,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 93,
+      "Bereit": 15,
+      "Beansprucht": 9,
+      "In Progress": 6,
+      "In Review": 12,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -675,6 +1029,15 @@
       "Claude": 225,
       "Either": 94,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 93,
+      "Bereit": 15,
+      "Beansprucht": 9,
+      "In Progress": 6,
+      "In Review": 12,
+      "Blocked": 10,
+      "Done": 205
     }
   },
   {
@@ -691,6 +1054,15 @@
       "Claude": 233,
       "Either": 94,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 96,
+      "Bereit": 10,
+      "Beansprucht": 6,
+      "In Progress": 6,
+      "In Review": 14,
+      "Blocked": 11,
+      "Done": 217
     }
   },
   {
@@ -707,6 +1079,15 @@
       "Claude": 243,
       "Either": 102,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 88,
+      "Bereit": 13,
+      "Beansprucht": 6,
+      "In Progress": 5,
+      "In Review": 10,
+      "Blocked": 24,
+      "Done": 240
     }
   },
   {
@@ -723,6 +1104,15 @@
       "Claude": 249,
       "Either": 103,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 88,
+      "Bereit": 17,
+      "Beansprucht": 5,
+      "In Progress": 7,
+      "In Review": 10,
+      "Blocked": 16,
+      "Done": 252
     }
   },
   {
@@ -739,6 +1129,15 @@
       "Claude": 277,
       "Either": 110,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 93,
+      "Bereit": 30,
+      "Beansprucht": 9,
+      "In Progress": 9,
+      "In Review": 10,
+      "Blocked": 17,
+      "Done": 269
     }
   },
   {
@@ -755,6 +1154,15 @@
       "Claude": 293,
       "Either": 109,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 87,
+      "Bereit": 24,
+      "Beansprucht": 11,
+      "In Progress": 6,
+      "In Review": 18,
+      "Blocked": 44,
+      "Done": 275
     }
   },
   {
@@ -771,6 +1179,15 @@
       "Claude": 293,
       "Either": 110,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 86,
+      "Bereit": 28,
+      "Beansprucht": 7,
+      "In Progress": 6,
+      "In Review": 19,
+      "Blocked": 44,
+      "Done": 279
     }
   },
   {
@@ -787,6 +1204,15 @@
       "Claude": 304,
       "Either": 115,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 95,
+      "Bereit": 34,
+      "Beansprucht": 9,
+      "In Progress": 6,
+      "In Review": 20,
+      "Blocked": 44,
+      "Done": 280
     }
   },
   {
@@ -803,6 +1229,15 @@
       "Claude": 311,
       "Either": 117,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 96,
+      "Bereit": 35,
+      "Beansprucht": 7,
+      "In Progress": 6,
+      "In Review": 23,
+      "Blocked": 44,
+      "Done": 288
     }
   },
   {
@@ -819,6 +1254,15 @@
       "Claude": 318,
       "Either": 119,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 97,
+      "Bereit": 35,
+      "Beansprucht": 7,
+      "In Progress": 6,
+      "In Review": 21,
+      "Blocked": 46,
+      "Done": 298
     }
   },
   {
@@ -835,6 +1279,15 @@
       "Claude": 319,
       "Either": 125,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 100,
+      "Bereit": 42,
+      "Beansprucht": 7,
+      "In Progress": 6,
+      "In Review": 21,
+      "Blocked": 44,
+      "Done": 299
     }
   },
   {
@@ -851,6 +1304,15 @@
       "Claude": 319,
       "Either": 126,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 101,
+      "Bereit": 42,
+      "Beansprucht": 7,
+      "In Progress": 6,
+      "In Review": 21,
+      "Blocked": 44,
+      "Done": 299
     }
   },
   {
@@ -867,6 +1329,15 @@
       "Claude": 321,
       "Either": 127,
       "none": 1
+    },
+    "by_status": {
+      "Backlog": 103,
+      "Bereit": 38,
+      "Beansprucht": 7,
+      "In Progress": 7,
+      "In Review": 16,
+      "Blocked": 49,
+      "Done": 306
     }
   },
   {
@@ -883,23 +1354,43 @@
       "Claude": 330,
       "Either": 138,
       "none": 2
+    },
+    "by_status": {
+      "Backlog": 110,
+      "Bereit": 47,
+      "Beansprucht": 8,
+      "In Progress": 8,
+      "In Review": 7,
+      "Blocked": 39,
+      "Done": 332
     }
   },
   {
     "date": "2026-08-16",
-    "items": 570,
-    "done": 327,
+    "items": 571,
+    "done": 329,
     "in_progress": 12,
-    "open": 163,
+    "open": 162,
     "blocked": 38,
     "on_hold": 9,
     "discarded": 21,
-    "bereit": 52,
+    "bereit": 51,
     "by_owner": {
       "Human": 81,
-      "Claude": 345,
+      "Claude": 346,
       "Either": 142,
       "none": 2
+    },
+    "by_status": {
+      "Backlog": 103,
+      "Bereit": 51,
+      "Beansprucht": 8,
+      "In Progress": 8,
+      "In Review": 4,
+      "Blocked": 38,
+      "On Hold": 9,
+      "Done": 350,
+      "none": 0
     }
   }
 ]

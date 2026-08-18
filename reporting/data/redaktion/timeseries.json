@@ -180,5 +180,18 @@
     "unbekannt": 0,
     "puffer": 21,
     "vorlauf_wochen": 8.0
+  },
+  {
+    "date": "2026-08-18",
+    "ideen": 36,
+    "in_arbeit": 0,
+    "in_pruefung": 9,
+    "freigegeben": 15,
+    "eingeplant": 4,
+    "gepostet": 24,
+    "abgelehnt": 1,
+    "unbekannt": 0,
+    "puffer": 19,
+    "vorlauf_wochen": 4.9
   }
 ]

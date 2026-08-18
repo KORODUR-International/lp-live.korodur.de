@@ -1,0 +1,2389 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-08-18",
+    "generated_at": "2026-08-18T06:32:54.092143+00:00",
+    "source": "GitHub Projects v2 · KORODUR Work Cockpit",
+    "org": "KORODUR-International",
+    "project_number": 1,
+    "version": "3.0"
+  },
+  "totals": {
+    "items": 572,
+    "done": 332,
+    "in_progress": 12,
+    "open": 162,
+    "blocked": 36,
+    "on_hold": 9,
+    "discarded": 21,
+    "bereit": 51
+  },
+  "by_status": {
+    "Backlog": 103,
+    "Bereit": 51,
+    "Beansprucht": 8,
+    "In Progress": 7,
+    "In Review": 5,
+    "Blocked": 36,
+    "On Hold": 9,
+    "Done": 353,
+    "none": 0
+  },
+  "by_owner": {
+    "Human": 81,
+    "Claude": 347,
+    "Either": 142,
+    "none": 2
+  },
+  "by_priority": {
+    "P0": 12,
+    "P1": 266,
+    "P2": 244,
+    "P3": 48,
+    "none": 2
+  },
+  "by_status_priority": {
+    "open": {
+      "P0": 0,
+      "P1": 54,
+      "P2": 85,
+      "P3": 23,
+      "none": 0
+    },
+    "in_progress": {
+      "P0": 2,
+      "P1": 8,
+      "P2": 2,
+      "P3": 0,
+      "none": 0
+    },
+    "blocked": {
+      "P0": 1,
+      "P1": 14,
+      "P2": 20,
+      "P3": 1,
+      "none": 0
+    },
+    "on_hold": {
+      "P0": 0,
+      "P1": 6,
+      "P2": 2,
+      "P3": 1,
+      "none": 0
+    },
+    "done": {
+      "P0": 9,
+      "P1": 180,
+      "P2": 122,
+      "P3": 19,
+      "none": 2
+    }
+  },
+  "areas": [
+    {
+      "name": "Marketing",
+      "total": 324,
+      "done": 209,
+      "in_progress": 7,
+      "open": 67,
+      "blocked": 22,
+      "on_hold": 4,
+      "discarded": 15,
+      "by_owner": {
+        "Human": 39,
+        "Claude": 201,
+        "Either": 83,
+        "none": 1
+      }
+    },
+    {
+      "name": "CRM & Sales Ops",
+      "total": 17,
+      "done": 2,
+      "in_progress": 0,
+      "open": 13,
+      "blocked": 0,
+      "on_hold": 2,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 6,
+        "Claude": 2,
+        "Either": 9,
+        "none": 0
+      }
+    },
+    {
+      "name": "Internationalisierung",
+      "total": 23,
+      "done": 15,
+      "in_progress": 0,
+      "open": 6,
+      "blocked": 1,
+      "on_hold": 0,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 16,
+        "Either": 5,
+        "none": 0
+      }
+    },
+    {
+      "name": "Wissensaufbau",
+      "total": 46,
+      "done": 17,
+      "in_progress": 1,
+      "open": 19,
+      "blocked": 4,
+      "on_hold": 3,
+      "discarded": 2,
+      "by_owner": {
+        "Human": 13,
+        "Claude": 24,
+        "Either": 9,
+        "none": 0
+      }
+    },
+    {
+      "name": "AI & Infrastruktur",
+      "total": 132,
+      "done": 75,
+      "in_progress": 3,
+      "open": 45,
+      "blocked": 6,
+      "on_hold": 0,
+      "discarded": 3,
+      "by_owner": {
+        "Human": 15,
+        "Claude": 88,
+        "Either": 29,
+        "none": 0
+      }
+    },
+    {
+      "name": "Strategie",
+      "total": 23,
+      "done": 9,
+      "in_progress": 0,
+      "open": 11,
+      "blocked": 3,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 4,
+        "Claude": 12,
+        "Either": 7,
+        "none": 0
+      }
+    },
+    {
+      "name": "Redaktion",
+      "total": 6,
+      "done": 4,
+      "in_progress": 1,
+      "open": 1,
+      "blocked": 0,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 4,
+        "Either": 0,
+        "none": 0
+      }
+    },
+    {
+      "name": "Nicht zugeordnet",
+      "total": 1,
+      "done": 1,
+      "in_progress": 0,
+      "open": 0,
+      "blocked": 0,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 0,
+        "Either": 0,
+        "none": 1
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "sfleischmann-3steps2/KORODUR-Website",
+      "total": 257,
+      "done": 166,
+      "in_progress": 1,
+      "open": 49,
+      "blocked": 25,
+      "on_hold": 0,
+      "discarded": 16,
+      "by_owner": {
+        "Human": 29,
+        "Claude": 170,
+        "Either": 57,
+        "none": 1
+      },
+      "by_status": {
+        "Backlog": 35,
+        "Bereit": 12,
+        "Beansprucht": 2,
+        "In Progress": 0,
+        "In Review": 1,
+        "Blocked": 25,
+        "On Hold": 0,
+        "Done": 182,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-review-reporting",
+      "total": 105,
+      "done": 64,
+      "in_progress": 2,
+      "open": 35,
+      "blocked": 2,
+      "on_hold": 0,
+      "discarded": 2,
+      "by_owner": {
+        "Human": 15,
+        "Claude": 67,
+        "Either": 23,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 22,
+        "Bereit": 10,
+        "Beansprucht": 3,
+        "In Progress": 1,
+        "In Review": 1,
+        "Blocked": 2,
+        "On Hold": 0,
+        "Done": 66,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-referenzverzeichnis",
+      "total": 57,
+      "done": 33,
+      "in_progress": 3,
+      "open": 16,
+      "blocked": 1,
+      "on_hold": 4,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 9,
+        "Claude": 32,
+        "Either": 16,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 11,
+        "Bereit": 5,
+        "Beansprucht": 0,
+        "In Progress": 3,
+        "In Review": 0,
+        "Blocked": 1,
+        "On Hold": 4,
+        "Done": 33,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-produktdatenbank",
+      "total": 32,
+      "done": 17,
+      "in_progress": 0,
+      "open": 12,
+      "blocked": 1,
+      "on_hold": 2,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 6,
+        "Claude": 19,
+        "Either": 7,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 9,
+        "Bereit": 2,
+        "Beansprucht": 1,
+        "In Progress": 0,
+        "In Review": 0,
+        "Blocked": 1,
+        "On Hold": 2,
+        "Done": 17,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-crm",
+      "total": 26,
+      "done": 3,
+      "in_progress": 1,
+      "open": 15,
+      "blocked": 4,
+      "on_hold": 2,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 8,
+        "Claude": 6,
+        "Either": 12,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 9,
+        "Bereit": 5,
+        "Beansprucht": 1,
+        "In Progress": 1,
+        "In Review": 0,
+        "Blocked": 4,
+        "On Hold": 2,
+        "Done": 4,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-lokale-ki",
+      "total": 24,
+      "done": 10,
+      "in_progress": 1,
+      "open": 12,
+      "blocked": 1,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 6,
+        "Claude": 13,
+        "Either": 5,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 5,
+        "Bereit": 6,
+        "Beansprucht": 1,
+        "In Progress": 1,
+        "In Review": 0,
+        "Blocked": 1,
+        "On Hold": 0,
+        "Done": 10,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-redaktion",
+      "total": 21,
+      "done": 13,
+      "in_progress": 2,
+      "open": 6,
+      "blocked": 0,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 11,
+        "Either": 8,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 5,
+        "Bereit": 1,
+        "Beansprucht": 0,
+        "In Progress": 1,
+        "In Review": 1,
+        "Blocked": 0,
+        "On Hold": 0,
+        "Done": 13,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-operating-model",
+      "total": 17,
+      "done": 8,
+      "in_progress": 0,
+      "open": 9,
+      "blocked": 0,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 12,
+        "Either": 4,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 4,
+        "Bereit": 5,
+        "Beansprucht": 0,
+        "In Progress": 0,
+        "In Review": 0,
+        "Blocked": 0,
+        "On Hold": 0,
+        "Done": 8,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-translation",
+      "total": 13,
+      "done": 8,
+      "in_progress": 0,
+      "open": 4,
+      "blocked": 1,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 9,
+        "Either": 4,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 0,
+        "Bereit": 4,
+        "Beansprucht": 0,
+        "In Progress": 0,
+        "In Review": 0,
+        "Blocked": 1,
+        "On Hold": 0,
+        "Done": 8,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-skills",
+      "total": 9,
+      "done": 6,
+      "in_progress": 1,
+      "open": 0,
+      "blocked": 0,
+      "on_hold": 1,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 6,
+        "Either": 1,
+        "none": 1
+      },
+      "by_status": {
+        "Backlog": 0,
+        "Bereit": 0,
+        "Beansprucht": 0,
+        "In Progress": 0,
+        "In Review": 1,
+        "Blocked": 0,
+        "On Hold": 1,
+        "Done": 7,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-ausschreibungstexte",
+      "total": 4,
+      "done": 2,
+      "in_progress": 0,
+      "open": 1,
+      "blocked": 0,
+      "on_hold": 0,
+      "discarded": 1,
+      "by_owner": {
+        "Human": 2,
+        "Claude": 0,
+        "Either": 2,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 0,
+        "Bereit": 1,
+        "Beansprucht": 0,
+        "In Progress": 0,
+        "In Review": 0,
+        "Blocked": 0,
+        "On Hold": 0,
+        "Done": 3,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-tds-output",
+      "total": 2,
+      "done": 0,
+      "in_progress": 1,
+      "open": 0,
+      "blocked": 1,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 1,
+        "Either": 1,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 0,
+        "Bereit": 0,
+        "Beansprucht": 0,
+        "In Progress": 0,
+        "In Review": 1,
+        "Blocked": 1,
+        "On Hold": 0,
+        "Done": 0,
+        "none": 0
+      }
+    },
+    {
+      "name": "(Draft / kein Repo)",
+      "total": 2,
+      "done": 0,
+      "in_progress": 0,
+      "open": 2,
+      "blocked": 0,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 0,
+        "Either": 1,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 2,
+        "Bereit": 0,
+        "Beansprucht": 0,
+        "In Progress": 0,
+        "In Review": 0,
+        "Blocked": 0,
+        "On Hold": 0,
+        "Done": 0,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-rapidset",
+      "total": 2,
+      "done": 1,
+      "in_progress": 0,
+      "open": 1,
+      "blocked": 0,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 0,
+        "Claude": 1,
+        "Either": 1,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 1,
+        "Bereit": 0,
+        "Beansprucht": 0,
+        "In Progress": 0,
+        "In Review": 0,
+        "Blocked": 0,
+        "On Hold": 0,
+        "Done": 1,
+        "none": 0
+      }
+    },
+    {
+      "name": "KORODUR-International/korodur-military",
+      "total": 1,
+      "done": 1,
+      "in_progress": 0,
+      "open": 0,
+      "blocked": 0,
+      "on_hold": 0,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 1,
+        "Claude": 0,
+        "Either": 0,
+        "none": 0
+      },
+      "by_status": {
+        "Backlog": 0,
+        "Bereit": 0,
+        "Beansprucht": 0,
+        "In Progress": 0,
+        "In Review": 0,
+        "Blocked": 0,
+        "On Hold": 0,
+        "Done": 1,
+        "none": 0
+      }
+    }
+  ],
+  "items": [
+    {
+      "repo": "(Draft / kein Repo)",
+      "nummer": null,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "(Draft / kein Repo)",
+      "nummer": null,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-ausschreibungstexte",
+      "nummer": 2,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 1,
+      "status": "On Hold",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 3,
+      "status": "On Hold",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 4,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 5,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 6,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 7,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 9,
+      "status": "In Progress",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 10,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 11,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 14,
+      "status": "Beansprucht",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 15,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 16,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 18,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 20,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 21,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 22,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 23,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 24,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 25,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 26,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 27,
+      "status": "Bereit",
+      "prioritaet": "P3",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-crm",
+      "nummer": 28,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 7,
+      "status": "In Progress",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 8,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 9,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 10,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 11,
+      "status": "Beansprucht",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 12,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 19,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 20,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 21,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 24,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 25,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 26,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 27,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-lokale-ki",
+      "nummer": 29,
+      "status": "Bereit",
+      "prioritaet": "P3",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 2,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 3,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 4,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 5,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 9,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 16,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 17,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 28,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 36,
+      "status": "Bereit",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 1,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 3,
+      "status": "On Hold",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 4,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 5,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 15,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 16,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 21,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 23,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 25,
+      "status": "Beansprucht",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 26,
+      "status": "On Hold",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 28,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 31,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 32,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 36,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-produktdatenbank",
+      "nummer": 38,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-rapidset",
+      "nummer": 1,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 2,
+      "status": "In Progress",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": "Claude Private"
+    },
+    {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 3,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 16,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 17,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 18,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 20,
+      "status": "In Review",
+      "prioritaet": "P0",
+      "owner_typ": "Claude",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 21,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 23,
+      "status": "Bereit",
+      "prioritaet": "P3",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 4,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 5,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 6,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 7,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 9,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 14,
+      "status": "In Progress",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Private"
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 15,
+      "status": "In Progress",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 16,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 18,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 19,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 26,
+      "status": "On Hold",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 37,
+      "status": "In Progress",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 38,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 41,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 46,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 49,
+      "status": "On Hold",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 50,
+      "status": "On Hold",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 51,
+      "status": "On Hold",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 57,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 60,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 66,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 76,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 77,
+      "status": "Bereit",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-referenzverzeichnis",
+      "nummer": 85,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 1,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 7,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 14,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 15,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 16,
+      "status": "Bereit",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 17,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 23,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 25,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 35,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 45,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 46,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 49,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 50,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 52,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 53,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 71,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 81,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 85,
+      "status": "Beansprucht",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 93,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 94,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 99,
+      "status": "Beansprucht",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 106,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 117,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 118,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 119,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 125,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 127,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 131,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 147,
+      "status": "Bereit",
+      "prioritaet": "P3",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 149,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 153,
+      "status": "In Progress",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 155,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 161,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 165,
+      "status": "Beansprucht",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 174,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 178,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 182,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 183,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 187,
+      "status": "In Review",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Private"
+    },
+    {
+      "repo": "KORODUR-International/korodur-skills",
+      "nummer": 1,
+      "status": "On Hold",
+      "prioritaet": "P3",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-skills",
+      "nummer": 12,
+      "status": "In Review",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-tds-output",
+      "nummer": 1,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-tds-output",
+      "nummer": 2,
+      "status": "In Review",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "KORODUR-International/korodur-translation",
+      "nummer": 18,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-translation",
+      "nummer": 19,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-translation",
+      "nummer": 21,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-translation",
+      "nummer": 22,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "KORODUR-International/korodur-translation",
+      "nummer": 23,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 77,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 78,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 79,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 80,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 130,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 132,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 133,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 134,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 137,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 144,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 145,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 146,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 147,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 148,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 149,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 181,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 236,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 239,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 242,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 254,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 255,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 271,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 276,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 282,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 286,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 290,
+      "status": "Blocked",
+      "prioritaet": "P3",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 305,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 327,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 341,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 347,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 348,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 350,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 356,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 367,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 379,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 383,
+      "status": "Beansprucht",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 384,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 385,
+      "status": "Blocked",
+      "prioritaet": "P0",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 386,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 387,
+      "status": "Beansprucht",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur"
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 394,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Private"
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 405,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 431,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 435,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 440,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 452,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 456,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 458,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 459,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 464,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 465,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 466,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 468,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 486,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 492,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 493,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 495,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 496,
+      "status": "Backlog",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 516,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 517,
+      "status": "Backlog",
+      "prioritaet": "P3",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 527,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 528,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 545,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 546,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Human",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 550,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 551,
+      "status": "In Review",
+      "prioritaet": "P0",
+      "owner_typ": "Claude",
+      "bearbeiter": "Human"
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 553,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 554,
+      "status": "Blocked",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 556,
+      "status": "Blocked",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 557,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 563,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 565,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 566,
+      "status": "Backlog",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 567,
+      "status": "Bereit",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 568,
+      "status": "Bereit",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null
+    }
+  ],
+  "done_by_month": {
+    "2026-06": 126,
+    "2026-07": 75,
+    "2026-08": 131
+  },
+  "done_by_week": {
+    "2026-W24": 34,
+    "2026-W25": 42,
+    "2026-W26": 40,
+    "2026-W27": 45,
+    "2026-W28": 23,
+    "2026-W29": 16,
+    "2026-W31": 1,
+    "2026-W32": 66,
+    "2026-W33": 63,
+    "2026-W34": 2
+  }
+}

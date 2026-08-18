@@ -1,5 +1,5 @@
 /* ============================================
-   KORODUR Work Cockpit — Roadmap
+   KORODUR Work Cockpit Roadmap
    Rendert data/roadmap/roadmap-<jahr>.json.
    Read-only: kein Board-Zugriff zur Laufzeit.
    In dev: symlink src/data -> ../data; in production (GitHub Pages): data/ is at root

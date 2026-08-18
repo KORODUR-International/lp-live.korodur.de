@@ -1,23 +1,23 @@
 /**
- * KORODUR Space Health Dashboard v2
- * Loads daily JSON snapshots and renders KPIs, the trend chart with weekly
- * done bars, KPI sparklines, a date timeline, owner split, priorities,
- * area cards and the project table.
+ * KORODUR Work Cockpit Reporting v3
+ * Umbau #181 nach dem in #149 gelockten Ziel-Layout (16.08.2026):
+ * Kopfzahlen mit Delta-Chips (Vortag/Vorwoche), Phasen-Repo-Matrix,
+ * Mini-Chart je Phase (KW-Endstand), Bereichs-Zeile und Owner-Split im
+ * Fuss. Grundsatz: nur Zaehlungen, keine Issue-Titel, keine Freitexte.
  */
 
 // In dev: symlink src/data -> ../data; in production (GitHub Pages): data/ is at root
 const SNAPSHOTS_DIR = 'data/snapshots/';
 
 const MONTHS_DE = [
-  'Januar','Februar','M\u00e4rz','April','Mai','Juni',
+  'Januar','Februar','März','April','Mai','Juni',
   'Juli','August','September','Oktober','November','Dezember'
 ];
 
 // ─── State ───────────────────────────────────────────
 let currentSnapshot = null;
-let previousSnapshot = null;
 let availableSnapshots = [];   // newest-first (index.json order)
-let timeseries = [];           // ascending by date — drives chart + sparklines
+let timeseries = [];           // ascending by date; drives head deltas + phase charts
 
 // ─── Init ────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-// ─── Timeseries (compact per-day totals) ─────────────
+// ─── Timeseries (compact per-day totals + phases) ────
 async function loadTimeseries() {
   try {
     const res = await fetch(SNAPSHOTS_DIR + 'timeseries.json');
@@ -40,7 +40,7 @@ async function loadTimeseries() {
         timeseries = data.filter(r => r && r.date).sort((a, b) => a.date.localeCompare(b.date));
       }
     }
-  } catch { /* chart/sparklines simply stay hidden */ }
+  } catch { /* deltas and phase charts simply stay hidden */ }
 }
 
 // ─── Snapshot Discovery ──────────────────────────────
@@ -55,13 +55,8 @@ async function discoverSnapshots() {
     const candidates = [];
     for (let i = 0; i < 12; i++) {
       const d = new Date(now.getTime() - i * 7 * 24 * 60 * 60 * 1000);
-      const tmp = new Date(d.getTime());
-      tmp.setDate(tmp.getDate() + 3 - ((tmp.getDay() + 6) % 7));
-      const jan4 = new Date(tmp.getFullYear(), 0, 4);
-      const week = 1 + Math.round(((tmp - jan4) / 86400000 - 3 + ((jan4.getDay() + 6) % 7)) / 7);
-      const isoYear = tmp.getFullYear();
-      const key = `${isoYear}-W${String(week).padStart(2, '0')}`;
-      if (!candidates.includes(key)) candidates.push(key);
+      const key = isoWeekKey(d.toISOString().slice(0, 10));
+      if (key && !candidates.includes(key)) candidates.push(key);
     }
     for (const key of candidates) {
       try {
@@ -83,22 +78,11 @@ async function loadSnapshot(key) {
     if (!res.ok) throw new Error('Snapshot nicht gefunden');
     currentSnapshot = await res.json();
 
-    // Load previous snapshot for trend comparison
-    const idx = availableSnapshots.indexOf(key);
-    previousSnapshot = null;
-    if (idx >= 0 && idx < availableSnapshots.length - 1) {
-      try {
-        const prevKey = availableSnapshots[idx + 1];
-        const prevRes = await fetch(SNAPSHOTS_DIR + prevKey + '.json');
-        if (prevRes.ok) previousSnapshot = await prevRes.json();
-      } catch { /* no previous available */ }
-    }
-
     document.querySelectorAll('.sidebar__item').forEach(el => {
       el.classList.toggle('active', el.dataset.key === key);
     });
 
-    renderDashboard(currentSnapshot, previousSnapshot);
+    renderDashboard(currentSnapshot);
     updateHeaderMeta(key);
     loadSegmentStrip();
   } catch (err) {
@@ -106,7 +90,9 @@ async function loadSnapshot(key) {
   }
 }
 
-// ─── Render Sidebar ──────────────────────────────────
+// ─── Sidebar: Snapshot-Archiv, nach KW gruppiert ─────
+// Der Tages-Slider ist raus (#181): Default ist der neueste Stand, das
+// Archiv bleibt als eingeklappte KW-Gruppen erreichbar.
 function renderSidebar() {
   const list = document.getElementById('snapshot-list');
   if (!list) return;
@@ -116,20 +102,34 @@ function renderSidebar() {
     return;
   }
 
-  list.innerHTML = availableSnapshots.map((key, i) => {
-    const labelText = formatSnapshotLabel(key);
-    const badge = i === 0 ? 'Aktuell' : '';
-    return `
-      <li>
-        <a class="sidebar__item ${i === 0 ? 'active' : ''}"
-           data-key="${key}"
-           onclick="loadSnapshot('${key}')">
-          ${labelText}
-          ${badge ? `<span class="sidebar__item-date">${badge}</span>` : ''}
-        </a>
-      </li>
-    `;
-  }).join('');
+  const gruppen = [];
+  for (const key of availableSnapshots) {           // newest-first
+    const kw = isoWeekKey(key) || 'Archiv';
+    if (!gruppen.length || gruppen[gruppen.length - 1].kw !== kw) {
+      gruppen.push({ kw, keys: [] });
+    }
+    gruppen[gruppen.length - 1].keys.push(key);
+  }
+
+  list.innerHTML = gruppen.map((g, gi) => `
+    <li>
+      <details class="sidebar__group" ${gi === 0 ? 'open' : ''}>
+        <summary class="sidebar__group-head" title="${g.kw.includes('-W') ? weekRangeTitle(g.kw) : g.kw}">
+          ${g.kw.includes('-W') ? weekLabel(g.kw) + ' ' + g.kw.slice(0, 4) : g.kw}
+          <span class="sidebar__group-count">${g.keys.length}</span>
+        </summary>
+        <ul class="sidebar__group-list">
+          ${g.keys.map(key => `
+            <li>
+              <a class="sidebar__item ${key === availableSnapshots[0] ? 'active' : ''}"
+                 data-key="${key}" onclick="loadSnapshot('${key}')">
+                ${formatSnapshotLabel(key)}
+                ${key === availableSnapshots[0] ? '<span class="sidebar__item-date">Aktuell</span>' : ''}
+              </a>
+            </li>`).join('')}
+        </ul>
+      </details>
+    </li>`).join('');
 }
 
 // ─── Format Helpers ──────────────────────────────────
@@ -150,7 +150,7 @@ function formatSnapshotLabel(key) {
   return `${MONTHS_DE[parseInt(month, 10) - 1]} ${year}`;
 }
 
-// Short label for chart axes / sparklines (e.g. "17.06.")
+// Short label for chips/tooltips (e.g. "17.06.")
 function shortDayLabel(dateStr) {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr || '');
   if (m) return `${m[3]}.${m[2]}.`;
@@ -163,210 +163,57 @@ function updateHeaderMeta(key) {
   el.textContent = `Snapshot: ${formatSnapshotLabel(key)}`;
 }
 
-// ─── Timeline Slider ─────────────────────────────────
-// availableSnapshots is newest-first; the slider runs oldest → newest.
-function renderTimeline() {
-  if (!currentSnapshot) return '';
-  const asc = [...availableSnapshots].reverse();
-  const currentKey = currentSnapshot._meta.snapshot_date;
-  const idx = Math.max(0, asc.indexOf(currentKey));
-  const n = asc.length;
-  const single = n < 2;
-
-  // One tick per snapshot, positioned to line up with the slider thumb travel
-  // (thumb is 18px, so its centre runs from 9px to width-9px). Labels are
-  // thinned to ~7 max so they never overlap; first + last always labelled.
-  const labelEvery = Math.max(1, Math.ceil(n / 7));
-  const ticks = asc.map((key, i) => {
-    const frac = n > 1 ? i / (n - 1) : 0.5;
-    const off = (9 - frac * 18).toFixed(1);
-    const showLabel = i === 0 || i === n - 1 || i % labelEvery === 0;
-    return `
-      <button type="button" class="timeline__tick ${i === idx ? 'is-active' : ''}"
-              data-i="${i}" style="left:calc(${(frac * 100).toFixed(2)}% + ${off}px)"
-              onclick="scrubTimeline(${i})" title="${formatSnapshotLabel(key)}"
-              aria-label="${formatSnapshotLabel(key)}">
-        <span class="timeline__tick-dot"></span>
-        ${showLabel ? `<span class="timeline__tick-label">${shortDayLabel(key)}</span>` : ''}
-      </button>`;
-  }).join('');
-
-  return `
-    <div class="timeline fade-in">
-      <div class="timeline__head">
-        <span class="timeline__label">Zeitverlauf</span>
-        <span class="timeline__current" id="timeline-current">${formatSnapshotLabel(currentKey)}</span>
-      </div>
-      <div class="timeline__track">
-        <input type="range" class="timeline__slider" id="timeline-slider"
-               min="0" max="${Math.max(0, n - 1)}" step="1" value="${idx}"
-               ${single ? 'disabled' : ''}
-               oninput="previewTimeline(this.value)" onchange="scrubTimeline(this.value)"
-               aria-label="Snapshot-Datum wählen">
-        <div class="timeline__ticks">${ticks}</div>
-      </div>
-      <div class="timeline__hint">
-        ${single
-          ? 'Verlauf baut sich täglich auf'
-          : `<span class="timeline__hint-icon">↔</span> Tag wählen — Punkt antippen oder Regler ziehen · ${n} Tage`}
-      </div>
-    </div>
-  `;
+// ─── ISO calendar week helpers ───────────────────────
+// ISO week key for a date string, e.g. "2026-08-16" -> "2026-W33".
+// Thursday trick: the ISO year/week of a date is that of its Thursday.
+function isoWeekKey(dateStr) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(dateStr || '');
+  if (!m) return null;
+  const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  d.setUTCDate(d.getUTCDate() + 3 - ((d.getUTCDay() + 6) % 7));
+  const jan4 = new Date(Date.UTC(d.getUTCFullYear(), 0, 4));
+  const week = 1 + Math.round(((d - jan4) / 86400000 - 3 + ((jan4.getUTCDay() + 6) % 7)) / 7);
+  return `${d.getUTCFullYear()}-W${String(week).padStart(2, '0')}`;
 }
 
-// Live label update while dragging (no fetch, keeps the drag smooth)
-function previewTimeline(val) {
-  const asc = [...availableSnapshots].reverse();
-  const i = parseInt(val, 10);
-  const key = asc[i];
-  const el = document.getElementById('timeline-current');
-  if (el && key) el.textContent = formatSnapshotLabel(key);
-  document.querySelectorAll('.timeline__tick').forEach(t =>
-    t.classList.toggle('is-active', parseInt(t.dataset.i, 10) === i));
+function weekLabel(key) {
+  // key: YYYY-Www -> "KW 25"
+  const w = parseInt(key.split('-W')[1], 10);
+  return `KW ${w}`;
 }
 
-// Load the selected snapshot on release
-function scrubTimeline(val) {
-  const asc = [...availableSnapshots].reverse();
-  const key = asc[parseInt(val, 10)];
-  if (key) loadSnapshot(key);
+// Monday of an ISO week (UTC); week 1 is the week containing Jan 4th.
+function isoWeekMonday(year, week) {
+  const jan4 = new Date(Date.UTC(year, 0, 4));
+  const jan4Dow = (jan4.getUTCDay() + 6) % 7; // Mon=0 ... Sun=6
+  const monday = new Date(jan4);
+  monday.setUTCDate(jan4.getUTCDate() - jan4Dow + (week - 1) * 7);
+  return monday;
 }
 
-// ─── Trend Chart (development over time) ─────────────
-// Order mirrors the KPI tiles: Erledigt, In Arbeit, Blockiert, Offen, Gesamt.
-const TREND_METRICS = [
-  { key: 'done',        label: 'Erledigt',     color: 'var(--success)' },
-  { key: 'in_progress', label: 'In Arbeit',    color: 'var(--secondary)' },
-  { key: 'blocked',     label: 'Blockiert',    color: 'var(--warn)' },
-  { key: 'open',        label: 'Offen',        color: '#9aa7b4' },
-  { key: 'items',       label: 'Items gesamt', color: 'var(--primary)' },
-];
-
-function renderTrendChart(data) {
-  const doneBars = renderDoneByWeek(data);
-  const series = timeseries;
-  if (!series || series.length < 2) {
-    return `
-      <div class="status-section fade-in">
-        <h3 class="status-section__title">ENTWICKLUNG IM ZEITVERLAUF</h3>
-        <p class="trend-empty">
-          Die Verlaufskurve baut sich ab jetzt täglich auf. Ab dem zweiten
-          Snapshot erscheinen hier die Linien für Erledigt, In Arbeit,
-          Blockiert, Offen und Items gesamt.
-        </p>
-        ${doneBars}
-      </div>
-    `;
-  }
-
-  const W = 820, H = 300, padL = 34, padR = 18, padT = 16, padB = 30;
-  const t0 = new Date(series[0].date).getTime();
-  const tN = new Date(series[series.length - 1].date).getTime();
-  const span = Math.max(1, tN - t0);
-  const maxVal = Math.max(
-    1,
-    ...series.flatMap(r => TREND_METRICS.map(m => r[m.key] || 0))
-  );
-  const yMax = Math.ceil(maxVal * 1.1 / 5) * 5 || 5;
-
-  const sx = d => padL + ((new Date(d).getTime() - t0) / span) * (W - padL - padR);
-  const sy = v => padT + (1 - v / yMax) * (H - padT - padB);
-
-  // horizontal grid lines (0, ¼, ½, ¾, max)
-  const grid = [0, 0.25, 0.5, 0.75, 1].map(f => {
-    const v = Math.round(yMax * f);
-    const y = sy(v);
-    return `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" class="trend__grid"/>
-            <text x="${padL - 6}" y="${y + 3}" class="trend__ytick">${v}</text>`;
-  }).join('');
-
-  const lines = TREND_METRICS.map(m => {
-    const pts = series.map(r => `${sx(r.date).toFixed(1)},${sy(r[m.key] || 0).toFixed(1)}`).join(' ');
-    const last = series[series.length - 1];
-    const lx = sx(last.date), ly = sy(last[m.key] || 0);
-    return `
-      <polyline points="${pts}" fill="none" stroke-width="2.5"
-                stroke-linejoin="round" stroke-linecap="round" style="stroke:${m.color}"/>
-      <circle cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="3.2" style="fill:${m.color}"/>
-    `;
-  }).join('');
-
-  // x-axis date ticks: first, middle, last
-  const tickIdx = [...new Set([0, Math.floor((series.length - 1) / 2), series.length - 1])];
-  const xticks = tickIdx.map(i => {
-    const r = series[i];
-    return `<text x="${sx(r.date).toFixed(1)}" y="${H - 8}" class="trend__xtick"
-                  text-anchor="${i === 0 ? 'start' : i === series.length - 1 ? 'end' : 'middle'}">${shortDayLabel(r.date)}</text>`;
-  }).join('');
-
-  const legend = TREND_METRICS.map(m =>
-    `<span class="trend-legend__item"><span class="trend-legend__dot" style="background:${m.color}"></span>${m.label}</span>`
-  ).join('');
-
-  return `
-    <div class="status-section fade-in">
-      <h3 class="status-section__title">ENTWICKLUNG IM ZEITVERLAUF</h3>
-      <svg class="trend-chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img"
-           aria-label="Verlauf der Kennzahlen über die Zeit">
-        ${grid}
-        ${lines}
-        ${xticks}
-      </svg>
-      <div class="trend-legend">${legend}</div>
-      ${doneBars}
-    </div>
-  `;
+// Tooltip text for a week, e.g. "KW 25 · 16.06. bis 22.06.2026"
+function weekRangeTitle(key) {
+  const [y, w] = key.split('-W').map(Number);
+  const mon = isoWeekMonday(y, w);
+  const sun = new Date(mon);
+  sun.setUTCDate(mon.getUTCDate() + 6);
+  const dm = d => `${String(d.getUTCDate()).padStart(2, '0')}.${String(d.getUTCMonth() + 1).padStart(2, '0')}.`;
+  return `KW ${w} · ${dm(mon)} bis ${dm(sun)}${sun.getUTCFullYear()}`;
 }
 
-// ─── KPI Sparkline (tiny inline trend) ───────────────
-function sparkline(metric, color) {
-  const series = timeseries;
-  if (!series || series.length < 2) return '';
-  const vals = series.map(r => r[metric] || 0);
-  const min = Math.min(...vals), max = Math.max(...vals);
-  const range = max - min || 1;
-  const W = 100, H = 26, pad = 3;
-  const pts = vals.map((v, i) => {
-    const x = pad + (i / (vals.length - 1)) * (W - 2 * pad);
-    const y = pad + (1 - (v - min) / range) * (H - 2 * pad);
-    return `${x.toFixed(1)},${y.toFixed(1)}`;
-  });
-  const lastX = pad + (W - 2 * pad);
-  const lastY = pad + (1 - (vals[vals.length - 1] - min) / range) * (H - 2 * pad);
-  return `
-    <svg class="kpi-spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">
-      <polyline points="${pts.join(' ')}" fill="none" stroke-width="1.6"
-                stroke-linejoin="round" stroke-linecap="round" style="stroke:${color}"/>
-      <circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="2" style="fill:${color}"/>
-    </svg>
-  `;
-}
-
-// ─── Delta Helper ────────────────────────────────────
-function delta(current, previous) {
-  if (previous == null) return null;
-  return current - previous;
-}
-
-function deltaHtml(d, suffix) {
-  if (d == null) return '';
-  const sign = d > 0 ? '+' : '';
-  const cls = d > 0 ? 'delta--up' : d < 0 ? 'delta--down' : 'delta--neutral';
-  return `<span class="delta ${cls}">${sign}${d}${suffix || ''}</span>`;
-}
-
-// ─── Area display meta (emoji + strategic group) ─────
+// ─── Area display meta (emoji) ───────────────────────
 const AREA_META = {
-  'Marketing':              { emoji: '📣', group: 'Marketing' },
-  'CRM & Sales Ops':        { emoji: '📊', group: 'Marketing' },
-  'Internationalisierung':  { emoji: '🌍', group: 'Strategie' },
-  'Wissensaufbau':          { emoji: '📚', group: 'Strategie' },
-  'AI & Infrastruktur':     { emoji: '🤖', group: 'Strategie' },
-  'Strategie':              { emoji: '🎯', group: 'Strategie' },
-  'Nicht zugeordnet':       { emoji: '❓', group: 'Triage' },
+  'Marketing':              { emoji: '📣' },
+  'CRM & Sales Ops':        { emoji: '📊' },
+  'Internationalisierung':  { emoji: '🌍' },
+  'Wissensaufbau':          { emoji: '📚' },
+  'AI & Infrastruktur':     { emoji: '🤖' },
+  'Strategie':              { emoji: '🎯' },
+  'Redaktion':              { emoji: '📝' },
+  'Nicht zugeordnet':       { emoji: '❓' },
 };
 function areaMeta(name) {
-  return AREA_META[name] || { emoji: '📁', group: 'Sonstige' };
+  return AREA_META[name] || { emoji: '📁' };
 }
 
 const MONTHS_SHORT_DE = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
@@ -375,142 +222,275 @@ function monthLabel(ym) {
   return `${MONTHS_SHORT_DE[parseInt(m, 10) - 1]} ${y.slice(2)}`;
 }
 
-// ─── ISO calendar week helpers ───────────────────────
-function weekLabel(key) {
-  // key: YYYY-Www → "KW 25"
-  const w = parseInt(key.split('-W')[1], 10);
-  return `KW ${w}`;
+// ─── Kopfzahlen (Kernzahlen + Delta-Chips) ───────────
+// Board-Phasen in Board-Reihenfolge, ohne Done: Grundlage fuer Matrix und
+// Mini-Charts. On Hold gehoert bewusst NICHT in den Kopf (#149 Punkt 4).
+const PHASEN = ['Backlog', 'Bereit', 'Beansprucht', 'In Progress', 'In Review', 'Blocked', 'On Hold'];
+
+// Kernzahlen aus einer Phasenverteilung + Bestandssummen. `null` heisst:
+// diese Phase gab es zum Zeitpunkt der Quelle nicht (Statusmodell-Bruch),
+// die Kachel bzw. der Chip entfaellt dann, statt 0 vorzutaeuschen.
+function kopfWerte(bs, totals) {
+  bs = bs || {};
+  const val = k => (k in bs ? bs[k] : null);
+  const inArbeit = ('In Progress' in bs || 'Beansprucht' in bs)
+    ? (bs['In Progress'] || 0) + (bs['Beansprucht'] || 0)
+    : null;
+  return {
+    blockiert: val('Blocked'),
+    inReview: val('In Review'),
+    bereit: val('Bereit'),
+    inArbeit,
+    aktiv: totals && totals.items != null
+      ? totals.items - (totals.done || 0) - (totals.discarded || 0)
+      : null,
+  };
 }
-// Monday of an ISO week (UTC) — week 1 is the week containing Jan 4th.
-function isoWeekMonday(year, week) {
-  const jan4 = new Date(Date.UTC(year, 0, 4));
-  const jan4Dow = (jan4.getUTCDay() + 6) % 7; // Mon=0 … Sun=6
-  const monday = new Date(jan4);
-  monday.setUTCDate(jan4.getUTCDate() - jan4Dow + (week - 1) * 7);
-  return monday;
+
+// Referenzzeilen fuer die Delta-Chips: der vorige Snapshot-Tag und der
+// letzte Stand mindestens 7 Tage vor dem angezeigten Datum. Fehlen Tage
+// (Snapshot-Luecken), wird die Referenz aelter, nie juenger; der Tooltip
+// nennt das echte Referenzdatum.
+function deltaRefs(dateStr) {
+  const idx = timeseries.findIndex(r => r.date === dateStr);
+  const vortag = idx > 0 ? timeseries[idx - 1] : null;
+  const d = new Date(dateStr + 'T00:00:00Z');
+  if (isNaN(d)) return { vortag, vorwoche: null };
+  d.setUTCDate(d.getUTCDate() - 7);
+  const grenze = d.toISOString().slice(0, 10);
+  let vorwoche = null;
+  for (const r of timeseries) {
+    if (r.date <= grenze) vorwoche = r; else break;
+  }
+  return { vortag, vorwoche };
 }
-// Tooltip text for a week bar, e.g. "KW 25 · 16.06.–22.06.2026"
-function weekRangeTitle(key) {
-  const [y, w] = key.split('-W').map(Number);
-  const mon = isoWeekMonday(y, w);
-  const sun = new Date(mon);
-  sun.setUTCDate(mon.getUTCDate() + 6);
-  const dm = d => `${String(d.getUTCDate()).padStart(2, '0')}.${String(d.getUTCMonth() + 1).padStart(2, '0')}.`;
-  return `KW ${w} · ${dm(mon)}–${dm(sun)}${sun.getUTCFullYear()}`;
+
+function chipHtml(diff, art, refDatum, invert) {
+  if (diff == null) return '';
+  const sign = diff > 0 ? '+' : '';
+  const gut = invert ? diff < 0 : diff > 0;
+  const cls = diff === 0 ? 'delta--neutral' : (gut ? 'delta--up' : 'delta--down');
+  const was = art === 'T' ? 'Vortag' : 'Vorwoche';
+  return `<span class="delta ${cls}" title="gegen ${was} (${shortDayLabel(refDatum)})">${sign}${diff} ${art}</span>`;
 }
 
-// ─── Render Dashboard ────────────────────────────────
-function renderDashboard(data, prev) {
-  const main = document.getElementById('main');
-  const t = data.totals;
-  const pt = prev ? prev.totals : null;
-  const donePercent = t.items > 0 ? Math.round((t.done / t.items) * 100) : 0;
+function renderKopf(data) {
+  const t = data.totals || {};
+  const cur = kopfWerte(data.by_status, t);
+  const datum = data._meta && data._meta.snapshot_date;
+  const { vortag, vorwoche } = deltaRefs(datum || '');
+  const refT = vortag ? kopfWerte(vortag.by_status, vortag) : null;
+  const refW = vorwoche ? kopfWerte(vorwoche.by_status, vorwoche) : null;
 
-  main.innerHTML = `
-    <div class="snapshot-header fade-in">
-      <h1 class="snapshot-header__title">WORK COCKPIT — REPORTING</h1>
-      <p class="snapshot-header__sub">
-        ${data._meta.source || 'KORODUR Work Cockpit'} &mdash; ${formatSnapshotLabel(data._meta.snapshot_date)}
-      </p>
+  const chips = (key, invert) => {
+    if (cur[key] == null) return '';
+    const a = refT && refT[key] != null ? chipHtml(cur[key] - refT[key], 'T', vortag.date, invert) : '';
+    const b = refW && refW[key] != null ? chipHtml(cur[key] - refW[key], 'W', vorwoche.date, invert) : '';
+    return a + b;
+  };
+
+  // Erledigt in der KW des angezeigten Standes, Delta gegen die Vorwoche.
+  const kw = isoWeekKey(datum);
+  let erledigt = null, erledigtChip = '', kwNr = '';
+  if (kw && data.done_by_week) {
+    erledigt = data.done_by_week[kw] || 0;
+    kwNr = String(parseInt(kw.split('-W')[1], 10));
+    const dV = new Date(datum + 'T00:00:00Z');
+    dV.setUTCDate(dV.getUTCDate() - 7);
+    const vorDatum = dV.toISOString().slice(0, 10);
+    const kwVor = isoWeekKey(vorDatum);
+    if (kwVor) {
+      erledigtChip = chipHtml(erledigt - (data.done_by_week[kwVor] || 0), 'W', vorDatum);
+    }
+  }
+
+  const kachel = (label, wert, opts = {}) => wert == null ? '' : `
+      <div class="kpi-card kpi-card--k ${opts.warn && wert > 0 ? 'kpi-card--warn' : ''} fade-in">
+        <div class="kpi-card__label">${label}</div>
+        <div class="kpi-card__value ${opts.warn && wert > 0 ? 'kpi-card__value--warn' : ''}${opts.accent ? ' kpi-card__value--accent' : ''}">${wert}</div>
+        <div class="kpi-card__detail">${opts.detail || ''}${opts.chips || ''}</div>
+      </div>`;
+
+  // Alte Snapshots tragen im source-String ein Em-Dash (U+2014); seit #181
+  // schreibt der Fetcher einen Mittelpunkt. Fuer die Anzeige normalisieren.
+  const quelle = ((data._meta && data._meta.source) || 'KORODUR Work Cockpit').replace(/\u2014/g, '·');
+  const zeit = data._meta && data._meta.generated_at
+    ? new Date(data._meta.generated_at).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })
+    : '';
+  const inArbeitDetail = data.by_status && 'Beansprucht' in data.by_status
+    ? 'In Progress + Beansprucht' : 'In Progress';
+
+  return `
+    <div class="kopf fade-in">
+      <h1 class="kopf__titel">Reporting</h1>
+      <p class="kopf__stand">Stand ${formatSnapshotLabel(datum || '')}${zeit ? ', ' + zeit + ' Uhr' : ''} · ${quelle}</p>
     </div>
-
-    ${renderTimeline()}
-
-    <div class="kpi-row">
-      <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Erledigt</div>
-        <div class="kpi-card__value">${t.done}</div>
-        <div class="kpi-card__detail">Status: Done ${deltaHtml(delta(t.done, pt?.done))}</div>
-        ${sparkline('done', 'var(--success)')}
-      </div>
-      <div class="kpi-card fade-in">
-        <div class="kpi-card__label">In Arbeit</div>
-        <div class="kpi-card__value">${t.in_progress}</div>
-        <div class="kpi-card__detail">In Progress + Review ${deltaHtml(delta(t.in_progress, pt?.in_progress))}</div>
-        ${sparkline('in_progress', 'var(--secondary)')}
-      </div>
-      <div class="kpi-card fade-in ${t.blocked > 0 ? 'kpi-card--warn' : ''}">
-        <div class="kpi-card__label">Blockiert</div>
-        <div class="kpi-card__value ${t.blocked > 0 ? 'kpi-card__value--warn' : ''}">${t.blocked}</div>
-        <div class="kpi-card__detail">Status: Blocked ${deltaHtml(delta(t.blocked, pt?.blocked))}</div>
-        ${sparkline('blocked', 'var(--warn)')}
-      </div>
-      ${t.on_hold === undefined ? '' : `
-      <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Zurückgestellt</div>
-        <div class="kpi-card__value">${t.on_hold}</div>
-        <div class="kpi-card__detail">Status: On Hold ${deltaHtml(delta(t.on_hold, pt?.on_hold))}</div>
-        ${sparkline('on_hold', 'var(--muted)')}
-      </div>`}
-      <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Offen</div>
-        <div class="kpi-card__value">${t.open}</div>
-        <div class="kpi-card__detail">Backlog + Bereit + Beansprucht ${deltaHtml(delta(t.open, pt?.open))}</div>
-        ${sparkline('open', 'var(--muted)')}
-      </div>
-      <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Items gesamt</div>
-        <div class="kpi-card__value kpi-card__value--accent">${t.items}</div>
-        <div class="kpi-card__detail">${donePercent}% erledigt${(t.discarded || 0) > 0 ? ` · ${t.discarded} verworfen` : ''} ${deltaHtml(delta(t.items, pt?.items))}</div>
-        ${sparkline('items', 'var(--primary)')}
-      </div>
-    </div>
-
-    <div id="segment-strip"></div>
-
-    ${renderTrendChart(data)}
-
-    <div class="split-row">
-      ${renderOwnerSplit(data)}
-      ${renderPriority(data)}
-    </div>
-
-    <h3 class="area-grid-title fade-in">BEREICHE</h3>
-    <div class="area-grid">
-      ${data.areas.filter(a => a.total > 0).map(a => renderAreaCard(a, prev)).join('')}
-    </div>
-
-    ${renderProjectsTable(data)}
-
-    <div class="footer">
-      KORODUR Work Cockpit Reporting &mdash; Generiert am ${new Date(data._meta.generated_at).toLocaleDateString('de-DE')}
-      &mdash; <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank">GitHub</a>
+    <div class="kpi-row kpi-row--kopf">
+      ${kachel('Blockiert', cur.blockiert, { warn: true, chips: chips('blockiert', true) })}
+      ${kachel('In Review', cur.inReview, { chips: chips('inReview') })}
+      ${kachel('Bereit', cur.bereit, { chips: chips('bereit') })}
+      ${kachel('In Arbeit', cur.inArbeit, { detail: inArbeitDetail + ' ', chips: chips('inArbeit') })}
+      ${kachel(kwNr ? 'Erledigt / KW ' + kwNr : 'Erledigt / KW', erledigt, { chips: erledigtChip })}
+      ${kachel('Aktiv gesamt', cur.aktiv, { accent: true, detail: 'ohne Done und Verworfen ', chips: chips('aktiv') })}
     </div>
   `;
 }
 
-// ─── Owner Split (Human / Claude / Either) ───────────
-function renderOwnerSplit(data) {
-  const o = data.by_owner || {};
-  const human = o.Human || 0, claude = o.Claude || 0, either = o.Either || 0, none = o.none || 0;
-  const assigned = human + claude + either;
-  if (assigned + none === 0) return '';
-  const seg = (c, type, label) => {
-    if (!c) return '';
-    const pct = Math.max((c / assigned) * 100, 6);
-    return `<div class="status-bar__segment status-bar__segment--${type}" style="width:${pct}%">${pct > 10 ? c : ''}</div>`;
-  };
+// ─── Phasen-Repo-Matrix ──────────────────────────────
+// Spalten: Repos mit aktiven Issues, Kuerzel mit vollem Namen im Tooltip.
+// Zeilen: alle Phasen in Board-Reihenfolge inkl. On Hold (ohne Warnfarbe)
+// und ohne Done. "Aktiv" heisst ohne Done und Verworfen (#149 Punkt 5).
+const REPO_KUERZEL = {
+  'KORODUR-International/korodur-review-reporting': 'rr',
+  'KORODUR-International/korodur-operating-model': 'om',
+  'sfleischmann-3steps2/KORODUR-Website': 'ws',
+  'KORODUR-International/korodur-referenzverzeichnis': 'rf',
+  'KORODUR-International/korodur-crm': 'crm',
+  'KORODUR-International/korodur-produktdatenbank': 'pd',
+  'KORODUR-International/korodur-lokale-ki': 'ki',
+  'KORODUR-International/korodur-redaktion': 'red',
+  'KORODUR-International/korodur-translation': 'tr',
+  'KORODUR-International/korodur-skills': 'sk',
+  'KORODUR-International/korodur-tds-output': 'tds',
+  'KORODUR-International/korodur-ausschreibungstexte': 'at',
+  'KORODUR-International/korodur-rapidset': 'rs',
+  'KORODUR-International/korodur-military': 'mil',
+  '(Draft / kein Repo)': 'dr',
+};
+
+function repoKuerzel(name) {
+  if (REPO_KUERZEL[name]) return REPO_KUERZEL[name];
+  // Fallback fuer neue Repos: Kurzform aus dem Namen; das Kuerzel hier
+  // nachpflegen, sobald ein Repo dazukommt. Tooltip traegt immer den
+  // vollen Namen.
+  const kurz = (name.split('/').pop() || name).replace(/^korodur-/i, '');
+  return kurz.slice(0, 3).toLowerCase();
+}
+
+function projektAktiv(p) {
+  return p.total - (p.done || 0) - (p.discarded || 0);
+}
+
+function renderMatrix(data) {
+  const projekte = (data.projects || []).filter(p => p && p.by_status);
+  if (!projekte.length) {
+    return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">PHASEN JE REPO</h3>
+      <p class="matrix__hinweis">Die Phasen-Matrix gibt es ab Snapshot v3 (16.08.2026). Dieser Snapshot ist älter; die Kopfzahlen und der Zeitverlauf gelten weiter.</p>
+    </div>`;
+  }
+
+  const spalten = projekte.filter(p => projektAktiv(p) > 0)
+    .sort((a, b) => projektAktiv(b) - projektAktiv(a));
+  const ohneStatus = spalten.some(p => (p.by_status.none || 0) > 0);
+  const zeilen = ohneStatus ? [...PHASEN, 'none'] : PHASEN;
+
+  const kopf = `<tr><th class="matrix__phase"></th>${spalten.map(p =>
+    `<th class="matrix__repo" title="${p.name}">${repoKuerzel(p.name)}</th>`).join('')}<th class="matrix__summe">Summe</th></tr>`;
+
+  const rows = zeilen.map(phase => {
+    const werte = spalten.map(p => p.by_status[phase] || 0);
+    const summe = werte.reduce((a, b) => a + b, 0);
+    const label = phase === 'none' ? 'Ohne Status' : phase;
+    const warn = phase === 'Blocked';
+    return `<tr class="${warn ? 'matrix__zeile--warn' : ''}${phase === 'none' ? ' matrix__zeile--triage' : ''}">
+      <th class="matrix__phase">${label}</th>
+      ${werte.map(w => `<td>${w || ''}</td>`).join('')}
+      <td class="matrix__summe">${summe}</td>
+    </tr>`;
+  }).join('');
+
+  const gesamt = spalten.reduce((s, p) => s + projektAktiv(p), 0);
+  const fuss = `<tr class="matrix__fuss">
+    <th class="matrix__phase">Aktiv</th>
+    ${spalten.map(p => `<td>${projektAktiv(p)}</td>`).join('')}
+    <td class="matrix__summe">${gesamt}</td>
+  </tr>`;
 
   return `
-    <div class="status-section fade-in split-row__col">
-      <h3 class="status-section__title">HUMAN / CLAUDE-SPLIT</h3>
-      <div class="status-bar">
-        ${seg(human, 'human', human)}
-        ${seg(claude, 'claude', claude)}
-        ${seg(either, 'either', either)}
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">PHASEN JE REPO</h3>
+      <div class="matrix-scroll">
+        <table class="matrix">
+          <thead>${kopf}</thead>
+          <tbody>${rows}</tbody>
+          <tfoot>${fuss}</tfoot>
+        </table>
       </div>
-      <div class="status-legend">
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--owner-human)"></span>Human: ${human}</span>
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--owner-claude)"></span>Claude: ${claude}</span>
-        <span class="status-legend__item"><span class="status-legend__dot" style="background:var(--owner-either)"></span>Either: ${either}</span>
-        ${none ? `<span class="status-legend__item"><span class="status-legend__dot" style="background:var(--mid-gray)"></span>Ohne: ${none}</span>` : ''}
+      <p class="matrix__fussnote">Zahlen sind aktive Issues (ohne Done und Verworfen). Maus auf ein Kürzel zeigt das Repo.</p>
+    </div>
+  `;
+}
+
+// ─── Zeitverlauf: Mini-Chart je Phase (KW-Endstand) ──
+// Bestaende als Wochen-Endstand, nicht als Durchschnitt (#149 Punkt 6).
+// Eine Serie beginnt an dem Tag, ab dem es die Phase gibt; Statusmodell-
+// Brueche (Ready bis 31.07., On Hold ab 15.08.) werden nicht geglaettet.
+function kwEndstaende() {
+  const map = new Map();
+  for (const r of timeseries) {
+    const kw = isoWeekKey(r.date);
+    if (kw) map.set(kw, r);        // letzte Zeile je KW gewinnt (aufsteigend sortiert)
+  }
+  return [...map.entries()].map(([kw, row]) => ({ kw, row }));
+}
+
+function miniChart(phase, punkte) {
+  const W = 170, H = 44, pad = 4;
+  const werte = punkte.map(p => p.wert);
+  const max = Math.max(...werte, 1);
+  const pts = werte.map((v, i) => {
+    const x = pad + (werte.length > 1 ? i / (werte.length - 1) : 0.5) * (W - 2 * pad);
+    const y = pad + (1 - v / max) * (H - 2 * pad);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  const letzt = punkte[punkte.length - 1];
+  const farbe = phase === 'Blocked' ? 'var(--warn)'
+    : phase === 'On Hold' ? 'var(--muted)' : 'var(--secondary)';
+  const [lx, ly] = pts[pts.length - 1].split(',');
+
+  return `
+    <div class="phasen-chart" title="${phase}: ${weekLabel(punkte[0].kw)} bis ${weekLabel(letzt.kw)}, Wochen-Endstand">
+      <div class="phasen-chart__kopf">
+        <span class="phasen-chart__name">${phase}</span>
+        <span class="phasen-chart__wert${phase === 'Blocked' && letzt.wert > 0 ? ' phasen-chart__wert--warn' : ''}">${letzt.wert}</span>
       </div>
+      <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">
+        <polyline points="${pts.join(' ')}" fill="none" stroke-width="2"
+                  stroke-linejoin="round" stroke-linecap="round" style="stroke:${farbe}"/>
+        <circle cx="${lx}" cy="${ly}" r="2.6" style="fill:${farbe}"/>
+      </svg>
+      <div class="phasen-chart__achse"><span>${weekLabel(punkte[0].kw)}</span><span>${weekLabel(letzt.kw)}</span></div>
+    </div>`;
+}
+
+function renderPhasenVerlauf(data) {
+  const doneBars = renderDoneByWeek(data);
+  const wochen = kwEndstaende();
+
+  let charts = '';
+  if (wochen.length >= 2) {
+    charts = PHASEN.map(phase => {
+      const punkte = wochen
+        .filter(w => w.row.by_status && phase in w.row.by_status)
+        .map(w => ({ kw: w.kw, wert: w.row.by_status[phase] }));
+      return punkte.length >= 2 ? miniChart(phase, punkte) : '';
+    }).join('');
+  }
+
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">ZEITVERLAUF</h3>
+      ${charts
+        ? `<div class="phasen-grid">${charts}</div>`
+        : '<p class="matrix__hinweis">Die Phasen-Kurven bauen sich mit den kommenden Wochen auf.</p>'}
+      ${doneBars}
     </div>
   `;
 }
 
 // ─── Done by Calendar Week (KW) ──────────────────────
-// Sub-block inside the trend section ("Zeitverlauf").
 // Falls back to the monthly view for legacy snapshots without done_by_week.
 function renderDoneByWeek(data) {
   const dbw = data.done_by_week || {};
@@ -537,7 +517,7 @@ function renderDoneByWeek(data) {
   `;
 }
 
-// ─── Done by Month ───────────────────────────────────
+// ─── Done by Month (legacy fallback) ─────────────────
 function renderDoneByMonth(data) {
   const dbm = data.done_by_month || {};
   const keys = Object.keys(dbm);
@@ -562,232 +542,55 @@ function renderDoneByMonth(data) {
   `;
 }
 
-// ─── Priority per status (status x priority bars) ────
-// One horizontal bar per Bearbeitungsphase, segmented P0–P3 (+ Ohne),
-// each row normalised to 100% — the tiles carry the absolute counts.
-// Falls back to the old chip row for legacy snapshots without the field.
-const PRIO_SEGMENTS = [
-  { key: 'P0',   label: 'P0',   color: 'var(--danger)',    dark: true },
-  { key: 'P1',   label: 'P1',   color: 'var(--warn)',      dark: true },
-  { key: 'P2',   label: 'P2',   color: 'var(--secondary)', dark: true },
-  { key: 'P3',   label: 'P3',   color: '#9aa7b4',          dark: true },
-  { key: 'none', label: 'Ohne', color: 'var(--light-gray)', dark: false },
-];
-const PRIO_STATUS_ROWS = [
-  { key: 'open',        label: 'Offen' },
-  { key: 'in_progress', label: 'In Arbeit' },
-  { key: 'blocked',     label: 'Blockiert' },
-  { key: 'on_hold',     label: 'Zurückgestellt' },
-  { key: 'done',        label: 'Erledigt' },
-];
-
-function renderPriority(data) {
-  const bsp = data.by_status_priority;
-  if (!bsp) return renderPriorityChips(data);
-
-  // Ältere Snapshots kennen on_hold nicht: Zeile dann weglassen statt leer zeigen.
-  const rows = PRIO_STATUS_ROWS.filter(row => bsp[row.key]).map(row => {
-    const dist = bsp[row.key] || {};
-    const total = PRIO_SEGMENTS.reduce((s, seg) => s + (dist[seg.key] || 0), 0);
-    const segs = total === 0
-      ? '<div class="prio-bar__empty">keine Items</div>'
-      : PRIO_SEGMENTS.map(seg => {
-          const c = dist[seg.key] || 0;
-          if (!c) return '';
-          const pct = (c / total) * 100;
-          return `<div class="prio-bar__seg ${seg.dark ? '' : 'prio-bar__seg--light'}"
-                       style="flex-grow:${c};background:${seg.color}"
-                       title="${row.label} · ${seg.label}: ${c}">${pct > 9 ? c : ''}</div>`;
-        }).join('');
-    return `
-      <div class="prio-bar__label">${row.label}</div>
-      <div class="prio-bar__count">${total}</div>
-      <div class="prio-bar">${segs}</div>
-    `;
-  }).join('');
-
-  const legend = PRIO_SEGMENTS.map(seg =>
-    `<span class="status-legend__item"><span class="status-legend__dot" style="background:${seg.color}"></span>${seg.label}</span>`
-  ).join('');
+// ─── Bereichs-Zeile (kompakt statt Cards, #181) ──────
+function renderBereichsZeile(data) {
+  const aktive = (data.areas || [])
+    .map(a => ({ ...a, aktiv: a.total - (a.done || 0) - (a.discarded || 0) }))
+    .filter(a => a.aktiv > 0);
+  if (!aktive.length) return '';
 
   return `
-    <div class="status-section fade-in split-row__col">
-      <h3 class="status-section__title">PRIORITÄT JE STATUS</h3>
-      <div class="prio-grid">${rows}</div>
-      <div class="status-legend">${legend}</div>
+    <div class="bereiche-zeile fade-in">
+      <span class="bereiche-zeile__titel">Bereiche</span>
+      ${aktive.map(a => `
+        <span class="bereiche-zeile__chip" title="${a.name}: ${a.aktiv} aktive Issues${a.blocked > 0 ? ', davon ' + a.blocked + ' blockiert' : ''}">
+          ${areaMeta(a.name).emoji} ${a.name} <strong>${a.aktiv}</strong>${a.blocked > 0 ? `<span class="bereiche-zeile__warn" title="davon blockiert">${a.blocked}</span>` : ''}
+        </span>`).join('')}
     </div>
   `;
 }
 
-// Legacy chip row (snapshots before by_status_priority existed)
-function renderPriorityChips(data) {
-  const p = data.by_priority || {};
-  const order = ['P0', 'P1', 'P2', 'P3'];
-  const total = order.reduce((s, k) => s + (p[k] || 0), 0) + (p.none || 0);
-  if (!total) return '';
+// ─── Fuss: Owner-Split klein + Meta ──────────────────
+function renderFuss(data) {
+  const o = data.by_owner || {};
+  const teile = [['Human', o.Human], ['Claude', o.Claude], ['Either', o.Either], ['Ohne', o.none]]
+    .filter(([, n]) => n > 0);
+  const split = teile.length
+    ? `<span class="footer__split">Owner-Typ: ${teile.map(([l, n]) => `${l} <strong>${n}</strong>`).join(' · ')}</span><br>`
+    : '';
+  const generiert = data._meta && data._meta.generated_at
+    ? ` · Generiert am ${new Date(data._meta.generated_at).toLocaleDateString('de-DE')}`
+    : '';
 
   return `
-    <div class="status-section fade-in split-row__col">
-      <h3 class="status-section__title">NACH PRIORITÄT</h3>
-      <div class="prio-row">
-        ${order.map(k => `
-          <div class="prio-chip prio-chip--${k.toLowerCase()}">
-            <span class="prio-chip__key">${k}</span>
-            <span class="prio-chip__count">${p[k] || 0}</span>
-          </div>
-        `).join('')}
-        ${p.none ? `<div class="prio-chip prio-chip--none"><span class="prio-chip__key">Ohne</span><span class="prio-chip__count">${p.none}</span></div>` : ''}
-      </div>
+    <div class="footer">
+      ${split}
+      KORODUR Work Cockpit Reporting${generiert}
+      · <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank">GitHub</a>
     </div>
   `;
 }
 
-// ─── Area Card ───────────────────────────────────────
-function renderAreaCard(area, prev) {
-  const meta = areaMeta(area.name);
-  const total = area.total || 1;
-  const completionRate = Math.round((area.done / total) * 100);
-  const donePct = (area.done / total) * 100;
-  const progressPct = (area.in_progress / total) * 100;
-  const blockedPct = (area.blocked / total) * 100;
-  const onHoldPct = ((area.on_hold || 0) / total) * 100;
-  const openPct = (area.open / total) * 100;
-
-  const prevArea = prev ? prev.areas.find(a => a.name === area.name) : null;
-  const doneDelta = prevArea ? delta(area.done, prevArea.done) : null;
-  const totalDelta = prevArea ? delta(area.total, prevArea.total) : null;
-
-  const o = area.by_owner || {};
-
-  return `
-    <div class="area-card fade-in" data-area="${area.name}">
-      <div class="area-card__header">
-        <span class="area-card__emoji">${meta.emoji}</span>
-        <span class="area-card__name">${area.name}</span>
-        <span class="area-card__group-tag">${meta.group}</span>
-      </div>
-      <div class="area-card__stats">
-        <div class="area-card__stat">
-          <span class="area-card__stat-label">Items</span>
-          <span class="area-card__stat-value">${area.total} ${deltaHtml(totalDelta)}</span>
-        </div>
-        <div class="area-card__stat">
-          <span class="area-card__stat-label">Erledigungsquote</span>
-          <span class="area-card__stat-value area-card__stat-value--rate ${completionRate >= 50 ? 'area-card__stat-value--good' : completionRate === 0 ? 'area-card__stat-value--warn' : ''}">${completionRate}%</span>
-        </div>
-        <div class="area-card__stat">
-          <span class="area-card__stat-label">Blocked</span>
-          <span class="area-card__stat-value ${area.blocked > 0 ? 'area-card__stat-value--warn' : ''}">${area.blocked}</span>
-        </div>
-        <div class="area-card__stat">
-          <span class="area-card__stat-label">Claude/Either</span>
-          <span class="area-card__stat-value">${(o.Claude || 0) + (o.Either || 0)}</span>
-        </div>
-
-        <div class="area-card__mini-bar">
-          <div class="area-card__mini-bar-label">Status-Verteilung</div>
-          <div class="mini-bar">
-            <div class="mini-bar__seg mini-bar__seg--done" style="width:${donePct}%"></div>
-            <div class="mini-bar__seg mini-bar__seg--progress" style="width:${progressPct}%"></div>
-            <div class="mini-bar__seg mini-bar__seg--blocked" style="width:${blockedPct}%"></div>
-            <div class="mini-bar__seg mini-bar__seg--on-hold" style="width:${onHoldPct}%"></div>
-            <div class="mini-bar__seg mini-bar__seg--open" style="width:${openPct}%"></div>
-          </div>
-          <div class="area-card__task-counts">
-            <span class="area-card__task-count"><strong>${area.done}</strong> erledigt ${deltaHtml(doneDelta)}</span>
-            <span class="area-card__task-count"><strong>${area.in_progress}</strong> aktiv</span>
-            <span class="area-card__task-count"><strong>${area.open}</strong> offen</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-// ─── Projects Table (by repository) ──────────────────
-// Repo-Rename-Mapping (Issue #128): dieses Repo hiess bis 2026-07-11
-// "korodur-reporting", bis 2026-08-08 "korodur-operating-model", seit
-// 2026-08-09 "korodur-review-reporting". scripts/fetch_snapshot.py speichert
-// je Snapshot-Tag den damals von GitHub gelieferten Namen, historische
-// Snapshot-Dateien bleiben dabei unangetastet. Seit dem Repo-Split am
-// 09.08.2026 gibt es zusaetzlich ein NEUES, eigenstaendiges Repo, das wieder
-// "korodur-operating-model" heisst -- ab diesem Datum ist der alte Name also
-// zweideutig. Ohne Mapping saehe die Tabelle beim Durchblaettern alter
-// Snapshots so aus, als waere aus einem 40-Item-Projekt ueber Nacht ein
-// 5-Item-Projekt geworden, obwohl es zwei verschiedene Repos sind. Fix lebt
-// bewusst hier im Render-Layer, nicht in den Snapshot-Dateien selbst.
-const PROJECT_RENAME_CUTOFF_DATE = '2026-08-09'; // letzter Tag, an dem der alte Name noch dieses Repo meint
-const PROJECT_LEGACY_NAMES = new Set([
-  'KORODUR-International/korodur-reporting',
-  'KORODUR-International/korodur-operating-model',
-]);
-const PROJECT_CURRENT_NAME = 'KORODUR-International/korodur-review-reporting';
-
-function projectDisplayName(rawName, snapshotDate) {
-  if (snapshotDate && snapshotDate <= PROJECT_RENAME_CUTOFF_DATE && PROJECT_LEGACY_NAMES.has(rawName)) {
-    return PROJECT_CURRENT_NAME;
-  }
-  return rawName;
-}
-
-// Wendet das Rename-Mapping an und summiert Zeilen, die dadurch denselben
-// Namen bekommen (defensiv -- in den echten Daten kollidiert das nicht,
-// siehe Datumsgrenze oben, aber die Tabelle darf nie zwei Zeilen mit
-// identischem Namen zeigen).
-function mergeRenamedProjects(projects, snapshotDate) {
-  const byName = new Map();
-  for (const p of projects) {
-    const name = projectDisplayName(p.name, snapshotDate);
-    const existing = byName.get(name);
-    if (!existing) {
-      byName.set(name, { ...p, name });
-      continue;
-    }
-    existing.total += p.total;
-    existing.done += p.done;
-    existing.in_progress += p.in_progress;
-    existing.open += p.open;
-    existing.blocked += p.blocked;
-    existing.discarded += p.discarded;
-    if (p.by_owner) {
-      existing.by_owner = existing.by_owner || {};
-      for (const [owner, count] of Object.entries(p.by_owner)) {
-        existing.by_owner[owner] = (existing.by_owner[owner] || 0) + count;
-      }
-    }
-  }
-  return [...byName.values()];
-}
-
-function renderProjectsTable(data) {
-  const snapshotDate = data._meta && data._meta.snapshot_date;
-  const projects = mergeRenamedProjects(data.projects || [], snapshotDate);
-  if (!projects.length) return '';
-
-  return `
-    <div class="status-section fade-in">
-      <h3 class="status-section__title">NACH PROJEKT (REPOSITORY)</h3>
-      <table class="proj-table">
-        <thead>
-          <tr><th>Repository</th><th>Items</th><th>Erledigt</th><th>In Arbeit</th><th>Offen</th><th>Blocked</th><th>Quote</th></tr>
-        </thead>
-        <tbody>
-          ${projects.map(p => {
-            const repoShort = p.name.includes('/') ? p.name.split('/')[1] : p.name;
-            const rate = p.total ? Math.round((p.done / p.total) * 100) : 0;
-            return `<tr>
-              <td class="proj-table__name" title="${p.name}">${repoShort}</td>
-              <td>${p.total}</td>
-              <td>${p.done}</td>
-              <td>${p.in_progress}</td>
-              <td>${p.open}</td>
-              <td class="${p.blocked > 0 ? 'proj-table__warn' : ''}">${p.blocked}</td>
-              <td>${rate}%</td>
-            </tr>`;
-          }).join('')}
-        </tbody>
-      </table>
-    </div>
+// ─── Render Dashboard ────────────────────────────────
+function renderDashboard(data) {
+  const main = document.getElementById('main');
+  main.innerHTML = `
+    ${renderKopf(data)}
+    <div id="segment-strip"></div>
+    ${renderMatrix(data)}
+    ${renderPhasenVerlauf(data)}
+    ${renderBereichsZeile(data)}
+    ${renderFuss(data)}
   `;
 }
 
@@ -842,7 +645,7 @@ async function segRedaktion() {
     <a class="seg-card" href="redaktion.html">
       <span class="ampel ampel--${state}"></span>
       <span class="seg-card__name">📝 Redaktion</span>
-      <span class="seg-card__kpi">Puffer <strong>${d.puffer}</strong> (Ziel ${lo}&ndash;${hi})</span>
+      <span class="seg-card__kpi">Puffer <strong>${d.puffer}</strong> (Ziel ${lo} bis ${hi})</span>
       <span class="seg-card__kpi">Vorlauf <strong>${dez(d.vorlauf_wochen)} Wo</strong></span>
       <span class="seg-card__kpi">LinkedIn <strong>${dez(freq)}/Wo</strong></span>
       <span class="seg-card__kpi">In Pr&uuml;fung <strong>${(d.totals || {}).in_pruefung || 0}</strong></span>

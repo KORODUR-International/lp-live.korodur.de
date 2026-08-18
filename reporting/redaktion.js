@@ -118,7 +118,7 @@ function isoWeekKeyOfDate(date) {
   return `${d.getUTCFullYear()}-W${String(week).padStart(2, '0')}`;
 }
 
-// Montag-Sonntag einer ISO-Kalenderwoche, z. B. "03.–09.08." (spiegelt
+// Montag-Sonntag einer ISO-Kalenderwoche, z. B. "03. bis 09.08." (spiegelt
 // scripts/import_social.py:iso_week_range in JS).
 function isoWeekRangeLabel(weekKey) {
   const monday = mondayOfIsoWeek(weekKey);
@@ -127,8 +127,8 @@ function isoWeekRangeLabel(weekKey) {
   const dd = n => String(n).padStart(2, '0');
   const sameMonth = monday.getUTCMonth() === sunday.getUTCMonth();
   return sameMonth
-    ? `${dd(monday.getUTCDate())}.&ndash;${dd(sunday.getUTCDate())}.${dd(sunday.getUTCMonth() + 1)}.`
-    : `${dd(monday.getUTCDate())}.${dd(monday.getUTCMonth() + 1)}.&ndash;${dd(sunday.getUTCDate())}.${dd(sunday.getUTCMonth() + 1)}.`;
+    ? `${dd(monday.getUTCDate())}. bis ${dd(sunday.getUTCDate())}.${dd(sunday.getUTCMonth() + 1)}.`
+    : `${dd(monday.getUTCDate())}.${dd(monday.getUTCMonth() + 1)}. bis ${dd(sunday.getUTCDate())}.${dd(sunday.getUTCMonth() + 1)}.`;
 }
 
 // ─── Formatierung ────────────────────────────────────
@@ -429,14 +429,14 @@ function renderPufferTile(d) {
     <div class="kpi-card fade-in">
       <div class="kpi-card__label">Beitrags-Puffer ${ampelBadge(state, label)}</div>
       <div class="kpi-card__value">${fehltZeichen(d.puffer)}</div>
-      <div class="kpi-card__detail">Freigegeben + eingeplant &middot; Ziel ${lo}&ndash;${hi}${terminiert}</div>
+      <div class="kpi-card__detail">Freigegeben + eingeplant &middot; Ziel ${lo} bis ${hi}${terminiert}</div>
       <div class="meter">
         <div class="meter__scale">
           <div class="meter__band" style="left:${bandLeft}%; width:${bandWidth}%;"></div>
           <div class="meter__fill" style="width:${fillPct}%;"></div>
           <div class="meter__marker" style="left:${fillPct}%;"></div>
         </div>
-        <div class="meter__ticks"><span>0</span><span>Ziel ${lo}&ndash;${hi}</span><span>${meterMax}</span></div>
+        <div class="meter__ticks"><span>0</span><span>Ziel ${lo} bis ${hi}</span><span>${meterMax}</span></div>
       </div>
     </div>`;
 }

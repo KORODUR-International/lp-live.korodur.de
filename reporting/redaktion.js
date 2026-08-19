@@ -36,6 +36,9 @@ const FUNNEL = [
 // Pflicht, nicht nur Legende/Farbe.
 const SOC_COLORS = { li: '#1e5a96', fb: '#009ee3', ig: '#7a56a3' };
 const SOC_LABELS = { li: 'LinkedIn', fb: 'Facebook', ig: 'Instagram' };
+// Bruecke zwischen den Kuerzeln der Timeseries-Spalten und den Plattform-Namen,
+// unter denen import_social.py handgetragene Werte meldet (Feld "manuell").
+const SOC_PLATTFORM = { li: 'linkedin', fb: 'facebook', ig: 'instagram' };
 
 const LI_POSTS_ZIEL = 3;
 const VORLAUF_ZIEL_WOCHEN = 4;
@@ -229,14 +232,55 @@ function socTotals(row) {
   };
 }
 
-function socDeltaLine(curr, prev, isPct) {
-  if (curr == null || prev == null) return '';
-  if (isPct && !prev) return '';
-  const diff = isPct ? Math.round(((curr - prev) / prev) * 100) : curr - prev;
+// Ein handgetragener Wert ist keine Messung des Exports. Er darf auf der Seite
+// nicht aussehen wie einer, sonst zaehlt spaeter niemand mehr nach, woher er
+// kommt. Instagram liefert Aufrufe und Interaktionen dauerhaft nur als
+// Screenshot, nicht als Datei (Issue #146, entschieden am 17.08.2026).
+function istManuell(row, tag) {
+  return Array.isArray(row.manuell) && row.manuell.includes(SOC_PLATTFORM[tag]);
+}
+
+function manuellePlattformen(row) {
+  return ['li', 'fb', 'ig'].filter(tag => istManuell(row, tag)).map(tag => SOC_LABELS[tag]);
+}
+
+const MANUELL_FUSSNOTE = '* aus dem Screenshot der Meta Business Suite '
+  + '&uuml;bernommen, nicht aus einer Export-Datei.';
+
+// Spaltenpaare je Kennzahl, damit der Wochenvergleich Plattform fuer
+// Plattform rechnen kann statt nur auf der Summe.
+const SOC_FELDER = {
+  imp: { li: 'li_impressions', fb: 'fb_views', ig: 'ig_views' },
+  inter: { li: 'li_interactions', fb: 'fb_interactions', ig: 'ig_interactions' },
+};
+
+// Ein Plattform-Wechsel ist kein Wachstum. Als Instagram in KW 33 erstmals
+// Aufrufe lieferte, sprang die Summe von 918 auf 4.843, also +428 %, obwohl
+// gut ein Drittel davon schlicht neu gemessen wurde statt neu entstanden.
+// Der Vergleich laeuft deshalb nur ueber Plattformen, die in beiden Wochen
+// einen Wert haben, und nennt die ausgelassene beim Namen.
+function socVergleich(curr, prev, feld) {
+  if (!curr || !prev) return null;
+  const spalten = SOC_FELDER[feld];
+  const res = { curr: 0, prev: 0, gemessen: 0, ausgelassen: [] };
+  Object.keys(spalten).forEach(tag => {
+    const cv = curr[spalten[tag]], pv = prev[spalten[tag]];
+    if (cv == null && pv == null) return;
+    if (cv == null || pv == null) { res.ausgelassen.push(SOC_LABELS[tag]); return; }
+    res.curr += cv; res.prev += pv; res.gemessen++;
+  });
+  return res.gemessen ? res : null;
+}
+
+function socDeltaLine(v, isPct) {
+  if (!v) return '';
+  if (isPct && !v.prev) return '';
+  const diff = isPct ? Math.round(((v.curr - v.prev) / v.prev) * 100) : v.curr - v.prev;
   const cls = diff >= 0 ? 'kpi-card__delta--up' : 'kpi-card__delta--down';
   const sign = diff >= 0 ? '+' : '';
   const unit = isPct ? '&nbsp;%' : '';
-  return `<div class="kpi-card__delta ${cls}">${sign}${diff}${unit} <small>vs. Vorwoche</small></div>`;
+  const ohne = v.ausgelassen.length ? `, ohne ${v.ausgelassen.join(' und ')}` : '';
+  return `<div class="kpi-card__delta ${cls}">${sign}${diff}${unit} <small>vs. Vorwoche${ohne}</small></div>`;
 }
 
 function renderSichtbarkeit() {
@@ -255,7 +299,7 @@ function renderSichtbarkeit() {
 
   const last = socSeries[socSeries.length - 1];
   const prev = socSeries.length >= 2 ? socSeries[socSeries.length - 2] : null;
-  const t = socTotals(last), pt = prev ? socTotals(prev) : null;
+  const t = socTotals(last);
   const range = isoWeekRangeLabel(last.week);
   const window8 = socSeries.slice(-8);
 
@@ -265,19 +309,29 @@ function renderSichtbarkeit() {
     window8.filter(r => r.li_engagement_rate != null).map(r => r.li_engagement_rate * 100), 'var(--secondary)');
 
   const platforms = last.ig_views == null ? 'LinkedIn + Facebook, Instagram n.&nbsp;v.' : 'LinkedIn + Facebook + Instagram';
+  // LinkedIn liefert mit bis zu 2 Tagen Verzug. Deckt der Export die Woche
+  // nicht voll ab, gehoert das an die Zahl, sonst liest sich eine Teilwoche
+  // wie ein Einbruch.
+  const tage = last.tage_linkedin;
+  const tageHinweis = (tage != null && tage < 7)
+    ? ` &middot; LinkedIn erst ${tage} von 7 Tagen (Export l&auml;uft bis zu 2 Tage nach)` : '';
+  const manuell = manuellePlattformen(last);
+  const manuellHinweis = manuell.length
+    ? `<div class="kpi-card__detail">enth&auml;lt ${manuell.join(' und ')} aus dem Screenshot, nicht aus dem Export</div>` : '';
   return `
-    <div class="section-title">SICHTBARKEIT &middot; ${kwLabel(last.week)} <small>${platforms}${range ? `, Kalenderwoche ${range}` : ''}</small></div>
+    <div class="section-title">SICHTBARKEIT &middot; ${kwLabel(last.week)} <small>${platforms}${range ? `, Kalenderwoche ${range}` : ''}${tageHinweis}</small></div>
     <div class="kpi-row">
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Sichtbarkeit (Impressions / Woche)</div>
         <div class="kpi-card__value kpi-card__value--hero">${fmtNum(t.imp)}</div>
-        ${pt ? socDeltaLine(t.imp, pt.imp, true) : ''}
+        ${socDeltaLine(socVergleich(last, prev, 'imp'), true)}
+        ${manuellHinweis}
         ${sparkImp}
       </div>
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Interaktionen / Woche</div>
         <div class="kpi-card__value">${fmtNum(t.inter)}</div>
-        ${pt ? socDeltaLine(t.inter, pt.inter, false) : ''}
+        ${socDeltaLine(socVergleich(last, prev, 'inter'), false)}
         <div class="kpi-card__detail">Reaktionen, Kommentare, geteilte Beitr&auml;ge</div>
         ${sparkInt}
       </div>
@@ -311,7 +365,12 @@ function renderSichtbarkeitChart() {
     { tag: 'fb', key: 'fb_views' },
     { tag: 'ig', key: 'ig_views' },
   ];
-  const W = 900, H = 300, pl = 46, pr = 96, pt = 20, pb = 32;
+  // pr traegt die Direct Labels rechts neben der Kurve. Gemessen in Chrome mit
+  // der SVG-Schrift der Seite (Arial 12): "Instagram 1.751*" ist 91,4 px breit,
+  // ein sechsstelliger Wert mit Marker 104,8 px. Bei pr = 96 standen davon nur
+  // 86 px zur Verfuegung, das Sternchen der Screenshot-Kennzeichnung fiel aus
+  // der viewBox und war unsichtbar. 120 traegt auch den sechsstelligen Fall.
+  const W = 900, H = 300, pl = 46, pr = 120, pt = 20, pb = 32;
   const allVals = weeks.flatMap(w => SERIES.map(s => w[s.key])).filter(v => v != null);
   const maxRaw = Math.max(1, ...allVals);
   const maxY = Math.ceil(maxRaw * 1.15 / 100) * 100 || 100;
@@ -333,7 +392,8 @@ function renderSichtbarkeitChart() {
     s += `<path d="${path}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
     const last = pts[pts.length - 1];
     s += `<circle cx="${x(last.i)}" cy="${y(last.v)}" r="4.5" fill="${color}" stroke="#fff" stroke-width="2"/>`;
-    s += `<text x="${x(last.i) + 10}" y="${y(last.v) + 4}" font-size="12" fill="var(--ink)">${SOC_LABELS[sr.tag]} <tspan font-weight="bold">${fmtNum(last.v)}</tspan></text>`;
+    const marker = istManuell(weeks[last.i], sr.tag) ? '*' : '';
+    s += `<text x="${x(last.i) + 10}" y="${y(last.v) + 4}" font-size="12" fill="var(--ink)">${SOC_LABELS[sr.tag]} <tspan font-weight="bold">${fmtNum(last.v)}${marker}</tspan></text>`;
   });
 
   weeks.forEach((w, i) => {
@@ -345,22 +405,31 @@ function renderSichtbarkeitChart() {
   // string-basierten Render-Test dieses Skripts nicht pruefen liesse.
   weeks.forEach((w, i) => {
     const half = weeks.length > 1 ? (x(1) - x(0)) / 2 : 60;
-    const rows = SERIES.map(sr => `${SOC_LABELS[sr.tag]}: ${w[sr.key] == null ? 'n. v.' : fmtNum(w[sr.key]).replace('&nbsp;', ' ')}`).join(' · ');
+    const rows = SERIES.map(sr => {
+      if (w[sr.key] == null) return `${SOC_LABELS[sr.tag]}: n. v.`;
+      return `${SOC_LABELS[sr.tag]}: ${fmtNum(w[sr.key]).replace('&nbsp;', ' ')}`
+        + (istManuell(w, sr.tag) ? ' (Screenshot)' : '');
+    }).join(' · ');
     s += `<rect data-i="${i}" x="${x(i) - half}" y="${pt}" width="${half * 2}" height="${H - pt - pb}" fill="transparent" class="vis-hit"><title>${kwLabel(w.week)}: ${rows}</title></rect>`;
   });
 
   const missingIg = weeks.some(w => w.ig_views == null);
+  const hatManuell = weeks.some(w => SERIES.some(sr => istManuell(w, sr.tag)));
 
   let tbl = '<table><tr><th>Plattform</th>' + weeks.map(w => `<th>${kwLabel(w.week)}</th>`).join('') + '</tr>';
   SERIES.forEach(sr => {
-    tbl += `<tr><td>${SOC_LABELS[sr.tag]}</td>` + weeks.map(w => `<td>${w[sr.key] == null ? 'n.&nbsp;v.' : fmtNum(w[sr.key])}</td>`).join('') + '</tr>';
+    tbl += `<tr><td>${SOC_LABELS[sr.tag]}</td>` + weeks.map(w => {
+      if (w[sr.key] == null) return '<td>n.&nbsp;v.</td>';
+      return `<td>${fmtNum(w[sr.key])}${istManuell(w, sr.tag) ? '*' : ''}</td>`;
+    }).join('') + '</tr>';
   });
   tbl += '</table>';
+  if (hatManuell) tbl += `<p class="chart-note">${MANUELL_FUSSNOTE}</p>`;
 
   return `
     <div class="status-section fade-in vis-chart-card">
       <h3 class="status-section__title">SICHTBARKEIT IM ZEITVERLAUF</h3>
-      <p class="chart-note">Impressions bzw. Aufrufe pro Kalenderwoche und Plattform${missingIg ? ' &middot; Instagram liefert nicht in jeder Woche Aufrufe' : ''}</p>
+      <p class="chart-note">Impressions bzw. Aufrufe pro Kalenderwoche und Plattform${missingIg ? ' &middot; Instagram liefert nicht in jeder Woche Aufrufe' : ''}${hatManuell ? ' &middot; mit * markierte Werte stammen aus einem Screenshot' : ''}</p>
       <div class="chart-wrap">
         <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Impressions pro Woche und Plattform" class="vis-svg">${s}</svg>
       </div>

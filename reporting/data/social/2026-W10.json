@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "week": "2026-W10",
+    "range": [
+      "2026-03-02",
+      "2026-03-08"
+    ],
+    "generated_at": "2026-08-18T13:04:02.189518+00:00",
+    "tage_linkedin": 7,
+    "quellen": {
+      "linkedin": "imports/social/2026-08-14",
+      "meta": null
+    }
+  },
+  "linkedin": {
+    "posts": 1,
+    "impressions": 782,
+    "impressions_unique": 444,
+    "clicks": 104,
+    "reactions": 32,
+    "comments": 4,
+    "shares": 2,
+    "interactions": 38,
+    "engagement_rate": 0.1816
+  },
+  "facebook": {
+    "posts": null,
+    "views": null,
+    "interactions": null,
+    "quelle": null
+  },
+  "instagram": {
+    "posts": null,
+    "views": null,
+    "interactions": null,
+    "quelle": null
+  }
+}

@@ -5,28 +5,34 @@
       "2026-08-03",
       "2026-08-09"
     ],
-    "generated_at": "2026-08-10T15:52:02.026438+00:00",
-    "source_dir": "imports/social/2026-08-10"
+    "generated_at": "2026-08-18T13:04:02.189518+00:00",
+    "tage_linkedin": 7,
+    "quellen": {
+      "linkedin": "imports/social/2026-08-14",
+      "meta": "imports/social/2026-08-10"
+    }
   },
   "linkedin": {
-    "posts": 3,
-    "impressions": 701,
-    "impressions_unique": 382,
-    "clicks": 56,
-    "reactions": 22,
-    "comments": 1,
+    "posts": 4,
+    "impressions": 857,
+    "impressions_unique": 482,
+    "clicks": 71,
+    "reactions": 39,
+    "comments": 2,
     "shares": 0,
-    "interactions": 23,
-    "engagement_rate": 0.1127
+    "interactions": 41,
+    "engagement_rate": 0.1307
   },
   "facebook": {
     "posts": 1,
     "views": 61,
-    "interactions": 3
+    "interactions": 3,
+    "quelle": "export"
   },
   "instagram": {
     "posts": 1,
     "views": null,
-    "interactions": null
+    "interactions": null,
+    "quelle": "export"
   }
 }

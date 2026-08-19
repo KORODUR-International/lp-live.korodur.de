@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "week": "2026-W33",
+    "range": [
+      "2026-08-10",
+      "2026-08-16"
+    ],
+    "generated_at": "2026-08-18T13:04:02.466868+00:00",
+    "tage_linkedin": 6,
+    "quellen": {
+      "linkedin": "imports/social/2026-08-17",
+      "meta": "imports/social/2026-08-17"
+    }
+  },
+  "linkedin": {
+    "posts": 2,
+    "impressions": 2340,
+    "impressions_unique": 1217,
+    "clicks": 230,
+    "reactions": 111,
+    "comments": 4,
+    "shares": 0,
+    "interactions": 115,
+    "engagement_rate": 0.1474
+  },
+  "facebook": {
+    "posts": 5,
+    "views": 752,
+    "interactions": 39,
+    "quelle": "export"
+  },
+  "instagram": {
+    "posts": 5,
+    "views": 1751,
+    "interactions": 43,
+    "quelle": "export+manuell",
+    "quelle_hinweis": "Screenshot Meta Business Suite, Content-Übersicht Instagram, Zeitraum 9. bis 15.08.2026 (KW 33 Insta.png). Die IG-CSV liefert nur den Abschnitt \"Veröffentlichte Inhalte\", Aufrufe und Interaktionen gibt es in unserem Meta-Zugang nur als Screenshot (Issue #146)."
+  }
+}

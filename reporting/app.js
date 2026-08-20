@@ -18,6 +18,7 @@ const MONTHS_DE = [
 let currentSnapshot = null;
 let availableSnapshots = [];   // newest-first (index.json order)
 let timeseries = [];           // ascending by date; drives head deltas + phase charts
+let roadmapCache;              // undefined = ungeladen, null = nicht verfuegbar (#182)
 
 // ─── Init ────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
@@ -85,6 +86,7 @@ async function loadSnapshot(key) {
     renderDashboard(currentSnapshot);
     updateHeaderMeta(key);
     loadSegmentStrip();
+    loadMeilensteinLeiste();
   } catch (err) {
     main.innerHTML = `<div class="loading">Fehler beim Laden: ${err.message}</div>`;
   }
@@ -346,7 +348,11 @@ const REPO_KUERZEL = {
   'sfleischmann-3steps2/KORODUR-Website': 'ws',
   'KORODUR-International/korodur-referenzverzeichnis': 'rf',
   'KORODUR-International/korodur-crm': 'crm',
-  'KORODUR-International/korodur-produktdatenbank': 'pd',
+  // Rename 19.08.2026: alter Slug bleibt fuer Snapshots vor dem Rename,
+  // beide tragen dasselbe Kuerzel, damit die Spalte ueber die Zeitreihe
+  // wiedererkennbar ist.
+  'KORODUR-International/korodur-produktdatenbank': 'dpi',
+  'KORODUR-International/korodur-digitale-produktinformationen': 'dpi',
   'KORODUR-International/korodur-lokale-ki': 'ki',
   'KORODUR-International/korodur-redaktion': 'red',
   'KORODUR-International/korodur-translation': 'tr',
@@ -421,6 +427,226 @@ function renderMatrix(data) {
       <p class="matrix__fussnote">Zahlen sind aktive Issues (ohne Done und Verworfen). Maus auf ein Kürzel zeigt das Repo.</p>
     </div>
   `;
+}
+
+// ─── Meilenstein-Leiste (#182) ───────────────────────
+// Schmale Sektion zwischen Matrix und Zeitverlauf: der Blick auf die
+// Meilensteine, deretwegen priorisiert wird. Kommende Termine der naechsten
+// 60 Tage aus roadmap-2026.json, Ueberfaellige mit Verzugstiefe aus den
+// kennzahlen der roadmap-historie.json (dort vom Tageslauf aus dem
+// Aenderungsprotokoll `aenderungen` aggregiert). Meilenstein-Titel sind auf
+// der Roadmap-Seite bereits oeffentlich, das ist kein neuer
+// Vertraulichkeitsfall; entfallene Termine erscheinen nie. Fehlen die
+// Dateien, faellt nur diese Sektion weg, nie die Board-Seite.
+const ROADMAP_URL = 'data/roadmap/roadmap-2026.json';
+const ROADMAP_HISTORIE_URL = 'data/roadmap/roadmap-historie.json';
+const MS_FENSTER_TAGE = 60;
+// Confidence oeffentlich nur als Symbol, gleiche Sprache wie roadmap.js.
+const MS_CONF_SYMBOL = { hoch: '●●●', mittel: '●●○', niedrig: '●○○' };
+const MS_TYP_LABEL = {
+  meilenstein: 'Meilenstein', schluessel: 'Schlüsselereignis',
+  entscheidung: 'Entscheidungspunkt', fixpunkt: 'Externer Fixpunkt',
+};
+
+// Roadmap-Titel sind Freitext aus der JSON und laufen als einzige Inhalte
+// dieser Seite durch innerHTML; alles andere sind Zaehlungen.
+function escHtml(s) {
+  return String(s == null ? '' : s)
+    .replaceAll('&', '&amp;').replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+}
+
+// Einzige Heute-Quelle, wie auf der Roadmap-Seite: erst `heute` aus der
+// JSON, sonst das Systemdatum.
+function msHeute(roadmap) {
+  if (roadmap && roadmap.heute) return roadmap.heute;
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0')
+    + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function addTage(iso, n) {
+  const d = new Date(iso + 'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+
+function diffTage(von, bis) {
+  return Math.round((new Date(bis + 'T00:00:00Z') - new Date(von + 'T00:00:00Z')) / 86400000);
+}
+
+// Alle Termine der Roadmap: Lane-Meilensteine plus externe Fixpunkte.
+function roadmapTermine(roadmap) {
+  return (roadmap.lanes || []).flatMap(l => l.meilensteine || [])
+    .concat(roadmap.fixpunkte || [])
+    .filter(m => m && m.datum && m.titel);
+}
+
+// Auswahl fuer die Leiste: erreicht und entfallen fallen raus, der Rest
+// teilt sich am Heute-Datum in ueberfaellig (mit Verzugstiefe aus den
+// Historie-Kennzahlen) und kommend (bis einschliesslich Tag 60).
+function meilensteinAuswahl(roadmap, kennzahlen, heute) {
+  const offen = roadmapTermine(roadmap)
+    .filter(m => m.status !== 'erreicht' && m.status !== 'entfallen');
+  const grenze = addTage(heute, MS_FENSTER_TAGE);
+  const kommend = offen
+    .filter(m => m.datum >= heute && m.datum <= grenze)
+    .sort((a, b) => a.datum.localeCompare(b.datum));
+  const ueberfaellig = offen
+    .filter(m => m.datum < heute)
+    .map(m => ({ ...m, tage: diffTage(m.datum, heute), verzug: (kennzahlen || {})[m.id] || null }))
+    .sort((a, b) => b.tage - a.tage);
+  return { kommend, ueberfaellig };
+}
+
+function verzugText(m) {
+  const teile = [`seit ${m.tage} Tag${m.tage === 1 ? '' : 'en'} überfällig`];
+  if (m.verzug && m.verzug.verschiebungen > 0) {
+    const t = m.verzug.tageGesamt;
+    teile.push(`${m.verzug.verschiebungen}× verschoben (${t >= 0 ? '+' : ''}${t} T)`);
+  }
+  return teile.join(' · ');
+}
+
+function msChip(m, warn) {
+  const conf = m.confidence && MS_CONF_SYMBOL[m.confidence]
+    ? ` <span class="ms-chip__conf" title="Confidence: ${m.confidence}">${MS_CONF_SYMBOL[m.confidence]}</span>` : '';
+  const typ = MS_TYP_LABEL[m.typ] || 'Termin';
+  const marker = m.typ === 'entscheidung' ? '◆ ' : '';
+  const datumKurz = `${m.datum.slice(8, 10)}.${m.datum.slice(5, 7)}.`;
+  const info = warn ? ` <span class="ms-chip__verzug">${verzugText(m)}</span>` : '';
+  return `<span class="ms-chip${warn ? ' ms-chip--warn' : ''}" title="${escHtml(typ)} · ${m.datum}">`
+    + `<span class="ms-chip__datum">${datumKurz}</span> ${marker}${escHtml(m.titel)}${conf}${info}</span>`;
+}
+
+function renderMeilensteinLeiste(roadmap, kennzahlen) {
+  const heute = msHeute(roadmap);
+  const { kommend, ueberfaellig } = meilensteinAuswahl(roadmap, kennzahlen, heute);
+  if (!kommend.length && !ueberfaellig.length) return '';
+
+  const gruppe = (label, chips, warn) => chips.length ? `
+      <div class="ms-gruppe">
+        <span class="ms-gruppe__label${warn ? ' ms-gruppe__label--warn' : ''}">${label}</span>
+        ${chips.join('')}
+      </div>` : '';
+
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">MEILENSTEINE</h3>
+      ${gruppe('Überfällig', ueberfaellig.map(m => msChip(m, true)), true)}
+      ${gruppe(`Nächste ${MS_FENSTER_TAGE} Tage`, kommend.map(m => msChip(m, false)), false)}
+      <p class="matrix__fussnote">Aus der Roadmap${roadmap.stand ? ` (Stand ${escHtml(roadmap.stand)})` : ''}; entfallene Termine erscheinen nicht. <a href="roadmap.html">Zur Roadmap &rarr;</a></p>
+    </div>`;
+}
+
+async function loadMeilensteinLeiste() {
+  const host = document.getElementById('meilenstein-leiste');
+  if (!host) return;
+  try {
+    if (roadmapCache === undefined) {
+      const res = await fetch(ROADMAP_URL);
+      if (!res.ok) { roadmapCache = null; return; }
+      const roadmap = await res.json();
+      let kennzahlen = {};
+      try {
+        const h = await fetch(ROADMAP_HISTORIE_URL);
+        if (h.ok) kennzahlen = (await h.json()).kennzahlen || {};
+      } catch { /* Historie ist optional (#164): Leiste ohne Verzugstiefe */ }
+      roadmapCache = { roadmap, kennzahlen };
+    }
+    if (!roadmapCache) return;
+    host.innerHTML = renderMeilensteinLeiste(roadmapCache.roadmap, roadmapCache.kennzahlen);
+  } catch { /* Roadmap-Daten optional: Sektion faellt weg, Seite bleibt */ }
+}
+
+// ─── Hebel-Block (#183) ──────────────────────────────
+// Sichtbar machen, welcher Eingriff am meisten entsperrt und was still
+// liegt. Quelle sind die Item-Zeilen des Snapshots: blocked_by-Kanten
+// ('owner/repo#nr', offene native Dependencies) und status_seit (seit wann
+// in der Phase, vom Fetcher ueber die Tages-Snapshots fortgeschrieben).
+// Nur Kuerzel und Nummern auf der Seite, keine Titel, keine Gruende, keine
+// Adressaten: die Adressaten-Sicht lebt im Board und in den Reviews
+// (Entscheidung 16.08. in #149). Aeltere Snapshots ohne die Felder lassen
+// die Sektion einfach weg.
+const LIEGE_SCHWELLE_TAGE = 14;   // Anzeige ab 14 Tagen ohne Phasenwechsel
+const LIEGE_MAX_ZEILEN = 12;      // Rest als Zaehler, damit die Liste lesbar bleibt
+// Backlog und On Hold sind bewusst geparkte Bestaende: Stillstand ist dort
+// kein Signal. Liegezeit zaehlt nur in den Arbeitsphasen.
+const LIEGE_PHASEN = ['Bereit', 'Beansprucht', 'In Progress', 'In Review', 'Blocked'];
+const PRIO_RANG = { P0: 0, P1: 1, P2: 2, P3: 3 };
+
+// Eine Kante 'owner/repo#nr' als Link: Kuerzel auf der Seite, das Issue
+// oeffnet auf GitHub, dort greift der Login.
+function kanteLink(kante) {
+  const i = kante.lastIndexOf('#');
+  const repo = kante.slice(0, i);
+  const nr = kante.slice(i + 1);
+  return `<a class="hebel__nr" href="https://github.com/${repo}/issues/${nr}"
+    target="_blank" rel="noopener" title="${repo}#${nr}">${repoKuerzel(repo)}#${nr}</a>`;
+}
+
+function topEntsperrer(items) {
+  const zaehler = new Map();
+  for (const r of items || []) {
+    for (const kante of r.blocked_by || []) {
+      zaehler.set(kante, (zaehler.get(kante) || 0) + 1);
+    }
+  }
+  return [...zaehler.entries()]
+    .map(([kante, anzahl]) => ({ kante, anzahl }))
+    .sort((a, b) => b.anzahl - a.anzahl || a.kante.localeCompare(b.kante))
+    .slice(0, 5);
+}
+
+function liegezeiten(items, stichtag) {
+  return (items || [])
+    .filter(r => r.nummer != null && r.status_seit && LIEGE_PHASEN.includes(r.status))
+    .map(r => ({ ...r, tage: diffTage(r.status_seit, stichtag) }))
+    .filter(r => r.tage >= LIEGE_SCHWELLE_TAGE)
+    .sort((a, b) => (PRIO_RANG[a.prioritaet] ?? 9) - (PRIO_RANG[b.prioritaet] ?? 9)
+      || b.tage - a.tage
+      || (`${a.repo}#${a.nummer}`).localeCompare(`${b.repo}#${b.nummer}`));
+}
+
+function renderHebel(data) {
+  const items = data.items || [];
+  const stichtag = (data._meta && data._meta.snapshot_date) || '';
+  const entsperrer = topEntsperrer(items);
+  const liegen = stichtag ? liegezeiten(items, stichtag) : [];
+  if (!entsperrer.length && !liegen.length) return '';
+
+  const entHtml = entsperrer.length ? `
+      <div class="hebel__spalte">
+        <h4 class="hebel__untertitel">TOP-ENTSPERRER</h4>
+        <ul class="hebel__liste">
+          ${entsperrer.map(e => `<li>${kanteLink(e.kante)} blockiert
+            <strong>${e.anzahl}</strong> Issue${e.anzahl === 1 ? '' : 's'}</li>`).join('')}
+        </ul>
+      </div>` : '';
+
+  const gezeigt = liegen.slice(0, LIEGE_MAX_ZEILEN);
+  const rest = liegen.length - gezeigt.length;
+  const liegeHtml = liegen.length ? `
+      <div class="hebel__spalte">
+        <h4 class="hebel__untertitel">LIEGEZEITEN</h4>
+        <ul class="hebel__liste">
+          ${gezeigt.map(r => `<li>${kanteLink(`${r.repo}#${r.nummer}`)} still seit
+            <strong>${r.tage}</strong> Tagen in ${r.status}${r.prioritaet ? ` <span class="hebel__prio">${r.prioritaet}</span>` : ''}</li>`).join('')}
+        </ul>
+        ${rest > 0 ? `<p class="matrix__fussnote">+${rest} weitere ab ${LIEGE_SCHWELLE_TAGE} Tagen</p>` : ''}
+      </div>` : '';
+
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">HEBEL</h3>
+      <div class="hebel">
+        ${entHtml}
+        ${liegeHtml}
+      </div>
+      <p class="matrix__fussnote">Kanten sind native GitHub-Dependencies (nur Nummern, keine Titel).
+        Liegezeit ab ${LIEGE_SCHWELLE_TAGE} Tagen ohne Phasenwechsel in den Arbeitsphasen;
+        Backlog und On Hold z&auml;hlen nicht. Klick &ouml;ffnet das Issue auf GitHub.</p>
+    </div>`;
 }
 
 // ─── Zeitverlauf: Mini-Chart je Phase (KW-Endstand) ──
@@ -588,6 +814,8 @@ function renderDashboard(data) {
     ${renderKopf(data)}
     <div id="segment-strip"></div>
     ${renderMatrix(data)}
+    <div id="meilenstein-leiste"></div>
+    ${renderHebel(data)}
     ${renderPhasenVerlauf(data)}
     ${renderBereichsZeile(data)}
     ${renderFuss(data)}

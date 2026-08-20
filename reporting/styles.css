@@ -1547,3 +1547,90 @@ details.tbl th:first-child, details.tbl td:first-child { text-align: left; }
 @media (max-width: 1024px) {
   .kpi-row--kopf { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ─── Meilenstein-Leiste (#182): Roadmap-Termine im Cockpit ── */
+.ms-gruppe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.ms-gruppe:last-of-type { margin-bottom: 0; }
+.ms-gruppe__label {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  min-width: 118px;
+}
+.ms-gruppe__label--warn { color: var(--warn); }
+.ms-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  background: var(--light-gray);
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: .8rem;
+  line-height: 1.4;
+}
+.ms-chip--warn { background: rgba(243, 156, 18, .12); }
+.ms-chip__datum {
+  font-weight: 800;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.ms-chip__conf {
+  color: var(--secondary);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  cursor: help;
+}
+.ms-chip__verzug {
+  color: var(--warn);
+  font-weight: 700;
+  font-size: .72rem;
+  white-space: nowrap;
+}
+
+/* ─── Hebel-Block (#183): Top-Entsperrer und Liegezeiten ── */
+.hebel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.hebel__untertitel {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.hebel__liste {
+  list-style: none;
+  font-size: .82rem;
+  font-variant-numeric: tabular-nums;
+}
+.hebel__liste li {
+  padding: 5px 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+.hebel__liste li:last-child { border-bottom: none; }
+.hebel__nr {
+  font-weight: 800;
+  color: var(--secondary);
+  text-decoration: none;
+}
+.hebel__nr:hover { text-decoration: underline; }
+.hebel__prio {
+  font-size: .66rem;
+  font-weight: 800;
+  color: var(--muted);
+  background: var(--light-gray);
+  border-radius: 10px;
+  padding: 0 7px;
+  margin-left: 4px;
+}

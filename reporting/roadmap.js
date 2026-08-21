@@ -27,7 +27,6 @@ function confSymbolHtml(conf) {
 const ZOOMS = [
   { key: 'q3', label: 'Q3', start: '2026-07-01', ende: '2026-09-30', outlook: false },
   { key: 'q4', label: 'Q4', start: '2026-10-01', ende: '2026-12-31', outlook: false },
-  { key: 'h2', label: 'H2 gesamt', start: null, ende: null, outlook: false },
   { key: 'h2p', label: 'inkl. 2027', start: null, ende: null, outlook: true },
 ];
 
@@ -61,6 +60,10 @@ function brauchtAbstimmung(id) {
 }
 let AREA = {};              // areaId -> {name, farbe}
 const areaOf = id => AREA[id] || { name: id || 'Unbekannt', farbe: 'var(--muted)' };
+// Angezeigt wird ohne das "WiP: " der Notion-Schreibweise. Beim Rendern
+// strippen, nicht in der JSON umbenennen: dort ist der Name die Kopie des
+// Notion-Werts und muss es bleiben.
+const areaName = id => areaOf(id).name.replace(/^WiP:\s*/, '');
 const todayIso = () => {
   const d = new Date();
   return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
@@ -78,7 +81,7 @@ const state = {
   fix: false,               // externe Fixpunkte (Standard: ausgeblendet, Review 14.07.)
   decisions: true,          // Entscheidungspunkte
   achieved: true,           // erreichte Meilensteine
-  areas: null,              // Set aktiver Area-IDs (null = alle)
+  zu: new Set(),            // eingeklappte Bereiche (leer = alle offen, #201)
   selected: null,           // {kind: 'ms'|'lane', id}
 };
 
@@ -93,7 +96,9 @@ const dayMs = 86400000;
 const toDate = iso => new Date(iso + 'T12:00:00');
 
 function zoomDef() {
-  const z = ZOOMS.find(z => z.key === state.zoom) || ZOOMS[3];
+  // Rueckfall ueber den Key, nie ueber einen Index: eine Stufe zu streichen
+  // wuerde ZOOMS[3] undefined machen und die Seite gar nicht mehr rendern.
+  const z = ZOOMS.find(z => z.key === state.zoom) || ZOOMS.find(z => z.key === 'h2p');
   return {
     ...z,
     start: z.start || DATA.zeitraum.start,
@@ -158,8 +163,16 @@ function visibleMs(list) {
     return inWindow(m.datum);
   });
 }
-function activeLanes() {
-  return DATA.lanes.filter(l => !state.areas || state.areas.has(l.area));
+// Fortschritt eines Bereichs ueber alle seine Lanes. Diese Summe gibt es
+// sonst nirgends; sie ist der Grund, warum ein zugeklappter Bereich nicht
+// weniger zeigt als ein offener, sondern etwas anderes.
+function areaProgress(areaId) {
+  return progress(DATA.lanes.filter(l => l.area === areaId).flatMap(l => l.meilensteine));
+}
+const istZu = areaId => state.zu.has(areaId);
+function toggleArea(id) {
+  if (state.zu.has(id)) state.zu.delete(id); else state.zu.add(id);
+  update();
 }
 
 /* --- State aus/in URL (teilbare Ansichten, testbare Zustände) --- */
@@ -169,9 +182,15 @@ function readStateFromUrl() {
   if (p.has('fix')) state.fix = p.get('fix') === '1';
   if (p.has('dec')) state.decisions = p.get('dec') === '1';
   if (p.has('done')) state.achieved = p.get('done') === '1';
-  if (p.has('areas')) {
-    const ids = p.get('areas').split(',').filter(id => DATA.areas.some(a => a.id === id));
-    if (ids.length) state.areas = new Set(ids);
+  const bekannt = id => DATA.areas.some(a => a.id === id);
+  if (p.has('zu')) {
+    p.get('zu').split(',').filter(bekannt).forEach(id => state.zu.add(id));
+  } else if (p.has('areas')) {
+    // Altlink aus der Chip-Zeit: dort war 'areas' eine Positivliste der
+    // sichtbaren Bereiche. Geklappt wird als Negativliste, also alles
+    // umdrehen, damit ein geteilter Link weiter dieselbe Sicht zeigt.
+    const ids = p.get('areas').split(',').filter(bekannt);
+    if (ids.length) DATA.areas.forEach(a => { if (!ids.includes(a.id)) state.zu.add(a.id); });
   }
   if (p.has('sel')) {
     const id = p.get('sel');
@@ -186,7 +205,7 @@ function writeStateToUrl() {
   if (state.fix) p.set('fix', '1');
   if (!state.decisions) p.set('dec', '0');
   if (!state.achieved) p.set('done', '0');
-  if (state.areas) p.set('areas', [...state.areas].join(','));
+  if (state.zu.size) p.set('zu', [...state.zu].join(','));
   if (state.selected) p.set('sel', state.selected.id);
   const qs = p.toString();
   history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
@@ -222,14 +241,17 @@ function markerHtml(m, laneId, color) {
 function labelHtml(m, idx) {
   const x = pct(m.datum);
   const side = idx % 2 === 0 ? 'above' : 'below';
-  let anchor = `left:${x}%;transform:translateX(-50%)`;
-  if (x < 8) anchor = `left:${x}%`;
-  if (x > 92) anchor = `right:${100 - x}%;text-align:right`;
+  // Ausgangslage ist immer mittig unter dem Marker. Ob links- oder
+  // rechtsbuendig geankert werden muss, entscheidet ankerLabel() nach dem
+  // Layout an der gemessenen Breite. Eine Schwelle auf der Position allein
+  // (frueher x < 8 bzw. x > 92) kennt die Textlaenge nicht und liess lange
+  // Labels aus der Zone laufen.
+  const anchor = `left:${x}%;transform:translateX(-50%)`;
   const warn = m.klaerung ? '⚠ ' : '';
   const done = m.status === 'erreicht' ? '✓ ' : '';
   const moved = m.status === 'verschoben' ? ' (verschoben)' : '';
   const lateCls = isLate(m) ? ' is-late' : '';
-  return `<div class="rm-mslabel rm-mslabel--${side}" style="${anchor}">
+  return `<div class="rm-mslabel rm-mslabel--${side}" data-x="${x}" style="${anchor}">
     <span class="rm-mslabel__d${lateCls}">${fmtShort(m.datum)}</span> ${done}${warn}<b>${esc(m.titel)}</b>${confSymbolHtml(m.confidence)}${moved}
   </div>`;
 }
@@ -320,7 +342,7 @@ function chartHtml() {
   const months = monthsInWindow();
   const z = zoomDef();
   const today = heuteIso();
-  const lanes = activeLanes();
+  const lanes = DATA.lanes;
   const groups = [];
   let last = null;
   for (const lane of lanes) {
@@ -342,13 +364,24 @@ function chartHtml() {
         <div class="rm-months__next">${z.outlook ? esc(DATA.zeitraum.ausblickLabel) + ' →' : ''}</div>
       </div>
       ${state.fix ? fixRowHtml() : ''}
-      ${groups.map(g => `
-        <div class="rm-row rm-areahead">
-          <div class="rm-areahead__label"><span class="rm-swatch" style="background:${areaOf(g.area).farbe}"></span>${esc(areaOf(g.area).name)}</div>
-          <div></div><div></div>
+      ${groups.map(g => {
+        const zu = istZu(g.area);
+        const ap = areaProgress(g.area);
+        return `
+        <div class="rm-row rm-areahead${zu ? ' is-zu' : ''}">
+          <div class="rm-areahead__label">
+            <button type="button" class="rm-areahead__btn" data-areatoggle="${esc(g.area)}"
+              aria-expanded="${zu ? 'false' : 'true'}"
+              title="${zu ? 'Bereich aufklappen' : 'Bereich zuklappen'}">
+              <span class="rm-areahead__caret" aria-hidden="true">${zu ? '\u25B8' : '\u25BE'}</span>
+              <span class="rm-swatch" style="background:${areaOf(g.area).farbe}"></span>
+              <span class="rm-areahead__name">${esc(areaName(g.area))}</span>
+              <span class="rm-areahead__sum">${ap.done}/${ap.total}${ap.late ? ` <span class="rm-areahead__late">${ap.late} ${LATE_LABEL}</span>` : ''}</span>
+            </button>
+          </div>
         </div>
-        ${g.lanes.map(laneRowHtml).join('')}
-      `).join('')}
+        ${zu ? '' : g.lanes.map(laneRowHtml).join('')}`;
+      }).join('')}
     </div>
   </div>`;
 }
@@ -368,16 +401,10 @@ function toolbarHtml() {
     <div class="rm-toolbar__group" role="group" aria-label="Zeitraum">
       ${ZOOMS.map(z => `<button type="button" class="rm-zoombtn${state.zoom === z.key ? ' is-active' : ''}" data-zoom="${z.key}">${z.label}</button>`).join('')}
     </div>
-    <div class="rm-toolbar__group">
+    <div class="rm-toolbar__group rm-toolbar__group--leise">
       ${toggle('fix', fixLabel, state.fix)}
       ${toggle('dec', 'Entscheidungspunkte', state.decisions)}
       ${toggle('done', 'Erreichte', state.achieved)}
-    </div>
-    <div class="rm-toolbar__group" role="group" aria-label="Areas">
-      ${DATA.areas.map(a => {
-        const on = !state.areas || state.areas.has(a.id);
-        return `<button type="button" class="rm-areachip${on ? ' is-active' : ''}" data-area="${a.id}" style="--rm-c:${a.farbe}">${esc(a.name.replace('WiP: ', ''))}</button>`;
-      }).join('')}
     </div>
   </div>`;
 }
@@ -398,7 +425,7 @@ function detailHtml() {
       <div class="rm-detail__head">
         <span class="rm-swatch" style="background:${color}"></span>
         <h3 class="rm-detail__title">${esc(lane.name)}</h3>
-        <span class="rm-detail__meta">${esc(areaOf(lane.area).name)}${zeitraumTxt}${lane.weiter2027 ? ' · 2027: ' + esc(lane.weiter2027) : ''} · Fortschritt ${p.done}/${p.total}${p.late ? ` · <span class="rm-late">${p.late} ${LATE_LABEL}</span>` : ''}</span>
+        <span class="rm-detail__meta">${esc(areaName(lane.area))}${zeitraumTxt}${lane.weiter2027 ? ' · 2027: ' + esc(lane.weiter2027) : ''} · Fortschritt ${p.done}/${p.total}${p.late ? ` · <span class="rm-late">${p.late} ${LATE_LABEL}</span>` : ''}</span>
         <button type="button" class="rm-detail__close" data-close aria-label="Schließen">×</button>
       </div>
       ${lane.hinweis ? `<p class="rm-detail__note">${esc(lane.hinweis)}</p>` : ''}
@@ -418,7 +445,7 @@ function detailHtml() {
   const hit = findMs(state.selected.id);
   if (!hit) return '';
   const { m, lane } = hit;
-  const areaName = lane ? areaOf(lane.area).name : 'Externer Fixpunkt';
+  const areaTxt = lane ? areaName(lane.area) : 'Externer Fixpunkt';
   const issueLink = m.issue
     ? `<a class="rm-detail__issue" href="https://github.com/${esc(m.issue.replace('#', '/issues/'))}" target="_blank" rel="noopener">${esc(m.issue)}</a>`
     : '';
@@ -426,7 +453,7 @@ function detailHtml() {
   <div class="status-section rm-detail">
     <div class="rm-detail__head">
       <h3 class="rm-detail__title">${m.status === 'erreicht' ? '✓ ' : ''}${esc(m.titel)}</h3>
-      <span class="rm-detail__meta">${fmtDate(m.datum)}${m.zeitraum ? ` (${fmtShort(m.zeitraum.von)} bis ${fmtShort(m.zeitraum.bis)})` : ''} · ${esc(areaName)}${lane ? ' · ' + esc(lane.name) : ''} · ${TYP_LABEL[m.typ] || esc(m.typ)}</span>
+      <span class="rm-detail__meta">${fmtDate(m.datum)}${m.zeitraum ? ` (${fmtShort(m.zeitraum.von)} bis ${fmtShort(m.zeitraum.bis)})` : ''} · ${esc(areaTxt)}${lane ? ' · ' + esc(lane.name) : ''} · ${TYP_LABEL[m.typ] || esc(m.typ)}</span>
       <button type="button" class="rm-detail__close" data-close aria-label="Schließen">×</button>
     </div>
     <p class="rm-detail__body">
@@ -448,18 +475,21 @@ function detailHtml() {
 /* --- Geparkt + Tabelle + Legende --- */
 function parkedHtml() {
   if (!DATA.geparkt || !DATA.geparkt.length) return '';
+  // Aufklappbar wie die Tabellenansicht und zugeklappt als Standard: die
+  // geparkten Themen stehen nur hier, die Tabelle baut ihre Zeilen aus
+  // fixpunkte und lanes[].meilensteine und kennt sie nicht.
   return `
-  <div class="status-section rm-parked">
-    <h3 class="status-section__title">BEWUSST GEPARKT</h3>
+  <details class="rm-parkedwrap">
+    <summary>Bewusst geparkt (${DATA.geparkt.length})</summary>
     <ul class="rm-parked__list">
       ${DATA.geparkt.map(g => `<li><b>${esc(g.titel)}</b>${g.wiedervorlage ? ` · Wiedervorlage ${fmtDate(g.wiedervorlage)}` : ''}${g.hinweis ? ` · ${esc(g.hinweis)}` : ''}</li>`).join('')}
     </ul>
-  </div>`;
+  </details>`;
 }
 function tableHtml() {
   const rows = [];
   DATA.fixpunkte.forEach(m => rows.push({ m, area: 'Fixpunkt', lane: 'Externe Fixpunkte' }));
-  DATA.lanes.forEach(l => l.meilensteine.forEach(m => rows.push({ m, area: areaOf(l.area).name, lane: l.name })));
+  DATA.lanes.forEach(l => l.meilensteine.forEach(m => rows.push({ m, area: areaName(l.area), lane: l.name })));
   rows.sort((a, b) => a.m.datum.localeCompare(b.m.datum));
   return `
   <details class="rm-tablewrap">
@@ -484,7 +514,9 @@ function tableHtml() {
 }
 function legendHtml() {
   return `
-  <div class="rm-legend">
+  <details class="rm-legendwrap">
+    <summary>Zeichenerklärung</summary>
+    <div class="rm-legend">
     <span class="rm-legend__item"><span class="rm-shape rm-shape--ms"></span> Meilenstein</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--key"></span> Schlüsselereignis</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--dec"></span> Entscheidungspunkt</span>
@@ -496,28 +528,66 @@ function legendHtml() {
     <span class="rm-legend__item">⚠ Abhängigkeit / zu klären</span>
     <span class="rm-legend__item">✓ erreicht</span>
     <span class="rm-legend__item">Confidence: <span class="rm-conf rm-conf--hoch">●●●</span> hoch · <span class="rm-conf rm-conf--mittel">●●○</span> mittel · <span class="rm-conf rm-conf--niedrig">●○○</span> niedrig</span>
-  </div>`;
+    </div>
+  </details>`;
 }
 
-/* --- Label-Kollisionen auflösen: überlappende Labels derselben Seite
-       weichen auf eine zweite Ebene aus (nach dem Layout gemessen) --- */
+/* --- Labels setzen: erst ankern, dann stapeln. Beides nach dem Layout
+       gemessen, weil beides von der Textbreite abhaengt. --- */
+
+// Mindestabstand zweier Labels auf derselben Ebene, in px.
+const LABEL_LUECKE = 10;
+// Ebenen je Seite (0 = am Marker, 1 = --far, 2 = --far2). Mehr Ebenen wuerden
+// die Lane hoeher machen, als die Zeile Nutzen bringt.
+const LABEL_EBENEN = ['', 'rm-mslabel--far', 'rm-mslabel--far2'];
+
+// Ein Label mittig unter seinem Marker kann links oder rechts aus der Zone
+// laufen. Dann wird an der ueberstehenden Seite geankert; passt es auch dann
+// nicht, klebt es an der Zonenkante. Gemessen statt geschaetzt.
+function ankerLabel(el, zr) {
+  const x = parseFloat(el.dataset.x);
+  if (!isFinite(x)) return;
+  const mittig = () => { el.style.right = ''; el.style.textAlign = ''; el.style.left = x + '%'; el.style.transform = 'translateX(-50%)'; };
+  const links = () => { el.style.right = ''; el.style.textAlign = ''; el.style.transform = ''; el.style.left = x + '%'; };
+  const rechts = () => { el.style.left = ''; el.style.transform = ''; el.style.right = (100 - x) + '%'; el.style.textAlign = 'right'; };
+  mittig();
+  let r = el.getBoundingClientRect();
+  if (r.right > zr.right) {
+    rechts();
+    r = el.getBoundingClientRect();
+    if (r.left < zr.left) { links(); el.style.left = '0'; }
+  } else if (r.left < zr.left) {
+    links();
+    r = el.getBoundingClientRect();
+    if (r.right > zr.right) { rechts(); el.style.right = '0'; }
+  }
+}
+
 function resolveLabelCollisions(root) {
-  root.querySelectorAll('.rm-mslabel--far, .rm-mslabel--tight').forEach(el =>
-    el.classList.remove('rm-mslabel--far', 'rm-mslabel--tight'));
   root.querySelectorAll('.rm-lane__zone').forEach(zone => {
+    const zr = zone.getBoundingClientRect();
+    zone.querySelectorAll('.rm-mslabel').forEach(el => {
+      el.classList.remove('rm-mslabel--far', 'rm-mslabel--far2', 'rm-mslabel--tight');
+      ankerLabel(el, zr);
+    });
     ['above', 'below'].forEach(side => {
       const labels = [...zone.querySelectorAll('.rm-mslabel--' + side)]
         .map(el => ({ el, rect: el.getBoundingClientRect() }))
         .sort((a, b) => a.rect.left - b.rect.left);
-      let nearRight = -Infinity, farRight = -Infinity;
+      const kante = [];   // rechte Kante der bisher belegten Ebenen
       labels.forEach(l => {
-        if (l.rect.left < nearRight + 10) {
-          l.el.classList.add('rm-mslabel--far');
-          if (l.rect.left < farRight + 10) l.el.classList.add('rm-mslabel--tight');
-          farRight = Math.max(farRight, l.rect.right);
-        } else {
-          nearRight = Math.max(nearRight, l.rect.right);
+        let e = 0;
+        while (e < LABEL_EBENEN.length - 1 && kante[e] != null && l.rect.left < kante[e] + LABEL_LUECKE) e++;
+        if (LABEL_EBENEN[e]) l.el.classList.add(LABEL_EBENEN[e]);
+        let rechts = l.rect.right;
+        // Letzte Ebene voll: kuerzen, damit wenigstens das naechste Label Platz
+        // hat. Kuerzen allein loest nie eine Ueberlappung an der linken Kante,
+        // deshalb ist es der letzte Schritt und nicht der zweite.
+        if (kante[e] != null && l.rect.left < kante[e] + LABEL_LUECKE) {
+          l.el.classList.add('rm-mslabel--tight');
+          rechts = l.el.getBoundingClientRect().right;
         }
+        kante[e] = Math.max(kante[e] == null ? -Infinity : kante[e], rechts);
       });
     });
   });
@@ -537,7 +607,7 @@ function bindTooltip(root) {
       if (!hit) return;
       const { m, lane } = hit;
       tip.innerHTML = `
-        <div class="rm-tip__date">${fmtDate(m.datum)} · ${lane ? esc(areaOf(lane.area).name) + ' · ' + esc(lane.name) : 'Externer Fixpunkt'}</div>
+        <div class="rm-tip__date">${fmtDate(m.datum)} · ${lane ? esc(areaName(lane.area)) + ' · ' + esc(lane.name) : 'Externer Fixpunkt'}</div>
         <div class="rm-tip__title">${m.status === 'erreicht' ? '✓ ' : ''}${esc(m.titel)}</div>
         ${isLate(m) ? `<div class="rm-tip__late">Termin überschritten</div>` : ''}
         ${m.confidence ? `<div class="rm-tip__conf">Confidence: ${CONF_LABEL[m.confidence]} ${confSymbolHtml(m.confidence)}</div>` : ''}
@@ -577,9 +647,9 @@ function render() {
       </div>
     </div>
     ${toolbarHtml()}
-    ${legendHtml()}
     ${chartHtml()}
     ${detailHtml()}
+    ${legendHtml()}
     ${parkedHtml()}
     ${tableHtml()}
     <footer class="footer">Quelle: <code>data/roadmap/roadmap-2026.json</code> ·
@@ -596,14 +666,8 @@ function render() {
     if (t.dataset.toggle === 'done') state.achieved = t.checked;
     update();
   }));
-  main.querySelectorAll('[data-area]').forEach(b => b.addEventListener('click', () => {
-    const id = b.dataset.area;
-    const all = new Set(DATA.areas.map(a => a.id));
-    if (!state.areas) state.areas = all;
-    if (state.areas.has(id)) state.areas.delete(id); else state.areas.add(id);
-    if (state.areas.size === 0 || state.areas.size === all.size) state.areas = null;
-    update();
-  }));
+  main.querySelectorAll('[data-areatoggle]').forEach(b =>
+    b.addEventListener('click', () => toggleArea(b.dataset.areatoggle)));
   main.querySelectorAll('[data-ms]').forEach(el => el.addEventListener('click', () => {
     state.selected = { kind: 'ms', id: el.dataset.ms };
     update();

@@ -689,17 +689,18 @@ h1, h2, h3, h4, h5 {
 .rm-zoombtn.is-active { background: var(--primary); border-color: var(--primary); color: var(--white); }
 .rm-toggle { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; color: var(--primary); cursor: pointer; }
 .rm-toggle input { accent-color: var(--secondary); width: 15px; height: 15px; cursor: pointer; }
-.rm-areachip {
-  border: 1px solid var(--mid-gray); border-left: 4px solid var(--rm-c, var(--mid-gray));
-  background: var(--white); color: var(--muted);
-  font: inherit; font-size: .76rem; font-weight: 700; padding: 4px 10px;
-  border-radius: 20px; cursor: pointer; opacity: .55;
-}
-.rm-areachip.is-active { color: var(--primary); opacity: 1; box-shadow: var(--shadow); }
-.rm-areachip:hover { opacity: 1; }
+/* Die drei Schalter bleiben erreichbar, treten aber zurueck: sie sind
+   interessant, werden aber selten benutzt (#200). */
+.rm-toolbar__group--leise { margin-left: auto; gap: 16px; }
+.rm-toolbar__group--leise .rm-toggle { font-size: .74rem; color: var(--muted); }
+.rm-toolbar__group--leise .rm-toggle:hover { color: var(--primary); }
+.rm-toolbar__group--leise .rm-toggle input { width: 13px; height: 13px; }
 
 /* Legende */
-.rm-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .76rem; color: var(--muted); margin: 0 4px 14px; }
+.rm-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .76rem; color: var(--muted); margin: 10px 4px 6px; }
+.rm-legendwrap, .rm-parkedwrap { margin-bottom: 10px; }
+.rm-legendwrap > summary, .rm-parkedwrap > summary { cursor: pointer; font-size: .85rem; color: var(--muted); padding: 4px 2px; }
+.rm-legendwrap > summary:hover, .rm-parkedwrap > summary:hover { color: var(--secondary); }
 .rm-legend__item { display: inline-flex; align-items: center; gap: 6px; }
 .rm-shape { display: inline-block; }
 .rm-shape--ms  { width: 9px; height: 9px; background: var(--muted); transform: rotate(45deg); border-radius: 2px; }
@@ -728,9 +729,32 @@ h1, h2, h3, h4, h5 {
 }
 .rm-months__next { display: flex; align-items: center; justify-content: center; font-size: .74rem; color: var(--muted); border-left: 2px solid var(--mid-gray); }
 
-.rm-areahead { margin-top: 24px; }
+/* Kopfzeile ist keine Raster-Zeile mehr: sie darf die ganze Breite nutzen,
+   sonst bricht 'CRM & Sales Operations' samt Summe in der 260-px-Spalte um. */
+.rm-areahead { margin-top: 24px; display: block; }
 .rm-areahead__label { display: flex; align-items: center; gap: 8px; font-size: .82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; color: var(--primary); }
 .rm-swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex: none; }
+
+/* Bereich auf- und zuklappen (#201). Die Kopfzeile ist die Schaltflaeche;
+   die Bereichssumme steht in beiden Zustaenden da, damit sie als Kennzahl
+   gelesen wird und nicht als Nebenwirkung des Zuklappens. */
+.rm-areahead__btn {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  border: 0; background: none; padding: 2px 0; font: inherit; text-align: left;
+  color: var(--primary); cursor: pointer;
+}
+.rm-areahead__caret { font-size: .7rem; color: var(--muted); width: 11px; flex: none; }
+.rm-areahead__name { font-size: .82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; }
+.rm-areahead__sum {
+  font-size: .72rem; font-weight: 700; color: var(--muted);
+  font-variant-numeric: tabular-nums; text-transform: none; letter-spacing: 0; white-space: nowrap;
+}
+.rm-areahead__late { color: var(--danger); }
+.rm-areahead__btn:hover .rm-areahead__name,
+.rm-areahead__btn:hover .rm-areahead__caret { color: var(--secondary); }
+.rm-areahead__btn:focus-visible { outline: 2px solid var(--secondary); outline-offset: 3px; border-radius: var(--radius); }
+.rm-areahead.is-zu { margin-top: 14px; }
+.rm-areahead.is-zu .rm-areahead__label { opacity: .82; }
 
 .rm-lane.is-selected .rm-lane__zone { background: rgba(0,158,227,.05); border-radius: var(--radius); }
 .rm-lane--fix .rm-lane__zone { border-bottom: 1px dashed var(--mid-gray); }
@@ -823,8 +847,7 @@ h1, h2, h3, h4, h5 {
 .rm-detail__backlink:hover { text-decoration: underline; }
 
 /* Geparkt + Tabelle */
-.rm-parked { margin-bottom: 16px; }
-.rm-parked__list { list-style: none; font-size: .84rem; color: var(--primary); }
+.rm-parked__list { list-style: none; font-size: .84rem; color: var(--primary); margin: 6px 0 14px; }
 .rm-parked__list li { padding: 7px 0; border-top: 1px solid var(--light-gray); line-height: 1.5; }
 .rm-parked__list li:first-child { border-top: 0; }
 .rm-tablewrap { margin-bottom: 24px; }
@@ -880,10 +903,14 @@ h1, h2, h3, h4, h5 {
   .rm-lane__next, .rm-months__next { display: none; }
 }
 
-/* Zweite Label-Ebene bei Kollisionen (JS: resolveLabelCollisions) */
-.rm-lane__zone { height: 112px; }
+/* Label-Ebenen bei Kollisionen (JS: resolveLabelCollisions). Drei Ebenen je
+   Seite: zwei reichten nicht, sobald drei Labels derselben Seite kollidieren.
+   Die Zonenhoehe traegt die aeusserste Ebene (48 + 14 px Zeilenhoehe). */
+.rm-lane__zone { height: 136px; }
 .rm-mslabel--above.rm-mslabel--far { bottom: calc(50% + 31px); }
 .rm-mslabel--below.rm-mslabel--far { top: calc(50% + 31px); }
+.rm-mslabel--above.rm-mslabel--far2 { bottom: calc(50% + 48px); }
+.rm-mslabel--below.rm-mslabel--far2 { top: calc(50% + 48px); }
 .rm-mslabel--tight { max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
 
 /* Nachträge aus dem Verify-Review */

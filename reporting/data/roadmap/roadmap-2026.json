@@ -1,7 +1,7 @@
 {
-  "version": "1.5",
-  "stand": "2026-08-19",
-  "hinweis": "Finalisiert 14.07.2026 abends (Konsolidierung aller Bereichs-Konzepte, Confidence-Modell). Version 1.5 arbeitet den DPI-Beschluss vom 18.08.2026 ein: Produktdaten-Lane neu geschnitten, Launch-Termin aufgehoben, Launch-Definition als Entscheidungspunkt. Redaktionsregeln siehe docs/ROADMAP-MODUL.md §5 (öffentliche Seite: keine Personennamen, keine Interna). Confidence-Herleitung intern: roadmap-2026-gesamtliste.md.",
+  "version": "1.6",
+  "stand": "2026-08-20",
+  "hinweis": "Finalisiert 14.07.2026 abends (Konsolidierung aller Bereichs-Konzepte, Confidence-Modell). Version 1.5 arbeitet den DPI-Beschluss vom 18.08.2026 ein: Produktdaten-Lane neu geschnitten, Launch-Termin aufgehoben, Launch-Definition als Entscheidungspunkt. Version 1.6 nimmt den geparkten Eintrag zur Messe IN.STAND zurück (nicht abgestimmt). Redaktionsregeln siehe docs/ROADMAP-MODUL.md §5 (öffentliche Seite: keine Personennamen, keine Interna). Confidence-Herleitung intern: roadmap-2026-gesamtliste.md.",
   "zeitraum": { "start": "2026-07-01", "ende": "2026-12-31", "ausblickLabel": "2027" },
   "heute": null,
   "areas": [
@@ -140,7 +140,6 @@
     { "titel": "Sales-Playbook-Ausbau mit dem Vertriebsteam", "wiedervorlage": "2026-10-15", "hinweis": "Geparkt bis nach dem Website-Launch; Interview-Format läuft weiter." },
     { "titel": "Vermarktungs- und Vertriebsprogramme je Kompetenzfeld", "wiedervorlage": null, "hinweis": "Ownership Vertrieb/GF; Marketing liefert Assets auf Anfrage." },
     { "titel": "Interner Hub / Intranet-Touchpoint", "wiedervorlage": null, "hinweis": "Geht in der Space-Konsolidierung auf." },
-    { "titel": "Messe IN.STAND: Teilnahme-Entscheid", "wiedervorlage": "2026-08-15", "hinweis": "Geparkt 14.07.; Wiedervorlage zur Entscheidung." },
     { "titel": "Normen-Wissensbasis (Äquivalenzmodell, Pilotmarkt FR)", "wiedervorlage": null, "hinweis": "Seitenschauplatz; ggf. Konzeptarbeit 2026, Umsetzung eher 2027." }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-08-21",
+  "letzteFeststellung": "2026-08-22",
   "stand": {
     "web-struktur": {
       "lane": "Website",
@@ -1535,6 +1535,69 @@
       "feld": null,
       "alt": "2026-08-20",
       "neu": "2026-08-20"
+    },
+    {
+      "festgestellt": "2026-08-22",
+      "id": "con-prozess",
+      "lane": "Content & Redaktion",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-15",
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-08-22",
+      "id": "dat-mvp",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-15",
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-08-22",
+      "id": "dat-regeltermin",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-08-22",
+      "id": "dat-strategie",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-20",
+      "neu": "2026-08-20"
+    },
+    {
+      "festgestellt": "2026-08-22",
+      "id": "dat-testlauf",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-10",
+      "neu": "2026-08-10"
+    },
+    {
+      "festgestellt": "2026-08-22",
+      "id": "org-grundgeruest",
+      "lane": "Organisation & Enablement",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-15",
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-08-22",
+      "id": "web-refkonzept",
+      "lane": "Website",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-20",
+      "neu": "2026-08-20"
     }
   ],
   "kennzahlen": {
@@ -1556,7 +1619,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 8,
+      "stehengelassen": 9,
       "ueberfaelligSeit": "2026-07-31"
     },
     "fix-epf": {
@@ -1605,28 +1668,28 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 7,
+      "stehengelassen": 8,
       "ueberfaelligSeit": "2026-08-10"
     },
     "con-prozess": {
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 6,
+      "stehengelassen": 7,
       "ueberfaelligSeit": "2026-08-15"
     },
     "dat-mvp": {
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 6,
+      "stehengelassen": 7,
       "ueberfaelligSeit": "2026-08-15"
     },
     "org-grundgeruest": {
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 6,
+      "stehengelassen": 7,
       "ueberfaelligSeit": "2026-08-15"
     },
     "pdb-dop": {
@@ -1640,14 +1703,14 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 1,
+      "stehengelassen": 2,
       "ueberfaelligSeit": "2026-08-20"
     },
     "web-refkonzept": {
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 1,
+      "stehengelassen": 2,
       "ueberfaelligSeit": "2026-08-20"
     }
   }

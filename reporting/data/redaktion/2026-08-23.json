@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-08-23",
+    "generated_at": "2026-08-23T06:30:49.132226+00:00",
+    "source": "Notion, KORODUR Redaktionsplan (Aggregat)",
+    "version": "1.3",
+    "unbekannte_status": {},
+    "datumsquelle": "geplant"
+  },
+  "gesamt": 92,
+  "totals": {
+    "ideen": 30,
+    "in_arbeit": 0,
+    "in_pruefung": 9,
+    "freigegeben": 13,
+    "eingeplant": 13,
+    "gepostet": 26,
+    "abgelehnt": 1,
+    "unbekannt": 0
+  },
+  "by_status": {
+    "Idee": 1,
+    "offen": 28,
+    "Info erforderlich": 1,
+    "In Prüfung": 9,
+    "freigegeben": 13,
+    "eingeplant & getimed": 13,
+    "gepostet": 26,
+    "abgelehnt": 1
+  },
+  "gepostet_ohne_datum": 2,
+  "gepostet_mit_datum": 24,
+  "puffer": 26,
+  "puffer_ziel": [
+    10,
+    15
+  ],
+  "vorlauf_wochen": 4.1,
+  "geplant_zukunft": 10,
+  "frequenz": {
+    "posted_28_tage": 6,
+    "posted_28_tage_linkedin": 6,
+    "pro_woche": 1.5,
+    "pro_woche_linkedin": 1.5,
+    "ziel_linkedin": [
+      2,
+      3
+    ]
+  },
+  "posted_by_week": {
+    "2026-W08": 1,
+    "2026-W10": 1,
+    "2026-W12": 1,
+    "2026-W13": 2,
+    "2026-W14": 3,
+    "2026-W24": 1,
+    "2026-W29": 1,
+    "2026-W32": 1,
+    "2026-W33": 3,
+    "2026-W34": 2
+  },
+  "posted_by_week_fenster_wochen": 10,
+  "kampagnen_verfuegbar": false,
+  "kampagnen": []
+}

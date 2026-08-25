@@ -8,22 +8,16 @@
       "status": "erreicht",
       "titel": "Struktur und Produkt-Scope abgestimmt"
     },
-    "web-pdp": {
-      "lane": "Website",
-      "datum": "2026-11-29",
-      "status": "verschoben",
-      "titel": "PDP-Design steht"
-    },
     "web-refkonzept": {
       "lane": "Website",
       "datum": "2026-08-20",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Referenzdetailseite: Konzept und Datenpunkte fixiert"
     },
     "web-loesungsfinder": {
       "lane": "Website",
-      "datum": "2026-08-31",
-      "status": "offen",
+      "datum": "2026-09-20",
+      "status": "verschoben",
       "titel": "Lösungsfinder Industrieboden abgestimmt"
     },
     "web-daten": {
@@ -44,6 +38,12 @@
       "status": "entfallen",
       "titel": "Launch V1 neue korodur.de (DE/EN/FR)"
     },
+    "web-pdp": {
+      "lane": "Website",
+      "datum": "2026-11-29",
+      "status": "verschoben",
+      "titel": "PDP-Design steht"
+    },
     "web-launchdef": {
       "lane": "Website",
       "datum": "2026-11-30",
@@ -62,29 +62,29 @@
       "status": "erreicht",
       "titel": "Workflow Content, Redaktion, Planung definiert (V1)"
     },
+    "con-prozess": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-08-15",
+      "status": "erreicht",
+      "titel": "Redaktionsprozess steht komplett"
+    },
     "con-softstart": {
       "lane": "Content & Redaktion",
       "datum": "2026-08-15",
       "status": "erreicht",
       "titel": "Soft-Launch Facebook + Instagram"
     },
-    "con-prozess": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-08-15",
-      "status": "offen",
-      "titel": "Redaktionsprozess steht komplett"
-    },
-    "con-kpi": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-08-31",
-      "status": "offen",
-      "titel": "KPI-Set definiert, Reporting aufgebaut"
-    },
     "con-q4planung": {
       "lane": "Content & Redaktion",
       "datum": "2026-09-20",
       "status": "offen",
       "titel": "Redaktionsplanung Q4 durchgeführt"
+    },
+    "con-kpi": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-09-30",
+      "status": "verschoben",
+      "titel": "KPI-Set definiert, Reporting aufgebaut"
     },
     "con-vollbetrieb": {
       "lane": "Content & Redaktion",
@@ -106,21 +106,21 @@
     },
     "vp-definition": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-08-24",
+      "datum": "2026-09-30",
       "status": "verschoben",
       "titel": "Prozessschritte, SLAs und Verantwortlichkeiten definiert"
-    },
-    "vp-pilot": {
-      "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-09-23",
-      "status": "offen",
-      "titel": "Messe-Pilot durchlaufen"
     },
     "vp-workshop": {
       "lane": "Vertriebsprozess & Kampagnen",
       "datum": "2026-09-30",
       "status": "offen",
-      "titel": "Workshop Vertriebsteam: Prozess gemeinsam fixiert"
+      "titel": "Prozess mit der Vertriebsleitung fixiert"
+    },
+    "vp-pilot": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-10-10",
+      "status": "verschoben",
+      "titel": "Messe-Pilot durchlaufen"
     },
     "vp-kpi": {
       "lane": "Vertriebsprozess & Kampagnen",
@@ -176,6 +176,12 @@
       "status": "erreicht",
       "titel": "M1 Kick-off-Workshop Wattenscheid"
     },
+    "pdb-dop": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": "2026-09-29",
+      "status": "offen",
+      "titel": "Leistungserklärungen (DoP) EN 13813: Struktur und Design beschlossen"
+    },
     "pdb-m2": {
       "lane": "Digitale Produktinformationen (DPI)",
       "datum": "2026-09-30",
@@ -188,11 +194,11 @@
       "status": "entfallen",
       "titel": "Produktstammdaten vollständig, Kernprodukte technisch validiert"
     },
-    "pdb-dop": {
+    "pdb-epd": {
       "lane": "Digitale Produktinformationen (DPI)",
-      "datum": "2026-09-29",
+      "datum": "2026-10-31",
       "status": "offen",
-      "titel": "Leistungserklärungen (DoP) EN 13813: Struktur und Design beschlossen"
+      "titel": "EPDs mit einheitlichem Deckblatt im KORODUR-Design"
     },
     "pdb-msds": {
       "lane": "Digitale Produktinformationen (DPI)",
@@ -200,29 +206,23 @@
       "status": "entfallen",
       "titel": "Sicherheitsdatenblätter im Zieldesign verfügbar"
     },
-    "pdb-epd": {
-      "lane": "Digitale Produktinformationen (DPI)",
-      "datum": "2026-10-31",
-      "status": "offen",
-      "titel": "EPDs mit einheitlichem Deckblatt im KORODUR-Design"
-    },
     "pdb-m3": {
       "lane": "Digitale Produktinformationen (DPI)",
       "datum": "2026-11-15",
       "status": "entfallen",
       "titel": "M3 Produktdatenbank V1 validiert (Notion)"
     },
-    "pdb-pdp": {
-      "lane": "Digitale Produktinformationen (DPI)",
-      "datum": "2026-11-30",
-      "status": "entfallen",
-      "titel": "Produktdetailseiten werden laufend aus der Produktdatenbank versorgt"
-    },
     "pdb-m4a": {
       "lane": "Digitale Produktinformationen (DPI)",
       "datum": "2026-11-30",
       "status": "entfallen",
       "titel": "M4a Zielbild TDS-Prozess konzipiert"
+    },
+    "pdb-pdp": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": "2026-11-30",
+      "status": "entfallen",
+      "titel": "Produktdetailseiten werden laufend aus der Produktdatenbank versorgt"
     },
     "pdb-m4b": {
       "lane": "Digitale Produktinformationen (DPI)",
@@ -245,20 +245,32 @@
     "ref-triage": {
       "lane": "Referenzen",
       "datum": "2026-08-31",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Referenz-Triage für den Launch abgeschlossen"
     },
     "ref-crm-pull": {
       "lane": "Referenzen",
       "datum": "2026-09-13",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Referenz-Pull aus dem CRM (lesend)"
     },
     "ref-index": {
       "lane": "Referenzen",
       "datum": "2026-09-30",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Master-Index Altbestand abgeschlossen"
+    },
+    "ref-prozess": {
+      "lane": "Referenzen",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Referenzprozess durchgängig abgestimmt"
+    },
+    "ref-formate": {
+      "lane": "Referenzen",
+      "datum": "2026-10-15",
+      "status": "offen",
+      "titel": "Weitere Zielformate für Vertrieb und Social Media definiert"
     },
     "ref-monat": {
       "lane": "Referenzen",
@@ -278,6 +290,12 @@
       "status": "offen",
       "titel": "Zielzahl erreicht: 20 Referenzen ausgearbeitet"
     },
+    "ueb-tds-it": {
+      "lane": "Übersetzungen",
+      "datum": "2026-09-20",
+      "status": "offen",
+      "titel": "Technische Datenblätter der Kernprodukte auf Italienisch"
+    },
     "ueb-golive": {
       "lane": "Übersetzungen",
       "datum": "2026-10-31",
@@ -296,11 +314,29 @@
       "status": "erreicht",
       "titel": "Use Case 1 definiert"
     },
+    "ki-datensicherheit": {
+      "lane": "Lokale KI",
+      "datum": "2026-08-15",
+      "status": "erreicht",
+      "titel": "Definition Datensicherheit"
+    },
+    "ki-setup-tech": {
+      "lane": "Lokale KI",
+      "datum": "2026-08-20",
+      "status": "erreicht",
+      "titel": "Entscheidungen und technisches Setup"
+    },
     "ki-test": {
       "lane": "Lokale KI",
       "datum": "2026-08-31",
       "status": "offen",
       "titel": "Use Case 1 im Testing"
+    },
+    "ki-setup-gf": {
+      "lane": "Lokale KI",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Setup Laptop Geschäftsführung"
     },
     "ki-vision": {
       "lane": "Lokale KI",
@@ -323,8 +359,14 @@
     "org-grundgeruest": {
       "lane": "Organisation & Enablement",
       "datum": "2026-08-15",
-      "status": "offen",
-      "titel": "Notion-Grundgerüst der neuen Struktur steht"
+      "status": "erreicht",
+      "titel": "Notion-Grundgerüst der optimierten Struktur steht"
+    },
+    "org-hygiene": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-08-31",
+      "status": "erreicht",
+      "titel": "Standard-Repository-Hygiene aufgesetzt"
     },
     "org-repos": {
       "lane": "Organisation & Enablement",
@@ -337,6 +379,12 @@
       "datum": "2026-10-15",
       "status": "offen",
       "titel": "Wissens-Space konsolidiert"
+    },
+    "org-lernprozess": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Feedback- und Lernprozess etabliert"
     },
     "fix-epf": {
       "lane": "Externe Fixpunkte",
@@ -1796,6 +1844,217 @@
       "feld": null,
       "alt": "2026-08-20",
       "neu": "2026-08-20"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "ki-datensicherheit",
+      "lane": "Lokale KI",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "ki-setup-gf",
+      "lane": "Lokale KI",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "ki-setup-tech",
+      "lane": "Lokale KI",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-20"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "org-hygiene",
+      "lane": "Organisation & Enablement",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "org-lernprozess",
+      "lane": "Organisation & Enablement",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "ref-formate",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "ref-prozess",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "ueb-tds-it",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-20"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "con-kpi",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-08-31",
+      "neu": "2026-09-30",
+      "tage": 30
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "con-kpi",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "con-prozess",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "org-grundgeruest",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "org-grundgeruest",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Notion-Grundgerüst der neuen Struktur steht",
+      "neu": "Notion-Grundgerüst der optimierten Struktur steht"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "ref-crm-pull",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "ref-index",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "ref-triage",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-08-24",
+      "neu": "2026-09-30",
+      "tage": 37
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "vp-pilot",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-09-23",
+      "neu": "2026-10-10",
+      "tage": 17
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "vp-pilot",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "vp-workshop",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Workshop Vertriebsteam: Prozess gemeinsam fixiert",
+      "neu": "Prozess mit der Vertriebsleitung fixiert"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "web-loesungsfinder",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-08-31",
+      "neu": "2026-09-20",
+      "tage": 20
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "web-loesungsfinder",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-08-25",
+      "id": "web-refkonzept",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
     }
   ],
   "kennzahlen": {
@@ -1849,9 +2108,9 @@
       "ueberfaelligSeit": "2026-07-31"
     },
     "vp-definition": {
-      "verschiebungen": 1,
-      "tageGesamt": 9,
-      "letzteVerschiebung": "2026-08-15",
+      "verschiebungen": 2,
+      "tageGesamt": 46,
+      "letzteVerschiebung": "2026-08-25",
       "stehengelassen": 1,
       "ueberfaelligSeit": "2026-08-24"
     },
@@ -1910,6 +2169,27 @@
       "letzteVerschiebung": null,
       "stehengelassen": 5,
       "ueberfaelligSeit": "2026-08-20"
+    },
+    "con-kpi": {
+      "verschiebungen": 1,
+      "tageGesamt": 30,
+      "letzteVerschiebung": "2026-08-25",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "vp-pilot": {
+      "verschiebungen": 1,
+      "tageGesamt": 17,
+      "letzteVerschiebung": "2026-08-25",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-loesungsfinder": {
+      "verschiebungen": 1,
+      "tageGesamt": 20,
+      "letzteVerschiebung": "2026-08-25",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
     }
   }
 }

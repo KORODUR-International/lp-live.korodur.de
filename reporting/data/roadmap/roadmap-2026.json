@@ -1,7 +1,7 @@
 {
-  "version": "1.7",
-  "stand": "2026-08-25",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 aller Bereiche. Finalisiert 14.07.2026 abends (Konsolidierung aller Bereichs-Konzepte, Confidence-Modell). Version 1.5 arbeitet den DPI-Beschluss vom 18.08.2026 ein: Produktdaten-Lane neu geschnitten, Launch-Termin aufgehoben, Launch-Definition als Entscheidungspunkt. Version 1.6 nimmt den geparkten Eintrag zur Messe IN.STAND zurück (nicht abgestimmt). Version 1.7 arbeitet die Roadmap-Runde vom 25.08.2026 ein: Referenzen neu geschnitten (Triage, CRM-Pull und Master-Index entfallen, Prozess- und Formate-Meilenstein neu), Vertriebsprozess auf Ende September und Oktober gelegt und der Workshop auf die Vertriebsleitung verkleinert, neue Meilensteine in Internationalisierung, Lokaler KI und Organisation, erreichte Meilensteine nachgemeldet. Redaktionsregeln siehe docs/ROADMAP-MODUL.md §5 (öffentliche Seite: keine Personennamen, keine Interna). Confidence-Herleitung intern: roadmap-2026-gesamtliste.md.",
+  "version": "1.8",
+  "stand": "2026-08-26",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 aller Bereiche. Finalisiert 14.07.2026 abends (Konsolidierung aller Bereichs-Konzepte, Confidence-Modell). Version 1.5 arbeitet den DPI-Beschluss vom 18.08.2026 ein: Produktdaten-Lane neu geschnitten, Launch-Termin aufgehoben, Launch-Definition als Entscheidungspunkt. Version 1.6 nimmt den geparkten Eintrag zur Messe IN.STAND zurück (nicht abgestimmt). Version 1.7 arbeitet die Roadmap-Runde vom 25.08.2026 ein: Referenzen neu geschnitten (Triage, CRM-Pull und Master-Index entfallen, Prozess- und Formate-Meilenstein neu), Vertriebsprozess auf Ende September und Oktober gelegt und der Workshop auf die Vertriebsleitung verkleinert, neue Meilensteine in Internationalisierung, Lokaler KI und Organisation, erreichte Meilensteine nachgemeldet. Redaktionsregeln siehe docs/ROADMAP-MODUL.md §5 (öffentliche Seite: keine Personennamen, keine Interna). Confidence-Herleitung intern: roadmap-2026-gesamtliste.md. Version 1.8 schreibt den Review-Lauf vom 26.08.2026 fort: Lösungsfinder auf den 30.09. (zweite Verschiebung, Abstimmungspartner benannt), die Strategiefestlegung Datenbereinigung und der Testing-Meilenstein der lokalen KI bekommen den Vorgang benannt, an dem sie hängen.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -102,13 +102,14 @@
         },
         {
           "id": "web-loesungsfinder",
-          "datum": "2026-09-20",
+          "datum": "2026-09-30",
           "titel": "Lösungsfinder Industrieboden abgestimmt",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": false,
           "confidence": "mittel",
-          "details": "Aus dem Struktur-Meilenstein herausgelöst, weil Struktur und Produkt-Scope bereits stehen und der Lösungsfinder eigenständig weiterläuft. Teil des Launch-Pfads. Am 25.08.2026 auf den 20.09. gelegt: der Klick-Prototyp geht in dieser Woche an die Kollegen, die Rückmeldefrist läuft bewusst über die Urlaubszeit."
+          "details": "Aus dem Struktur-Meilenstein herausgelöst, weil Struktur und Produkt-Scope bereits stehen und der Lösungsfinder eigenständig weiterläuft. Teil des Launch-Pfads. Am 26.08.2026 vom 20.09. auf den 30.09. gelegt: der Klick-Prototyp liegt seit dem 21.08. bei der Außendienstgruppe, die Rückmeldung läuft über die Urlaubszeit. Das ist die zweite Verschiebung, damit ist die Schwelle aus Regel 6 erreicht: ein drittes Datum gibt es nur nach Abstimmung. Der Gesprächspartner ist im Feld issue benannt.",
+          "issue": "sfleischmann-3steps2/KORODUR-Website#546"
         },
         {
           "id": "web-daten",
@@ -402,9 +403,11 @@
           "titel": "Strategiefestlegung Datenbereinigung mit dem Vertriebsteam",
           "typ": "entscheidung",
           "status": "offen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Gemeinsam festgelegt: welche Daten in welcher Form bereinigt und angereichert werden, Prüf- und Implementierungsweg. Voraussetzung für alle Umsetzungsschritte."
+          "klaerung": true,
+          "confidence": "niedrig",
+          "details": "Gemeinsam festgelegt: welche Daten in welcher Form bereinigt und angereichert werden, Prüf- und Implementierungsweg. Voraussetzung für alle Umsetzungsschritte. Bleibt bewusst überfällig stehen und hängt an derselben Abstimmung wie die drei übrigen Meilensteine dieser Lane; das Änderungsprotokoll zählt sechs Läufe, die ihn überfällig vorgefunden haben.",
+          "issue": "KORODUR-International/korodur-review-reporting#106",
+          "abhaengigkeit": "Termin nie gegengezeichnet; Abstimmung mit dem Vertriebsteam und der Geschäftsführung"
         },
         {
           "id": "dat-kernfelder",
@@ -750,8 +753,9 @@
           "status": "offen",
           "klaerung": true,
           "confidence": "niedrig",
-          "details": "Termin bleibt. Offen ist nicht der Zeitpunkt, sondern der Gegenstand: seit dem Start wird hinterfragt, ob dies der richtige erste Use Case ist. Das Ergebnis des Testings beantwortet die Frage.",
-          "abhaengigkeit": "Eignung des Use Case wird im Testing hinterfragt"
+          "details": "Termin bleibt und reißt voraussichtlich. Offen ist nicht der Zeitpunkt, sondern der Gegenstand: seit dem Start wird hinterfragt, ob dies der richtige erste Use Case ist. Dazu kommt ein ungelöstes Schnittstellenproblem im Datenweg, das von hier aus nicht zu beheben ist. Ein neues Datum gäbe es erst mit dem neu aufgestellten Gegenstand, die Neuaufstellung ist für die Zeit nach dem Urlaub vorgesehen.",
+          "abhaengigkeit": "Ungelöstes Schnittstellenproblem im Power-BI-Datenweg; von hier aus ist nichts zu tun, bis es gelöst ist",
+          "issue": "KORODUR-International/korodur-lokale-ki#11"
         },
         {
           "id": "ki-setup-gf",

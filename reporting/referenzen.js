@@ -28,15 +28,19 @@ const REF_MONTHS_KURZ = [
 // sonst benennen die Unterzeilen Status, die es nicht mehr gibt.
 // tests/test_referenzen_render.mjs vergleicht beide Listen und wird rot, wenn
 // sie auseinanderlaufen.
+// Die zwoelf Stufen sind der Stand seit dem 26.08.2026 (rr#211); die zehn
+// Altnamen (Zu Bearbeiten, In Bearbeitung - inhaltlich, Onepager erstellt,
+// DE-Freigabe und so weiter) gibt es in Notion nicht mehr. Die Bucket-Keys
+// bleiben unveraendert, damit die Zeitreihe und die Sparklines durchlaufen.
 const REF_BUCKETS = [
   { key: 'offen', label: 'Offen', color: 'var(--muted)',
-    statuses: ['offen', 'Zu Bearbeiten'] },
+    statuses: ['offen', 'Bilder sind da'] },
   { key: 'in_arbeit', label: 'In Arbeit', color: 'var(--secondary)',
-    statuses: ['In Bearbeitung - inhaltlich', 'Inhaltlich bearbeitet', 'In Bearbeitung - Design'] },
+    statuses: ['RAW: Info+Bilder da', 'Informationen fehlen', 'Fragen VOR V1 beantwortet', 'STRUCTURED: Info'] },
   { key: 'in_abnahme', label: 'In Abnahme', color: '#6b5b95',
-    statuses: ['Onepager erstellt', 'Abnahme/Review fachlich'] },
+    statuses: ['V1 Entwurf fertig', 'V1 Feedback da', 'V2 Entwurf fertig', 'V2 Feedback da'] },
   { key: 'freigegeben', label: 'Freigegeben', color: '#7dd0a5',
-    statuses: ['DE-Freigabe', 'Übersetzung'] },
+    statuses: ['finale Version DE'] },
   { key: 'veroeffentlicht', label: 'Veröffentlicht', color: 'var(--success)',
     statuses: ['Veröffentlicht'] },
 ];
@@ -221,7 +225,7 @@ function renderZiel(d) {
       </div>
       <div class="rf-goal__ticks">${refZielTicks(ziel)}</div>
       <div class="rf-goal__leg">
-        <span><i style="background:#7dd0a5"></i>ab DE-Freigabe erarbeitet: ${erarbeitet} von ${ziel}</span>
+        <span><i style="background:#7dd0a5"></i>ab &bdquo;finale Version DE&ldquo; erarbeitet: ${erarbeitet} von ${ziel}</span>
         <span><i style="background:var(--success)"></i>davon ver&ouml;ffentlicht, drau&szlig;en beim Kunden: ${draussen}</span>
       </div>
       <div class="rf-goal__note">

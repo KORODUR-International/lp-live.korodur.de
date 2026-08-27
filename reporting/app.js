@@ -649,6 +649,166 @@ function renderHebel(data) {
     </div>`;
 }
 
+// ─── Bewegungs-Block (#221) ──────────────────────────
+// Was an einem Tag dazugekommen ist, die Phase gewechselt hat und
+// abgeschlossen wurde. Der Kopf zeigt Bestaende, die Matrix die Verteilung;
+// hier steht die Veraenderung selbst.
+//
+// Zwei Quellen mit zwei verschiedenen Fenstern, das ist Absicht und muss auf
+// der Seite lesbar bleiben:
+//   Balken  = Kalendertage aus closed_at (done_by_day). Wird bei jedem Lauf
+//             neu gebaut und ist deshalb auch fuer Tage ohne Snapshot
+//             vollstaendig.
+//   Listen  = Diff gegen den vorigen Snapshot (bewegungen.referenz). Board-
+//             Zugang und Phasenwechsel haben keinen Zeitstempel, der Diff ist
+//             der einzige Weg. Faellt ein Cron-Lauf aus, ist das Fenster
+//             groesser, und die Ueberschrift nennt dann das echte Datum
+//             statt "gestern" zu behaupten.
+//
+// Wie im Hebel-Block nur Kuerzel, Nummern und Select-Felder, keine Titel
+// (#149/#179). Snapshots vor 3.2 kennen den Block nicht: dann faellt still
+// weg, was fehlt, statt Nullen zu zeigen.
+const BEW_MAX_ZEILEN = 12;    // Rest als Zaehler, damit die Spalte lesbar bleibt
+const BEW_TAGE = 14;          // Fenster der Tagesbalken
+
+// Sortierung der Bewegungszeilen: erst Bereich (damit Zusammengehoeriges
+// beieinander steht), dann Prioritaet, dann Repo und Nummer.
+function bewSortiert(zeilen) {
+  return [...(zeilen || [])].sort((a, b) =>
+    (a.bereich || '').localeCompare(b.bereich || '')
+    || (PRIO_RANG[a.prioritaet] ?? 9) - (PRIO_RANG[b.prioritaet] ?? 9)
+    || (`${a.repo}#${a.nummer}`).localeCompare(`${b.repo}#${b.nummer}`));
+}
+
+// Die letzten BEW_TAGE Kalendertage bis zum Stichtag, Luecken als Null.
+// Ein fehlender Tag ist eine Aussage ("nichts abgeschlossen") und wird
+// deshalb als leere Saeule gezeigt, nicht uebersprungen.
+function bewTagesreihe(dbd, stichtag) {
+  if (!stichtag) return [];
+  const reihe = [];
+  const d = new Date(stichtag + 'T00:00:00Z');
+  if (isNaN(d)) return [];
+  d.setUTCDate(d.getUTCDate() - (BEW_TAGE - 1));
+  for (let i = 0; i < BEW_TAGE; i++) {
+    const key = d.toISOString().slice(0, 10);
+    reihe.push({ datum: key, anzahl: (dbd || {})[key] || 0 });
+    d.setUTCDate(d.getUTCDate() + 1);
+  }
+  return reihe;
+}
+
+// Achsenbeschriftung der Tagesbalken: nur die Tagesziffer, damit vierzehn
+// Saeulen nebeneinander passen. Am Anfang der Reihe und an jedem Monatsersten
+// kommt der Monat dazu, sonst waere ein Fenster ueber den Monatswechsel
+// nicht eindeutig zu lesen.
+function bewTagLabel(datum, i) {
+  const tag = datum.slice(8);
+  return (i === 0 || tag === '01') ? `${tag}.${datum.slice(5, 7)}.` : tag;
+}
+
+function bewZeile(z, zusatz) {
+  const bereich = z.bereich
+    ? `<span class="bewegung__bereich" title="${escHtml(z.bereich)}">${areaMeta(z.bereich).emoji} ${escHtml(z.bereich)}</span>`
+    : '';
+  const prio = z.prioritaet ? `<span class="hebel__prio">${escHtml(z.prioritaet)}</span>` : '';
+  return `<li>${kanteLink(`${z.repo}#${z.nummer}`)}${zusatz || ''}${bereich}${prio}</li>`;
+}
+
+function bewSpalte(titel, zeilen, zusatzFn) {
+  const alle = bewSortiert(zeilen);
+  if (!alle.length) {
+    return `
+      <div class="bewegung__spalte">
+        <h4 class="hebel__untertitel">${titel} <span class="bewegung__zahl">0</span></h4>
+        <p class="matrix__fussnote">Keine Bewegung in diesem Fenster.</p>
+      </div>`;
+  }
+  const gezeigt = alle.slice(0, BEW_MAX_ZEILEN);
+  const rest = alle.length - gezeigt.length;
+  return `
+      <div class="bewegung__spalte">
+        <h4 class="hebel__untertitel">${titel} <span class="bewegung__zahl">${alle.length}</span></h4>
+        <ul class="hebel__liste">
+          ${gezeigt.map(z => bewZeile(z, zusatzFn ? zusatzFn(z) : '')).join('')}
+        </ul>
+        ${rest > 0 ? `<p class="matrix__fussnote">+${rest} weitere</p>` : ''}
+      </div>`;
+}
+
+function renderBewegung(data) {
+  const stichtag = (data._meta && data._meta.snapshot_date) || '';
+  const b = data.bewegungen;
+  const reihe = bewTagesreihe(data.done_by_day, stichtag);
+  const hatBalken = reihe.some(t => t.anzahl > 0);
+  // Ohne Diff und ohne Tagesreihe gibt es nichts zu zeigen. Beides fehlt bei
+  // Snapshots vor 3.2, die dann unveraendert rendern.
+  if (!b && !hatBalken) return '';
+
+  const max = Math.max(1, ...reihe.map(t => t.anzahl));
+  const balken = hatBalken ? `
+      <div class="trend-sub">
+        <h4 class="hebel__untertitel">ERLEDIGT / TAG</h4>
+        <div class="month-chart month-chart--schmal">
+          ${reihe.map((t, i) => `
+            <div class="month-chart__col" title="${shortDayLabel(t.datum)}: ${t.anzahl} erledigt">
+              <div class="month-chart__bar-wrap">
+                <div class="month-chart__value">${t.anzahl || ''}</div>
+                <div class="month-chart__bar" style="height:${t.anzahl ? Math.max((t.anzahl / max) * 100, 6) : 0}%"></div>
+              </div>
+              <div class="month-chart__label">${bewTagLabel(t.datum, i)}</div>
+            </div>`).join('')}
+        </div>
+        <p class="matrix__fussnote">Kalendertage nach Abschlussdatum, verworfene Issues z&auml;hlen nicht mit.</p>
+      </div>` : '';
+
+  if (!b || !b.referenz) {
+    return balken ? `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">BEWEGUNG</h3>
+      ${balken}
+    </div>` : '';
+  }
+
+  const listen = `
+      <div class="bewegung">
+        ${bewSpalte('ERLEDIGT', b.erledigt, z => z.von ? ` aus ${escHtml(z.von)} ` : ' ')}
+        ${bewSpalte('BEWEGT', b.bewegt, z => ` ${escHtml(z.von || 'ohne Phase')} &rarr; ${escHtml(z.nach || 'ohne Phase')} `)}
+        ${bewSpalte('NEU', b.neu, z => ` ${escHtml(z.status || 'ohne Phase')} `)}
+      </div>`;
+
+  // Verworfen und Abgang sind selten und keine eigene Spalte wert. Sie duerfen
+  // trotzdem nicht fehlen, sonst geht die Summenprobe nicht auf.
+  const rand = [];
+  if ((b.verworfen || []).length) {
+    rand.push(`${b.verworfen.length} verworfen (als "not planned" geschlossen, z&auml;hlt nicht als erledigt)`);
+  }
+  if ((b.abgang || []).length) {
+    rand.push(`${b.abgang.length} vom Board genommen`);
+  }
+
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">BEWEGUNG</h3>
+      ${balken}
+      <p class="matrix__fussnote bewegung__fenster">Ver&auml;nderung gegen&uuml;ber dem Stand vom
+        <strong>${shortDayLabel(b.referenz)}</strong>${b.referenz === vortagVon(stichtag) ? '' : ' (f&uuml;r den Tag davor gibt es keinen Snapshot)'}</p>
+      ${listen}
+      ${rand.length ? `<p class="matrix__fussnote">Au&szlig;erdem: ${rand.join(' &middot; ')}.</p>` : ''}
+      <p class="matrix__fussnote">Nur K&uuml;rzel, Nummern und Board-Felder, keine Titel.
+        Zeilen ohne Herkunftsphase sind in diesem Fenster angelegt <em>und</em> abgeschlossen worden.
+        Klick &ouml;ffnet das Issue auf GitHub.</p>
+    </div>`;
+}
+
+// Kalendarischer Vortag, um zu erkennen ob die Diff-Referenz wirklich der
+// Vortag ist oder ob ein Snapshot fehlt.
+function vortagVon(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00Z');
+  if (isNaN(d)) return null;
+  d.setUTCDate(d.getUTCDate() - 1);
+  return d.toISOString().slice(0, 10);
+}
+
 // ─── Zeitverlauf: Mini-Chart je Phase (KW-Endstand) ──
 // Bestaende als Wochen-Endstand, nicht als Durchschnitt (#149 Punkt 6).
 // Eine Serie beginnt an dem Tag, ab dem es die Phase gibt; Statusmodell-
@@ -813,6 +973,7 @@ function renderDashboard(data) {
   main.innerHTML = `
     ${renderKopf(data)}
     <div id="segment-strip"></div>
+    ${renderBewegung(data)}
     ${renderMatrix(data)}
     <div id="meilenstein-leiste"></div>
     ${renderHebel(data)}

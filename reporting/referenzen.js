@@ -778,7 +778,7 @@ function renderEmpty() {
       <div style="text-align:center;line-height:1.7;">
         Noch keine Referenz-Snapshots vorhanden.<br>
         Der erste Datenpunkt entsteht automatisch beim n&auml;chsten t&auml;glichen Lauf
-        (06:00 UTC), sofern das Secret <code>NOTION_KEY</code> gesetzt und die
+        am fr&uuml;hen Morgen, sofern das Secret <code>NOTION_KEY</code> gesetzt und die
         Integration mit dem Referenzverzeichnis verbunden ist.
       </div>
     </div>

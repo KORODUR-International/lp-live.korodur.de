@@ -702,7 +702,7 @@ function renderEmpty() {
       <div style="text-align:center;line-height:1.7;">
         Noch keine Redaktions-Snapshots vorhanden.<br>
         Der erste Datenpunkt entsteht automatisch, sobald das Secret
-        <code>NOTION_TOKEN</code> im Repo hinterlegt ist (t&auml;glicher Lauf, 06:00 UTC).
+        <code>NOTION_TOKEN</code> im Repo hinterlegt ist (t&auml;glicher Lauf am fr&uuml;hen Morgen).
       </div>
     </div>
   `;

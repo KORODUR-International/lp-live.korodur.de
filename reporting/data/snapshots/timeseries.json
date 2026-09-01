@@ -1812,5 +1812,33 @@
       "Done": 473,
       "none": 0
     }
+  },
+  {
+    "date": "2026-09-01",
+    "items": 703,
+    "done": 444,
+    "in_progress": 18,
+    "open": 150,
+    "blocked": 36,
+    "on_hold": 26,
+    "discarded": 29,
+    "bereit": 49,
+    "by_owner": {
+      "Human": 99,
+      "Claude": 443,
+      "Either": 159,
+      "none": 2
+    },
+    "by_status": {
+      "Backlog": 93,
+      "Bereit": 49,
+      "Beansprucht": 8,
+      "In Progress": 9,
+      "In Review": 9,
+      "Blocked": 36,
+      "On Hold": 26,
+      "Done": 473,
+      "none": 0
+    }
   }
 ]

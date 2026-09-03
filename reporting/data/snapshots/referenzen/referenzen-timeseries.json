@@ -463,5 +463,20 @@
     "ziel_ab_de_freigabe": 0,
     "ziel_veroeffentlicht": 0,
     "datenschuld_eintraege": 56
+  },
+  {
+    "date": "2026-09-03",
+    "gesamt": 169,
+    "offen": 19,
+    "in_arbeit": 8,
+    "in_abnahme": 12,
+    "freigegeben": 0,
+    "veroeffentlicht": 130,
+    "ohne_status": 0,
+    "unbekannt": 0,
+    "ziel_zielwert": 20,
+    "ziel_ab_de_freigabe": 0,
+    "ziel_veroeffentlicht": 0,
+    "datenschuld_eintraege": 56
   }
 ]

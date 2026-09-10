@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-09-09",
+  "letzteFeststellung": "2026-09-10",
   "stand": {
     "web-struktur": {
       "lane": "Website",
@@ -2686,6 +2686,51 @@
       "feld": null,
       "alt": "2026-08-31",
       "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-09-10",
+      "id": "dat-mvp",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-15",
+      "neu": "2026-08-15"
+    },
+    {
+      "festgestellt": "2026-09-10",
+      "id": "dat-regeltermin",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": "2026-07-31"
+    },
+    {
+      "festgestellt": "2026-09-10",
+      "id": "dat-strategie",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-20",
+      "neu": "2026-08-20"
+    },
+    {
+      "festgestellt": "2026-09-10",
+      "id": "dat-testlauf",
+      "lane": "CRM-Datenfundament",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-10",
+      "neu": "2026-08-10"
+    },
+    {
+      "festgestellt": "2026-09-10",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-31",
+      "neu": "2026-08-31"
     }
   ],
   "kennzahlen": {
@@ -2707,7 +2752,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 27,
+      "stehengelassen": 28,
       "ueberfaelligSeit": "2026-07-31"
     },
     "fix-epf": {
@@ -2756,7 +2801,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 26,
+      "stehengelassen": 27,
       "ueberfaelligSeit": "2026-08-10"
     },
     "con-prozess": {
@@ -2770,7 +2815,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 25,
+      "stehengelassen": 26,
       "ueberfaelligSeit": "2026-08-15"
     },
     "org-grundgeruest": {
@@ -2791,7 +2836,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 20,
+      "stehengelassen": 21,
       "ueberfaelligSeit": "2026-08-20"
     },
     "web-refkonzept": {
@@ -2826,7 +2871,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 9,
+      "stehengelassen": 10,
       "ueberfaelligSeit": "2026-08-31"
     }
   }

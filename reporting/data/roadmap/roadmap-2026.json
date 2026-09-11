@@ -1,7 +1,7 @@
 {
-  "version": "1.8",
-  "stand": "2026-08-26",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 aller Bereiche. Finalisiert 14.07.2026 abends (Konsolidierung aller Bereichs-Konzepte, Confidence-Modell). Version 1.5 arbeitet den DPI-Beschluss vom 18.08.2026 ein: Produktdaten-Lane neu geschnitten, Launch-Termin aufgehoben, Launch-Definition als Entscheidungspunkt. Version 1.6 nimmt den geparkten Eintrag zur Messe IN.STAND zurück (nicht abgestimmt). Version 1.7 arbeitet die Roadmap-Runde vom 25.08.2026 ein: Referenzen neu geschnitten (Triage, CRM-Pull und Master-Index entfallen, Prozess- und Formate-Meilenstein neu), Vertriebsprozess auf Ende September und Oktober gelegt und der Workshop auf die Vertriebsleitung verkleinert, neue Meilensteine in Internationalisierung, Lokaler KI und Organisation, erreichte Meilensteine nachgemeldet. Redaktionsregeln siehe docs/ROADMAP-MODUL.md §5 (öffentliche Seite: keine Personennamen, keine Interna). Confidence-Herleitung intern: roadmap-2026-gesamtliste.md. Version 1.8 schreibt den Review-Lauf vom 26.08.2026 fort: Lösungsfinder auf den 30.09. (zweite Verschiebung, Abstimmungspartner benannt), die Strategiefestlegung Datenbereinigung und der Testing-Meilenstein der lokalen KI bekommen den Vorgang benannt, an dem sie hängen.",
+  "version": "1.9",
+  "stand": "2026-09-11",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 aller Bereiche. Finalisiert 14.07.2026 abends (Konsolidierung aller Bereichs-Konzepte, Confidence-Modell). Version 1.5 arbeitet den DPI-Beschluss vom 18.08.2026 ein: Produktdaten-Lane neu geschnitten, Launch-Termin aufgehoben, Launch-Definition als Entscheidungspunkt. Version 1.6 nimmt den geparkten Eintrag zur Messe IN.STAND zurück (nicht abgestimmt). Version 1.7 arbeitet die Roadmap-Runde vom 25.08.2026 ein: Referenzen neu geschnitten (Triage, CRM-Pull und Master-Index entfallen, Prozess- und Formate-Meilenstein neu), Vertriebsprozess auf Ende September und Oktober gelegt und der Workshop auf die Vertriebsleitung verkleinert, neue Meilensteine in Internationalisierung, Lokaler KI und Organisation, erreichte Meilensteine nachgemeldet. Redaktionsregeln siehe docs/ROADMAP-MODUL.md §5 (öffentliche Seite: keine Personennamen, keine Interna). Confidence-Herleitung intern: roadmap-2026-gesamtliste.md. Version 1.8 schreibt den Review-Lauf vom 26.08.2026 fort: Lösungsfinder auf den 30.09. (zweite Verschiebung, Abstimmungspartner benannt), die Strategiefestlegung Datenbereinigung und der Testing-Meilenstein der lokalen KI bekommen den Vorgang benannt, an dem sie hängen. Version 1.9 (11.09.2026) trägt je Lane das Feld erreichtHeisst als Quelle für die Notion-Jahresziele; Meilensteine unverändert.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -71,6 +71,7 @@
       "area": "marketing",
       "name": "Website",
       "hinweis": "Kritischer Pfad; Engpass ist die Content-Validierung (Abnahme), nicht die Entwicklung. Seit dem DPI-Beschluss vom 18.08.2026 wird der Launch erst terminiert, wenn Leistungserklärungen, Sicherheitsdatenblätter und technische Datenblätter aus der Produktdatenbank generiert laufen; ein Meilenstein-Neuschnitt der Lane folgt aus der laufenden Projektbereinigung.",
+      "erreichtHeisst": "Lösungsfinder Industrieboden abgestimmt, Produktdaten technisch validiert, PDP-Design steht; der Launch-Termin der neuen korodur.de ist festgelegt, sobald Leistungserklärungen, Sicherheitsdatenblätter und technische Datenblätter aus der Produktdatenbank generiert laufen.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -181,6 +182,7 @@
       "area": "marketing",
       "name": "Content & Redaktion",
       "hinweis": "Zwei Produktionsstränge: LinkedIn + Meta (Crosspost); Redaktionsarbeit unter Quartals-Dachkampagnen",
+      "erreichtHeisst": "Redaktionsprozess sitzt: im Schnitt 2 Beiträge pro Woche auf LinkedIn und Meta, mindestens 4 Wochen Vorplanung, KPI-Reporting läuft; Jahres-Redaktionsplanung 2027 steht.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -278,6 +280,7 @@
       "area": "crm",
       "name": "Vertriebsprozess & Kampagnen",
       "hinweis": "Führung durch die Area; Umsetzung gemeinsam mit Vertriebsleitung und Team. Messe = Übungsfall 2026.",
+      "erreichtHeisst": "Vertriebsprozess im Unternehmen implementiert (Kampagne je Messe und Event im CRM, Lead-Upload, SLA-Nachverfolgung); Messe-Pilot ArchiPoint durchlaufen; monatliches GF-Reporting läuft.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -354,6 +357,7 @@
       "area": "crm",
       "name": "CRM-Datenfundament",
       "hinweis": "Gemeinsame Strategie vor jeder Umsetzung. Basis für skalierbare Vertriebs- und Marketingarbeit.",
+      "erreichtHeisst": "14-tägiger Bereinigungs-Regeltermin etabliert, MVP Objektdaten-Anreicherung läuft, kritische Kernfelder bereinigt und filterbar für zielgruppenorientierte Kampagnen.",
       "balken": {
         "start": "2026-07-20",
         "ende": "2026-12-31"
@@ -427,6 +431,7 @@
       "area": "wissensaufbau",
       "name": "Digitale Produktinformationen (DPI)",
       "hinweis": "Mehrjährig; neu aufgestellt am 18.08.2026 als Digitale Produktinformationen (DPI), Meilensteinplanung als GitHub Milestones im Projekt-Repository. Sequenz: Leistungserklärungen (DoP), dann Sicherheitsdatenblätter (Deckblatt und Trainingskorpus), dann technische Datenblätter, dann PDP-Design, dann Launch-Definition. SDB und TDS werden nach DoP-Fortschritt terminiert (Living Roadmap, Anpassung alle vier Wochen). Die fachliche Grundlage kommt aus der Technik.",
+      "erreichtHeisst": "Leistungserklärungen (DoP) nach EN 13813 in Struktur und Design beschlossen, EPDs mit einheitlichem Deckblatt im KORODUR-Design; Sicherheitsdatenblätter und technische Datenblätter folgen dem DoP-Fortschritt (Living Roadmap).",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -554,6 +559,7 @@
       "area": "wissensaufbau",
       "name": "Referenzen",
       "hinweis": "Dachmantel Wissenssicherung; Schnittstellen Technik und CRM",
+      "erreichtHeisst": "Referenzprozess durchgängig abgestimmt, weitere Zielformate für Vertrieb und Social Media definiert, erste Highlight-Referenz ausgearbeitet; Zielzahl von 20 ausgearbeiteten Referenzen erreicht.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -660,6 +666,7 @@
       "area": "international",
       "name": "Übersetzungen",
       "hinweis": "Parallelstrang; 2026 bewusst schwach besetzt, Grundlagen für 2027. Arbeit auf Zuruf.",
+      "erreichtHeisst": "Technische Datenblätter der Kernprodukte auf Italienisch verfügbar; Strategie Internationalisierung 2027 steht, Training IT und PL angelaufen. Die Golive-Sprachen EN und FR folgen dem Launch-Termin der Website.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -705,6 +712,7 @@
       "area": "ai-infra",
       "name": "Lokale KI",
       "hinweis": "Erster Use Case für die Geschäftsführung",
+      "erreichtHeisst": "Use Case 1 für die GF definiert und getestet; Setup läuft mit erstem dokumentierten Analysedurchlauf; Vision und Konzept lokale KI im Netzwerk als GF-Entscheidung vorbereitet.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -794,6 +802,7 @@
       "area": "ai-infra",
       "name": "Organisation & Enablement",
       "hinweis": "Querschnitt mit festem Zeitbudget",
+      "erreichtHeisst": "Website-Repo in die Organisation migriert, Notion-Grundgerüst steht, Standard-Repository-Hygiene aufgesetzt; Repository-Landschaft bereinigt, Wissens-Space konsolidiert, Feedback- und Lernprozess etabliert: das Arbeitsmodell 2026 läuft.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"

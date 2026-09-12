@@ -267,13 +267,16 @@ function deltaRefs(dateStr) {
   return { vortag, vorwoche };
 }
 
-function chipHtml(diff, art, refDatum, invert) {
+function chipHtml(diff, art, refDatum, invert, einheit) {
   if (diff == null) return '';
   const sign = diff > 0 ? '+' : '';
   const gut = invert ? diff < 0 : diff > 0;
   const cls = diff === 0 ? 'delta--neutral' : (gut ? 'delta--up' : 'delta--down');
   const was = art === 'T' ? 'Vortag' : 'Vorwoche';
-  return `<span class="delta ${cls}" title="gegen ${was} (${shortDayLabel(refDatum)})">${sign}${diff} ${art}</span>`;
+  // `einheit` steht im Tooltip, nicht im Chip: eine Kachel zeigt Items, die
+  // Meilenstein-Kachel Prozentpunkte, und "+3" heisst in beiden etwas
+  // anderes. Der Chip bleibt kurz, der Titel sagt, was gemeint ist.
+  return `<span class="delta ${cls}" title="gegen ${was} (${shortDayLabel(refDatum)})${einheit || ''}">${sign}${diff} ${art}</span>`;
 }
 
 function renderKopf(data) {
@@ -322,6 +325,24 @@ function renderKopf(data) {
   const inArbeitDetail = data.by_status && 'Beansprucht' in data.by_status
     ? 'In Progress + Beansprucht' : 'In Progress';
 
+  // Meilenstein-Anteil (#227): Anteil der offenen Items, die auf einen
+  // Roadmap-Meilenstein einzahlen. Alte Snapshots kennen den Block nicht,
+  // dann entfaellt die Kachel, statt 0 % zu behaupten.
+  const msB = data.meilenstein && data.meilenstein.bestand;
+  const msWert = msAnteil(msB);
+  let msKachel = '';
+  if (msWert != null) {
+    const refTms = vortag ? msAnteil(vortag.meilenstein) : null;
+    const refWms = vorwoche ? msAnteil(vorwoche.meilenstein) : null;
+    const msChips =
+      (refTms != null ? chipHtml(msWert - refTms, 'T', vortag.date, false, ' Punkte') : '') +
+      (refWms != null ? chipHtml(msWert - refWms, 'W', vorwoche.date, false, ' Punkte') : '');
+    msKachel = kachel('Auf Meilenstein', msWert + '&thinsp;%', {
+      detail: `${msB.auf} von ${msB.auf + msB.adhoc + msB.leer} offenen · ${msB.adhoc} adhoc · ${msB.leer} unklassifiziert `,
+      chips: msChips,
+    });
+  }
+
   return `
     <div class="kopf fade-in">
       <h1 class="kopf__titel">Reporting</h1>
@@ -334,6 +355,7 @@ function renderKopf(data) {
       ${kachel('In Arbeit', cur.inArbeit, { detail: inArbeitDetail + ' ', chips: chips('inArbeit') })}
       ${kachel(kwNr ? 'Erledigt / KW ' + kwNr : 'Erledigt / KW', erledigt, { chips: erledigtChip })}
       ${kachel('Aktiv gesamt', cur.aktiv, { accent: true, detail: 'ohne Done und Verworfen ', chips: chips('aktiv') })}
+      ${msKachel}
     </div>
   `;
 }
@@ -557,6 +579,98 @@ async function loadMeilensteinLeiste() {
     if (!roadmapCache) return;
     host.innerHTML = renderMeilensteinLeiste(roadmapCache.roadmap, roadmapCache.kennzahlen);
   } catch { /* Roadmap-Daten optional: Sektion faellt weg, Seite bleibt */ }
+}
+
+// ─── Meilenstein-Anteil (#227) ───────────────────────
+// Zwei Fragen, zwei Reihen: Bestand heisst "woran arbeiten wir gerade",
+// Fluss "was ist tatsaechlich fertig geworden". `adhoc` ist kein Makel,
+// sondern Betriebsarbeit ausserhalb der Roadmap; `unklassifiziert` ist die
+// Triage-Schuld und deshalb ein eigener Wert.
+const MS_ANTEIL_WOCHEN = 8;       // so viele KW im Fluss, damit es lesbar bleibt
+const MS_TOPF = [
+  ['auf', 'auf Meilenstein', 'ms-stack__seg--auf'],
+  ['adhoc', 'adhoc', 'ms-stack__seg--adhoc'],
+  ['leer', 'unklassifiziert', 'ms-stack__seg--leer'],
+];
+
+function msSumme(b) {
+  return b ? (b.auf || 0) + (b.adhoc || 0) + (b.leer || 0) : 0;
+}
+
+function msAnteil(bestand) {
+  const gesamt = msSumme(bestand);
+  if (!gesamt) return null;
+  return Math.round(((bestand.auf || 0) / gesamt) * 100);
+}
+
+function msStackHtml(b) {
+  const gesamt = msSumme(b);
+  if (!gesamt) return '';
+  return `<div class="ms-stack">${MS_TOPF.map(([k, label, cls]) => {
+    const n = b[k] || 0;
+    if (!n) return '';
+    return `<span class="ms-stack__seg ${cls}" style="width:${(n / gesamt) * 100}%"
+                  title="${n} ${label} (${Math.round((n / gesamt) * 100)} %)"></span>`;
+  }).join('')}</div>`;
+}
+
+// Wochen ab der KW, in der es das Board-Feld gibt. Davor misst die Reihe
+// nicht die Ad-hoc-Quote, sondern das Fehlen des Feldes (#227).
+function msWochen(data) {
+  const je = (data.meilenstein && data.meilenstein.je_woche) || {};
+  const seit = (data.meilenstein && data.meilenstein.feldSeit) || '';
+  const abKw = seit ? isoWeekKey(seit) : '';
+  return Object.keys(je)
+    .filter(k => !abKw || k >= abKw)
+    .sort()
+    .slice(-MS_ANTEIL_WOCHEN)
+    .map(k => ({ kw: k, werte: je[k] }));
+}
+
+function renderMeilensteinAnteil(data) {
+  const b = data.meilenstein && data.meilenstein.bestand;
+  const anteil = msAnteil(b);
+  if (anteil == null) return '';
+  const seit = data.meilenstein.feldSeit;
+  const wochen = msWochen(data);
+  const unbekannt = data.meilenstein.unbekannt || {};
+  const unbekanntKeys = Object.keys(unbekannt);
+
+  const legende = MS_TOPF.map(([k, label, cls]) =>
+    `<span class="ms-legende__eintrag"><span class="ms-legende__punkt ${cls}"></span>${label} <strong>${b[k] || 0}</strong></span>`
+  ).join('');
+
+  const flussZeilen = wochen.map(w => {
+    const a = msAnteil(w.werte);
+    return `
+      <div class="ms-woche">
+        <span class="ms-woche__kw" title="${weekRangeTitle(w.kw)}">${weekLabel(w.kw)}</span>
+        ${msStackHtml(w.werte)}
+        <span class="ms-woche__wert">${a == null ? '–' : a + '&thinsp;%'}</span>
+        <span class="ms-woche__zahlen">${msSumme(w.werte)} erledigt</span>
+      </div>`;
+  }).join('');
+
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">MEILENSTEIN-ANTEIL</h3>
+      <div class="ms-bestand">
+        <div class="ms-bestand__kopf">
+          <span class="ms-bestand__wert">${anteil}&thinsp;%</span>
+          <span class="ms-bestand__text">der ${msSumme(b)} offenen Items zahlen auf einen Roadmap-Meilenstein ein</span>
+        </div>
+        ${msStackHtml(b)}
+        <div class="ms-legende">${legende}</div>
+      </div>
+      ${flussZeilen
+        ? `<div class="ms-fluss">
+             <h4 class="trend-sub__title">ERLEDIGT / KW NACH MEILENSTEIN</h4>
+             ${flussZeilen}
+           </div>`
+        : ''}
+      <p class="matrix__hinweis">Bestand zählt alle offenen Items, auch Backlog, wo das Bereit-Gate den Meilenstein noch nicht verlangt. Die Wochenreihe beginnt mit dem Board-Feld am ${formatSnapshotLabel(seit)}; frühere Wochen zeigten nicht die Ad-hoc-Quote, sondern das Fehlen des Feldes.${unbekanntKeys.length ? ` <strong>${unbekanntKeys.length} ID ohne Roadmap-Eintrag:</strong> ${unbekanntKeys.join(', ')}.` : ''}</p>
+    </div>
+  `;
 }
 
 // ─── Hebel-Block (#183) ──────────────────────────────
@@ -976,6 +1090,7 @@ function renderDashboard(data) {
     ${renderBewegung(data)}
     ${renderMatrix(data)}
     <div id="meilenstein-leiste"></div>
+    ${renderMeilensteinAnteil(data)}
     ${renderHebel(data)}
     ${renderPhasenVerlauf(data)}
     ${renderBereichsZeile(data)}

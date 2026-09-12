@@ -9,6 +9,13 @@ const ROADMAP_URL = 'data/roadmap/roadmap-2026.json';
 // Aenderungsprotokoll (#164). Optional: fehlt die Datei, rendert die Seite
 // unveraendert weiter. Die Roadmap darf nie an ihrer Historie scheitern.
 const HISTORIE_URL = 'data/roadmap/roadmap-historie.json';
+// Issue-Zahlen je Meilenstein (#227, erste Ausbaustufe von #23). Quelle ist
+// der juengste Board-Snapshot, Feld `meilenstein.je_id`. Optional wie die
+// Historie: fehlt der Snapshot, rendert die Roadmap unveraendert weiter. Der
+// Status eines Meilensteins bleibt redaktionell, er wird hier nicht
+// abgeleitet.
+const SNAPSHOT_DIR = 'data/snapshots/';
+const SNAPSHOT_INDEX_URL = SNAPSHOT_DIR + 'index.json';
 
 const MONTH_NAMES = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
 const TYP_LABEL = { meilenstein: 'Meilenstein', schluessel: 'Schlüsselereignis', entscheidung: 'Entscheidungspunkt', fixpunkt: 'Externer Fixpunkt' };
@@ -32,6 +39,10 @@ const ZOOMS = [
 
 let DATA = null;
 let HISTORIE = {};   // {meilenstein-id: {verschiebungen, tageGesamt, stehengelassen, ...}}
+// {id: {offen, erledigt}} aus dem Snapshot, plus dessen Datum fuer die
+// Herkunftsangabe. Leeres Objekt heisst "kein Snapshot geladen".
+let ISSUES = {};
+let ISSUES_STAND = '';
 
 // Ein Satz zur Vorgeschichte eines Meilensteins, oder '' wenn es keine gibt.
 // Bewusst nur im Detail-Panel: im Zeitstrahl waere es Rauschen, und die
@@ -54,6 +65,22 @@ function historieText(id) {
 }
 
 // Ab zweimal gilt Regel 6: Abstimmung statt drittem Datum.
+// Issue-Zahlen eines Meilensteins. null heisst "keine Daten" (kein Snapshot
+// geladen), {offen:0, erledigt:0} heisst "Snapshot da, kein Issue verknuepft".
+// Der Unterschied gehoert auf die Seite: das eine ist eine fehlende Quelle,
+// das andere ein Meilenstein ohne Arbeit am Board.
+function issueZahlen(id) {
+  if (!ISSUES_STAND) return null;
+  return ISSUES[id] || { offen: 0, erledigt: 0 };
+}
+
+function issueKurz(id) {
+  const z = issueZahlen(id);
+  if (!z) return '';
+  if (!z.offen && !z.erledigt) return '<span class="rm-issues rm-issues--leer" title="Kein Board-Item traegt diese Meilenstein-ID">keine Issues</span>';
+  return `<span class="rm-issues" title="Board-Items mit dieser Meilenstein-ID, Stand ${esc(ISSUES_STAND)}">${z.offen} offen · ${z.erledigt} erledigt</span>`;
+}
+
 function brauchtAbstimmung(id) {
   const k = HISTORIE[id];
   return !!k && (k.verschiebungen >= 2 || k.stehengelassen >= 2);
@@ -437,6 +464,7 @@ function detailHtml() {
               ${m.status === 'erreicht' ? '✓ ' : ''}${m.klaerung ? '⚠ ' : ''}${esc(m.titel)}
               <span class="rm-detail__status rm-detail__status--${m.status}">${STATUS_LABEL[m.status] || esc(m.status)}</span>
               ${isLate(m) ? lateChipHtml : ''}
+              ${issueKurz(m.id)}
             </button>
           </li>`).join('')}
       </ul>
@@ -464,6 +492,9 @@ function detailHtml() {
     ${isLate(m) ? `<p class="rm-detail__warn">Termin überschritten: geplant war ${fmtDate(m.datum)}</p>` : ''}
     ${historieText(m.id) ? `<p class="rm-detail__body">Verlauf: ${esc(historieText(m.id))}</p>` : ''}
     ${brauchtAbstimmung(m.id) ? `<p class="rm-detail__warn">Kein weiteres Datum ohne Abstimmung${m.issue ? '' : ' (Abstimmung noch nicht verknüpft)'}</p>` : ''}
+    ${issueZahlen(m.id)
+      ? `<p class="rm-detail__body">Issues am Board: <b>${issueZahlen(m.id).offen}</b> offen, <b>${issueZahlen(m.id).erledigt}</b> erledigt <span class="rm-detail__quelle">(Snapshot ${esc(ISSUES_STAND)}, Feld Meilensteine)</span></p>`
+      : ''}
     ${m.details ? `<p class="rm-detail__body">${esc(m.details)}</p>` : ''}
     ${m.confidence ? `<p class="rm-detail__body">Confidence: <b>${CONF_LABEL[m.confidence]}</b> ${confSymbolHtml(m.confidence)}</p>` : ''}
     ${m.abhaengigkeit ? `<p class="rm-detail__body">Abhängigkeit: ${esc(m.abhaengigkeit)}</p>` : ''}
@@ -495,7 +526,7 @@ function tableHtml() {
   <details class="rm-tablewrap">
     <summary>Tabellenansicht: alle Meilensteine chronologisch (${rows.length})</summary>
     <table class="proj-table rm-table">
-      <thead><tr><th>Datum</th><th>Area</th><th>Kernschwerpunkt</th><th>Meilenstein</th><th>Typ</th><th>Status</th></tr></thead>
+      <thead><tr><th>Datum</th><th>Area</th><th>Kernschwerpunkt</th><th>Meilenstein</th><th>Typ</th><th>Status</th><th>Issues</th></tr></thead>
       <tbody>
         ${rows.map(r => {
           const late = isLate(r.m);
@@ -507,6 +538,7 @@ function tableHtml() {
           <td class="proj-table__name">${r.m.klaerung ? '⚠ ' : ''}${esc(r.m.titel)}</td>
           <td>${TYP_LABEL[r.m.typ] || esc(r.m.typ)}</td>
           <td><span class="rm-detail__status rm-detail__status--${r.m.status}">${STATUS_LABEL[r.m.status] || esc(r.m.status)}</span>${late ? ' ' + lateChipHtml : ''}</td>
+          <td>${issueKurz(r.m.id) || '–'}</td>
         </tr>`; }).join('')}
       </tbody>
     </table>
@@ -652,7 +684,7 @@ function render() {
     ${legendHtml()}
     ${parkedHtml()}
     ${tableHtml()}
-    <footer class="footer">Quelle: <code>data/roadmap/roadmap-2026.json</code> ·
+    <footer class="footer">Quelle: <code>data/roadmap/roadmap-2026.json</code>${ISSUES_STAND ? ` · Issue-Zahlen aus dem Board-Snapshot ${esc(ISSUES_STAND)}` : ''} ·
       durchgezogener Balken = committed, gestrichelt = läuft im Hintergrund bzw. noch nicht committed
     </footer>`;
 
@@ -686,6 +718,30 @@ function update() {
   render();
 }
 
+/* --- Issue-Zahlen aus dem juengsten Board-Snapshot (#227) --- */
+// Zwei Abrufe: der Index nennt die Snapshots (neueste zuerst), die Tagesdatei
+// traegt den Block `meilenstein`. Schlaegt einer fehl oder ist der Snapshot
+// aelter als 3.3, bleibt ISSUES leer und die Seite zeigt keine Zahlen, statt
+// Nullen zu behaupten.
+async function ladeIssueZahlen() {
+  try {
+    const idxRes = await fetch(SNAPSHOT_INDEX_URL);
+    if (!idxRes.ok) return;
+    const keys = await idxRes.json();
+    if (!Array.isArray(keys) || !keys.length) return;
+    const res = await fetch(`${SNAPSHOT_DIR}${keys[0]}.json`);
+    if (!res.ok) return;
+    const snap = await res.json();
+    const je = snap.meilenstein && snap.meilenstein.je_id;
+    if (!je) return;
+    ISSUES = je;
+    ISSUES_STAND = (snap._meta && snap._meta.snapshot_date) || keys[0];
+  } catch (err) {
+    ISSUES = {};
+    ISSUES_STAND = '';
+  }
+}
+
 /* --- Init --- */
 (async function init() {
   const main = document.getElementById('main');
@@ -706,6 +762,7 @@ function update() {
   } catch (err) {
     HISTORIE = {};   // Protokoll ist Zusatznutzen, kein Renderblocker
   }
+  await ladeIssueZahlen();
   DATA.areas.forEach(a => { AREA[a.id] = a; });
   const h2p = ZOOMS.find(z => z.key === 'h2p');
   if (DATA.zeitraum.ausblickLabel) h2p.label = 'inkl. ' + DATA.zeitraum.ausblickLabel;

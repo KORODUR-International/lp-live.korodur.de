@@ -1694,3 +1694,93 @@ details.tbl th:first-child, details.tbl td:first-child { text-align: left; }
   .month-chart--schmal { gap: 3px; }
   .month-chart--schmal .month-chart__label { font-size: .6rem; }
 }
+
+/* ─── Meilenstein-Anteil (#227) ──────────────────────
+   Ein gestapelter Balken je Reihe: auf Meilenstein (Cyan), adhoc (Grau),
+   unklassifiziert (Warnfarbe). Die Warnfarbe steht bewusst nur auf dem
+   dritten Topf: `adhoc` ist Betriebsarbeit und kein Fehler, ein leeres Feld
+   dagegen Triage-Schuld. */
+.ms-bestand { margin-bottom: 4px; }
+.ms-bestand__kopf {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.ms-bestand__wert {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--secondary);
+  line-height: 1;
+}
+.ms-bestand__text { font-size: .85rem; color: var(--muted); }
+
+.ms-stack {
+  display: flex;
+  width: 100%;
+  height: 14px;
+  border-radius: 7px;
+  overflow: hidden;
+  background: var(--light-gray);
+}
+.ms-stack__seg { display: block; height: 100%; }
+.ms-stack__seg--auf { background: var(--secondary); }
+.ms-stack__seg--adhoc { background: var(--mid-gray); }
+.ms-stack__seg--leer { background: var(--warning); }
+
+.ms-legende {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 10px;
+  font-size: .8rem;
+  color: var(--muted);
+}
+.ms-legende__eintrag { display: inline-flex; align-items: center; gap: 6px; }
+.ms-legende__punkt {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.ms-fluss { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--light-gray); }
+.ms-woche {
+  display: grid;
+  grid-template-columns: 64px 1fr 52px 92px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: .8rem;
+}
+.ms-woche__kw { color: var(--muted); }
+.ms-woche__wert { font-weight: 700; color: var(--primary); text-align: right; }
+.ms-woche__zahlen { color: var(--muted); font-size: .75rem; }
+
+@media (max-width: 640px) {
+  .ms-woche { grid-template-columns: 52px 1fr 46px; }
+  .ms-woche__zahlen { display: none; }
+}
+
+/* Issue-Zahlen je Meilenstein auf der Roadmap-Seite (#227). Dezent: der
+   Termin bleibt die Hauptinformation, die Zahl ist der Beleg daneben. */
+.rm-issues {
+  font-size: .72rem;
+  color: var(--muted);
+  white-space: nowrap;
+  margin-left: 6px;
+}
+.rm-issues--leer { font-style: italic; opacity: .75; }
+.rm-detail__quelle { font-size: .75rem; color: var(--muted); }
+
+/* Links im dunklen Intro-Kasten der Arbeitsweise-Seite: die Standardfarbe
+   ist Navy auf Navy und praktisch unsichtbar. */
+.aw-intro a { color: var(--white); text-decoration: underline; text-underline-offset: 2px; }
+.aw-intro a:hover { color: var(--mid-gray); }
+
+/* Tabellen der Arbeitsweise-Seite bekommen ihren eigenen Scroll-Container:
+   auf Telefonbreite passt die Statustabelle sonst nicht und wird beschnitten,
+   ohne dass die Seite selbst horizontal scrollt. */
+.aw-tablewrap { overflow-x: auto; margin-top: 14px; }
+.aw-tablewrap .aw-table { margin-top: 0; min-width: 520px; }

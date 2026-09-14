@@ -2,10 +2,12 @@
    KORODUR Work Cockpit, Redaktion (GF-Dashboard, Issue #141)
    Rendert zwei Quellen:
    - data/redaktion/<datum>.json (Tages-Aggregat des Notion-Redaktionsplans):
-     Puffer, Vorlauf, Pipeline-Funnel, posted_by_week.
+     Puffer, Vorlauf, Pipeline-Funnel und die Beitragszahl je Woche
+     (posted_by_week_linkedin, Issue #233).
    - data/social/<woche>.json + timeseries.json (wöchentlicher Plattform-Export,
-     Issue #139): Impressions, Interaktionen, Engagement-Rate, Beiträge je
-     Plattform.
+     Issue #139): Impressions, Interaktionen, Engagement-Rate. Die Beitragszahl
+     des Exports (li_posts) wird nicht gelesen: LinkedIn datiert Beiträge auf
+     den Tag des Einplanens, nicht auf den Tag des Erscheinens.
    Read-only, nur Aggregatzahlen, keine Beitragstitel, keine Personen
    (öffentliche Seite). In dev: symlink src/data -> ../data; in production:
    data/ liegt im Root.
@@ -228,7 +230,6 @@ function socTotals(row) {
     imp: (row.li_impressions || 0) + (row.fb_views || 0) + (row.ig_views || 0),
     inter: (row.li_interactions || 0) + (row.fb_interactions || 0) + (row.ig_interactions || 0),
     er: row.li_engagement_rate,
-    posts: row.li_posts,
   };
 }
 
@@ -308,7 +309,13 @@ function renderSichtbarkeit() {
   const sparkEr = sparklineSvg(
     window8.filter(r => r.li_engagement_rate != null).map(r => r.li_engagement_rate * 100), 'var(--secondary)');
 
-  const platforms = last.ig_views == null ? 'LinkedIn + Facebook, Instagram n.&nbsp;v.' : 'LinkedIn + Facebook + Instagram';
+  // Aus den Werten der Woche abgeleitet, nicht fest verdrahtet: die Lieferung
+  // vom 14.09.2026 brachte fuer KW 34 bis 37 nur LinkedIn, und die Kopfzeile
+  // behauptete trotzdem "LinkedIn + Facebook".
+  const spalten = [['li', 'li_impressions'], ['fb', 'fb_views'], ['ig', 'ig_views']];
+  const mit = spalten.filter(([, k]) => last[k] != null).map(([tag]) => SOC_LABELS[tag]);
+  const ohne = spalten.filter(([, k]) => last[k] == null).map(([tag]) => SOC_LABELS[tag]);
+  const platforms = mit.join(' + ') + (ohne.length ? `, ${ohne.join(' und ')} n.&nbsp;v.` : '');
   // LinkedIn liefert mit bis zu 2 Tagen Verzug. Deckt der Export die Woche
   // nicht voll ab, gehoert das an die Zahl, sonst liest sich eine Teilwoche
   // wie ein Einbruch.
@@ -446,39 +453,68 @@ function renderSichtbarkeitChart() {
 // ─── 3 · Läuft die Redaktion? ─────────────────────────
 function renderAmpelRow(d) {
   return `
-    <div class="section-title">L&Auml;UFT DIE REDAKTION? <small>Frequenz und Vorarbeit, Quelle: Notion-Redaktionsplan + Plattform-Exporte</small></div>
+    <div class="section-title">L&Auml;UFT DIE REDAKTION? <small>Frequenz und Vorarbeit, Quelle: Notion-Redaktionsplan</small></div>
     <div class="kpi-row">
-      ${renderPostsTile()}
+      ${renderPostsTile(d)}
       ${renderPufferTile(d)}
       ${renderVorlaufTile(d)}
     </div>
   `;
 }
 
-function renderPostsTile() {
-  if (!socSeries.length) {
+// ─── Beitragszahl je Woche (Issue #233) ──────────────
+// Quelle ist der Redaktionsplan, nicht der LinkedIn-Export: dessen Spalte
+// "Erstellt am" ist der Tag des Einplanens. Im Export vom 14.09.2026 standen
+// alle 11 Beitraege aus KW 34 bis 37 auf 14. bis 20.08., die Seite haette
+// KW 34 mit 9 und KW 35 bis 37 mit 0 gezeigt. Snapshots vor Version 1.4
+// kennen das LinkedIn-Feld noch nicht und fallen auf alle Kanaele zurueck.
+function beitraegeJeWoche(d) {
+  return (d && (d.posted_by_week_linkedin || d.posted_by_week)) || {};
+}
+
+function wocheVerschieben(weekKey, wochen) {
+  const monday = mondayOfIsoWeek(weekKey);
+  if (!monday) return null;
+  return isoWeekKeyOfDate(new Date(monday.getTime() + wochen * 7 * 86400000));
+}
+
+// Die zuletzt abgeschlossene Kalenderwoche vor dem Stichtag. Die laufende
+// Woche ist angebrochen und laese sich montags immer wie "unter Ziel".
+function letzteVolleWoche(d) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(((d || {})._meta || {}).snapshot_date || '');
+  if (!m) return null;
+  const stichtag = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  return wocheVerschieben(isoWeekKeyOfDate(stichtag), -1);
+}
+
+function renderPostsTile(d) {
+  const bis = letzteVolleWoche(d);
+  if (!bis) {
     return `
       <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Beitr&auml;ge diese Woche</div>
+        <div class="kpi-card__label">Beitr&auml;ge letzte Woche</div>
         <div class="kpi-card__value">n.&nbsp;v.</div>
-        <div class="kpi-card__detail">Noch kein LinkedIn-Export vorhanden</div>
+        <div class="kpi-card__detail">Snapshot ohne Stichtag</div>
       </div>`;
   }
-  const last = socSeries[socSeries.length - 1];
-  const n = last.li_posts || 0;
+  const pbw = beitraegeJeWoche(d);
+  const n = pbw[bis] || 0;
   const state = postsState(n, LI_POSTS_ZIEL);
   const label = state === 'ok' ? 'Ziel erreicht' : state === 'warn' ? 'knapp am Ziel' : 'unter Ziel';
-  const last4 = socSeries.slice(-4).map(r => r.li_posts || 0);
+  // Vier volle Wochen, Wochen ohne Beitrag zaehlen als 0 mit.
+  const last4 = [-3, -2, -1, 0].map(k => pbw[wocheVerschieben(bis, k)] || 0);
   const avg = (last4.reduce((a, b) => a + b, 0) / last4.length)
     .toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  const trend = last4.length > 1
-    ? `Durchschnitt letzte ${last4.length} Wochen: ${avg} / Woche`
-    : `erst ${last4.length} Export-Woche`;
+  const lw = d.laufende_woche_linkedin;
+  const laufend = lw
+    ? `<div class="kpi-card__detail">${kwLabel(lw.week)} bisher ${lw.erschienen} erschienen, ${lw.eingeplant} bis Sonntag eingeplant</div>`
+    : '';
   return `
     <div class="kpi-card fade-in">
-      <div class="kpi-card__label">Beitr&auml;ge diese Woche ${ampelBadge(state, label)}</div>
+      <div class="kpi-card__label">Beitr&auml;ge letzte Woche ${ampelBadge(state, label)}</div>
       <div class="kpi-card__value">${n}<span class="kpi-card__unit">von ${LI_POSTS_ZIEL}</span></div>
-      <div class="kpi-card__detail">LinkedIn, ${kwLabel(last.week)} &middot; ${trend}</div>
+      <div class="kpi-card__detail">LinkedIn, ${kwLabel(bis)} &middot; Durchschnitt letzte 4 Wochen: ${avg} / Woche</div>
+      ${laufend}
     </div>`;
 }
 
@@ -498,7 +534,7 @@ function renderPufferTile(d) {
     <div class="kpi-card fade-in">
       <div class="kpi-card__label">Beitrags-Puffer ${ampelBadge(state, label)}</div>
       <div class="kpi-card__value">${fehltZeichen(d.puffer)}</div>
-      <div class="kpi-card__detail">Freigegeben + eingeplant &middot; Ziel ${lo} bis ${hi}${terminiert}</div>
+      <div class="kpi-card__detail">Freigegeben + eingeplant und noch nicht erschienen &middot; Ziel ${lo} bis ${hi}${terminiert}</div>
       <div class="meter">
         <div class="meter__scale">
           <div class="meter__band" style="left:${bandLeft}%; width:${bandWidth}%;"></div>
@@ -522,23 +558,20 @@ function renderVorlaufTile(d) {
 }
 
 // ─── 4+5 · Beiträge je Woche & Pipeline-Funnel ────────
-// Merge: Notion posted_by_week (Datumsfeld, historisch) als Basis, die
-// juengste(n) Woche(n) mit echtem Social-Export ueberschreiben ihren
-// Wochenwert mit li_posts (praeziser als das Notion-Datumsfeld, das laut
-// Snapshot Datenschuld hat). Fallback-Wochen bleiben in der Beschriftung
-// als solche gekennzeichnet (Issue #141 Scope).
-// Fuellt jede Woche zwischen der ersten und letzten Woche in `series` mit
+// Fuellt jede Woche zwischen der ersten Woche in `series` und `bis` mit
 // einem 0-Stub (source: 'none'), damit Wochen ohne Beitrag auf der Achse
 // sichtbar bleiben statt zu verschwinden -- sonst zeigt das Chart eine
 // geschoente Frequenz, dabei sind die Luecken die Botschaft dieser KPI
-// (Review PR #144, wie im abgenommenen Mockup KW 23-31).
-function fillWeekGaps(series) {
+// (Review PR #144, wie im abgenommenen Mockup KW 23-31). Die Achse endet an
+// der letzten vollen Woche, auch wenn die leer war: eine Serie von Nullen am
+// Ende ist genau die Nachricht, die nicht abgeschnitten werden darf.
+function fillWeekGaps(series, bis) {
   if (!series.length) return series;
   const byWeek = {};
   series.forEach(r => { byWeek[r.week] = r; });
   const filled = [];
   let cursor = mondayOfIsoWeek(series[0].week);
-  const lastMonday = mondayOfIsoWeek(series[series.length - 1].week);
+  const lastMonday = mondayOfIsoWeek(bis || series[series.length - 1].week);
   while (cursor <= lastMonday) {
     const wk = isoWeekKeyOfDate(cursor);
     filled.push(byWeek[wk] || { week: wk, n: 0, source: 'none' });
@@ -548,13 +581,12 @@ function fillWeekGaps(series) {
 }
 
 function buildFreqSeries(d) {
-  const merged = {};
-  Object.entries(d.posted_by_week || {}).forEach(([wk, n]) => { merged[wk] = { n, source: 'notion' }; });
-  socSeries.forEach(r => {
-    if (r.li_posts != null) merged[r.week] = { n: r.li_posts, source: 'export' };
-  });
-  const series = Object.keys(merged).sort().map(wk => ({ week: wk, ...merged[wk] }));
-  return fillWeekGaps(series);
+  const bis = letzteVolleWoche(d);
+  const series = Object.entries(beitraegeJeWoche(d))
+    .filter(([wk]) => !bis || wk <= bis)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([week, n]) => ({ week, n, source: 'notion' }));
+  return fillWeekGaps(series, bis);
 }
 
 function renderFreqChart(d) {
@@ -575,12 +607,10 @@ function renderFreqChart(d) {
     s += `<text x="${pl - 7}" y="${y(v) + 4}" font-size="11" fill="var(--muted)" text-anchor="end">${v}</text>`;
   }
 
-  const hatFallback = series.some(r => r.source === 'notion');
-
   series.forEach((r, i) => {
     const cx = pl + slot * i + slot / 2;
     const titel = r.n > 0
-      ? `${kwLabel(r.week)}: ${r.n} Beitr${r.n === 1 ? 'ag' : 'äge'} (Quelle: ${r.source === 'export' ? 'LinkedIn-Export' : 'Notion-Redaktionsplan'})`
+      ? `${kwLabel(r.week)}: ${r.n} Beitr${r.n === 1 ? 'ag' : 'äge'} erschienen`
       : `${kwLabel(r.week)}: kein Beitrag veröffentlicht`;
     if (r.n > 0) {
       const h = y(0) - y(r.n);
@@ -589,7 +619,7 @@ function renderFreqChart(d) {
     } else {
       s += `<rect x="${cx - bw / 2}" y="${y(0) - 2}" width="${bw}" height="2" fill="#c9d2da" data-i="${i}"><title>${titel}</title></rect>`;
     }
-    s += `<text x="${cx}" y="${H - 8}" font-size="11" fill="var(--muted)" text-anchor="middle">${kwLabel(r.week)}${r.source === 'notion' ? '*' : ''}</text>`;
+    s += `<text x="${cx}" y="${H - 8}" font-size="11" fill="var(--muted)" text-anchor="middle">${kwLabel(r.week)}</text>`;
   });
 
   s += `<line x1="${pl}" y1="${y(LI_POSTS_ZIEL)}" x2="${W - pr}" y2="${y(LI_POSTS_ZIEL)}" stroke="var(--muted)" stroke-width="1.5"/>`;
@@ -599,7 +629,6 @@ function renderFreqChart(d) {
     <div class="chart-wrap">
       <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Ver&ouml;ffentlichte Beitr&auml;ge je Kalenderwoche">${s}</svg>
     </div>
-    ${hatFallback ? `<p class="chart-note">* aus dem Notion-Redaktionsplan (Datumsfeld "${datumsfeld(d)}"), nicht aus dem Plattform-Export.</p>` : ''}
   `;
 }
 
@@ -614,17 +643,14 @@ function datumsfeld(d) {
 
 function renderBottomRow(d) {
   const feld = datumsfeld(d);
-  const quelle = socSeries.length
-    ? `j&uuml;ngste Woche aus dem LinkedIn-Export, davor aus dem Notion-Redaktionsplan (Feld "${feld}")`
-    : `aus dem Notion-Redaktionsplan (Feld "${feld}")`;
   return `
     <div class="grid-2">
       <div class="status-section fade-in">
         <h3 class="status-section__title">BEITR&Auml;GE JE WOCHE</h3>
-        <p class="chart-note">Ver&ouml;ffentlichte Beitr&auml;ge (LinkedIn) &middot; Ziel: ${LI_POSTS_ZIEL} pro Woche &middot; ${quelle}</p>
+        <p class="chart-note">Ver&ouml;ffentlichte Beitr&auml;ge (LinkedIn) &middot; Ziel: ${LI_POSTS_ZIEL} pro Woche &middot; aus dem Notion-Redaktionsplan (Feld "${feld}"), eingeplante Beitr&auml;ge z&auml;hlen ab ihrem Datum als erschienen</p>
         ${renderFreqChart(d)}
       </div>
-      ${renderFunnel(d.totals || {})}
+      ${renderFunnel(d.totals || {}, d.eingeplant_erschienen)}
     </div>
   `;
 }
@@ -632,7 +658,7 @@ function renderBottomRow(d) {
 // ─── Pipeline-Funnel (unverändert bis auf Farben, Issue #141 Design) ──
 const FUNNEL_TITLE = 'PIPELINE: VON DER IDEE ZUM POST';
 
-function renderFunnel(t) {
+function renderFunnel(t, eingeplantErschienen) {
   const total = FUNNEL.reduce((s, f) => s + (t[f.key] || 0), 0);
 
   // Unbekannter Status: laut statt still. Zeigt an, dass das Mapping in
@@ -681,11 +707,18 @@ function renderFunnel(t) {
     `<span class="status-legend__item"><span class="status-legend__dot" style="background:${f.color}"></span>${f.label}: ${t[f.key] || 0}</span>`
   ).join('');
 
+  // Gepostet enthaelt eingeplante Beitraege mit vergangenem Datum (Issue #233).
+  // In Notion stehen sie weiter auf "eingeplant & getimed"; ohne diesen Satz
+  // stimmt die Zahl hier nicht mit der Notion-Ansicht ueberein.
+  const erschienen = eingeplantErschienen
+    ? `<p class="chart-note" style="margin-top:14px">Gepostet enth&auml;lt ${eingeplantErschienen} eingeplante Beitr&auml;ge, deren Datum vorbei ist. In Notion stehen sie weiter auf &bdquo;eingeplant &amp; getimed&ldquo;.</p>` : '';
+
   return `
     <div class="status-section fade-in">
       <h3 class="status-section__title">${FUNNEL_TITLE}</h3>
       <div class="funnel">${segs}</div>
       <div class="status-legend">${legend}${unbekannt}${abgelehnt}</div>
+      ${erschienen}
     </div>
   `;
 }

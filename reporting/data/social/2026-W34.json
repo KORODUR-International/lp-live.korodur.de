@@ -1,27 +1,27 @@
 {
   "_meta": {
-    "week": "2026-W22",
+    "week": "2026-W34",
     "range": [
-      "2026-05-25",
-      "2026-05-31"
+      "2026-08-17",
+      "2026-08-23"
     ],
-    "generated_at": "2026-09-14T09:32:13.096455+00:00",
+    "generated_at": "2026-09-14T09:32:13.435554+00:00",
     "tage_linkedin": 7,
     "quellen": {
-      "linkedin": "imports/social/2026-08-14",
+      "linkedin": "imports/social/2026-09-14",
       "meta": null
     }
   },
   "linkedin": {
-    "posts": 0,
-    "impressions": 52,
-    "impressions_unique": 7,
-    "clicks": 3,
-    "reactions": 0,
-    "comments": 0,
+    "posts": 9,
+    "impressions": 2175,
+    "impressions_unique": 1257,
+    "clicks": 141,
+    "reactions": 121,
+    "comments": 2,
     "shares": 0,
-    "interactions": 0,
-    "engagement_rate": 0.0577
+    "interactions": 123,
+    "engagement_rate": 0.1214
   },
   "facebook": {
     "posts": null,

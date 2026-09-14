@@ -795,5 +795,65 @@
     "manuell": [
       "instagram"
     ]
+  },
+  {
+    "week": "2026-W34",
+    "li_impressions": 2175,
+    "li_interactions": 123,
+    "li_posts": 9,
+    "li_engagement_rate": 0.1214,
+    "fb_views": null,
+    "fb_interactions": null,
+    "fb_posts": null,
+    "ig_views": null,
+    "ig_interactions": null,
+    "ig_posts": null,
+    "tage_linkedin": 7,
+    "manuell": []
+  },
+  {
+    "week": "2026-W35",
+    "li_impressions": 1561,
+    "li_interactions": 167,
+    "li_posts": 0,
+    "li_engagement_rate": 0.1736,
+    "fb_views": null,
+    "fb_interactions": null,
+    "fb_posts": null,
+    "ig_views": null,
+    "ig_interactions": null,
+    "ig_posts": null,
+    "tage_linkedin": 7,
+    "manuell": []
+  },
+  {
+    "week": "2026-W36",
+    "li_impressions": 938,
+    "li_interactions": 50,
+    "li_posts": 0,
+    "li_engagement_rate": 0.0768,
+    "fb_views": null,
+    "fb_interactions": null,
+    "fb_posts": null,
+    "ig_views": null,
+    "ig_interactions": null,
+    "ig_posts": null,
+    "tage_linkedin": 7,
+    "manuell": []
+  },
+  {
+    "week": "2026-W37",
+    "li_impressions": 1106,
+    "li_interactions": 42,
+    "li_posts": 0,
+    "li_engagement_rate": 0.0597,
+    "fb_views": null,
+    "fb_interactions": null,
+    "fb_posts": null,
+    "ig_views": null,
+    "ig_interactions": null,
+    "ig_posts": null,
+    "tage_linkedin": 6,
+    "manuell": []
   }
 ]

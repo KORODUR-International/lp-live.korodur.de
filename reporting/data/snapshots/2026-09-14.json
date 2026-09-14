@@ -1,42 +1,42 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-14",
-    "generated_at": "2026-09-14T10:49:10.710802+00:00",
+    "generated_at": "2026-09-14T13:18:32.201514+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "3.3"
   },
   "totals": {
-    "items": 763,
-    "done": 491,
-    "in_progress": 17,
-    "open": 163,
-    "blocked": 12,
-    "on_hold": 25,
+    "items": 764,
+    "done": 494,
+    "in_progress": 16,
+    "open": 162,
+    "blocked": 11,
+    "on_hold": 26,
     "discarded": 55,
-    "bereit": 84
+    "bereit": 85
   },
   "by_status": {
-    "Backlog": 77,
-    "Bereit": 84,
+    "Backlog": 75,
+    "Bereit": 85,
     "Beansprucht": 2,
-    "In Progress": 8,
+    "In Progress": 7,
     "In Review": 9,
-    "Blocked": 12,
-    "On Hold": 25,
-    "Done": 546,
+    "Blocked": 11,
+    "On Hold": 26,
+    "Done": 549,
     "none": 0
   },
   "by_owner": {
     "Human": 106,
-    "Claude": 491,
+    "Claude": 492,
     "Either": 164,
     "none": 2
   },
   "by_priority": {
     "P0": 13,
-    "P1": 353,
+    "P1": 354,
     "P2": 321,
     "P3": 74,
     "none": 2
@@ -46,35 +46,35 @@
       "P0": 1,
       "P1": 46,
       "P2": 92,
-      "P3": 24,
+      "P3": 23,
       "none": 0
     },
     "in_progress": {
       "P0": 1,
       "P1": 13,
-      "P2": 3,
+      "P2": 2,
       "P3": 0,
       "none": 0
     },
     "blocked": {
       "P0": 0,
       "P1": 7,
-      "P2": 5,
+      "P2": 4,
       "P3": 0,
       "none": 0
     },
     "on_hold": {
       "P0": 0,
       "P1": 11,
-      "P2": 6,
+      "P2": 7,
       "P3": 8,
       "none": 0
     },
     "done": {
       "P0": 11,
-      "P1": 260,
-      "P2": 184,
-      "P3": 34,
+      "P1": 261,
+      "P2": 185,
+      "P3": 35,
       "none": 2
     }
   },
@@ -85,8 +85,8 @@
       "done": 237,
       "in_progress": 7,
       "open": 66,
-      "blocked": 7,
-      "on_hold": 7,
+      "blocked": 6,
+      "on_hold": 8,
       "discarded": 34,
       "by_owner": {
         "Human": 44,
@@ -145,16 +145,16 @@
     },
     {
       "name": "AI & Infrastruktur",
-      "total": 216,
-      "done": 147,
-      "in_progress": 6,
-      "open": 49,
+      "total": 217,
+      "done": 150,
+      "in_progress": 5,
+      "open": 48,
       "blocked": 0,
       "on_hold": 5,
       "discarded": 9,
       "by_owner": {
         "Human": 18,
-        "Claude": 164,
+        "Claude": 165,
         "Either": 34,
         "none": 0
       }
@@ -215,8 +215,8 @@
       "done": 178,
       "in_progress": 0,
       "open": 43,
-      "blocked": 7,
-      "on_hold": 1,
+      "blocked": 6,
+      "on_hold": 2,
       "discarded": 40,
       "by_owner": {
         "Human": 30,
@@ -230,36 +230,36 @@
         "Beansprucht": 0,
         "In Progress": 0,
         "In Review": 0,
-        "Blocked": 7,
-        "On Hold": 1,
+        "Blocked": 6,
+        "On Hold": 2,
         "Done": 218,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 128,
-      "done": 93,
-      "in_progress": 2,
-      "open": 20,
+      "total": 129,
+      "done": 96,
+      "in_progress": 1,
+      "open": 19,
       "blocked": 0,
       "on_hold": 8,
       "discarded": 5,
       "by_owner": {
         "Human": 16,
-        "Claude": 88,
+        "Claude": 89,
         "Either": 24,
         "none": 0
       },
       "by_status": {
-        "Backlog": 11,
-        "Bereit": 8,
+        "Backlog": 9,
+        "Bereit": 9,
         "Beansprucht": 1,
-        "In Progress": 1,
+        "In Progress": 0,
         "In Review": 1,
         "Blocked": 0,
         "On Hold": 8,
-        "Done": 98,
+        "Done": 101,
         "none": 0
       }
     },
@@ -2462,26 +2462,13 @@
     },
     {
       "repo": "KORODUR-International/korodur-review-reporting",
-      "nummer": 149,
-      "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
-      "prioritaet": "P2",
-      "owner_typ": "Human",
-      "bearbeiter": null,
-      "status_seit": "2026-08-11",
-      "meilensteine": [
-        "org-lernprozess"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 153,
-      "status": "In Progress",
+      "status": "Bereit",
       "bereich": "AI & Infrastruktur",
       "prioritaet": "P2",
       "owner_typ": "Either",
-      "bearbeiter": "Claude Korodur",
-      "status_seit": "2026-08-14",
+      "bearbeiter": null,
+      "status_seit": "2026-09-14",
       "meilensteine": [
         "org-lernprozess"
       ]
@@ -2543,26 +2530,13 @@
     },
     {
       "repo": "KORODUR-International/korodur-review-reporting",
-      "nummer": 214,
-      "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
-      "prioritaet": "P3",
-      "owner_typ": "Claude",
-      "bearbeiter": null,
-      "status_seit": "2026-08-26",
-      "meilensteine": [
-        "adhoc"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 225,
-      "status": "Backlog",
+      "status": "Bereit",
       "bereich": "AI & Infrastruktur",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
-      "status_seit": "2026-08-27",
+      "status_seit": "2026-09-14",
       "meilensteine": [
         "org-lernprozess"
       ]
@@ -3150,12 +3124,12 @@
     {
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 440,
-      "status": "Blocked",
+      "status": "On Hold",
       "bereich": "Marketing",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
-      "status_seit": "2026-08-07",
+      "status_seit": "2026-09-14",
       "meilensteine": [
         "adhoc"
       ]
@@ -3563,13 +3537,13 @@
     "2026-09-11": 13,
     "2026-09-12": 28,
     "2026-09-13": 2,
-    "2026-09-14": 3
+    "2026-09-14": 6
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
-    "2026-09": 47
+    "2026-09": 50
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -3584,7 +3558,7 @@
     "2026-W34": 54,
     "2026-W35": 60,
     "2026-W37": 44,
-    "2026-W38": 3
+    "2026-W38": 6
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#4",
@@ -3790,6 +3764,7 @@
     "KORODUR-International/korodur-review-reporting#141",
     "KORODUR-International/korodur-review-reporting#146",
     "KORODUR-International/korodur-review-reporting#147",
+    "KORODUR-International/korodur-review-reporting#149",
     "KORODUR-International/korodur-review-reporting#150",
     "KORODUR-International/korodur-review-reporting#154",
     "KORODUR-International/korodur-review-reporting#156",
@@ -3821,6 +3796,7 @@
     "KORODUR-International/korodur-review-reporting#21",
     "KORODUR-International/korodur-review-reporting#211",
     "KORODUR-International/korodur-review-reporting#213",
+    "KORODUR-International/korodur-review-reporting#214",
     "KORODUR-International/korodur-review-reporting#216",
     "KORODUR-International/korodur-review-reporting#218",
     "KORODUR-International/korodur-review-reporting#22",
@@ -3831,6 +3807,7 @@
     "KORODUR-International/korodur-review-reporting#228",
     "KORODUR-International/korodur-review-reporting#233",
     "KORODUR-International/korodur-review-reporting#234",
+    "KORODUR-International/korodur-review-reporting#237",
     "KORODUR-International/korodur-review-reporting#26",
     "KORODUR-International/korodur-review-reporting#27",
     "KORODUR-International/korodur-review-reporting#28",
@@ -4166,6 +4143,24 @@
         "nach": "In Review"
       },
       {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 153,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P2",
+        "owner_typ": "Either",
+        "von": "In Progress",
+        "nach": "Bereit"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 225,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "von": "Backlog",
+        "nach": "Bereit"
+      },
+      {
         "repo": "KORODUR-International/korodur-translation",
         "nummer": 26,
         "bereich": "Internationalisierung",
@@ -4173,9 +4168,36 @@
         "owner_typ": "Human",
         "von": "Blocked",
         "nach": "Bereit"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 440,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Either",
+        "von": "Blocked",
+        "nach": "On Hold"
       }
     ],
     "erledigt": [
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 149,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P2",
+        "owner_typ": "Human",
+        "von": "Backlog",
+        "closed_at": "2026-09-14T10:49:05Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 214,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P3",
+        "owner_typ": "Claude",
+        "von": "Bereit",
+        "closed_at": "2026-09-14T11:31:28Z"
+      },
       {
         "repo": "KORODUR-International/korodur-review-reporting",
         "nummer": 233,
@@ -4193,6 +4215,14 @@
         "closed_at": "2026-09-14T10:31:23Z"
       },
       {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 237,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-14T11:31:18Z"
+      },
+      {
         "repo": "KORODUR-International/korodur-skills",
         "nummer": 77,
         "bereich": "AI & Infrastruktur",
@@ -4208,13 +4238,13 @@
   "meilenstein": {
     "feldSeit": "2026-09-11",
     "bestand": {
-      "auf": 157,
-      "adhoc": 58,
+      "auf": 156,
+      "adhoc": 57,
       "leer": 2
     },
     "erledigt": {
-      "auf": 40,
-      "adhoc": 6,
+      "auf": 42,
+      "adhoc": 7,
       "leer": 445
     },
     "je_woche": {
@@ -4279,8 +4309,8 @@
         "leer": 1
       },
       "2026-W38": {
-        "auf": 3,
-        "adhoc": 0,
+        "auf": 5,
+        "adhoc": 1,
         "leer": 0
       }
     },
@@ -4326,8 +4356,8 @@
         "erledigt": 0
       },
       "org-lernprozess": {
-        "offen": 34,
-        "erledigt": 28
+        "offen": 33,
+        "erledigt": 30
       },
       "org-notion": {
         "offen": 10,

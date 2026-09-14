@@ -1442,6 +1442,49 @@ details.tbl th:first-child, details.tbl td:first-child { text-align: left; }
 .kpi-card--k { padding: 14px 16px; }
 .kpi-card--k .kpi-card__value { font-size: 1.7rem; }
 .kpi-card--k .kpi-card__detail { margin-top: 6px; }
+.kpi-row--kopf-klein { grid-template-columns: repeat(auto-fit, minmax(220px, 320px)); }
+
+/* Kopf Stufe 2 (#237): Ringe gestern und heute, Tabelle dazwischen */
+.ringe {
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) minmax(260px, 1fr) minmax(150px, 190px);
+  align-items: center;
+  gap: 24px;
+  background: var(--white);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  padding: 18px 24px;
+  margin-bottom: 16px;
+}
+.ring { margin: 0; text-align: center; }
+.ring__svg { width: 100%; max-width: 180px; height: auto; display: block; margin: 0 auto; }
+.ring__defs { position: absolute; }
+.ring__zahl { font-size: 26px; font-weight: 800; fill: var(--primary); }
+.ring__einheit { font-size: 11px; fill: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.ring__titel { font-size: .78rem; font-weight: 700; color: var(--primary); margin-top: 6px; }
+.ring__leer {
+  aspect-ratio: 1; max-width: 180px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px dashed var(--mid-gray); border-radius: 50%;
+  font-size: .75rem; color: var(--muted); padding: 24px;
+}
+.ring-tab { border-collapse: collapse; width: 100%; font-size: .82rem; font-variant-numeric: tabular-nums; }
+.ring-tab th, .ring-tab td { padding: 5px 8px; text-align: right; border-bottom: 1px solid var(--light-gray); }
+.ring-tab thead th { font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 600; }
+.ring-tab tbody th, .ring-tab tfoot th { text-align: left; font-weight: 600; color: var(--primary); white-space: nowrap; }
+.ring-tab tfoot th, .ring-tab tfoot td { border-top: 2px solid var(--mid-gray); border-bottom: none; font-weight: 800; }
+.ring-tab__heute { font-weight: 700; color: var(--primary); }
+.ring-tab__diff { color: var(--muted); min-width: 3ch; }
+.ring-tab__diff--bewegt { color: var(--primary); font-weight: 700; }
+.ring-punkt {
+  display: inline-block; width: 10px; height: 10px; border-radius: 3px;
+  margin-right: 8px; vertical-align: -1px;
+}
+.ring-punkt--schraffur { background: repeating-linear-gradient(45deg, #8a939b 0 2px, #e6e9ec 2px 4px); }
+@media (max-width: 760px) {
+  .ringe { grid-template-columns: 1fr 1fr; }
+  .ring-tab { grid-column: 1 / -1; grid-row: 2; }
+}
 
 /* Phasen-Repo-Matrix */
 .matrix-scroll { overflow-x: auto; }
@@ -1478,6 +1521,14 @@ details.tbl th:first-child, details.tbl td:first-child { text-align: left; }
 .matrix tbody tr:hover { background: var(--light-gray); }
 .matrix__hinweis, .matrix__fussnote { font-size: .75rem; color: var(--muted); }
 .matrix__fussnote { margin-top: 10px; }
+/* Stufe 2 (#237): Bereichsgruppen und Meilenstein-Anteil je Repo */
+.matrix thead .matrix__bereiche th { border-bottom: none; padding-bottom: 0; font-size: .66rem; letter-spacing: .05em; }
+.matrix .matrix__bereich { text-align: left; color: var(--primary); }
+.matrix .matrix__gruppe-start { border-left: 1px solid var(--mid-gray); }
+.matrix__ms th, .matrix__ms td { color: var(--muted); font-weight: 600; border-bottom: none; }
+.matrix__ms td[title] { cursor: help; }
+.hebel__extern { font-size: .8rem; color: var(--muted); margin-top: 10px; }
+.hebel__extern strong { color: var(--primary); }
 
 /* Mini-Chart je Phase (KW-Endstand) */
 .phasen-grid {

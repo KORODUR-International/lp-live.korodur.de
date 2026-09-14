@@ -81,8 +81,12 @@ function issueKurz(id) {
   return `<span class="rm-issues" title="Board-Items mit dieser Meilenstein-ID, Stand ${esc(ISSUES_STAND)}">${z.offen} offen · ${z.erledigt} erledigt</span>`;
 }
 
-function brauchtAbstimmung(id) {
-  const k = HISTORIE[id];
+// Erreicht und entfallen brauchen keine Abstimmung mehr, auch wenn der
+// Zaehler aus der Zeit davor stehen bleibt (#214, gleiche Regel wie
+// abstimmung_faellig in scripts/roadmap_historie.py).
+function brauchtAbstimmung(m) {
+  const k = HISTORIE[m.id];
+  if (m.status === 'erreicht' || m.status === 'entfallen') return false;
   return !!k && (k.verschiebungen >= 2 || k.stehengelassen >= 2);
 }
 let AREA = {};              // areaId -> {name, farbe}
@@ -491,7 +495,7 @@ function detailHtml() {
     </p>
     ${isLate(m) ? `<p class="rm-detail__warn">Termin überschritten: geplant war ${fmtDate(m.datum)}</p>` : ''}
     ${historieText(m.id) ? `<p class="rm-detail__body">Verlauf: ${esc(historieText(m.id))}</p>` : ''}
-    ${brauchtAbstimmung(m.id) ? `<p class="rm-detail__warn">Kein weiteres Datum ohne Abstimmung${m.issue ? '' : ' (Abstimmung noch nicht verknüpft)'}</p>` : ''}
+    ${brauchtAbstimmung(m) ?`<p class="rm-detail__warn">Kein weiteres Datum ohne Abstimmung${m.issue ? '' : ' (Abstimmung noch nicht verknüpft)'}</p>` : ''}
     ${issueZahlen(m.id)
       ? `<p class="rm-detail__body">Issues am Board: <b>${issueZahlen(m.id).offen}</b> offen, <b>${issueZahlen(m.id).erledigt}</b> erledigt <span class="rm-detail__quelle">(Snapshot ${esc(ISSUES_STAND)}, Feld Meilensteine)</span></p>`
       : ''}

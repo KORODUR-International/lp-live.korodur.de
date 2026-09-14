@@ -1,9 +1,13 @@
 /**
  * KORODUR Work Cockpit Reporting v3
- * Umbau #181 nach dem in #149 gelockten Ziel-Layout (16.08.2026):
- * Kopfzahlen mit Delta-Chips (Vortag/Vorwoche), Phasen-Repo-Matrix,
- * Mini-Chart je Phase (KW-Endstand), Bereichs-Zeile und Owner-Split im
- * Fuss. Grundsatz: nur Zaehlungen, keine Issue-Titel, keine Freitexte.
+ * Umbau #181 nach dem in #149 gelockten Ziel-Layout (16.08.2026), Stufe 2
+ * nach #237 (14.09.2026): Ringe gestern und heute im Kopf, Segmente,
+ * Phasen je Repo nach Roadmap-Bereichen mit Sammelbecken und
+ * Meilenstein-Hover, Hebel, Mini-Chart je Phase (KW-Endstand), Owner-Split
+ * im Fuss. Bewegung, Meilenstein-Leiste, Meilenstein-Anteil und
+ * Bereichszeile stehen seit #237 nicht mehr auf der Seite; ihre
+ * Render-Funktionen bleiben, bis entschieden ist, ob sie zurückkommen.
+ * Grundsatz: nur Zaehlungen, keine Issue-Titel, keine Freitexte.
  */
 
 // In dev: symlink src/data -> ../data; in production (GitHub Pages): data/ is at root
@@ -86,7 +90,7 @@ async function loadSnapshot(key) {
     renderDashboard(currentSnapshot);
     updateHeaderMeta(key);
     loadSegmentStrip();
-    loadMeilensteinLeiste();
+    loadRoadmapFuerMatrix();
   } catch (err) {
     main.innerHTML = `<div class="loading">Fehler beim Laden: ${err.message}</div>`;
   }
@@ -279,20 +283,148 @@ function chipHtml(diff, art, refDatum, invert, einheit) {
   return `<span class="delta ${cls}" title="gegen ${was} (${shortDayLabel(refDatum)})${einheit || ''}">${sign}${diff} ${art}</span>`;
 }
 
+// ─── Kopf: Ringe gestern und heute (#237) ────────────
+// Zwei Ringe über alle aktiven Phasen, dazwischen die Zahlen mit Differenz.
+// Der Ring zeigt die Verteilung, die Tabelle die Bewegung: eine Änderung um
+// zwei Items sind bei rund 220 aktiven drei Grad Bogen, das sieht niemand
+// (Entscheidung Steffi, 14.09.2026). Farben: Backlog bis In Review als
+// Navy-Stufen hell nach dunkel (Fortschritt), Blockiert als Status rot,
+// On Hold grau schraffiert (geparkt, kein Alarm). Mit dem dataviz-Validator
+// geprüft: alle Nachbarpaare im Ring einschließlich Umlauf bestehen CVD und
+// Normalsicht; die Legende trägt immer Text, die Schraffur ist die zweite
+// Kodierung für On Hold.
+const RING_PHASEN = [
+  { label: 'Backlog', farbe: '#bcd0e2', wert: bs => bs['Backlog'] },
+  { label: 'Bereit', farbe: '#6f93b3', wert: bs => bs['Bereit'] },
+  {
+    label: 'In Arbeit', farbe: '#2f5b85',
+    wert: bs => ('In Progress' in bs || 'Beansprucht' in bs)
+      ? (bs['In Progress'] || 0) + (bs['Beansprucht'] || 0) : undefined,
+  },
+  { label: 'In Review', farbe: '#002d59', wert: bs => bs['In Review'] },
+  { label: 'Blockiert', farbe: '#d64541', wert: bs => bs['Blocked'] },
+  { label: 'On Hold', farbe: 'url(#ring-schraffur)', legende: 'ring-punkt--schraffur', wert: bs => bs['On Hold'] },
+  { label: 'Ohne Status', farbe: '#4d5660', nurWennDa: true, wert: bs => bs['none'] },
+];
+const RING_R = 62;
+const RING_BREITE = 20;
+const RING_LUECKE = 2;   // px Flächenlücke zwischen zwei Stücken
+
+// Phasen einer Verteilung. `null` heißt: die Phase gab es in der Quelle
+// nicht (Statusmodell-Bruch), dann erscheint sie nicht als 0.
+function ringTeile(bs) {
+  bs = bs || {};
+  return RING_PHASEN
+    .map(p => {
+      const w = p.wert(bs);
+      return { ...p, n: (w === undefined || w === null) ? null : w };
+    })
+    .filter(p => !p.nurWennDa || p.n > 0);
+}
+
+function ringSumme(teile) {
+  return teile.reduce((s, t) => s + (t.n || 0), 0);
+}
+
+function ringSvg(teile, ariaLabel) {
+  const summe = ringSumme(teile);
+  const c = 2 * Math.PI * RING_R;
+  const mitte = RING_R + RING_BREITE / 2 + 2;
+  const groesse = mitte * 2;
+  let versatz = 0;
+  const stuecke = teile.filter(t => t.n > 0).map(t => {
+    const laenge = (t.n / summe) * c;
+    const sichtbar = Math.max(laenge - RING_LUECKE, 0.8);
+    const svg = `<circle cx="${mitte}" cy="${mitte}" r="${RING_R}" fill="none"
+        stroke="${t.farbe}" stroke-width="${RING_BREITE}"
+        stroke-dasharray="${sichtbar.toFixed(2)} ${(c - sichtbar).toFixed(2)}"
+        stroke-dashoffset="${(-versatz).toFixed(2)}"
+        transform="rotate(-90 ${mitte} ${mitte})"><title>${t.label}: ${t.n} (${Math.round((t.n / summe) * 100)} %)</title></circle>`;
+    versatz += laenge;
+    return svg;
+  }).join('');
+  return `
+    <svg class="ring__svg" viewBox="0 0 ${groesse} ${groesse}" role="img" aria-label="${ariaLabel}">
+      ${stuecke}
+      <text x="${mitte}" y="${mitte + 2}" text-anchor="middle" class="ring__zahl">${summe}</text>
+      <text x="${mitte}" y="${mitte + 20}" text-anchor="middle" class="ring__einheit">aktiv</text>
+    </svg>`;
+}
+
+function tagVorher(iso) {
+  const d = new Date(iso + 'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate() - 1);
+  return d.toISOString().slice(0, 10);
+}
+
+function renderRinge(data) {
+  const datum = (data._meta && data._meta.snapshot_date) || '';
+  const heute = ringTeile(data.by_status);
+  if (!ringSumme(heute)) return '';
+  const { vortag } = deltaRefs(datum);
+  const gestern = vortag && vortag.by_status ? ringTeile(vortag.by_status) : null;
+
+  const heuteLabel = `${availableSnapshots[0] === datum ? 'Heute' : 'Stand'}, ${shortDayLabel(datum)}`;
+  const gesternLabel = gestern
+    ? `${vortag.date === tagVorher(datum) ? 'Gestern' : 'Letzter Stand davor'}, ${shortDayLabel(vortag.date)}`
+    : 'Gestern';
+
+  const nGestern = label => {
+    if (!gestern) return null;
+    const t = gestern.find(g => g.label === label);
+    return t ? t.n : null;
+  };
+  const zahl = n => (n === null ? 'n.&nbsp;v.' : n);
+  const zeilen = heute.map(t => {
+    const g = nGestern(t.label);
+    const diff = (g === null || t.n === null) ? null : t.n - g;
+    const diffText = diff === null ? '' : (diff > 0 ? `+${diff}` : String(diff));
+    const diffKlasse = diff ? ' ring-tab__diff--bewegt' : '';
+    const punkt = t.legende
+      ? `<span class="ring-punkt ${t.legende}"></span>`
+      : `<span class="ring-punkt" style="background:${t.farbe}"></span>`;
+    return `<tr>
+        <th scope="row">${punkt}${t.label}</th>
+        <td>${gestern ? zahl(g) : ''}</td>
+        <td class="ring-tab__heute">${zahl(t.n)}</td>
+        <td class="ring-tab__diff${diffKlasse}">${diffText}</td>
+      </tr>`;
+  }).join('');
+  const summeG = gestern ? ringSumme(gestern) : null;
+  const summeH = ringSumme(heute);
+  const summeDiff = summeG === null ? '' : (summeH - summeG > 0 ? `+${summeH - summeG}` : String(summeH - summeG));
+
+  // Das Schraffur-Muster steht einmal auf der Seite, beide Ringe verweisen
+  // darauf; zwei gleiche IDs im Dokument wären ungültig.
+  return `
+    <div class="ringe fade-in">
+      <svg class="ring__defs" width="0" height="0" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="ring-schraffur" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="6" height="6" fill="#e6e9ec"/>
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#8a939b" stroke-width="2.4"/>
+          </pattern>
+        </defs>
+      </svg>
+      <figure class="ring">
+        ${gestern ? ringSvg(gestern, `Aktive Items je Phase, ${gesternLabel}`) : '<div class="ring__leer">Für den Vortag gibt es keinen Snapshot.</div>'}
+        <figcaption class="ring__titel">${gesternLabel}</figcaption>
+      </figure>
+      <table class="ring-tab">
+        <thead><tr><th></th><th>gestern</th><th>heute</th><th>&plusmn;</th></tr></thead>
+        <tbody>${zeilen}</tbody>
+        <tfoot><tr><th scope="row">Aktiv gesamt</th><td>${summeG === null ? '' : summeG}</td><td class="ring-tab__heute">${summeH}</td><td class="ring-tab__diff${summeDiff && summeDiff !== '0' ? ' ring-tab__diff--bewegt' : ''}">${summeDiff}</td></tr></tfoot>
+      </table>
+      <figure class="ring">
+        ${ringSvg(heute, `Aktive Items je Phase, ${heuteLabel}`)}
+        <figcaption class="ring__titel">${heuteLabel}</figcaption>
+      </figure>
+    </div>`;
+}
+
 function renderKopf(data) {
-  const t = data.totals || {};
-  const cur = kopfWerte(data.by_status, t);
   const datum = data._meta && data._meta.snapshot_date;
   const { vortag, vorwoche } = deltaRefs(datum || '');
-  const refT = vortag ? kopfWerte(vortag.by_status, vortag) : null;
-  const refW = vorwoche ? kopfWerte(vorwoche.by_status, vorwoche) : null;
-
-  const chips = (key, invert) => {
-    if (cur[key] == null) return '';
-    const a = refT && refT[key] != null ? chipHtml(cur[key] - refT[key], 'T', vortag.date, invert) : '';
-    const b = refW && refW[key] != null ? chipHtml(cur[key] - refW[key], 'W', vorwoche.date, invert) : '';
-    return a + b;
-  };
 
   // Erledigt in der KW des angezeigten Standes, Delta gegen die Vorwoche.
   const kw = isoWeekKey(datum);
@@ -322,8 +454,6 @@ function renderKopf(data) {
   const zeit = data._meta && data._meta.generated_at
     ? new Date(data._meta.generated_at).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })
     : '';
-  const inArbeitDetail = data.by_status && 'Beansprucht' in data.by_status
-    ? 'In Progress + Beansprucht' : 'In Progress';
 
   // Meilenstein-Anteil (#227): Anteil der offenen Items, die auf einen
   // Roadmap-Meilenstein einzahlen. Alte Snapshots kennen den Block nicht,
@@ -348,13 +478,9 @@ function renderKopf(data) {
       <h1 class="kopf__titel">Reporting</h1>
       <p class="kopf__stand">Stand ${formatSnapshotLabel(datum || '')}${zeit ? ', ' + zeit + ' Uhr' : ''} · ${quelle}</p>
     </div>
-    <div class="kpi-row kpi-row--kopf">
-      ${kachel('Blockiert', cur.blockiert, { warn: true, chips: chips('blockiert', true) })}
-      ${kachel('In Review', cur.inReview, { chips: chips('inReview') })}
-      ${kachel('Bereit', cur.bereit, { chips: chips('bereit') })}
-      ${kachel('In Arbeit', cur.inArbeit, { detail: inArbeitDetail + ' ', chips: chips('inArbeit') })}
+    ${renderRinge(data)}
+    <div class="kpi-row kpi-row--kopf kpi-row--kopf-klein">
       ${kachel(kwNr ? 'Erledigt / KW ' + kwNr : 'Erledigt / KW', erledigt, { chips: erledigtChip })}
-      ${kachel('Aktiv gesamt', cur.aktiv, { accent: true, detail: 'ohne Done und Verworfen ', chips: chips('aktiv') })}
       ${msKachel}
     </div>
   `;
@@ -383,6 +509,8 @@ const REPO_KUERZEL = {
   'KORODUR-International/korodur-ausschreibungstexte': 'at',
   'KORODUR-International/korodur-rapidset': 'rs',
   'KORODUR-International/korodur-military': 'mil',
+  'KORODUR-International/korodur-corporate-design': 'cd',
+  'KORODUR-International/korodur-konzepte': 'kz',
   '(Draft / kein Repo)': 'dr',
 };
 
@@ -399,7 +527,102 @@ function projektAktiv(p) {
   return p.total - (p.done || 0) - (p.discarded || 0);
 }
 
-function renderMatrix(data) {
+// Projekt-Repos der Roadmap, nach Bereich (#237, Entscheidung Steffi
+// 14.09.2026): je Projekt ein Repo, Organisation & Enablement trägt zwei
+// (Operating Model und Review & Reporting), CRM trägt zwei Lanes. Alle
+// übrigen Repos laufen ins Sammelbecken; sie gehen nach und nach in die
+// Projekt-Repos über. `lanes` sind die IDs aus roadmap-2026.json und
+// speisen den Hover mit den nächsten Meilensteinen. `repos` führt Aliasse
+// alter Slugs, damit ältere Snapshots dieselbe Spalte treffen.
+const ROADMAP_PROJEKTE = [
+  { bereich: 'Marketing', projekte: [
+    { repos: ['sfleischmann-3steps2/KORODUR-Website'], lanes: ['website'] },
+    { repos: ['KORODUR-International/korodur-redaktion'], lanes: ['content'] },
+  ] },
+  { bereich: 'CRM & Sales Ops', projekte: [
+    { repos: ['KORODUR-International/korodur-crm'], lanes: ['vertriebsprozess', 'crm-daten'] },
+  ] },
+  { bereich: 'Wissensaufbau', projekte: [
+    { repos: ['KORODUR-International/korodur-digitale-produktinformationen', 'KORODUR-International/korodur-produktdatenbank'], lanes: ['pdb'] },
+    { repos: ['KORODUR-International/korodur-referenzverzeichnis'], lanes: ['referenzen'] },
+  ] },
+  { bereich: 'Internationalisierung', projekte: [
+    { repos: ['KORODUR-International/korodur-translation'], lanes: ['uebersetzungen'] },
+  ] },
+  { bereich: 'AI & Infrastruktur', projekte: [
+    { repos: ['KORODUR-International/korodur-lokale-ki'], lanes: ['lokale-ki'] },
+    { repos: ['KORODUR-International/korodur-operating-model'], lanes: ['orga'] },
+    { repos: ['KORODUR-International/korodur-review-reporting'], lanes: ['orga'] },
+  ] },
+];
+const MATRIX_MEILENSTEINE = 3;
+
+// Auf Meilenstein, adhoc oder unklassifiziert: dieselbe Regel wie
+// meilenstein_bucket in scripts/fetch_snapshot.py.
+function msKlasse(ids) {
+  if (!ids || !ids.length) return 'leer';
+  return ids.some(i => i !== 'adhoc') ? 'auf' : 'adhoc';
+}
+
+// Die nächsten offenen Meilensteine der Lanes eines Projekts, nach Datum.
+// Überfällige zuerst, weil sie früher liegen, und als solche benannt.
+function naechsteMeilensteine(roadmap, lanes, heute, anzahl = MATRIX_MEILENSTEINE) {
+  if (!roadmap) return null;
+  return (roadmap.lanes || [])
+    .filter(l => lanes.includes(l.id))
+    .flatMap(l => l.meilensteine || [])
+    .filter(m => m && m.datum && m.titel && m.status !== 'erreicht' && m.status !== 'entfallen')
+    .sort((a, b) => a.datum.localeCompare(b.datum))
+    .slice(0, anzahl)
+    .map(m => ({ ...m, ueberfaellig: m.datum < heute }));
+}
+
+// Spalten der Matrix: erst die Projekt-Repos in Bereichsreihenfolge, dann
+// ein Sammelbecken aus allen übrigen Repos mit aktiven Issues.
+function matrixSpalten(data) {
+  const projekte = (data.projects || []).filter(p => p && p.by_status);
+  const vergeben = new Set();
+  const spalten = [];
+  ROADMAP_PROJEKTE.forEach((g, gi) => g.projekte.forEach((pr, pi) => {
+    const treffer = projekte.filter(p => pr.repos.includes(p.name));
+    treffer.forEach(p => vergeben.add(p.name));
+    spalten.push({
+      bereich: g.bereich, gruppeStart: pi === 0, name: pr.repos[0],
+      kuerzel: repoKuerzel(pr.repos[0]), repos: pr.repos, lanes: pr.lanes, projekte: treffer,
+    });
+  }));
+  const rest = projekte.filter(p => !vergeben.has(p.name) && projektAktiv(p) > 0)
+    .sort((a, b) => projektAktiv(b) - projektAktiv(a));
+  if (rest.length) {
+    spalten.push({
+      bereich: 'Sammelbecken', gruppeStart: true, name: 'Sammelbecken', kuerzel: 'weitere',
+      repos: rest.map(p => p.name), lanes: [], projekte: rest, sammelbecken: true,
+    });
+  }
+  return spalten;
+}
+
+function spalteStatus(sp, phase) {
+  return sp.projekte.reduce((s, p) => s + (p.by_status[phase] || 0), 0);
+}
+
+function spalteAktiv(sp) {
+  return sp.projekte.reduce((s, p) => s + projektAktiv(p), 0);
+}
+
+function spalteTitel(sp, roadmap, heute) {
+  if (sp.sammelbecken) {
+    return 'Sammelbecken: ' + sp.projekte.map(p => `${repoKuerzel(p.name)} ${projektAktiv(p)}`).join(' · ');
+  }
+  const ms = naechsteMeilensteine(roadmap, sp.lanes, heute);
+  if (!ms) return sp.name;
+  const zeilen = ms.length
+    ? ms.map(m => `${m.datum.slice(8, 10)}.${m.datum.slice(5, 7)}. ${escHtml(m.titel)}${m.ueberfaellig ? ' (überfällig)' : ''}`)
+    : ['keine offenen Meilensteine'];
+  return `${sp.name}&#10;Nächste Meilensteine:&#10;${zeilen.join('&#10;')}`;
+}
+
+function renderMatrix(data, roadmap) {
   const projekte = (data.projects || []).filter(p => p && p.by_status);
   if (!projekte.length) {
     return `
@@ -409,44 +632,74 @@ function renderMatrix(data) {
     </div>`;
   }
 
-  const spalten = projekte.filter(p => projektAktiv(p) > 0)
-    .sort((a, b) => projektAktiv(b) - projektAktiv(a));
-  const ohneStatus = spalten.some(p => (p.by_status.none || 0) > 0);
+  const heute = (roadmap && msHeute(roadmap)) || (data._meta && data._meta.snapshot_date) || '';
+  const spalten = matrixSpalten(data);
+  const ohneStatus = spalten.some(sp => spalteStatus(sp, 'none') > 0);
   const zeilen = ohneStatus ? [...PHASEN, 'none'] : PHASEN;
+  const start = sp => (sp.gruppeStart ? ' matrix__gruppe-start' : '');
+  const td = (cls, inhalt, extra = '') => `<td${cls.trim() ? ` class="${cls.trim()}"` : ''}${extra}>${inhalt}</td>`;
 
-  const kopf = `<tr><th class="matrix__phase"></th>${spalten.map(p =>
-    `<th class="matrix__repo" title="${p.name}">${repoKuerzel(p.name)}</th>`).join('')}<th class="matrix__summe">Summe</th></tr>`;
+  const gruppen = [];
+  spalten.forEach(sp => {
+    if (!gruppen.length || gruppen[gruppen.length - 1].bereich !== sp.bereich) gruppen.push({ bereich: sp.bereich, n: 0 });
+    gruppen[gruppen.length - 1].n++;
+  });
+  const kopfBereiche = `<tr class="matrix__bereiche"><th class="matrix__phase"></th>${gruppen.map(g =>
+    `<th class="matrix__bereich matrix__gruppe-start" colspan="${g.n}">${escHtml(g.bereich)}</th>`).join('')}<th class="matrix__summe"></th></tr>`;
+  const kopf = `<tr><th class="matrix__phase"></th>${spalten.map(sp =>
+    `<th class="matrix__repo${start(sp)}" title="${spalteTitel(sp, roadmap, heute)}">${sp.kuerzel}</th>`).join('')}<th class="matrix__summe">Summe</th></tr>`;
 
   const rows = zeilen.map(phase => {
-    const werte = spalten.map(p => p.by_status[phase] || 0);
+    const werte = spalten.map(sp => spalteStatus(sp, phase));
     const summe = werte.reduce((a, b) => a + b, 0);
     const label = phase === 'none' ? 'Ohne Status' : phase;
     const warn = phase === 'Blocked';
     return `<tr class="${warn ? 'matrix__zeile--warn' : ''}${phase === 'none' ? ' matrix__zeile--triage' : ''}">
       <th class="matrix__phase">${label}</th>
-      ${werte.map(w => `<td>${w || ''}</td>`).join('')}
+      ${werte.map((w, i) => td(start(spalten[i]), w || '')).join('')}
       <td class="matrix__summe">${summe}</td>
     </tr>`;
   }).join('');
 
-  const gesamt = spalten.reduce((s, p) => s + projektAktiv(p), 0);
+  const gesamt = spalten.reduce((s, sp) => s + spalteAktiv(sp), 0);
   const fuss = `<tr class="matrix__fuss">
     <th class="matrix__phase">Aktiv</th>
-    ${spalten.map(p => `<td>${projektAktiv(p)}</td>`).join('')}
+    ${spalten.map(sp => td(start(sp), spalteAktiv(sp))).join('')}
     <td class="matrix__summe">${gesamt}</td>
   </tr>`;
+
+  // Abgleich Arbeit gegen Roadmap: Anteil der aktiven Items je Spalte, die
+  // auf einen Meilenstein einzahlen. Aus den Item-Zeilen, die das Feld seit
+  // Snapshot 3.3 tragen; ältere Snapshots lassen die Zeile weg.
+  let msZeile = '';
+  if (data.meilenstein && Array.isArray(data.items) && data.items.length) {
+    const zaehle = repos => {
+      const eigene = data.items.filter(r => repos.includes(r.repo));
+      return { auf: eigene.filter(r => msKlasse(r.meilensteine) === 'auf').length, alle: eigene.length };
+    };
+    const je = spalten.map(sp => zaehle(sp.repos));
+    const sum = je.reduce((s, z) => ({ auf: s.auf + z.auf, alle: s.alle + z.alle }), { auf: 0, alle: 0 });
+    const zelle = (z, cls) => z.alle
+      ? td(cls, `${Math.round((z.auf / z.alle) * 100)}&thinsp;%`, ` title="${z.auf} von ${z.alle} aktiven Items auf einem Roadmap-Meilenstein"`)
+      : td(cls, '');
+    msZeile = `<tr class="matrix__ms">
+      <th class="matrix__phase">davon auf Meilenstein</th>
+      ${je.map((z, i) => zelle(z, start(spalten[i]))).join('')}
+      ${zelle(sum, 'matrix__summe')}
+    </tr>`;
+  }
 
   return `
     <div class="status-section fade-in">
       <h3 class="status-section__title">PHASEN JE REPO</h3>
       <div class="matrix-scroll">
         <table class="matrix">
-          <thead>${kopf}</thead>
+          <thead>${kopfBereiche}${kopf}</thead>
           <tbody>${rows}</tbody>
-          <tfoot>${fuss}</tfoot>
+          <tfoot>${fuss}${msZeile}</tfoot>
         </table>
       </div>
-      <p class="matrix__fussnote">Zahlen sind aktive Issues (ohne Done und Verworfen). Maus auf ein Kürzel zeigt das Repo.</p>
+      <p class="matrix__fussnote">Zahlen sind aktive Issues (ohne Done und Verworfen). Spalten sind die Projekt-Repos der Roadmap nach Bereich, dazu das Sammelbecken für alle übrigen Repos. Maus auf ein Kürzel zeigt das Repo und die nächsten ${MATRIX_MEILENSTEINE} offenen Meilensteine; mehr auf dem Reiter <a href="roadmap.html">Roadmap</a>.</p>
     </div>
   `;
 }
@@ -461,7 +714,6 @@ function renderMatrix(data) {
 // Vertraulichkeitsfall; entfallene Termine erscheinen nie. Fehlen die
 // Dateien, faellt nur diese Sektion weg, nie die Board-Seite.
 const ROADMAP_URL = 'data/roadmap/roadmap-2026.json';
-const ROADMAP_HISTORIE_URL = 'data/roadmap/roadmap-historie.json';
 const MS_FENSTER_TAGE = 60;
 // Confidence oeffentlich nur als Symbol, gleiche Sprache wie roadmap.js.
 const MS_CONF_SYMBOL = { hoch: '●●●', mittel: '●●○', niedrig: '●○○' };
@@ -561,24 +813,22 @@ function renderMeilensteinLeiste(roadmap, kennzahlen) {
     </div>`;
 }
 
-async function loadMeilensteinLeiste() {
-  const host = document.getElementById('meilenstein-leiste');
-  if (!host) return;
+// Seit #237 steht die Leiste nicht mehr auf der Seite: die nächsten
+// Meilensteine erscheinen im Hover der Matrix. Die Matrix rendert sofort aus
+// dem Snapshot und bekommt die Hover-Texte nach, sobald die Roadmap geladen
+// ist. Fehlt sie, bleibt der Hover beim Repo-Namen.
+async function loadRoadmapFuerMatrix() {
+  const host = document.getElementById('matrix-host');
+  if (!host || !currentSnapshot) return;
   try {
     if (roadmapCache === undefined) {
       const res = await fetch(ROADMAP_URL);
       if (!res.ok) { roadmapCache = null; return; }
-      const roadmap = await res.json();
-      let kennzahlen = {};
-      try {
-        const h = await fetch(ROADMAP_HISTORIE_URL);
-        if (h.ok) kennzahlen = (await h.json()).kennzahlen || {};
-      } catch { /* Historie ist optional (#164): Leiste ohne Verzugstiefe */ }
-      roadmapCache = { roadmap, kennzahlen };
+      roadmapCache = { roadmap: await res.json(), kennzahlen: {} };
     }
     if (!roadmapCache) return;
-    host.innerHTML = renderMeilensteinLeiste(roadmapCache.roadmap, roadmapCache.kennzahlen);
-  } catch { /* Roadmap-Daten optional: Sektion faellt weg, Seite bleibt */ }
+    host.innerHTML = renderMatrix(currentSnapshot, roadmapCache.roadmap);
+  } catch { /* Roadmap-Daten optional: Matrix bleibt ohne Meilenstein-Hover */ }
 }
 
 // ─── Meilenstein-Anteil (#227) ───────────────────────
@@ -727,15 +977,30 @@ function renderHebel(data) {
   const stichtag = (data._meta && data._meta.snapshot_date) || '';
   const entsperrer = topEntsperrer(items);
   const liegen = stichtag ? liegezeiten(items, stichtag) : [];
-  if (!entsperrer.length && !liegen.length) return '';
+  // Nur die Zahl, keine Adressaten (#237, Entscheidung vom 16.08. in #149
+  // bleibt): Top-Entsperrer sehen ausschliesslich native Dependencies. Am
+  // 14.09.2026 trugen 2 von 13 blockierten Items eine, die uebrigen warten
+  // laut Blocker-Grund auf Stellen ausserhalb des Boards.
+  // `blocked_by` steht nur an Zeilen mit Kante, sein Fehlen sagt also nichts
+  // über alte Snapshots. `status_seit` kam mit demselben Umbau (#183) und
+  // steht an jeder Zeile: ohne ihn kennt der Snapshot keine Kanten, und
+  // "extern blockiert" wäre eine Behauptung.
+  const kenntKanten = items.some(r => 'status_seit' in r);
+  const blockiert = kenntKanten ? items.filter(r => r.status === 'Blocked') : [];
+  const extern = blockiert.filter(r => !(r.blocked_by && r.blocked_by.length)).length;
+  if (!entsperrer.length && !liegen.length && !blockiert.length) return '';
 
-  const entHtml = entsperrer.length ? `
+  const externHtml = blockiert.length
+    ? `<p class="hebel__extern"><strong>${extern} von ${blockiert.length}</strong> blockierten Issues sind extern blockiert, ohne Abh&auml;ngigkeit auf ein anderes Issue. Details im Board.</p>`
+    : '';
+  const entHtml = (entsperrer.length || blockiert.length) ? `
       <div class="hebel__spalte">
         <h4 class="hebel__untertitel">TOP-ENTSPERRER</h4>
-        <ul class="hebel__liste">
+        ${entsperrer.length ? `<ul class="hebel__liste">
           ${entsperrer.map(e => `<li>${kanteLink(e.kante)} blockiert
             <strong>${e.anzahl}</strong> Issue${e.anzahl === 1 ? '' : 's'}</li>`).join('')}
-        </ul>
+        </ul>` : ''}
+        ${externHtml}
       </div>` : '';
 
   const gezeigt = liegen.slice(0, LIEGE_MAX_ZEILEN);
@@ -1087,13 +1352,9 @@ function renderDashboard(data) {
   main.innerHTML = `
     ${renderKopf(data)}
     <div id="segment-strip"></div>
-    ${renderBewegung(data)}
-    ${renderMatrix(data)}
-    <div id="meilenstein-leiste"></div>
-    ${renderMeilensteinAnteil(data)}
+    <div id="matrix-host">${renderMatrix(data, roadmapCache ? roadmapCache.roadmap : null)}</div>
     ${renderHebel(data)}
     ${renderPhasenVerlauf(data)}
-    ${renderBereichsZeile(data)}
     ${renderFuss(data)}
   `;
 }

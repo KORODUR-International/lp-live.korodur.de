@@ -8,6 +8,8 @@
      Issue #139): Impressions, Interaktionen, Engagement-Rate. Die Beitragszahl
      des Exports (li_posts) wird nicht gelesen: LinkedIn datiert Beiträge auf
      den Tag des Einplanens, nicht auf den Tag des Erscheinens.
+   - data/social/meta-zeitraeume.json (Issue #234): Facebook und Instagram
+     als Zeitraum über vier Kalenderwochen, aus dem Screenshot.
    Read-only, nur Aggregatzahlen, keine Beitragstitel, keine Personen
    (öffentliche Seite). In dev: symlink src/data -> ../data; in production:
    data/ liegt im Root.
@@ -47,6 +49,7 @@ const VORLAUF_ZIEL_WOCHEN = 4;
 
 let socSeries = [];   // data/social/timeseries.json, aufsteigend nach Woche
 let socLatest = null; // data/social/<neueste Woche>.json
+let socZeitraeume = []; // data/social/meta-zeitraeume.json, aufsteigend nach bis (Issue #234)
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
@@ -74,6 +77,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (tsRes.ok) {
         const ts = await tsRes.json();
         if (Array.isArray(ts)) socSeries = ts.slice().sort((a, b) => a.week.localeCompare(b.week));
+      }
+      const zrRes = await fetch(SOC_DIR + 'meta-zeitraeume.json');
+      if (zrRes.ok) {
+        const zr = await zrRes.json();
+        if (Array.isArray(zr)) socZeitraeume = zr.slice().sort((a, b) => a.bis.localeCompare(b.bis));
       }
     } catch { /* Sichtbarkeit bleibt im Aufbau-Zustand */ }
 
@@ -211,12 +219,13 @@ function renderRedaktion(d) {
       </p>
     </div>
 
+    ${renderZeitraum()}
     ${renderSichtbarkeit()}
     ${renderAmpelRow(d)}
     ${renderBottomRow(d)}
 
     <div class="footer">
-      Redaktions-Segment &middot; Quelle: Notion-Redaktionsplan (Aggregat) + w&ouml;chentliche Plattform-Exporte
+      Redaktions-Segment &middot; Quelle: Notion-Redaktionsplan (Aggregat) + LinkedIn-Export + Screenshots der Meta Business Suite
       &middot; Generiert am ${new Date(d._meta.generated_at).toLocaleDateString('de-DE')}
       &middot; <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank">GitHub</a>
     </div>
@@ -273,7 +282,7 @@ function socVergleich(curr, prev, feld) {
   return res.gemessen ? res : null;
 }
 
-function socDeltaLine(v, isPct) {
+function socDeltaLine(v, isPct, bezug = 'Vorwoche') {
   if (!v) return '';
   if (isPct && !v.prev) return '';
   const diff = isPct ? Math.round(((v.curr - v.prev) / v.prev) * 100) : v.curr - v.prev;
@@ -281,7 +290,130 @@ function socDeltaLine(v, isPct) {
   const sign = diff >= 0 ? '+' : '';
   const unit = isPct ? '&nbsp;%' : '';
   const ohne = v.ausgelassen.length ? `, ohne ${v.ausgelassen.join(' und ')}` : '';
-  return `<div class="kpi-card__delta ${cls}">${sign}${diff}${unit} <small>vs. Vorwoche${ohne}</small></div>`;
+  return `<div class="kpi-card__delta ${cls}">${sign}${diff}${unit} <small>vs. ${bezug}${ohne}</small></div>`;
+}
+
+// ─── 0 · Sichtbarkeit über vier Wochen (Issue #234) ──
+// Facebook und Instagram kommen seit KW 34 nur noch als Zeitraum über vier
+// volle Kalenderwochen (Screenshot der Business Suite, Entscheidung Steffi
+// 14.09.2026). LinkedIn wird für dieselben vier Wochen aus der Timeseries
+// summiert, damit alle drei Kanäle über dasselbe Fenster laufen. Ein
+// Monatswert gehört nicht ins Wochenchart, deshalb dieser eigene Block.
+
+function isoPlusTage(iso, tage) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  if (!m) return null;
+  const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3] + tage));
+  return d.toISOString().slice(0, 10);
+}
+
+function zeitraumLabel(z) {
+  const [vy, vm, vd] = z.von.split('-');
+  const [by, bm, bd] = z.bis.split('-');
+  return `${vd}.${vm}.${vy === by ? '' : vy} bis ${bd}.${bm}.${by}`;
+}
+
+function summeOderNull(werte) {
+  const da = werte.filter(v => v !== null && v !== undefined);
+  return da.length ? da.reduce((a, b) => a + b, 0) : null;
+}
+
+function followerNetto(p) {
+  return (p && p.follower_neu != null && p.follower_verloren != null)
+    ? p.follower_neu - p.follower_verloren : null;
+}
+
+function mitVorzeichen(n) {
+  return n === null ? 'n.&nbsp;v.' : `${n > 0 ? '+' : ''}${n.toLocaleString('de-DE')}`;
+}
+
+// Werte eines Zeitraums je Kanal. LinkedIn nur aus den Wochen, die der
+// Zeitraum nennt; fehlt eine davon, steht das an der Zahl.
+function zeitraumWerte(z) {
+  const rows = socSeries.filter(r => (z.wochen || []).includes(r.week));
+  let li = null;
+  if (rows.length) {
+    li = {
+      imp: rows.reduce((a, r) => a + (r.li_impressions || 0), 0),
+      inter: rows.reduce((a, r) => a + (r.li_interactions || 0), 0),
+      wochen: rows.length,
+      tage: rows.every(r => r.tage_linkedin != null) ? rows.reduce((a, r) => a + r.tage_linkedin, 0) : null,
+    };
+  }
+  return { li, fb: z.facebook || {}, ig: z.instagram || {} };
+}
+
+const ZR_FELDER = {
+  imp: { li: w => (w.li ? w.li.imp : null), fb: w => w.fb.views, ig: w => w.ig.views },
+  inter: { li: w => (w.li ? w.li.inter : null), fb: w => w.fb.interactions, ig: w => w.ig.interactions },
+  reach: { fb: w => w.fb.reach, ig: w => w.ig.reach },
+  follower: { fb: w => followerNetto(w.fb), ig: w => followerNetto(w.ig) },
+};
+
+// Wie socVergleich: nur Kanäle, die in beiden Zeiträumen einen Wert haben.
+function zeitraumVergleich(curr, prev, feld) {
+  if (!curr || !prev) return null;
+  const res = { curr: 0, prev: 0, gemessen: 0, ausgelassen: [] };
+  Object.entries(ZR_FELDER[feld]).forEach(([tag, wert]) => {
+    const cv = wert(curr), pv = wert(prev);
+    if (cv == null && pv == null) return;
+    if (cv == null || pv == null) { res.ausgelassen.push(SOC_LABELS[tag]); return; }
+    res.curr += cv; res.prev += pv; res.gemessen++;
+  });
+  return res.gemessen ? res : null;
+}
+
+function renderZeitraum() {
+  if (!socZeitraeume.length) return '';
+  const z = socZeitraeume[socZeitraeume.length - 1];
+  const w = zeitraumWerte(z);
+  const vorher = socZeitraeume.find(p => p.bis === isoPlusTage(z.von, -1));
+  const p = vorher ? zeitraumWerte(vorher) : null;
+  const delta = (feld, isPct) => (p ? socDeltaLine(zeitraumVergleich(w, p, feld), isPct, 'Vorzeitraum') : '');
+
+  const liImp = w.li ? w.li.imp : null;
+  const liInter = w.li ? w.li.inter : null;
+  const kw = `${kwLabel(z.wochen[0])} bis ${kwLabel(z.wochen[z.wochen.length - 1]).replace('KW ', '')}`;
+  let liHinweis = '';
+  if (!w.li) liHinweis = ' &middot; LinkedIn n.&nbsp;v.';
+  else if (w.li.wochen < z.wochen.length) liHinweis = ` &middot; LinkedIn erst ${w.li.wochen} von ${z.wochen.length} Wochen`;
+  else if (w.li.tage != null && w.li.tage < 28) liHinweis = ` &middot; LinkedIn ${w.li.tage} von 28 Tagen (Export l&auml;uft bis zu 2 Tage nach)`;
+  const vergleich = vorher ? '' : ' &middot; Vergleich mit dem Vorzeitraum, sobald es einen gibt';
+
+  const fbNetto = followerNetto(w.fb), igNetto = followerNetto(w.ig);
+  const reachLabel = w.fb.reach_label ? ` (dort &bdquo;${w.fb.reach_label}&ldquo;)` : '';
+
+  return `
+    <div class="section-title">SICHTBARKEIT &middot; LETZTE 4 WOCHEN <small>${zeitraumLabel(z)}, ${kw}${liHinweis}${vergleich}</small></div>
+    <div class="kpi-row">
+      <div class="kpi-card fade-in">
+        <div class="kpi-card__label">Sichtbarkeit (Impressions / Aufrufe)</div>
+        <div class="kpi-card__value kpi-card__value--hero">${fmtNum(summeOderNull([liImp, w.fb.views, w.ig.views]))}</div>
+        ${delta('imp', true)}
+        <div class="kpi-card__detail">LinkedIn ${fmtNum(liImp)} &middot; Facebook ${fmtNum(w.fb.views)}* &middot; Instagram ${fmtNum(w.ig.views)}*</div>
+      </div>
+      <div class="kpi-card fade-in">
+        <div class="kpi-card__label">Interaktionen</div>
+        <div class="kpi-card__value">${fmtNum(summeOderNull([liInter, w.fb.interactions, w.ig.interactions]))}</div>
+        ${delta('inter', false)}
+        <div class="kpi-card__detail">LinkedIn ${fmtNum(liInter)} &middot; Facebook ${fmtNum(w.fb.interactions)}* &middot; Instagram ${fmtNum(w.ig.interactions)}*</div>
+      </div>
+      <div class="kpi-card fade-in">
+        <div class="kpi-card__label">Reichweite Meta</div>
+        <div class="kpi-card__value">${fmtNum(summeOderNull([w.fb.reach, w.ig.reach]))}</div>
+        ${delta('reach', true)}
+        <div class="kpi-card__detail">Facebook ${fmtNum(w.fb.reach)}*${reachLabel} &middot; Instagram ${fmtNum(w.ig.reach)}*</div>
+        <div class="kpi-card__detail">Summe beider Plattformen, dieselbe Person kann doppelt z&auml;hlen</div>
+      </div>
+      <div class="kpi-card fade-in">
+        <div class="kpi-card__label">Follower Meta (netto)</div>
+        <div class="kpi-card__value">${mitVorzeichen(summeOderNull([fbNetto, igNetto]))}</div>
+        ${delta('follower', false)}
+        <div class="kpi-card__detail">Facebook ${mitVorzeichen(fbNetto)} (${fmtNum(w.fb.follower_neu)} neu, ${fmtNum(w.fb.follower_verloren)} verloren)* &middot; Instagram ${mitVorzeichen(igNetto)} (${fmtNum(w.ig.follower_neu)} neu, ${fmtNum(w.ig.follower_verloren)} verloren)*</div>
+      </div>
+    </div>
+    <p class="chart-note" style="margin:-20px 0 32px">${MANUELL_FUSSNOTE} LinkedIn aus dem Export, summiert &uuml;ber dieselben vier Kalenderwochen.</p>
+  `;
 }
 
 function renderSichtbarkeit() {
@@ -314,8 +446,16 @@ function renderSichtbarkeit() {
   // behauptete trotzdem "LinkedIn + Facebook".
   const spalten = [['li', 'li_impressions'], ['fb', 'fb_views'], ['ig', 'ig_views']];
   const mit = spalten.filter(([, k]) => last[k] != null).map(([tag]) => SOC_LABELS[tag]);
-  const ohne = spalten.filter(([, k]) => last[k] == null).map(([tag]) => SOC_LABELS[tag]);
-  const platforms = mit.join(' + ') + (ohne.length ? `, ${ohne.join(' und ')} n.&nbsp;v.` : '');
+  // Liegt die Woche in einem Meta-Zeitraum (Issue #234), fehlen Facebook und
+  // Instagram hier nicht, sie stehen im 4-Wochen-Block darüber.
+  const imZeitraum = socZeitraeume.some(z => (z.wochen || []).includes(last.week));
+  const ohne = spalten.filter(([, k]) => last[k] == null).map(([tag]) => tag);
+  const oben = imZeitraum ? ohne.filter(tag => tag !== 'li') : [];
+  const nv = ohne.filter(tag => !oben.includes(tag));
+  const label = tags => tags.map(tag => SOC_LABELS[tag]).join(' und ');
+  const platforms = mit.join(' + ')
+    + (nv.length ? `, ${label(nv)} n.&nbsp;v.` : '')
+    + (oben.length ? `, ${label(oben)} im 4-Wochen-Block oben` : '');
   // LinkedIn liefert mit bis zu 2 Tagen Verzug. Deckt der Export die Woche
   // nicht voll ab, gehoert das an die Zahl, sonst liest sich eine Teilwoche
   // wie ein Einbruch.
@@ -326,7 +466,7 @@ function renderSichtbarkeit() {
   const manuellHinweis = manuell.length
     ? `<div class="kpi-card__detail">enth&auml;lt ${manuell.join(' und ')} aus dem Screenshot, nicht aus dem Export</div>` : '';
   return `
-    <div class="section-title">SICHTBARKEIT &middot; ${kwLabel(last.week)} <small>${platforms}${range ? `, Kalenderwoche ${range}` : ''}${tageHinweis}</small></div>
+    <div class="section-title">SICHTBARKEIT JE WOCHE &middot; ${kwLabel(last.week)} <small>${platforms}${range ? `, Kalenderwoche ${range}` : ''}${tageHinweis}</small></div>
     <div class="kpi-row">
       <div class="kpi-card fade-in">
         <div class="kpi-card__label">Sichtbarkeit (Impressions / Woche)</div>
@@ -422,6 +562,9 @@ function renderSichtbarkeitChart() {
 
   const missingIg = weeks.some(w => w.ig_views == null);
   const hatManuell = weeks.some(w => SERIES.some(sr => istManuell(w, sr.tag)));
+  const ersteZeitraumWoche = socZeitraeume.length ? socZeitraeume[0].wochen[0] : null;
+  const zeitraumHinweis = ersteZeitraumWoche
+    ? ` &middot; Facebook und Instagram ab ${kwLabel(ersteZeitraumWoche)} nur als 4-Wochen-Zeitraum oben` : '';
 
   let tbl = '<table><tr><th>Plattform</th>' + weeks.map(w => `<th>${kwLabel(w.week)}</th>`).join('') + '</tr>';
   SERIES.forEach(sr => {
@@ -436,7 +579,7 @@ function renderSichtbarkeitChart() {
   return `
     <div class="status-section fade-in vis-chart-card">
       <h3 class="status-section__title">SICHTBARKEIT IM ZEITVERLAUF</h3>
-      <p class="chart-note">Impressions bzw. Aufrufe pro Kalenderwoche und Plattform${missingIg ? ' &middot; Instagram liefert nicht in jeder Woche Aufrufe' : ''}${hatManuell ? ' &middot; mit * markierte Werte stammen aus einem Screenshot' : ''}</p>
+      <p class="chart-note">Impressions bzw. Aufrufe pro Kalenderwoche und Plattform${zeitraumHinweis || (missingIg ? ' &middot; Instagram liefert nicht in jeder Woche Aufrufe' : '')}${hatManuell ? ' &middot; mit * markierte Werte stammen aus einem Screenshot' : ''}</p>
       <div class="chart-wrap">
         <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Impressions pro Woche und Plattform" class="vis-svg">${s}</svg>
       </div>

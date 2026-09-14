@@ -1,0 +1,31 @@
+[
+  {
+    "von": "2026-08-17",
+    "bis": "2026-09-13",
+    "wochen": [
+      "2026-W34",
+      "2026-W35",
+      "2026-W36",
+      "2026-W37"
+    ],
+    "ordner": "imports/social/2026-09-14",
+    "quelle": "manuell",
+    "quelle_hinweis": "Screenshots Meta Business Suite, Performance Facebook und Instagram, 17. August bis 13. September 2026 (Meta Facebook Performance 17.08.-13.09.png, Meta Instagram Performance 17.08.-13.09.png)",
+    "facebook": {
+      "views": 2684,
+      "interactions": 114,
+      "reach": 820,
+      "follower_neu": 3,
+      "follower_verloren": 4,
+      "reach_label": "Betrachter"
+    },
+    "instagram": {
+      "views": 3415,
+      "interactions": 111,
+      "reach": 438,
+      "follower_neu": 15,
+      "follower_verloren": 8,
+      "reach_label": null
+    }
+  }
+]

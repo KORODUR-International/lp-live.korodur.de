@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-14",
-    "generated_at": "2026-09-14T09:36:04.501500+00:00",
+    "generated_at": "2026-09-14T10:49:10.710802+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -9,23 +9,23 @@
   },
   "totals": {
     "items": 763,
-    "done": 490,
+    "done": 491,
     "in_progress": 17,
     "open": 163,
-    "blocked": 13,
+    "blocked": 12,
     "on_hold": 25,
     "discarded": 55,
-    "bereit": 83
+    "bereit": 84
   },
   "by_status": {
     "Backlog": 77,
-    "Bereit": 83,
-    "Beansprucht": 3,
+    "Bereit": 84,
+    "Beansprucht": 2,
     "In Progress": 8,
     "In Review": 9,
-    "Blocked": 13,
+    "Blocked": 12,
     "On Hold": 25,
-    "Done": 545,
+    "Done": 546,
     "none": 0
   },
   "by_owner": {
@@ -44,8 +44,8 @@
   "by_status_priority": {
     "open": {
       "P0": 1,
-      "P1": 47,
-      "P2": 91,
+      "P1": 46,
+      "P2": 92,
       "P3": 24,
       "none": 0
     },
@@ -59,7 +59,7 @@
     "blocked": {
       "P0": 0,
       "P1": 7,
-      "P2": 6,
+      "P2": 5,
       "P3": 0,
       "none": 0
     },
@@ -72,7 +72,7 @@
     },
     "done": {
       "P0": 11,
-      "P1": 259,
+      "P1": 260,
       "P2": 184,
       "P3": 34,
       "none": 2
@@ -132,8 +132,8 @@
       "total": 90,
       "done": 51,
       "in_progress": 4,
-      "open": 13,
-      "blocked": 6,
+      "open": 14,
+      "blocked": 5,
       "on_hold": 7,
       "discarded": 9,
       "by_owner": {
@@ -178,9 +178,9 @@
     {
       "name": "Redaktion",
       "total": 11,
-      "done": 7,
+      "done": 8,
       "in_progress": 0,
-      "open": 3,
+      "open": 2,
       "blocked": 0,
       "on_hold": 0,
       "discarded": 1,
@@ -239,9 +239,9 @@
     {
       "name": "KORODUR-International/korodur-review-reporting",
       "total": 128,
-      "done": 92,
+      "done": 93,
       "in_progress": 2,
-      "open": 21,
+      "open": 20,
       "blocked": 0,
       "on_hold": 8,
       "discarded": 5,
@@ -254,12 +254,12 @@
       "by_status": {
         "Backlog": 11,
         "Bereit": 8,
-        "Beansprucht": 2,
+        "Beansprucht": 1,
         "In Progress": 1,
         "In Review": 1,
         "Blocked": 0,
         "On Hold": 8,
-        "Done": 97,
+        "Done": 98,
         "none": 0
       }
     },
@@ -295,8 +295,8 @@
       "total": 58,
       "done": 37,
       "in_progress": 1,
-      "open": 7,
-      "blocked": 3,
+      "open": 8,
+      "blocked": 2,
       "on_hold": 5,
       "discarded": 5,
       "by_owner": {
@@ -307,11 +307,11 @@
       },
       "by_status": {
         "Backlog": 4,
-        "Bereit": 3,
+        "Bereit": 4,
         "Beansprucht": 0,
         "In Progress": 0,
         "In Review": 1,
-        "Blocked": 3,
+        "Blocked": 2,
         "On Hold": 5,
         "Done": 42,
         "none": 0
@@ -1195,12 +1195,12 @@
     {
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 62,
-      "status": "Blocked",
+      "status": "Bereit",
       "bereich": "Wissensaufbau",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
-      "status_seit": "2026-08-26",
+      "status_seit": "2026-09-14",
       "meilensteine": [
         "pdb-dop",
         "web-pdp"
@@ -2581,19 +2581,6 @@
       ]
     },
     {
-      "repo": "KORODUR-International/korodur-review-reporting",
-      "nummer": 234,
-      "status": "Beansprucht",
-      "bereich": "Redaktion",
-      "prioritaet": "P1",
-      "owner_typ": "Claude",
-      "bearbeiter": "Claude Korodur",
-      "status_seit": "2026-09-14",
-      "meilensteine": [
-        "con-kpi"
-      ]
-    },
-    {
       "repo": "KORODUR-International/korodur-skills",
       "nummer": 1,
       "status": "On Hold",
@@ -3576,13 +3563,13 @@
     "2026-09-11": 13,
     "2026-09-12": 28,
     "2026-09-13": 2,
-    "2026-09-14": 2
+    "2026-09-14": 3
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
-    "2026-09": 46
+    "2026-09": 47
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -3597,7 +3584,7 @@
     "2026-W34": 54,
     "2026-W35": 60,
     "2026-W37": 44,
-    "2026-W38": 2
+    "2026-W38": 3
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#4",
@@ -3843,6 +3830,7 @@
     "KORODUR-International/korodur-review-reporting#227",
     "KORODUR-International/korodur-review-reporting#228",
     "KORODUR-International/korodur-review-reporting#233",
+    "KORODUR-International/korodur-review-reporting#234",
     "KORODUR-International/korodur-review-reporting#26",
     "KORODUR-International/korodur-review-reporting#27",
     "KORODUR-International/korodur-review-reporting#28",
@@ -4148,17 +4136,17 @@
   ],
   "bewegungen": {
     "referenz": "2026-09-13",
-    "neu": [
-      {
-        "repo": "KORODUR-International/korodur-review-reporting",
-        "nummer": 234,
-        "bereich": "Redaktion",
-        "prioritaet": "P1",
-        "owner_typ": "Claude",
-        "status": "Beansprucht"
-      }
-    ],
+    "neu": [],
     "bewegt": [
+      {
+        "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+        "nummer": 62,
+        "bereich": "Wissensaufbau",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "von": "Blocked",
+        "nach": "Bereit"
+      },
       {
         "repo": "KORODUR-International/korodur-lokale-ki",
         "nummer": 8,
@@ -4197,6 +4185,14 @@
         "closed_at": "2026-09-14T09:32:00Z"
       },
       {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 234,
+        "bereich": "Redaktion",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-14T10:31:23Z"
+      },
+      {
         "repo": "KORODUR-International/korodur-skills",
         "nummer": 77,
         "bereich": "AI & Infrastruktur",
@@ -4212,12 +4208,12 @@
   "meilenstein": {
     "feldSeit": "2026-09-11",
     "bestand": {
-      "auf": 158,
+      "auf": 157,
       "adhoc": 58,
       "leer": 2
     },
     "erledigt": {
-      "auf": 39,
+      "auf": 40,
       "adhoc": 6,
       "leer": 445
     },
@@ -4283,15 +4279,15 @@
         "leer": 1
       },
       "2026-W38": {
-        "auf": 2,
+        "auf": 3,
         "adhoc": 0,
         "leer": 0
       }
     },
     "je_id": {
       "con-kpi": {
-        "offen": 6,
-        "erledigt": 1
+        "offen": 5,
+        "erledigt": 2
       },
       "con-q4planung": {
         "offen": 1,

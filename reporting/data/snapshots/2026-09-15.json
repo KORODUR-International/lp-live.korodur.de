@@ -1,18 +1,18 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-15",
-    "generated_at": "2026-09-15T11:22:39.832118+00:00",
+    "generated_at": "2026-09-15T11:52:10.168222+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "3.3"
   },
   "totals": {
-    "items": 773,
+    "items": 775,
     "done": 504,
-    "in_progress": 17,
-    "open": 159,
-    "blocked": 12,
+    "in_progress": 18,
+    "open": 161,
+    "blocked": 11,
     "on_hold": 26,
     "discarded": 55,
     "bereit": 80
@@ -20,23 +20,23 @@
   "by_status": {
     "Backlog": 75,
     "Bereit": 80,
-    "Beansprucht": 4,
-    "In Progress": 7,
+    "Beansprucht": 6,
+    "In Progress": 8,
     "In Review": 10,
-    "Blocked": 12,
+    "Blocked": 11,
     "On Hold": 26,
     "Done": 559,
     "none": 0
   },
   "by_owner": {
     "Human": 107,
-    "Claude": 499,
+    "Claude": 501,
     "Either": 165,
     "none": 2
   },
   "by_priority": {
     "P0": 13,
-    "P1": 359,
+    "P1": 361,
     "P2": 325,
     "P3": 74,
     "none": 2
@@ -44,14 +44,14 @@
   "by_status_priority": {
     "open": {
       "P0": 1,
-      "P1": 44,
-      "P2": 91,
+      "P1": 45,
+      "P2": 92,
       "P3": 23,
       "none": 0
     },
     "in_progress": {
       "P0": 1,
-      "P1": 13,
+      "P1": 14,
       "P2": 3,
       "P3": 0,
       "none": 0
@@ -59,7 +59,7 @@
     "blocked": {
       "P0": 0,
       "P1": 7,
-      "P2": 5,
+      "P2": 4,
       "P3": 0,
       "none": 0
     },
@@ -132,8 +132,8 @@
       "total": 96,
       "done": 55,
       "in_progress": 5,
-      "open": 14,
-      "blocked": 6,
+      "open": 15,
+      "blocked": 5,
       "on_hold": 7,
       "discarded": 9,
       "by_owner": {
@@ -145,16 +145,16 @@
     },
     {
       "name": "AI & Infrastruktur",
-      "total": 217,
+      "total": 219,
       "done": 150,
-      "in_progress": 5,
-      "open": 48,
+      "in_progress": 6,
+      "open": 49,
       "blocked": 0,
       "on_hold": 5,
       "discarded": 9,
       "by_owner": {
         "Human": 18,
-        "Claude": 165,
+        "Claude": 167,
         "Either": 34,
         "none": 0
       }
@@ -238,16 +238,16 @@
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 129,
+      "total": 130,
       "done": 96,
-      "in_progress": 1,
+      "in_progress": 2,
       "open": 19,
       "blocked": 0,
       "on_hold": 8,
       "discarded": 5,
       "by_owner": {
         "Human": 16,
-        "Claude": 89,
+        "Claude": 90,
         "Either": 24,
         "none": 0
       },
@@ -255,7 +255,7 @@
         "Backlog": 9,
         "Bereit": 9,
         "Beansprucht": 1,
-        "In Progress": 0,
+        "In Progress": 1,
         "In Review": 1,
         "Blocked": 0,
         "On Hold": 8,
@@ -295,8 +295,8 @@
       "total": 64,
       "done": 41,
       "in_progress": 2,
-      "open": 8,
-      "blocked": 3,
+      "open": 9,
+      "blocked": 2,
       "on_hold": 5,
       "discarded": 5,
       "by_owner": {
@@ -308,10 +308,10 @@
       "by_status": {
         "Backlog": 4,
         "Bereit": 4,
-        "Beansprucht": 0,
+        "Beansprucht": 1,
         "In Progress": 0,
         "In Review": 2,
-        "Blocked": 3,
+        "Blocked": 2,
         "On Hold": 5,
         "Done": 46,
         "none": 0
@@ -319,23 +319,23 @@
     },
     {
       "name": "KORODUR-International/korodur-operating-model",
-      "total": 57,
+      "total": 58,
       "done": 43,
       "in_progress": 2,
-      "open": 9,
+      "open": 10,
       "blocked": 0,
       "on_hold": 1,
       "discarded": 2,
       "by_owner": {
         "Human": 6,
-        "Claude": 42,
+        "Claude": 43,
         "Either": 9,
         "none": 0
       },
       "by_status": {
         "Backlog": 3,
         "Bereit": 6,
-        "Beansprucht": 0,
+        "Beansprucht": 1,
         "In Progress": 1,
         "In Review": 1,
         "Blocked": 0,
@@ -1261,11 +1261,11 @@
     {
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 95,
-      "status": "Blocked",
+      "status": "Beansprucht",
       "bereich": "Wissensaufbau",
       "prioritaet": "P2",
       "owner_typ": "Human",
-      "bearbeiter": null,
+      "bearbeiter": "Claude Korodur",
       "status_seit": "2026-09-15",
       "meilensteine": [
         "pdb-dop",
@@ -1661,6 +1661,19 @@
       "status_seit": "2026-09-12",
       "meilensteine": [
         "org-lernprozess"
+      ]
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 108,
+      "status": "Beansprucht",
+      "bereich": "AI & Infrastruktur",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur",
+      "status_seit": "2026-09-15",
+      "meilensteine": [
+        "org-repos"
       ]
     },
     {
@@ -2579,6 +2592,19 @@
       "status_seit": "2026-09-12",
       "meilensteine": [
         "org-lernprozess"
+      ]
+    },
+    {
+      "repo": "KORODUR-International/korodur-review-reporting",
+      "nummer": 241,
+      "status": "In Progress",
+      "bereich": "AI & Infrastruktur",
+      "prioritaet": "P1",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur",
+      "status_seit": "2026-09-15",
+      "meilensteine": [
+        "adhoc"
       ]
     },
     {
@@ -4127,7 +4153,7 @@
         "bereich": "Wissensaufbau",
         "prioritaet": "P2",
         "owner_typ": "Human",
-        "status": "Blocked"
+        "status": "Beansprucht"
       },
       {
         "repo": "KORODUR-International/korodur-digitale-produktinformationen",
@@ -4136,6 +4162,22 @@
         "prioritaet": "P2",
         "owner_typ": "Claude",
         "status": "Bereit"
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 108,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "status": "Beansprucht"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 241,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "status": "In Progress"
       },
       {
         "repo": "sfleischmann-3steps2/KORODUR-Website",
@@ -4250,8 +4292,8 @@
   "meilenstein": {
     "feldSeit": "2026-09-11",
     "bestand": {
-      "auf": 156,
-      "adhoc": 56,
+      "auf": 157,
+      "adhoc": 57,
       "leer": 2
     },
     "erledigt": {
@@ -4376,7 +4418,7 @@
         "erledigt": 2
       },
       "org-repos": {
-        "offen": 5,
+        "offen": 6,
         "erledigt": 2
       },
       "pdb-dop": {

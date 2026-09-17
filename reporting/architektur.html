@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KORODUR Work Cockpit · Architektur</title>
+  <link rel="stylesheet" href="styles.css?v=7692d062">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>">
+  <style>
+    /* Schichtbild des Reiters Architektur. Alles andere auf dieser Seite nutzt die
+       aw-Klassen der Arbeitsweise aus styles.css; nur das Schichtbild hat eigene, dazu
+       eine Zeile für die Skill-Tabelle: ihr längster Name passt auf Telefonbreite
+       nur mit Umbruch am Bindestrich in den Scroll-Container. */
+    .ar-context { background: var(--primary); color: var(--white); border-radius: var(--card-radius); padding: 14px 20px; text-align: center; box-shadow: var(--shadow); }
+    .ar-context b { display: block; font-size: .95rem; text-transform: uppercase; letter-spacing: .5px; }
+    .ar-context span { display: block; color: #b9c4d6; font-size: .8rem; margin-top: 2px; }
+    .ar-layer { display: grid; grid-template-columns: 230px 1fr; background: var(--white); border: 1px solid var(--mid-gray); border-left: 5px solid var(--primary); border-radius: var(--card-radius); box-shadow: var(--shadow); overflow: hidden; }
+    .ar-layer--harness { border-left-color: var(--secondary); }
+    .ar-layer--raum { border-left-color: var(--muted); }
+    .ar-layer--raum .aw-badge { background: var(--muted); }
+    .ar-head { padding: 14px 16px; background: var(--light-gray); border-right: 1px solid var(--mid-gray); }
+    .ar-head .aw-badge { display: inline-block; margin-bottom: 6px; }
+    .ar-layer--harness .aw-badge { background: var(--secondary); }
+    .ar-head h3 { font-size: .95rem; color: var(--primary); margin-bottom: 6px; }
+    .ar-head p { font-size: .78rem; color: var(--muted); line-height: 1.45; }
+    .ar-chips { padding: 12px 14px; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+    .ar-chip { flex: 1 1 220px; min-width: 0; border: 1px solid var(--mid-gray); border-radius: var(--radius); padding: 8px 11px; font-size: .78rem; color: #333; }
+    .ar-chip b { display: block; color: var(--primary); font-size: .82rem; overflow-wrap: anywhere; }
+    .ar-chip code { overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .ar-layer { grid-template-columns: 1fr; }
+      .ar-head { border-right: 0; border-bottom: 1px solid var(--mid-gray); }
+      .ar-chip { flex-basis: 100%; }
+    }
+    @media (max-width: 640px) {
+      .ar-skills td.aw-sys { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app app--roadmap">
+    <!-- Header -->
+    <header class="header">
+      <div class="header__brand">
+        <span class="header__title">KORODUR<span class="header__dot">.</span> WORK COCKPIT</span>
+        <nav class="header__nav" aria-label="Bereiche">
+          <a href="roadmap.html" class="header__nav-link">Roadmap</a>
+          <a href="index.html" class="header__nav-link">Reporting</a>
+          <a href="referenzen.html" class="header__nav-link">Referenzen</a>
+          <a href="redaktion.html" class="header__nav-link">Redaktion</a>
+          <a href="arbeitsweise.html" class="header__nav-link">Arbeitsweise</a>
+          <a href="architektur.html" class="header__nav-link is-active" aria-current="page">Architektur</a>
+        </nav>
+      </div>
+      <div>
+        <span class="header__meta">Orientierung · Stand 17.09.2026</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main main--aw">
+      <div class="aw-wrap">
+
+        <div class="aw-intro">
+          <span class="aw-tag">Orientierung · Stand 17.09.2026</span>
+          <h1>Aufbau unseres Agentensystems</h1>
+          <p>Das Modell sieht nur, was geladen ist. Deshalb ordnen wir alles danach, wie weit es vom aktiven Kontext entfernt ist, und verschieben Regeln nach unten in die Mechanik, sobald ein Hook oder ein Gate sie erzwingt. Diese Seite ist die Übersicht, nicht das Regelwerk. Verbindlich sind <a href="https://github.com/KORODUR-International/korodur-operating-model/blob/main/README.md" target="_blank" rel="noopener">README</a> und <a href="https://github.com/KORODUR-International/korodur-operating-model/blob/main/docs/ARBEITSWEISE.md" target="_blank" rel="noopener">ARBEITSWEISE</a> im Operating-Model-Repo.</p>
+        </div>
+
+        <h2 class="aw-h2"><span class="aw-num">1</span>Die vier Schichten</h2>
+        <p class="aw-sub">Oben steht, was jede Session automatisch sieht. Darunter, was erst ein Tool-Call holt. Dann die Mechanik, die wirkt, ohne gelesen zu werden. Unten der Wissensraum, aus dem alles stammt.</p>
+
+        <div class="ar-context">
+          <b>Aktiver Kontext der Session</b>
+          <span>Prompt · Systemregeln · Gesprächsverlauf · geladene Dateien · Tool-Ergebnisse</span>
+        </div>
+
+        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">automatisch beim Start</span></div>
+
+        <div class="ar-layer">
+          <div class="ar-head">
+            <span class="aw-badge">S1</span>
+            <h3>Immer geladen</h3>
+            <p>Kostet in jeder Session Kontext. Hier zählt jedes Zeichen, deshalb gelten Zielwerte.</p>
+          </div>
+          <div class="ar-chips">
+            <div class="ar-chip"><b>User-CLAUDE.md</b>Globale Anweisungen für jede Session. Zielwert 15.000 Zeichen.</div>
+            <div class="ar-chip"><b>Repo-CLAUDE.md</b>Was nur in einem Repo gilt, ergänzt die globale Fassung. Zielwert 8.000 Zeichen.</div>
+            <div class="ar-chip"><b>MEMORY.md</b>Der Index der Projekt-Notizen, eine Zeile je Notiz. Beim Start lädt der Index, die Notizen erst bei Bedarf.</div>
+            <div class="ar-chip"><b>Skill-Beschreibungen</b>Name und Beschreibung jedes Skills, damit das Modell weiß, wann es ihn holt.</div>
+            <div class="ar-chip"><b>Ausgabe der SessionStart-Probe</b>Systemdatum, Abstand des Arbeitsbaums zu <code>origin</code>, uncommittete Dateien: gemessen, bevor die Session etwas behauptet.</div>
+          </div>
+        </div>
+
+        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">per Tool-Call, wenn das Thema dran ist</span></div>
+
+        <div class="ar-layer">
+          <div class="ar-head">
+            <span class="aw-badge">S2</span>
+            <h3>Bei Bedarf geladen</h3>
+            <p>Kostet nur, wenn gelesen. Zugriff haben heißt nicht gesehen haben: ohne Auslöser bleibt diese Schicht unsichtbar.</p>
+          </div>
+          <div class="ar-chips">
+            <div class="ar-chip"><b>Referenzen</b>Mechanik je Thema, etwa Board, Notion, Git, Rendern. Eine Ladetabelle in der CLAUDE.md nennt den Auslöser. Zielwert 12.000 Zeichen je Datei.</div>
+            <div class="ar-chip"><b>README, ARBEITSWEISE, Entscheidungen</b>README und ARBEITSWEISE sind der erste Schritt jeder KORODUR-Session, beim Änderungslog beginnend. Beschlüsse je Repo stehen in <code>docs/entscheidungen.md</code>.</div>
+            <div class="ar-chip"><b>Skill-Rümpfe</b>Anleitung, eigene Referenzen und Skripte eines Skills. Sie laden erst, wenn der Skill ausgelöst wird.</div>
+            <div class="ar-chip"><b>Memory-Notizen</b>Stand, Fristen und Verweise je Projekt, mit Datum.</div>
+            <div class="ar-chip"><b>learnings.md</b>Der Eingangskorb: was Sessions lernen, landet hier und wird vor schreibender Arbeit überflogen.</div>
+          </div>
+        </div>
+
+        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">greift von außen in jeden Tool-Call ein</span></div>
+
+        <div class="ar-layer ar-layer--harness">
+          <div class="ar-head">
+            <span class="aw-badge">S3</span>
+            <h3>Harness</h3>
+            <p>Wirkt, ohne gelesen zu werden. Jede Regel, die hierher wandert, kann oben gestrichen werden.</p>
+          </div>
+          <div class="ar-chips">
+            <div class="ar-chip"><b><code>session-start-probe</code></b>Legt Datum und Stand des Arbeitsbaums in den Kontext, bevor die erste Antwort entsteht.</div>
+            <div class="ar-chip"><b><code>pretool-bash-safety</code></b>Blockt Shell-Befehle, die dokumentierten Schaden angerichtet haben, und nennt den erlaubten Ersatz.</div>
+            <div class="ar-chip"><b><code>pretool-pr-merged-guard</code></b>Weist einen Push auf einen Branch ab, dessen PR schon gemergt ist.</div>
+            <div class="ar-chip"><b><code>pretool-bereit-gate</code></b>Weist den Wechsel auf <i>Bereit</i> ab, wenn der Issue-Body nicht mindestens zwei Fertig-Kriterien trägt oder offene Entscheidungen hat.</div>
+            <div class="ar-chip"><b><code>pretool-notion-guard</code></b>Blockt Notion-Schreibaufrufe, die eine Seite komplett überschreiben oder ihren Inhalt beschädigen.</div>
+            <div class="ar-chip"><b>CI-Gates</b>Begriffs-Gate gegen tote Schreibweisen, Fassungs-Gate, Budget-Gate für die Anweisungsschicht. Issue-Verweise und Dauerdokumente laufen als Warnung.</div>
+            <div class="ar-chip"><b>Prüfer</b>Das Template „Aufgabe“ gibt die Abschnitte eines Issues vor, <code>korodur-review</code> prüft das Ergebnis in frischem Kontext gegen „Fertig, wenn“.</div>
+            <div class="ar-chip"><b>Lesende Crons</b>Nächtlicher Snapshot des Boards für dieses Cockpit, Board-Hygiene montagnachts.</div>
+          </div>
+        </div>
+
+        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">liest und schreibt per MCP, <code>gh</code> und <code>git</code></span></div>
+
+        <div class="ar-layer ar-layer--raum">
+          <div class="ar-head">
+            <span class="aw-badge">S4</span>
+            <h3>Wissensraum und Zustand</h3>
+            <p>Woraus eine Session ihr Wissen holt, in dieser Rangfolge: Notion, GitHub, Google Drive, lokaler Workspace, Web.</p>
+          </div>
+          <div class="ar-chips">
+            <div class="ar-chip"><b>Notion</b>Unternehmensziele, Areas, Jahresziele, die Aufgaben-DB für Zuarbeiten von Kollegen und „Fragen &amp; Entscheidungen“ als Wissens-Behälter.</div>
+            <div class="ar-chip"><b>Work Cockpit auf GitHub</b>Ein Issue = ein Branch = ein PR. Das Issue ist der Auftrag: Ziel, Zielgruppe, Kernaussage, Fertig-Kriterien.</div>
+            <div class="ar-chip"><b>Roadmap</b><code>roadmap-2026.json</code> ist führend für Meilensteine. Issues tragen im Feld Meilensteine deren IDs oder <code>adhoc</code>.</div>
+            <div class="ar-chip"><b>Fach-Repos</b>Deliverables wohnen im Repo ihres Themas und entstehen dort im eigenen Worktree.</div>
+            <div class="ar-chip"><b>Sammelordner</b><code>_quellen/</code> für zugeliefertes Material, <code>outputs/</code> als Durchgangsstation, <code>notes/</code>, <code>archive/</code>.</div>
+            <div class="ar-chip"><b>Learnings-Archiv</b>Geerntete Abschnitte als Beleg, warum eine Regel existiert. Im Alltag nicht geladen.</div>
+          </div>
+        </div>
+
+        <!-- Stelle für den Kennzahlen-Block zum Wissenshaushalt (korodur-review-reporting#225,
+             Entscheidung 17.09.2026): Zeichenbudgets und Learnings-Bestand kommen hier unter das
+             Schichtbild. Bis dahin bewusst leer, ohne Platzhalter auf der öffentlichen Seite. -->
+
+        <h2 class="aw-h2"><span class="aw-num">2</span>Wie wir den Kontext schlank halten</h2>
+        <p class="aw-sub">Jede Zeile in der obersten Schicht kostet in jeder Session. Vier Grundsätze entscheiden, was dort stehen darf.</p>
+        <div class="aw-rules">
+          <div class="aw-rule"><b>Jede Zeile ändert Verhalten.</b> In die CLAUDE.md kommt nur, was das Verhalten des nächsten Agenten ändert. Belege leben im Archiv, Mechanik in den Referenzen.</div>
+          <div class="aw-rule"><b>Mechanik vor Regeltext.</b> Was ein Hook, ein Preflight oder ein CI-Test verhindern kann, schreiben wir nicht als Satz auf. Ein wiederholter Verstoß wird keine neue Regel, sondern ein Fall für Hook, Preflight oder Gate.</div>
+          <div class="aw-rule"><b>Budgets wirken als Ratsche.</b> Das Budget-Gate misst die globale CLAUDE.md und die Referenzen in Zeichen. Eine Zahl darf jederzeit sinken, steigen nur mit Begründung in derselben Datei.</div>
+          <div class="aw-rule"><b>Eine Wahrheit, keine Kopien.</b> Regeln leben im Operating-Model-Repo, Skills im Skills-Repo. Alles andere verlinkt dorthin.</div>
+        </div>
+
+        <h2 class="aw-h2"><span class="aw-num">3</span>Der Lernzyklus: von der Session bis zum Archiv</h2>
+        <p class="aw-sub">So wandert, was eine Session lernt, nach oben in Regel, Referenz oder Skill, oder es wird gestrichen. Nach innen schreibt jede Session, nach außen öffnet die Ernte einmal im Monat.</p>
+        <div class="aw-thread">
+          <div class="aw-step"><b>Session</b><span>arbeitet, stolpert, korrigiert</span></div>
+          <div class="aw-tarrow">→</div>
+          <div class="aw-step"><b><code>/session-end</code></b><span>schließt Erledigtes, prüft je Vorschlag, ob er schon Regel ist, schreibt und committet</span></div>
+          <div class="aw-tarrow">→</div>
+          <div class="aw-step"><b><code>learnings.md</code></b><span>Eingangskorb, vor schreibender Arbeit überflogen</span></div>
+          <div class="aw-tarrow">→</div>
+          <div class="aw-step"><b>Ernte im Monatsblock</b><span>im ersten Freitagslauf zwischen dem 1. und 14.: je Abschnitt Regel, Referenz, Skill-Material oder Streichvorschlag; je übernommener Regel geht eine raus oder wird verdichtet</span></div>
+          <div class="aw-tarrow">→</div>
+          <div class="aw-step"><b>Archiv</b><span>geerntete Abschnitte rotieren ins Halbjahresarchiv, der Korb trägt nur den Rest</span></div>
+        </div>
+
+        <h2 class="aw-h2"><span class="aw-num">4</span>Unsere Skills</h2>
+        <p class="aw-sub">Ein Skill ist eine Arbeitsanleitung samt Skripten, die das Modell bei passendem Anlass lädt. Quelle der Wahrheit ist das Repo <code>korodur-skills</code>, die lokalen Skill-Ordner sind nur Deploy-Ziel.</p>
+        <div class="aw-tablewrap"><table class="aw-table ar-skills">
+          <tr><th>Skill</th><th>Wofür</th><th>Greift zurück auf</th><th>Rolle</th></tr>
+          <tr><td class="aw-sys">korodur-abend-review</td><td>Tagesblick in 15 Minuten: was gelaufen ist je Meilenstein, was zu Kollegen geht, das Hygiene-Aufräumpaket</td><td>Live-Board gegen den jüngsten Snapshot, Hygiene-Befunde</td><td>Steuerung</td></tr>
+          <tr><td class="aw-sys">korodur-weekly-review</td><td>Freitagslauf in sechs Phasen und 45 Minuten, im Monatsblock mit Roadmap-Abgleich und Ernte der Learnings</td><td>Board, Meeting-Transkripte, Aufgaben-DB, Wissens-DB, Roadmap</td><td>Steuerung</td></tr>
+          <tr><td class="aw-sys">korodur-review</td><td>Unabhängiger Prüflauf: bewertet jedes Fertig-Kriterium mit Fundstelle, Ergebnis als Kommentar am Issue</td><td>Issue und Artefakt, sonst nichts</td><td>Prüfer</td></tr>
+          <tr><td class="aw-sys">korodur-issue-loop</td><td>Arbeitet Issues auf <i>Bereit</i> ohne Anstoß ab, bis zum geprüften PR; der Merge bleibt ein manuelles Gate</td><td>Board, eigener Worktree, <code>korodur-review</code></td><td>Macher, autonom</td></tr>
+          <tr><td class="aw-sys">korodur-print-check</td><td>Render-Selbstcheck für Print-Deliverables, bevor ein Mensch das Ergebnis sieht</td><td>Headless-Render, CD-Checkliste</td><td>Prüfer beim Bauen</td></tr>
+          <tr><td class="aw-sys">korodur-docx</td><td>Word-Dokumente im Corporate Design, als offizielles Schreiben, Kundendokument oder internes Dokument</td><td>CD-Vorgaben</td><td>Produktion</td></tr>
+          <tr><td class="aw-sys">korodur-referenz</td><td>One-Page-Referenzen als PDF mit Drei-Akt-Story, zwei Varianten je Lauf</td><td>Referenzdaten und Bilder, HTML-Renderer</td><td>Produktion</td></tr>
+          <tr><td class="aw-sys">korodur-verarbeitungsanleitung</td><td>Druckfertige A4-Verarbeitungsanleitung</td><td>Word-Datei mit eingebetteten Bildern</td><td>Produktion</td></tr>
+        </table></div>
+        <p class="aw-sub" style="margin-top:12px;">Dazu die Commands <code>/session-start</code> und <code>/session-end</code> in der Anweisungsschicht.</p>
+
+        <h2 class="aw-h2"><span class="aw-num">5</span>Sechs Felder: wo jede Antwort steht</h2>
+        <p class="aw-sub">Für jeden Auftrag an einen Agenten fragen wir nach sechs Feldern: Was ist das Ziel, worauf stützt er sich, welche Regeln gelten, wie ist der Stand, wo sind die Grenzen, woran wird abgenommen. Die Tabelle zeigt, wo wir jedes Feld führen und was es absichert. Angeregt hat diese Lesart ein <a href="https://www.youtube.com/watch?v=XQJVdActaSs" target="_blank" rel="noopener">Video zu Context Engineering</a>.</p>
+        <div class="aw-tablewrap"><table class="aw-table">
+          <tr><th>Feld</th><th>Fundort bei uns</th><th>Abgesichert durch</th></tr>
+          <tr><td class="aw-sys">Ziel</td><td>Issue-Body nach Template „Aufgabe“: Ziel, Zielgruppe, Kernaussage; Meilenstein am Board</td><td>Bereit-Gate-Hook, Hygiene-Cron für die Pflichtfelder am Board</td></tr>
+          <tr><td class="aw-sys">Evidenz</td><td>Quellen-Hierarchie, <code>_quellen/</code> für zugeliefertes Material, Belegart in allem, was nach außen geht</td><td>Regeltext in der CLAUDE.md</td></tr>
+          <tr><td class="aw-sys">Regeln</td><td>CLAUDE.md, ARBEITSWEISE, Referenzen mit Ladetabelle</td><td>Budget-Gate, Begriffs-Gate, Regeländerung nur per PR mit Änderungslog-Eintrag</td></tr>
+          <tr><td class="aw-sys">Aktueller Stand</td><td>SessionStart-Probe, <code>git fetch</code>, Board, Änderungslog im README</td><td>SessionStart-Hook, PR-Merged-Guard</td></tr>
+          <tr><td class="aw-sys">Grenzen</td><td>Automations-Vertrag im README, Vertraulichkeit, Territorien je Session bei paralleler Arbeit</td><td>Bash-Safety-Hook, Notion-Guard, PR-Merged-Guard; der Merge bleibt manuell</td></tr>
+          <tr><td class="aw-sys">Abnahme</td><td>„Fertig, wenn“ im Issue</td><td><code>korodur-review</code>, <code>korodur-print-check</code>, CI</td></tr>
+        </table></div>
+
+        <div class="aw-footer">
+          Orientierung, kein Regelwerk · Stand 17.09.2026 · Verbindlich sind
+          <a href="https://github.com/KORODUR-International/korodur-operating-model/blob/main/README.md" target="_blank" rel="noopener">README</a> und
+          <a href="https://github.com/KORODUR-International/korodur-operating-model/blob/main/docs/ARBEITSWEISE.md" target="_blank" rel="noopener">docs/ARBEITSWEISE.md</a>
+          im Operating-Model-Repo · Teil der KORODUR Reporting-Site
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>

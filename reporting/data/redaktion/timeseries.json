@@ -573,15 +573,15 @@
   },
   {
     "date": "2026-09-17",
-    "ideen": 30,
+    "ideen": 54,
     "in_arbeit": 0,
-    "in_pruefung": 9,
+    "in_pruefung": 10,
     "freigegeben": 13,
-    "eingeplant": 1,
-    "gepostet": 38,
+    "eingeplant": 0,
+    "gepostet": 39,
     "abgelehnt": 1,
     "unbekannt": 0,
-    "puffer": 14,
-    "vorlauf_wochen": 2.6
+    "puffer": 13,
+    "vorlauf_wochen": 7.0
   }
 ]

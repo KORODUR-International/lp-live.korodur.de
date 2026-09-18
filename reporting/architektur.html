@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KORODUR Work Cockpit · Architektur</title>
-  <link rel="stylesheet" href="styles.css?v=1aa47b82">
+  <link rel="stylesheet" href="styles.css?v=afde7b6f">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>">
   <style>
     /* Schichtbild des Reiters Architektur. Alles andere auf dieser Seite nutzt die
-       aw-Klassen der Arbeitsweise aus styles.css; nur das Schichtbild hat eigene, dazu
-       eine Zeile für die Skill-Tabelle: ihr längster Name passt auf Telefonbreite
-       nur mit Umbruch am Bindestrich in den Scroll-Container. */
+       aw-Klassen der Arbeitsweise aus styles.css; eigene Klassen haben nur das
+       Schichtbild (ar-) und der Block Wissenshaushalt (wh-, #225), dazu eine Zeile
+       für die Skill-Tabelle: ihr längster Name passt auf Telefonbreite nur mit
+       Umbruch am Bindestrich in den Scroll-Container. */
     .ar-context { background: var(--primary); color: var(--white); border-radius: var(--card-radius); padding: 14px 20px; text-align: center; box-shadow: var(--shadow); }
     .ar-context b { display: block; font-size: .95rem; text-transform: uppercase; letter-spacing: .5px; }
     .ar-context span { display: block; color: #b9c4d6; font-size: .8rem; margin-top: 2px; }
@@ -34,6 +35,59 @@
     }
     @media (max-width: 640px) {
       .ar-skills td.aw-sys { white-space: normal; }
+    }
+
+    /* Block Wissenshaushalt (#225). Zahlen und Schwellen kommen aus
+       data/wissenshaushalt/wissenshaushalt.json, gerendert von wissenshaushalt.js. */
+    .wh-stand { font-size: .78rem; color: var(--muted); margin: -8px 0 14px; }
+    .wh-leer { background: var(--white); border: 1px dashed var(--mid-gray); border-radius: var(--card-radius); padding: 16px 18px; font-size: .85rem; color: var(--muted); }
+    .wh-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 14px; }
+    .wh-tile { background: var(--white); border: 1px solid var(--mid-gray); border-radius: var(--card-radius); box-shadow: var(--shadow); padding: 14px 16px; min-width: 0; }
+    .wh-tile__head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: .74rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+    .wh-tile__value { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1.1; margin-top: 6px; }
+    .wh-tile__value small { font-size: .9rem; font-weight: 700; color: var(--muted); }
+    .wh-tile__sub { font-size: .76rem; color: var(--muted); margin-top: 2px; }
+    .wh-spark { display: block; width: 100%; height: auto; max-height: 56px; margin-top: 8px; overflow: visible; }
+    .wh-spark-linie { fill: none; stroke: var(--secondary); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .wh-spark-schwelle { stroke: var(--primary); stroke-width: 1; stroke-dasharray: 4 3; opacity: .45; }
+    .wh-spark-end { fill: var(--secondary); stroke: var(--white); stroke-width: 2; }
+    .wh-spark-hit { fill: transparent; }
+    .wh-spark-hinweis { font-size: .72rem; color: var(--muted); margin-top: 8px; font-style: italic; }
+    .wh-status { display: inline-flex; align-items: center; gap: 4px; font-size: .7rem; font-weight: 700; border-radius: 20px; padding: 2px 8px; white-space: nowrap; text-transform: none; letter-spacing: 0; }
+    .wh-status--ziel { background: #e3f4ea; color: #1e6b40; }
+    .wh-status--budget { background: #fdf0dc; color: #8a5200; }
+    .wh-status--ueber, .wh-status--fehlt { background: #fbe4e1; color: #a8241b; }
+    .wh-status--ohne { background: var(--light-gray); color: var(--muted); }
+    .wh-group { background: var(--white); border: 1px solid var(--mid-gray); border-radius: var(--card-radius); box-shadow: var(--shadow); padding: 4px 16px 8px; margin-bottom: 14px; }
+    .wh-group__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; padding: 10px 0 8px; border-bottom: 1px solid var(--mid-gray); }
+    .wh-group__head h3 { font-size: .95rem; color: var(--primary); }
+    .wh-group__head p { font-size: .78rem; color: var(--muted); }
+    .wh-legend { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; }
+    .wh-legend__ziel, .wh-legend__budget { display: inline-block; width: 0; height: 14px; border-left: 2px dashed var(--primary); margin-left: 6px; }
+    .wh-legend__budget { border-left-style: solid; }
+    .wh-row { display: grid; grid-template-columns: minmax(170px, 240px) 1fr 160px 160px; gap: 14px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--light-gray); font-size: .8rem; }
+    .wh-row:last-child { border-bottom: 0; }
+    .wh-name { font-weight: 700; color: var(--primary); overflow-wrap: anywhere; }
+    .wh-track { position: relative; height: 12px; background: var(--light-gray); border-radius: 4px; }
+    .wh-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; }
+    .wh-fill--ziel { background: var(--secondary); }
+    .wh-fill--budget { background: var(--warning); }
+    .wh-fill--ueber, .wh-fill--fehlt { background: var(--danger); }
+    .wh-fill--ohne { background: var(--primary); }
+    .wh-mark { position: absolute; top: -4px; bottom: -4px; width: 0; margin-left: -1px; border-left: 2px dashed var(--primary); }
+    .wh-mark--budget { border-left-style: solid; }
+    .wh-num { font-variant-numeric: tabular-nums; color: var(--primary); line-height: 1.3; }
+    .wh-num span { display: block; font-size: .72rem; color: var(--muted); }
+    .wh-hinweis { color: var(--muted); font-style: italic; }
+    .wh-details { margin-top: 2px; }
+    .wh-details summary { cursor: pointer; font-size: .82rem; font-weight: 700; color: var(--primary); }
+    .wh-td-num { text-align: right; font-variant-numeric: tabular-nums; }
+    @media (max-width: 760px) {
+      .wh-row { grid-template-columns: 1fr auto; gap: 6px 12px; }
+      .wh-state { order: 2; }
+      .wh-meter { order: 3; grid-column: 1 / -1; }
+      .wh-num { order: 4; grid-column: 1 / -1; }
+      .wh-legend { margin-left: 0; }
     }
   </style>
 </head>
@@ -84,7 +138,7 @@
             <p>Kostet in jeder Session Kontext. Hier zählt jedes Zeichen, deshalb gelten Zielwerte.</p>
           </div>
           <div class="ar-chips">
-            <div class="ar-chip"><b>User-CLAUDE.md</b>Globale Anweisungen für jede Session. Zielwert 15.000 Zeichen.</div>
+            <div class="ar-chip"><b>User-CLAUDE.md</b>Globale Anweisungen für jede Session. Zielwert und Stand in Abschnitt 2.</div>
             <div class="ar-chip"><b>Repo-CLAUDE.md</b>Was nur in einem Repo gilt, ergänzt die globale Fassung. Zielwert 8.000 Zeichen.</div>
             <div class="ar-chip"><b>MEMORY.md</b>Der Index der Projekt-Notizen, eine Zeile je Notiz. Beim Start lädt der Index, die Notizen erst bei Bedarf.</div>
             <div class="ar-chip"><b>Skill-Beschreibungen</b>Name und Beschreibung jedes Skills, damit das Modell weiß, wann es ihn holt.</div>
@@ -101,11 +155,11 @@
             <p>Kostet nur, wenn gelesen. Zugriff haben heißt nicht gesehen haben: ohne Auslöser bleibt diese Schicht unsichtbar.</p>
           </div>
           <div class="ar-chips">
-            <div class="ar-chip"><b>Referenzen</b>Mechanik je Thema, etwa Board, Notion, Git, Rendern. Eine Ladetabelle in der CLAUDE.md nennt den Auslöser. Zielwert 12.000 Zeichen je Datei.</div>
+            <div class="ar-chip"><b>Referenzen</b>Mechanik je Thema, etwa Board, Notion, Git, Rendern. Eine Ladetabelle in der CLAUDE.md nennt den Auslöser. Zielwert und Stand je Datei in Abschnitt 2.</div>
             <div class="ar-chip"><b>README, ARBEITSWEISE, Entscheidungen</b>README und ARBEITSWEISE sind der erste Schritt jeder KORODUR-Session, beim Änderungslog beginnend. Beschlüsse je Repo stehen in <code>docs/entscheidungen.md</code>.</div>
             <div class="ar-chip"><b>Skill-Rümpfe</b>Anleitung, eigene Referenzen und Skripte eines Skills. Sie laden erst, wenn der Skill ausgelöst wird.</div>
             <div class="ar-chip"><b>Memory-Notizen</b>Stand, Fristen und Verweise je Projekt, mit Datum.</div>
-            <div class="ar-chip"><b>learnings.md</b>Der Eingangskorb: was Sessions lernen, landet hier und wird vor schreibender Arbeit überflogen.</div>
+            <div class="ar-chip"><b>learnings.md</b>Der Eingangskorb: was Sessions lernen, landet hier. Vor schreibender Arbeit liest jede Session die Strichliste an seinem Kopf, sie zeigt, welche Regeln nicht wirken.</div>
           </div>
         </div>
 
@@ -147,11 +201,18 @@
           </div>
         </div>
 
-        <!-- Stelle für den Kennzahlen-Block zum Wissenshaushalt (korodur-review-reporting#225,
-             Entscheidung 17.09.2026): Zeichenbudgets und Learnings-Bestand kommen hier unter das
-             Schichtbild. Bis dahin bewusst leer, ohne Platzhalter auf der öffentlichen Seite. -->
+        <!-- wissenshaushalt:start (korodur-review-reporting#225, Entscheidung 17.09.2026: ein
+             Block unter dem Schichtbild, kein eigener Reiter). Keine Zahl fest in diesem Block:
+             alles kommt aus data/wissenshaushalt/wissenshaushalt.json, der Test
+             tests/test_wissenshaushalt_render.mjs prüft das. -->
+        <h2 class="aw-h2"><span class="aw-num">2</span>Wissenshaushalt: was die Schichten heute wiegen</h2>
+        <p class="aw-sub">Wie viel die Anweisungsschicht kostet und wie voll der Eingangskorb ist. Gemessen im nächtlichen Snapshot mit denselben Skripten wie das Budget-Gate (<code>check_budget.py</code>, <code>budget.json</code>) und <code>/session-end</code> (<code>korb_stand.py</code>) im Operating-Model-Repo. Gezeigt werden Zeichen und Füllstand, keine Inhalte.</p>
+        <div id="wh" class="wh" aria-live="polite">
+          <p class="wh-leer">Die Messung wird geladen.</p>
+        </div>
+        <!-- wissenshaushalt:ende -->
 
-        <h2 class="aw-h2"><span class="aw-num">2</span>Wie wir den Kontext schlank halten</h2>
+        <h2 class="aw-h2"><span class="aw-num">3</span>Wie wir den Kontext schlank halten</h2>
         <p class="aw-sub">Jede Zeile in der obersten Schicht kostet in jeder Session. Vier Grundsätze entscheiden, was dort stehen darf.</p>
         <div class="aw-rules">
           <div class="aw-rule"><b>Jede Zeile ändert Verhalten.</b> In die CLAUDE.md kommt nur, was das Verhalten des nächsten Agenten ändert. Belege leben im Archiv, Mechanik in den Referenzen.</div>
@@ -160,21 +221,21 @@
           <div class="aw-rule"><b>Eine Wahrheit, keine Kopien.</b> Regeln leben im Operating-Model-Repo, Skills im Skills-Repo. Alles andere verlinkt dorthin.</div>
         </div>
 
-        <h2 class="aw-h2"><span class="aw-num">3</span>Der Lernzyklus: von der Session bis zum Archiv</h2>
+        <h2 class="aw-h2"><span class="aw-num">4</span>Der Lernzyklus: von der Session bis zum Archiv</h2>
         <p class="aw-sub">So wandert, was eine Session lernt, nach oben in Regel, Referenz oder Skill, oder es wird gestrichen. Nach innen schreibt jede Session, nach außen öffnet die Ernte einmal im Monat.</p>
         <div class="aw-thread">
           <div class="aw-step"><b>Session</b><span>arbeitet, stolpert, korrigiert</span></div>
           <div class="aw-tarrow">→</div>
           <div class="aw-step"><b><code>/session-end</code></b><span>schließt Erledigtes, prüft je Vorschlag, ob er schon Regel ist, schreibt und committet</span></div>
           <div class="aw-tarrow">→</div>
-          <div class="aw-step"><b><code>learnings.md</code></b><span>Eingangskorb, vor schreibender Arbeit überflogen</span></div>
+          <div class="aw-step"><b><code>learnings.md</code></b><span>Eingangskorb; vor schreibender Arbeit wird die Strichliste an seinem Kopf gelesen</span></div>
           <div class="aw-tarrow">→</div>
-          <div class="aw-step"><b>Ernte im Monatsblock</b><span>im ersten Freitagslauf zwischen dem 1. und 14.: je Abschnitt Regel, Referenz, Skill-Material oder Streichvorschlag; je übernommener Regel geht eine raus oder wird verdichtet</span></div>
+          <div class="aw-step"><b>Ernte im Monatsblock</b><span>im ersten Freitagslauf zwischen dem 1. und 14., früher, sobald der Korb seine Schwelle erreicht: je Abschnitt Regel, Referenz, Skill-Material oder Streichvorschlag; je übernommener Regel geht eine raus oder wird verdichtet</span></div>
           <div class="aw-tarrow">→</div>
           <div class="aw-step"><b>Archiv</b><span>geerntete Abschnitte rotieren ins Halbjahresarchiv, der Korb trägt nur den Rest</span></div>
         </div>
 
-        <h2 class="aw-h2"><span class="aw-num">4</span>Unsere Skills</h2>
+        <h2 class="aw-h2"><span class="aw-num">5</span>Unsere Skills</h2>
         <p class="aw-sub">Ein Skill ist eine Arbeitsanleitung samt Skripten, die das Modell bei passendem Anlass lädt. Quelle der Wahrheit ist das Repo <code>korodur-skills</code>, die lokalen Skill-Ordner sind nur Deploy-Ziel.</p>
         <div class="aw-tablewrap"><table class="aw-table ar-skills">
           <tr><th>Skill</th><th>Wofür</th><th>Greift zurück auf</th><th>Rolle</th></tr>
@@ -189,7 +250,7 @@
         </table></div>
         <p class="aw-sub" style="margin-top:12px;">Dazu die Commands <code>/session-start</code> und <code>/session-end</code> in der Anweisungsschicht.</p>
 
-        <h2 class="aw-h2"><span class="aw-num">5</span>Sechs Felder: wo jede Antwort steht</h2>
+        <h2 class="aw-h2"><span class="aw-num">6</span>Sechs Felder: wo jede Antwort steht</h2>
         <p class="aw-sub">Für jeden Auftrag an einen Agenten fragen wir nach sechs Feldern: Was ist das Ziel, worauf stützt er sich, welche Regeln gelten, wie ist der Stand, wo sind die Grenzen, woran wird abgenommen. Die Tabelle zeigt, wo wir jedes Feld führen und was es absichert. Angeregt hat diese Lesart ein <a href="https://www.youtube.com/watch?v=XQJVdActaSs" target="_blank" rel="noopener">Video zu Context Engineering</a>.</p>
         <div class="aw-tablewrap"><table class="aw-table">
           <tr><th>Feld</th><th>Fundort bei uns</th><th>Abgesichert durch</th></tr>
@@ -211,5 +272,6 @@
       </div>
     </main>
   </div>
+  <script src="wissenshaushalt.js?v=afde7b6f"></script>
 </body>
 </html>

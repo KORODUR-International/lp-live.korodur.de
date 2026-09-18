@@ -45,7 +45,12 @@ const SOC_LABELS = { li: 'LinkedIn', fb: 'Facebook', ig: 'Instagram' };
 const SOC_PLATTFORM = { li: 'linkedin', fb: 'facebook', ig: 'instagram' };
 
 const LI_POSTS_ZIEL = 3;
-const VORLAUF_ZIEL_WOCHEN = 4;
+// Terminierter Vorlauf, Ziele vom 16.09.2026 (Issue #257, Folie 6 der
+// GF-Praesentation in korodur-redaktion#32): Ziel 2,5 bis 3 Wochen, gruen ab
+// 2 Wochen, rot bei 1 Woche und weniger, dazwischen gelb.
+const VORLAUF_ZIEL_WOCHEN = [2.5, 3];
+const VORLAUF_GRUEN_AB_WOCHEN = 2;
+const VORLAUF_ROT_BIS_WOCHEN = 1;
 
 let socSeries = [];   // data/social/timeseries.json, aufsteigend nach Woche
 let socLatest = null; // data/social/<neueste Woche>.json
@@ -181,11 +186,12 @@ function postsState(n, ziel) {
   if (n >= Math.ceil(ziel / 2)) return 'warn';
   return 'crit';
 }
-// Terminierter Vorlauf: Ziel 4+ Wochen, knapp ab der Hälfte.
-function vorlaufState(weeks, ziel) {
+// Terminierter Vorlauf (Issue #257): gruen ab 2 Wochen, rot bei 1 Woche und
+// weniger, dazwischen gelb. Das Ziel 2,5 bis 3 Wochen liegt im gruenen Bereich.
+function vorlaufState(weeks) {
   if (weeks === null || weeks === undefined || Number.isNaN(weeks)) return 'crit';
-  if (weeks >= ziel) return 'ok';
-  if (weeks >= ziel / 2) return 'warn';
+  if (weeks >= VORLAUF_GRUEN_AB_WOCHEN) return 'ok';
+  if (weeks > VORLAUF_ROT_BIS_WOCHEN) return 'warn';
   return 'crit';
 }
 function ampelBadge(state, label) {
@@ -690,13 +696,16 @@ function renderPufferTile(d) {
 }
 
 function renderVorlaufTile(d) {
-  const state = vorlaufState(d.vorlauf_wochen, VORLAUF_ZIEL_WOCHEN);
-  const label = state === 'ok' ? 'im Ziel' : state === 'warn' ? 'knapp' : 'zu kurz';
+  const state = vorlaufState(d.vorlauf_wochen);
+  // Gruen beginnt unter dem Ziel (ab 2 Wochen), "im Ziel" wuerde bei 2,0 bis
+  // 2,4 Wochen der Zielangabe daneben widersprechen.
+  const label = state === 'ok' ? 'ausreichend' : state === 'warn' ? 'knapp' : 'zu kurz';
+  const [lo, hi] = VORLAUF_ZIEL_WOCHEN.map(w => w.toLocaleString('de-DE'));
   return `
     <div class="kpi-card fade-in">
       <div class="kpi-card__label">Terminierter Vorlauf ${ampelBadge(state, label)}</div>
       <div class="kpi-card__value">${fmtWochen(d.vorlauf_wochen)}<span class="kpi-card__unit">Wochen</span></div>
-      <div class="kpi-card__detail">Wie weit die getimten Beitr&auml;ge in die Zukunft reichen &middot; Ziel ${VORLAUF_ZIEL_WOCHEN}+ Wochen</div>
+      <div class="kpi-card__detail">Wie weit die getimten Beitr&auml;ge in die Zukunft reichen &middot; Ziel ${lo} bis ${hi} Wochen</div>
     </div>`;
 }
 

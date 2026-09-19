@@ -1,9 +1,9 @@
 {
   "version": 1,
   "stand": {
-    "gemessen_am": "2026-09-18T09:25:25Z",
-    "om_commit": "4ddaa3d3d145b6553a2e7dc7b166665c7a12c7c2",
-    "repos_aus_snapshot": "2026-09-18",
+    "gemessen_am": "2026-09-19T05:27:28Z",
+    "om_commit": "8d69d8349195c6c1628a7c0517e0f3e396610991",
+    "repos_aus_snapshot": "2026-09-19",
     "anweisungsschicht": [
       {
         "datei": "claude-config/CLAUDE.md",
@@ -206,7 +206,7 @@
       {
         "repo": "sfleischmann-3steps2/KORODUR-Website",
         "datei": "CLAUDE.md",
-        "zeichen": 24257,
+        "zeichen": 24455,
         "budget": null,
         "ziel": null,
         "zustand": "gemessen"
@@ -214,12 +214,12 @@
     ],
     "korb": {
       "datei": "claude-config/learnings.md",
-      "abschnitte": 17,
+      "abschnitte": 19,
       "schwelle": 40,
       "ernte_faellig": false,
-      "zeichen": 23717,
+      "zeichen": 26913,
       "aeltester": "2026-09-17",
-      "alter_tage": 1
+      "alter_tage": 2
     }
   },
   "verlauf": [
@@ -369,6 +369,43 @@
         "abschnitte": 17,
         "zeichen": 23717,
         "alter_tage": 1
+      }
+    },
+    {
+      "gemessen_am": "2026-09-19T05:27:28Z",
+      "om_commit": "8d69d8349195c6c1628a7c0517e0f3e396610991",
+      "dateien": {
+        "claude-config/CLAUDE.md": 18459,
+        "claude-config/references/agenten-und-workflows.md": 7347,
+        "claude-config/references/board.md": 12943,
+        "claude-config/references/externe-kommunikation.md": 2354,
+        "claude-config/references/git-und-worktrees.md": 11551,
+        "claude-config/references/kontext-und-strategie.md": 2749,
+        "claude-config/references/mac-tooling.md": 6652,
+        "claude-config/references/notion-ids.md": 6254,
+        "claude-config/references/notion.md": 13699,
+        "claude-config/references/praesentationen.md": 9175,
+        "claude-config/references/render-und-messen.md": 10847,
+        "claude-config/references/texte-und-content.md": 1149
+      },
+      "repos": {
+        "KORODUR-International/korodur-ausschreibungstexte": 5236,
+        "KORODUR-International/korodur-corporate-design": 5547,
+        "KORODUR-International/korodur-crm": 4246,
+        "KORODUR-International/korodur-digitale-produktinformationen": 22031,
+        "KORODUR-International/korodur-military": 4914,
+        "KORODUR-International/korodur-operating-model": 4092,
+        "KORODUR-International/korodur-redaktion": 6606,
+        "KORODUR-International/korodur-referenzverzeichnis": 19423,
+        "KORODUR-International/korodur-review-reporting": 3070,
+        "KORODUR-International/korodur-skills": 3930,
+        "KORODUR-International/korodur-translation": 8716,
+        "sfleischmann-3steps2/KORODUR-Website": 24455
+      },
+      "korb": {
+        "abschnitte": 19,
+        "zeichen": 26913,
+        "alter_tage": 2
       }
     }
   ]

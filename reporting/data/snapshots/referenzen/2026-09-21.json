@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-21",
-    "generated_at": "2026-09-21T05:50:15.389366+00:00",
+    "generated_at": "2026-09-21T13:17:19.398257+00:00",
     "source": "Notion: KORODUR Referenzverzeichnis (Aggregat)",
     "version": "1.2",
     "hinweis": "Nur Aggregate. Objekttitel, Personen-, Betreiber-, Verarbeiter-, GU- und Architektennamen sowie Orte werden bewusst nicht gelesen.",
@@ -18,8 +18,8 @@
     "unbekannt": 0
   },
   "by_status": {
-    "offen": 15,
-    "Bilder sind da": 5,
+    "offen": 14,
+    "Bilder sind da": 6,
     "RAW: Info+Bilder da": 7,
     "Informationen fehlen": 0,
     "Fragen VOR V1 beantwortet": 0,
@@ -49,11 +49,11 @@
   "ziel": {
     "zielwert": 20,
     "prioritaet": "high",
-    "high_gesamt": 23,
+    "high_gesamt": 21,
     "ab_de_freigabe": 0,
     "veroeffentlicht": 0,
     "high_by_bucket": {
-      "offen": 7,
+      "offen": 5,
       "in_arbeit": 6,
       "in_abnahme": 10,
       "freigegeben": 0,

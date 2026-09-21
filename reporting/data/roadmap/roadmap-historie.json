@@ -77,20 +77,20 @@
     "con-q4planung": {
       "lane": "Content & Redaktion",
       "datum": "2026-09-20",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Redaktionsplanung Q4 durchgeführt"
     },
     "con-kpi": {
       "lane": "Content & Redaktion",
       "datum": "2026-09-30",
-      "status": "verschoben",
+      "status": "erreicht",
       "titel": "KPI-Set definiert, Reporting aufgebaut"
     },
     "con-vollbetrieb": {
       "lane": "Content & Redaktion",
       "datum": "2026-09-30",
       "status": "offen",
-      "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, min. 4 Wochen Vorplanung"
+      "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, 2,5 bis 3 Wochen terminierter Vorlauf"
     },
     "con-styleguide": {
       "lane": "Content & Redaktion",
@@ -143,31 +143,31 @@
     "dat-regeltermin": {
       "lane": "CRM-Datenfundament",
       "datum": "2026-07-31",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "14-tägiger Regeltermin Datenbereinigung etabliert"
     },
     "dat-testlauf": {
       "lane": "CRM-Datenfundament",
       "datum": "2026-08-10",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Testlauf Objektdaten-Anreicherung"
     },
     "dat-mvp": {
       "lane": "CRM-Datenfundament",
       "datum": "2026-08-15",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "MVP Objektdaten-Anreicherung läuft"
     },
     "dat-strategie": {
       "lane": "CRM-Datenfundament",
       "datum": "2026-08-20",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Strategiefestlegung Datenbereinigung mit dem Vertriebsteam"
     },
     "dat-kernfelder": {
       "lane": "CRM-Datenfundament",
       "datum": "2026-11-30",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Kritische Kernfelder bereinigt und filterbar"
     },
     "pdb-m1": {
@@ -293,8 +293,8 @@
     "ueb-tds-it": {
       "lane": "Übersetzungen",
       "datum": "2026-09-20",
-      "status": "offen",
-      "titel": "Technische Datenblätter der Kernprodukte auf Italienisch"
+      "status": "erreicht",
+      "titel": "Italienische TDS-Erstfassungen der Kernprodukte erstellt und übergeben"
     },
     "ueb-golive": {
       "lane": "Übersetzungen",
@@ -371,7 +371,7 @@
     "org-repos": {
       "lane": "Organisation & Enablement",
       "datum": "2026-09-30",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Repository-Landschaft bereinigt"
     },
     "org-notion": {
@@ -383,7 +383,7 @@
     "org-lernprozess": {
       "lane": "Organisation & Enablement",
       "datum": "2026-10-31",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Feedback- und Lernprozess etabliert"
     },
     "fix-epf": {
@@ -3244,6 +3244,114 @@
       "feld": null,
       "alt": "2026-09-20",
       "neu": "2026-09-20"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "con-kpi",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "verschoben",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "con-q4planung",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "con-vollbetrieb",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, min. 4 Wochen Vorplanung",
+      "neu": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, 2,5 bis 3 Wochen terminierter Vorlauf"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "dat-kernfelder",
+      "lane": "CRM-Datenfundament",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "dat-mvp",
+      "lane": "CRM-Datenfundament",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "dat-regeltermin",
+      "lane": "CRM-Datenfundament",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "dat-strategie",
+      "lane": "CRM-Datenfundament",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "dat-testlauf",
+      "lane": "CRM-Datenfundament",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "org-lernprozess",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "org-repos",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "ueb-tds-it",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-21",
+      "id": "ueb-tds-it",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Technische Datenblätter der Kernprodukte auf Italienisch",
+      "neu": "Italienische TDS-Erstfassungen der Kernprodukte erstellt und übergeben"
     }
   ],
   "kennzahlen": {

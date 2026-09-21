@@ -1,57 +1,57 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-21",
-    "generated_at": "2026-09-21T05:50:07.427030+00:00",
+    "generated_at": "2026-09-21T13:17:09.702670+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
     "version": "3.3"
   },
   "totals": {
-    "items": 837,
-    "done": 553,
-    "in_progress": 20,
-    "open": 170,
-    "blocked": 11,
-    "on_hold": 26,
+    "items": 851,
+    "done": 567,
+    "in_progress": 19,
+    "open": 175,
+    "blocked": 12,
+    "on_hold": 21,
     "discarded": 57,
-    "bereit": 78
+    "bereit": 81
   },
   "by_status": {
     "Backlog": 87,
-    "Bereit": 78,
-    "Beansprucht": 5,
+    "Bereit": 81,
+    "Beansprucht": 7,
     "In Progress": 8,
-    "In Review": 12,
-    "Blocked": 11,
-    "On Hold": 26,
-    "Done": 610,
+    "In Review": 11,
+    "Blocked": 12,
+    "On Hold": 21,
+    "Done": 624,
     "none": 0
   },
   "by_owner": {
     "Human": 109,
-    "Claude": 542,
-    "Either": 177,
+    "Claude": 552,
+    "Either": 181,
     "none": 9
   },
   "by_priority": {
     "P0": 14,
-    "P1": 389,
-    "P2": 346,
-    "P3": 79,
+    "P1": 396,
+    "P2": 352,
+    "P3": 80,
     "none": 9
   },
   "by_status_priority": {
     "open": {
       "P0": 1,
       "P1": 45,
-      "P2": 93,
-      "P3": 24,
+      "P2": 97,
+      "P3": 25,
       "none": 7
     },
     "in_progress": {
       "P0": 1,
-      "P1": 15,
+      "P1": 14,
       "P2": 4,
       "P3": 0,
       "none": 0
@@ -59,21 +59,21 @@
     "blocked": {
       "P0": 0,
       "P1": 7,
-      "P2": 4,
+      "P2": 5,
       "P3": 0,
       "none": 0
     },
     "on_hold": {
       "P0": 0,
-      "P1": 11,
+      "P1": 6,
       "P2": 7,
       "P3": 8,
       "none": 0
     },
     "done": {
       "P0": 12,
-      "P1": 295,
-      "P2": 206,
+      "P1": 308,
+      "P2": 207,
       "P3": 38,
       "none": 2
     }
@@ -81,32 +81,32 @@
   "areas": [
     {
       "name": "Marketing",
-      "total": 372,
-      "done": 250,
-      "in_progress": 8,
-      "open": 65,
-      "blocked": 6,
-      "on_hold": 8,
+      "total": 381,
+      "done": 256,
+      "in_progress": 9,
+      "open": 68,
+      "blocked": 7,
+      "on_hold": 6,
       "discarded": 35,
       "by_owner": {
         "Human": 45,
-        "Claude": 234,
-        "Either": 92,
+        "Claude": 242,
+        "Either": 93,
         "none": 1
       }
     },
     {
       "name": "CRM & Sales Ops",
-      "total": 22,
-      "done": 4,
+      "total": 24,
+      "done": 8,
       "in_progress": 0,
-      "open": 15,
+      "open": 16,
       "blocked": 0,
-      "on_hold": 3,
+      "on_hold": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 10,
-        "Claude": 3,
+        "Claude": 5,
         "Either": 9,
         "none": 0
       }
@@ -129,25 +129,25 @@
     },
     {
       "name": "Wissensaufbau",
-      "total": 103,
-      "done": 62,
+      "total": 105,
+      "done": 63,
       "in_progress": 6,
-      "open": 14,
+      "open": 15,
       "blocked": 5,
       "on_hold": 7,
       "discarded": 9,
       "by_owner": {
         "Human": 20,
         "Claude": 65,
-        "Either": 18,
+        "Either": 20,
         "none": 0
       }
     },
     {
       "name": "AI & Infrastruktur",
       "total": 247,
-      "done": 179,
-      "in_progress": 5,
+      "done": 181,
+      "in_progress": 3,
       "open": 48,
       "blocked": 0,
       "on_hold": 5,
@@ -161,8 +161,8 @@
     },
     {
       "name": "Strategie",
-      "total": 33,
-      "done": 20,
+      "total": 34,
+      "done": 21,
       "in_progress": 0,
       "open": 11,
       "blocked": 0,
@@ -171,7 +171,7 @@
       "by_owner": {
         "Human": 7,
         "Claude": 15,
-        "Either": 11,
+        "Either": 12,
         "none": 0
       }
     },
@@ -211,44 +211,44 @@
   "projects": [
     {
       "name": "sfleischmann-3steps2/KORODUR-Website",
-      "total": 279,
-      "done": 187,
-      "in_progress": 1,
-      "open": 43,
-      "blocked": 6,
+      "total": 288,
+      "done": 191,
+      "in_progress": 2,
+      "open": 46,
+      "blocked": 7,
       "on_hold": 2,
       "discarded": 40,
       "by_owner": {
         "Human": 31,
-        "Claude": 182,
-        "Either": 65,
+        "Claude": 190,
+        "Either": 66,
         "none": 1
       },
       "by_status": {
         "Backlog": 24,
-        "Bereit": 17,
-        "Beansprucht": 2,
+        "Bereit": 18,
+        "Beansprucht": 4,
         "In Progress": 1,
-        "In Review": 0,
-        "Blocked": 6,
+        "In Review": 1,
+        "Blocked": 7,
         "On Hold": 2,
-        "Done": 227,
+        "Done": 231,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 136,
-      "done": 102,
-      "in_progress": 2,
+      "total": 137,
+      "done": 105,
+      "in_progress": 1,
       "open": 18,
       "blocked": 0,
-      "on_hold": 8,
+      "on_hold": 7,
       "discarded": 6,
       "by_owner": {
         "Human": 16,
         "Claude": 96,
-        "Either": 24,
+        "Either": 25,
         "none": 0
       },
       "by_status": {
@@ -256,21 +256,21 @@
         "Bereit": 8,
         "Beansprucht": 1,
         "In Progress": 1,
-        "In Review": 1,
+        "In Review": 0,
         "Blocked": 0,
-        "On Hold": 8,
-        "Done": 108,
+        "On Hold": 7,
+        "Done": 111,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-referenzverzeichnis",
       "total": 97,
-      "done": 64,
+      "done": 66,
       "in_progress": 7,
       "open": 19,
       "blocked": 2,
-      "on_hold": 5,
+      "on_hold": 3,
       "discarded": 0,
       "by_owner": {
         "Human": 12,
@@ -285,35 +285,35 @@
         "In Progress": 3,
         "In Review": 4,
         "Blocked": 2,
-        "On Hold": 5,
-        "Done": 64,
+        "On Hold": 3,
+        "Done": 66,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-digitale-produktinformationen",
-      "total": 78,
-      "done": 47,
+      "total": 80,
+      "done": 48,
       "in_progress": 3,
-      "open": 15,
+      "open": 16,
       "blocked": 3,
       "on_hold": 5,
       "discarded": 5,
       "by_owner": {
         "Human": 11,
         "Claude": 44,
-        "Either": 16,
+        "Either": 18,
         "none": 7
       },
       "by_status": {
         "Backlog": 12,
-        "Bereit": 3,
+        "Bereit": 4,
         "Beansprucht": 0,
         "In Progress": 0,
         "In Review": 3,
         "Blocked": 3,
         "On Hold": 5,
-        "Done": 52,
+        "Done": 53,
         "none": 0
       }
     },
@@ -347,8 +347,8 @@
     {
       "name": "KORODUR-International/korodur-skills",
       "total": 45,
-      "done": 32,
-      "in_progress": 1,
+      "done": 33,
+      "in_progress": 0,
       "open": 10,
       "blocked": 0,
       "on_hold": 1,
@@ -364,21 +364,21 @@
         "Bereit": 9,
         "Beansprucht": 0,
         "In Progress": 0,
-        "In Review": 1,
+        "In Review": 0,
         "Blocked": 0,
         "On Hold": 1,
-        "Done": 33,
+        "Done": 34,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-crm",
       "total": 32,
-      "done": 8,
+      "done": 10,
       "in_progress": 1,
       "open": 19,
       "blocked": 0,
-      "on_hold": 3,
+      "on_hold": 1,
       "discarded": 1,
       "by_owner": {
         "Human": 12,
@@ -393,35 +393,35 @@
         "In Progress": 1,
         "In Review": 0,
         "Blocked": 0,
-        "On Hold": 3,
-        "Done": 9,
+        "On Hold": 1,
+        "Done": 11,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-redaktion",
-      "total": 28,
-      "done": 17,
+      "total": 30,
+      "done": 18,
       "in_progress": 2,
-      "open": 9,
+      "open": 10,
       "blocked": 0,
       "on_hold": 0,
       "discarded": 0,
       "by_owner": {
         "Human": 4,
-        "Claude": 12,
+        "Claude": 14,
         "Either": 12,
         "none": 0
       },
       "by_status": {
         "Backlog": 5,
-        "Bereit": 3,
+        "Bereit": 4,
         "Beansprucht": 1,
         "In Progress": 1,
         "In Review": 1,
         "Blocked": 0,
         "On Hold": 0,
-        "Done": 17,
+        "Done": 18,
         "none": 0
       }
     },
@@ -687,32 +687,6 @@
       "status_seit": "2026-09-12",
       "meilensteine": [
         "org-lernprozess"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-crm",
-      "nummer": 1,
-      "status": "On Hold",
-      "bereich": "CRM & Sales Ops",
-      "prioritaet": "P1",
-      "owner_typ": "Human",
-      "bearbeiter": null,
-      "status_seit": "2026-08-15",
-      "meilensteine": [
-        "vp-reporting"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-crm",
-      "nummer": 3,
-      "status": "On Hold",
-      "bereich": "CRM & Sales Ops",
-      "prioritaet": "P1",
-      "owner_typ": "Human",
-      "bearbeiter": null,
-      "status_seit": "2026-08-15",
-      "meilensteine": [
-        "ref-prozess"
       ]
     },
     {
@@ -1318,6 +1292,19 @@
       "status_seit": "2026-09-16"
     },
     {
+      "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+      "nummer": 127,
+      "status": "Bereit",
+      "bereich": "Wissensaufbau",
+      "prioritaet": "P3",
+      "owner_typ": "Either",
+      "bearbeiter": null,
+      "status_seit": "2026-09-21",
+      "meilensteine": [
+        "adhoc"
+      ]
+    },
+    {
       "repo": "KORODUR-International/korodur-konzepte",
       "nummer": 1,
       "status": "Bereit",
@@ -1869,6 +1856,19 @@
       ]
     },
     {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 41,
+      "status": "Bereit",
+      "bereich": "CRM & Sales Ops",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null,
+      "status_seit": "2026-09-21",
+      "meilensteine": [
+        "vp-definition"
+      ]
+    },
+    {
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 4,
       "status": "Backlog",
@@ -2052,37 +2052,11 @@
     },
     {
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
-      "nummer": 49,
-      "status": "On Hold",
-      "bereich": "Marketing",
-      "prioritaet": "P1",
-      "owner_typ": "Claude",
-      "bearbeiter": null,
-      "status_seit": "2026-08-16",
-      "meilensteine": [
-        "ref-ausbau"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 50,
       "status": "On Hold",
       "bereich": "Marketing",
       "prioritaet": "P1",
       "owner_typ": "Claude",
-      "bearbeiter": null,
-      "status_seit": "2026-08-16",
-      "meilensteine": [
-        "ref-prozess"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-referenzverzeichnis",
-      "nummer": 51,
-      "status": "On Hold",
-      "bereich": "Marketing",
-      "prioritaet": "P1",
-      "owner_typ": "Either",
       "bearbeiter": null,
       "status_seit": "2026-08-16",
       "meilensteine": [
@@ -2364,19 +2338,6 @@
     },
     {
       "repo": "KORODUR-International/korodur-review-reporting",
-      "nummer": 35,
-      "status": "In Review",
-      "bereich": "AI & Infrastruktur",
-      "prioritaet": "P1",
-      "owner_typ": "Human",
-      "bearbeiter": "Human",
-      "status_seit": "2026-09-14",
-      "meilensteine": [
-        "adhoc"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 45,
       "status": "On Hold",
       "bereich": "AI & Infrastruktur",
@@ -2490,22 +2451,6 @@
       "status_seit": "2026-09-09",
       "meilensteine": [
         "pdb-dop"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-review-reporting",
-      "nummer": 106,
-      "status": "On Hold",
-      "bereich": "CRM & Sales Ops",
-      "prioritaet": "P1",
-      "owner_typ": "Human",
-      "bearbeiter": null,
-      "status_seit": "2026-09-09",
-      "meilensteine": [
-        "dat-regeltermin",
-        "dat-testlauf",
-        "dat-mvp",
-        "dat-strategie"
       ]
     },
     {
@@ -2679,19 +2624,6 @@
       "status_seit": "2026-08-15",
       "meilensteine": [
         "adhoc"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-skills",
-      "nummer": 12,
-      "status": "In Review",
-      "bereich": "AI & Infrastruktur",
-      "prioritaet": "P2",
-      "owner_typ": "Claude",
-      "bearbeiter": null,
-      "status_seit": "2026-08-15",
-      "meilensteine": [
-        "org-lernprozess"
       ]
     },
     {
@@ -3596,6 +3528,71 @@
       "meilensteine": [
         "V1-Golive"
       ]
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 621,
+      "status": "Blocked",
+      "bereich": "Marketing",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": null,
+      "status_seit": "2026-09-21",
+      "meilensteine": [
+        "con-styleguide"
+      ]
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 623,
+      "status": "In Review",
+      "bereich": "Marketing",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur",
+      "status_seit": "2026-09-21",
+      "meilensteine": [
+        "adhoc"
+      ]
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 625,
+      "status": "Bereit",
+      "bereich": "Marketing",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": null,
+      "status_seit": "2026-09-21",
+      "meilensteine": [
+        "adhoc"
+      ]
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 626,
+      "status": "Beansprucht",
+      "bereich": "Marketing",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur",
+      "status_seit": "2026-09-21",
+      "meilensteine": [
+        "adhoc"
+      ]
+    },
+    {
+      "repo": "sfleischmann-3steps2/KORODUR-Website",
+      "nummer": 634,
+      "status": "Beansprucht",
+      "bereich": "Marketing",
+      "prioritaet": "P2",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur",
+      "status_seit": "2026-09-21",
+      "meilensteine": [
+        "web-loesungsfinder"
+      ]
     }
   ],
   "done_by_day": {
@@ -3652,13 +3649,14 @@
     "2026-09-15": 22,
     "2026-09-16": 8,
     "2026-09-17": 10,
-    "2026-09-18": 16
+    "2026-09-18": 16,
+    "2026-09-21": 13
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
-    "2026-09": 109
+    "2026-09": 122
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -3673,7 +3671,8 @@
     "2026-W34": 54,
     "2026-W35": 60,
     "2026-W37": 44,
-    "2026-W38": 65
+    "2026-W38": 65,
+    "2026-W39": 13
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#4",
@@ -3683,6 +3682,7 @@
     "KORODUR-International/korodur-corporate-design#2",
     "KORODUR-International/korodur-corporate-design#4",
     "KORODUR-International/korodur-corporate-design#6",
+    "KORODUR-International/korodur-crm#1",
     "KORODUR-International/korodur-crm#13",
     "KORODUR-International/korodur-crm#17",
     "KORODUR-International/korodur-crm#19",
@@ -3691,6 +3691,7 @@
     "KORODUR-International/korodur-crm#21",
     "KORODUR-International/korodur-crm#22",
     "KORODUR-International/korodur-crm#28",
+    "KORODUR-International/korodur-crm#3",
     "KORODUR-International/korodur-crm#35",
     "KORODUR-International/korodur-digitale-produktinformationen#1",
     "KORODUR-International/korodur-digitale-produktinformationen#10",
@@ -3700,6 +3701,7 @@
     "KORODUR-International/korodur-digitale-produktinformationen#11",
     "KORODUR-International/korodur-digitale-produktinformationen#110",
     "KORODUR-International/korodur-digitale-produktinformationen#12",
+    "KORODUR-International/korodur-digitale-produktinformationen#125",
     "KORODUR-International/korodur-digitale-produktinformationen#13",
     "KORODUR-International/korodur-digitale-produktinformationen#14",
     "KORODUR-International/korodur-digitale-produktinformationen#15",
@@ -3830,6 +3832,7 @@
     "KORODUR-International/korodur-redaktion#32",
     "KORODUR-International/korodur-redaktion#34",
     "KORODUR-International/korodur-redaktion#37",
+    "KORODUR-International/korodur-redaktion#39",
     "KORODUR-International/korodur-redaktion#4",
     "KORODUR-International/korodur-redaktion#5",
     "KORODUR-International/korodur-redaktion#6",
@@ -3884,6 +3887,8 @@
     "KORODUR-International/korodur-referenzverzeichnis#46",
     "KORODUR-International/korodur-referenzverzeichnis#47",
     "KORODUR-International/korodur-referenzverzeichnis#48",
+    "KORODUR-International/korodur-referenzverzeichnis#49",
+    "KORODUR-International/korodur-referenzverzeichnis#51",
     "KORODUR-International/korodur-referenzverzeichnis#52",
     "KORODUR-International/korodur-referenzverzeichnis#53",
     "KORODUR-International/korodur-referenzverzeichnis#54",
@@ -3903,6 +3908,7 @@
     "KORODUR-International/korodur-review-reporting#1",
     "KORODUR-International/korodur-review-reporting#103",
     "KORODUR-International/korodur-review-reporting#104",
+    "KORODUR-International/korodur-review-reporting#106",
     "KORODUR-International/korodur-review-reporting#107",
     "KORODUR-International/korodur-review-reporting#111",
     "KORODUR-International/korodur-review-reporting#112",
@@ -3971,10 +3977,12 @@
     "KORODUR-International/korodur-review-reporting#255",
     "KORODUR-International/korodur-review-reporting#257",
     "KORODUR-International/korodur-review-reporting#26",
+    "KORODUR-International/korodur-review-reporting#260",
     "KORODUR-International/korodur-review-reporting#27",
     "KORODUR-International/korodur-review-reporting#28",
     "KORODUR-International/korodur-review-reporting#3",
     "KORODUR-International/korodur-review-reporting#34",
+    "KORODUR-International/korodur-review-reporting#35",
     "KORODUR-International/korodur-review-reporting#37",
     "KORODUR-International/korodur-review-reporting#39",
     "KORODUR-International/korodur-review-reporting#4",
@@ -4009,6 +4017,7 @@
     "KORODUR-International/korodur-review-reporting#97",
     "KORODUR-International/korodur-review-reporting#98",
     "KORODUR-International/korodur-skills#10",
+    "KORODUR-International/korodur-skills#12",
     "KORODUR-International/korodur-skills#14",
     "KORODUR-International/korodur-skills#17",
     "KORODUR-International/korodur-skills#2",
@@ -4258,6 +4267,10 @@
     "sfleischmann-3steps2/KORODUR-Website#609",
     "sfleischmann-3steps2/KORODUR-Website#611",
     "sfleischmann-3steps2/KORODUR-Website#612",
+    "sfleischmann-3steps2/KORODUR-Website#619",
+    "sfleischmann-3steps2/KORODUR-Website#620",
+    "sfleischmann-3steps2/KORODUR-Website#628",
+    "sfleischmann-3steps2/KORODUR-Website#629",
     "sfleischmann-3steps2/KORODUR-Website#72",
     "sfleischmann-3steps2/KORODUR-Website#73",
     "sfleischmann-3steps2/KORODUR-Website#74",
@@ -4289,22 +4302,199 @@
   ],
   "bewegungen": {
     "referenz": "2026-09-20",
-    "neu": [],
+    "neu": [
+      {
+        "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+        "nummer": 127,
+        "bereich": "Wissensaufbau",
+        "prioritaet": "P3",
+        "owner_typ": "Either",
+        "status": "Bereit"
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 41,
+        "bereich": "CRM & Sales Ops",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "status": "Bereit"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 621,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Either",
+        "status": "Blocked"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 623,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "status": "In Review"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 625,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "status": "Bereit"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 626,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "status": "Beansprucht"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 634,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "status": "Beansprucht"
+      }
+    ],
     "bewegt": [],
-    "erledigt": [],
+    "erledigt": [
+      {
+        "repo": "KORODUR-International/korodur-crm",
+        "nummer": 1,
+        "bereich": "CRM & Sales Ops",
+        "prioritaet": "P1",
+        "owner_typ": "Human",
+        "von": "On Hold",
+        "closed_at": "2026-09-21T11:48:04Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-crm",
+        "nummer": 3,
+        "bereich": "CRM & Sales Ops",
+        "prioritaet": "P1",
+        "owner_typ": "Human",
+        "von": "On Hold",
+        "closed_at": "2026-09-21T11:49:04Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+        "nummer": 125,
+        "bereich": "Wissensaufbau",
+        "prioritaet": "P1",
+        "owner_typ": "Either",
+        "closed_at": "2026-09-21T10:21:39Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 39,
+        "bereich": "CRM & Sales Ops",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-21T11:56:06Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-referenzverzeichnis",
+        "nummer": 49,
+        "bereich": "Marketing",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "von": "On Hold",
+        "closed_at": "2026-09-21T11:50:21Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-referenzverzeichnis",
+        "nummer": 51,
+        "bereich": "Marketing",
+        "prioritaet": "P1",
+        "owner_typ": "Either",
+        "von": "On Hold",
+        "closed_at": "2026-09-21T11:50:51Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 35,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P1",
+        "owner_typ": "Human",
+        "von": "In Review",
+        "closed_at": null
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 106,
+        "bereich": "CRM & Sales Ops",
+        "prioritaet": "P1",
+        "owner_typ": "Human",
+        "von": "On Hold",
+        "closed_at": "2026-09-21T11:49:32Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 260,
+        "bereich": "Strategie",
+        "prioritaet": "P1",
+        "owner_typ": "Either",
+        "closed_at": "2026-09-21T13:14:43Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-skills",
+        "nummer": 12,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "von": "In Review",
+        "closed_at": "2026-09-21T12:47:35Z"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 619,
+        "bereich": "Marketing",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-21T10:56:50Z"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 620,
+        "bereich": "Marketing",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-21T10:49:16Z"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 628,
+        "bereich": "Marketing",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-21T12:25:09Z"
+      },
+      {
+        "repo": "sfleischmann-3steps2/KORODUR-Website",
+        "nummer": 629,
+        "bereich": "Marketing",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-21T11:41:11Z"
+      }
+    ],
     "verworfen": [],
     "abgang": []
   },
   "meilenstein": {
     "feldSeit": "2026-09-11",
     "bestand": {
-      "auf": 159,
-      "adhoc": 59,
+      "auf": 156,
+      "adhoc": 62,
       "leer": 9
     },
     "erledigt": {
-      "auf": 90,
-      "adhoc": 18,
+      "auf": 103,
+      "adhoc": 19,
       "leer": 445
     },
     "je_woche": {
@@ -4372,6 +4562,11 @@
         "auf": 53,
         "adhoc": 12,
         "leer": 0
+      },
+      "2026-W39": {
+        "auf": 13,
+        "adhoc": 0,
+        "leer": 0
       }
     },
     "je_id": {
@@ -4381,47 +4576,47 @@
       },
       "con-kpi": {
         "offen": 5,
-        "erledigt": 6
+        "erledigt": 7
       },
       "con-q4planung": {
         "offen": 2,
-        "erledigt": 2
+        "erledigt": 3
       },
       "con-styleguide": {
-        "offen": 4,
-        "erledigt": 4
+        "offen": 5,
+        "erledigt": 6
       },
       "con-vollbetrieb": {
         "offen": 5,
-        "erledigt": 0
+        "erledigt": 1
       },
       "dat-kernfelder": {
         "offen": 2,
-        "erledigt": 0
-      },
-      "dat-mvp": {
-        "offen": 2,
         "erledigt": 1
       },
+      "dat-mvp": {
+        "offen": 1,
+        "erledigt": 3
+      },
       "dat-regeltermin": {
-        "offen": 3,
-        "erledigt": 0
+        "offen": 2,
+        "erledigt": 2
       },
       "dat-strategie": {
-        "offen": 4,
-        "erledigt": 0
+        "offen": 3,
+        "erledigt": 2
       },
       "dat-testlauf": {
-        "offen": 2,
-        "erledigt": 0
+        "offen": 1,
+        "erledigt": 2
       },
       "ki-test": {
         "offen": 13,
         "erledigt": 0
       },
       "org-lernprozess": {
-        "offen": 32,
-        "erledigt": 50
+        "offen": 31,
+        "erledigt": 52
       },
       "org-notion": {
         "offen": 10,
@@ -4429,27 +4624,27 @@
       },
       "org-repos": {
         "offen": 5,
-        "erledigt": 3
+        "erledigt": 4
       },
       "pdb-dop": {
         "offen": 12,
-        "erledigt": 7
+        "erledigt": 8
       },
       "pdb-epd": {
         "offen": 1,
         "erledigt": 0
       },
       "ref-ausbau": {
-        "offen": 19,
-        "erledigt": 2
+        "offen": 18,
+        "erledigt": 3
       },
       "ref-formate": {
         "offen": 4,
         "erledigt": 4
       },
       "ref-prozess": {
-        "offen": 15,
-        "erledigt": 1
+        "offen": 13,
+        "erledigt": 3
       },
       "ueb-strategie": {
         "offen": 3,
@@ -4457,11 +4652,11 @@
       },
       "ueb-tds-it": {
         "offen": 3,
-        "erledigt": 1
+        "erledigt": 2
       },
       "vp-definition": {
-        "offen": 1,
-        "erledigt": 0
+        "offen": 2,
+        "erledigt": 1
       },
       "vp-kpi": {
         "offen": 1,
@@ -4472,8 +4667,12 @@
         "erledigt": 1
       },
       "vp-reporting": {
-        "offen": 3,
-        "erledigt": 0
+        "offen": 2,
+        "erledigt": 1
+      },
+      "vp-workshop": {
+        "offen": 0,
+        "erledigt": 1
       },
       "web-daten": {
         "offen": 13,
@@ -4484,8 +4683,8 @@
         "erledigt": 0
       },
       "web-loesungsfinder": {
-        "offen": 6,
-        "erledigt": 7
+        "offen": 7,
+        "erledigt": 9
       },
       "web-pdp": {
         "offen": 3,

@@ -2,6 +2,54 @@
   "version": 1,
   "letzteFeststellung": "2026-09-22",
   "stand": {
+    "con-workflow": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-07-31",
+      "status": "erreicht",
+      "titel": "Workflow Content, Redaktion, Planung definiert (V1)"
+    },
+    "con-prozess": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-08-15",
+      "status": "erreicht",
+      "titel": "Redaktionsprozess steht komplett"
+    },
+    "con-softstart": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-08-15",
+      "status": "erreicht",
+      "titel": "Soft-Launch Facebook + Instagram"
+    },
+    "con-q4planung": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-09-20",
+      "status": "erreicht",
+      "titel": "Redaktionsplanung Q4 durchgeführt"
+    },
+    "con-kpi": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-09-30",
+      "status": "erreicht",
+      "titel": "KPI-Set definiert, Reporting aufgebaut"
+    },
+    "con-vollbetrieb": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, 2,5 bis 3 Wochen terminierter Vorlauf"
+    },
+    "con-styleguide": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Visueller Style Guide V1 (Bildgenerierung & Grafik)"
+    },
+    "con-jahresplanung": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-12-05",
+      "status": "offen",
+      "titel": "Jahres-Redaktionsplanung 2027"
+    },
     "web-struktur": {
       "lane": "Website",
       "datum": "2026-07-31",
@@ -115,132 +163,6 @@
       "datum": null,
       "status": "offen",
       "titel": "Freigegebene Produktdaten und Dokumente auf Website übernommen"
-    },
-    "con-workflow": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-07-31",
-      "status": "erreicht",
-      "titel": "Workflow Content, Redaktion, Planung definiert (V1)"
-    },
-    "con-prozess": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-08-15",
-      "status": "erreicht",
-      "titel": "Redaktionsprozess steht komplett"
-    },
-    "con-softstart": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-08-15",
-      "status": "erreicht",
-      "titel": "Soft-Launch Facebook + Instagram"
-    },
-    "con-q4planung": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-09-20",
-      "status": "erreicht",
-      "titel": "Redaktionsplanung Q4 durchgeführt"
-    },
-    "con-kpi": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-09-30",
-      "status": "erreicht",
-      "titel": "KPI-Set definiert, Reporting aufgebaut"
-    },
-    "con-vollbetrieb": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-09-30",
-      "status": "offen",
-      "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, 2,5 bis 3 Wochen terminierter Vorlauf"
-    },
-    "con-styleguide": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-10-31",
-      "status": "offen",
-      "titel": "Visueller Style Guide V1 (Bildgenerierung & Grafik)"
-    },
-    "con-jahresplanung": {
-      "lane": "Content & Redaktion",
-      "datum": "2026-12-05",
-      "status": "offen",
-      "titel": "Jahres-Redaktionsplanung 2027"
-    },
-    "vp-definition": {
-      "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-09-30",
-      "status": "verschoben",
-      "titel": "Prozessschritte, SLAs und Verantwortlichkeiten definiert"
-    },
-    "vp-workshop": {
-      "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-09-30",
-      "status": "offen",
-      "titel": "Prozess mit der Vertriebsleitung fixiert"
-    },
-    "vp-pilot": {
-      "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-10-10",
-      "status": "verschoben",
-      "titel": "Messe-Pilot durchlaufen"
-    },
-    "vp-kpi": {
-      "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-10-31",
-      "status": "offen",
-      "titel": "KPI-Set Vertrieb definiert"
-    },
-    "vp-dod": {
-      "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-11-30",
-      "status": "offen",
-      "titel": "Prozess im Unternehmen implementiert"
-    },
-    "vp-reporting": {
-      "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-12-31",
-      "status": "offen",
-      "titel": "Monatliches GF-Reporting läuft"
-    },
-    "crm-web-bestandskunden": {
-      "lane": "Vertriebsprozess & Kampagnen",
-      "datum": null,
-      "status": "offen",
-      "titel": "Neue Website: Bestandskundenkampagne umgesetzt"
-    },
-    "crm-web-pr": {
-      "lane": "Vertriebsprozess & Kampagnen",
-      "datum": null,
-      "status": "offen",
-      "titel": "Neue Website: PR-Kampagne umgesetzt"
-    },
-    "dat-regeltermin": {
-      "lane": "CRM-Datenfundament",
-      "datum": "2026-07-31",
-      "status": "entfallen",
-      "titel": "14-tägiger Regeltermin Datenbereinigung etabliert"
-    },
-    "dat-testlauf": {
-      "lane": "CRM-Datenfundament",
-      "datum": "2026-08-10",
-      "status": "entfallen",
-      "titel": "Testlauf Objektdaten-Anreicherung"
-    },
-    "dat-mvp": {
-      "lane": "CRM-Datenfundament",
-      "datum": "2026-08-15",
-      "status": "entfallen",
-      "titel": "MVP Objektdaten-Anreicherung läuft"
-    },
-    "dat-strategie": {
-      "lane": "CRM-Datenfundament",
-      "datum": "2026-08-20",
-      "status": "entfallen",
-      "titel": "Strategiefestlegung Datenbereinigung mit dem Vertriebsteam"
-    },
-    "dat-kernfelder": {
-      "lane": "CRM-Datenfundament",
-      "datum": "2026-11-30",
-      "status": "entfallen",
-      "titel": "Kritische Kernfelder bereinigt und filterbar"
     },
     "pdb-m1": {
       "lane": "Digitale Produktinformationen (DPI)",
@@ -361,6 +283,168 @@
       "datum": "2026-12-15",
       "status": "offen",
       "titel": "Zielzahl erreicht: 20 Referenzen ausgearbeitet"
+    },
+    "org-repo": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-07-20",
+      "status": "erreicht",
+      "titel": "Website-Repository in die Organisation migriert"
+    },
+    "org-grundgeruest": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-08-15",
+      "status": "erreicht",
+      "titel": "Notion-Grundgerüst der optimierten Struktur steht"
+    },
+    "org-hygiene": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-08-31",
+      "status": "erreicht",
+      "titel": "Standard-Repository-Hygiene aufgesetzt"
+    },
+    "org-repos": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-09-30",
+      "status": "erreicht",
+      "titel": "Repository-Landschaft bereinigt"
+    },
+    "org-notion": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-10-15",
+      "status": "offen",
+      "titel": "Wissens-Space konsolidiert"
+    },
+    "org-lernprozess": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-10-31",
+      "status": "erreicht",
+      "titel": "Feedback- und Lernprozess etabliert"
+    },
+    "ki-uc1": {
+      "lane": "Lokale KI",
+      "datum": "2026-07-31",
+      "status": "erreicht",
+      "titel": "Use Case 1 definiert"
+    },
+    "ki-datensicherheit": {
+      "lane": "Lokale KI",
+      "datum": "2026-08-15",
+      "status": "erreicht",
+      "titel": "Definition Datensicherheit"
+    },
+    "ki-setup-tech": {
+      "lane": "Lokale KI",
+      "datum": "2026-08-20",
+      "status": "erreicht",
+      "titel": "Entscheidungen und technisches Setup"
+    },
+    "ki-test": {
+      "lane": "Lokale KI",
+      "datum": "2026-08-31",
+      "status": "offen",
+      "titel": "Use Case 1 im Testing"
+    },
+    "ki-setup-gf": {
+      "lane": "Lokale KI",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Setup Laptop Geschäftsführung"
+    },
+    "ki-vision": {
+      "lane": "Lokale KI",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Vision + Konzept: lokale KI im Netzwerk"
+    },
+    "ki-jahresende": {
+      "lane": "Lokale KI",
+      "datum": "2026-12-31",
+      "status": "offen",
+      "titel": "Setup läuft, erster dokumentierter Analysedurchlauf"
+    },
+    "vp-definition": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-09-30",
+      "status": "verschoben",
+      "titel": "Prozessschritte, SLAs und Verantwortlichkeiten definiert"
+    },
+    "vp-workshop": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Prozess mit der Vertriebsleitung fixiert"
+    },
+    "vp-pilot": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-10-10",
+      "status": "verschoben",
+      "titel": "Messe-Pilot durchlaufen"
+    },
+    "vp-kpi": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "KPI-Set Vertrieb definiert"
+    },
+    "vp-dod": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "Prozess im Unternehmen implementiert"
+    },
+    "vp-reporting": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-12-31",
+      "status": "offen",
+      "titel": "Monatliches GF-Reporting läuft"
+    },
+    "crm-web-bestandskunden": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Neue Website: Bestandskundenkampagne umgesetzt"
+    },
+    "crm-web-pr": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Neue Website: PR-Kampagne umgesetzt"
+    },
+    "dat-regeltermin": {
+      "lane": "CRM-Datenfundament (to be defined)",
+      "datum": "2026-07-31",
+      "status": "entfallen",
+      "titel": "14-tägiger Regeltermin Datenbereinigung etabliert"
+    },
+    "dat-testlauf": {
+      "lane": "CRM-Datenfundament (to be defined)",
+      "datum": "2026-08-10",
+      "status": "entfallen",
+      "titel": "Testlauf Objektdaten-Anreicherung"
+    },
+    "dat-mvp": {
+      "lane": "CRM-Datenfundament (to be defined)",
+      "datum": "2026-08-15",
+      "status": "entfallen",
+      "titel": "MVP Objektdaten-Anreicherung läuft"
+    },
+    "dat-strategie": {
+      "lane": "CRM-Datenfundament (to be defined)",
+      "datum": "2026-08-20",
+      "status": "entfallen",
+      "titel": "Strategiefestlegung Datenbereinigung mit dem Vertriebsteam"
+    },
+    "dat-kernfelder": {
+      "lane": "CRM-Datenfundament (to be defined)",
+      "datum": "2026-11-30",
+      "status": "entfallen",
+      "titel": "Kritische Kernfelder bereinigt und filterbar"
+    },
+    "dat-strategie-2027": {
+      "lane": "CRM-Datenfundament (to be defined)",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Strategie CRM-Datenfundament 2027 steht"
     },
     "ueb-tds-it": {
       "lane": "Übersetzungen",
@@ -499,96 +583,6 @@
       "datum": null,
       "status": "offen",
       "titel": "Startseite, Kontakt und Unternehmen: Französisch ausgearbeitet"
-    },
-    "ki-uc1": {
-      "lane": "Lokale KI",
-      "datum": "2026-07-31",
-      "status": "erreicht",
-      "titel": "Use Case 1 definiert"
-    },
-    "ki-datensicherheit": {
-      "lane": "Lokale KI",
-      "datum": "2026-08-15",
-      "status": "erreicht",
-      "titel": "Definition Datensicherheit"
-    },
-    "ki-setup-tech": {
-      "lane": "Lokale KI",
-      "datum": "2026-08-20",
-      "status": "erreicht",
-      "titel": "Entscheidungen und technisches Setup"
-    },
-    "ki-test": {
-      "lane": "Lokale KI",
-      "datum": "2026-08-31",
-      "status": "offen",
-      "titel": "Use Case 1 im Testing"
-    },
-    "ki-setup-gf": {
-      "lane": "Lokale KI",
-      "datum": "2026-09-30",
-      "status": "offen",
-      "titel": "Setup Laptop Geschäftsführung"
-    },
-    "ki-vision": {
-      "lane": "Lokale KI",
-      "datum": "2026-10-31",
-      "status": "offen",
-      "titel": "Vision + Konzept: lokale KI im Netzwerk"
-    },
-    "ki-jahresende": {
-      "lane": "Lokale KI",
-      "datum": "2026-12-31",
-      "status": "offen",
-      "titel": "Setup läuft, erster dokumentierter Analysedurchlauf"
-    },
-    "org-repo": {
-      "lane": "Organisation & Enablement",
-      "datum": "2026-07-20",
-      "status": "erreicht",
-      "titel": "Website-Repository in die Organisation migriert"
-    },
-    "org-grundgeruest": {
-      "lane": "Organisation & Enablement",
-      "datum": "2026-08-15",
-      "status": "erreicht",
-      "titel": "Notion-Grundgerüst der optimierten Struktur steht"
-    },
-    "org-hygiene": {
-      "lane": "Organisation & Enablement",
-      "datum": "2026-08-31",
-      "status": "erreicht",
-      "titel": "Standard-Repository-Hygiene aufgesetzt"
-    },
-    "org-repos": {
-      "lane": "Organisation & Enablement",
-      "datum": "2026-09-30",
-      "status": "erreicht",
-      "titel": "Repository-Landschaft bereinigt"
-    },
-    "org-notion": {
-      "lane": "Organisation & Enablement",
-      "datum": "2026-10-15",
-      "status": "offen",
-      "titel": "Wissens-Space konsolidiert"
-    },
-    "org-lernprozess": {
-      "lane": "Organisation & Enablement",
-      "datum": "2026-10-31",
-      "status": "erreicht",
-      "titel": "Feedback- und Lernprozess etabliert"
-    },
-    "fix-epf": {
-      "lane": "Externe Fixpunkte",
-      "datum": "2026-07-31",
-      "status": "erreicht",
-      "titel": "EPF: Auftritt-Paket entscheiden"
-    },
-    "fix-archipoint": {
-      "lane": "Externe Fixpunkte",
-      "datum": "2026-09-23",
-      "status": "offen",
-      "titel": "ArchiPoint Rivercruise (Messe-Pilot)"
     }
   },
   "aenderungen": [
@@ -3916,6 +3910,33 @@
       "feld": "titel",
       "alt": "Lösungsfinder Industrieboden abgestimmt",
       "neu": "Lösungsfinder: Ablauf und Entscheidungslogik abgestimmt"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "dat-strategie-2027",
+      "lane": "CRM-Datenfundament (to be defined)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "fix-archipoint",
+      "lane": "Externe Fixpunkte",
+      "typ": "entfernt",
+      "feld": null,
+      "alt": "2026-09-23",
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "fix-epf",
+      "lane": "Externe Fixpunkte",
+      "typ": "entfernt",
+      "feld": null,
+      "alt": "2026-07-31",
+      "neu": null
     }
   ],
   "kennzahlen": {

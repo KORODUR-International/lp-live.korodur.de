@@ -2454,8 +2454,8 @@
   {
     "date": "2026-09-22",
     "items": 899,
-    "done": 587,
-    "in_progress": 19,
+    "done": 588,
+    "in_progress": 18,
     "open": 201,
     "blocked": 14,
     "on_hold": 21,
@@ -2472,15 +2472,15 @@
       "Bereit": 77,
       "Beansprucht": 5,
       "In Progress": 8,
-      "In Review": 11,
+      "In Review": 10,
       "Blocked": 14,
       "On Hold": 21,
-      "Done": 644,
+      "Done": 645,
       "none": 0
     },
     "meilenstein": {
       "auf": 189,
-      "adhoc": 58,
+      "adhoc": 57,
       "leer": 8
     }
   }

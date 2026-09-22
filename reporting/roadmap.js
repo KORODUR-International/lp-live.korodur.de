@@ -18,7 +18,7 @@ const SNAPSHOT_DIR = 'data/snapshots/';
 const SNAPSHOT_INDEX_URL = SNAPSHOT_DIR + 'index.json';
 
 const MONTH_NAMES = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
-const TYP_LABEL = { meilenstein: 'Meilenstein', schluessel: 'Schlüsselereignis', entscheidung: 'Entscheidungspunkt', fixpunkt: 'Externer Fixpunkt' };
+const TYP_LABEL = { meilenstein: 'Meilenstein', schluessel: 'Schlüsselereignis', entscheidung: 'Entscheidungspunkt' };
 const STATUS_LABEL = { offen: 'offen', erreicht: 'erreicht', verschoben: 'verschoben', entfallen: 'entfallen' };
 
 // Confidence: öffentlich nur als Symbol (Herleitung/Prozente bleiben intern).
@@ -109,7 +109,6 @@ const LATE_LABEL = 'überfällig';
 const lateChipHtml = '<span class="rm-latechip">überfällig</span>';
 const state = {
   zoom: 'h2p',
-  fix: false,               // externe Fixpunkte (Standard: ausgeblendet, Review 14.07.)
   decisions: true,          // Entscheidungspunkte
   achieved: true,           // erreichte Meilensteine
   zu: new Set(),            // eingeklappte Bereiche (leer = alle offen, #201)
@@ -210,7 +209,6 @@ function toggleArea(id) {
 function readStateFromUrl() {
   const p = new URLSearchParams(location.search);
   if (p.has('zoom') && ZOOMS.some(z => z.key === p.get('zoom'))) state.zoom = p.get('zoom');
-  if (p.has('fix')) state.fix = p.get('fix') === '1';
   if (p.has('dec')) state.decisions = p.get('dec') === '1';
   if (p.has('done')) state.achieved = p.get('done') === '1';
   const bekannt = id => DATA.areas.some(a => a.id === id);
@@ -226,14 +224,12 @@ function readStateFromUrl() {
   if (p.has('sel')) {
     const id = p.get('sel');
     if (DATA.lanes.some(l => l.id === id)) state.selected = { kind: 'lane', id };
-    else if (DATA.lanes.some(l => l.meilensteine.some(m => m.id === id))
-      || DATA.fixpunkte.some(f => f.id === id)) state.selected = { kind: 'ms', id };
+    else if (DATA.lanes.some(l => l.meilensteine.some(m => m.id === id))) state.selected = { kind: 'ms', id };
   }
 }
 function writeStateToUrl() {
   const p = new URLSearchParams();
   if (state.zoom !== 'h2p') p.set('zoom', state.zoom);
-  if (state.fix) p.set('fix', '1');
   if (!state.decisions) p.set('dec', '0');
   if (!state.achieved) p.set('done', '0');
   if (state.zu.size) p.set('zu', [...state.zu].join(','));
@@ -248,8 +244,6 @@ function findMs(id) {
     const m = lane.meilensteine.find(m => m.id === id);
     if (m) return { m, lane };
   }
-  const f = DATA.fixpunkte.find(f => f.id === id);
-  if (f) return { m: f, lane: null };
   return null;
 }
 
@@ -296,6 +290,17 @@ function rangeHtml(m, color) {
   return `<div class="rm-range" style="left:${r0}%;width:${r1 - r0}%;background:${color}"></div>`;
 }
 
+// Unter dem Lane-Namen steht genau ein erklärender Satz: `kurz`, sonst der
+// (dann ohnehin kurze) `hinweis`. Ist der volle Hinweis länger, trägt die Zeile
+// ihn per Hover und Fokus nach; das Detail-Panel zeigt ihn weiter ungekürzt.
+function noteHtml(lane) {
+  const text = lane.kurz || lane.hinweis;
+  if (!text) return '';
+  const mehr = Boolean(lane.kurz && lane.hinweis && lane.hinweis !== lane.kurz);
+  return mehr
+    ? `<div class="rm-lane__note rm-lane__note--mehr" data-note="${esc(lane.id)}" tabindex="0">${esc(text)}</div>`
+    : `<div class="rm-lane__note">${esc(text)}</div>`;
+}
 function laneRowHtml(lane) {
   const color = areaOf(lane.area).farbe;
   const z = zoomDef();
@@ -333,7 +338,7 @@ function laneRowHtml(lane) {
   <div class="rm-row rm-lane${selCls}">
     <div class="rm-lane__label">
       <button type="button" class="rm-lane__name" data-lanebtn="${esc(lane.id)}">${esc(lane.name)}</button>
-      ${lane.hinweis ? `<div class="rm-lane__note">${esc(lane.hinweis)}</div>` : ''}
+      ${noteHtml(lane)}
       <div class="rm-lane__progress">
         ${progressBarHtml(p, color)}
         <span class="rm-lane__count">${p.done}/${p.total}</span>
@@ -347,25 +352,6 @@ function laneRowHtml(lane) {
       ${ms.map(m => markerHtml(m, lane.id, color)).join('')}
     </div>
     <div class="rm-lane__next">${zoomDef().outlook && lane.weiter2027 ? `<span class="rm-chip">→ ${esc(lane.weiter2027)}</span>` : ''}</div>
-  </div>`;
-}
-
-function fixRowHtml() {
-  const fixe = visibleMs(DATA.fixpunkte);
-  const gridHtml = monthsInWindow().slice(1).map(m => `<div class="rm-grid-v" style="left:${m.left}%"></div>`).join('');
-  return `
-  <div class="rm-row rm-lane rm-lane--fix">
-    <div class="rm-lane__label">
-      <span class="rm-lane__name rm-lane__name--static">Externe Fixpunkte</span>
-      <div class="rm-lane__note">nur committete Termine</div>
-    </div>
-    <div class="rm-lane__zone">
-      ${gridHtml}
-      ${fixe.map(m => rangeHtml(m, 'var(--muted)')).join('')}
-      ${fixe.map((m, i) => labelHtml(m, i)).join('')}
-      ${fixe.map(m => markerHtml(m, null, 'var(--muted)')).join('')}
-    </div>
-    <div class="rm-lane__next"></div>
   </div>`;
 }
 
@@ -394,7 +380,6 @@ function chartHtml() {
         </div>
         <div class="rm-months__next">${z.outlook ? esc(DATA.zeitraum.ausblickLabel) + ' →' : ''}</div>
       </div>
-      ${state.fix ? fixRowHtml() : ''}
       ${groups.map(g => {
         const zu = istZu(g.area);
         const ap = areaProgress(g.area);
@@ -421,19 +406,12 @@ function chartHtml() {
 function toolbarHtml() {
   const toggle = (id, label, on) =>
     `<label class="rm-toggle"><input type="checkbox" data-toggle="${id}" ${on ? 'checked' : ''}><span>${label}</span></label>`;
-  // Fixpunkte zählen nicht in die Erfüllungsquote (ein externer Ausfall darf die
-  // eigene Leistungsaussage nicht einfärben), bekommen aber einen Hinweispunkt.
-  const fixLate = DATA.fixpunkte.filter(isLate).length;
-  const fixLabel = 'Externe Fixpunkte' + (fixLate
-    ? ` <span class="rm-dotlate" role="img" title="${fixLate} ${fixLate === 1 ? 'externer Fixpunkt' : 'externe Fixpunkte'} ${LATE_LABEL}" aria-label="${fixLate} ${LATE_LABEL}"></span>`
-    : '');
   return `
   <div class="status-section rm-toolbar">
     <div class="rm-toolbar__group" role="group" aria-label="Zeitraum">
       ${ZOOMS.map(z => `<button type="button" class="rm-zoombtn${state.zoom === z.key ? ' is-active' : ''}" data-zoom="${z.key}">${z.label}</button>`).join('')}
     </div>
     <div class="rm-toolbar__group rm-toolbar__group--leise">
-      ${toggle('fix', fixLabel, state.fix)}
       ${toggle('dec', 'Entscheidungspunkte', state.decisions)}
       ${toggle('done', 'Erreichte', state.achieved)}
     </div>
@@ -477,7 +455,7 @@ function detailHtml() {
   const hit = findMs(state.selected.id);
   if (!hit) return '';
   const { m, lane } = hit;
-  const areaTxt = lane ? areaName(lane.area) : 'Externer Fixpunkt';
+  const areaTxt = areaName(lane.area);
   const issueLink = m.issue
     ? `<a class="rm-detail__issue" href="https://github.com/${esc(m.issue.replace('#', '/issues/'))}" target="_blank" rel="noopener">${esc(m.issue)}</a>`
     : '';
@@ -485,7 +463,7 @@ function detailHtml() {
   <div class="status-section rm-detail">
     <div class="rm-detail__head">
       <h3 class="rm-detail__title">${m.status === 'erreicht' ? '✓ ' : ''}${esc(m.titel)}</h3>
-      <span class="rm-detail__meta">${fmtDate(m.datum)}${m.zielzeitraum ? ` · ${esc(m.zielzeitraum)}` : ''}${m.zeitraum ? ` (${fmtShort(m.zeitraum.von)} bis ${fmtShort(m.zeitraum.bis)})` : ''} · ${esc(areaTxt)}${lane ? ' · ' + esc(lane.name) : ''} · ${TYP_LABEL[m.typ] || esc(m.typ)}</span>
+      <span class="rm-detail__meta">${fmtDate(m.datum)}${m.zielzeitraum ? ` · ${esc(m.zielzeitraum)}` : ''}${m.zeitraum ? ` (${fmtShort(m.zeitraum.von)} bis ${fmtShort(m.zeitraum.bis)})` : ''} · ${esc(areaTxt)} · ${esc(lane.name)} · ${TYP_LABEL[m.typ] || esc(m.typ)}</span>
       <button type="button" class="rm-detail__close" data-close aria-label="Schließen">×</button>
     </div>
     <p class="rm-detail__body">
@@ -503,7 +481,7 @@ function detailHtml() {
     ${m.confidence ? `<p class="rm-detail__body">Confidence: <b>${CONF_LABEL[m.confidence]}</b> ${confSymbolHtml(m.confidence)}</p>` : ''}
     ${m.abhaengigkeit ? `<p class="rm-detail__body">Abhängigkeit: ${esc(m.abhaengigkeit)}</p>` : ''}
     ${m.klaerung ? `<p class="rm-detail__warn">⚠ Abhängigkeit bzw. Termin noch zu klären</p>` : ''}
-    ${lane ? `<button type="button" class="rm-detail__backlink" data-lanebtn="${esc(lane.id)}">Alle Meilensteine von „${esc(lane.name)}" zeigen</button>` : ''}
+    <button type="button" class="rm-detail__backlink" data-lanebtn="${esc(lane.id)}">Alle Meilensteine von „${esc(lane.name)}" zeigen</button>
   </div>`;
 }
 
@@ -512,7 +490,7 @@ function parkedHtml() {
   if (!DATA.geparkt || !DATA.geparkt.length) return '';
   // Aufklappbar wie die Tabellenansicht und zugeklappt als Standard: die
   // geparkten Themen stehen nur hier, die Tabelle baut ihre Zeilen aus
-  // fixpunkte und lanes[].meilensteine und kennt sie nicht.
+  // lanes[].meilensteine und kennt sie nicht.
   return `
   <details class="rm-parkedwrap">
     <summary>Bewusst geparkt (${DATA.geparkt.length})</summary>
@@ -537,7 +515,6 @@ function undatierteHtml() {
 
 function tableHtml() {
   const rows = [];
-  DATA.fixpunkte.forEach(m => rows.push({ m, area: 'Fixpunkt', lane: 'Externe Fixpunkte' }));
   DATA.lanes.forEach(l => l.meilensteine.forEach(m => rows.push({ m, area: areaName(l.area), lane: l.name })));
   rows.sort((a, b) => (a.m.datum || '9999').localeCompare(b.m.datum || '9999'));
   return `
@@ -570,7 +547,6 @@ function legendHtml() {
     <span class="rm-legend__item"><span class="rm-shape rm-shape--ms"></span> Meilenstein</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--key"></span> Schlüsselereignis</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--dec"></span> Entscheidungspunkt</span>
-    <span class="rm-legend__item"><span class="rm-shape rm-shape--fix"></span> Externer Fixpunkt</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--solid"></span> committed</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--dash"></span> läuft im Hintergrund / nicht committed bzw. vorläufig</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--late"></span> Termin überschritten</span>
@@ -657,7 +633,7 @@ function bindTooltip(root) {
       if (!hit) return;
       const { m, lane } = hit;
       tip.innerHTML = `
-        <div class="rm-tip__date">${fmtDate(m.datum)} · ${lane ? esc(areaName(lane.area)) + ' · ' + esc(lane.name) : 'Externer Fixpunkt'}</div>
+        <div class="rm-tip__date">${fmtDate(m.datum)} · ${esc(areaName(lane.area))} · ${esc(lane.name)}</div>
         <div class="rm-tip__title">${m.status === 'erreicht' ? '✓ ' : ''}${esc(m.titel)}</div>
         ${isLate(m) ? `<div class="rm-tip__late">Termin überschritten</div>` : ''}
         ${m.confidence ? `<div class="rm-tip__conf">Confidence: ${CONF_LABEL[m.confidence]} ${confSymbolHtml(m.confidence)}</div>` : ''}
@@ -665,18 +641,38 @@ function bindTooltip(root) {
         ${m.abhaengigkeit ? `<div class="rm-tip__dep">Abhängigkeit: ${esc(m.abhaengigkeit)}</div>` : ''}
         ${m.klaerung ? `<div class="rm-tip__warn">⚠ Abhängigkeit / zu klären</div>` : ''}
         <div class="rm-tip__hint">Klick für Details</div>`;
-      tip.style.display = 'block';
-      const r = el.getBoundingClientRect();
-      let tx = r.left + 16, ty = r.top - 10;
-      tip.style.left = '0px'; tip.style.top = '0px';
-      const tw = tip.offsetWidth, th = tip.offsetHeight;
-      if (tx + tw > innerWidth - 12) tx = r.left - tw - 12;
-      if (ty + th > innerHeight - 12) ty = innerHeight - th - 12;
-      if (ty < 8) ty = 8;
-      tip.style.left = tx + 'px'; tip.style.top = ty + 'px';
+      showTip(tip, el);
     });
     el.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
   });
+  // Lane-Hinweis: sichtbar steht der Kurzsatz, der volle Text kommt per Hover
+  // oder Tastaturfokus in denselben Tooltip wie die Meilensteine.
+  root.querySelectorAll('.rm-lane__note[data-note]').forEach(el => {
+    const lane = DATA.lanes.find(l => l.id === el.dataset.note);
+    if (!lane) return;
+    const zeigen = () => {
+      tip.innerHTML = `
+        <div class="rm-tip__date">${esc(areaName(lane.area))} · ${esc(lane.name)}</div>
+        <div class="rm-tip__body">${esc(lane.hinweis)}</div>`;
+      showTip(tip, el);
+    };
+    const weg = () => { tip.style.display = 'none'; };
+    el.addEventListener('mouseenter', zeigen);
+    el.addEventListener('focus', zeigen);
+    el.addEventListener('mouseleave', weg);
+    el.addEventListener('blur', weg);
+  });
+}
+function showTip(tip, el) {
+  tip.style.display = 'block';
+  const r = el.getBoundingClientRect();
+  let tx = r.left + 16, ty = r.top - 10;
+  tip.style.left = '0px'; tip.style.top = '0px';
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  if (tx + tw > innerWidth - 12) tx = r.left - tw - 12;
+  if (ty + th > innerHeight - 12) ty = innerHeight - th - 12;
+  if (ty < 8) ty = 8;
+  tip.style.left = tx + 'px'; tip.style.top = ty + 'px';
 }
 
 /* --- Render --- */
@@ -712,7 +708,6 @@ function render() {
   // Interaktion
   main.querySelectorAll('[data-zoom]').forEach(b => b.addEventListener('click', () => { state.zoom = b.dataset.zoom; update(); }));
   main.querySelectorAll('[data-toggle]').forEach(t => t.addEventListener('change', () => {
-    if (t.dataset.toggle === 'fix') state.fix = t.checked;
     if (t.dataset.toggle === 'dec') state.decisions = t.checked;
     if (t.dataset.toggle === 'done') state.achieved = t.checked;
     update();

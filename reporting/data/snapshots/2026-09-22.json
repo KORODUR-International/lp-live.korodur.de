@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-22",
-    "generated_at": "2026-09-22T18:05:12.632479+00:00",
+    "generated_at": "2026-09-22T18:09:57.398221+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -9,8 +9,8 @@
   },
   "totals": {
     "items": 899,
-    "done": 587,
-    "in_progress": 19,
+    "done": 588,
+    "in_progress": 18,
     "open": 201,
     "blocked": 14,
     "on_hold": 21,
@@ -22,10 +22,10 @@
     "Bereit": 77,
     "Beansprucht": 5,
     "In Progress": 8,
-    "In Review": 11,
+    "In Review": 10,
     "Blocked": 14,
     "On Hold": 21,
-    "Done": 644,
+    "Done": 645,
     "none": 0
   },
   "by_owner": {
@@ -52,7 +52,7 @@
     "in_progress": {
       "P0": 1,
       "P1": 14,
-      "P2": 4,
+      "P2": 3,
       "P3": 0,
       "none": 0
     },
@@ -73,7 +73,7 @@
     "done": {
       "P0": 13,
       "P1": 317,
-      "P2": 215,
+      "P2": 216,
       "P3": 39,
       "none": 3
     }
@@ -162,8 +162,8 @@
     {
       "name": "Strategie",
       "total": 36,
-      "done": 22,
-      "in_progress": 1,
+      "done": 23,
+      "in_progress": 0,
       "open": 10,
       "blocked": 1,
       "on_hold": 2,
@@ -239,8 +239,8 @@
     {
       "name": "KORODUR-International/korodur-review-reporting",
       "total": 140,
-      "done": 106,
-      "in_progress": 2,
+      "done": 107,
+      "in_progress": 1,
       "open": 18,
       "blocked": 1,
       "on_hold": 7,
@@ -256,10 +256,10 @@
         "Bereit": 8,
         "Beansprucht": 1,
         "In Progress": 1,
-        "In Review": 1,
+        "In Review": 0,
         "Blocked": 1,
         "On Hold": 7,
-        "Done": 112,
+        "Done": 113,
         "none": 0
       }
     },
@@ -2656,19 +2656,6 @@
       ]
     },
     {
-      "repo": "KORODUR-International/korodur-review-reporting",
-      "nummer": 265,
-      "status": "In Review",
-      "bereich": "Strategie",
-      "prioritaet": "P2",
-      "owner_typ": "Either",
-      "bearbeiter": "Claude Korodur",
-      "status_seit": "2026-09-22",
-      "meilensteine": [
-        "adhoc"
-      ]
-    },
-    {
       "repo": "KORODUR-International/korodur-skills",
       "nummer": 1,
       "status": "On Hold",
@@ -4040,13 +4027,13 @@
     "2026-09-17": 10,
     "2026-09-18": 16,
     "2026-09-21": 18,
-    "2026-09-22": 15
+    "2026-09-22": 16
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
-    "2026-09": 142
+    "2026-09": 143
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -4062,7 +4049,7 @@
     "2026-W35": 60,
     "2026-W37": 44,
     "2026-W38": 65,
-    "2026-W39": 33
+    "2026-W39": 34
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#4",
@@ -4377,6 +4364,7 @@
     "KORODUR-International/korodur-review-reporting#26",
     "KORODUR-International/korodur-review-reporting#260",
     "KORODUR-International/korodur-review-reporting#264",
+    "KORODUR-International/korodur-review-reporting#265",
     "KORODUR-International/korodur-review-reporting#27",
     "KORODUR-International/korodur-review-reporting#28",
     "KORODUR-International/korodur-review-reporting#3",
@@ -4744,14 +4732,6 @@
         "prioritaet": "P2",
         "owner_typ": "Either",
         "status": "Blocked"
-      },
-      {
-        "repo": "KORODUR-International/korodur-review-reporting",
-        "nummer": 265,
-        "bereich": "Strategie",
-        "prioritaet": "P2",
-        "owner_typ": "Either",
-        "status": "In Review"
       },
       {
         "repo": "sfleischmann-3steps2/KORODUR-Website",
@@ -5125,6 +5105,14 @@
         "closed_at": "2026-09-22T17:58:04Z"
       },
       {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 265,
+        "bereich": "Strategie",
+        "prioritaet": "P2",
+        "owner_typ": "Either",
+        "closed_at": "2026-09-22T18:08:27Z"
+      },
+      {
         "repo": "KORODUR-International/korodur-skills",
         "nummer": 74,
         "bereich": "AI & Infrastruktur",
@@ -5226,12 +5214,12 @@
     "feldSeit": "2026-09-11",
     "bestand": {
       "auf": 189,
-      "adhoc": 58,
+      "adhoc": 57,
       "leer": 8
     },
     "erledigt": {
       "auf": 117,
-      "adhoc": 23,
+      "adhoc": 24,
       "leer": 447
     },
     "je_woche": {
@@ -5302,7 +5290,7 @@
       },
       "2026-W39": {
         "auf": 27,
-        "adhoc": 4,
+        "adhoc": 5,
         "leer": 2
       }
     },

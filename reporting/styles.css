@@ -706,7 +706,6 @@ h1, h2, h3, h4, h5 {
 .rm-shape--ms  { width: 9px; height: 9px; background: var(--muted); transform: rotate(45deg); border-radius: 2px; }
 .rm-shape--key { width: 12px; height: 12px; background: var(--muted); transform: rotate(45deg); border-radius: 2px; box-shadow: 0 0 0 2px var(--white), 0 0 0 3.5px var(--muted); }
 .rm-shape--dec { width: 10px; height: 10px; border: 2.5px solid var(--muted); border-radius: 50%; }
-.rm-shape--fix { width: 10px; height: 10px; background: var(--muted); border-radius: 50%; }
 .rm-shape--dash { width: 22px; border-top: 2px dashed var(--muted); }
 .rm-shape--late { width: 9px; height: 9px; background: var(--danger); transform: rotate(45deg); border-radius: 2px; }
 .rm-shape--moved { width: 9px; height: 9px; background: var(--muted); transform: rotate(45deg); border-radius: 2px; box-shadow: 0 0 0 2px var(--white), 0 0 0 3.5px var(--warning); margin: 0 3px; }
@@ -757,16 +756,17 @@ h1, h2, h3, h4, h5 {
 .rm-areahead.is-zu .rm-areahead__label { opacity: .82; }
 
 .rm-lane.is-selected .rm-lane__zone { background: rgba(0,158,227,.05); border-radius: var(--radius); }
-.rm-lane--fix .rm-lane__zone { border-bottom: 1px dashed var(--mid-gray); }
 .rm-lane__label { padding: 0 16px 0 22px; display: flex; flex-direction: column; justify-content: center; gap: 3px; }
 .rm-lane__name {
   border: 0; background: none; padding: 0; font: inherit; text-align: left;
   font-size: .86rem; font-weight: 700; color: var(--primary); cursor: pointer;
 }
 .rm-lane__name:hover { color: var(--secondary); text-decoration: underline; }
-.rm-lane__name--static { cursor: default; }
-.rm-lane__name--static:hover { color: var(--primary); text-decoration: none; }
 .rm-lane__note { font-size: .7rem; color: var(--muted); line-height: 1.35; }
+/* Kurzsatz mit vollem Hinweis im Tooltip: leise markiert, damit der Hover gefunden wird */
+.rm-lane__note--mehr { cursor: help; text-decoration: underline dotted var(--mid-gray); text-underline-offset: 2px; }
+.rm-lane__note--mehr::after { content: '\00a0\24D8'; color: var(--secondary); }
+.rm-lane__note--mehr:hover, .rm-lane__note--mehr:focus-visible { color: var(--primary); outline: none; }
 .rm-lane__progress { display: flex; align-items: center; gap: 8px; max-width: 190px; }
 .rm-lane__count { font-size: .7rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .rm-lane__zone { position: relative; height: 96px; }
@@ -790,12 +790,11 @@ h1, h2, h3, h4, h5 {
 }
 .rm-marker--schluessel { width: 16px; height: 16px; box-shadow: 0 0 0 2.5px var(--white), 0 0 0 4px var(--rm-c); }
 .rm-marker--entscheidung { transform: translate(-50%, -50%); border-radius: 50%; background: var(--white); box-shadow: 0 0 0 2px var(--white), 0 0 0 3.5px var(--rm-c); }
-.rm-marker--fixpunkt { transform: translate(-50%, -50%); border-radius: 50%; }
 .rm-marker.is-done::after {
   content: '✓'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   transform: rotate(-45deg); font-size: 9px; font-weight: 900; color: var(--white);
 }
-.rm-marker--entscheidung.is-done::after, .rm-marker--fixpunkt.is-done::after { transform: none; color: var(--rm-c); }
+.rm-marker--entscheidung.is-done::after { transform: none; color: var(--rm-c); }
 .rm-marker.is-moved { box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--warning); }
 .rm-marker.is-selected { box-shadow: 0 0 0 2px var(--white), 0 0 0 4.5px var(--secondary); }
 .rm-marker:hover { filter: brightness(1.12); }
@@ -895,7 +894,6 @@ h1, h2, h3, h4, h5 {
   letter-spacing: .04em; border-radius: 20px; padding: 2px 9px;
   background: rgba(231,76,60,.12); color: var(--danger); white-space: nowrap;
 }
-.rm-dotlate { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--danger); vertical-align: middle; }
 .rm-tip__late { color: var(--danger); font-weight: 700; font-size: .75rem; margin-top: 4px; }
 
 @media (max-width: 900px) {

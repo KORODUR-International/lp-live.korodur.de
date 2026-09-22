@@ -1,7 +1,7 @@
 {
-  "version": "1.12",
+  "version": "1.13",
   "stand": "2026-09-22",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.12 (22.09.2026): Website-Meilensteine neu geschnitten; Ausarbeitung und Abnahme getrennt, Übersetzungsfolgen je Bereich sichtbar, Launch Q1 2027. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Andere Projektplanungen bleiben unverändert.",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -16,61 +16,137 @@
       "farbeDunkel": "#3987e5"
     },
     {
-      "id": "crm",
-      "name": "WiP: CRM & Sales Operations",
-      "farbe": "#eda100",
-      "farbeDunkel": "#c98500"
-    },
-    {
       "id": "wissensaufbau",
       "name": "WiP: Wissensaufbau",
       "farbe": "#1baf7a",
       "farbeDunkel": "#199e70"
     },
     {
+      "id": "ai-infra",
+      "name": "AI & Enablement",
+      "farbe": "#4a3aa7",
+      "farbeDunkel": "#9085e9"
+    },
+    {
+      "id": "crm",
+      "name": "WiP: CRM & Sales Operations",
+      "farbe": "#eda100",
+      "farbeDunkel": "#c98500"
+    },
+    {
       "id": "international",
       "name": "WiP: Internationalisierung",
       "farbe": "#008300",
       "farbeDunkel": "#008300"
-    },
-    {
-      "id": "ai-infra",
-      "name": "AI & Infrastruktur",
-      "farbe": "#4a3aa7",
-      "farbeDunkel": "#9085e9"
-    }
-  ],
-  "fixpunkte": [
-    {
-      "id": "fix-epf",
-      "datum": "2026-07-31",
-      "titel": "EPF: Auftritt-Paket entscheiden",
-      "typ": "entscheidung",
-      "status": "erreicht",
-      "erreichtAm": "2026-07-31",
-      "klaerung": false,
-      "details": "Paket für den Messeauftritt entschieden; der Punkt ist abgeschlossen."
-    },
-    {
-      "id": "fix-archipoint",
-      "datum": "2026-09-23",
-      "zeitraum": {
-        "von": "2026-09-22",
-        "bis": "2026-09-24"
-      },
-      "titel": "ArchiPoint Rivercruise (Messe-Pilot)",
-      "typ": "schluessel",
-      "status": "offen",
-      "klaerung": false,
-      "details": "Kompletter Durchlauf des neuen Messe- und Kampagnenprozesses."
     }
   ],
   "lanes": [
+    {
+      "id": "content",
+      "area": "marketing",
+      "name": "Content & Redaktion",
+      "hinweis": "Zwei Produktionsstränge: LinkedIn + Meta (Crosspost); Redaktionsarbeit unter Quartals-Dachkampagnen",
+      "erreichtHeisst": "Redaktionsprozess sitzt: im Schnitt 2 Beiträge pro Woche auf LinkedIn und Meta, 2,5 bis 3 Wochen terminierter Vorlauf aus eingeplanten und getimten Beiträgen, KPI-Reporting läuft; Jahres-Redaktionsplanung 2027 steht.",
+      "balken": {
+        "start": "2026-07-13",
+        "ende": "2026-12-31"
+      },
+      "stil": "normal",
+      "weiter2027": "Weitere Formate: Verarbeitungsanleitungen, Video, GIFs; ggf. weitere Kanäle",
+      "meilensteine": [
+        {
+          "id": "con-workflow",
+          "datum": "2026-07-31",
+          "titel": "Workflow Content, Redaktion, Planung definiert (V1)",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "erreichtAm": "2026-07-31",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Erster kompletter Durchlauf unter der Dachkampagne Lager & Logistik dokumentiert: Brainstorm aller Produkte, Referenzen und Fachthemen unter dem Dachkonzept."
+        },
+        {
+          "id": "con-prozess",
+          "datum": "2026-08-15",
+          "titel": "Redaktionsprozess steht komplett",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Quartals-Brainstorm unter Dachkampagne, Expertise aus Technik und Vertrieb, Beitragserstellung inklusive Visuals, Timing bis zu 6 Wochen im Voraus. Rollen benannt. Der Meilenstein sagt, dass der Prozess konzeptionell steht; dass er auch gelebt wird, trägt der Vollbetriebs-Meilenstein Ende September. Der genaue Tag ist nicht eigens belegt, deshalb steht hier das Datum des Meilensteins.",
+          "erreichtAm": "2026-08-15"
+        },
+        {
+          "id": "con-softstart",
+          "datum": "2026-08-15",
+          "titel": "Soft-Launch Facebook + Instagram",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "erreichtAm": "2026-08-11",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Start aus vorproduziertem Batch; Vollbetrieb folgt mit sauberer Vorplanung. Beide Kanäle waren spätestens am 11.08.2026 live, so im Wochenbericht dieses Datums festgehalten; am 14.08.2026 als erledigt bestätigt. Der genaue Starttag ist nicht belegt, weil der Meta-Export noch fehlt, deshalb steht hier der früheste belegte Tag."
+        },
+        {
+          "id": "con-q4planung",
+          "datum": "2026-09-20",
+          "titel": "Redaktionsplanung Q4 durchgeführt",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Q4-Themenfolge, Beitragsarten und Timing sind festgelegt und dokumentiert. Die Planung ist seit dem 18.09.2026 abgeschlossen; die Erstellung und Freigabe einzelner Beiträge laufen im Redaktionsprozess weiter.",
+          "erreichtAm": "2026-09-18"
+        },
+        {
+          "id": "con-kpi",
+          "datum": "2026-09-30",
+          "titel": "KPI-Set definiert, Reporting aufgebaut",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "KPI-Set und Zielwerte sind definiert, die Kanal-Auswertung liegt vor und das Reporting ist auf die beschlossenen Kennzahlen umgestellt. Der Aufbau ist seit dem 18.09.2026 abgeschlossen; die laufende Zielerreichung wird im Vollbetrieb bewertet.",
+          "erreichtAm": "2026-09-18"
+        },
+        {
+          "id": "con-vollbetrieb",
+          "datum": "2026-09-30",
+          "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, 2,5 bis 3 Wochen terminierter Vorlauf",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Commitment: durchschnittlich 2 Beiträge pro Woche auf beiden Strängen, terminierter Vorlauf von 2,5 bis 3 Wochen. Zum Vorlauf zählen nur eingeplante und getimte Beiträge; freigegebene Beiträge bilden den Puffer. Das Reporting läuft. Der Meilenstein bleibt bis zur Bewertung am 30.09.2026 offen."
+        },
+        {
+          "id": "con-styleguide",
+          "datum": "2026-10-31",
+          "titel": "Visueller Style Guide V1 (Bildgenerierung & Grafik)",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Corporate Style für generierte Bilder, Produkt-Mockups und Grafiken. Geringe Priorität; Puffer bis Ende November. Synergien mit der Bildproduktion für die Website."
+        },
+        {
+          "id": "con-jahresplanung",
+          "datum": "2026-12-05",
+          "titel": "Jahres-Redaktionsplanung 2027",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Q1-Planung plus Ausblick Gesamtjahr: Dachkampagnen 2027 festgelegt, Prioritäten und Timing mit der Geschäftsführung abgestimmt."
+        }
+      ]
+    },
     {
       "id": "website",
       "area": "marketing",
       "name": "Website",
       "hinweis": "Website-Runde 22.09.: Designvorschau im September, Portfolio und Lösungsfinder im Oktober, Industrieboden im November, weitere Bereiche bis Mitte Dezember. Ausarbeitung, fachliche Vorabstimmung und finale Abnahme sind getrennt. Technische Daten und Dokumente hängen an DPI; Übersetzungen starten je Bereich mit der eigenen deutschen Fassung.",
+      "kurz": "Neue Website V1: Bereiche werden bis Mitte Dezember ausgearbeitet und abgenommen, Launch in Q1 2027.",
       "erreichtHeisst": "Designvorschau vorbereitet; Produkt- und Systemportfolio abgestimmt; Lösungsfinder-Logik und Empfehlungen geprüft; Industrieboden und weitere Bereiche ausgearbeitet und fachlich vorab abgestimmt; PDP-Design steht. Finale Abnahmen je Bereich und die technische Datenübernahme bleiben gesondert sichtbar.",
       "balken": {
         "start": "2026-07-13",
@@ -281,271 +357,11 @@
       ]
     },
     {
-      "id": "content",
-      "area": "marketing",
-      "name": "Content & Redaktion",
-      "hinweis": "Zwei Produktionsstränge: LinkedIn + Meta (Crosspost); Redaktionsarbeit unter Quartals-Dachkampagnen",
-      "erreichtHeisst": "Redaktionsprozess sitzt: im Schnitt 2 Beiträge pro Woche auf LinkedIn und Meta, 2,5 bis 3 Wochen terminierter Vorlauf aus eingeplanten und getimten Beiträgen, KPI-Reporting läuft; Jahres-Redaktionsplanung 2027 steht.",
-      "balken": {
-        "start": "2026-07-13",
-        "ende": "2026-12-31"
-      },
-      "stil": "normal",
-      "weiter2027": "Weitere Formate: Verarbeitungsanleitungen, Video, GIFs; ggf. weitere Kanäle",
-      "meilensteine": [
-        {
-          "id": "con-workflow",
-          "datum": "2026-07-31",
-          "titel": "Workflow Content, Redaktion, Planung definiert (V1)",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "erreichtAm": "2026-07-31",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Erster kompletter Durchlauf unter der Dachkampagne Lager & Logistik dokumentiert: Brainstorm aller Produkte, Referenzen und Fachthemen unter dem Dachkonzept."
-        },
-        {
-          "id": "con-prozess",
-          "datum": "2026-08-15",
-          "titel": "Redaktionsprozess steht komplett",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Quartals-Brainstorm unter Dachkampagne, Expertise aus Technik und Vertrieb, Beitragserstellung inklusive Visuals, Timing bis zu 6 Wochen im Voraus. Rollen benannt. Der Meilenstein sagt, dass der Prozess konzeptionell steht; dass er auch gelebt wird, trägt der Vollbetriebs-Meilenstein Ende September. Der genaue Tag ist nicht eigens belegt, deshalb steht hier das Datum des Meilensteins.",
-          "erreichtAm": "2026-08-15"
-        },
-        {
-          "id": "con-softstart",
-          "datum": "2026-08-15",
-          "titel": "Soft-Launch Facebook + Instagram",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "erreichtAm": "2026-08-11",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Start aus vorproduziertem Batch; Vollbetrieb folgt mit sauberer Vorplanung. Beide Kanäle waren spätestens am 11.08.2026 live, so im Wochenbericht dieses Datums festgehalten; am 14.08.2026 als erledigt bestätigt. Der genaue Starttag ist nicht belegt, weil der Meta-Export noch fehlt, deshalb steht hier der früheste belegte Tag."
-        },
-        {
-          "id": "con-q4planung",
-          "datum": "2026-09-20",
-          "titel": "Redaktionsplanung Q4 durchgeführt",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Q4-Themenfolge, Beitragsarten und Timing sind festgelegt und dokumentiert. Die Planung ist seit dem 18.09.2026 abgeschlossen; die Erstellung und Freigabe einzelner Beiträge laufen im Redaktionsprozess weiter.",
-          "erreichtAm": "2026-09-18"
-        },
-        {
-          "id": "con-kpi",
-          "datum": "2026-09-30",
-          "titel": "KPI-Set definiert, Reporting aufgebaut",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "KPI-Set und Zielwerte sind definiert, die Kanal-Auswertung liegt vor und das Reporting ist auf die beschlossenen Kennzahlen umgestellt. Der Aufbau ist seit dem 18.09.2026 abgeschlossen; die laufende Zielerreichung wird im Vollbetrieb bewertet.",
-          "erreichtAm": "2026-09-18"
-        },
-        {
-          "id": "con-vollbetrieb",
-          "datum": "2026-09-30",
-          "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, 2,5 bis 3 Wochen terminierter Vorlauf",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Commitment: durchschnittlich 2 Beiträge pro Woche auf beiden Strängen, terminierter Vorlauf von 2,5 bis 3 Wochen. Zum Vorlauf zählen nur eingeplante und getimte Beiträge; freigegebene Beiträge bilden den Puffer. Das Reporting läuft. Der Meilenstein bleibt bis zur Bewertung am 30.09.2026 offen."
-        },
-        {
-          "id": "con-styleguide",
-          "datum": "2026-10-31",
-          "titel": "Visueller Style Guide V1 (Bildgenerierung & Grafik)",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Corporate Style für generierte Bilder, Produkt-Mockups und Grafiken. Geringe Priorität; Puffer bis Ende November. Synergien mit der Bildproduktion für die Website."
-        },
-        {
-          "id": "con-jahresplanung",
-          "datum": "2026-12-05",
-          "titel": "Jahres-Redaktionsplanung 2027",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Q1-Planung plus Ausblick Gesamtjahr: Dachkampagnen 2027 festgelegt, Prioritäten und Timing mit der Geschäftsführung abgestimmt."
-        }
-      ]
-    },
-    {
-      "id": "vertriebsprozess",
-      "area": "crm",
-      "name": "Vertriebsprozess & Kampagnen",
-      "hinweis": "Führung durch die Area; Umsetzung gemeinsam mit Vertriebsleitung und Team. Messe = Übungsfall 2026.",
-      "erreichtHeisst": "Vertriebsprozess im Unternehmen implementiert (Kampagne je Messe und Event im CRM, Lead-Upload, SLA-Nachverfolgung); Messe-Pilot ArchiPoint durchlaufen; monatliches GF-Reporting läuft.",
-      "balken": {
-        "start": "2026-07-13",
-        "ende": "2026-12-31"
-      },
-      "stil": "normal",
-      "weiter2027": "Website-Launchkommunikation: Bestandskunden- und PR-Kampagne in Q1/Q2 2027",
-      "meilensteine": [
-        {
-          "id": "vp-definition",
-          "datum": "2026-09-30",
-          "titel": "Prozessschritte, SLAs und Verantwortlichkeiten definiert",
-          "typ": "meilenstein",
-          "status": "verschoben",
-          "klaerung": true,
-          "confidence": "mittel",
-          "details": "Detailabstimmung mit der Vertriebsleitung; Aufgaben delegiert; theoretischer Plan steht. Best Practice: ArchiPoint als gemeinsamer Durchlauf Marketing und Vertrieb. Am 25.08.2026 auf Ende September gelegt: der Fokus liegt bis dahin bewusst auf den Referenzen, und es ist dasselbe Team. Zweite Verschiebung, damit greift Regel 6 des Pflege-Vertrags: das nächste Datum wird nur noch gemeinsam gesetzt. Treiber der Verschiebungen sind Rückmeldung und Zuarbeit aus den Fachbereichen in der Urlaubszeit, nicht die eigene Umsetzung.",
-          "abhaengigkeit": "Rückmeldung und Zuarbeit aus dem Vertrieb; Urlaubszeit"
-        },
-        {
-          "id": "vp-workshop",
-          "datum": "2026-09-30",
-          "titel": "Prozess mit der Vertriebsleitung fixiert",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
-          "confidence": "mittel",
-          "details": "Arbeitsweise und Prozess gemeinsam abgestimmt und gegengezeichnet. Am 25.08.2026 bewusst verkleinert: nicht mehr als Workshop mit dem gesamten Vertriebsteam, sondern im kleinen Kreis mit der Vertriebsleitung. Der vorangehende Meilenstein legt den Prozess vor, dieser zeichnet ihn gegen.",
-          "abhaengigkeit": "Termin mit der Vertriebsleitung noch zu fixieren"
-        },
-        {
-          "id": "vp-pilot",
-          "datum": "2026-10-10",
-          "titel": "Messe-Pilot durchlaufen",
-          "typ": "schluessel",
-          "status": "verschoben",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Kompletter Durchlauf: Kampagne im CRM, Leads erfasst, Nachverfolgung nach SLA. Am 25.08.2026 auf den 10.10. gelegt, weil der Meilenstein den ganzen Durchlauf trägt und die Nachverfolgung erst nach der Messe (22. bis 24.09.) läuft. Die Messe selbst steht als externer Fixpunkt."
-        },
-        {
-          "id": "vp-kpi",
-          "datum": "2026-10-31",
-          "titel": "KPI-Set Vertrieb definiert",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Grundlage für das Reporting; Definition vor Reporting-Aufbau."
-        },
-        {
-          "id": "vp-dod",
-          "datum": "2026-11-30",
-          "titel": "Prozess im Unternehmen implementiert",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Je Messe/Event eine Kampagne im CRM; einfacher Lead-Upload; zentrale Dokumente und E-Mail-Versand; Messe- und Kampagnen-Review etabliert. Prozesse laufen, jeder kennt seine Rolle."
-        },
-        {
-          "id": "vp-reporting",
-          "datum": "2026-12-31",
-          "titel": "Monatliches GF-Reporting läuft",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Regelmäßiges Reporting an die Geschäftsführung (Dashboard); Team arbeitet aktiv an der Verbesserung der KPIs."
-        },
-        {
-          "id": "crm-web-bestandskunden",
-          "datum": null,
-          "titel": "Neue Website: Bestandskundenkampagne umgesetzt",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
-          "details": "Zielgruppe, Botschaft, Kanäle, Verantwortlichkeit und Erfolgskriterien gemeinsam festlegen; Maßnahmen an der Website-Veröffentlichung ausrichten.",
-          "abhaengigkeit": "Website-Starttermin und Kampagnenkonzept abgestimmt",
-          "zielzeitraum": "Q1/Q2 2027"
-        },
-        {
-          "id": "crm-web-pr",
-          "datum": null,
-          "titel": "Neue Website: PR-Kampagne umgesetzt",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
-          "details": "PR-Konzept und Veröffentlichung zur neuen Website vorbereiten; konkreter Umfang und Zeitpunkt werden im Kampagnenprojekt geklärt.",
-          "abhaengigkeit": "Website-Starttermin, Kommunikationskonzept und Freigaben abgestimmt",
-          "zielzeitraum": "Q1/Q2 2027"
-        }
-      ]
-    },
-    {
-      "id": "crm-daten",
-      "area": "crm",
-      "name": "CRM-Datenfundament",
-      "hinweis": "Zurückgestellt. Ein gemeinsamer Kick-off mit dem Vertrieb ist Voraussetzung für den Neuzuschnitt; für 2026 besteht keine Umsetzungszusage.",
-      "erreichtHeisst": "Die bisherigen Umsetzungsziele für 2026 sind aufgehoben. Ein gemeinsamer Kick-off mit dem Vertrieb klärt Bedarf, Umfang und Reihenfolge, bevor neue Meilensteine vereinbart werden.",
-      "balken": null,
-      "stil": "normal",
-      "weiter2027": null,
-      "meilensteine": [
-        {
-          "id": "dat-regeltermin",
-          "datum": "2026-07-31",
-          "titel": "14-tägiger Regeltermin Datenbereinigung etabliert",
-          "typ": "meilenstein",
-          "status": "entfallen",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Im Review vom 21.09.2026 aufgehoben. Ein Bereinigungs-Regeltermin wird erst nach dem gemeinsamen Kick-off mit dem Vertrieb vereinbart."
-        },
-        {
-          "id": "dat-testlauf",
-          "datum": "2026-08-10",
-          "titel": "Testlauf Objektdaten-Anreicherung",
-          "typ": "meilenstein",
-          "status": "entfallen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Im Review vom 21.09.2026 aufgehoben. Ein Testlauf zur Objektdaten-Anreicherung wird erst nach dem gemeinsamen Kick-off mit dem Vertrieb neu zugeschnitten."
-        },
-        {
-          "id": "dat-mvp",
-          "datum": "2026-08-15",
-          "titel": "MVP Objektdaten-Anreicherung läuft",
-          "typ": "meilenstein",
-          "status": "entfallen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Im Review vom 21.09.2026 aufgehoben. Ein MVP zur Objektdaten-Anreicherung ist für 2026 nicht mehr zugesagt."
-        },
-        {
-          "id": "dat-strategie",
-          "datum": "2026-08-20",
-          "titel": "Strategiefestlegung Datenbereinigung mit dem Vertriebsteam",
-          "typ": "entscheidung",
-          "status": "entfallen",
-          "klaerung": false,
-          "confidence": "niedrig",
-          "details": "Im Review vom 21.09.2026 aufgehoben. Bedarf, Umfang und Reihenfolge werden in einem gemeinsamen Kick-off mit dem Vertrieb neu geklärt; ein Termin ist noch nicht vereinbart."
-        },
-        {
-          "id": "dat-kernfelder",
-          "datum": "2026-11-30",
-          "titel": "Kritische Kernfelder bereinigt und filterbar",
-          "typ": "meilenstein",
-          "status": "entfallen",
-          "klaerung": false,
-          "confidence": "niedrig",
-          "details": "Im Review vom 21.09.2026 aufgehoben. Die Bereinigung der Kernfelder bis Ende November ist aufgehoben. Umfang und Reihenfolge werden erst nach dem gemeinsamen Kick-off mit dem Vertrieb festgelegt."
-        }
-      ]
-    },
-    {
       "id": "pdb",
       "area": "wissensaufbau",
       "name": "Digitale Produktinformationen (DPI)",
       "hinweis": "Mehrjährig; neu aufgestellt am 18.08.2026 als Digitale Produktinformationen (DPI), Meilensteinplanung als GitHub Milestones im Projekt-Repository. Sequenz: Leistungserklärungen (DoP), dann Sicherheitsdatenblätter (Deckblatt und Trainingskorpus), dann technische Datenblätter, dann PDP-Design, dann Launch-Definition. SDB und TDS werden nach DoP-Fortschritt terminiert (Living Roadmap, Anpassung alle vier Wochen). Die fachliche Grundlage kommt aus der Technik.",
+      "kurz": "Leistungserklärungen, Sicherheits- und technische Datenblätter schrittweise als einheitliche digitale Produktinformationen.",
       "erreichtHeisst": "Leistungserklärungen (DoP) nach EN 13813 in Struktur und Design beschlossen, EPDs mit einheitlichem Deckblatt im KORODUR-Design; Sicherheitsdatenblätter und technische Datenblätter folgen dem DoP-Fortschritt (Living Roadmap).",
       "balken": {
         "start": "2026-07-13",
@@ -777,10 +593,352 @@
       ]
     },
     {
+      "id": "orga",
+      "area": "ai-infra",
+      "name": "Organisation & Enablement",
+      "hinweis": "Querschnitt mit festem Zeitbudget",
+      "erreichtHeisst": "Website-Repo in die Organisation migriert, Notion-Grundgerüst steht, Standard-Repository-Hygiene aufgesetzt; Repository-Landschaft bereinigt, Wissens-Space konsolidiert, Feedback- und Lernprozess etabliert: das Arbeitsmodell 2026 läuft.",
+      "balken": {
+        "start": "2026-07-13",
+        "ende": "2026-12-31"
+      },
+      "stil": "normal",
+      "weiter2027": null,
+      "meilensteine": [
+        {
+          "id": "org-repo",
+          "datum": "2026-07-20",
+          "titel": "Website-Repository in die Organisation migriert",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "erreichtAm": "2026-07-20",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": ""
+        },
+        {
+          "id": "org-grundgeruest",
+          "datum": "2026-08-15",
+          "titel": "Notion-Grundgerüst der optimierten Struktur steht",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Docking-Pages je Bereich, Jahresziele mit Logbuch-Subpages, Aufgaben-, Fragen- und Erkenntnis-Datenbank angelegt; das Arbeitsmodell 2026 ist damit arbeitsfähig. Der Meilenstein beschreibt die optimierte Struktur des bestehenden Space, nicht einen Neuaufbau. Der genaue Tag ist nicht eigens belegt, deshalb steht hier das Datum des Meilensteins.",
+          "erreichtAm": "2026-08-15"
+        },
+        {
+          "id": "org-hygiene",
+          "datum": "2026-08-31",
+          "titel": "Standard-Repository-Hygiene aufgesetzt",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "erreichtAm": "2026-08-24",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Einheitlicher Satz an Prüfungen und Konventionen über die Repositories: Begriffs- und Fassungs-Gate, Testlauf vor jedem Merge, wöchentlicher Board-Hygiene-Lauf, ein Name für abgeschlossene Bestände. Belegt über die letzte Gate-Ergänzung vom 24.08.2026."
+        },
+        {
+          "id": "org-repos",
+          "datum": "2026-09-30",
+          "titel": "Repository-Landschaft bereinigt",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Ruhende Repositories archiviert, offene Altbestände übernommen oder geschlossen und abgeschlossene Arbeitsstände bereinigt. Die Bereinigung ist seit dem 15.09.2026 umgesetzt.",
+          "erreichtAm": "2026-09-15"
+        },
+        {
+          "id": "org-notion",
+          "datum": "2026-10-15",
+          "titel": "Wissens-Space konsolidiert",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Struktur auf Areas und Kernschwerpunkte; wenige wertvolle Dokumente statt Ablage-Wildwuchs."
+        },
+        {
+          "id": "org-lernprozess",
+          "datum": "2026-10-31",
+          "titel": "Feedback- und Lernprozess etabliert",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Feedback- und Lernprozess ist eingerichtet und im Einsatz: Rückmeldungen fließen in Arbeitsweise und Werkzeuge zurück, Ergebnisse werden gegen Fertig-Kriterien geprüft und der Wissenshaushalt wird laufend gemessen. Der Aufbau ist seit dem 18.09.2026 abgeschlossen.",
+          "erreichtAm": "2026-09-18"
+        }
+      ]
+    },
+    {
+      "id": "lokale-ki",
+      "area": "ai-infra",
+      "name": "Lokale KI",
+      "hinweis": "Erster Use Case für die Geschäftsführung",
+      "erreichtHeisst": "Use Case 1 für die GF definiert und getestet; Setup läuft mit erstem dokumentierten Analysedurchlauf; Vision und Konzept lokale KI im Netzwerk als GF-Entscheidung vorbereitet.",
+      "balken": {
+        "start": "2026-07-13",
+        "ende": "2026-12-31"
+      },
+      "stil": "normal",
+      "weiter2027": "Produktdaten-Use-Case; AI-Strategie",
+      "meilensteine": [
+        {
+          "id": "ki-uc1",
+          "datum": "2026-07-31",
+          "titel": "Use Case 1 definiert",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "erreichtAm": "2026-07-31",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": ""
+        },
+        {
+          "id": "ki-datensicherheit",
+          "datum": "2026-08-15",
+          "titel": "Definition Datensicherheit",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "erreichtAm": "2026-08-15",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Festgelegt, welche Daten lokal verarbeitet werden und unter welchen Bedingungen; Grundlage für jeden weiteren Use Case. Der genaue Tag ist nicht eigens belegt, deshalb steht hier das Datum des Meilensteins."
+        },
+        {
+          "id": "ki-setup-tech",
+          "datum": "2026-08-20",
+          "titel": "Entscheidungen und technisches Setup",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "erreichtAm": "2026-08-20",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Arbeitsplatz mit lokalen Modellen und Datenbankzugang eingerichtet, Modellvergleich entschieden, automatischer Testharness und Basismessung stehen."
+        },
+        {
+          "id": "ki-test",
+          "datum": "2026-08-31",
+          "titel": "Use Case 1 im Testing",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "niedrig",
+          "details": "Termin bleibt und reißt voraussichtlich. Offen ist nicht der Zeitpunkt, sondern der Gegenstand: seit dem Start wird hinterfragt, ob dies der richtige erste Use Case ist. Dazu kommt ein ungelöstes Schnittstellenproblem im Datenweg, das von hier aus nicht zu beheben ist. Ein neues Datum gäbe es erst mit dem neu aufgestellten Gegenstand, die Neuaufstellung ist für die Zeit nach dem Urlaub vorgesehen.",
+          "abhaengigkeit": "Ungelöstes Schnittstellenproblem im Power-BI-Datenweg; von hier aus ist nichts zu tun, bis es gelöst ist",
+          "issue": "KORODUR-International/korodur-lokale-ki#11"
+        },
+        {
+          "id": "ki-setup-gf",
+          "datum": "2026-09-30",
+          "titel": "Setup Laptop Geschäftsführung",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Lokale KI auf dem Laptop der Geschäftsführung eingerichtet und übergeben."
+        },
+        {
+          "id": "ki-vision",
+          "datum": "2026-10-31",
+          "titel": "Vision + Konzept: lokale KI im Netzwerk",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Mehrbenutzer-Zugriff im Netzwerk; Hardware und Budgetrahmen als GF-Entscheidung."
+        },
+        {
+          "id": "ki-jahresende",
+          "datum": "2026-12-31",
+          "titel": "Setup läuft, erster dokumentierter Analysedurchlauf",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "mittel",
+          "details": "Jahresend-Scope wird nach dem Use-Case-Testing geschärft."
+        }
+      ]
+    },
+    {
+      "id": "vertriebsprozess",
+      "area": "crm",
+      "name": "Vertriebsprozess & Kampagnen",
+      "hinweis": "Führung durch die Area; Umsetzung gemeinsam mit Vertriebsleitung und Team. Messe = Übungsfall 2026.",
+      "erreichtHeisst": "Vertriebsprozess im Unternehmen implementiert (Kampagne je Messe und Event im CRM, Lead-Upload, SLA-Nachverfolgung); Messe-Pilot ArchiPoint durchlaufen; monatliches GF-Reporting läuft.",
+      "balken": {
+        "start": "2026-07-13",
+        "ende": "2026-12-31"
+      },
+      "stil": "normal",
+      "weiter2027": "Website-Launchkommunikation: Bestandskunden- und PR-Kampagne in Q1/Q2 2027",
+      "meilensteine": [
+        {
+          "id": "vp-definition",
+          "datum": "2026-09-30",
+          "titel": "Prozessschritte, SLAs und Verantwortlichkeiten definiert",
+          "typ": "meilenstein",
+          "status": "verschoben",
+          "klaerung": true,
+          "confidence": "mittel",
+          "details": "Detailabstimmung mit der Vertriebsleitung; Aufgaben delegiert; theoretischer Plan steht. Best Practice: ArchiPoint als gemeinsamer Durchlauf Marketing und Vertrieb. Am 25.08.2026 auf Ende September gelegt: der Fokus liegt bis dahin bewusst auf den Referenzen, und es ist dasselbe Team. Zweite Verschiebung, damit greift Regel 6 des Pflege-Vertrags: das nächste Datum wird nur noch gemeinsam gesetzt. Treiber der Verschiebungen sind Rückmeldung und Zuarbeit aus den Fachbereichen in der Urlaubszeit, nicht die eigene Umsetzung.",
+          "abhaengigkeit": "Rückmeldung und Zuarbeit aus dem Vertrieb; Urlaubszeit"
+        },
+        {
+          "id": "vp-workshop",
+          "datum": "2026-09-30",
+          "titel": "Prozess mit der Vertriebsleitung fixiert",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "mittel",
+          "details": "Arbeitsweise und Prozess gemeinsam abgestimmt und gegengezeichnet. Am 25.08.2026 bewusst verkleinert: nicht mehr als Workshop mit dem gesamten Vertriebsteam, sondern im kleinen Kreis mit der Vertriebsleitung. Der vorangehende Meilenstein legt den Prozess vor, dieser zeichnet ihn gegen.",
+          "abhaengigkeit": "Termin mit der Vertriebsleitung noch zu fixieren"
+        },
+        {
+          "id": "vp-pilot",
+          "datum": "2026-10-10",
+          "titel": "Messe-Pilot durchlaufen",
+          "typ": "schluessel",
+          "status": "verschoben",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Kompletter Durchlauf: Kampagne im CRM, Leads erfasst, Nachverfolgung nach SLA. Am 25.08.2026 auf den 10.10. gelegt, weil der Meilenstein den ganzen Durchlauf trägt und die Nachverfolgung erst nach der Messe (22. bis 24.09.) läuft. Die Messe selbst steht als externer Fixpunkt."
+        },
+        {
+          "id": "vp-kpi",
+          "datum": "2026-10-31",
+          "titel": "KPI-Set Vertrieb definiert",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Grundlage für das Reporting; Definition vor Reporting-Aufbau."
+        },
+        {
+          "id": "vp-dod",
+          "datum": "2026-11-30",
+          "titel": "Prozess im Unternehmen implementiert",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Je Messe/Event eine Kampagne im CRM; einfacher Lead-Upload; zentrale Dokumente und E-Mail-Versand; Messe- und Kampagnen-Review etabliert. Prozesse laufen, jeder kennt seine Rolle."
+        },
+        {
+          "id": "vp-reporting",
+          "datum": "2026-12-31",
+          "titel": "Monatliches GF-Reporting läuft",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Regelmäßiges Reporting an die Geschäftsführung (Dashboard); Team arbeitet aktiv an der Verbesserung der KPIs."
+        },
+        {
+          "id": "crm-web-bestandskunden",
+          "datum": null,
+          "titel": "Neue Website: Bestandskundenkampagne umgesetzt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Zielgruppe, Botschaft, Kanäle, Verantwortlichkeit und Erfolgskriterien gemeinsam festlegen; Maßnahmen an der Website-Veröffentlichung ausrichten.",
+          "abhaengigkeit": "Website-Starttermin und Kampagnenkonzept abgestimmt",
+          "zielzeitraum": "Q1/Q2 2027"
+        },
+        {
+          "id": "crm-web-pr",
+          "datum": null,
+          "titel": "Neue Website: PR-Kampagne umgesetzt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "PR-Konzept und Veröffentlichung zur neuen Website vorbereiten; konkreter Umfang und Zeitpunkt werden im Kampagnenprojekt geklärt.",
+          "abhaengigkeit": "Website-Starttermin, Kommunikationskonzept und Freigaben abgestimmt",
+          "zielzeitraum": "Q1/Q2 2027"
+        }
+      ]
+    },
+    {
+      "id": "crm-daten",
+      "area": "crm",
+      "name": "CRM-Datenfundament (to be defined)",
+      "hinweis": "Zurückgestellt. Ein gemeinsamer Kick-off mit dem Vertrieb ist Voraussetzung für den Neuzuschnitt; für 2026 besteht keine Umsetzungszusage. Die Strategie für 2027 steht Mitte Dezember.",
+      "kurz": "Zurückgestellt, Neuzuschnitt nach gemeinsamem Kick-off mit dem Vertrieb; Strategie 2027 Mitte Dezember.",
+      "erreichtHeisst": "Die bisherigen Umsetzungsziele für 2026 sind aufgehoben. Ein gemeinsamer Kick-off mit dem Vertrieb klärt Bedarf, Umfang und Reihenfolge, bevor neue Meilensteine vereinbart werden.",
+      "balken": null,
+      "stil": "normal",
+      "weiter2027": null,
+      "meilensteine": [
+        {
+          "id": "dat-regeltermin",
+          "datum": "2026-07-31",
+          "titel": "14-tägiger Regeltermin Datenbereinigung etabliert",
+          "typ": "meilenstein",
+          "status": "entfallen",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Im Review vom 21.09.2026 aufgehoben. Ein Bereinigungs-Regeltermin wird erst nach dem gemeinsamen Kick-off mit dem Vertrieb vereinbart."
+        },
+        {
+          "id": "dat-testlauf",
+          "datum": "2026-08-10",
+          "titel": "Testlauf Objektdaten-Anreicherung",
+          "typ": "meilenstein",
+          "status": "entfallen",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Im Review vom 21.09.2026 aufgehoben. Ein Testlauf zur Objektdaten-Anreicherung wird erst nach dem gemeinsamen Kick-off mit dem Vertrieb neu zugeschnitten."
+        },
+        {
+          "id": "dat-mvp",
+          "datum": "2026-08-15",
+          "titel": "MVP Objektdaten-Anreicherung läuft",
+          "typ": "meilenstein",
+          "status": "entfallen",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Im Review vom 21.09.2026 aufgehoben. Ein MVP zur Objektdaten-Anreicherung ist für 2026 nicht mehr zugesagt."
+        },
+        {
+          "id": "dat-strategie",
+          "datum": "2026-08-20",
+          "titel": "Strategiefestlegung Datenbereinigung mit dem Vertriebsteam",
+          "typ": "entscheidung",
+          "status": "entfallen",
+          "klaerung": false,
+          "confidence": "niedrig",
+          "details": "Im Review vom 21.09.2026 aufgehoben. Bedarf, Umfang und Reihenfolge werden in einem gemeinsamen Kick-off mit dem Vertrieb neu geklärt; ein Termin ist noch nicht vereinbart."
+        },
+        {
+          "id": "dat-kernfelder",
+          "datum": "2026-11-30",
+          "titel": "Kritische Kernfelder bereinigt und filterbar",
+          "typ": "meilenstein",
+          "status": "entfallen",
+          "klaerung": false,
+          "confidence": "niedrig",
+          "details": "Im Review vom 21.09.2026 aufgehoben. Die Bereinigung der Kernfelder bis Ende November ist aufgehoben. Umfang und Reihenfolge werden erst nach dem gemeinsamen Kick-off mit dem Vertrieb festgelegt."
+        },
+        {
+          "id": "dat-strategie-2027",
+          "datum": "2026-12-15",
+          "titel": "Strategie CRM-Datenfundament 2027 steht",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Zuschnitt, Umfang und Reihenfolge für 2027 festgelegt; Grundlage ist der gemeinsame Kick-off mit dem Vertrieb."
+        }
+      ]
+    },
+    {
       "id": "uebersetzungen",
       "area": "international",
       "name": "Übersetzungen",
       "hinweis": "Website V1: Englisch und Französisch je Bereich parallel ab der eigenen fertig ausgearbeiteten deutschen Fassung. Zusätzliche fachliche Abnahmen werden je Bereich geklärt; sie sind keine pauschale Voraussetzung für den Übersetzungsstart. Folgetermine werden nach Bereitstellung vereinbart, nicht automatisch erzeugt.",
+      "kurz": "Englisch und Französisch starten je Website-Bereich, sobald dessen deutsche Fassung steht.",
       "erreichtHeisst": "Italienische Erstfassungen der technischen Datenblätter der Kernprodukte erstellt und zur Sprachabstimmung übergeben; Strategie Internationalisierung 2027 steht, Training IT und PL angelaufen. Die externe Abnahme ist kein terminierter Roadmap-Meilenstein. Die Golive-Sprachen EN und FR folgen dem Launch-Termin der Website. Website-Übersetzungen EN/FR laufen paketweise ab der eigenen deutschen Fassung; Umfang und Fristen je Paket sind getrennt sichtbar.",
       "balken": {
         "start": "2026-07-13",
@@ -1020,176 +1178,6 @@
           "klaerung": true,
           "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
-        }
-      ]
-    },
-    {
-      "id": "lokale-ki",
-      "area": "ai-infra",
-      "name": "Lokale KI",
-      "hinweis": "Erster Use Case für die Geschäftsführung",
-      "erreichtHeisst": "Use Case 1 für die GF definiert und getestet; Setup läuft mit erstem dokumentierten Analysedurchlauf; Vision und Konzept lokale KI im Netzwerk als GF-Entscheidung vorbereitet.",
-      "balken": {
-        "start": "2026-07-13",
-        "ende": "2026-12-31"
-      },
-      "stil": "normal",
-      "weiter2027": "Produktdaten-Use-Case; AI-Strategie",
-      "meilensteine": [
-        {
-          "id": "ki-uc1",
-          "datum": "2026-07-31",
-          "titel": "Use Case 1 definiert",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "erreichtAm": "2026-07-31",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": ""
-        },
-        {
-          "id": "ki-datensicherheit",
-          "datum": "2026-08-15",
-          "titel": "Definition Datensicherheit",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "erreichtAm": "2026-08-15",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Festgelegt, welche Daten lokal verarbeitet werden und unter welchen Bedingungen; Grundlage für jeden weiteren Use Case. Der genaue Tag ist nicht eigens belegt, deshalb steht hier das Datum des Meilensteins."
-        },
-        {
-          "id": "ki-setup-tech",
-          "datum": "2026-08-20",
-          "titel": "Entscheidungen und technisches Setup",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "erreichtAm": "2026-08-20",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Arbeitsplatz mit lokalen Modellen und Datenbankzugang eingerichtet, Modellvergleich entschieden, automatischer Testharness und Basismessung stehen."
-        },
-        {
-          "id": "ki-test",
-          "datum": "2026-08-31",
-          "titel": "Use Case 1 im Testing",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
-          "confidence": "niedrig",
-          "details": "Termin bleibt und reißt voraussichtlich. Offen ist nicht der Zeitpunkt, sondern der Gegenstand: seit dem Start wird hinterfragt, ob dies der richtige erste Use Case ist. Dazu kommt ein ungelöstes Schnittstellenproblem im Datenweg, das von hier aus nicht zu beheben ist. Ein neues Datum gäbe es erst mit dem neu aufgestellten Gegenstand, die Neuaufstellung ist für die Zeit nach dem Urlaub vorgesehen.",
-          "abhaengigkeit": "Ungelöstes Schnittstellenproblem im Power-BI-Datenweg; von hier aus ist nichts zu tun, bis es gelöst ist",
-          "issue": "KORODUR-International/korodur-lokale-ki#11"
-        },
-        {
-          "id": "ki-setup-gf",
-          "datum": "2026-09-30",
-          "titel": "Setup Laptop Geschäftsführung",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Lokale KI auf dem Laptop der Geschäftsführung eingerichtet und übergeben."
-        },
-        {
-          "id": "ki-vision",
-          "datum": "2026-10-31",
-          "titel": "Vision + Konzept: lokale KI im Netzwerk",
-          "typ": "entscheidung",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Mehrbenutzer-Zugriff im Netzwerk; Hardware und Budgetrahmen als GF-Entscheidung."
-        },
-        {
-          "id": "ki-jahresende",
-          "datum": "2026-12-31",
-          "titel": "Setup läuft, erster dokumentierter Analysedurchlauf",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
-          "confidence": "mittel",
-          "details": "Jahresend-Scope wird nach dem Use-Case-Testing geschärft."
-        }
-      ]
-    },
-    {
-      "id": "orga",
-      "area": "ai-infra",
-      "name": "Organisation & Enablement",
-      "hinweis": "Querschnitt mit festem Zeitbudget",
-      "erreichtHeisst": "Website-Repo in die Organisation migriert, Notion-Grundgerüst steht, Standard-Repository-Hygiene aufgesetzt; Repository-Landschaft bereinigt, Wissens-Space konsolidiert, Feedback- und Lernprozess etabliert: das Arbeitsmodell 2026 läuft.",
-      "balken": {
-        "start": "2026-07-13",
-        "ende": "2026-12-31"
-      },
-      "stil": "normal",
-      "weiter2027": null,
-      "meilensteine": [
-        {
-          "id": "org-repo",
-          "datum": "2026-07-20",
-          "titel": "Website-Repository in die Organisation migriert",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "erreichtAm": "2026-07-20",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": ""
-        },
-        {
-          "id": "org-grundgeruest",
-          "datum": "2026-08-15",
-          "titel": "Notion-Grundgerüst der optimierten Struktur steht",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Docking-Pages je Bereich, Jahresziele mit Logbuch-Subpages, Aufgaben-, Fragen- und Erkenntnis-Datenbank angelegt; das Arbeitsmodell 2026 ist damit arbeitsfähig. Der Meilenstein beschreibt die optimierte Struktur des bestehenden Space, nicht einen Neuaufbau. Der genaue Tag ist nicht eigens belegt, deshalb steht hier das Datum des Meilensteins.",
-          "erreichtAm": "2026-08-15"
-        },
-        {
-          "id": "org-hygiene",
-          "datum": "2026-08-31",
-          "titel": "Standard-Repository-Hygiene aufgesetzt",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "erreichtAm": "2026-08-24",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Einheitlicher Satz an Prüfungen und Konventionen über die Repositories: Begriffs- und Fassungs-Gate, Testlauf vor jedem Merge, wöchentlicher Board-Hygiene-Lauf, ein Name für abgeschlossene Bestände. Belegt über die letzte Gate-Ergänzung vom 24.08.2026."
-        },
-        {
-          "id": "org-repos",
-          "datum": "2026-09-30",
-          "titel": "Repository-Landschaft bereinigt",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Ruhende Repositories archiviert, offene Altbestände übernommen oder geschlossen und abgeschlossene Arbeitsstände bereinigt. Die Bereinigung ist seit dem 15.09.2026 umgesetzt.",
-          "erreichtAm": "2026-09-15"
-        },
-        {
-          "id": "org-notion",
-          "datum": "2026-10-15",
-          "titel": "Wissens-Space konsolidiert",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Struktur auf Areas und Kernschwerpunkte; wenige wertvolle Dokumente statt Ablage-Wildwuchs."
-        },
-        {
-          "id": "org-lernprozess",
-          "datum": "2026-10-31",
-          "titel": "Feedback- und Lernprozess etabliert",
-          "typ": "meilenstein",
-          "status": "erreicht",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Feedback- und Lernprozess ist eingerichtet und im Einsatz: Rückmeldungen fließen in Arbeitsweise und Werkzeuge zurück, Ergebnisse werden gegen Fertig-Kriterien geprüft und der Wissenshaushalt wird laufend gemessen. Der Aufbau ist seit dem 18.09.2026 abgeschlossen.",
-          "erreichtAm": "2026-09-18"
         }
       ]
     }

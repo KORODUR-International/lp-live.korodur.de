@@ -752,16 +752,16 @@
   {
     "date": "2026-09-22",
     "gesamt": 171,
-    "offen": 20,
-    "in_arbeit": 8,
-    "in_abnahme": 12,
-    "freigegeben": 0,
+    "offen": 18,
+    "in_arbeit": 7,
+    "in_abnahme": 13,
+    "freigegeben": 3,
     "veroeffentlicht": 130,
-    "ohne_status": 1,
+    "ohne_status": 0,
     "unbekannt": 0,
     "ziel_zielwert": 20,
-    "ziel_ab_de_freigabe": 0,
+    "ziel_ab_de_freigabe": 2,
     "ziel_veroeffentlicht": 0,
-    "datenschuld_eintraege": 58
+    "datenschuld_eintraege": 57
   }
 ]

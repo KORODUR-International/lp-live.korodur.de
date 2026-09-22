@@ -1,7 +1,7 @@
 {
-  "version": "1.10",
-  "stand": "2026-09-21",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 aller Bereiche. Finalisiert 14.07.2026 abends (Konsolidierung aller Bereichs-Konzepte, Confidence-Modell). Version 1.5 arbeitet den DPI-Beschluss vom 18.08.2026 ein: Produktdaten-Lane neu geschnitten, Launch-Termin aufgehoben, Launch-Definition als Entscheidungspunkt. Version 1.6 nimmt den geparkten Eintrag zur Messe IN.STAND zurück (nicht abgestimmt). Version 1.7 arbeitet die Roadmap-Runde vom 25.08.2026 ein: Referenzen neu geschnitten (Triage, CRM-Pull und Master-Index entfallen, Prozess- und Formate-Meilenstein neu), Vertriebsprozess auf Ende September und Oktober gelegt und der Workshop auf die Vertriebsleitung verkleinert, neue Meilensteine in Internationalisierung, Lokaler KI und Organisation, erreichte Meilensteine nachgemeldet. Redaktionsregeln siehe docs/ROADMAP-MODUL.md §5 (öffentliche Seite: keine Personennamen, keine Interna). Confidence-Herleitung intern: roadmap-2026-gesamtliste.md. Version 1.8 schreibt den Review-Lauf vom 26.08.2026 fort: Lösungsfinder auf den 30.09. (zweite Verschiebung, Abstimmungspartner benannt), die Strategiefestlegung Datenbereinigung und der Testing-Meilenstein der lokalen KI bekommen den Vorgang benannt, an dem sie hängen. Version 1.9 (11.09.2026) trägt je Lane das Feld erreichtHeisst als Quelle für die Notion-Jahresziele; Meilensteine unverändert. Version 1.10 (21.09.2026) meldet Repository-Bereinigung, Q4-Redaktionsplanung, KPI-Reporting, Feedback- und Lernprozess sowie die italienischen TDS-Erstfassungen als erreicht. Die bisherigen CRM-Meilensteine entfallen; ein gemeinsamer Kick-off ist Voraussetzung für den Neuzuschnitt. Der terminierte Redaktions-Vorlauf beträgt 2,5 bis 3 Wochen, der Vollbetrieb bleibt offen.",
+  "version": "1.11",
+  "stand": "2026-09-22",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.11 (22.09.2026): Website-Meilensteine neu geschnitten; Ausarbeitung und Abnahme getrennt, Übersetzungsfolgen je Bereich sichtbar, Launch Q1 2027. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Andere Projektplanungen bleiben unverändert.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -70,14 +70,14 @@
       "id": "website",
       "area": "marketing",
       "name": "Website",
-      "hinweis": "Kritischer Pfad; Engpass ist die Content-Validierung (Abnahme), nicht die Entwicklung. Seit dem DPI-Beschluss vom 18.08.2026 wird der Launch erst terminiert, wenn Leistungserklärungen, Sicherheitsdatenblätter und technische Datenblätter aus der Produktdatenbank generiert laufen; ein Meilenstein-Neuschnitt der Lane folgt aus der laufenden Projektbereinigung.",
-      "erreichtHeisst": "Lösungsfinder Industrieboden abgestimmt, Produktdaten technisch validiert, PDP-Design steht; der Launch-Termin der neuen korodur.de ist festgelegt, sobald Leistungserklärungen, Sicherheitsdatenblätter und technische Datenblätter aus der Produktdatenbank generiert laufen.",
+      "hinweis": "Website-Runde 22.09.: Designvorschau im September, Portfolio und Lösungsfinder im Oktober, Industrieboden im November, weitere Bereiche bis Mitte Dezember. Ausarbeitung, fachliche Vorabstimmung und finale Abnahme sind getrennt. Technische Daten und Dokumente hängen an DPI; Übersetzungen starten je Bereich mit der eigenen deutschen Fassung.",
+      "erreichtHeisst": "Designvorschau vorbereitet; Produkt- und Systemportfolio abgestimmt; Lösungsfinder-Logik und Empfehlungen geprüft; Industrieboden und weitere Bereiche ausgearbeitet und fachlich vorab abgestimmt; PDP-Design steht. Finale Abnahmen je Bereich und die technische Datenübernahme bleiben gesondert sichtbar.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
       },
       "stil": "normal",
-      "weiter2027": null,
+      "weiter2027": "V1-Launch DE/EN/FR in Q1; CRM-Kontaktformular kurz vor Start",
       "meilensteine": [
         {
           "id": "web-struktur",
@@ -102,26 +102,35 @@
           "erreichtAm": "2026-08-21"
         },
         {
-          "id": "web-loesungsfinder",
-          "datum": "2026-09-30",
-          "titel": "Lösungsfinder Industrieboden abgestimmt",
+          "id": "web-design-preview",
+          "datum": "2026-09-25",
+          "titel": "Designvorschau für die GBL fertig",
           "typ": "meilenstein",
-          "status": "verschoben",
+          "status": "offen",
           "klaerung": false,
-          "confidence": "mittel",
-          "details": "Aus dem Struktur-Meilenstein herausgelöst, weil Struktur und Produkt-Scope bereits stehen und der Lösungsfinder eigenständig weiterläuft. Teil des Launch-Pfads. Am 26.08.2026 vom 20.09. auf den 30.09. gelegt: der Klick-Prototyp liegt seit dem 21.08. bei der Außendienstgruppe, die Rückmeldung läuft über die Urlaubszeit. Das ist die zweite Verschiebung, damit ist die Schwelle aus Regel 6 erreicht: ein drittes Datum gibt es nur nach Abstimmung. Der Gesprächspartner ist im Feld issue benannt.",
-          "issue": "sfleischmann-3steps2/KORODUR-Website#546"
+          "details": "Eine abgestimmte Gestaltungsrichtung an Startseite, Produktdetailseite und Referenzdetailseite, mit vorhandenen Inhalten. Vorschau für den 30.09.; vollständiger Rollout und finale fachliche Freigaben folgen separat."
         },
         {
           "id": "web-daten",
           "datum": "2026-09-30",
           "titel": "Produktdaten technisch geklärt und validiert",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": false,
           "confidence": "mittel",
           "abhaengigkeit": "Zuarbeit Technik; Urlaubszeit mit Puffer eingeplant",
-          "details": "Datenpunkte mit der Technik geklärt, in die Produktdaten-Datenbank übertragen und validiert."
+          "details": "Am 22.09. neu geschnitten: die Portfolio-Abnahme ist ein eigener Website-Meilenstein. Technische Daten und Dokumentenfreigaben werden im Projekt Digitale Produktinformationen erarbeitet; die Website übernimmt und prüft die freigegebenen Inhalte. Die Datenarbeit entfällt nicht, nur der pauschale Website-Abschluss am 30.09."
+        },
+        {
+          "id": "web-loesungsfinder",
+          "datum": "2026-10-15",
+          "titel": "Lösungsfinder: Ablauf und Entscheidungslogik abgestimmt",
+          "typ": "meilenstein",
+          "status": "verschoben",
+          "klaerung": true,
+          "confidence": "mittel",
+          "details": "In der Roadmap-Abstimmung am 22.09. auf Mitte Oktober gelegt. Die Durchsicht des Ablaufs und die abschließende Kollegenrunde sind getrennt von den Produktempfehlungen. Notwendige Korrekturen sind eingearbeitet; der konkrete Abstimmungstermin ist noch zu vereinbaren.",
+          "issue": "sfleischmann-3steps2/KORODUR-Website#546"
         },
         {
           "id": "web-freeze",
@@ -134,14 +143,33 @@
           "details": "Termin aufgehoben mit dem DPI-Beschluss vom 18.08.2026: Content-Freeze und muttersprachliche Prüfung werden mit der Launch-Definition neu terminiert. Die Zuständigkeit bleibt geklärt: alle internationalen Übersetzungen laufen über eine zentrale Koordination, die die Prüfung je Land beauftragt."
         },
         {
-          "id": "web-launch1",
+          "id": "web-portfolio",
           "datum": "2026-10-31",
-          "titel": "Launch V1 neue korodur.de (DE/EN/FR)",
-          "typ": "schluessel",
-          "status": "entfallen",
+          "titel": "Produkt- und Systemportfolio für die Website abgestimmt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Fachliche Abnahme durch die Technik; konkreter Prüfungstermin noch zu vereinbaren",
+          "details": "Zieltermin Ende Oktober, keine zugesagte Abnahmefrist. Die Prüfung soll ab Mitte Oktober beginnen. Abgestimmt sind die Auswahl aktiver Produkte und Nischenprodukte, zusätzlich dargestellte Systeme und Verfahren, Produktarten samt Zuordnungen sowie die Bildauswahl. Notwendige Korrekturen sind dokumentiert und zur Umsetzung zugeordnet. Technische Kennwerte und Dokumentenfreigaben folgen separat aus dem Projekt Digitale Produktinformationen."
+        },
+        {
+          "id": "web-empfehlungen",
+          "datum": "2026-10-31",
+          "titel": "Lösungsfinder: Empfehlungen freigegeben und Ergebnisseite fertig",
+          "typ": "meilenstein",
+          "status": "offen",
           "klaerung": false,
-          "confidence": "hoch",
-          "details": "Termin aufgehoben (DPI-Beschluss 18.08.2026): Der Launch wird erst terminiert, wenn Leistungserklärungen, Sicherheitsdatenblätter und technische Datenblätter aus der Produktdatenbank generiert laufen. Die Terminfestlegung ist der Entscheidungspunkt Launch-Definition Ende November."
+          "details": "Aus fachlich abgestimmten Auswahlregeln entsteht zunächst ein gekennzeichneter Prüfentwurf für das aktive Sortiment. Expertenprüfung, Korrekturen und geprüfte Beispieldurchläufe schließen den Meilenstein ab. Zieltermin, keine bereits zugesagte Abnahmefrist.",
+          "abhaengigkeit": "Fachliche Auswahlregeln und Expertenprüfung der Produktempfehlungen"
+        },
+        {
+          "id": "web-industrieboden",
+          "datum": "2026-11-10",
+          "titel": "Industrieboden, Neubau und Sanierung ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Drei Seiten vollständig und aus redaktioneller Sicht stimmig ausgearbeitet sowie fachlich vorab abgestimmt. Finale fachliche Abnahmen werden gesondert geklärt. Der Lösungsfinder ist ein eigener Arbeitsstrang."
         },
         {
           "id": "web-pdp",
@@ -152,18 +180,7 @@
           "klaerung": false,
           "confidence": "mittel",
           "issue": "KORODUR-International/korodur-review-reporting#189",
-          "details": "Design und Datenpunkte der Produktdetailseiten abgestimmt. Mit dem DPI-Beschluss vom 18.08.2026 (Technik-Termin) auf Ende November gelegt: das PDP-Design arbeitet auf denselben Produktdaten wie die Dokument-Meilensteine und folgt deren Sequenz."
-        },
-        {
-          "id": "web-launchdef",
-          "datum": "2026-11-30",
-          "titel": "Launch-Definition: Termin für die neue korodur.de festlegen",
-          "typ": "entscheidung",
-          "status": "offen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "abhaengigkeit": "Leistungserklärungen, Sicherheits- und technische Datenblätter generiert; CD-Commitment steht",
-          "details": "Beschluss vom 18.08.2026: Der Launch wird bewusst erst terminiert, wenn die Dokumenten-Kette aus der Produktdatenbank generiert läuft und das PDP-Design steht. An diesem Punkt wird das Launchfenster festgelegt."
+          "details": "Aufbau und Design der Produktdetailseiten abgestimmt. Der Termin Ende November bleibt am 22.09. bestätigt. Ein vorgezogener Designausblick mit vorhandenen Inhalten entsteht bereits im September; finale technische Daten folgen aus DPI. Dokumente sind früh zugänglich, Textdopplungen und unbeabsichtigte Leerflächen beseitigt."
         },
         {
           "id": "web-v2",
@@ -174,6 +191,92 @@
           "klaerung": false,
           "confidence": "hoch",
           "details": "Termin aufgehoben: hing am Launch V1 und wird mit der Launch-Definition neu geplant. Der Umfang (Ratgeberbereich, restliche muttersprachliche Prüfungen, weitere Inhalte) bleibt bestehen."
+        },
+        {
+          "id": "web-bereiche",
+          "datum": "2026-12-15",
+          "titel": "Weitere Bereichsseiten ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Nach Industrieboden als Vorlage zuerst Betonsanierung/Rapid Set und MICROTOP/Trinkwasserbehälter, danach Katzenstreu, 3D-Betondruck und Infrastruktur. Ausgearbeitet und fachlich vorab abgestimmt; finale Abnahme separat. Spezialmörtel: reduzierte V1-Fassung oder V2 noch zu entscheiden.",
+          "abhaengigkeit": "Industrieboden als Vorlage; Inhalte für 3D-Betondruck; Scope-Entscheidung Spezialmörtel"
+        },
+        {
+          "id": "web-launch1",
+          "datum": null,
+          "titel": "Neue Website V1 in DE, EN und FR veröffentlicht",
+          "typ": "schluessel",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "hoch",
+          "details": "Zielrahmen erstes Quartal 2027, noch kein zugesagtes Tagesdatum. Der öffentliche Start folgt auf die abgestimmte Launchbereitschaft.",
+          "zielzeitraum": "Q1 2027",
+          "abhaengigkeit": "Launchbereitschaft und konkreter Starttermin bestätigt"
+        },
+        {
+          "id": "web-launchdef",
+          "datum": null,
+          "titel": "Launchbereitschaft und Starttermin abgestimmt",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "mittel",
+          "abhaengigkeit": "Dokumenten- und Datenbereitschaft aus DPI; erforderliche Freigaben und technische Launch-Vorbereitung",
+          "details": "Der bisherige Entscheidungspunkt Ende November ist durch den Zielrahmen Q1 2027 ersetzt. Der konkrete Starttermin folgt aus Dokumenten- und Datenbereitschaft, den je Bereich erforderlichen Freigaben, EN/FR-Fassungen sowie Betriebs- und Kontaktformularbereitschaft.",
+          "zielzeitraum": "Q1 2027"
+        },
+        {
+          "id": "web-refdesign",
+          "datum": null,
+          "titel": "Referenzdetailseiten gestalterisch abgestimmt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Kohärenter Aufbau und gezielte Bildführung, ohne unbeabsichtigte Leerflächen. An einer bildreichen und einer knappen Referenz prüfen. Das erreichte Inhaltskonzept bleibt Grundlage.",
+          "abhaengigkeit": "Gestaltungsrichtung aus der Designvorschau; redaktionell ausgearbeitete Referenzbeispiele"
+        },
+        {
+          "id": "web-kontakt",
+          "datum": null,
+          "titel": "Kontaktseite übersichtlich gestaltet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Größere Mitarbeiterbilder und auf Desktop drei bis vier Ansprechpartner nebeneinander; responsive Darstellung. Eventuelle Titeländerungen werden separat entschieden.",
+          "abhaengigkeit": "Gestaltungsabstimmung; Änderungen der Mitarbeitertitel nur nach Entscheidung"
+        },
+        {
+          "id": "web-unternehmen",
+          "datum": null,
+          "titel": "Konzept Unternehmen als Entscheidungsvorlage vorbereitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "One-Pager mit vorgeschlagener Seitenstruktur, groben Inhaltsstichpunkten und konkreten Entscheidungsfragen; auf dem vorhandenen Konzept aufbauen.",
+          "abhaengigkeit": "Konzept ausarbeiten und Übergabetermin vor Weihnachten vereinbaren",
+          "zielzeitraum": "Vor Weihnachten 2026"
+        },
+        {
+          "id": "web-crm-formular",
+          "datum": null,
+          "titel": "Kontaktformular mit CRM-Anbindung einsatzbereit",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Durchlauf vom Absenden bis zum Eingang im CRM geprüft, einschließlich Fehlerfall und abgestimmter Datenzuordnung. Kurz vor dem Website-Start, Priorität P2.",
+          "abhaengigkeit": "CRM-Zielprozess und Formularfelder abgestimmt; Termin an den Website-Start koppeln",
+          "zielzeitraum": "Q1 2027, vor Website-Start"
+        },
+        {
+          "id": "web-dpi-uebernahme",
+          "datum": null,
+          "titel": "Freigegebene Produktdaten und Dokumente auf Website übernommen",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Die Website verwendet die jeweils freigegebenen technischen Kennwerte und Dokumente aus DPI. Portfolio-Abnahme und Layout können vorher erfolgen.",
+          "abhaengigkeit": "Leistungserklärungen und technische Datenblätter sowie relevante Produktdaten aus DPI freigegeben"
         }
       ]
     },
@@ -288,7 +391,7 @@
         "ende": "2026-12-31"
       },
       "stil": "normal",
-      "weiter2027": "Skalierung: Innendienst/Teleteam einbinden, aktive Vertriebskampagnen (Pilot: Permix)",
+      "weiter2027": "Website-Launchkommunikation: Bestandskunden- und PR-Kampagne in Q1/Q2 2027",
       "meilensteine": [
         {
           "id": "vp-definition",
@@ -351,6 +454,28 @@
           "klaerung": false,
           "confidence": "mittel",
           "details": "Regelmäßiges Reporting an die Geschäftsführung (Dashboard); Team arbeitet aktiv an der Verbesserung der KPIs."
+        },
+        {
+          "id": "crm-web-bestandskunden",
+          "datum": null,
+          "titel": "Neue Website: Bestandskundenkampagne umgesetzt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Zielgruppe, Botschaft, Kanäle, Verantwortlichkeit und Erfolgskriterien gemeinsam festlegen; Maßnahmen an der Website-Veröffentlichung ausrichten.",
+          "abhaengigkeit": "Website-Starttermin und Kampagnenkonzept abgestimmt",
+          "zielzeitraum": "Q1/Q2 2027"
+        },
+        {
+          "id": "crm-web-pr",
+          "datum": null,
+          "titel": "Neue Website: PR-Kampagne umgesetzt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "PR-Konzept und Veröffentlichung zur neuen Website vorbereiten; konkreter Umfang und Zeitpunkt werden im Kampagnenprojekt geklärt.",
+          "abhaengigkeit": "Website-Starttermin, Kommunikationskonzept und Freigaben abgestimmt",
+          "zielzeitraum": "Q1/Q2 2027"
         }
       ]
     },
@@ -655,14 +780,14 @@
       "id": "uebersetzungen",
       "area": "international",
       "name": "Übersetzungen",
-      "hinweis": "Parallelstrang; 2026 bewusst schwach besetzt, Grundlagen für 2027. Arbeit auf Zuruf.",
-      "erreichtHeisst": "Italienische Erstfassungen der technischen Datenblätter der Kernprodukte erstellt und zur Sprachabstimmung übergeben; Strategie Internationalisierung 2027 steht, Training IT und PL angelaufen. Die externe Abnahme ist kein terminierter Roadmap-Meilenstein. Die Golive-Sprachen EN und FR folgen dem Launch-Termin der Website.",
+      "hinweis": "Website V1: Englisch und Französisch je Bereich parallel ab der eigenen fertig ausgearbeiteten deutschen Fassung. Zusätzliche fachliche Abnahmen werden je Bereich geklärt; sie sind keine pauschale Voraussetzung für den Übersetzungsstart. Folgetermine werden nach Bereitstellung vereinbart, nicht automatisch erzeugt.",
+      "erreichtHeisst": "Italienische Erstfassungen der technischen Datenblätter der Kernprodukte erstellt und zur Sprachabstimmung übergeben; Strategie Internationalisierung 2027 steht, Training IT und PL angelaufen. Die externe Abnahme ist kein terminierter Roadmap-Meilenstein. Die Golive-Sprachen EN und FR folgen dem Launch-Termin der Website. Website-Übersetzungen EN/FR laufen paketweise ab der eigenen deutschen Fassung; Umfang und Fristen je Paket sind getrennt sichtbar.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
       },
       "stil": "parallel",
-      "weiter2027": "Sprachen-Ausbau, Ländermanagement",
+      "weiter2027": "EN/FR für Website V1; weitere Sprachen und Ländermanagement",
       "meilensteine": [
         {
           "id": "ueb-tds-it",
@@ -695,6 +820,206 @@
           "klaerung": false,
           "confidence": "hoch",
           "details": "Ausblick 2027: weitere Sprachen, Händlermanagement; Ländermanagement gezielt 2027. Abstimmung mit dem Export. Training IT+PL startet Mitte Dezember."
+        },
+        {
+          "id": "ueb-web-industrieboden-en",
+          "datum": null,
+          "titel": "Industrieboden einschließlich Neubau und Sanierung: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-industrieboden-fr",
+          "datum": null,
+          "titel": "Industrieboden einschließlich Neubau und Sanierung: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-rapidset-en",
+          "datum": null,
+          "titel": "Betonsanierung / Rapid Set: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-rapidset-fr",
+          "datum": null,
+          "titel": "Betonsanierung / Rapid Set: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-microtop-en",
+          "datum": null,
+          "titel": "MICROTOP / Trinkwasserbehälter: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-microtop-fr",
+          "datum": null,
+          "titel": "MICROTOP / Trinkwasserbehälter: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-katzenstreu-en",
+          "datum": null,
+          "titel": "Katzenstreu: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-katzenstreu-fr",
+          "datum": null,
+          "titel": "Katzenstreu: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-3ddruck-en",
+          "datum": null,
+          "titel": "3D-Betondruck: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-3ddruck-fr",
+          "datum": null,
+          "titel": "3D-Betondruck: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-infrastruktur-en",
+          "datum": null,
+          "titel": "Infrastruktur: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-infrastruktur-fr",
+          "datum": null,
+          "titel": "Infrastruktur: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-spezialmoertel-en",
+          "datum": null,
+          "titel": "Spezialmörtel: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "V1-Umfang Spezialmörtel entscheiden; eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-spezialmoertel-fr",
+          "datum": null,
+          "titel": "Spezialmörtel: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "V1-Umfang Spezialmörtel entscheiden; eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-portfolio-en",
+          "datum": null,
+          "titel": "Produkt- und Systemseiten: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-portfolio-fr",
+          "datum": null,
+          "titel": "Produkt- und Systemseiten: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-referenzen-en",
+          "datum": null,
+          "titel": "Referenzseiten: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-referenzen-fr",
+          "datum": null,
+          "titel": "Referenzseiten: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-rahmen-en",
+          "datum": null,
+          "titel": "Startseite, Kontakt und Unternehmen: Englisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-web-rahmen-fr",
+          "datum": null,
+          "titel": "Startseite, Kontakt und Unternehmen: Französisch ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         }
       ]
     },

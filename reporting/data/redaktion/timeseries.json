@@ -640,13 +640,13 @@
     "date": "2026-09-22",
     "ideen": 51,
     "in_arbeit": 0,
-    "in_pruefung": 10,
-    "freigegeben": 15,
-    "eingeplant": 0,
-    "gepostet": 39,
+    "in_pruefung": 9,
+    "freigegeben": 7,
+    "eingeplant": 8,
+    "gepostet": 40,
     "abgelehnt": 1,
     "unbekannt": 0,
     "puffer": 15,
-    "vorlauf_wochen": 0.0
+    "vorlauf_wochen": 3.9
   }
 ]

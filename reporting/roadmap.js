@@ -104,7 +104,7 @@ const todayIso = () => {
 const heuteIso = () => (DATA && DATA.heute) || todayIso();
 // „Überfällig" ist ein zur Laufzeit abgeleiteter Zustand, kein fünfter Statuswert
 // und kein Feld in der JSON. Entfallene Termine werden nie rot.
-const isLate = m => m.datum < heuteIso() && m.status !== 'erreicht' && m.status !== 'entfallen';
+const isLate = m => Boolean(m.datum) && m.datum < heuteIso() && m.status !== 'erreicht' && m.status !== 'entfallen';
 const LATE_LABEL = 'überfällig';
 const lateChipHtml = '<span class="rm-latechip">überfällig</span>';
 const state = {
@@ -121,8 +121,8 @@ function esc(s) {
     { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
   ));
 }
-const fmtDate = iso => { if (!iso) return ''; const [y, m, d] = iso.split('-'); return `${d}.${m}.${y}`; };
-const fmtShort = iso => { if (!iso) return ''; const [y, m, d] = iso.split('-'); return `${d}.${m}.`; };
+const fmtDate = iso => { if (!iso) return 'Termin folgt'; const [y, m, d] = iso.split('-'); return `${d}.${m}.${y}`; };
+const fmtShort = iso => { if (!iso) return 'Termin folgt'; const [y, m, d] = iso.split('-'); return `${d}.${m}.`; };
 const dayMs = 86400000;
 const toDate = iso => new Date(iso + 'T12:00:00');
 
@@ -188,7 +188,7 @@ function progressBarHtml(p, color, big) {
 
 function visibleMs(list) {
   return list.filter(m => {
-    if (m.status === 'entfallen') return false;
+    if (m.status === 'entfallen' || !m.datum) return false;
     if (!state.decisions && m.typ === 'entscheidung') return false;
     if (!state.achieved && m.status === 'erreicht') return false;
     return inWindow(m.datum);
@@ -485,7 +485,7 @@ function detailHtml() {
   <div class="status-section rm-detail">
     <div class="rm-detail__head">
       <h3 class="rm-detail__title">${m.status === 'erreicht' ? '✓ ' : ''}${esc(m.titel)}</h3>
-      <span class="rm-detail__meta">${fmtDate(m.datum)}${m.zeitraum ? ` (${fmtShort(m.zeitraum.von)} bis ${fmtShort(m.zeitraum.bis)})` : ''} · ${esc(areaTxt)}${lane ? ' · ' + esc(lane.name) : ''} · ${TYP_LABEL[m.typ] || esc(m.typ)}</span>
+      <span class="rm-detail__meta">${fmtDate(m.datum)}${m.zielzeitraum ? ` · ${esc(m.zielzeitraum)}` : ''}${m.zeitraum ? ` (${fmtShort(m.zeitraum.von)} bis ${fmtShort(m.zeitraum.bis)})` : ''} · ${esc(areaTxt)}${lane ? ' · ' + esc(lane.name) : ''} · ${TYP_LABEL[m.typ] || esc(m.typ)}</span>
       <button type="button" class="rm-detail__close" data-close aria-label="Schließen">×</button>
     </div>
     <p class="rm-detail__body">
@@ -521,11 +521,25 @@ function parkedHtml() {
     </ul>
   </details>`;
 }
+function undatierteHtml() {
+  const rows = DATA.lanes.flatMap(lane => lane.meilensteine
+    .filter(m => !m.datum && m.status !== 'entfallen' && m.status !== 'erreicht')
+    .map(m => ({lane, m})));
+  if (!rows.length) return '';
+  return `<details class="rm-parkedwrap">
+    <summary>Termin folgt: abhängige Meilensteine und Ausblick (${rows.length})</summary>
+    <ul class="rm-parked__list">${rows.map(({lane, m}) => `<li>
+      <button type="button" class="rm-detail__mslink" data-ms="${esc(m.id)}" data-lane="${esc(lane.id)}">${esc(m.titel)}</button>
+      · ${esc(lane.name)}${m.zielzeitraum ? ` · ${esc(m.zielzeitraum)}` : ''}
+      ${m.abhaengigkeit ? `<br>${esc(m.abhaengigkeit)}` : ''}
+    </li>`).join('')}</ul></details>`;
+}
+
 function tableHtml() {
   const rows = [];
   DATA.fixpunkte.forEach(m => rows.push({ m, area: 'Fixpunkt', lane: 'Externe Fixpunkte' }));
   DATA.lanes.forEach(l => l.meilensteine.forEach(m => rows.push({ m, area: areaName(l.area), lane: l.name })));
-  rows.sort((a, b) => a.m.datum.localeCompare(b.m.datum));
+  rows.sort((a, b) => (a.m.datum || '9999').localeCompare(b.m.datum || '9999'));
   return `
   <details class="rm-tablewrap">
     <summary>Tabellenansicht: alle Meilensteine chronologisch (${rows.length})</summary>
@@ -686,6 +700,7 @@ function render() {
     ${chartHtml()}
     ${detailHtml()}
     ${legendHtml()}
+    ${undatierteHtml()}
     ${parkedHtml()}
     ${tableHtml()}
     <footer class="footer">Quelle: <code>data/roadmap/roadmap-2026.json</code>${ISSUES_STAND ? ` · Issue-Zahlen aus dem Board-Snapshot ${esc(ISSUES_STAND)}` : ''} ·

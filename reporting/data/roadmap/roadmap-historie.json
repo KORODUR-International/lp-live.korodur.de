@@ -14,17 +14,23 @@
       "status": "erreicht",
       "titel": "Referenzdetailseite: Konzept und Datenpunkte fixiert"
     },
-    "web-loesungsfinder": {
+    "web-design-preview": {
       "lane": "Website",
-      "datum": "2026-09-30",
-      "status": "verschoben",
-      "titel": "Lösungsfinder Industrieboden abgestimmt"
+      "datum": "2026-09-25",
+      "status": "offen",
+      "titel": "Designvorschau für die GBL fertig"
     },
     "web-daten": {
       "lane": "Website",
       "datum": "2026-09-30",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Produktdaten technisch geklärt und validiert"
+    },
+    "web-loesungsfinder": {
+      "lane": "Website",
+      "datum": "2026-10-15",
+      "status": "verschoben",
+      "titel": "Lösungsfinder: Ablauf und Entscheidungslogik abgestimmt"
     },
     "web-freeze": {
       "lane": "Website",
@@ -32,11 +38,23 @@
       "status": "entfallen",
       "titel": "Muttersprachliche Prüfung Go-Live-Umfang abgeschlossen; Content-Freeze"
     },
-    "web-launch1": {
+    "web-portfolio": {
       "lane": "Website",
       "datum": "2026-10-31",
-      "status": "entfallen",
-      "titel": "Launch V1 neue korodur.de (DE/EN/FR)"
+      "status": "offen",
+      "titel": "Produkt- und Systemportfolio für die Website abgestimmt"
+    },
+    "web-empfehlungen": {
+      "lane": "Website",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Lösungsfinder: Empfehlungen freigegeben und Ergebnisseite fertig"
+    },
+    "web-industrieboden": {
+      "lane": "Website",
+      "datum": "2026-11-10",
+      "status": "offen",
+      "titel": "Industrieboden, Neubau und Sanierung ausgearbeitet"
     },
     "web-pdp": {
       "lane": "Website",
@@ -44,17 +62,59 @@
       "status": "verschoben",
       "titel": "PDP-Design steht"
     },
-    "web-launchdef": {
-      "lane": "Website",
-      "datum": "2026-11-30",
-      "status": "offen",
-      "titel": "Launch-Definition: Termin für die neue korodur.de festlegen"
-    },
     "web-v2": {
       "lane": "Website",
       "datum": "2026-12-05",
       "status": "entfallen",
       "titel": "V2: Ratgeber-/Fachartikelbereich live, Inhalte nachgezogen"
+    },
+    "web-bereiche": {
+      "lane": "Website",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Weitere Bereichsseiten ausgearbeitet"
+    },
+    "web-launch1": {
+      "lane": "Website",
+      "datum": null,
+      "status": "offen",
+      "titel": "Neue Website V1 in DE, EN und FR veröffentlicht"
+    },
+    "web-launchdef": {
+      "lane": "Website",
+      "datum": null,
+      "status": "offen",
+      "titel": "Launchbereitschaft und Starttermin abgestimmt"
+    },
+    "web-refdesign": {
+      "lane": "Website",
+      "datum": null,
+      "status": "offen",
+      "titel": "Referenzdetailseiten gestalterisch abgestimmt"
+    },
+    "web-kontakt": {
+      "lane": "Website",
+      "datum": null,
+      "status": "offen",
+      "titel": "Kontaktseite übersichtlich gestaltet"
+    },
+    "web-unternehmen": {
+      "lane": "Website",
+      "datum": null,
+      "status": "offen",
+      "titel": "Konzept Unternehmen als Entscheidungsvorlage vorbereitet"
+    },
+    "web-crm-formular": {
+      "lane": "Website",
+      "datum": null,
+      "status": "offen",
+      "titel": "Kontaktformular mit CRM-Anbindung einsatzbereit"
+    },
+    "web-dpi-uebernahme": {
+      "lane": "Website",
+      "datum": null,
+      "status": "offen",
+      "titel": "Freigegebene Produktdaten und Dokumente auf Website übernommen"
     },
     "con-workflow": {
       "lane": "Content & Redaktion",
@@ -139,6 +199,18 @@
       "datum": "2026-12-31",
       "status": "offen",
       "titel": "Monatliches GF-Reporting läuft"
+    },
+    "crm-web-bestandskunden": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Neue Website: Bestandskundenkampagne umgesetzt"
+    },
+    "crm-web-pr": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Neue Website: PR-Kampagne umgesetzt"
     },
     "dat-regeltermin": {
       "lane": "CRM-Datenfundament",
@@ -307,6 +379,126 @@
       "datum": "2026-12-15",
       "status": "offen",
       "titel": "Strategie Internationalisierung 2027 steht; Training IT+PL angelaufen"
+    },
+    "ueb-web-industrieboden-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Industrieboden einschließlich Neubau und Sanierung: Englisch ausgearbeitet"
+    },
+    "ueb-web-industrieboden-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Industrieboden einschließlich Neubau und Sanierung: Französisch ausgearbeitet"
+    },
+    "ueb-web-rapidset-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Betonsanierung / Rapid Set: Englisch ausgearbeitet"
+    },
+    "ueb-web-rapidset-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Betonsanierung / Rapid Set: Französisch ausgearbeitet"
+    },
+    "ueb-web-microtop-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "MICROTOP / Trinkwasserbehälter: Englisch ausgearbeitet"
+    },
+    "ueb-web-microtop-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "MICROTOP / Trinkwasserbehälter: Französisch ausgearbeitet"
+    },
+    "ueb-web-katzenstreu-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Katzenstreu: Englisch ausgearbeitet"
+    },
+    "ueb-web-katzenstreu-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Katzenstreu: Französisch ausgearbeitet"
+    },
+    "ueb-web-3ddruck-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "3D-Betondruck: Englisch ausgearbeitet"
+    },
+    "ueb-web-3ddruck-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "3D-Betondruck: Französisch ausgearbeitet"
+    },
+    "ueb-web-infrastruktur-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Infrastruktur: Englisch ausgearbeitet"
+    },
+    "ueb-web-infrastruktur-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Infrastruktur: Französisch ausgearbeitet"
+    },
+    "ueb-web-spezialmoertel-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Spezialmörtel: Englisch ausgearbeitet"
+    },
+    "ueb-web-spezialmoertel-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Spezialmörtel: Französisch ausgearbeitet"
+    },
+    "ueb-web-portfolio-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Produkt- und Systemseiten: Englisch ausgearbeitet"
+    },
+    "ueb-web-portfolio-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Produkt- und Systemseiten: Französisch ausgearbeitet"
+    },
+    "ueb-web-referenzen-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Referenzseiten: Englisch ausgearbeitet"
+    },
+    "ueb-web-referenzen-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Referenzseiten: Französisch ausgearbeitet"
+    },
+    "ueb-web-rahmen-en": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Startseite, Kontakt und Unternehmen: Englisch ausgearbeitet"
+    },
+    "ueb-web-rahmen-fr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Startseite, Kontakt und Unternehmen: Französisch ausgearbeitet"
     },
     "ki-uc1": {
       "lane": "Lokale KI",
@@ -3361,6 +3553,369 @@
       "feld": null,
       "alt": "2026-08-31",
       "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "crm-web-bestandskunden",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "crm-web-pr",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-3ddruck-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-3ddruck-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-industrieboden-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-industrieboden-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-infrastruktur-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-infrastruktur-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-katzenstreu-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-katzenstreu-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-microtop-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-microtop-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-portfolio-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-portfolio-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-rahmen-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-rahmen-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-rapidset-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-rapidset-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-referenzen-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-referenzen-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-spezialmoertel-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ueb-web-spezialmoertel-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-bereiche",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-crm-formular",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-design-preview",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-25"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-dpi-uebernahme",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-empfehlungen",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-industrieboden",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-10"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-kontakt",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-portfolio",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-refdesign",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-unternehmen",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-daten",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-launch1",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": null,
+      "tage": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-launch1",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "entfallen",
+      "neu": "offen"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-launch1",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Launch V1 neue korodur.de (DE/EN/FR)",
+      "neu": "Neue Website V1 in DE, EN und FR veröffentlicht"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-launchdef",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-30",
+      "neu": null,
+      "tage": null
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-launchdef",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Launch-Definition: Termin für die neue korodur.de festlegen",
+      "neu": "Launchbereitschaft und Starttermin abgestimmt"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-loesungsfinder",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-09-30",
+      "neu": "2026-10-15",
+      "tage": 15
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "web-loesungsfinder",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Lösungsfinder Industrieboden abgestimmt",
+      "neu": "Lösungsfinder: Ablauf und Entscheidungslogik abgestimmt"
     }
   ],
   "kennzahlen": {
@@ -3491,9 +4046,9 @@
       "ueberfaelligSeit": null
     },
     "web-loesungsfinder": {
-      "verschiebungen": 2,
-      "tageGesamt": 30,
-      "letzteVerschiebung": "2026-08-26",
+      "verschiebungen": 3,
+      "tageGesamt": 45,
+      "letzteVerschiebung": "2026-09-22",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -3517,6 +4072,20 @@
       "letzteVerschiebung": null,
       "stehengelassen": 1,
       "ueberfaelligSeit": "2026-09-20"
+    },
+    "web-launch1": {
+      "verschiebungen": 1,
+      "tageGesamt": 0,
+      "letzteVerschiebung": "2026-09-22",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-launchdef": {
+      "verschiebungen": 1,
+      "tageGesamt": 0,
+      "letzteVerschiebung": "2026-09-22",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
     }
   }
 }

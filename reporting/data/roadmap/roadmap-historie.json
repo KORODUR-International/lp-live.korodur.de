@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-09-21",
+  "letzteFeststellung": "2026-09-22",
   "stand": {
     "web-struktur": {
       "lane": "Website",
@@ -3352,6 +3352,15 @@
       "feld": "titel",
       "alt": "Technische Datenblätter der Kernprodukte auf Italienisch",
       "neu": "Italienische TDS-Erstfassungen der Kernprodukte erstellt und übergeben"
+    },
+    {
+      "festgestellt": "2026-09-22",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-31",
+      "neu": "2026-08-31"
     }
   ],
   "kennzahlen": {
@@ -3492,7 +3501,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 21,
+      "stehengelassen": 22,
       "ueberfaelligSeit": "2026-08-31"
     },
     "con-q4planung": {

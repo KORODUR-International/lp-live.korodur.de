@@ -1,7 +1,7 @@
 {
-  "version": "1.11",
+  "version": "1.12",
   "stand": "2026-09-22",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.11 (22.09.2026): Website-Meilensteine neu geschnitten; Ausarbeitung und Abnahme getrennt, Übersetzungsfolgen je Bereich sichtbar, Launch Q1 2027. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Andere Projektplanungen bleiben unverändert.",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.12 (22.09.2026): Website-Meilensteine neu geschnitten; Ausarbeitung und Abnahme getrennt, Übersetzungsfolgen je Bereich sichtbar, Launch Q1 2027. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Andere Projektplanungen bleiben unverändert.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -809,7 +809,7 @@
           "klaerung": false,
           "confidence": "hoch",
           "abhaengigkeit": "Website-Launch",
-          "details": "Termin aufgehoben (DPI-Beschluss 18.08.2026): EN und FR gehen mit dem Website-Launch live, der über die Launch-Definition Ende November neu terminiert wird. Iterativ verbesserte Übersetzungen, danach weiter trainieren."
+          "details": "Der frühere gemeinsame Übersetzungstermin wurde mit dem DPI-Beschluss vom 18.08.2026 aufgehoben. Aktueller Planungsstand 22.09.2026: EN und FR werden je Paket ab der eigenen fertig ausgearbeiteten deutschen Fassung erstellt und gehen mit Website V1 im Zielrahmen Q1 2027 live. Das konkrete Startdatum folgt aus der Launchbereitschaft; zusätzliche fachliche Abnahmen werden je Bereich geklärt."
         },
         {
           "id": "ueb-strategie",

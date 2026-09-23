@@ -35,20 +35,32 @@
     "con-vollbetrieb": {
       "lane": "Content & Redaktion",
       "datum": "2026-09-30",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, 2,5 bis 3 Wochen terminierter Vorlauf"
     },
     "con-styleguide": {
       "lane": "Content & Redaktion",
       "datum": "2026-10-31",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Visueller Style Guide V1 (Bildgenerierung & Grafik)"
+    },
+    "con-katzenstreu": {
+      "lane": "Content & Redaktion",
+      "datum": "2026-12-04",
+      "status": "offen",
+      "titel": "Katzenstreu in Social Media und Redaktion: ob und wie entschieden"
     },
     "con-jahresplanung": {
       "lane": "Content & Redaktion",
       "datum": "2026-12-05",
       "status": "offen",
       "titel": "Jahres-Redaktionsplanung 2027"
+    },
+    "con-analytics-auto": {
+      "lane": "Content & Redaktion",
+      "datum": null,
+      "status": "offen",
+      "titel": "Analytics aus Meta und LinkedIn automatisiert im Reporting"
     },
     "web-struktur": {
       "lane": "Website",
@@ -164,6 +176,36 @@
       "status": "offen",
       "titel": "Freigegebene Produktdaten und Dokumente auf Website übernommen"
     },
+    "mk-verpackung": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-09-30",
+      "status": "offen",
+      "titel": "Entscheidung zur Umsetzung des Verpackungsdesigns"
+    },
+    "mk-cd-v1": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Corporate Design V1: Bestand gesichtet, modular zentral abgelegt"
+    },
+    "mk-mockups": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Produkt-Mockups des aktiven Sortiments für die neue Website"
+    },
+    "mk-cd-rollout": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": null,
+      "status": "offen",
+      "titel": "Corporate Design auf Messe und Print ausgerollt"
+    },
+    "mk-assets": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": null,
+      "status": "offen",
+      "titel": "Verzeichnis aller Druck-, PDF- und Marketingmaterialien"
+    },
     "pdb-m1": {
       "lane": "Digitale Produktinformationen (DPI)",
       "datum": "2026-07-27",
@@ -229,6 +271,12 @@
       "datum": "2026-12-20",
       "status": "entfallen",
       "titel": "Technische Datenblätter (TDS) generierbar in DE, EN und FR"
+    },
+    "pdb-tds-auto": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "Technische Datenblätter vollständig automatisiert erzeugt"
     },
     "ref-erstkontakt": {
       "lane": "Referenzen",
@@ -439,6 +487,12 @@
       "datum": "2026-10-31",
       "status": "offen",
       "titel": "KPI-Set Vertrieb definiert"
+    },
+    "vp-rapidmail": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "Newsletter-Werkzeug entschieden und Anbindung an das CRM geklärt"
     },
     "vp-dod": {
       "lane": "Vertriebsprozess & Kampagnen",
@@ -4215,6 +4269,105 @@
       "alt": null,
       "neu": "2026-10-31",
       "tage": null
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "con-analytics-auto",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "con-katzenstreu",
+      "lane": "Content & Redaktion",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-04"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "mk-assets",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "mk-cd-rollout",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "mk-cd-v1",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "mk-mockups",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "mk-verpackung",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "pdb-tds-auto",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "vp-rapidmail",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "con-styleguide",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "con-vollbetrieb",
+      "lane": "Content & Redaktion",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
     }
   ],
   "kennzahlen": {

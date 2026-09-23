@@ -1,7 +1,7 @@
 {
-  "version": "1.14",
+  "version": "1.15",
   "stand": "2026-09-23",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt.",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -44,7 +44,7 @@
     {
       "id": "content",
       "area": "marketing",
-      "name": "Content & Redaktion",
+      "name": "Social Media & Redaktion",
       "hinweis": "Zwei Produktionsstränge: LinkedIn + Meta (Crosspost); Redaktionsarbeit unter Quartals-Dachkampagnen",
       "erreichtHeisst": "Redaktionsprozess sitzt: im Schnitt 2 Beiträge pro Woche auf LinkedIn und Meta, 2,5 bis 3 Wochen terminierter Vorlauf aus eingeplanten und getimten Beiträgen, KPI-Reporting läuft; Jahres-Redaktionsplanung 2027 steht.",
       "balken": {
@@ -52,7 +52,7 @@
         "ende": "2026-12-31"
       },
       "stil": "normal",
-      "weiter2027": "Weitere Formate: Verarbeitungsanleitungen, Video, GIFs; ggf. weitere Kanäle",
+      "weiter2027": "Plattformspezifische Ausspielung statt gleichem Inhalt auf Facebook und Instagram; der Vertrieb als feste Content-Quelle (Messen, Projekte, besondere Lieferungen); weitere Formate: Verarbeitungsanleitungen, Video, GIFs; Newsletter-Strategie mit zielgruppenspezifischen Quartals-Mails gegen Ende 2027",
       "meilensteine": [
         {
           "id": "con-workflow",
@@ -114,20 +114,30 @@
           "datum": "2026-09-30",
           "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, 2,5 bis 3 Wochen terminierter Vorlauf",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "erreicht",
           "klaerung": false,
           "confidence": "mittel",
-          "details": "Commitment: durchschnittlich 2 Beiträge pro Woche auf beiden Strängen, terminierter Vorlauf von 2,5 bis 3 Wochen. Zum Vorlauf zählen nur eingeplante und getimte Beiträge; freigegebene Beiträge bilden den Puffer. Das Reporting läuft. Der Meilenstein bleibt bis zur Bewertung am 30.09.2026 offen."
+          "details": "Commitment: durchschnittlich 2 Beiträge pro Woche auf beiden Strängen, terminierter Vorlauf von 2,5 bis 3 Wochen. Zum Vorlauf zählen nur eingeplante und getimte Beiträge; freigegebene Beiträge bilden den Puffer. Das Reporting läuft. Der Meilenstein bleibt bis zur Bewertung am 30.09.2026 offen. In der Marketing-Abstimmung am 23.09.2026 gemeinsam als erreicht bewertet: der Prozess sitzt, der terminierte Vorlauf liegt bei zwei bis drei Wochen.",
+          "erreichtAm": "2026-09-23"
         },
         {
           "id": "con-styleguide",
           "datum": "2026-10-31",
           "titel": "Visueller Style Guide V1 (Bildgenerierung & Grafik)",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": false,
           "confidence": "hoch",
-          "details": "Corporate Style für generierte Bilder, Produkt-Mockups und Grafiken. Geringe Priorität; Puffer bis Ende November. Synergien mit der Bildproduktion für die Website."
+          "details": "Entfallen mit der Marketing-Abstimmung vom 23.09.2026: Der Style Guide für die Bildgenerierung ist zurückgestellt. An seine Stelle tritt die Sichtung des Corporate Designs in der Lane Marke & Kommunikationsmittel (mk-cd-v1, 31.10.)."
+        },
+        {
+          "id": "con-katzenstreu",
+          "datum": "2026-12-04",
+          "titel": "Katzenstreu in Social Media und Redaktion: ob und wie entschieden",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Strategische Klärung mit der Geschäftsführung, ob und in welcher Form das Einsatzgebiet Katzenstreu 2027 in Social Media und Redaktion vorkommt. Das Ergebnis fließt in die Jahres-Redaktionsplanung 2027 ein."
         },
         {
           "id": "con-jahresplanung",
@@ -138,6 +148,17 @@
           "klaerung": false,
           "confidence": "hoch",
           "details": "Q1-Planung plus Ausblick Gesamtjahr: Dachkampagnen 2027 festgelegt, Prioritäten und Timing mit der Geschäftsführung abgestimmt."
+        },
+        {
+          "id": "con-analytics-auto",
+          "datum": null,
+          "titel": "Analytics aus Meta und LinkedIn automatisiert im Reporting",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Technischer Weg zu den Plattform-Daten geklärt; bewusst auf 2027 gelegt, außer es wird vorher priorisiert",
+          "zielzeitraum": "2027",
+          "details": "Die wichtigsten Kennzahlen aus Meta und LinkedIn kommen ohne manuellen Export ins Reporting."
         }
       ]
     },
@@ -357,6 +378,72 @@
       ]
     },
     {
+      "id": "marke",
+      "area": "marketing",
+      "name": "Marke & Kommunikationsmittel",
+      "hinweis": "Getrennt von der Redaktion, die verantwortet, was veröffentlicht wird: hier entstehen Gestaltung und Kommunikationsmittel. Corporate Design modular und zentral abgelegt (Website und Online, Visuals, Ikonographie, PDF-Dokumente intern und extern), Verpackung und Produkt-Mockups, Print und Messe.",
+      "kurz": "Corporate Design, Verpackung und Mockups, Print und Messe: Gestaltung getrennt von der Redaktion.",
+      "erreichtHeisst": "Corporate Design V1 gesichtet und modular zentral abgelegt; Entscheidung zur Umsetzung des Verpackungsdesigns getroffen; Produkt-Mockups des aktiven Sortiments liegen für die neue Website vor.",
+      "balken": {
+        "start": "2026-09-23",
+        "ende": "2026-12-31"
+      },
+      "stil": "normal",
+      "weiter2027": "Corporate Design auf Messe und Print ausgerollt (Ende Q1), danach Messeausstattung überarbeiten; Verzeichnis aller Druck-, PDF- und Marketingmaterialien mit aktuellem Stand",
+      "meilensteine": [
+        {
+          "id": "mk-verpackung",
+          "datum": "2026-09-30",
+          "titel": "Entscheidung zur Umsetzung des Verpackungsdesigns",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Geklärt ist, wie das neue Verpackungsdesign umgesetzt wird. Danach können die Bestandsprodukte nachgezogen werden."
+        },
+        {
+          "id": "mk-cd-v1",
+          "datum": "2026-10-31",
+          "titel": "Corporate Design V1: Bestand gesichtet, modular zentral abgelegt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Alles bisher Erstellte liegt gemeinsam auf dem Tisch (Präsentationen, Datenblätter, Leistungserklärungen, Print). Je Modul ist festgehalten, ob der Stil gefunden ist; die gefundenen Module liegen an einem zentralen Ort, an den sich auch Agenten halten. Die Bildgenerierung ist zurückgestellt."
+        },
+        {
+          "id": "mk-mockups",
+          "datum": "2026-10-31",
+          "titel": "Produkt-Mockups des aktiven Sortiments für die neue Website",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Für jedes Produkt des aktiven Sortiments liegt ein Mockup vor. Die Mockups dürfen von der heutigen Verpackung abweichen und hängen nicht an den Druckdaten; sie fließen in die Produktdetailseiten ein (web-pdp)."
+        },
+        {
+          "id": "mk-cd-rollout",
+          "datum": null,
+          "titel": "Corporate Design auf Messe und Print ausgerollt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Corporate Design V1 (mk-cd-v1); danach wird die Messeausstattung überarbeitet",
+          "zielzeitraum": "Ende Q1 2027",
+          "details": "Messeauftritt und Printmaterialien folgen dem modularen Corporate Design."
+        },
+        {
+          "id": "mk-assets",
+          "datum": null,
+          "titel": "Verzeichnis aller Druck-, PDF- und Marketingmaterialien",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Corporate Design V1 (mk-cd-v1); Aufbau als Datenbank in Notion",
+          "zielzeitraum": "2027",
+          "details": "Alle Druck-, PDF- und Marketingmaterialien sind aufgelistet und verwaltet, jeweils mit aktuellem Stand. Wer etwas zu einem Thema sucht, sieht, welche Materialien es gibt."
+        }
+      ]
+    },
+    {
       "id": "pdb",
       "area": "wissensaufbau",
       "name": "Digitale Produktinformationen (DPI)",
@@ -482,6 +569,17 @@
           "klaerung": false,
           "confidence": "mittel",
           "details": "Termin aufgehoben im DPI-Schnitt vom 18.08.2026: die technischen Datenblätter (ein Datenblatt je Variante; Struktur und Design, Datenanreicherung mit Verifikation durch die Technik, Generierung DE/EN/FR) werden nach dem DoP-Fortschritt terminiert."
+        },
+        {
+          "id": "pdb-tds-auto",
+          "datum": null,
+          "titel": "Technische Datenblätter vollständig automatisiert erzeugt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Technische Datenblätter aus der Produktdatenbank fertig (gegen Dezember 2026) und Freigabeprozess vor Veröffentlichung geklärt",
+          "zielzeitraum": "Ende Q1 2027",
+          "details": "Ändert sich ein Wert in der Datenbank, entsteht ein neues Datenblatt, das vor der Veröffentlichung geprüft wird. Manuelle Pflege im Marketing entfällt."
         }
       ]
     },
@@ -904,6 +1002,15 @@
           "klaerung": false,
           "confidence": "hoch",
           "details": "Grundlage für das Reporting; Definition vor Reporting-Aufbau."
+        },
+        {
+          "id": "vp-rapidmail",
+          "datum": "2026-11-30",
+          "titel": "Newsletter-Werkzeug entschieden und Anbindung an das CRM geklärt",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Geklärt ist, ob RapidMail bleibt und wie es mit Salesforce verbunden wird. Mailings und Einladungen entstehen dann aus den Kampagnenmitgliedern in Salesforce, die Adresspflege im Marketing entfällt."
         },
         {
           "id": "vp-dod",

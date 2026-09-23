@@ -1,19 +1,17 @@
 /* ============================================
-   KORODUR Work Cockpit, Redaktion (GF-Dashboard, Issue #141)
-   Rendert zwei Quellen:
-   - data/redaktion/<datum>.json (Tages-Aggregat des Notion-Redaktionsplans):
-     Puffer, Vorlauf, Pipeline-Funnel und die Beitragszahl je Woche
-     (posted_by_week_linkedin, Issue #233).
-   - data/social/<woche>.json + timeseries.json (wöchentlicher Plattform-Export,
-     Issue #139): Impressions, Interaktionen, Engagement-Rate. Die Beitragszahl
-     des Exports (li_posts) wird nicht gelesen: LinkedIn datiert Beiträge auf
-     den Tag des Einplanens, nicht auf den Tag des Erscheinens.
-   - data/social/meta-zeitraeume.json (Issue #234): Facebook und Instagram
-     als Zeitraum über vier Kalenderwochen, aus dem Screenshot.
-   Read-only, nur Aggregatzahlen, keine Beitragstitel, keine Personen
-   (öffentliche Seite). In dev: symlink src/data -> ../data; in production:
-   data/ liegt im Root.
-   Referenz: konzepte/mockup-redaktion-dashboard-2026-08-10.html (PR #138).
+   KORODUR Work Cockpit, Redaktion als Arbeitstool (Issue #274, davor #141)
+   Eine Seite, zwei Blicke: oben der Satz und vier Kacheln für die
+   Geschäftsführung, darunter Wochenraster und Arbeitsliste für die Redaktion.
+   Quelle: data/redaktion/<datum>.json (Tages-Snapshot des Notion-
+   Redaktionsplans, ab Version 2.0 mit der anonymisierten Beitragsliste
+   "beitraege": Datum, Status, Kanal, Thema, hat_person).
+   Keine Beitragstitel, keine Personen: die Seite ist öffentlich.
+   Die Sichtbarkeits-Blöcke (renderZeitraum, renderSichtbarkeit, Chart aus
+   data/social/) bleiben im Code und werden nicht mehr eingebunden; sie kommen
+   als eigene Seite "Wirkung" zurück, sobald die Zahlen automatisch kommen
+   (korodur-redaktion#44). data/social/ und der Import bleiben unverändert.
+   In dev: symlink src/data -> ../data; in production: data/ liegt im Root.
+   Zielbild: konzepte/mockup-redaktion-arbeitstool-2026-09-23.html.
    ============================================ */
 
 const RED_DIR = 'data/redaktion/';
@@ -27,12 +25,12 @@ const RED_MONTHS_DE = [
 // Funnel-Stufen in Prozess-Reihenfolge (docs/WORKFLOW.md korodur-redaktion).
 // Ordinal-Navy-Rampe hell->dunkel, dataviz-validiert (Issue #141 Design).
 const FUNNEL = [
-  { key: 'ideen',       label: 'Ideen',        color: '#8aa9c4' },
+  { key: 'ideen',       label: 'Ideen und offen', color: '#8aa9c4' },
   { key: 'in_arbeit',   label: 'In Arbeit',    color: '#6f93b3' },
   { key: 'in_pruefung', label: 'In Prüfung',   color: '#567da1' },
   { key: 'freigegeben', label: 'Freigegeben',  color: '#3d688f' },
-  { key: 'eingeplant',  label: 'Eingeplant',   color: '#24527c' },
-  { key: 'gepostet',    label: 'Gepostet',     color: '#002d59' },
+  { key: 'eingeplant',  label: 'Getimed',      color: '#24527c' },
+  { key: 'gepostet',    label: 'Erschienen',   color: '#002d59' },
 ];
 
 // Plattform-Farben, dataviz-validiert (Issue #141 Design). Cyan (Facebook)
@@ -67,35 +65,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!snapRes.ok) throw new Error('no-data');
     const snap = await snapRes.json();
 
-    // Sichtbarkeit ist eine Zusatzquelle: fehlt sie, degradiert die Seite auf
-    // den Aufbau-Zustand statt komplett zu scheitern (Issue #141 AC).
-    try {
-      const socIdxRes = await fetch(SOC_DIR + 'index.json');
-      if (socIdxRes.ok) {
-        const socKeys = await socIdxRes.json();
-        if (Array.isArray(socKeys) && socKeys.length) {
-          const latestRes = await fetch(SOC_DIR + socKeys[0] + '.json');
-          if (latestRes.ok) socLatest = await latestRes.json();
-        }
-      }
-      const tsRes = await fetch(SOC_DIR + 'timeseries.json');
-      if (tsRes.ok) {
-        const ts = await tsRes.json();
-        if (Array.isArray(ts)) socSeries = ts.slice().sort((a, b) => a.week.localeCompare(b.week));
-      }
-      const zrRes = await fetch(SOC_DIR + 'meta-zeitraeume.json');
-      if (zrRes.ok) {
-        const zr = await zrRes.json();
-        if (Array.isArray(zr)) socZeitraeume = zr.slice().sort((a, b) => a.bis.localeCompare(b.bis));
-      }
-    } catch { /* Sichtbarkeit bleibt im Aufbau-Zustand */ }
-
+    // Die Sichtbarkeit (data/social/) wird seit Issue #274 nicht mehr geladen:
+    // die Seite bindet ihre Bloecke nicht mehr ein. Code und Daten bleiben.
     renderRedaktion(snap);
     const meta = document.getElementById('header-meta');
-    if (meta) {
-      meta.textContent = `Snapshot: ${redFormatDate(snap._meta.snapshot_date)}`
-        + (socLatest ? ` · Plattform-Export: ${kwLabel(socLatest._meta.week)}` : '');
-    }
+    if (meta) meta.textContent = `Snapshot: ${redFormatDate(snap._meta.snapshot_date)} · Quelle: Notion-Redaktionsplan`;
   } catch {
     renderEmpty();
   }
@@ -216,23 +190,34 @@ function sparklineSvg(values, accent) {
 // ─── Render: Gesamtseite ─────────────────────────────
 function renderRedaktion(d) {
   const main = document.getElementById('main');
+  const m = redaktionsModell(d);
   main.innerHTML = `
     <div class="snapshot-header fade-in">
-      <h1 class="snapshot-header__title">REDAKTION: SICHTBARKEIT &amp; PIPELINE</h1>
+      <h1 class="snapshot-header__title">REDAKTION: L&Auml;UFT SOCIAL MEDIA?</h1>
       <p class="snapshot-header__sub">
-        Was unsere Social-Media-Arbeit bewirkt und ob die Redaktion rund l&auml;uft
+        Stand des Redaktionsplans und Vorlauf der n&auml;chsten Wochen
         &middot; ${d.gesamt ?? 0} Beitr&auml;ge im Redaktionsplan, Stand ${redFormatDate(d._meta.snapshot_date)}
+        &middot; f&uuml;r Redaktion und Gesch&auml;ftsf&uuml;hrung
       </p>
     </div>
 
-    ${renderZeitraum()}
-    ${renderSichtbarkeit()}
-    ${renderAmpelRow(d)}
-    ${renderBottomRow(d)}
+    ${renderSatz(m)}
+    ${renderKacheln(m)}
+    ${renderRaster(m)}
+    <div class="grid-2">
+      ${renderArbeitsliste(m)}
+      <div>
+        ${renderFunnel(d.totals || {}, d.eingeplant_erschienen)}
+        ${renderThemenMix(m)}
+      </div>
+    </div>
+    ${renderWochenChart(m)}
+    ${renderSpaeter()}
 
     <div class="footer">
-      Redaktions-Segment &middot; Quelle: Notion-Redaktionsplan (Aggregat) + LinkedIn-Export + Screenshots der Meta Business Suite
+      Redaktions-Segment &middot; Quelle: Notion-Redaktionsplan (Aggregat und anonymisierte Beitragsliste, keine Titel, keine Personen)
       &middot; Generiert am ${new Date(d._meta.generated_at).toLocaleDateString('de-DE')}
+      &middot; Nach dem Einplanen neu laden: <a href="${SNAPSHOT_WORKFLOW}" target="_blank" rel="noopener">Snapshot in GitHub starten</a>
       &middot; <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank">GitHub</a>
     </div>
   `;
@@ -599,16 +584,527 @@ function renderSichtbarkeitChart() {
   `;
 }
 
-// ─── 3 · Läuft die Redaktion? ─────────────────────────
-function renderAmpelRow(d) {
+// ─── Arbeitstool (Issue #274) ────────────────────────
+// Eine Seite, zwei Blicke: der Satz und die vier Kacheln für die
+// Geschäftsführung, Wochenraster und Arbeitsliste für die Redaktion.
+// Quelle ist die anonymisierte Beitragsliste "beitraege" (Snapshot ab
+// Version 2.0): Datum, Notion-Status, Kanal, Thema, hat_person. Kein Titel,
+// keine Person; ein Chip zeigt Thema und Kanal, der Klick öffnet Notion.
+// Zielbild: konzepte/mockup-redaktion-arbeitstool-2026-09-23.html.
+
+// Notion-Ansichten des Redaktionsplans (geprüft am 23.09.2026). Der Kalender
+// filtert "gepostet" heraus, erschienene Chips öffnen deshalb "Veröffentlicht".
+const NOTION_DB = 'https://www.notion.so/2bc670e19e1a803b82abc1627dc0a0bd';
+const NOTION_KALENDER = `${NOTION_DB}?v=2e2670e19e1a80e9b1f9000cfb466828`;
+const NOTION_TODO = `${NOTION_DB}?v=2bc670e19e1a80908b6e000c907909e7`;
+const NOTION_VEROEFFENTLICHT = `${NOTION_DB}?v=2e3670e19e1a80789673000c38b4632c`;
+const SNAPSHOT_WORKFLOW = 'https://github.com/KORODUR-International/korodur-review-reporting/actions/workflows/cockpit_snapshot.yml';
+
+// Mindestens so viele feste LinkedIn-Beiträge je Woche (Ziel 2 bis 3).
+const WOCHE_MIN_FEST = 2;
+// Der Satz prüft die laufende und die zwei folgenden Wochen.
+const SATZ_WOCHEN = 3;
+// Lücken-Regel der Arbeitsliste: die Wochen nach der laufenden.
+const LUECKE_WOCHEN = 6;
+// "In Prüfung" gilt ab so vielen Tagen ohne Bewegung als Stau.
+const PRUEFUNG_STAU_TAGE = 28;
+// Wochenraster: Vorwoche, laufende Woche und 8 folgende.
+const RASTER_VON = -1, RASTER_BIS = 8;
+// Fallback, falls ein Snapshot vor Version 2.0 keine Rastertage trägt
+// (korodur-redaktion#45 klärt, ob Montag und Donnerstag bleiben).
+const SLOTS_FALLBACK = [1, 4];
+const THEMEN = ['Referenz', 'Know How', 'Messe', 'Image', 'Neuigkeiten'];
+const TAGE_KURZ = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+const TAGE_LANG = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
+
+// ─── Datum (ISO-Strings, UTC, keine Zeitzonen-Drift) ──
+function tagDate(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  return m ? new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])) : null;
+}
+function tagIso(date) { return date.toISOString().slice(0, 10); }
+function tagPlus(iso, n) { const d = tagDate(iso); d.setUTCDate(d.getUTCDate() + n); return tagIso(d); }
+// ISO-Wochentag, 1 = Montag
+function wochentag(iso) { return tagDate(iso).getUTCDay() || 7; }
+function montagVon(iso) { return tagPlus(iso, 1 - wochentag(iso)); }
+function tageZwischen(von, bis) { return Math.round((tagDate(bis) - tagDate(von)) / 86400000); }
+function ddmm(iso) { return `${iso.slice(8, 10)}.${iso.slice(5, 7)}.`; }
+function tagKurz(iso) { return `${TAGE_KURZ[wochentag(iso) - 1]} ${ddmm(iso)}`; }
+function tagLang(iso) {
+  return `${TAGE_LANG[wochentag(iso) - 1]}, ${parseInt(iso.slice(8, 10), 10)}. ${RED_MONTHS_DE[parseInt(iso.slice(5, 7), 10) - 1]}`;
+}
+function kwVon(iso) { return kwLabel(isoWeekKeyOfDate(tagDate(iso))); }
+function wochenZahl(tage) { return Math.round(tage / 7 * 10) / 10; }
+function komma(v) { return v.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }); }
+
+// ─── Beitrag: was ist er an diesem Stichtag? ─────────
+// Zählregel aus #233: "eingeplant & getimed" mit Datum vor dem Stichtag ist
+// erschienen, der Stichtag selbst zählt noch als getimed. "freigegeben" mit
+// Datum ist ein reservierter Termin, "offen" (und jeder andere Status) mit
+// Datum ist vorgemerkt (Entscheidungen vom 23.09.2026). Abgelehnt fällt raus.
+function beitragArt(b, stichtag) {
+  if (b.status === 'gepostet') return 'erschienen';
+  if (b.status === 'eingeplant & getimed') return b.datum < stichtag ? 'erschienen' : 'getimed';
+  if (b.status === 'freigegeben') return 'frei';
+  if (b.status === 'abgelehnt') return null;
+  return 'vorgemerkt';
+}
+function istLinkedin(b) { return (b.kanal || []).includes('Linkedin'); }
+function istFest(art) { return art === 'erschienen' || art === 'getimed'; }
+
+// ─── Das Modell: alle Zahlen der Seite an einer Stelle ──
+// Rein rechnend, damit tests/test_redaktion_render.mjs Satz, Wochenbilanz und
+// Arbeitsliste gegen die Fixture vom 23.09.2026 prüfen kann.
+function redaktionsModell(d) {
+  const stichtag = ((d || {})._meta || {}).snapshot_date;
+  const hatListe = Array.isArray(d.beitraege);
+  const liste = (d.beitraege || [])
+    .map(b => ({ ...b, art: beitragArt(b, stichtag) }))
+    .filter(b => b.art && b.datum);
+  const slots = Array.isArray(d.slots) && d.slots.length ? d.slots : SLOTS_FALLBACK;
+  const montag0 = montagVon(stichtag);
+
+  const wochen = [];
+  for (let w = RASTER_VON; w <= RASTER_BIS; w++) {
+    const mo = tagPlus(montag0, 7 * w), so = tagPlus(mo, 6);
+    const drin = liste.filter(b => b.datum >= mo && b.datum <= so);
+    const li = drin.filter(istLinkedin);
+    const zahl = art => li.filter(b => b.art === art).length;
+    const woche = {
+      offset: w, montag: mo, sonntag: so, kw: kwVon(mo), beitraege: drin,
+      erschienen: zahl('erschienen'), getimed: zahl('getimed'),
+      frei: zahl('frei'), vorgemerkt: zahl('vorgemerkt'),
+      ohneKanal: drin.filter(b => !(b.kanal || []).length).length,
+      vorbei: so < stichtag, laufend: w === 0,
+    };
+    woche.fest = woche.erschienen + woche.getimed;
+    woche.bilanz = wochenBilanz(woche);
+    wochen.push(woche);
+  }
+
+  const getimed = liste.filter(b => b.art === 'getimed').map(b => b.datum).sort();
+  const letzterGetimed = getimed.length ? getimed[getimed.length - 1] : null;
+  const freiMitTermin = liste.filter(b => b.art === 'frei').map(b => b.datum).sort();
+
+  return {
+    d, stichtag, hatListe, liste, slots, wochen, letzterGetimed, freiMitTermin,
+    satz: gfSatz(d, wochen, letzterGetimed),
+    arbeitsliste: arbeitsliste(d, stichtag, liste, wochen, slots, letzterGetimed, freiMitTermin),
+  };
+}
+
+// Wochenbilanz gegen das Ziel: vorbei (im Ziel, unter Ziel), sonst belegt,
+// einplanen (fest plus freigegeben mit Termin reicht) oder Lücke.
+function wochenBilanz(w) {
+  if (w.vorbei) return w.fest >= WOCHE_MIN_FEST ? 'im Ziel' : 'unter Ziel';
+  if (w.fest >= WOCHE_MIN_FEST) return 'belegt';
+  if (w.fest + w.frei >= WOCHE_MIN_FEST) return 'einplanen';
+  return 'Lücke';
+}
+const BILANZ_TAG = { 'im Ziel': 'ok', 'unter Ziel': 'warn', belegt: 'ok', einplanen: 'info', 'Lücke': 'crit' };
+
+// ─── 1 · Der Satz für die Geschäftsführung ───────────
+// Grün: getimter Vorlauf mindestens 2 Wochen und die laufende plus die zwei
+// folgenden Wochen mit je mindestens 2 festen LinkedIn-Beiträgen. Rot: der
+// Vorlauf ist rot (1 Woche und weniger, dieselbe Grenze wie die Kachel,
+// #257). Sonst gelb.
+function gfSatz(d, wochen, letzterGetimed) {
+  const naechste = wochen.filter(w => w.offset >= 0 && w.offset < SATZ_WOCHEN);
+  const duenn = naechste.filter(w => w.fest < WOCHE_MIN_FEST);
+  const vState = vorlaufState(d.vorlauf_wochen);
+  const state = vState === 'crit' ? 'crit' : (vState === 'ok' && !duenn.length ? 'ok' : 'warn');
+  const bis = letzterGetimed ? tagLang(letzterGetimed) : null;
+
+  let text;
+  if (state === 'ok') {
+    text = `Social Media läuft: bis ${bis} ist in LinkedIn getimed, und die nächsten drei Wochen haben je mindestens zwei Beiträge.`;
+  } else if (state === 'crit') {
+    text = bis
+      ? `Social Media stockt: in LinkedIn getimed ist nur bis ${bis}.`
+      : 'Social Media stockt: kein Beitrag ist in LinkedIn getimed.';
+  } else {
+    const gruende = [];
+    if (vState !== 'ok') gruende.push(`getimed ist nur bis ${bis} (${komma(d.vorlauf_wochen)} Wochen)`);
+    if (duenn.length) {
+      gruende.push(`${duenn.map(w => w.kw).join(', ')} ${duenn.length === 1 ? 'hat' : 'haben'} weniger als zwei feste Beiträge`);
+    }
+    text = `Social Media läuft, aber knapp: ${gruende.join('; ')}.`;
+  }
+  const n = d.freigegeben_mit_termin || 0;
+  text += n
+    ? ` ${n === 1 ? 'Ein freigegebener Beitrag' : `${n} freigegebene Beiträge`} mit Termin ${n === 1 ? 'wartet' : 'warten'} darauf, in LinkedIn eingeplant zu werden.`
+    : ' Kein freigegebener Beitrag mit Termin wartet aufs Einplanen.';
+  return { state, text };
+}
+
+function renderSatz(m) {
+  const { state, text } = m.satz;
+  const zeichen = { ok: 'OK', warn: '!', crit: '!!' }[state];
   return `
-    <div class="section-title">L&Auml;UFT DIE REDAKTION? <small>Frequenz und Vorarbeit, Quelle: Notion-Redaktionsplan</small></div>
-    <div class="kpi-row">
-      ${renderPostsTile(d)}
-      ${renderPufferTile(d)}
-      ${renderVorlaufTile(d)}
-    </div>
-  `;
+    <div class="red-satz red-satz--${state} fade-in">
+      <div class="red-satz__licht" aria-hidden="true">${zeichen}</div>
+      <div class="red-satz__text">${text}
+        <small>Automatisch aus dem Redaktionsplan gebildet. Gelb, sobald der getimte Vorlauf unter 2 Wochen fällt oder eine der nächsten drei Wochen unter 2 Beiträgen liegt. Rot bei 1 Woche Vorlauf und weniger.</small>
+      </div>
+    </div>`;
+}
+
+// ─── 2 · Vier Kacheln ────────────────────────────────
+function renderKacheln(m) {
+  const d = m.d;
+  return `
+    <div class="section-title">L&Auml;UFT DIE REDAKTION? <small>Ziele aus der Social-Media-Strategie vom 16.09.2026: 2 bis 3 Beitr&auml;ge pro Woche auf LinkedIn, 2,5 bis 3 Wochen getimter Vorlauf, 10 bis 15 fertige Beitr&auml;ge</small></div>
+    <div class="kpi-row red-kacheln">
+      ${kachelWoche(m)}
+      ${kachelVorlauf(m)}
+      ${kachelFertig(d)}
+      ${kachelNachschub(d, m.stichtag)}
+    </div>`;
+}
+
+function kachelWoche(m) {
+  const w = m.wochen.find(x => x.laufend);
+  const state = w.fest >= WOCHE_MIN_FEST ? 'ok' : w.fest === 1 ? 'warn' : 'crit';
+  const label = { ok: 'läuft', warn: 'knapp', crit: 'leer' }[state];
+  const pbw = beitraegeJeWoche(m.d);
+  const bis = letzteVolleWoche(m.d);
+  const letzte = pbw[bis] || 0;
+  const avg = [-3, -2, -1, 0].map(k => pbw[wocheVerschieben(bis, k)] || 0).reduce((a, b) => a + b, 0) / 4;
+  const ohne = w.ohneKanal
+    ? ` &middot; dazu ${w.ohneKanal} Beitr${w.ohneKanal === 1 ? 'ag' : '&auml;ge'} ohne Kanal-Angabe` : '';
+  return `
+    <div class="kpi-card fade-in">
+      <div class="kpi-card__label">Diese Woche ${ampelBadge(state, label)}</div>
+      <div class="kpi-card__value">${w.fest}<span class="kpi-card__unit">von 2 bis 3</span></div>
+      <div class="kpi-card__detail">${w.kw} &middot; ${w.erschienen} erschienen, ${w.getimed} getimed (LinkedIn)${ohne} &middot; letzte Woche ${letzte}, Schnitt der letzten 4 Wochen ${komma(avg)}</div>
+    </div>`;
+}
+
+function kachelVorlauf(m) {
+  const d = m.d;
+  const state = vorlaufState(d.vorlauf_wochen);
+  // Grün beginnt unter dem Ziel (ab 2 Wochen), "im Ziel" würde bei 2,0 bis
+  // 2,4 Wochen der Zielangabe daneben widersprechen.
+  const label = state === 'ok' ? 'ausreichend' : state === 'warn' ? 'knapp' : 'zu kurz';
+  const [lo, hi] = VORLAUF_ZIEL_WOCHEN.map(w => w.toLocaleString('de-DE'));
+  const letzter = m.letzterGetimed ? `, der letzte am ${tagKurz(m.letzterGetimed)}` : '';
+  const frei = m.freiMitTermin;
+  const plus = frei.length
+    ? ` &middot; plus ${frei.length} freigegebene mit Termin bis ${tagKurz(frei[frei.length - 1])}, noch nicht getimed` : '';
+  return `
+    <div class="kpi-card fade-in">
+      <div class="kpi-card__label">Getimter Vorlauf ${ampelBadge(state, label)}</div>
+      <div class="kpi-card__value">${fmtWochen(d.vorlauf_wochen)}<span class="kpi-card__unit">Wochen</span></div>
+      <div class="kpi-card__detail">${fehltZeichen(d.geplant_zukunft)} Beitr&auml;ge in LinkedIn eingeplant${letzter} &middot; Ziel ${lo} bis ${hi} Wochen${plus}</div>
+    </div>`;
+}
+
+function kachelFertig(d) {
+  const ziel = d.puffer_ziel || [10, 15];
+  const state = pufferState(d.puffer, ziel);
+  const label = state === 'ok' ? 'im Ziel' : state === 'warn' ? 'knapp' : 'au&szlig;erhalb Ziel';
+  const t = d.totals || {};
+  const aufteilung = d.freigegeben_mit_termin != null
+    ? ` (${d.freigegeben_mit_termin} mit Termin, ${d.freigegeben_ohne_termin} ohne)` : '';
+  const reicht = d.puffer
+    ? ` &middot; reicht rechnerisch bis ${ddmm(tagPlus(d._meta.snapshot_date, Math.round(d.puffer / WOCHE_MIN_FEST * 7)))} bei 2 pro Woche` : '';
+  return `
+    <div class="kpi-card fade-in">
+      <div class="kpi-card__label">Fertige Beitr&auml;ge ${ampelBadge(state, label)}</div>
+      <div class="kpi-card__value">${fehltZeichen(d.puffer)}</div>
+      <div class="kpi-card__detail">${t.eingeplant || 0} getimed + ${t.freigegeben || 0} freigegeben${aufteilung} &middot; Ziel ${ziel[0]} bis ${ziel[1]}${reicht}</div>
+    </div>`;
+}
+
+function pruefungStauTage(d, stichtag) {
+  return d.in_pruefung_seit ? tageZwischen(d.in_pruefung_seit, stichtag) : 0;
+}
+
+function kachelNachschub(d, stichtag) {
+  const t = d.totals || {};
+  const n = t.in_pruefung || 0;
+  const stau = pruefungStauTage(d, stichtag) >= PRUEFUNG_STAU_TAGE;
+  const state = !n ? 'warn' : stau ? 'warn' : 'ok';
+  const label = !n ? 'nichts in Pr&uuml;fung' : stau ? 'Pr&uuml;fung stockt' : 'in Bewegung';
+  const hoechst = d.in_pruefung_hoechst_seit;
+  const seit = d.in_pruefung_seit && n
+    ? `seit dem ${ddmm(d.in_pruefung_seit)} bei ${n}${hoechst > n ? `, zwischendurch ${hoechst}` : ''} &middot; ` : '';
+  const ohnePerson = d.offen_ohne_person != null ? `, davon ${d.offen_ohne_person} offen ohne zust&auml;ndige Person` : '';
+  const info = ((d.by_status || {})['Info erforderlich']) || 0;
+  return `
+    <div class="kpi-card fade-in">
+      <div class="kpi-card__label">Nachschub ${ampelBadge(state, label)}</div>
+      <div class="kpi-card__value">${n}<span class="kpi-card__unit">in Pr&uuml;fung</span></div>
+      <div class="kpi-card__detail">${seit}${t.ideen || 0} Ideen und offene Themen${ohnePerson}${info ? ` &middot; ${info} wartet auf Info` : ''}</div>
+    </div>`;
+}
+
+// ─── 3 · Wochenraster ────────────────────────────────
+const KANAL_KURZ = { Linkedin: 'LI', 'Fb/Insta': 'FI', Mailing: 'Mail' };
+const ART_TEXT = { erschienen: 'erschienen', getimed: 'getimed', frei: 'nicht getimed', vorgemerkt: 'vorgemerkt' };
+
+function chip(b) {
+  const kanal = (b.kanal || []).length
+    ? b.kanal.map(k => KANAL_KURZ[k] || k).sort().join(' ') : 'ohne Kanal';
+  const warn = (b.kanal || []).length ? '' : ' red-chip--warn';
+  const link = b.status === 'gepostet' ? NOTION_VEROEFFENTLICHT : NOTION_KALENDER;
+  const thema = (b.thema || []).length ? b.thema.join(', ') : 'ohne Thema';
+  return `<a class="red-chip red-chip--${b.art}${warn}" href="${link}" target="_blank" rel="noopener" title="In Notion öffnen">${thema}<span class="red-chip__k">${kanal} &middot; ${ART_TEXT[b.art]}</span></a>`;
+}
+
+function bilanzZelle(w) {
+  const tag = `<span class="red-tag red-tag--${BILANZ_TAG[w.bilanz]}">${w.bilanz}</span>`;
+  if (w.vorbei) return `<b>${w.fest}</b> erschienen ${tag}`;
+  if (w.bilanz === 'belegt') {
+    return `<b>${w.fest}</b> ${w.laufend ? 'erschienen/getimed' : 'getimed'} ${tag}${w.frei ? `<small>+ ${w.frei} freigegeben mit Termin</small>` : ''}`;
+  }
+  if (w.bilanz === 'einplanen') return `<b>${w.fest}</b> getimed + <b>${w.frei}</b> freigegeben ${tag}`;
+  const fehlen = WOCHE_MIN_FEST - w.fest - w.frei;
+  return `<b>${w.fest + w.frei}</b> mit Termin ${tag}<small>${w.vorgemerkt ? `${w.vorgemerkt} vorgemerkt, ` : ''}mind. ${fehlen} fehl${fehlen === 1 ? 't' : 'en'}</small>`;
+}
+
+function renderRaster(m) {
+  if (!m.hatListe) {
+    return `
+      <div class="section-title">DIE N&Auml;CHSTEN WOCHEN</div>
+      <div class="status-section fade-in"><p class="trend-empty">Dieser Snapshot kennt die Beitragsliste noch nicht (vor Version 2.0). Sie kommt mit dem n&auml;chsten Lauf.</p></div>`;
+  }
+  const horizontKw = m.letzterGetimed ? kwVon(m.letzterGetimed) : null;
+  const zeilen = m.wochen.map(w => {
+    let zellen = '';
+    for (let t = 0; t < 7; t++) {
+      const tag = tagPlus(w.montag, t);
+      const drin = w.beitraege.filter(b => b.datum === tag);
+      const cls = ['red-wk__tag'];
+      if (t >= 5) cls.push('red-wk__we');
+      if (tag === m.stichtag) cls.push('red-wk__heute');
+      if (!drin.length && m.slots.includes(t + 1) && tag >= m.stichtag) cls.push('red-wk__frei');
+      zellen += `<td class="${cls.join(' ')}">${drin.map(chip).join('')}</td>`;
+    }
+    const horizont = w.kw === horizontKw;
+    const zcls = [w.vorbei ? 'red-wk__vorbei' : '', w.laufend ? 'red-wk__laufend' : '', horizont ? 'red-wk__horizont' : '']
+      .filter(Boolean).join(' ');
+    const marke = horizont ? `<span class="red-wk__marke">getimed bis ${ddmm(m.letzterGetimed)}</span>` : '';
+    return `<tr class="${zcls}"><td class="red-wk__kw">${w.kw}<small>${ddmm(w.montag)} bis ${ddmm(w.sonntag)}</small>${marke}</td>${zellen}<td class="red-wk__sum">${bilanzZelle(w)}</td></tr>`;
+  }).join('');
+  const kopf = TAGE_KURZ.map((t, i) => `<th class="${i >= 5 ? 'red-wk__we' : ''}">${t}</th>`).join('');
+  const slotNamen = m.slots.map(s => TAGE_KURZ[s - 1]).join(' und ');
+  return `
+    <div class="section-title">DIE N&Auml;CHSTEN WOCHEN <small>Ein Feld je Tag aus dem Feld &bdquo;geplant&ldquo; &middot; LinkedIn z&auml;hlt, Facebook und Instagram laufen mit &middot; Rastertage ${slotNamen} &middot; kein Titel, der Klick &ouml;ffnet Notion</small></div>
+    <div class="status-section fade-in">
+      <div class="red-wk-wrap">
+        <table class="red-wk">
+          <thead><tr><th class="red-wk__kw">Woche</th>${kopf}<th class="red-wk__sum">Bilanz LinkedIn</th></tr></thead>
+          <tbody>${zeilen}</tbody>
+        </table>
+      </div>
+      <div class="legend red-legende">
+        <span><span class="red-chip red-chip--erschienen">erschienen</span></span>
+        <span><span class="red-chip red-chip--getimed">in LinkedIn getimed</span></span>
+        <span><span class="red-chip red-chip--frei">freigegeben, Termin vergeben, noch nicht getimed</span></span>
+        <span><span class="red-chip red-chip--vorgemerkt">offen, Termin vorgemerkt</span></span>
+        <span>LI = LinkedIn, FI = Facebook und Instagram</span>
+      </div>
+    </div>`;
+}
+
+// ─── 4 · Arbeitsliste ────────────────────────────────
+// Regelbasiert, keine Handpflege. Eine Regel ohne Treffer erzeugt keine Zeile.
+// (a) freigegeben mit Termin, nicht getimed; (b) Lücke in den nächsten
+// LUECKE_WOCHEN Wochen, mit Terminvorschlag aus den freigegebenen ohne Termin;
+// (c) In Prüfung seit mehr als 4 Wochen unverändert; (d) Datenpflege.
+function arbeitsliste(d, stichtag, liste, wochen, slots, letzterGetimed, freiMitTermin) {
+  const zeilen = [];
+
+  if (d.freigegeben_mit_termin) {
+    const n = d.freigegeben_mit_termin;
+    const spanne = freiMitTermin.length
+      ? ` (${ddmm(freiMitTermin[0])}${freiMitTermin.length > 1 ? ` bis ${ddmm(freiMitTermin[freiMitTermin.length - 1])}` : ''})` : '';
+    const ende = [letzterGetimed, freiMitTermin[freiMitTermin.length - 1]].filter(Boolean).sort().pop();
+    const neu = ende && ende > stichtag ? wochenZahl(tageZwischen(stichtag, ende)) : null;
+    const wirkung = neu !== null && neu > (d.vorlauf_wochen || 0)
+      ? ` Der getimte Vorlauf steigt damit von ${komma(d.vorlauf_wochen || 0)} auf ${komma(neu)} Wochen.` : '';
+    zeilen.push({
+      regel: 'a', stufe: 'warn', anzahl: n, link: NOTION_KALENDER, linkText: 'Notion-Kalender',
+      titel: `${n === 1 ? 'freigegebener Beitrag trägt' : 'freigegebene Beiträge tragen'} einen Termin${spanne}, ${n === 1 ? 'ist' : 'sind'} aber nicht in LinkedIn eingeplant`,
+      was: `Einplanen und auf „eingeplant &amp; getimed“ stellen.${wirkung}`,
+    });
+  }
+
+  const luecken = wochen.filter(w => w.offset >= 1 && w.offset <= LUECKE_WOCHEN && w.fest + w.frei < WOCHE_MIN_FEST);
+  if (luecken.length) {
+    const ohne = d.freigegeben_ohne_termin || 0;
+    const vorschlag = [];
+    let fehlen = 0;
+    luecken.forEach(w => {
+      let bedarf = WOCHE_MIN_FEST - w.fest - w.frei;
+      fehlen += bedarf;
+      for (let t = 0; t < 7 && bedarf > 0; t++) {
+        const tag = tagPlus(w.montag, t);
+        if (!slots.includes(t + 1) || tag < stichtag) continue;
+        if (w.beitraege.some(b => b.datum === tag && istLinkedin(b))) continue;
+        vorschlag.push(tag); bedarf--;
+      }
+    });
+    const nehmen = vorschlag.slice(0, ohne);
+    const liste_ = luecken.map(w => `${w.kw} hat ${w.fest + w.frei} mit Termin${w.vorgemerkt ? ` (+ ${w.vorgemerkt} vorgemerkt)` : ''}`).join(', ');
+    let was;
+    if (!ohne) was = 'Kein freigegebener Beitrag ohne Termin übrig: Nachschub kommt nur aus der Prüfung.';
+    else if (!nehmen.length) was = `${ohne} freigegebene ohne Termin, aber kein freier Rastertag in diesen Wochen.`;
+    else {
+      const rest = fehlen - nehmen.length;
+      was = `${ohne} freigegebene ${ohne === 1 ? 'Beitrag hat' : 'Beiträge haben'} noch keinen Termin. Vorschlag: ${nehmen.map(tagKurz).join(', ')}`
+        + (rest > 0 ? ` Danach fehlen noch ${rest}.` : '');
+    }
+    zeilen.push({
+      regel: 'b', stufe: 'warn', anzahl: luecken.length, link: NOTION_TODO, linkText: 'Freigegebene ohne Termin',
+      titel: `${luecken.length === 1 ? 'Woche' : 'Wochen'} mit weniger als ${WOCHE_MIN_FEST} Beiträgen: ${liste_}`,
+      was,
+    });
+  }
+
+  const n = (d.totals || {}).in_pruefung || 0;
+  const stauTage = pruefungStauTage(d, stichtag);
+  if (n && stauTage > PRUEFUNG_STAU_TAGE) {
+    zeilen.push({
+      regel: 'c', stufe: 'crit', anzahl: n, link: NOTION_TODO, linkText: 'In Prüfung',
+      titel: `${n === 1 ? 'Beitrag steht' : 'Beiträge stehen'} seit ${Math.floor(stauTage / 7)} Wochen in Prüfung`,
+      was: `Seit dem ${ddmm(d.in_pruefung_seit)} hat sich der Bestand nicht bewegt. Ohne Freigaben füllt sich der Vorrat an fertigen Beiträgen nicht nach.`,
+    });
+  }
+
+  if (d.offen_ohne_person) {
+    const k = d.offen_ohne_person;
+    zeilen.push({
+      regel: 'd', stufe: 'info', anzahl: k, link: NOTION_TODO, linkText: 'Offen ohne Person',
+      titel: `${k === 1 ? 'Thema steht' : 'Themen stehen'} auf „offen“ ohne zuständige Person`,
+      was: 'Wer schreibt? Ohne Person entsteht kein Beitrag für die Prüfung.',
+    });
+  }
+  const ohneKanal = liste.filter(b => !(b.kanal || []).length);
+  const ohneDatum = d.gepostet_ohne_datum || 0;
+  if (ohneKanal.length || ohneDatum) {
+    const teile = [];
+    if (ohneKanal.length) teile.push(`${ohneKanal.length} ${ohneKanal.length === 1 ? 'Beitrag' : 'Beiträge'} ohne Kanal (${ohneKanal.map(b => tagKurz(b.datum)).join(', ')})`);
+    if (ohneDatum) teile.push(`${ohneDatum} ${ohneDatum === 1 ? 'geposteter' : 'gepostete'} ohne Datum`);
+    zeilen.push({
+      regel: 'd', stufe: 'info', anzahl: ohneKanal.length + ohneDatum, link: NOTION_VEROEFFENTLICHT, linkText: 'Veröffentlicht',
+      titel: teile.join(', '),
+      was: 'Datenpflege: Kanal und Datum nachtragen, sonst fehlen sie in der Wochenzählung.',
+      ohneZahl: true,
+    });
+  }
+  return zeilen;
+}
+
+function renderArbeitsliste(m) {
+  const zeilen = m.arbeitsliste;
+  const inhalt = zeilen.length
+    ? `<ul class="red-todo">${zeilen.map(z => `
+        <li data-regel="${z.regel}"><span class="red-todo__punkt red-todo__punkt--${z.stufe}"></span>
+          <div><div class="red-todo__t">${z.ohneZahl ? '' : `<b>${z.anzahl}</b> `}${z.titel}</div><div class="red-todo__w">${z.was}</div></div>
+          <a class="red-todo__go" href="${z.link}" target="_blank" rel="noopener">${z.linkText}</a></li>`).join('')}</ul>`
+    : '<p class="chart-note">Nichts zu tun: der Plan erf&uuml;llt alle Regeln.</p>';
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">WAS ZU TUN IST</h3>
+      <p class="chart-note">Aus dem Plan abgeleitet, keine Handpflege. Jeder Punkt &ouml;ffnet die passende Ansicht in Notion und verschwindet von selbst, sobald der Plan stimmt.</p>
+      ${inhalt}
+    </div>`;
+}
+
+// ─── 5 · Themen-Mix der nächsten 8 Wochen ────────────
+function themenMix(m) {
+  const bis = tagPlus(m.stichtag, 56);
+  const drin = m.liste.filter(b => b.datum >= m.stichtag && b.datum < bis);
+  const zaehler = {};
+  THEMEN.forEach(t => { zaehler[t] = 0; });
+  drin.forEach(b => {
+    const th = (b.thema || []).length ? b.thema : ['ohne Thema'];
+    th.forEach(t => { zaehler[t] = (zaehler[t] || 0) + 1; });
+  });
+  const zeilen = Object.entries(zaehler).sort((a, b) => b[1] - a[1]);
+  return { anzahl: drin.length, bis, zeilen };
+}
+
+function renderThemenMix(m) {
+  const mix = themenMix(m);
+  const max = Math.max(1, ...mix.zeilen.map(([, n]) => n));
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">THEMEN-MIX DER N&Auml;CHSTEN 8 WOCHEN</h3>
+      <p class="chart-note">${mix.anzahl} Beitr&auml;ge mit Termin bis ${ddmm(tagPlus(mix.bis, -1))} &middot; Feld &bdquo;Thema&ldquo;, ein Beitrag kann mehrere tragen</p>
+      <div class="red-mix">${mix.zeilen.map(([t, n]) => `
+        <div><span>${t}</span><div class="red-mix__bar"><i style="width:${Math.round(n / max * 100)}%"></i></div><b>${n}</b></div>`).join('')}
+      </div>
+    </div>`;
+}
+
+// ─── 6 · Beiträge je Woche: Vergangenheit und Plan ───
+// Links die vollen Wochen aus posted_by_week_linkedin (Lücken als 0), ab der
+// laufenden Woche aus der Beitragsliste: erschienen, getimed (hell) und
+// freigegeben mit Termin (schraffiert).
+function buildWochenChart(m) {
+  const hist = buildFreqSeries(m.d).slice(-9).map(r => ({ week: r.week, post: r.n, timed: 0, frei: 0 }));
+  const plan = m.wochen.filter(w => w.offset >= 0 && w.offset <= 7).map(w => ({
+    week: isoWeekKeyOfDate(tagDate(w.montag)), post: w.erschienen, timed: w.getimed, frei: w.frei, laufend: w.laufend,
+  }));
+  return hist.concat(plan);
+}
+
+function renderWochenChart(m) {
+  const weeks = buildWochenChart(m);
+  if (!weeks.length) return '';
+  const W = 900, H = 230, pl = 34, pr = 12, pt = 16, pb = 30;
+  const maxY = Math.max(LI_POSTS_ZIEL + 1, ...weeks.map(w => w.post + w.timed + w.frei)) + 1;
+  const slot = (W - pl - pr) / weeks.length;
+  const bw = Math.min(28, slot * 0.6);
+  const y = v => pt + (1 - v / maxY) * (H - pt - pb);
+  let s = `<defs><pattern id="red-schraffur" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#fff"/><line x1="0" y1="0" x2="0" y2="6" stroke="#009ee3" stroke-width="2"/></pattern></defs>`;
+  for (let v = 0; v <= maxY; v++) {
+    s += `<line x1="${pl}" y1="${y(v)}" x2="${W - pr}" y2="${y(v)}" class="trend__grid"/>`;
+    s += `<text x="${pl - 7}" y="${y(v) + 4}" font-size="11" fill="var(--muted)" text-anchor="end">${v}</text>`;
+  }
+  s += `<rect x="${pl}" y="${y(3)}" width="${W - pl - pr}" height="${y(2) - y(3)}" fill="#27ae60" opacity=".08"/>`;
+  s += `<text x="${pl + 6}" y="${y(3) - 5}" font-size="11" fill="#1c7c43">Ziel 2 bis 3 pro Woche</text>`;
+  weeks.forEach((w, i) => {
+    const cx = pl + slot * i + slot / 2, x = cx - bw / 2;
+    let oben = 0;
+    const seg = (n, fill, extra = '') => {
+      if (!n) return;
+      s += `<rect x="${x}" y="${y(oben + n)}" width="${bw}" height="${y(oben) - y(oben + n)}" fill="${fill}" rx="3" ${extra}/>`;
+      oben += n;
+    };
+    seg(w.post, SOC_COLORS.li);
+    seg(w.timed, '#009ee3');
+    seg(w.frei, 'url(#red-schraffur)', 'stroke="#009ee3" stroke-width="1.5" stroke-dasharray="4 3"');
+    const titel = `${kwLabel(w.week)}: ${w.post} erschienen${w.timed ? `, ${w.timed} getimed` : ''}${w.frei ? `, ${w.frei} freigegeben mit Termin` : ''}`;
+    s += `<rect x="${cx - slot / 2}" y="${pt}" width="${slot}" height="${H - pt - pb}" fill="transparent"><title>${titel}</title></rect>`;
+    if (oben) s += `<text x="${cx}" y="${y(oben) - 5}" font-size="12" font-weight="bold" fill="var(--ink)" text-anchor="middle">${oben}</text>`;
+    else s += `<rect x="${x}" y="${y(0) - 2}" width="${bw}" height="2" fill="#c9d2da"/>`;
+    s += `<text x="${cx}" y="${H - 9}" font-size="11" fill="${w.laufend ? '#009ee3' : 'var(--muted)'}" font-weight="${w.laufend ? 700 : 400}" text-anchor="middle">${kwLabel(w.week)}</text>`;
+    if (w.laufend) {
+      s += `<line x1="${cx - slot / 2}" x2="${cx - slot / 2}" y1="${pt}" y2="${H - pb + 4}" stroke="#009ee3" stroke-dasharray="3 3"/>`;
+      s += `<text x="${cx - slot / 2 + 4}" y="${pt + 10}" font-size="10.5" fill="#009ee3">heute</text>`;
+    }
+  });
+  return `
+    <div class="status-section fade-in">
+      <h3 class="status-section__title">BEITR&Auml;GE JE WOCHE</h3>
+      <p class="chart-note">LinkedIn &middot; Ziel 2 bis 3 pro Woche &middot; aus dem Notion-Redaktionsplan (Feld &bdquo;${datumsfeld(m.d)}&ldquo;), eingeplante Beitr&auml;ge z&auml;hlen ab ihrem Datum als erschienen &middot; rechts vom Stichtag getimed (hell) und freigegeben mit Termin (schraffiert)</p>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Beitr&auml;ge je Kalenderwoche, erschienen und geplant">${s}</svg>
+      </div>
+    </div>`;
+}
+
+// ─── 7 · Später ──────────────────────────────────────
+function renderSpaeter() {
+  return `
+    <div class="red-spaeter fade-in">
+      <b>Sp&auml;ter</b>
+      <span>Sichtbarkeit (Impressions, Interaktionen, Follower) zieht auf eine eigene Seite &bdquo;Wirkung&ldquo; um, sobald die Zahlen automatisch aus LinkedIn und Meta kommen (korodur-redaktion#44). Bis dahin: monatlicher Analytics-Review aus den Plattform-Exporten.</span>
+    </div>`;
 }
 
 // ─── Beitragszahl je Woche (Issue #233) ──────────────
@@ -634,79 +1130,6 @@ function letzteVolleWoche(d) {
   if (!m) return null;
   const stichtag = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
   return wocheVerschieben(isoWeekKeyOfDate(stichtag), -1);
-}
-
-function renderPostsTile(d) {
-  const bis = letzteVolleWoche(d);
-  if (!bis) {
-    return `
-      <div class="kpi-card fade-in">
-        <div class="kpi-card__label">Beitr&auml;ge letzte Woche</div>
-        <div class="kpi-card__value">n.&nbsp;v.</div>
-        <div class="kpi-card__detail">Snapshot ohne Stichtag</div>
-      </div>`;
-  }
-  const pbw = beitraegeJeWoche(d);
-  const n = pbw[bis] || 0;
-  const state = postsState(n, LI_POSTS_ZIEL);
-  const label = state === 'ok' ? 'Ziel erreicht' : state === 'warn' ? 'knapp am Ziel' : 'unter Ziel';
-  // Vier volle Wochen, Wochen ohne Beitrag zaehlen als 0 mit.
-  const last4 = [-3, -2, -1, 0].map(k => pbw[wocheVerschieben(bis, k)] || 0);
-  const avg = (last4.reduce((a, b) => a + b, 0) / last4.length)
-    .toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  const lw = d.laufende_woche_linkedin;
-  const laufend = lw
-    ? `<div class="kpi-card__detail">${kwLabel(lw.week)} bisher ${lw.erschienen} erschienen, ${lw.eingeplant} bis Sonntag eingeplant</div>`
-    : '';
-  return `
-    <div class="kpi-card fade-in">
-      <div class="kpi-card__label">Beitr&auml;ge letzte Woche ${ampelBadge(state, label)}</div>
-      <div class="kpi-card__value">${n}<span class="kpi-card__unit">von ${LI_POSTS_ZIEL}</span></div>
-      <div class="kpi-card__detail">LinkedIn, ${kwLabel(bis)} &middot; Durchschnitt letzte 4 Wochen: ${avg} / Woche</div>
-      ${laufend}
-    </div>`;
-}
-
-function renderPufferTile(d) {
-  const ziel = d.puffer_ziel || [10, 15];
-  const [lo, hi] = ziel;
-  const puffer = d.puffer || 0;
-  const state = pufferState(d.puffer, ziel);
-  const label = state === 'ok' ? 'im Ziel' : state === 'warn' ? 'knapp' : 'au&szlig;erhalb Ziel';
-  const meterMax = Math.max(hi + 5, Math.ceil(puffer * 1.2), 1);
-  const fillPct = Math.min(100, (puffer / meterMax) * 100);
-  const bandLeft = (lo / meterMax) * 100;
-  const bandWidth = ((hi - lo) / meterMax) * 100;
-  const terminiert = d.geplant_zukunft != null
-    ? ` &middot; davon ${d.geplant_zukunft} mit Datum terminiert` : '';
-  return `
-    <div class="kpi-card fade-in">
-      <div class="kpi-card__label">Beitrags-Puffer ${ampelBadge(state, label)}</div>
-      <div class="kpi-card__value">${fehltZeichen(d.puffer)}</div>
-      <div class="kpi-card__detail">Freigegeben + eingeplant und noch nicht erschienen &middot; Ziel ${lo} bis ${hi}${terminiert}</div>
-      <div class="meter">
-        <div class="meter__scale">
-          <div class="meter__band" style="left:${bandLeft}%; width:${bandWidth}%;"></div>
-          <div class="meter__fill" style="width:${fillPct}%;"></div>
-          <div class="meter__marker" style="left:${fillPct}%;"></div>
-        </div>
-        <div class="meter__ticks"><span>0</span><span>Ziel ${lo} bis ${hi}</span><span>${meterMax}</span></div>
-      </div>
-    </div>`;
-}
-
-function renderVorlaufTile(d) {
-  const state = vorlaufState(d.vorlauf_wochen);
-  // Gruen beginnt unter dem Ziel (ab 2 Wochen), "im Ziel" wuerde bei 2,0 bis
-  // 2,4 Wochen der Zielangabe daneben widersprechen.
-  const label = state === 'ok' ? 'ausreichend' : state === 'warn' ? 'knapp' : 'zu kurz';
-  const [lo, hi] = VORLAUF_ZIEL_WOCHEN.map(w => w.toLocaleString('de-DE'));
-  return `
-    <div class="kpi-card fade-in">
-      <div class="kpi-card__label">Terminierter Vorlauf ${ampelBadge(state, label)}</div>
-      <div class="kpi-card__value">${fmtWochen(d.vorlauf_wochen)}<span class="kpi-card__unit">Wochen</span></div>
-      <div class="kpi-card__detail">Wie weit die getimten Beitr&auml;ge in die Zukunft reichen &middot; Ziel ${lo} bis ${hi} Wochen</div>
-    </div>`;
 }
 
 // ─── 4+5 · Beiträge je Woche & Pipeline-Funnel ────────
@@ -741,49 +1164,6 @@ function buildFreqSeries(d) {
   return fillWeekGaps(series, bis);
 }
 
-function renderFreqChart(d) {
-  const series = buildFreqSeries(d).slice(-12);
-  if (!series.length) {
-    return '<p class="chart-note">Noch keine Wochenverteilung ver&ouml;ffentlichter Beitr&auml;ge.</p>';
-  }
-
-  const W = 560, H = 230, pl = 30, pr = 20, pt = 18, pb = 30;
-  const maxY = Math.max(LI_POSTS_ZIEL + 1, ...series.map(r => r.n)) + 1;
-  const slot = (W - pl - pr) / series.length;
-  const bw = Math.min(24, slot * 0.55);
-  const y = v => pt + (1 - v / maxY) * (H - pt - pb);
-
-  let s = '';
-  for (let v = 0; v <= maxY; v++) {
-    s += `<line x1="${pl}" y1="${y(v)}" x2="${W - pr}" y2="${y(v)}" class="trend__grid"/>`;
-    s += `<text x="${pl - 7}" y="${y(v) + 4}" font-size="11" fill="var(--muted)" text-anchor="end">${v}</text>`;
-  }
-
-  series.forEach((r, i) => {
-    const cx = pl + slot * i + slot / 2;
-    const titel = r.n > 0
-      ? `${kwLabel(r.week)}: ${r.n} Beitr${r.n === 1 ? 'ag' : 'äge'} erschienen`
-      : `${kwLabel(r.week)}: kein Beitrag veröffentlicht`;
-    if (r.n > 0) {
-      const h = y(0) - y(r.n);
-      s += `<path d="M${cx - bw / 2},${y(0)} v${-(h - 4)} q0,-4 4,-4 h${bw - 8} q4,0 4,4 v${h - 4} z" fill="${SOC_COLORS.li}" data-i="${i}"><title>${titel}</title></path>`;
-      s += `<text x="${cx}" y="${y(r.n) - 6}" font-size="12" font-weight="bold" fill="var(--ink)" text-anchor="middle">${r.n}</text>`;
-    } else {
-      s += `<rect x="${cx - bw / 2}" y="${y(0) - 2}" width="${bw}" height="2" fill="#c9d2da" data-i="${i}"><title>${titel}</title></rect>`;
-    }
-    s += `<text x="${cx}" y="${H - 8}" font-size="11" fill="var(--muted)" text-anchor="middle">${kwLabel(r.week)}</text>`;
-  });
-
-  s += `<line x1="${pl}" y1="${y(LI_POSTS_ZIEL)}" x2="${W - pr}" y2="${y(LI_POSTS_ZIEL)}" stroke="var(--muted)" stroke-width="1.5"/>`;
-  s += `<text x="${pl + 4}" y="${y(LI_POSTS_ZIEL) - 6}" font-size="11.5" fill="var(--muted)">Ziel ${LI_POSTS_ZIEL} / Wo</text>`;
-
-  return `
-    <div class="chart-wrap">
-      <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Ver&ouml;ffentlichte Beitr&auml;ge je Kalenderwoche">${s}</svg>
-    </div>
-  `;
-}
-
 // Welches Notion-Datumsfeld die Kadenz traegt, steht seit Issue #175 im
 // Snapshot. Bis 10.08.2026 war das "veroeffentlicht" (Ist-Datum), seither
 // "geplant" (Plan-Datum). Der Unterschied gehoert auf die Seite: sonst liest
@@ -791,20 +1171,6 @@ function renderFreqChart(d) {
 // stammen aus der Zeit davor.
 function datumsfeld(d) {
   return ((d || {})._meta || {}).datumsquelle || 'ver&ouml;ffentlicht';
-}
-
-function renderBottomRow(d) {
-  const feld = datumsfeld(d);
-  return `
-    <div class="grid-2">
-      <div class="status-section fade-in">
-        <h3 class="status-section__title">BEITR&Auml;GE JE WOCHE</h3>
-        <p class="chart-note">Ver&ouml;ffentlichte Beitr&auml;ge (LinkedIn) &middot; Ziel: ${LI_POSTS_ZIEL} pro Woche &middot; aus dem Notion-Redaktionsplan (Feld "${feld}"), eingeplante Beitr&auml;ge z&auml;hlen ab ihrem Datum als erschienen</p>
-        ${renderFreqChart(d)}
-      </div>
-      ${renderFunnel(d.totals || {}, d.eingeplant_erschienen)}
-    </div>
-  `;
 }
 
 // ─── Pipeline-Funnel (unverändert bis auf Farben, Issue #141 Design) ──
@@ -855,7 +1221,9 @@ function renderFunnel(t, eingeplantErschienen) {
     return `<div class="funnel__seg" style="flex-grow:${c};background:${f.color};color:${ink}"
                  title="${f.label}: ${c}">${pct > 6 ? c : ''}</div>`;
   }).join('');
-  const legend = FUNNEL.map(f =>
+  // "In Arbeit" ist seit dem 11.08.2026 leer (Statusmodell); eine leere Stufe
+  // bleibt aus der Legende draussen, damit sie nicht wie ein Befund aussieht.
+  const legend = FUNNEL.filter(f => f.key !== 'in_arbeit' || t[f.key]).map(f =>
     `<span class="status-legend__item"><span class="status-legend__dot" style="background:${f.color}"></span>${f.label}: ${t[f.key] || 0}</span>`
   ).join('');
 
@@ -863,7 +1231,7 @@ function renderFunnel(t, eingeplantErschienen) {
   // In Notion stehen sie weiter auf "eingeplant & getimed"; ohne diesen Satz
   // stimmt die Zahl hier nicht mit der Notion-Ansicht ueberein.
   const erschienen = eingeplantErschienen
-    ? `<p class="chart-note" style="margin-top:14px">Gepostet enth&auml;lt ${eingeplantErschienen} eingeplante Beitr&auml;ge, deren Datum vorbei ist. In Notion stehen sie weiter auf &bdquo;eingeplant &amp; getimed&ldquo;.</p>` : '';
+    ? `<p class="chart-note" style="margin-top:14px">Erschienen enth&auml;lt ${eingeplantErschienen} eingeplante Beitr&auml;ge, deren Datum vorbei ist. In Notion stehen sie weiter auf &bdquo;eingeplant &amp; getimed&ldquo;.</p>` : '';
 
   return `
     <div class="status-section fade-in">
@@ -880,8 +1248,8 @@ function renderEmpty() {
   const main = document.getElementById('main');
   main.innerHTML = `
     <div class="snapshot-header fade-in">
-      <h1 class="snapshot-header__title">REDAKTION: SICHTBARKEIT &amp; PIPELINE</h1>
-      <p class="snapshot-header__sub">Notion-Redaktionsplan (Aggregat) + Plattform-Exporte</p>
+      <h1 class="snapshot-header__title">REDAKTION: L&Auml;UFT SOCIAL MEDIA?</h1>
+      <p class="snapshot-header__sub">Notion-Redaktionsplan (Aggregat und anonymisierte Beitragsliste)</p>
     </div>
     <div class="loading">
       <div style="text-align:center;line-height:1.7;">

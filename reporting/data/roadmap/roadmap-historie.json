@@ -136,7 +136,7 @@
     },
     "web-refdesign": {
       "lane": "Website",
-      "datum": null,
+      "datum": "2026-10-31",
       "status": "offen",
       "titel": "Referenzdetailseiten gestalterisch abgestimmt"
     },
@@ -258,13 +258,13 @@
       "lane": "Referenzen",
       "datum": "2026-09-30",
       "status": "offen",
-      "titel": "Referenzprozess durchgängig abgestimmt"
+      "titel": "Prozess bis interne DE-Freigabe abgestimmt"
     },
     "ref-formate": {
       "lane": "Referenzen",
       "datum": "2026-10-15",
-      "status": "offen",
-      "titel": "Weitere Zielformate für Vertrieb und Social Media definiert"
+      "status": "erreicht",
+      "titel": "One-Pager- und Social-Format stehen und werden genutzt"
     },
     "ref-monat": {
       "lane": "Referenzen",
@@ -272,17 +272,71 @@
       "status": "entfallen",
       "titel": "Format Referenz des Monats startet"
     },
-    "ref-highlight": {
+    "ref-10-de": {
+      "lane": "Referenzen",
+      "datum": "2026-10-15",
+      "status": "offen",
+      "titel": "Zehn DE-One-Pager intern freigegeben"
+    },
+    "ref-publikationsprozess": {
       "lane": "Referenzen",
       "datum": "2026-10-31",
       "status": "offen",
+      "titel": "Übersetzungs- und Publikationsprozess definiert"
+    },
+    "ref-datenstruktur": {
+      "lane": "Referenzen",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Referenzdatenstruktur und Property Registry bereinigt"
+    },
+    "ref-notion-anbindung": {
+      "lane": "Referenzen",
+      "datum": "2026-10-31",
+      "status": "offen",
+      "titel": "Notion-Anbindung der neuen Website umgesetzt"
+    },
+    "ref-highlight": {
+      "lane": "Referenzen",
+      "datum": "2026-11-15",
+      "status": "verschoben",
       "titel": "Erste Highlight-Referenz ausgearbeitet"
     },
     "ref-ausbau": {
       "lane": "Referenzen",
       "datum": "2026-12-15",
       "status": "offen",
-      "titel": "Zielzahl erreicht: 20 Referenzen ausgearbeitet"
+      "titel": "Zwanzig DE-One-Pager insgesamt intern freigegeben"
+    },
+    "ref-10-live": {
+      "lane": "Referenzen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Zehn intern freigegebene Referenzen in EN und FR live"
+    },
+    "ref-automotive-de": {
+      "lane": "Referenzen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Automotive-Referenzbroschüre auf Deutsch final freigegeben"
+    },
+    "ref-rapidset-de": {
+      "lane": "Referenzen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Rapid-Set-Referenzbroschüre auf Deutsch final freigegeben"
+    },
+    "ref-strategie-2027": {
+      "lane": "Referenzen",
+      "datum": "2026-12-20",
+      "status": "offen",
+      "titel": "Referenzen-Strategie 2027 abgestimmt"
+    },
+    "ref-presse": {
+      "lane": "Referenzen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Highlight-Referenz an Presse verteilt"
     },
     "org-repo": {
       "lane": "Organisation & Enablement",
@@ -461,7 +515,7 @@
     "ueb-strategie": {
       "lane": "Übersetzungen",
       "datum": "2026-12-15",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Strategie Internationalisierung 2027 steht; Training IT+PL angelaufen"
     },
     "ueb-web-industrieboden-en": {
@@ -583,6 +637,30 @@
       "datum": null,
       "status": "offen",
       "titel": "Startseite, Kontakt und Unternehmen: Französisch ausgearbeitet"
+    },
+    "ueb-ref-10-en": {
+      "lane": "Übersetzungen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Zehn intern freigegebene Referenzen auf Englisch übersetzt"
+    },
+    "ueb-ref-10-fr": {
+      "lane": "Übersetzungen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Zehn intern freigegebene Referenzen auf Französisch übersetzt"
+    },
+    "ueb-ref-automotive": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Automotive-Broschüre nach DE-Freigabe übersetzt"
+    },
+    "ueb-ref-rapidset": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Rapid Set-Broschüre nach DE-Freigabe übersetzt"
     }
   },
   "aenderungen": [
@@ -3946,6 +4024,197 @@
       "feld": null,
       "alt": "2026-08-31",
       "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-10-de",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-10-live",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-automotive-de",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-datenstruktur",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-notion-anbindung",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-presse",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-publikationsprozess",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-rapidset-de",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-strategie-2027",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-20"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ueb-ref-10-en",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ueb-ref-10-fr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ueb-ref-automotive",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ueb-ref-rapidset",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-ausbau",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Zielzahl erreicht: 20 Referenzen ausgearbeitet",
+      "neu": "Zwanzig DE-One-Pager insgesamt intern freigegeben"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-formate",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-formate",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Weitere Zielformate für Vertrieb und Social Media definiert",
+      "neu": "One-Pager- und Social-Format stehen und werden genutzt"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-highlight",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-11-15",
+      "tage": 15
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-highlight",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ref-prozess",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Referenzprozess durchgängig abgestimmt",
+      "neu": "Prozess bis interne DE-Freigabe abgestimmt"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "ueb-strategie",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-23",
+      "id": "web-refdesign",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": null,
+      "neu": "2026-10-31",
+      "tage": null
     }
   ],
   "kennzahlen": {
@@ -4114,6 +4383,20 @@
       "verschiebungen": 1,
       "tageGesamt": 0,
       "letzteVerschiebung": "2026-09-22",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "ref-highlight": {
+      "verschiebungen": 1,
+      "tageGesamt": 15,
+      "letzteVerschiebung": "2026-09-23",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-refdesign": {
+      "verschiebungen": 1,
+      "tageGesamt": 0,
+      "letzteVerschiebung": "2026-09-23",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     }

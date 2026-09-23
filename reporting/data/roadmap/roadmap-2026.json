@@ -1,6 +1,6 @@
 {
-  "version": "1.13",
-  "stand": "2026-09-22",
+  "version": "1.14",
+  "stand": "2026-09-23",
   "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt.",
   "zeitraum": {
     "start": "2026-07-01",
@@ -304,13 +304,13 @@
         },
         {
           "id": "web-refdesign",
-          "datum": null,
+          "datum": "2026-10-31",
           "titel": "Referenzdetailseiten gestalterisch abgestimmt",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "details": "Kohärenter Aufbau und gezielte Bildführung, ohne unbeabsichtigte Leerflächen. An einer bildreichen und einer knappen Referenz prüfen. Das erreichte Inhaltskonzept bleibt Grundlage.",
-          "abhaengigkeit": "Gestaltungsrichtung aus der Designvorschau; redaktionell ausgearbeitete Referenzbeispiele"
+          "details": "Referenzdarstellung nach der Designvorschau gestalterisch geglättet. Website, One-Pager und benötigte Daten passen zusammen; bildreiche und knappe Referenzen sind auf Desktop und Mobil geprüft. Vorhandenes Inhaltskonzept bleibt Grundlage.",
+          "abhaengigkeit": "Designrichtung der GBL-Vorschau sowie Referenzdatenvertrag und fachlich geprüfte Inhalte"
         },
         {
           "id": "web-kontakt",
@@ -489,14 +489,14 @@
       "id": "referenzen",
       "area": "wissensaufbau",
       "name": "Referenzen",
-      "hinweis": "Dachmantel Wissenssicherung; Schnittstellen Technik und CRM",
-      "erreichtHeisst": "Referenzprozess durchgängig abgestimmt, weitere Zielformate für Vertrieb und Social Media definiert, erste Highlight-Referenz ausgearbeitet; Zielzahl von 20 ausgearbeiteten Referenzen erreicht.",
+      "hinweis": "Interne DE-Freigabe und nachgelagerte Übersetzung/Veröffentlichung sind getrennt. One-Pager und Social werden bereits genutzt; Website-Darstellung und Datenstruktur werden darauf abgestimmt. Alle Prioritäten einschließlich leerer Werte zählen zu den Mengenzielen.",
+      "erreichtHeisst": "Interner Referenzprozess und anschließender Übersetzungs-/Publikationsprozess abgestimmt; Datenstruktur und Website-Anbindung umgesetzt. Zehn DE-One-Pager bis 15.10., zwanzig insgesamt bis 15.12. intern freigegeben; zehn davon bis 15.12. in EN und FR auf bestehendem WordPress live. Automotive und Rapid Set auf Deutsch final freigegeben, Highlight fertig und Presseverteilung erfolgt; Referenzen-Strategie 2027 steht.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
       },
       "stil": "normal",
-      "weiter2027": null,
+      "weiter2027": "Referenzstrategie umsetzen; Videos mit wiederholbarem Produktions- und Freigabeprozess. Prototypen liegen vor.",
       "meilensteine": [
         {
           "id": "ref-erstkontakt",
@@ -517,7 +517,7 @@
           "status": "entfallen",
           "klaerung": false,
           "confidence": "hoch",
-          "details": "Entfallen am 25.08.2026: mit dem aufgehobenen Launch-Termin und dem Strategie-Shift gibt es keine eigene Triage für den Launch mehr. Die Priorisierung läuft über die Ausarbeitung der Prio-A-Referenzen."
+          "details": "Entfallen am 25.08.2026 mit dem aufgehobenen Launch-Termin. Keine eigene Launch-Triage. Die Ausarbeitung läuft weiter; seit 23.09. zählen die Mengenziele über alle Prioritäten."
         },
         {
           "id": "ref-crm-pull",
@@ -542,22 +542,23 @@
         {
           "id": "ref-prozess",
           "datum": "2026-09-30",
-          "titel": "Referenzprozess durchgängig abgestimmt",
+          "titel": "Prozess bis interne DE-Freigabe abgestimmt",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": false,
           "confidence": "mittel",
-          "details": "Der Prozess ist von der Erfassung bis zur Veröffentlichung durchdefiniert: Schritte, Rollen, Übergaben und Freigaben liegen fest, jede beteiligte Rolle kennt ihren Teil."
+          "details": "Von Entdeckung und Identifizierung über den deutschen One-Pager bis zur internen Freigabe durch Technik und einbringenden Vertrieb: Rollen, Schritte und Übergaben sind abgestimmt. Erste Beispiele sind durchgelaufen; Prozessabschluss bleibt offen. Übersetzung und Veröffentlichung folgen gesondert bis 31.10."
         },
         {
           "id": "ref-formate",
           "datum": "2026-10-15",
-          "titel": "Weitere Zielformate für Vertrieb und Social Media definiert",
+          "titel": "One-Pager- und Social-Format stehen und werden genutzt",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "erreicht",
           "klaerung": false,
           "confidence": "hoch",
-          "details": "Aufbauend auf One-Pager und Webdarstellung: welche weiteren Ausgabeformate Vertrieb und Redaktion aus einer Referenz ziehen und wie sie erzeugt werden."
+          "details": "In der Abstimmung am 23.09. als erreicht bestätigt: One-Pager-Format passt, Social-Beiträge werden bereits erstellt. Keine neue Formatentwicklung. Website-Glättung und die beiden Broschüren werden separat verfolgt.",
+          "erreichtAm": "2026-09-23"
         },
         {
           "id": "ref-monat",
@@ -567,30 +568,117 @@
           "status": "entfallen",
           "klaerung": false,
           "confidence": "hoch",
-          "details": "Termin aufgehoben (DPI-Beschluss 18.08.2026): die erste Ausgabe war ans Launch-Fenster gekoppelt und wird mit der Launch-Definition neu terminiert. Die Ausarbeitung der Referenzen läuft unabhängig davon weiter."
+          "details": "Termin aufgehoben; Referenz des Monats bleibt On Hold ohne neuen Termin. Die Ausarbeitung der Referenzen läuft unabhängig davon weiter."
         },
         {
-          "id": "ref-highlight",
+          "id": "ref-10-de",
+          "datum": "2026-10-15",
+          "titel": "Zehn DE-One-Pager intern freigegeben",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Zehn eindeutige Referenzen sind durch Technik und einbringenden Vertrieb intern freigegeben. Alle Prioritäten einschließlich leerer Werte zählen; Entwürfe sind keine Freigaben. Dies ist der erste Teil der zwanzig bis 15.12."
+        },
+        {
+          "id": "ref-publikationsprozess",
           "datum": "2026-10-31",
-          "titel": "Erste Highlight-Referenz ausgearbeitet",
+          "titel": "Übersetzungs- und Publikationsprozess definiert",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Rollen, Übergaben, erforderliche weitere Freigaben, Sprach- und Veröffentlichungsstatus sowie Ablauf auf bestehendem WordPress sind festgelegt. Eine Übersetzung oder Publikationserlaubnis ist noch kein Live-Nachweis. Technische Website-Anbindung bleibt gesondert prüfbar."
+        },
+        {
+          "id": "ref-datenstruktur",
+          "datum": "2026-10-31",
+          "titel": "Referenzdatenstruktur und Property Registry bereinigt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Benötigte Properties je Ausgabeformat sind definiert, Datenstruktur und Registry stimmen überein. Bestehende Verbraucher werden geprüft; überflüssige Properties erst nach Prüfung bereinigen. Keine Sprachduplikate im DE-Master."
+        },
+        {
+          "id": "ref-notion-anbindung",
+          "datum": "2026-10-31",
+          "titel": "Notion-Anbindung der neuen Website umgesetzt",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "confidence": "hoch",
-          "abhaengigkeit": "Kundenfreigabe (Namensnennung und Zitat)",
-          "details": "Neue, aktuelle Referenz; Veröffentlichung vorbehaltlich Kundenfreigabe. Stand 25.08.2026: die Ausarbeitung läuft, die Einschätzung zur Haltbarkeit des Termins ist deutlich gestiegen."
+          "details": "DE-Master, Sprachfassungen und aktuelles Freigabemodell werden technisch korrekt übernommen; Mapping, Publikations-Gate und Bestandsschutz sind getestet. Workflow-Definition allein erfüllt dieses Umsetzungsziel nicht.",
+          "abhaengigkeit": "Datenvertrag und aktuelle kanalbezogene Veröffentlichungsfreigaben abgestimmt"
+        },
+        {
+          "id": "ref-highlight",
+          "datum": "2026-11-15",
+          "titel": "Erste Highlight-Referenz ausgearbeitet",
+          "typ": "meilenstein",
+          "status": "verschoben",
+          "klaerung": true,
+          "abhaengigkeit": "Zuordnung der ausgewählten Referenz ergänzen; erforderliche Kundenfreigabe für Name und Zitat klären",
+          "details": "Bereits ausgewählte Highlight-Referenz in Bearbeitung; Fertigstellung bis Mitte November statt Ende Oktober. Zuordnung und Quelle sind im Arbeitspaket noch zu ergänzen. Presseverteilung noch 2026 ist ein separater Abschluss."
         },
         {
           "id": "ref-ausbau",
           "datum": "2026-12-15",
-          "titel": "Zielzahl erreicht: 20 Referenzen ausgearbeitet",
+          "titel": "Zwanzig DE-One-Pager insgesamt intern freigegeben",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": false,
           "confidence": "mittel",
-          "details": "Konservative Zielzahl (Beschluss 14.07.): 20 Referenzen im Drei-Ausgaben-Format (Web, One-Pager, Social)."
+          "details": "Zwanzig eindeutige Referenzen sind durch Technik und einbringenden Vertrieb intern freigegeben, über alle Prioritäten einschließlich leerer Werte. Entwürfe zählen nicht. Zehn davon müssen zusätzlich in EN und FR live sein; nicht alle zwanzig müssen drei Ausgabeformate erreichen."
+        },
+        {
+          "id": "ref-10-live",
+          "datum": "2026-12-15",
+          "titel": "Zehn intern freigegebene Referenzen in EN und FR live",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Zehn eindeutige Referenzen aus den zwanzig internen DE-Freigaben sind in BEIDEN Sprachen übersetzt und auf bestehendem WordPress live. Geprüfte URLs je Referenz und Sprache belegen das Ergebnis. Relaunch der neuen Website ist keine Voraussetzung.",
+          "abhaengigkeit": "Interne DE-Freigabe, Übersetzungen, erforderliche Publikationsfreigaben und Live-Nachweise"
+        },
+        {
+          "id": "ref-automotive-de",
+          "datum": "2026-12-15",
+          "titel": "Automotive-Referenzbroschüre auf Deutsch final freigegeben",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Vorhandene Fassungen sind abgestimmt; die finale deutsche Broschüre ist fachlich und redaktionell freigegeben. Übersetzungen folgen nach DE-Abnahme mit separat zu entscheidenden Sprachen und Terminen.",
+          "abhaengigkeit": "Entscheidung zwischen vorhandenen Varianten und abschließende Fachabnahme"
+        },
+        {
+          "id": "ref-rapidset-de",
+          "datum": "2026-12-15",
+          "titel": "Rapid-Set-Referenzbroschüre auf Deutsch final freigegeben",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Referenzauswahl und vorhandene Materialien sind in einer fachlich und redaktionell freigegebenen deutschen Broschüre zusammengeführt. Entwürfe sind kein Abschluss. Übersetzungen folgen separat.",
+          "abhaengigkeit": "Referenzauswahl und abschließende Fachabnahme"
+        },
+        {
+          "id": "ref-strategie-2027",
+          "datum": "2026-12-20",
+          "titel": "Referenzen-Strategie 2027 abgestimmt",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": false,
+          "details": "Prioritäten, Rollen, Formate und Umsetzungspakete stehen. Vorhandene Video-Prototypen werden ausgewertet; wiederholbarer Videoprozess und Produktion sind für 2027 geplant."
+        },
+        {
+          "id": "ref-presse",
+          "datum": null,
+          "titel": "Highlight-Referenz an Presse verteilt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Fertigstellung der Highlight-Referenz und anschließende Presseverteilung sind getrennte Abschlüsse. Versand erfolgt noch 2026 nach den erforderlichen Kunden-, Namens-, Bild- und Zitatfreigaben.",
+          "abhaengigkeit": "Highlight fertig; Nutzungsfreigaben und genauer Versandtermin abgestimmt",
+          "zielzeitraum": "Noch 2026"
         }
-      ]
+      ],
+      "kurz": "DE-Freigaben, EN/FR-Veröffentlichungen, Broschüren und Highlight mit getrennten Abschlusskriterien."
     },
     {
       "id": "orga",
@@ -937,15 +1025,15 @@
       "id": "uebersetzungen",
       "area": "international",
       "name": "Übersetzungen",
-      "hinweis": "Website V1: Englisch und Französisch je Bereich parallel ab der eigenen fertig ausgearbeiteten deutschen Fassung. Zusätzliche fachliche Abnahmen werden je Bereich geklärt; sie sind keine pauschale Voraussetzung für den Übersetzungsstart. Folgetermine werden nach Bereitstellung vereinbart, nicht automatisch erzeugt.",
-      "kurz": "Englisch und Französisch starten je Website-Bereich, sobald dessen deutsche Fassung steht.",
-      "erreichtHeisst": "Italienische Erstfassungen der technischen Datenblätter der Kernprodukte erstellt und zur Sprachabstimmung übergeben; Strategie Internationalisierung 2027 steht, Training IT und PL angelaufen. Die externe Abnahme ist kein terminierter Roadmap-Meilenstein. Die Golive-Sprachen EN und FR folgen dem Launch-Termin der Website. Website-Übersetzungen EN/FR laufen paketweise ab der eigenen deutschen Fassung; Umfang und Fristen je Paket sind getrennt sichtbar.",
+      "hinweis": "2026 ist Trainingsjahr. Übersetzungsarbeit folgt den freigegebenen bzw. fertig ausgearbeiteten deutschen Paketen. Für Referenzen sind zehn EN- und FR-Fassungen bis 15.12. mit Veröffentlichung auf bestehendem WordPress vorgesehen. Weitere Website-Pakete behalten ihre eigenen Abhängigkeiten; Broschürensprachen und -termine werden nach DE-Freigabe entschieden.",
+      "kurz": "Trainingsjahr 2026: Übersetzungen folgen den DE-Paketen; zehn Referenzen bis 15.12. in EN und FR live.",
+      "erreichtHeisst": "Italienische Erstfassungen der technischen Datenblätter der Kernprodukte erstellt und zur Sprachabstimmung übergeben; Sprachagenten werden trainiert. Zehn intern freigegebene Referenzen sind bis 15.12. auf Englisch und Französisch übersetzt und auf bestehendem WordPress live. Weitere Übersetzungen folgen den jeweiligen DE-Paketen. Kein eigenständiger strategischer Internationalisierungs-Meilenstein 2026.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
       },
       "stil": "parallel",
-      "weiter2027": "EN/FR für Website V1; weitere Sprachen und Ländermanagement",
+      "weiter2027": "Website V1 DE/EN/FR; weitere Sprach- und Länderplanung sowie Broschüren nach vereinbarter DE-Abnahme.",
       "meilensteine": [
         {
           "id": "ueb-tds-it",
@@ -974,10 +1062,10 @@
           "datum": "2026-12-15",
           "titel": "Strategie Internationalisierung 2027 steht; Training IT+PL angelaufen",
           "typ": "entscheidung",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": false,
           "confidence": "hoch",
-          "details": "Ausblick 2027: weitere Sprachen, Händlermanagement; Ländermanagement gezielt 2027. Abstimmung mit dem Export. Training IT+PL startet Mitte Dezember."
+          "details": "Neu eingeordnet am 23.09.2026: Internationalisierung ist 2026 Trainingsjahr; der bisherige eigenständige Strategieabschluss zum 15.12. entfällt. Bestehende Trainingsarbeit bleibt erhalten, Übersetzungsziele werden aus den Fachpaketen abgeleitet. Strategische Umsetzung und Länderplanung werden für 2027 weitergeführt."
         },
         {
           "id": "ueb-web-industrieboden-en",
@@ -1146,7 +1234,7 @@
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung. Erstpaket von zehn Referenzen bis 15.12.2026 ist separat terminiert; weitere Referenzseiten für Website V1 bleiben anschließend zu planen.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1156,7 +1244,7 @@
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung. Erstpaket von zehn Referenzen bis 15.12.2026 ist separat terminiert; weitere Referenzseiten für Website V1 bleiben anschließend zu planen.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1178,6 +1266,46 @@
           "klaerung": true,
           "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
+        },
+        {
+          "id": "ueb-ref-10-en",
+          "datum": "2026-12-15",
+          "titel": "Zehn intern freigegebene Referenzen auf Englisch übersetzt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Abgeleitetes Erstpaket der Referenzen: dieselben zehn DE-Master werden in Englisch fertiggestellt. Zusammen mit der jeweils anderen Sprache müssen sie bis 15.12. auf bestehendem WordPress live sein; der Live-Nachweis liegt beim Referenzziel. Weitere V1-Referenzseiten sind separat zu terminieren.",
+          "abhaengigkeit": "Interne DE-Freigabe je Referenz; Sprachprüfung und Publikationsworkflow"
+        },
+        {
+          "id": "ueb-ref-10-fr",
+          "datum": "2026-12-15",
+          "titel": "Zehn intern freigegebene Referenzen auf Französisch übersetzt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Abgeleitetes Erstpaket der Referenzen: dieselben zehn DE-Master werden in Französisch fertiggestellt. Zusammen mit der jeweils anderen Sprache müssen sie bis 15.12. auf bestehendem WordPress live sein; der Live-Nachweis liegt beim Referenzziel. Weitere V1-Referenzseiten sind separat zu terminieren.",
+          "abhaengigkeit": "Interne DE-Freigabe je Referenz; Sprachprüfung und Publikationsworkflow"
+        },
+        {
+          "id": "ueb-ref-automotive",
+          "datum": null,
+          "titel": "Automotive-Broschüre nach DE-Freigabe übersetzt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Sprachen, Umfang, Termin und erforderliche zusätzliche Abnahmen werden nach finaler DE-Freigabe festgelegt. Keine automatische Übersetzungsfrist zum DE-Abnahmetermin.",
+          "abhaengigkeit": "Finale DE-Freigabe; Zielsprachen und Liefertermine entscheiden"
+        },
+        {
+          "id": "ueb-ref-rapidset",
+          "datum": null,
+          "titel": "Rapid Set-Broschüre nach DE-Freigabe übersetzt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Sprachen, Umfang, Termin und erforderliche zusätzliche Abnahmen werden nach finaler DE-Freigabe festgelegt. Keine automatische Übersetzungsfrist zum DE-Abnahmetermin.",
+          "abhaengigkeit": "Finale DE-Freigabe; Zielsprachen und Liefertermine entscheiden"
         }
       ]
     }

@@ -276,9 +276,9 @@ function labelHtml(m, idx) {
   const done = m.status === 'erreicht' ? '✓ ' : '';
   const moved = m.status === 'verschoben' ? ' (verschoben)' : '';
   const lateCls = isLate(m) ? ' is-late' : '';
-  return `<div class="rm-mslabel rm-mslabel--${side}" data-x="${x}" style="${anchor}">
+  return `<button type="button" class="rm-mslabel rm-mslabel--${side}" data-ms="${esc(m.id)}" data-x="${x}" style="${anchor}">
     <span class="rm-mslabel__d${lateCls}">${fmtShort(m.datum)}</span> ${done}${warn}<b>${esc(m.titel)}</b>${confSymbolHtml(m.confidence)}${moved}
-  </div>`;
+  </button>`;
 }
 
 /* --- Chart --- */
@@ -563,9 +563,17 @@ function legendHtml() {
 
 // Mindestabstand zweier Labels auf derselben Ebene, in px.
 const LABEL_LUECKE = 10;
-// Ebenen je Seite (0 = am Marker, 1 = --far, 2 = --far2). Mehr Ebenen wuerden
-// die Lane hoeher machen, als die Zeile Nutzen bringt.
-const LABEL_EBENEN = ['', 'rm-mslabel--far', 'rm-mslabel--far2'];
+// Beliebig viele Ebenen statt Überlagerung auf der dritten Ebene. Rechtecke
+// kommen nach linker Kante sortiert; freie Ebenen werden wiederverwendet.
+function labelLevels(rects) {
+  const edges = [];
+  return rects.map(rect => {
+    let level = 0;
+    while (edges[level] != null && rect.left < edges[level] + LABEL_LUECKE) level++;
+    edges[level] = rect.right;
+    return level;
+  });
+}
 
 // Ein Label mittig unter seinem Marker kann links oder rechts aus der Zone
 // laufen. Dann wird an der ueberstehenden Seite geankert; passt es auch dann
@@ -592,6 +600,7 @@ function ankerLabel(el, zr) {
 function resolveLabelCollisions(root) {
   root.querySelectorAll('.rm-lane__zone').forEach(zone => {
     const zr = zone.getBoundingClientRect();
+    let maxLevel = 0;
     zone.querySelectorAll('.rm-mslabel').forEach(el => {
       el.classList.remove('rm-mslabel--far', 'rm-mslabel--far2', 'rm-mslabel--tight');
       ankerLabel(el, zr);
@@ -600,22 +609,13 @@ function resolveLabelCollisions(root) {
       const labels = [...zone.querySelectorAll('.rm-mslabel--' + side)]
         .map(el => ({ el, rect: el.getBoundingClientRect() }))
         .sort((a, b) => a.rect.left - b.rect.left);
-      const kante = [];   // rechte Kante der bisher belegten Ebenen
-      labels.forEach(l => {
-        let e = 0;
-        while (e < LABEL_EBENEN.length - 1 && kante[e] != null && l.rect.left < kante[e] + LABEL_LUECKE) e++;
-        if (LABEL_EBENEN[e]) l.el.classList.add(LABEL_EBENEN[e]);
-        let rechts = l.rect.right;
-        // Letzte Ebene voll: kuerzen, damit wenigstens das naechste Label Platz
-        // hat. Kuerzen allein loest nie eine Ueberlappung an der linken Kante,
-        // deshalb ist es der letzte Schritt und nicht der zweite.
-        if (kante[e] != null && l.rect.left < kante[e] + LABEL_LUECKE) {
-          l.el.classList.add('rm-mslabel--tight');
-          rechts = l.el.getBoundingClientRect().right;
-        }
-        kante[e] = Math.max(kante[e] == null ? -Infinity : kante[e], rechts);
+      const levels = labelLevels(labels.map(l => l.rect));
+      labels.forEach((l, i) => {
+        maxLevel = Math.max(maxLevel, levels[i]);
+        l.el.style[side === 'above' ? 'bottom' : 'top'] = `calc(50% + ${14 + levels[i] * 20}px)`;
       });
     });
+    zone.style.height = Math.max(136, 2 * (40 + maxLevel * 20)) + 'px';
   });
 }
 

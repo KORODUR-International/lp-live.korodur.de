@@ -6,10 +6,8 @@
    Architekten, keine Orte (die Seite ist ohne Login erreichbar).
    In dev: symlink src/data -> ../data; in production: data/ liegt im Root.
 
-   Zwei Zahlen, die gleich heissen und verschiedenes messen:
-   ziel.veroeffentlicht zaehlt nur Prioritaet high, totals.veroeffentlicht den
-   gesamten Bestand. Deshalb traegt der Zielbalken den Zusatz "Prio A" im
-   Label und nicht nur in der Legende (Auflage aus der Pruefung 03.08.2026).
+   Ab Snapshot 2.0: drei Ziele über alle Prioritäten. Historische Prio-A-
+   Werte bleiben gesondert sichtbar und werden nicht neu interpretiert.
    ============================================ */
 
 const REF_DIR = 'data/snapshots/referenzen/';
@@ -28,7 +26,7 @@ const REF_MONTHS_KURZ = [
 // sonst benennen die Unterzeilen Status, die es nicht mehr gibt.
 // tests/test_referenzen_render.mjs vergleicht beide Listen und wird rot, wenn
 // sie auseinanderlaufen.
-// Die zwoelf Stufen sind der Stand seit dem 26.08.2026 (rr#211); die zehn
+// Dreizehn Stufen seit 22.09.2026 (rv#177); davor zwölf (rr#211). Die zehn
 // Altnamen (Zu Bearbeiten, In Bearbeitung - inhaltlich, Onepager erstellt,
 // DE-Freigabe und so weiter) gibt es in Notion nicht mehr. Die Bucket-Keys
 // bleiben unveraendert, damit die Zeitreihe und die Sparklines durchlaufen.
@@ -40,7 +38,7 @@ const REF_BUCKETS = [
   { key: 'in_abnahme', label: 'In Abnahme', color: '#6b5b95',
     statuses: ['V1 Entwurf fertig', 'V1 Feedback da', 'V2 Entwurf fertig', 'V2 Feedback da'] },
   { key: 'freigegeben', label: 'Freigegeben', color: '#7dd0a5',
-    statuses: ['finale Version DE'] },
+    statuses: ['fachlich freigegeben', 'finale Version DE'] },
   { key: 'veroeffentlicht', label: 'Veröffentlicht', color: 'var(--success)',
     statuses: ['Veröffentlicht'] },
 ];
@@ -80,8 +78,10 @@ const REF_ALTBESTAND = 'Website';
 const REF_FREIGABE_ORDER = [
   { name: 'Öffentlich', color: 'var(--success)' },
   { name: 'Öffentlich (anonymisiert)', color: '#7dd0a5' },
+  { name: 'Zur Veröffentlichung', color: 'var(--secondary)' },
   { name: 'Intern', color: 'var(--muted)' },
   { name: 'Freigabe offen', color: 'var(--warn)' },
+  { name: 'Freigabe abgelehnt', color: 'var(--danger)' },
   { name: '(ohne)', color: 'var(--mid-gray)' },
 ];
 
@@ -189,6 +189,41 @@ function renderReferenzen(d) {
 // enthaelt die veroeffentlichten mit, deshalb ist der helle Abschnitt die
 // Differenz und nicht der Rohwert (sonst stuende der Fortschritt doppelt drin).
 function renderZiel(d) {
+  const z = d.ziele;
+  // Ein alter Snapshot kennt die neuen Messfelder nicht. Seine Prio-A-
+  // Zahlen dürfen weder als aktuelle Menge noch als Null weiterlaufen.
+  const termine = z?.termine || [
+    {datum: '2026-10-15', zielwert: 10, messgroesse: 'de_intern'},
+    {datum: '2026-12-15', zielwert: 20, messgroesse: 'de_intern'},
+    {datum: '2026-12-15', zielwert: 10, messgroesse: 'en_fr_live'},
+  ];
+  const cards = termine.map(m => {
+    const measure = z?.[m.messgroesse];
+    const known = measure?.messbar === true && Number.isFinite(measure.wert);
+    const live = m.messgroesse === 'en_fr_live';
+    const label = live ? 'Davon EN und FR live' : 'DE intern freigegeben';
+    const date = m.datum.split('-').reverse().join('.');
+    return `<div class="rf-goal">
+      <div class="rf-goal__label">${label} bis ${refEsc(date)}</div>
+      <div class="rf-goal__value">${known ? measure.wert : 'n. v.'} <small>von ${m.zielwert}</small></div>
+      ${known ? `<div class="rf-goal__track"><div class="rf-goal__seg" style="width:${Math.min(refPct(measure.wert, m.zielwert), 100)}%;background:#7dd0a5"></div></div>`
+        : '<p class="rf-warn">Noch nicht nachweisbar</p>'}
+      <div class="rf-goal__note">${live
+        ? 'Zehn eindeutige Referenzen aus den internen Freigaben, jeweils in beiden Sprachen auf der bestehenden WordPress-Seite. Übersetzt bedeutet noch nicht live.'
+        : 'Technik und einbringender Vertrieb haben intern freigegeben. Entwürfe zählen nicht; dieselbe Menge wird gegen das Oktober- und das Dezemberziel gemessen.'}</div>
+    </div>`;
+  }).join('');
+  return `<div class="band fade-in"><h3>Referenzziele 2026</h3><span>Alle Prioritäten, einschließlich leerer Priorität</span></div>
+    <div class="rf-goals fade-in">${cards}</div>
+    <p class="rf-verdict">Neue Zählbasis seit 23.09.2026. Interne Freigabe, Erlaubnis zur Veröffentlichung und tatsächliche Veröffentlichung sind getrennt.
+      Als Freigaben zählen der Status „fachlich freigegeben“ oder eine finale DE-Datei mit Status „finale Version DE“ bzw. „Veröffentlicht“; markierte Dubletten zählen nicht.
+      Ein übernommener Veröffentlichungsstatus allein belegt keine interne Freigabe.</p>
+    ${!z ? '<p class="rf-nv">Die neue Zählbasis ist in diesem Snapshot noch nicht erhoben. Historische Werte werden nicht umgerechnet.</p>' : ''}
+    ${z?.en_fr_live?.grund ? `<p class="rf-nv">${refEsc(z.en_fr_live.grund)}</p>` : ''}
+    ${!z && d.ziel ? `<details><summary>Historische Zählung: nur Prio A, Stand ${refEsc(d._meta?.snapshot_date || '')}</summary>${renderHistorischesZiel(d)}</details>` : ''}`;
+}
+
+function renderHistorischesZiel(d) {
   const z = d.ziel || {};
   const ziel = z.zielwert || 0;
   if (!ziel) return '';
@@ -207,7 +242,7 @@ function renderZiel(d) {
     .join(' &middot; ');
 
   return `
-    <div class="band fade-in"><h3>Jahresziel 2026</h3><span>${ziel} Prio-A-Referenzen</span></div>
+    <div class="band fade-in"><h3>Historisches Jahresziel</h3><span>${ziel} Prio-A-Referenzen</span></div>
     <div class="rf-goal fade-in">
       <div class="rf-goal__top">
         <div>
@@ -391,7 +426,7 @@ function renderGesamtbestand(d, t) {
       <div class="rf-stack__key">
         <div class="rf-stack__item" style="border-color:var(--mid-gray)">
           <b>${alt}</b><span>Altbestand von korodur.de, Ursprung ${refEsc(REF_ALTBESTAND)}.
-          Z&auml;hlt in die Gesamtzahl, aber nicht auf das Jahresziel.</span>
+          Zählt in die Gesamtzahl. Für die neuen Freigabeziele ist ein interner Nachweis erforderlich.</span>
         </div>
         <div class="rf-stack__item" style="border-color:var(--secondary)">
           <b>${eigen}</b><span>Eigene Arbeitsmenge, alles au&szlig;erhalb des Website-Imports.
@@ -399,9 +434,9 @@ function renderGesamtbestand(d, t) {
         </div>
       </div>
       <p class="rf-verdict">
-        <b>Warum diese Trennung:</b> Der Altbestand ist geerbt, nicht erarbeitet. Solange die
-        Felder &bdquo;Freigegeben am&ldquo; und &bdquo;Ver&ouml;ffentlicht am&ldquo; fehlen, ist der
-        Ursprung die einzige Trennlinie zwischen geerbtem Bestand und eigener Leistung.
+        <b>Warum diese Trennung:</b> Der Ursprung zeigt, welche Referenzen von der Website übernommen wurden.
+        Er ersetzt keine interne Freigabe. Auch eine übernommene Referenz kann nach Bearbeitung und
+        dokumentierter interner Freigabe zum neuen Ziel beitragen.
         ${(t.unbekannt || 0) > 0
           ? `<b class="rf-warn"> ${t.unbekannt} Referenzen tragen einen Status, den das Mapping in
              <code>scripts/fetch_referenzen.py</code> nicht kennt.</b> Sie fehlen in allen Kacheln oben.`
@@ -476,7 +511,7 @@ function renderFreigabe(d) {
       <p class="chart-note">
         Wie viel vom Bestand &uuml;berhaupt nach drau&szlig;en darf. Rein menschliche
         Entscheidung, unabh&auml;ngig vom Bearbeitungsstatus.
-        ${draussen} von ${summe} sind freigegeben.
+        ${draussen} von ${summe} sind öffentlich nutzbar. Das ist keine Aussage über interne DE-Abnahme oder tatsächliche Live-Veröffentlichung.
       </p>
       <div class="funnel">${segs}</div>
       <div class="status-legend">${legend}</div>

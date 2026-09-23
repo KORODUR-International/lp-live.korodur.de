@@ -774,9 +774,9 @@
     "veroeffentlicht": 130,
     "ohne_status": 0,
     "unbekannt": 0,
-    "ziel_zielwert": 20,
-    "ziel_ab_de_freigabe": 2,
-    "ziel_veroeffentlicht": 0,
+    "ziel_basis": "alle_prioritaeten",
+    "ziel_de_intern": 3,
+    "ziel_en_fr_live": null,
     "datenschuld_eintraege": 57
   }
 ]

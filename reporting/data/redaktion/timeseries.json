@@ -661,5 +661,18 @@
     "unbekannt": 0,
     "puffer": 15,
     "vorlauf_wochen": 3.7
+  },
+  {
+    "date": "2026-09-24",
+    "ideen": 50,
+    "in_arbeit": 0,
+    "in_pruefung": 9,
+    "freigegeben": 7,
+    "eingeplant": 8,
+    "gepostet": 41,
+    "abgelehnt": 2,
+    "unbekannt": 0,
+    "puffer": 15,
+    "vorlauf_wochen": 3.6
   }
 ]

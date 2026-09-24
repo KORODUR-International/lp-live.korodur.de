@@ -1,63 +1,63 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-09-23",
+  "letzteFeststellung": "2026-09-24",
   "stand": {
     "con-workflow": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": "2026-07-31",
       "status": "erreicht",
       "titel": "Workflow Content, Redaktion, Planung definiert (V1)"
     },
     "con-prozess": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": "2026-08-15",
       "status": "erreicht",
       "titel": "Redaktionsprozess steht komplett"
     },
     "con-softstart": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": "2026-08-15",
       "status": "erreicht",
       "titel": "Soft-Launch Facebook + Instagram"
     },
     "con-q4planung": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": "2026-09-20",
       "status": "erreicht",
       "titel": "Redaktionsplanung Q4 durchgeführt"
     },
     "con-kpi": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": "2026-09-30",
       "status": "erreicht",
       "titel": "KPI-Set definiert, Reporting aufgebaut"
     },
     "con-vollbetrieb": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": "2026-09-30",
       "status": "erreicht",
       "titel": "Prozess sitzt: im Schnitt 2 Beiträge/Woche, 2,5 bis 3 Wochen terminierter Vorlauf"
     },
     "con-styleguide": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": "2026-10-31",
       "status": "entfallen",
       "titel": "Visueller Style Guide V1 (Bildgenerierung & Grafik)"
     },
     "con-katzenstreu": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": "2026-12-04",
       "status": "offen",
       "titel": "Katzenstreu in Social Media und Redaktion: ob und wie entschieden"
     },
     "con-jahresplanung": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": "2026-12-05",
       "status": "offen",
       "titel": "Jahres-Redaktionsplanung 2027"
     },
     "con-analytics-auto": {
-      "lane": "Content & Redaktion",
+      "lane": "Social Media & Redaktion",
       "datum": null,
       "status": "offen",
       "titel": "Analytics aus Meta und LinkedIn automatisiert im Reporting"
@@ -4368,6 +4368,15 @@
       "feld": "status",
       "alt": "offen",
       "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-24",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-31",
+      "neu": "2026-08-31"
     }
   ],
   "kennzahlen": {
@@ -4508,7 +4517,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 23,
+      "stehengelassen": 24,
       "ueberfaelligSeit": "2026-08-31"
     },
     "con-q4planung": {

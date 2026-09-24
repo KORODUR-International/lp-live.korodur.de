@@ -1,0 +1,151 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-09-24",
+    "generated_at": "2026-09-24T05:49:11.466436+00:00",
+    "source": "Notion: KORODUR Referenzverzeichnis (Aggregat)",
+    "version": "2.0",
+    "hinweis": "Nur Aggregate. Objekttitel, Personen-, Betreiber-, Verarbeiter-, GU- und Architektennamen sowie Orte werden bewusst nicht gelesen.",
+    "unbekannte_status": {}
+  },
+  "gesamt": 171,
+  "totals": {
+    "offen": 18,
+    "in_arbeit": 7,
+    "in_abnahme": 13,
+    "freigegeben": 3,
+    "veroeffentlicht": 130,
+    "ohne_status": 0,
+    "unbekannt": 0
+  },
+  "by_status": {
+    "offen": 15,
+    "Bilder sind da": 3,
+    "RAW: Info+Bilder da": 7,
+    "Informationen fehlen": 0,
+    "Fragen VOR V1 beantwortet": 0,
+    "STRUCTURED: Info": 0,
+    "V1 Entwurf fertig": 8,
+    "V1 Feedback da": 0,
+    "V2 Entwurf fertig": 5,
+    "V2 Feedback da": 0,
+    "fachlich freigegeben": 0,
+    "finale Version DE": 3,
+    "Veröffentlicht": 130,
+    "(ohne)": 0
+  },
+  "by_ursprung": {
+    "Website": 130,
+    "Manuell": 18,
+    "Formular": 15,
+    "Vertriebsmeeting": 7,
+    "Bilderordner": 1
+  },
+  "freigabestatus": {
+    "Öffentlich": 103,
+    "Freigabe offen": 32,
+    "Öffentlich (anonymisiert)": 29,
+    "(ohne)": 4,
+    "Zur Veröffentlichung": 2,
+    "Intern": 1
+  },
+  "ziele": {
+    "basis": "alle_prioritaeten",
+    "termine": [
+      {
+        "id": "ref-10-de",
+        "datum": "2026-10-15",
+        "zielwert": 10,
+        "messgroesse": "de_intern"
+      },
+      {
+        "id": "ref-ausbau",
+        "datum": "2026-12-15",
+        "zielwert": 20,
+        "messgroesse": "de_intern"
+      },
+      {
+        "id": "ref-10-live",
+        "datum": "2026-12-15",
+        "zielwert": 10,
+        "messgroesse": "en_fr_live"
+      }
+    ],
+    "de_intern": {
+      "wert": 3,
+      "messbar": true
+    },
+    "en_fr_live": {
+      "wert": null,
+      "messbar": false,
+      "grund": "Geprüfte Live-URLs je DE-Master und Sprache fehlen im aktuellen Schema. Zehn intern freigegebene Referenzen müssen jeweils in EN UND FR auf dem bestehenden WordPress live sein. Sprachmarkierungen und Übersetzungsfreigaben allein sind kein Veröffentlichungsnachweis."
+    }
+  },
+  "zulauf": {
+    "je_monat": {
+      "2026-01": 5,
+      "2026-02": 1,
+      "2026-03": 0,
+      "2026-04": 1,
+      "2026-05": 0,
+      "2026-06": 7,
+      "2026-07": 25,
+      "2026-08": 0,
+      "2026-09": 2
+    },
+    "basis": "Übermittelt am (created_time)",
+    "ohne_ursprung": "Website",
+    "ausgeschlossen": 130
+  },
+  "durchsatz": {
+    "freigegeben_je_monat": null,
+    "veroeffentlicht_je_monat": null,
+    "messbar": false,
+    "grund": "Die Felder 'Freigegeben am' und 'Veröffentlicht am' gibt es im Referenzverzeichnis nicht (Stand 03.08.2026, bewusst nicht angelegt). Ohne Datumsstempel je Stufe können wir keinen Durchsatz je Monat messen. Der Wert steht deshalb auf null und nicht auf 0."
+  },
+  "datenschuld": {
+    "nennungen": {
+      "ohne_status": 0,
+      "ohne_produkt_relation": 8,
+      "freigabe_offen": 32,
+      "ohne_einsatzbereich": 28
+    },
+    "nennungen_gesamt": 68,
+    "eintraege_betroffen": 57,
+    "eintraege_gesamt": 171
+  },
+  "einsatzbereiche": {
+    "nennungen_gesamt": 168,
+    "eintraege_mit_nennung": 143,
+    "eintraege_gesamt": 171,
+    "items": [
+      {
+        "name": "Verkauf & Ausstellung",
+        "nennungen": 45
+      },
+      {
+        "name": "Infrastruktur",
+        "nennungen": 38
+      },
+      {
+        "name": "Industrie & Produktion",
+        "nennungen": 27
+      },
+      {
+        "name": "Lager & Logistik",
+        "nennungen": 25
+      },
+      {
+        "name": "Schwerindustrie",
+        "nennungen": 13
+      },
+      {
+        "name": "Trinkwasser",
+        "nennungen": 13
+      },
+      {
+        "name": "Parkdeck & Tiefgarage",
+        "nennungen": 7
+      }
+    ]
+  }
+}

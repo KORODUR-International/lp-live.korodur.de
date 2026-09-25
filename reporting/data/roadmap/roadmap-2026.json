@@ -1,6 +1,6 @@
 {
-  "version": "1.15",
-  "stand": "2026-09-23",
+  "version": "1.16",
+  "stand": "2026-09-25",
   "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt.",
   "zeitraum": {
     "start": "2026-07-01",
@@ -167,7 +167,7 @@
       "area": "marketing",
       "name": "Website",
       "hinweis": "Website-Runde 22.09.: Designvorschau im September, Portfolio und Lösungsfinder im Oktober, Industrieboden im November, weitere Bereiche bis Mitte Dezember. Ausarbeitung, fachliche Vorabstimmung und finale Abnahme sind getrennt. Technische Daten und Dokumente hängen an DPI; Übersetzungen starten je Bereich mit der eigenen deutschen Fassung.",
-      "kurz": "Neue Website V1: Bereiche werden bis Mitte Dezember ausgearbeitet und abgenommen, Launch in Q1 2027.",
+      "kurz": "Website V1 im Q1-Rahmen; Februar 2027 ist das aktuelle Planungsfenster, der Starttermin bleibt offen.",
       "erreichtHeisst": "Designvorschau vorbereitet; Produkt- und Systemportfolio abgestimmt; Lösungsfinder-Logik und Empfehlungen geprüft; Industrieboden und weitere Bereiche ausgearbeitet und fachlich vorab abgestimmt; PDP-Design steht. Finale Abnahmen je Bereich und die technische Datenübernahme bleiben gesondert sichtbar.",
       "balken": {
         "start": "2026-07-13",
@@ -200,12 +200,14 @@
         },
         {
           "id": "web-design-preview",
-          "datum": "2026-09-25",
+          "datum": "2026-09-28",
           "titel": "Designvorschau für die GBL fertig",
           "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": false,
-          "details": "Eine abgestimmte Gestaltungsrichtung an Startseite, Produktdetailseite und Referenzdetailseite, mit vorhandenen Inhalten. Vorschau für den 30.09.; vollständiger Rollout und finale fachliche Freigaben folgen separat."
+          "status": "verschoben",
+          "klaerung": true,
+          "details": "Die Gestaltungsrichtung und exemplarische Produkt- und Referenzdetails sind umgesetzt. Für die GBL am 30.09. werden die priorisierten Restarbeiten und ein geprüfter Präsentationspfad bis Montag, 28.09., zusammengeführt: Startseite, Menübereiche, Kontakt, Produkt- und Referenzverknüpfungen. Die Referenzübersicht erhält einen kompakten Einstieg; Variantenentscheidungen bleiben sichtbar. Screenshots bilden die Präsentationsgrundlage, eine Live-Demo ist optional. Der frühere Zieltag war 25.09.",
+          "abhaengigkeit": "Hochauflösende Originaldatei für das bestehende Key Visual, offene Variantenentscheidungen und abschließender Seiten-/Linkcheck",
+          "confidence": "mittel"
         },
         {
           "id": "web-daten",
@@ -306,9 +308,9 @@
           "typ": "schluessel",
           "status": "offen",
           "klaerung": true,
-          "confidence": "hoch",
-          "details": "Zielrahmen erstes Quartal 2027, noch kein zugesagtes Tagesdatum. Der öffentliche Start folgt auf die abgestimmte Launchbereitschaft.",
-          "zielzeitraum": "Q1 2027",
+          "confidence": "mittel",
+          "details": "Die aktualisierte DPI-Planung nennt Februar 2027 als Integrations- und Veröffentlichungsfenster innerhalb des bisherigen Q1-Rahmens. Kein zugesagtes Tagesdatum; der öffentliche Start folgt auf bestätigte Launchbereitschaft für DE, EN und FR.",
+          "zielzeitraum": "Februar 2027 (Planungsfenster innerhalb Q1)",
           "abhaengigkeit": "Launchbereitschaft und konkreter Starttermin bestätigt"
         },
         {
@@ -383,7 +385,7 @@
       "name": "Marke & Kommunikationsmittel",
       "hinweis": "Getrennt von der Redaktion, die verantwortet, was veröffentlicht wird: hier entstehen Gestaltung und Kommunikationsmittel. Corporate Design modular und zentral abgelegt (Website und Online, Visuals, Ikonographie, PDF-Dokumente intern und extern), Verpackung und Produkt-Mockups, Print und Messe.",
       "kurz": "Corporate Design, Verpackung und Mockups, Print und Messe: Gestaltung getrennt von der Redaktion.",
-      "erreichtHeisst": "Corporate Design V1 gesichtet und modular zentral abgelegt; Entscheidung zur Umsetzung des Verpackungsdesigns getroffen; Produkt-Mockups des aktiven Sortiments liegen für die neue Website vor.",
+      "erreichtHeisst": "Corporate Design V1 gesichtet und modular zentral abgelegt; Entscheidungsvorlage zur Umsetzung des Verpackungsdesigns liegt vor; Produkt-Mockups des aktiven Sortiments liegen für die neue Website vor.",
       "balken": {
         "start": "2026-09-23",
         "ende": "2026-12-31"
@@ -394,12 +396,13 @@
         {
           "id": "mk-verpackung",
           "datum": "2026-09-30",
-          "titel": "Entscheidung zur Umsetzung des Verpackungsdesigns",
+          "titel": "Entscheidungsvorlage zur Umsetzung des Verpackungsdesigns liegt vor",
           "typ": "entscheidung",
-          "status": "offen",
+          "status": "erreicht",
           "klaerung": false,
           "confidence": "mittel",
-          "details": "Geklärt ist, wie das neue Verpackungsdesign umgesetzt wird. Danach können die Bestandsprodukte nachgezogen werden."
+          "details": "Die Vorlage und Materialien liegen vollständig zur Entscheidung vor, bestätigt am 25.09.2026. Die endgültige Entscheidung steht noch aus. Das anschließende Projekt wird danach gemeinsam mit der Technik definiert und als DPI-Folgephase geplant.",
+          "erreichtAm": "2026-09-25"
         },
         {
           "id": "mk-cd-v1",
@@ -447,15 +450,15 @@
       "id": "pdb",
       "area": "wissensaufbau",
       "name": "Digitale Produktinformationen (DPI)",
-      "hinweis": "Mehrjährig; neu aufgestellt am 18.08.2026 als Digitale Produktinformationen (DPI), Meilensteinplanung als GitHub Milestones im Projekt-Repository. Sequenz: Leistungserklärungen (DoP), dann Sicherheitsdatenblätter (Deckblatt und Trainingskorpus), dann technische Datenblätter, dann PDP-Design, dann Launch-Definition. SDB und TDS werden nach DoP-Fortschritt terminiert (Living Roadmap, Anpassung alle vier Wochen). Die fachliche Grundlage kommt aus der Technik.",
-      "kurz": "Leistungserklärungen, Sicherheits- und technische Datenblätter schrittweise als einheitliche digitale Produktinformationen.",
-      "erreichtHeisst": "Leistungserklärungen (DoP) nach EN 13813 in Struktur und Design beschlossen, EPDs mit einheitlichem Deckblatt im KORODUR-Design; Sicherheitsdatenblätter und technische Datenblätter folgen dem DoP-Fortschritt (Living Roadmap).",
+      "hinweis": "Planungsstand der abgestimmten Präsentation vom 24.09.2026: Dokumente und validierte Produktdaten zuerst, Website-Anbindung im Planungsfenster Februar 2027. Automatisierung, Sprachen und Betriebsübergabe folgen 2027. Sicherheitsdatenblätter sind noch nicht terminiert; der Digitale Produktpass 2028 ist eine zu definierende Vision.",
+      "kurz": "Q4: DoPs, EPD-Deckblätter und VAP-Validierung; TDS bis Q1 2027, weitere DPI-Ausbaustufen ab 2027.",
+      "erreichtHeisst": "Leistungserklärungen nach EN 13813, EN 1504-3 und EN 998-1 zuerst in DE, danach EN und FR; EPDs mit einheitlichem Deckblatt und validierte VAP-Produktdaten sind die Q4-Ziele. Technische Datenblätter beginnen mit HE 3 und folgen für die VAP bis Q1 2027. Freigaben, Website-Übernahme und spätere Automatisierung sind getrennte Ergebnisse.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
       },
       "stil": "normal",
-      "weiter2027": "Leistungserklärungen weiterer Normen (u. a. EN 1504-3); Sprachagent für Sicherheitsdatenblätter; automatisierte Dokumentenerzeugung mit Versionierung; weitere Sprachen",
+      "weiter2027": true,
       "meilensteine": [
         {
           "id": "pdb-m1",
@@ -474,10 +477,10 @@
           "titel": "Leistungserklärungen (DoP) EN 13813: Struktur und Design beschlossen",
           "typ": "meilenstein",
           "status": "offen",
-          "klaerung": false,
+          "klaerung": true,
           "confidence": "mittel",
-          "abhaengigkeit": "Fachliche Zuarbeit der Technik; Designabnahme in der GBL-Runde",
-          "details": "Neuzuschnitt vom 18.08.2026: Leistungserklärungen für alle Produkte nach EN 13813 in drei Stufen. Dieser Termin trägt die erste Stufe, Struktur und Design beschlossen (GBL-Runde Ende September, vorgezogen vom 15.10.). Danach folgen die Verifikation der Datenpunkte in der Produktdatenbank und die Generierung in DE, EN und FR."
+          "abhaengigkeit": "Antwort der technischen Leitung auf die letzte offene Frage und dokumentierter Abschluss",
+          "details": "Struktur und Design sind laut Abstimmung vom 25.09. grundsätzlich vereinbart. Eine letzte Frage ist noch zu schließen; der Abschluss wird für Montag, 28.09., erwartet, ist aber noch nicht belegt. Der bestehende Zieltag 29.09. bleibt bis zur Bestätigung stehen. Die Freigabe einzelner Produktdaten und die Generierung des Gesamtbestands folgen getrennt in Q4."
         },
         {
           "id": "pdb-m2",
@@ -501,14 +504,15 @@
         },
         {
           "id": "pdb-epd",
-          "datum": "2026-10-31",
+          "datum": null,
           "titel": "EPDs mit einheitlichem Deckblatt im KORODUR-Design",
           "typ": "meilenstein",
           "status": "offen",
-          "klaerung": false,
-          "confidence": "hoch",
-          "abhaengigkeit": "Umfang richtet sich nach den bis dahin vorliegenden Deklarationen; Zulieferung aus der Technik Ende September erwartet",
-          "details": "Die vorliegenden Umweltproduktdeklarationen erhalten ein einheitliches Deckblatt im KORODUR-Design. Die Erstellung der Deklarationen selbst läuft in der Technik; der Bearbeitungsstand wird in den Produktstammdaten nachgeführt. Stand 15.08.2026: die Deklarationen kommen, sind aber auf Ende September vertagt. Der Deckblatt-Termin bleibt deshalb unverändert, der Puffer schrumpft auf einen Monat."
+          "klaerung": true,
+          "confidence": "mittel",
+          "abhaengigkeit": "Lieferbarer und freigegebener EPD-Bestand sowie abgestimmtes Deckblatt",
+          "details": "Die vorliegenden und freigegebenen Umweltproduktdeklarationen erhalten ein einheitliches Deckblatt. Die abgestimmte Planung vom 24.09. nennt Q4 2026 und ersetzt den bisherigen konkreten Zieltag 31.10. Die Erstellung der Deklarationen selbst bleibt bei der Technik.",
+          "zielzeitraum": "Q4 2026"
         },
         {
           "id": "pdb-msds",
@@ -573,13 +577,111 @@
         {
           "id": "pdb-tds-auto",
           "datum": null,
-          "titel": "Technische Datenblätter vollständig automatisiert erzeugt",
+          "titel": "Dokumenterzeugung und Versionierung automatisiert",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "abhaengigkeit": "Technische Datenblätter aus der Produktdatenbank fertig (gegen Dezember 2026) und Freigabeprozess vor Veröffentlichung geklärt",
-          "zielzeitraum": "Ende Q1 2027",
-          "details": "Ändert sich ein Wert in der Datenbank, entsteht ein neues Datenblatt, das vor der Veröffentlichung geprüft wird. Manuelle Pflege im Marketing entfällt."
+          "abhaengigkeit": "Freigegebene Dokumenttypen, Versions-/Archivkonzept, Änderungsprüfung und kontrollierte Veröffentlichung",
+          "zielzeitraum": "2027",
+          "details": "Aus validierten Daten entstehen versionierte Dokumente mit nachvollziehbarem Änderungs- und Freigabeweg. Die Planung vom 24.09. ordnet die Automatisierung 2027 zu; das frühere enge Fenster Ende Q1 ist damit ersetzt. Ein Renderer-Prototyp allein erfüllt dieses Ergebnis nicht."
+        },
+        {
+          "id": "pdb-dop-q4",
+          "datum": null,
+          "titel": "DoPs für drei Normen in DE, danach EN und FR bereitgestellt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Leistungserklärungen nach EN 13813, EN 1504-3 und EN 998-1 entstehen aus validierten Daten. Deutsche Fassungen gehen vor, danach Englisch und Französisch. Das Quartal ist ein Planungsfenster ohne zugesagten Tagesabschluss.",
+          "abhaengigkeit": "Produktdatenvalidierung, normbezogene Freigaben sowie Sprachprüfung und Versions-/Archivkonzept",
+          "zielzeitraum": "Q4 2026"
+        },
+        {
+          "id": "pdb-vap",
+          "datum": null,
+          "titel": "VAP-Produktdaten fachlich validiert",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Der bestätigte VAP-Umfang ist nachvollziehbar fachlich geprüft. Ein eingerichtetes Statusfeld oder eine View allein erfüllt dieses Ergebnis nicht.",
+          "abhaengigkeit": "Endgültige VAP-Liste, befugte Validatoren und vereinbarter Prüfungsumfang",
+          "zielzeitraum": "Q4 2026"
+        },
+        {
+          "id": "pdb-tds-he3-vap",
+          "datum": null,
+          "titel": "Technische Datenblätter: HE 3, danach VAP",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Zuerst wird das technische Datenblatt für HE 3 ausgearbeitet und abgestimmt, danach folgen die VAP. Fachlich freigegebene Daten und konsistente Dokumentstruktur sind Voraussetzung.",
+          "abhaengigkeit": "Abgestimmtes TDS-Zielbild, validierte Produktdaten, technischer Review und Renderer",
+          "zielzeitraum": "Q4 2026 bis Q1 2027"
+        },
+        {
+          "id": "pdb-sdb",
+          "datum": null,
+          "titel": "Sicherheitsdatenblätter: Umfang und Termin festlegen",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Der Strang gehört zu DPI, sein Termin ist ausdrücklich offen. Datenquelle, fachliche Verantwortung, Bearbeitungsumfang und Abnahmeweg werden zuerst geklärt.",
+          "abhaengigkeit": "Quelle, Umfang und Freigabeprozess noch festzulegen"
+        },
+        {
+          "id": "pdb-sprachen",
+          "datum": null,
+          "titel": "Weitere Sprachen und Sprachagent für Sicherheitsdatenblätter",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Weitere Sprachfassungen und der Sprachagent werden nach bestätigtem Bedarf und mit fachlicher Prüfung entwickelt.",
+          "abhaengigkeit": "Zielsprachen, Pilotumfang, freigegebene Quellen und menschlicher Prüfungsweg",
+          "zielzeitraum": "2027"
+        },
+        {
+          "id": "pdb-betrieb",
+          "datum": null,
+          "titel": "DPI-Prozesse etabliert und an die Technik übergeben",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Validierung, Änderungen, Sicherung, Rechte und Dokumentpflege sind als laufender Prozess verankert. Übergabe erfolgt anhand vereinbarter Kriterien.",
+          "abhaengigkeit": "Abgestimmte Rollen, technische Befähigung, Sicherung und Übergabekriterien",
+          "zielzeitraum": "2027"
+        },
+        {
+          "id": "pdb-verpackung",
+          "datum": null,
+          "titel": "Produktverpackungen aus DPI ableiten",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Nach der ausstehenden Designentscheidung wird das Folgeprojekt gemeinsam mit der Technik definiert. Die vorhandene Entscheidungsvorlage ist noch kein freigegebener Umsetzungsumfang.",
+          "abhaengigkeit": "Designentscheidung, gemeinsamer Projektumfang sowie bestätigte Druck- und Produktdaten",
+          "zielzeitraum": "Mitte bis Ende 2027"
+        },
+        {
+          "id": "pdb-chatbots",
+          "datum": null,
+          "titel": "Chatbots für Kunden/Partner und Mitarbeitende",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Zwei getrennte Zielgruppen und Wissensräume werden auf belastbaren DPI-Daten aufgebaut. Zielumfang und Pilot sind noch zu definieren.",
+          "abhaengigkeit": "Freigegebene Wissensquellen, Zugriffskonzept, Plattform und Betriebsverantwortung",
+          "zielzeitraum": "Ende 2027"
+        },
+        {
+          "id": "pdb-produktpass",
+          "datum": null,
+          "titel": "Vision Digitaler Produktpass definieren",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Der Digitale Produktpass ist eine noch zu definierende Vision. Daraus folgt weder ein zugesagter Liefertermin noch eine Aussage zu gesetzlichen Stichtagen.",
+          "abhaengigkeit": "Fachliches Zielbild, Anforderungen und Projektumfang noch festzulegen",
+          "zielzeitraum": "2028 (Vision)"
         }
       ]
     },
@@ -642,10 +744,11 @@
           "datum": "2026-09-30",
           "titel": "Prozess bis interne DE-Freigabe abgestimmt",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "erreicht",
           "klaerung": false,
           "confidence": "mittel",
-          "details": "Von Entdeckung und Identifizierung über den deutschen One-Pager bis zur internen Freigabe durch Technik und einbringenden Vertrieb: Rollen, Schritte und Übergaben sind abgestimmt. Erste Beispiele sind durchgelaufen; Prozessabschluss bleibt offen. Übersetzung und Veröffentlichung folgen gesondert bis 31.10."
+          "details": "Der Ablauf von Entdeckung über den deutschen One-Pager bis zur internen DE-Freigabe ist inhaltlich abgestimmt, bestätigt am 25.09.2026. Jede einreichende Person kann starten; offene Einträge werden alle vier Wochen nachgefasst. Der Dokumentationsrest ist separat sichtbar: eine DIN-A4-Seite mit aktuellen Statusnamen und Rollen. Erst mit dieser Seite ist das Prozesspaket vollständig abgeschlossen. Übersetzung und Veröffentlichung folgen gesondert.",
+          "erreichtAm": "2026-09-25"
         },
         {
           "id": "ref-formate",
@@ -673,9 +776,10 @@
           "datum": "2026-10-15",
           "titel": "Zehn DE-One-Pager intern freigegeben",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "erreicht",
           "klaerung": false,
-          "details": "Zehn eindeutige Referenzen sind durch Technik und einbringenden Vertrieb intern freigegeben. Alle Prioritäten einschließlich leerer Werte zählen; Entwürfe sind keine Freigaben. Dies ist der erste Teil der zwanzig bis 15.12."
+          "details": "Das Ziel ist am 25.09.2026 anhand des vereinbarten internen DE-Kriteriums belegt: Freigabestatus im Bearbeitungsablauf beziehungsweise finale DE-Datei bei finalen/veröffentlichten Einträgen, ohne Dubletten und unabhängig von Priorität. Das erste Teilziel ist erfüllt; das größere Dezemberziel und die externen EN-/FR-Live-Nachweise bleiben getrennt offen.",
+          "erreichtAm": "2026-09-25"
         },
         {
           "id": "ref-publikationsprozess",
@@ -774,6 +878,16 @@
           "details": "Fertigstellung der Highlight-Referenz und anschließende Presseverteilung sind getrennte Abschlüsse. Versand erfolgt noch 2026 nach den erforderlichen Kunden-, Namens-, Bild- und Zitatfreigaben.",
           "abhaengigkeit": "Highlight fertig; Nutzungsfreigaben und genauer Versandtermin abgestimmt",
           "zielzeitraum": "Noch 2026"
+        },
+        {
+          "id": "ref-prozess-doku",
+          "datum": null,
+          "titel": "Referenzprozess auf einer DIN-A4-Seite dokumentiert",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Eine kompakte Seite zeigt den abgestimmten Ablauf bis zur internen DE-Freigabe, exakte aktuelle Notion-Statusnamen, Rollen, Übergaben und das vierwöchentliche Nachfassen. Sie vervollständigt das bereits inhaltlich abgestimmte Prozesspaket.",
+          "abhaengigkeit": "Dokumentationsseite erstellen, prüfen und bestätigen; konkreter Abgabetag noch festzulegen"
         }
       ],
       "kurz": "DE-Freigaben, EN/FR-Veröffentlichungen, Broschüren und Highlight mit getrennten Abschlusskriterien."
@@ -783,7 +897,7 @@
       "area": "ai-infra",
       "name": "Organisation & Enablement",
       "hinweis": "Querschnitt mit festem Zeitbudget",
-      "erreichtHeisst": "Website-Repo in die Organisation migriert, Notion-Grundgerüst steht, Standard-Repository-Hygiene aufgesetzt; Repository-Landschaft bereinigt, Wissens-Space konsolidiert, Feedback- und Lernprozess etabliert: das Arbeitsmodell 2026 läuft.",
+      "erreichtHeisst": "Website-Repo in die Organisation migriert, Notion-Grundgerüst steht, Standard-Repository-Hygiene aufgesetzt; Repository-Landschaft bereinigt, Daten- und Notion-Struktur im vereinbarten Umfang bis Ende November konsolidiert, Feedback- und Lernprozess etabliert: das Arbeitsmodell 2026 läuft.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -840,10 +954,10 @@
           "datum": "2026-10-15",
           "titel": "Wissens-Space konsolidiert",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": false,
           "confidence": "hoch",
-          "details": "Struktur auf Areas und Kernschwerpunkte; wenige wertvolle Dokumente statt Ablage-Wildwuchs."
+          "details": "Der bisherige Marker 15.10.2026 geht nach der Abstimmung vom 25.09. in das größere Paket „Frühjahrsputz Daten und Notion“ bis 30.11.2026 über. Nicht als erledigt gewertet. Der neue Umfang schließt Dateiablagen außerhalb von Notion und eine intensive Arbeitswoche ein."
         },
         {
           "id": "org-lernprozess",
@@ -855,6 +969,16 @@
           "confidence": "mittel",
           "details": "Feedback- und Lernprozess ist eingerichtet und im Einsatz: Rückmeldungen fließen in Arbeitsweise und Werkzeuge zurück, Ergebnisse werden gegen Fertig-Kriterien geprüft und der Wissenshaushalt wird laufend gemessen. Der Aufbau ist seit dem 18.09.2026 abgeschlossen.",
           "erreichtAm": "2026-09-18"
+        },
+        {
+          "id": "org-daten-notion",
+          "datum": "2026-11-30",
+          "titel": "Frühjahrsputz Daten und Notion",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Zwei Notion-Workspaces sind in einer gemeinsamen, aktuellen Struktur zusammengeführt; die vereinbarten Dateiablagen außerhalb von Notion sind einbezogen. Dafür ist eine intensive Arbeitswoche vorgesehen. Bestand und Zielbild werden vor der Umsetzung definiert; es gibt noch keine allgemeine Migrations- oder Löschfreigabe.",
+          "abhaengigkeit": "Zielworkspace, Datei-Scope, Rechte, Links/Integrationen, Archivierungsregeln und genaue intensive Woche festlegen"
         }
       ]
     },
@@ -922,9 +1046,10 @@
           "titel": "Setup Laptop Geschäftsführung",
           "typ": "meilenstein",
           "status": "offen",
-          "klaerung": false,
-          "confidence": "mittel",
-          "details": "Lokale KI auf dem Laptop der Geschäftsführung eingerichtet und übergeben."
+          "klaerung": true,
+          "confidence": "niedrig",
+          "details": "Der bestehende Zieltag 30.09. ist nach Einschätzung vom 25.09. gefährdet. Die Einrichtung wird weiterhin versucht; ein Ersatztermin ist noch nicht bestätigt. Abschluss erst nach belegter Einrichtung und Übergabe.",
+          "abhaengigkeit": "Verfügbarkeit des GF-Laptops, Zugänge und abgestimmte Unterstützung"
         },
         {
           "id": "ki-vision",
@@ -952,7 +1077,7 @@
       "id": "vertriebsprozess",
       "area": "crm",
       "name": "Vertriebsprozess & Kampagnen",
-      "hinweis": "Führung durch die Area; Umsetzung gemeinsam mit Vertriebsleitung und Team. Messe = Übungsfall 2026.",
+      "hinweis": "Eigene Kampagnenunterlagen bis 30.09.; gemeinsame Abstimmung und Gegenzeichnung als separates Ziel bis 30.10. Der Pilotstand wird anhand tatsächlicher Nachverfolgung geprüft.",
       "erreichtHeisst": "Vertriebsprozess im Unternehmen implementiert (Kampagne je Messe und Event im CRM, Lead-Upload, SLA-Nachverfolgung); Messe-Pilot ArchiPoint durchlaufen; monatliches GF-Reporting läuft.",
       "balken": {
         "start": "2026-07-13",
@@ -964,24 +1089,25 @@
         {
           "id": "vp-definition",
           "datum": "2026-09-30",
-          "titel": "Prozessschritte, SLAs und Verantwortlichkeiten definiert",
+          "titel": "Eigenes Kampagnen-Playbook, Präsentation und Konzeptpapier final",
+          "typ": "meilenstein",
+          "status": "verschoben",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Bestätigter Neuzuschnitt vom 25.09.: Bis 30.09. liegen die eigenen Unterlagen final vor; vorhandene Fassungen werden zuerst geprüft. Außerdem wird die Teamrunde organisiert. Gemeinsame Prozessentscheidungen und Gegenzeichnung gehören zum separaten Folgemeilenstein. Die früheren Verschiebungen und der frühere breitere Umfang bleiben in der Historie sichtbar.",
+          "issue": "KORODUR-International/korodur-crm#40"
+        },
+        {
+          "id": "vp-workshop",
+          "datum": "2026-10-30",
+          "titel": "Prozess mit der Vertriebsleitung fixiert",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": true,
           "confidence": "mittel",
-          "details": "Detailabstimmung mit der Vertriebsleitung; Aufgaben delegiert; theoretischer Plan steht. Best Practice: ArchiPoint als gemeinsamer Durchlauf Marketing und Vertrieb. Am 25.08.2026 auf Ende September gelegt: der Fokus liegt bis dahin bewusst auf den Referenzen, und es ist dasselbe Team. Zweite Verschiebung, damit greift Regel 6 des Pflege-Vertrags: das nächste Datum wird nur noch gemeinsam gesetzt. Treiber der Verschiebungen sind Rückmeldung und Zuarbeit aus den Fachbereichen in der Urlaubszeit, nicht die eigene Umsetzung.",
-          "abhaengigkeit": "Rückmeldung und Zuarbeit aus dem Vertrieb; Urlaubszeit"
-        },
-        {
-          "id": "vp-workshop",
-          "datum": "2026-09-30",
-          "titel": "Prozess mit der Vertriebsleitung fixiert",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
-          "confidence": "mittel",
-          "details": "Arbeitsweise und Prozess gemeinsam abgestimmt und gegengezeichnet. Am 25.08.2026 bewusst verkleinert: nicht mehr als Workshop mit dem gesamten Vertriebsteam, sondern im kleinen Kreis mit der Vertriebsleitung. Der vorangehende Meilenstein legt den Prozess vor, dieser zeichnet ihn gegen.",
-          "abhaengigkeit": "Termin mit der Vertriebsleitung noch zu fixieren"
+          "details": "Nach der Abstimmung vom 25.09. ist 30.10. der Zieltermin für gemeinsame finale Prozessabstimmung und Gegenzeichnung, statt bisher 30.09. Die eigenen Unterlagen werden weiterhin bis 30.09. vorbereitet. Termin und Zusagen der Beteiligten sind noch zu bestätigen; der Zieltag ist keine bereits vereinbarte Kollegenrunde.",
+          "abhaengigkeit": "Finale eigene Unterlagen, Termin und Rückmeldungen des Teams beziehungsweise der Vertriebsleitung",
+          "issue": "KORODUR-International/korodur-crm#40"
         },
         {
           "id": "vp-pilot",
@@ -989,9 +1115,10 @@
           "titel": "Messe-Pilot durchlaufen",
           "typ": "schluessel",
           "status": "verschoben",
-          "klaerung": false,
-          "confidence": "hoch",
-          "details": "Kompletter Durchlauf: Kampagne im CRM, Leads erfasst, Nachverfolgung nach SLA. Am 25.08.2026 auf den 10.10. gelegt, weil der Meilenstein den ganzen Durchlauf trägt und die Nachverfolgung erst nach der Messe (22. bis 24.09.) läuft. Die Messe selbst steht als externer Fixpunkt."
+          "klaerung": true,
+          "confidence": "niedrig",
+          "details": "Die Messe vom 22.–24.09. liegt zurück. Der bestehende Zieltag 10.10. trägt den vollständigen Durchlauf einschließlich CRM-Kampagne, Lead-Erfassung und Nachverfolgung. Am 25.09. fehlt ein aktueller Abschlussbeleg; der Kalender allein belegt keinen erfolgreichen Pilot.",
+          "abhaengigkeit": "Belegter Pilotstand und Nachverfolgung durch den Vertrieb"
         },
         {
           "id": "vp-kpi",
@@ -1054,7 +1181,8 @@
           "abhaengigkeit": "Website-Starttermin, Kommunikationskonzept und Freigaben abgestimmt",
           "zielzeitraum": "Q1/Q2 2027"
         }
-      ]
+      ],
+      "kurz": "Eigene Kampagnenunterlagen bis 30.09.; gemeinsame Abstimmung und Gegenzeichnung als separates Ziel bis 30.10."
     },
     {
       "id": "crm-daten",

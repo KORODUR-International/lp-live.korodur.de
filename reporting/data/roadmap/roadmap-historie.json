@@ -76,8 +76,8 @@
     },
     "web-design-preview": {
       "lane": "Website",
-      "datum": "2026-09-25",
-      "status": "offen",
+      "datum": "2026-09-28",
+      "status": "verschoben",
       "titel": "Designvorschau für die GBL fertig"
     },
     "web-daten": {
@@ -179,8 +179,8 @@
     "mk-verpackung": {
       "lane": "Marke & Kommunikationsmittel",
       "datum": "2026-09-30",
-      "status": "offen",
-      "titel": "Entscheidung zur Umsetzung des Verpackungsdesigns"
+      "status": "erreicht",
+      "titel": "Entscheidungsvorlage zur Umsetzung des Verpackungsdesigns liegt vor"
     },
     "mk-cd-v1": {
       "lane": "Marke & Kommunikationsmittel",
@@ -232,7 +232,7 @@
     },
     "pdb-epd": {
       "lane": "Digitale Produktinformationen (DPI)",
-      "datum": "2026-10-31",
+      "datum": null,
       "status": "offen",
       "titel": "EPDs mit einheitlichem Deckblatt im KORODUR-Design"
     },
@@ -276,7 +276,61 @@
       "lane": "Digitale Produktinformationen (DPI)",
       "datum": null,
       "status": "offen",
-      "titel": "Technische Datenblätter vollständig automatisiert erzeugt"
+      "titel": "Dokumenterzeugung und Versionierung automatisiert"
+    },
+    "pdb-dop-q4": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "DoPs für drei Normen in DE, danach EN und FR bereitgestellt"
+    },
+    "pdb-vap": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "VAP-Produktdaten fachlich validiert"
+    },
+    "pdb-tds-he3-vap": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "Technische Datenblätter: HE 3, danach VAP"
+    },
+    "pdb-sdb": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "Sicherheitsdatenblätter: Umfang und Termin festlegen"
+    },
+    "pdb-sprachen": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "Weitere Sprachen und Sprachagent für Sicherheitsdatenblätter"
+    },
+    "pdb-betrieb": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "DPI-Prozesse etabliert und an die Technik übergeben"
+    },
+    "pdb-verpackung": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "Produktverpackungen aus DPI ableiten"
+    },
+    "pdb-chatbots": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "Chatbots für Kunden/Partner und Mitarbeitende"
+    },
+    "pdb-produktpass": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": null,
+      "status": "offen",
+      "titel": "Vision Digitaler Produktpass definieren"
     },
     "ref-erstkontakt": {
       "lane": "Referenzen",
@@ -305,7 +359,7 @@
     "ref-prozess": {
       "lane": "Referenzen",
       "datum": "2026-09-30",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Prozess bis interne DE-Freigabe abgestimmt"
     },
     "ref-formate": {
@@ -323,7 +377,7 @@
     "ref-10-de": {
       "lane": "Referenzen",
       "datum": "2026-10-15",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Zehn DE-One-Pager intern freigegeben"
     },
     "ref-publikationsprozess": {
@@ -386,6 +440,12 @@
       "status": "offen",
       "titel": "Highlight-Referenz an Presse verteilt"
     },
+    "ref-prozess-doku": {
+      "lane": "Referenzen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Referenzprozess auf einer DIN-A4-Seite dokumentiert"
+    },
     "org-repo": {
       "lane": "Organisation & Enablement",
       "datum": "2026-07-20",
@@ -413,7 +473,7 @@
     "org-notion": {
       "lane": "Organisation & Enablement",
       "datum": "2026-10-15",
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Wissens-Space konsolidiert"
     },
     "org-lernprozess": {
@@ -421,6 +481,12 @@
       "datum": "2026-10-31",
       "status": "erreicht",
       "titel": "Feedback- und Lernprozess etabliert"
+    },
+    "org-daten-notion": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "Frühjahrsputz Daten und Notion"
     },
     "ki-uc1": {
       "lane": "Lokale KI",
@@ -468,12 +534,12 @@
       "lane": "Vertriebsprozess & Kampagnen",
       "datum": "2026-09-30",
       "status": "verschoben",
-      "titel": "Prozessschritte, SLAs und Verantwortlichkeiten definiert"
+      "titel": "Eigenes Kampagnen-Playbook, Präsentation und Konzeptpapier final"
     },
     "vp-workshop": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-09-30",
-      "status": "offen",
+      "datum": "2026-10-30",
+      "status": "verschoben",
       "titel": "Prozess mit der Vertriebsleitung fixiert"
     },
     "vp-pilot": {
@@ -4386,6 +4452,216 @@
       "feld": null,
       "alt": "2026-08-31",
       "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "org-daten-notion",
+      "lane": "Organisation & Enablement",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-betrieb",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-chatbots",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-dop-q4",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-produktpass",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-sdb",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-sprachen",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-tds-he3-vap",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-vap",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-verpackung",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "ref-prozess-doku",
+      "lane": "Referenzen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "mk-verpackung",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "mk-verpackung",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Entscheidung zur Umsetzung des Verpackungsdesigns",
+      "neu": "Entscheidungsvorlage zur Umsetzung des Verpackungsdesigns liegt vor"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "org-notion",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-epd",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": null,
+      "tage": null
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "pdb-tds-auto",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Technische Datenblätter vollständig automatisiert erzeugt",
+      "neu": "Dokumenterzeugung und Versionierung automatisiert"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "ref-prozess",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Prozessschritte, SLAs und Verantwortlichkeiten definiert",
+      "neu": "Eigenes Kampagnen-Playbook, Präsentation und Konzeptpapier final"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "vp-workshop",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-09-30",
+      "neu": "2026-10-30",
+      "tage": 30
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "vp-workshop",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "web-design-preview",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-09-25",
+      "neu": "2026-09-28",
+      "tage": 3
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "web-design-preview",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "ref-10-de",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
     }
   ],
   "kennzahlen": {
@@ -4568,6 +4844,27 @@
       "verschiebungen": 1,
       "tageGesamt": 0,
       "letzteVerschiebung": "2026-09-23",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "pdb-epd": {
+      "verschiebungen": 1,
+      "tageGesamt": 0,
+      "letzteVerschiebung": "2026-09-25",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "vp-workshop": {
+      "verschiebungen": 1,
+      "tageGesamt": 30,
+      "letzteVerschiebung": "2026-09-25",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-design-preview": {
+      "verschiebungen": 1,
+      "tageGesamt": 3,
+      "letzteVerschiebung": "2026-09-25",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     }

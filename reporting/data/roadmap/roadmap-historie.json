@@ -377,7 +377,7 @@
     "ref-10-de": {
       "lane": "Referenzen",
       "datum": "2026-10-15",
-      "status": "erreicht",
+      "status": "offen",
       "titel": "Zehn DE-One-Pager intern freigegeben"
     },
     "ref-publikationsprozess": {
@@ -479,7 +479,7 @@
     "org-lernprozess": {
       "lane": "Organisation & Enablement",
       "datum": "2026-10-31",
-      "status": "erreicht",
+      "status": "offen",
       "titel": "Feedback- und Lernprozess etabliert"
     },
     "org-daten-notion": {
@@ -4677,6 +4677,24 @@
       "feld": null,
       "alt": null,
       "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "org-lernprozess",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "erreicht",
+      "neu": "offen"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "ref-10-de",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "erreicht",
+      "neu": "offen"
     }
   ],
   "kennzahlen": {

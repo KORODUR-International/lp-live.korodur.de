@@ -1,7 +1,7 @@
 {
-  "version": "1.17",
+  "version": "1.18",
   "stand": "2026-09-25",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt.",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -776,10 +776,9 @@
           "datum": "2026-10-15",
           "titel": "Zehn DE-One-Pager intern freigegeben",
           "typ": "meilenstein",
-          "status": "erreicht",
-          "klaerung": false,
-          "details": "Das Ziel ist am 25.09.2026 anhand des vereinbarten internen DE-Kriteriums belegt: Freigabestatus im Bearbeitungsablauf beziehungsweise finale DE-Datei bei finalen/veröffentlichten Einträgen, ohne Dubletten und unabhängig von Priorität. Das erste Teilziel ist erfüllt; das größere Dezemberziel und die externen EN-/FR-Live-Nachweise bleiben getrennt offen.",
-          "erreichtAm": "2026-09-25"
+          "status": "offen",
+          "klaerung": true,
+          "details": "Zehn eindeutige DE-One-Pager müssen intern durch Technik und einbringenden Vertrieb freigegeben sein. Die bisherige Zählung und die daraus abgeleitete Zielerreichung wurden am 25.09.2026 als falsch zurückgenommen. Der belastbare Ist-Stand ist offen und muss je Referenz anhand der tatsächlichen Freigaben neu geprüft werden; Finaldateien oder Veröffentlichungsstatus allein belegen das Ziel nicht. Dubletten zählen nicht. Zieltermin bleibt 15.10.2026."
         },
         {
           "id": "ref-publikationsprozess",
@@ -964,11 +963,10 @@
           "datum": "2026-10-31",
           "titel": "Feedback- und Lernprozess etabliert",
           "typ": "meilenstein",
-          "status": "erreicht",
-          "klaerung": false,
+          "status": "offen",
+          "klaerung": true,
           "confidence": "mittel",
-          "details": "Feedback- und Lernprozess ist eingerichtet und im Einsatz: Rückmeldungen fließen in Arbeitsweise und Werkzeuge zurück, Ergebnisse werden gegen Fertig-Kriterien geprüft und der Wissenshaushalt wird laufend gemessen. Der Aufbau ist seit dem 18.09.2026 abgeschlossen.",
-          "erreichtAm": "2026-09-18"
+          "details": "Der Feedback- und Lernprozess ist noch nicht verlässlich im Arbeitsalltag etabliert. Vorhandene Regeln und Werkzeuge reichen als Nachweis nicht aus: Rückmeldungen müssen regelmäßig aufgenommen, in konkrete Änderungen umgesetzt und deren Wirkung überprüft werden. Die Erreicht-Aussage wurde am 25.09.2026 zurückgenommen. Gemeinsam prüfen, wo die Anwendung im Alltag ausbleibt und welche praktikable Routine und Nachweise zum Abschluss fehlen. Zieltermin bleibt 31.10.2026."
         },
         {
           "id": "org-daten-notion",

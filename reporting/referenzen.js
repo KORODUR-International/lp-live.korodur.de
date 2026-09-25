@@ -75,7 +75,11 @@ const REF_EIGENER_BEREICH = 'Trinkwasser';
 // eigenen Arbeitsmenge, solange "Veroeffentlicht am" fehlt.
 const REF_ALTBESTAND = 'Website';
 
+// Öffentlich inkl PR (seit 23.09.2026, rr#290): vollumfänglich einsetzbar,
+// auch Social Media und PR; Öffentlich allein heißt Website ja, Social nein.
+// Dunkelgrün per dataviz-Validator gegen --success geprüft (ΔE 19,9).
 const REF_FREIGABE_ORDER = [
+  { name: 'Öffentlich inkl PR', color: '#146c3a' },
   { name: 'Öffentlich', color: 'var(--success)' },
   { name: 'Öffentlich (anonymisiert)', color: '#7dd0a5' },
   { name: 'Zur Veröffentlichung', color: 'var(--secondary)' },
@@ -491,7 +495,8 @@ function renderFreigabe(d) {
   const summe = bekannt.reduce((s, [, v]) => s + v, 0) + unbekannt.reduce((s, [, v]) => s + v, 0);
   if (!summe) return '';
 
-  const draussen = (f['Öffentlich'] || 0) + (f['Öffentlich (anonymisiert)'] || 0);
+  const draussen = (f['Öffentlich inkl PR'] || 0) + (f['Öffentlich'] || 0)
+    + (f['Öffentlich (anonymisiert)'] || 0);
 
   const segs = bekannt.filter(([, v]) => v > 0).map(([o, v]) => {
     const pct = refPct(v, summe);

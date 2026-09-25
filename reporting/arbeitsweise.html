@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KORODUR Work Cockpit · Arbeitsweise</title>
-  <link rel="stylesheet" href="styles.css?v=fd31c475">
+  <link rel="stylesheet" href="styles.css?v=6c2e2e5d">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
@@ -166,17 +166,19 @@
         </div>
 
         <h2 class="aw-h2"><span class="aw-num">3</span>Status-Modell am Board</h2>
-        <p class="aw-sub">Acht Spalten, jede mit einem Satz, der passen muss. <b>Bereit</b> ist die wichtigste Zahl für die Steuerung: sie sagt, wie viel Arbeit sofort gezogen werden kann. Fällt sie auf null, ist nicht die Arbeit alle, sondern die Klärung.</p>
+        <p class="aw-sub">Neun Spalten, jede mit einem Satz, der passen muss. <b>Bereit</b> ist die wichtigste Zahl für die Steuerung: sie sagt, wie viel Arbeit sofort gezogen werden kann. Fällt sie auf null, ist nicht die Arbeit alle, sondern die Klärung.</p>
         <div class="aw-tablewrap"><table class="aw-table">
           <tr><th>Status</th><th>Der Satz, der passen muss</th><th>Bearbeiter</th><th>Reporting</th></tr>
-          <tr><td class="aw-sys">Backlog</td><td>„Das ist nie zu Ende gedacht worden." Hier liegt die Klärungsschuld.</td><td>leer</td><td>Offen</td></tr>
+          <tr><td class="aw-sys">Backlog</td><td>„Das gehört in dieses Jahr und ist noch nicht zu Ende gedacht." Hier liegt die Klärungsschuld.</td><td>leer</td><td>Offen</td></tr>
           <tr><td class="aw-sys">Bereit</td><td>„Jeder Account kann sofort autark starten." Offener Pool, Bereit-Gate bestanden.</td><td>leer</td><td>Offen</td></tr>
           <tr><td class="aw-sys">Beansprucht</td><td>„Gezogen, Bearbeiter gesetzt." Andere Sessions fassen es nicht an.</td><td>gesetzt</td><td>Offen</td></tr>
           <tr><td class="aw-sys">In Progress</td><td>in aktiver Arbeit</td><td>gesetzt</td><td>In Arbeit</td></tr>
           <tr><td class="aw-sys">In Review</td><td>„Das Deliverable steht, die Abstimmung läuft." Die Liste für die Abstimmungstage.</td><td>wer es ins Unternehmen trägt</td><td>In Arbeit</td></tr>
           <tr><td class="aw-sys">Blocked</td><td>„Wir warten auf X" mit benennbarem Adressaten, Grund im Feld Blocker-Grund.</td><td>egal</td><td>Warn-Indikator</td></tr>
-          <tr><td class="aw-sys">On Hold</td><td>„Durchdacht und von uns aktiv gestoppt." Kein Adressat, kein Alarm. Grund als Issue-Kommentar, der mit <code>On Hold:</code> beginnt.</td><td>egal</td><td>eigener Bucket</td></tr>
+          <tr><td class="aw-sys">On Hold</td><td>„Durchdacht und von uns aktiv gestoppt." Ob überhaupt, ist offen. Kein Adressat, kein Alarm. Grund als Issue-Kommentar, der mit <code>On Hold:</code> beginnt.</td><td>egal</td><td>eigener Bucket</td></tr>
+          <tr><td class="aw-sys">Später</td><td>„Wir machen das, aber bewusst nicht jetzt." Das Jahr trägt der Meilenstein, nicht die Spalte. Kommentar, der mit <code>Später:</code> beginnt und Meilenstein oder Wiedervorlage nennt. Der Dezember-Lauf sichtet die Spalte vollständig.</td><td>egal</td><td>eigener Bucket</td></tr>
           <tr><td class="aw-sys">Done</td><td>Deliverable erstellt und Issue als <i>completed</i> geschlossen. Nicht: von Kollegen abgenommen.</td><td>egal</td><td>Erledigt</td></tr>
+          <tr><td class="aw-sys">Verworfen</td><td>„Machen wir nicht." Als <i>not planned</i> schließen, Kommentar mit Grund und was man am Issue noch findet. Nichts geht verloren, das Issue bleibt durchsuchbar.</td><td>egal</td><td>Verworfen, nie Erledigt</td></tr>
         </table></div>
 
         <h2 class="aw-h2"><span class="aw-num">4</span>Bereit-Gate: sieben Kriterien</h2>

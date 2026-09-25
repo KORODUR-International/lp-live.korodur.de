@@ -34,11 +34,11 @@ const REF_BUCKETS = [
   { key: 'offen', label: 'Offen', color: 'var(--muted)',
     statuses: ['offen', 'Bilder sind da'] },
   { key: 'in_arbeit', label: 'In Arbeit', color: 'var(--secondary)',
-    statuses: ['RAW: Info+Bilder da', 'Informationen fehlen', 'Fragen VOR V1 beantwortet', 'STRUCTURED: Info'] },
+    statuses: ['RAW: Info+Bilder da', 'Informationen fehlen', 'STRUCTURED: Info', 'Fragen VOR V1 beantwortet'] },
   { key: 'in_abnahme', label: 'In Abnahme', color: '#6b5b95',
     statuses: ['V1 Entwurf fertig', 'V1 Feedback da', 'V2 Entwurf fertig', 'V2 Feedback da'] },
   { key: 'freigegeben', label: 'Freigegeben', color: '#7dd0a5',
-    statuses: ['fachlich freigegeben', 'finale Version DE'] },
+    statuses: ['Freigabe da (fachlich & rechtlich)', 'finale Version DE'] },
   { key: 'veroeffentlicht', label: 'Veröffentlicht', color: 'var(--success)',
     statuses: ['Veröffentlicht'] },
 ];
@@ -216,7 +216,7 @@ function renderZiel(d) {
   return `<div class="band fade-in"><h3>Referenzziele 2026</h3><span>Alle Prioritäten, einschließlich leerer Priorität</span></div>
     <div class="rf-goals fade-in">${cards}</div>
     <p class="rf-verdict">Neue Zählbasis seit 23.09.2026. Interne Freigabe, Erlaubnis zur Veröffentlichung und tatsächliche Veröffentlichung sind getrennt.
-      Als Freigaben zählen der Status „fachlich freigegeben“ oder eine finale DE-Datei mit Status „finale Version DE“ bzw. „Veröffentlicht“; markierte Dubletten zählen nicht.
+      Als Freigaben zählen der Status „Freigabe da (fachlich &amp; rechtlich)“ oder eine finale DE-Datei mit Status „finale Version DE“ bzw. „Veröffentlicht“; markierte Dubletten und der Website-Altbestand zählen nicht.
       Ein übernommener Veröffentlichungsstatus allein belegt keine interne Freigabe.</p>
     ${!z ? '<p class="rf-nv">Die neue Zählbasis ist in diesem Snapshot noch nicht erhoben. Historische Werte werden nicht umgerechnet.</p>' : ''}
     ${z?.en_fr_live?.grund ? `<p class="rf-nv">${refEsc(z.en_fr_live.grund)}</p>` : ''}

@@ -1,5 +1,5 @@
 {
-  "version": "1.16",
+  "version": "1.17",
   "stand": "2026-09-25",
   "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt.",
   "zeitraum": {
@@ -979,6 +979,16 @@
           "klaerung": true,
           "details": "Zwei Notion-Workspaces sind in einer gemeinsamen, aktuellen Struktur zusammengeführt; die vereinbarten Dateiablagen außerhalb von Notion sind einbezogen. Dafür ist eine intensive Arbeitswoche vorgesehen. Bestand und Zielbild werden vor der Umsetzung definiert; es gibt noch keine allgemeine Migrations- oder Löschfreigabe.",
           "abhaengigkeit": "Zielworkspace, Datei-Scope, Rechte, Links/Integrationen, Archivierungsregeln und genaue intensive Woche festlegen"
+        },
+        {
+          "id": "org-lernprozess-ausbau",
+          "datum": "2026-12-15",
+          "titel": "Lernprozess im Betrieb: Reporting und Werkzeuge nachgeschärft",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "niedrig",
+          "details": "Folge zum erreichten Feedback- und Lernprozess: Die im Betrieb gesammelten Verbesserungen an Reporting-Dashboard, Hygiene-Checks, Skills und Arbeitsregeln sind umgesetzt oder bewusst verworfen. Sammelt die offene Arbeit, die bis zum 25.09.2026 am erreichten Meilenstein hing."
         }
       ]
     },

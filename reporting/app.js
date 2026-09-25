@@ -231,7 +231,8 @@ function monthLabel(ym) {
 // ─── Kopfzahlen (Kernzahlen + Delta-Chips) ───────────
 // Board-Phasen in Board-Reihenfolge, ohne Done: Grundlage fuer Matrix und
 // Mini-Charts. On Hold gehoert bewusst NICHT in den Kopf (#149 Punkt 4).
-const PHASEN = ['Backlog', 'Bereit', 'Beansprucht', 'In Progress', 'In Review', 'Blocked', 'On Hold'];
+// Später (rr#287, ab 25.09.2026): bewusst nicht jetzt, kein Alarm, nicht On Hold.
+const PHASEN = ['Backlog', 'Bereit', 'Beansprucht', 'In Progress', 'In Review', 'Blocked', 'On Hold', 'Später'];
 
 // Kernzahlen aus einer Phasenverteilung + Bestandssummen. `null` heisst:
 // diese Phase gab es zum Zeitpunkt der Quelle nicht (Statusmodell-Bruch),
@@ -304,6 +305,10 @@ const RING_PHASEN = [
   { label: 'In Review', farbe: '#002d59', wert: bs => bs['In Review'] },
   { label: 'Blockiert', farbe: '#d64541', wert: bs => bs['Blocked'] },
   { label: 'On Hold', farbe: 'url(#ring-schraffur)', legende: 'ring-punkt--schraffur', wert: bs => bs['On Hold'] },
+  // Bronze, per dataviz-Validator im Ring geprüft (25.09.2026): Nachbarn
+  // On Hold, Ohne Status und im Umlauf Backlog, CVD und Normalsicht >= 15.
+  // Erst ab 25.09.2026 im Board: ältere Stände zeigen die Phase gar nicht.
+  { label: 'Später', farbe: '#a07a3c', nurWennBekannt: true, wert: bs => bs['Später'] },
   { label: 'Ohne Status', farbe: '#4d5660', nurWennDa: true, wert: bs => bs['none'] },
 ];
 const RING_R = 62;
@@ -319,7 +324,7 @@ function ringTeile(bs) {
       const w = p.wert(bs);
       return { ...p, n: (w === undefined || w === null) ? null : w };
     })
-    .filter(p => !p.nurWennDa || p.n > 0);
+    .filter(p => (!p.nurWennDa || p.n > 0) && !(p.nurWennBekannt && p.n === null));
 }
 
 function ringSumme(teile) {
@@ -635,7 +640,10 @@ function renderMatrix(data, roadmap) {
   const heute = (roadmap && msHeute(roadmap)) || (data._meta && data._meta.snapshot_date) || '';
   const spalten = matrixSpalten(data);
   const ohneStatus = spalten.some(sp => spalteStatus(sp, 'none') > 0);
-  const zeilen = ohneStatus ? [...PHASEN, 'none'] : PHASEN;
+  // Später gibt es erst ab dem 25.09.2026; ältere Snapshots bekommen keine leere Zeile.
+  const kenntSpaeter = spalten.some(sp => sp.projekte.some(p => p.by_status && 'Später' in p.by_status));
+  const phasen = kenntSpaeter ? PHASEN : PHASEN.filter(ph => ph !== 'Später');
+  const zeilen = ohneStatus ? [...phasen, 'none'] : phasen;
   const start = sp => (sp.gruppeStart ? ' matrix__gruppe-start' : '');
   const td = (cls, inhalt, extra = '') => `<td${cls.trim() ? ` class="${cls.trim()}"` : ''}${extra}>${inhalt}</td>`;
 

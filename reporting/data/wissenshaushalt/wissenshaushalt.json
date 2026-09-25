@@ -1,8 +1,8 @@
 {
   "version": 1,
   "stand": {
-    "gemessen_am": "2026-09-25T11:56:10Z",
-    "om_commit": "74d1fd55f98582ba69a1b44a4025544f84d8bccb",
+    "gemessen_am": "2026-09-25T13:20:26Z",
+    "om_commit": "f8b5c898f8e6f93eba8efa520799f9afbb90f163",
     "repos_aus_snapshot": "2026-09-25",
     "anweisungsschicht": [
       {
@@ -21,7 +21,7 @@
       },
       {
         "datei": "claude-config/references/board.md",
-        "zeichen": 12943,
+        "zeichen": 12940,
         "budget": 12943,
         "ziel": 12000,
         "gemessen": true
@@ -896,6 +896,43 @@
         "claude-config/CLAUDE.md": 18459,
         "claude-config/references/agenten-und-workflows.md": 7364,
         "claude-config/references/board.md": 12943,
+        "claude-config/references/externe-kommunikation.md": 2354,
+        "claude-config/references/git-und-worktrees.md": 11551,
+        "claude-config/references/kontext-und-strategie.md": 2749,
+        "claude-config/references/mac-tooling.md": 6678,
+        "claude-config/references/notion-ids.md": 6254,
+        "claude-config/references/notion.md": 13699,
+        "claude-config/references/praesentationen.md": 9175,
+        "claude-config/references/render-und-messen.md": 10847,
+        "claude-config/references/texte-und-content.md": 1149
+      },
+      "repos": {
+        "KORODUR-International/korodur-ausschreibungstexte": 5236,
+        "KORODUR-International/korodur-corporate-design": 5547,
+        "KORODUR-International/korodur-crm": 4246,
+        "KORODUR-International/korodur-digitale-produktinformationen": 22156,
+        "KORODUR-International/korodur-military": 4914,
+        "KORODUR-International/korodur-operating-model": 4092,
+        "KORODUR-International/korodur-redaktion": 6606,
+        "KORODUR-International/korodur-referenzverzeichnis": 20212,
+        "KORODUR-International/korodur-review-reporting": 3070,
+        "KORODUR-International/korodur-skills": 4053,
+        "KORODUR-International/korodur-translation": 8716,
+        "sfleischmann-3steps2/KORODUR-Website": 25383
+      },
+      "korb": {
+        "abschnitte": 51,
+        "zeichen": 64610,
+        "alter_tage": 8
+      }
+    },
+    {
+      "gemessen_am": "2026-09-25T13:20:26Z",
+      "om_commit": "f8b5c898f8e6f93eba8efa520799f9afbb90f163",
+      "dateien": {
+        "claude-config/CLAUDE.md": 18459,
+        "claude-config/references/agenten-und-workflows.md": 7364,
+        "claude-config/references/board.md": 12940,
         "claude-config/references/externe-kommunikation.md": 2354,
         "claude-config/references/git-und-worktrees.md": 11551,
         "claude-config/references/kontext-und-strategie.md": 2749,

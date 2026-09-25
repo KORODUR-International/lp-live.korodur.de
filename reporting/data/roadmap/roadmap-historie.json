@@ -488,6 +488,12 @@
       "status": "offen",
       "titel": "Frühjahrsputz Daten und Notion"
     },
+    "org-lernprozess-ausbau": {
+      "lane": "Organisation & Enablement",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Lernprozess im Betrieb: Reporting und Werkzeuge nachgeschärft"
+    },
     "ki-uc1": {
       "lane": "Lokale KI",
       "datum": "2026-07-31",
@@ -4662,6 +4668,15 @@
       "feld": "status",
       "alt": "offen",
       "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "org-lernprozess-ausbau",
+      "lane": "Organisation & Enablement",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
     }
   ],
   "kennzahlen": {

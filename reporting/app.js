@@ -1,13 +1,8 @@
 /**
- * KORODUR Work Cockpit Reporting v3
- * Umbau #181 nach dem in #149 gelockten Ziel-Layout (16.08.2026), Stufe 2
- * nach #237 (14.09.2026): Ringe gestern und heute im Kopf, Segmente,
- * Phasen je Repo nach Roadmap-Bereichen mit Sammelbecken und
- * Meilenstein-Hover, Hebel, Mini-Chart je Phase (KW-Endstand), Owner-Split
- * im Fuss. Bewegung, Meilenstein-Leiste, Meilenstein-Anteil und
- * Bereichszeile stehen seit #237 nicht mehr auf der Seite; ihre
- * Render-Funktionen bleiben, bis entschieden ist, ob sie zurückkommen.
- * Grundsatz: nur Zaehlungen, keine Issue-Titel, keine Freitexte.
+ * Goal-oriented reporting (#297, concept #25).
+ * This shell owns loading, snapshot dates and module lifecycles. Each module
+ * renders public roadmap text and neutral issue identities from read-only data.
+ * Historical pure renderers remain below for compatibility, outside the page.
  */
 
 // In dev: symlink src/data -> ../data; in production (GitHub Pages): data/ is at root
@@ -22,12 +17,17 @@ const MONTHS_DE = [
 let currentSnapshot = null;
 let availableSnapshots = [];   // newest-first (index.json order)
 let timeseries = [];           // ascending by date; drives head deltas + phase charts
+let roadmapRequest;
+let snapshotRequest = 0;
+let selectedSnapshotKey = null;
+let reportingHandles = [];
 let roadmapCache;              // undefined = ungeladen, null = nicht verfuegbar (#182)
 
 // ─── Init ────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
-  await discoverSnapshots();
   await loadTimeseries();
+  await discoverSnapshots();
+  if (selectedSnapshotKey !== null) return;
   if (availableSnapshots.length > 0) {
     await loadSnapshot(availableSnapshots[0]);
   } else {
@@ -35,10 +35,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
+// Pages caches JSON for ten minutes, including mutable daily filenames.
+// Revalidate on load so a fresh deploy cannot keep displaying an old snapshot.
+function fetchReporting(url) { return fetch(url, { cache: 'no-cache' }); }
+
 // ─── Timeseries (compact per-day totals + phases) ────
 async function loadTimeseries() {
   try {
-    const res = await fetch(SNAPSHOTS_DIR + 'timeseries.json');
+    const res = await fetchReporting(SNAPSHOTS_DIR + 'timeseries.json');
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data)) {
@@ -51,9 +55,10 @@ async function loadTimeseries() {
 // ─── Snapshot Discovery ──────────────────────────────
 async function discoverSnapshots() {
   try {
-    const res = await fetch(SNAPSHOTS_DIR + 'index.json');
+    const res = await fetchReporting(SNAPSHOTS_DIR + 'index.json');
     if (res.ok) {
-      availableSnapshots = await res.json();
+      const keys = await res.json();
+      availableSnapshots = Array.isArray(keys) ? [...new Set(keys.filter(key => typeof key === 'string' && /^\d{4}-(?:\d{2}(?:-\d{2})?|W\d{2})$/.test(key)))] : [];
     }
   } catch {
     const now = new Date();
@@ -65,7 +70,7 @@ async function discoverSnapshots() {
     }
     for (const key of candidates) {
       try {
-        const r = await fetch(SNAPSHOTS_DIR + key + '.json');
+        const r = await fetchReporting(SNAPSHOTS_DIR + key + '.json');
         if (r.ok) availableSnapshots.push(key);
       } catch { /* skip */ }
     }
@@ -74,25 +79,86 @@ async function discoverSnapshots() {
 }
 
 // ─── Load Snapshot ───────────────────────────────────
+function destroyReporting() {
+  reportingHandles.forEach(handle => handle.destroy());
+  reportingHandles = [];
+}
+
+function berlinDay(timestamp) {
+  const date = new Date(timestamp);
+  if (!Number.isFinite(date.getTime())) return null;
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
+}
+
+function reportingStichtag(data) {
+  const stamp = data?._meta?.generated_at;
+  if (typeof stamp === 'string' && /T.*(?:Z|[+-]\d{2}:\d{2})$/.test(stamp)) return berlinDay(stamp);
+  // Legacy records without a timestamp can still show their recorded day.
+  // v3.4 requires a real timestamp; never infer it from the UTC filename.
+  if (data?._meta?.version !== '3.4' && !stamp) {
+    const day = data?._meta?.snapshot_date;
+    if (typeof day === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(day)
+        && Number.isFinite(Date.parse(day)) && new Date(day).toISOString().slice(0, 10) === day) return day;
+  }
+  return null;
+}
+
+// The retained stock series uses UTC file days, unlike Berlin monitoring.
+function reportingBestandsStichtag(data) {
+  const day = data?._meta?.snapshot_date;
+  return typeof day === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(day)
+    && Number.isFinite(Date.parse(day)) && new Date(day).toISOString().slice(0, 10) === day ? day : null;
+}
+
+async function loadReportingRoadmap() {
+  if (!roadmapRequest) roadmapRequest = (async () => {
+    try {
+      const res = await fetchReporting(ROADMAP_URL);
+      const roadmap = res.ok ? await res.json() : null;
+      roadmapCache = roadmap ? { roadmap, kennzahlen: {} } : null;
+      return roadmap;
+    } catch { roadmapCache = null; return null; }
+  })();
+  return roadmapRequest;
+}
+
 async function loadSnapshot(key) {
+  const request = ++snapshotRequest;
+  selectedSnapshotKey = key;
+  const select = document.getElementById('snapshot-select');
+  if (select) select.value = key;
+  destroyReporting();
+  currentSnapshot = null;
   const main = document.getElementById('main');
-  main.innerHTML = `<div class="loading"><div class="loading__spinner"></div>Lade Snapshot...</div>`;
-
+  main.innerHTML = '<div class="loading"><div class="loading__spinner"></div>Lade Snapshot...</div>';
+  const meta = document.getElementById('header-meta');
+  if (meta) meta.textContent = 'Wird geladen...';
   try {
-    const res = await fetch(SNAPSHOTS_DIR + key + '.json');
-    if (!res.ok) throw new Error('Snapshot nicht gefunden');
-    currentSnapshot = await res.json();
-
+    const [data, roadmap] = await Promise.all([
+      (async () => {
+        const res = await fetchReporting(SNAPSHOTS_DIR + key + '.json');
+        if (!res.ok) throw new Error('Snapshot nicht gefunden');
+        const value = await res.json();
+        if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Ungültiger Snapshot');
+        return value;
+      })(),
+      loadReportingRoadmap(),
+    ]);
+    if (request !== snapshotRequest) return;
+    currentSnapshot = data;
     document.querySelectorAll('.sidebar__item').forEach(el => {
       el.classList.toggle('active', el.dataset.key === key);
+      if (el.dataset.key === key) el.setAttribute('aria-current', 'true');
+      else el.removeAttribute('aria-current');
     });
-
-    renderDashboard(currentSnapshot);
+    renderDashboard(data, { roadmap, archiv: key !== availableSnapshots[0] });
     updateHeaderMeta(key);
-    loadSegmentStrip();
-    loadRoadmapFuerMatrix();
-  } catch (err) {
-    main.innerHTML = `<div class="loading">Fehler beim Laden: ${err.message}</div>`;
+  } catch {
+    if (request !== snapshotRequest) return;
+    destroyReporting();
+    currentSnapshot = null;
+    main.innerHTML = '<div class="loading">Snapshot konnte nicht geladen werden. Bitte einen anderen Stand auswählen oder die Seite neu laden.</div>';
+    if (meta) meta.textContent = 'Datenstand nicht verfügbar';
   }
 }
 
@@ -101,6 +167,13 @@ async function loadSnapshot(key) {
 // Archiv bleibt als eingeklappte KW-Gruppen erreichbar.
 function renderSidebar() {
   const list = document.getElementById('snapshot-list');
+  const select = document.getElementById('snapshot-select');
+  if (select) {
+    select.innerHTML = availableSnapshots.length ? availableSnapshots.map(key =>
+      `<option value="${key}">${formatSnapshotLabel(key)}${key === availableSnapshots[0] ? ' · Neuester Stand' : ''}</option>`).join('') : '<option>Keine Snapshots vorhanden</option>';
+    select.disabled = availableSnapshots.length === 0;
+    if (selectedSnapshotKey) select.value = selectedSnapshotKey;
+  }
   if (!list) return;
 
   if (availableSnapshots.length === 0) {
@@ -127,11 +200,11 @@ function renderSidebar() {
         <ul class="sidebar__group-list">
           ${g.keys.map(key => `
             <li>
-              <a class="sidebar__item ${key === availableSnapshots[0] ? 'active' : ''}"
+              <button type="button" class="sidebar__item ${key === availableSnapshots[0] ? 'active' : ''}"
                  data-key="${key}" onclick="loadSnapshot('${key}')">
                 ${formatSnapshotLabel(key)}
-                ${key === availableSnapshots[0] ? '<span class="sidebar__item-date">Aktuell</span>' : ''}
-              </a>
+                ${key === availableSnapshots[0] ? '<span class="sidebar__item-date">Neuester Stand</span>' : ''}
+              </button>
             </li>`).join('')}
         </ul>
       </details>
@@ -166,7 +239,7 @@ function shortDayLabel(dateStr) {
 function updateHeaderMeta(key) {
   const el = document.getElementById('header-meta');
   if (!el || !currentSnapshot) return;
-  el.textContent = `Snapshot: ${formatSnapshotLabel(key)}`;
+  el.textContent = `${key === availableSnapshots[0] ? 'Neuester Stand' : 'Archiv'}: ${formatSnapshotLabel(key)}`;
 }
 
 // ─── ISO calendar week helpers ───────────────────────
@@ -1200,9 +1273,10 @@ function vortagVon(dateStr) {
 // Bestaende als Wochen-Endstand, nicht als Durchschnitt (#149 Punkt 6).
 // Eine Serie beginnt an dem Tag, ab dem es die Phase gibt; Statusmodell-
 // Brueche (Ready bis 31.07., On Hold ab 15.08.) werden nicht geglaettet.
-function kwEndstaende() {
+function kwEndstaende(stichtag = null) {
   const map = new Map();
   for (const r of timeseries) {
+    if (stichtag && r.date > stichtag) continue;
     const kw = isoWeekKey(r.date);
     if (kw) map.set(kw, r);        // letzte Zeile je KW gewinnt (aufsteigend sortiert)
   }
@@ -1238,9 +1312,9 @@ function miniChart(phase, punkte) {
     </div>`;
 }
 
-function renderPhasenVerlauf(data) {
-  const doneBars = renderDoneByWeek(data);
-  const wochen = kwEndstaende();
+function renderPhasenVerlauf(data, { abschluesse = true, stichtag = null } = {}) {
+  const doneBars = abschluesse ? renderDoneByWeek(data) : '';
+  const wochen = kwEndstaende(stichtag);
 
   let charts = '';
   if (wochen.length >= 2) {
@@ -1355,16 +1429,33 @@ function renderFuss(data) {
 }
 
 // ─── Render Dashboard ────────────────────────────────
-function renderDashboard(data) {
+function renderDashboard(data, { roadmap = roadmapCache?.roadmap || null, archiv = false } = {}) {
+  destroyReporting();
   const main = document.getElementById('main');
+  const stichtag = reportingStichtag(data);
+  const bestandsTag = reportingBestandsStichtag(data);
   main.innerHTML = `
-    ${renderKopf(data)}
-    <div id="segment-strip"></div>
-    <div id="matrix-host">${renderMatrix(data, roadmapCache ? roadmapCache.roadmap : null)}</div>
-    ${renderHebel(data)}
-    ${renderPhasenVerlauf(data)}
-    ${renderFuss(data)}
+    <h1 class="reporting-title">Reporting</h1>
+    <div id="reporting-ueberblick" class="reporting-module"></div>
+    <div id="reporting-wochenmonitoring" class="reporting-module"></div>
+    <div id="reporting-nachfassen" class="reporting-module"></div>
+    <details class="reporting-depth">
+      <summary>Bestandsverläufe vertiefen</summary>
+      <p class="matrix__hinweis">Wochen-Endstände offener Phasen bis zum ausgewählten Datenstand. Bestände sind keine Abschlüsse und kein Zielnachweis.</p>
+      ${bestandsTag ? renderPhasenVerlauf(data, { abschluesse: false, stichtag: bestandsTag }) : '<p>Für diesen Stand ist der Verlauf nicht verfügbar.</p>'}
+    </details>
+    <footer class="footer">KORODUR Work Cockpit Reporting · <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank" rel="noopener noreferrer">GitHub</a></footer>
   `;
+  const options = { snapshot: data, roadmap, stichtag, heute: berlinDay(new Date()), archiv };
+  for (const [id, name] of [
+    ['reporting-ueberblick', 'ReportingUeberblick'],
+    ['reporting-wochenmonitoring', 'ReportingWochenmonitoring'],
+    ['reporting-nachfassen', 'ReportingNachfassen'],
+  ]) {
+    const host = document.getElementById(id), module = globalThis[name];
+    if (module) reportingHandles.push(module.mount(host, options));
+    else host.textContent = 'Ansicht konnte nicht geladen werden. Bitte die Seite neu laden.';
+  }
 }
 
 // ─── Segment-Zeile (Fach-Segmente neben dem Board) ───

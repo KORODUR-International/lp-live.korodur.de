@@ -1,0 +1,54 @@
+/* Goal hierarchy and neutral work counts; shared shell for #295/#296. */
+.reporting-ueberblick { color: var(--primary, #192d50); line-height: 1.5; min-width: 0; }
+.reporting-ueberblick * { box-sizing: border-box; }
+.reporting-ueberblick h2 { margin: 0 0 .5rem; font-size: 1.3rem; }
+.reporting-ueberblick h3 { margin: 0 0 .6rem; font-size: 1.05rem; }
+.reporting-ueberblick h4 { margin: 0; font-size: 1rem; }
+.reporting-ueberblick h5 { margin: 0; font-size: 1rem; line-height: 1.4; }
+.reporting-ueberblick p { margin: .4rem 0; }
+.reporting-ueberblick .ru-orientation { border-bottom: 1px solid var(--border, #dce2e9); padding: 0 0 1.1rem; margin-bottom: 1.6rem; }
+.reporting-ueberblick .ru-data-state { font-weight: 700; }
+.reporting-ueberblick .ru-indicators { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; font-size: .9rem; margin-top: .65rem; }
+.reporting-ueberblick .ru-note, .reporting-ueberblick .ru-outcome { font-size: .85rem; color: #536079; }
+.reporting-ueberblick .ru-state-note { font-size: .9rem; }
+.reporting-ueberblick .ru-stale, .reporting-ueberblick .ru-notice { padding: .6rem .8rem; border-left: 3px solid #708099; background: #f0f3f6; font-size: .9rem; }
+.reporting-ueberblick .ru-goal-group { margin: 1.2rem 0; }
+.reporting-ueberblick .ru-area { border-top: 2px solid #192d50; margin: 1.4rem 0; padding-top: .8rem; }
+.reporting-ueberblick .ru-lane { margin: 1rem 0 1.5rem; padding: .8rem 0 .1rem 1rem; border-left: 3px solid #d5dde8; }
+.reporting-ueberblick .ru-milestone { border-top: 1px solid #dce2e9; padding: .9rem 0; margin-top: .7rem; }
+.reporting-ueberblick .ru-due { font-size: .85rem; font-weight: 600; }
+.reporting-ueberblick .ru-signal { display: inline-block; font-size: .8rem; padding: .15rem .5rem; border-radius: 3px; }
+.reporting-ueberblick .ru-signal--neutral { background: #f0f3f6; color: #4a5870; }
+.reporting-ueberblick .ru-signal--erreicht { background: #e8f5ee; color: #1f6541; }
+.reporting-ueberblick .ru-signal--ueberfaellig { background: #fbecec; color: #a52929; }
+.reporting-ueberblick .ru-signal--klaerung { background: #fff4da; color: #705100; }
+.reporting-ueberblick .ru-counts { display: flex; flex-wrap: wrap; gap: .35rem; margin: .65rem 0; }
+.reporting-ueberblick button { cursor: pointer; font: inherit; min-height: 44px; border-radius: 4px; }
+.reporting-ueberblick .ru-count, .reporting-ueberblick .ru-close { color: #192d50; border: 1px solid #c6d0dd; background: #fff; padding: .35rem .65rem; font-size: .83rem; font-variant-numeric: tabular-nums; }
+.reporting-ueberblick .ru-count:hover { background: #eff5f8; }
+.reporting-ueberblick .ru-count[aria-expanded="true"] { background: #e8eef5; border-color: #192d50; box-shadow: inset 0 -2px #192d50; }
+.reporting-ueberblick button:focus-visible, .reporting-ueberblick a:focus-visible, .reporting-ueberblick summary:focus-visible { outline: 3px solid #087991; outline-offset: 3px; }
+.reporting-ueberblick summary { cursor: pointer; min-height: 44px; padding: .6rem 0; font-weight: 600; }
+.reporting-ueberblick .ru-context { font-size: .85rem; }
+.reporting-ueberblick .ru-context summary { font-weight: 400; color: #536079; }
+.reporting-ueberblick .ru-stock { margin-top: 2rem; padding-top: 1.3rem; border-top: 2px solid #192d50; }
+.reporting-ueberblick .ru-stock-detail { border-top: 1px solid #dce2e9; margin-top: 1rem; }
+.reporting-ueberblick .ru-repo, .reporting-ueberblick .ru-mapping { padding: 1rem 0; border-top: 1px solid #dce2e9; overflow-wrap: anywhere; }
+.reporting-ueberblick .ru-drilldown { background: #f5f8fb; border: 1px solid #c6d0dd; padding: .9rem; margin: .9rem 0; }
+.reporting-ueberblick .ru-issue-list { padding-left: 1.5rem; }
+.reporting-ueberblick .ru-issue { padding: .65rem 0; border-bottom: 1px solid #dce2e9; overflow-wrap: anywhere; }
+.reporting-ueberblick .ru-original-status { display: block; font-size: .8rem; color: #536079; }
+.reporting-ueberblick .ru-assignments { display: flex; flex-wrap: wrap; gap: .2rem .8rem; font-size: .85rem; }
+.reporting-ueberblick a { color: #08677e; text-decoration: underline; text-underline-offset: .15em; }
+.reporting-ueberblick .ru-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.reporting-module { background: #fff; padding: 1.6rem; border: 1px solid var(--border, #dce2e9); border-radius: 6px; margin: 1.5rem 0; }
+.reporting-module:first-child { margin-top: 0; }
+.reporting-depth > summary { cursor: pointer; min-height: 44px; padding: .6rem; font-weight: 600; }
+.reporting-depth > summary:focus-visible { outline: 3px solid #087991; }
+@media (max-width: 600px) {
+  .reporting-module { padding: 1rem; }
+  .reporting-ueberblick .ru-lane { padding-left: .55rem; }
+  .reporting-ueberblick .ru-count { padding: .3rem .45rem; font-size: .8rem; }
+  .reporting-ueberblick .ru-indicators { display: block; }
+  .reporting-ueberblick .ru-indicators span { display: block; }
+}

@@ -1,0 +1,55 @@
+.reporting-wochenmonitoring { color: #192d50; font-family: inherit; line-height: 1.5; min-width: 0; }
+.reporting-wochenmonitoring * { box-sizing: border-box; }
+.reporting-wochenmonitoring .rw-title { font-size: 1.35rem; margin: 0 0 .4rem; }
+.reporting-wochenmonitoring .rw-intro { font-weight: 600; margin: .25rem 0; }
+.reporting-wochenmonitoring .rw-note { color: #536079; font-size: .875rem; }
+.reporting-wochenmonitoring .rw-notice { padding: .8rem 1rem; border-left: 3px solid #708099; background: #f0f3f6; }
+.reporting-wochenmonitoring button { cursor: pointer; font: inherit; min-height: 44px; border-radius: 4px; }
+.reporting-wochenmonitoring button:focus-visible,
+.reporting-wochenmonitoring a:focus-visible,
+.reporting-wochenmonitoring summary:focus-visible { outline: 3px solid #09768e; outline-offset: 3px; }
+.reporting-wochenmonitoring .rw-controls { display: flex; gap: .4rem; margin: 1rem 0 .2rem; }
+.reporting-wochenmonitoring .rw-mode { padding: .4rem 1rem; border: 1px solid #b5c0cd; background: #fff; color: #192d50; }
+.reporting-wochenmonitoring .rw-mode[aria-pressed="true"] { background: #192d50; border-color: #192d50; color: #fff; }
+.reporting-wochenmonitoring .rw-chart { max-width: 850px; }
+.reporting-wochenmonitoring svg { display: block; width: 100%; height: auto; overflow: visible; }
+.reporting-wochenmonitoring .rw-axis { fill: #536079; font: 13px Arial, sans-serif; }
+.reporting-wochenmonitoring .rw-axis-title { fill: #192d50; font: 13px Arial, sans-serif; }
+.reporting-wochenmonitoring .rw-grid { stroke: #dce2e9; stroke-width: 1; }
+.reporting-wochenmonitoring .rw-line { fill: none; stroke-width: 2.5; }
+.reporting-wochenmonitoring .rw-aktuell { stroke: #192d50; }
+.reporting-wochenmonitoring .rw-referenz { stroke: #087991; stroke-dasharray: 6 4; }
+.reporting-wochenmonitoring .rw-bar.rw-aktuell { fill: #192d50; }
+.reporting-wochenmonitoring .rw-bar.rw-referenz { fill: #e5f2f5; stroke-width: 2; stroke-dasharray: 3 2; }
+.reporting-wochenmonitoring .rw-dot { fill: #192d50; stroke: #192d50; stroke-width: 2; }
+.reporting-wochenmonitoring .rw-provisional { fill: #fff; }
+.reporting-wochenmonitoring .rw-reference-dot { fill: #fff; stroke: #087991; stroke-width: 2; }
+.reporting-wochenmonitoring .rw-legend { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; font-size: .85rem; }
+.reporting-wochenmonitoring .rw-key-reference { color: #086b80; }
+.reporting-wochenmonitoring .rw-values { max-width: 850px; }
+.reporting-wochenmonitoring .rw-table { width: 100%; border-collapse: collapse; font-size: .9rem; font-variant-numeric: tabular-nums; }
+.reporting-wochenmonitoring caption { text-align: left; margin: .7rem 0; color: #536079; font-size: .85rem; }
+.reporting-wochenmonitoring th, .reporting-wochenmonitoring td { text-align: left; padding: .55rem .7rem; border-bottom: 1px solid #dce2e9; }
+.reporting-wochenmonitoring thead th { background: #f0f3f6; font-weight: 600; }
+.reporting-wochenmonitoring .rw-day-state { display: block; color: #536079; font-size: .75rem; font-weight: 400; }
+.reporting-wochenmonitoring .rw-today { background: #f1f7f9; }
+.reporting-wochenmonitoring .rw-day-button { border: 1px solid #b5c0cd; background: white; padding: .3rem .65rem; color: #192d50; white-space: nowrap; }
+.reporting-wochenmonitoring .rw-day-button[aria-pressed="true"] { border-color: #192d50; background: #e8eef5; box-shadow: inset 0 -2px #192d50; }
+.reporting-wochenmonitoring .rw-drilldown { margin: 1.25rem 0; }
+.reporting-wochenmonitoring .rw-drilldown h3 { font-size: 1rem; margin-bottom: .3rem; }
+.reporting-wochenmonitoring .rw-issue-list { padding-left: 1.6rem; }
+.reporting-wochenmonitoring .rw-issue { padding: .7rem .3rem; border-bottom: 1px solid #dce2e9; overflow-wrap: anywhere; }
+.reporting-wochenmonitoring a { color: #08677e; text-decoration: underline; text-underline-offset: .15em; }
+.reporting-wochenmonitoring .rw-area { display: block; font-size: .85rem; color: #536079; }
+.reporting-wochenmonitoring .rw-assignments { display: flex; flex-wrap: wrap; gap: .25rem .8rem; font-size: .85rem; }
+.reporting-wochenmonitoring .rw-basis { border-top: 1px solid #dce2e9; padding: .8rem 0; }
+.reporting-wochenmonitoring summary { cursor: pointer; min-height: 44px; padding: .4rem 0; font-weight: 600; }
+.reporting-wochenmonitoring .rw-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 480px) {
+  .reporting-wochenmonitoring .rw-axis { font-size: 24px; }
+  .reporting-wochenmonitoring .rw-axis-title { font-size: 22px; }
+  .reporting-wochenmonitoring .rw-table { font-size: .8rem; }
+  .reporting-wochenmonitoring th, .reporting-wochenmonitoring td { padding: .45rem .3rem; }
+  .reporting-wochenmonitoring .rw-day-button { padding: .25rem .4rem; }
+  .reporting-wochenmonitoring .rw-title { font-size: 1.2rem; }
+}

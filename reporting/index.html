@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KORODUR Work Cockpit · Reporting</title>
-  <link rel="stylesheet" href="styles.css?v=339a5889">
+  <link rel="stylesheet" href="styles.css?v=4cf2ec0a">
+  <link rel="stylesheet" href="reporting-ueberblick.css?v=4cf2ec0a">
+  <link rel="stylesheet" href="reporting-wochenmonitoring.css?v=4cf2ec0a">
+  <link rel="stylesheet" href="reporting-nachfassen.css?v=4cf2ec0a">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
-  <div class="app">
+  <div class="app app--reporting">
     <!-- Header -->
     <header class="header">
       <div class="header__brand">
@@ -35,6 +38,11 @@
       </ul>
     </nav>
 
+    <div class="snapshot-mobile">
+      <label for="snapshot-select">Datenstand auswählen</label>
+      <select id="snapshot-select" onchange="loadSnapshot(this.value)"><option>Lade...</option></select>
+    </div>
+
     <!-- Main Content -->
     <main id="main" class="main">
       <div class="loading">
@@ -44,6 +52,9 @@
     </main>
   </div>
 
-  <script src="app.js?v=339a5889"></script>
+  <script src="reporting-ueberblick.js?v=4cf2ec0a"></script>
+  <script src="reporting-wochenmonitoring.js?v=4cf2ec0a"></script>
+  <script src="reporting-nachfassen.js?v=4cf2ec0a"></script>
+  <script src="app.js?v=4cf2ec0a"></script>
 </body>
 </html>

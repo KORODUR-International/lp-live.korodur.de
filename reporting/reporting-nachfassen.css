@@ -1,0 +1,132 @@
+/* Scoped to #295's host subtree; no global resets or shared-style changes. */
+.reporting-nachfassen {
+  --rn-ink: var(--primary, #002d59);
+  --rn-muted: #526579;
+  --rn-line: #dce5eb;
+  color: var(--rn-ink);
+  background: #fff;
+  border: 1px solid var(--rn-line);
+  border-radius: 12px;
+  padding: clamp(18px, 3vw, 32px);
+  font-family: inherit;
+  line-height: 1.5;
+}
+.reporting-nachfassen *,
+.reporting-nachfassen *::before,
+.reporting-nachfassen *::after { box-sizing: border-box; }
+.reporting-nachfassen .rn-title {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.3;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.reporting-nachfassen .rn-intro { margin: 0 0 6px; font-size: .95rem; }
+.reporting-nachfassen .rn-note { color: var(--rn-muted); font-size: .875rem; margin: 0; }
+.reporting-nachfassen .rn-notice {
+  border-left: 3px solid #92a5b4;
+  background: #f3f6f8;
+  padding: 10px 14px;
+  margin: 16px 0;
+  font-size: .9rem;
+}
+.reporting-nachfassen .rn-statuses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom: 1px solid var(--rn-line);
+  padding: 22px 0 18px;
+}
+.reporting-nachfassen .rn-status {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  border: 1px solid #a9b9c6;
+  border-radius: 6px;
+  padding: 8px 13px;
+  background: #fff;
+  color: var(--rn-ink);
+  font: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+.reporting-nachfassen .rn-status:hover { background: #eef5f9; }
+.reporting-nachfassen .rn-status[aria-pressed="true"] {
+  color: #fff;
+  background: var(--rn-ink);
+  border-color: var(--rn-ink);
+}
+.reporting-nachfassen .rn-count {
+  border-radius: 4px;
+  padding: 0 6px;
+  background: #e9f0f5;
+  color: var(--rn-ink);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  min-width: 1.6em;
+  text-align: center;
+}
+.reporting-nachfassen .rn-status[aria-pressed="true"] .rn-count { background: #fff; }
+.reporting-nachfassen .rn-phase {
+  margin: 22px 0 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.reporting-nachfassen .rn-group-title {
+  margin: 0;
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.reporting-nachfassen .rn-list,
+.reporting-nachfassen .rn-milestones { list-style: none; margin: 0; padding: 0; }
+.reporting-nachfassen .rn-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, .32fr);
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rn-line);
+}
+.reporting-nachfassen .rn-row:last-child { border-bottom: 0; }
+.reporting-nachfassen a { color: #005d91; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.reporting-nachfassen a:hover { color: #002d59; }
+.reporting-nachfassen .rn-issue { font-size: .95rem; font-weight: 700; overflow-wrap: anywhere; }
+.reporting-nachfassen .rn-milestones { margin-top: 8px; }
+.reporting-nachfassen .rn-milestone { margin-top: 6px; font-size: .875rem; }
+.reporting-nachfassen .rn-ms-note { display: block; color: var(--rn-muted); font-size: .8rem; }
+.reporting-nachfassen .rn-duration { display: flex; flex-direction: column; align-items: flex-end; text-align: right; font-size: .875rem; }
+.reporting-nachfassen .rn-duration strong { font-size: 1rem; font-variant-numeric: tabular-nums; }
+.reporting-nachfassen .rn-duration .rn-note { margin-top: 4px; font-size: .8rem; }
+.reporting-nachfassen .rn-empty { margin: 12px 0 22px; color: var(--rn-muted); font-size: .9rem; }
+.reporting-nachfassen .rn-uncertain { margin-top: 14px; border-top: 1px solid var(--rn-line); }
+.reporting-nachfassen summary {
+  display: list-item;
+  cursor: pointer;
+  min-height: 44px;
+  padding: 12px 0;
+  color: var(--rn-ink);
+}
+.reporting-nachfassen summary::marker { color: #526579; }
+.reporting-nachfassen :is(button, a, summary):focus-visible { outline: 3px solid #007bae; outline-offset: 4px; }
+.reporting-nachfassen .rn-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .reporting-nachfassen .rn-row { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .reporting-nachfassen .rn-duration { text-align: left; align-items: flex-start; }
+  .reporting-nachfassen .rn-status { flex-grow: 1; justify-content: center; }
+}

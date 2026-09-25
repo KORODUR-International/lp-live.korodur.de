@@ -131,6 +131,11 @@ h1, h2, h3, h4, h5 {
 }
 
 .sidebar__item {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-family: inherit;
   display: block;
   padding: 10px 20px;
   color: var(--primary);
@@ -1906,3 +1911,16 @@ td.red-wk__sum small { display: block; color: var(--muted); font-size: .72rem; }
 .red-spaeter { border: 1px dashed var(--mid-gray); background: #fafafa; border-radius: var(--card-radius); padding: 16px 22px; font-size: .84rem; color: var(--muted); display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin: 0 0 24px; }
 .red-spaeter b { color: var(--primary); text-transform: uppercase; letter-spacing: .06em; font-size: .72rem; }
 .red-kacheln .kpi-card__unit { margin-left: 6px; }
+
+/* Goal-oriented reporting shell (#297). */
+.reporting-title { margin: 0 0 1rem; font-size: 1.5rem; }
+.sidebar__item:focus-visible { outline: 3px solid #087991; outline-offset: -3px; }
+
+.snapshot-mobile { display: none; }
+@media (max-width: 1024px) {
+  .app--reporting { grid-template-rows: auto auto 1fr; }
+  .app--reporting .snapshot-mobile { display: block; padding: 12px 16px 0; }
+  .snapshot-mobile label { display: block; font-size: .8rem; font-weight: 600; }
+  .snapshot-mobile select { width: 100%; min-height: 44px; padding: .5rem; font: inherit; color: var(--primary); background: white; border: 1px solid #c6d0dd; border-radius: 4px; }
+  .snapshot-mobile select:focus-visible { outline: 3px solid #087991; outline-offset: 2px; }
+}

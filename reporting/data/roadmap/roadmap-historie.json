@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-09-24",
+  "letzteFeststellung": "2026-09-25",
   "stand": {
     "con-workflow": {
       "lane": "Social Media & Redaktion",
@@ -4377,6 +4377,15 @@
       "feld": null,
       "alt": "2026-08-31",
       "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-09-25",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-31",
+      "neu": "2026-08-31"
     }
   ],
   "kennzahlen": {
@@ -4517,7 +4526,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 24,
+      "stehengelassen": 25,
       "ueberfaelligSeit": "2026-08-31"
     },
     "con-q4planung": {

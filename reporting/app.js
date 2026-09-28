@@ -1429,7 +1429,7 @@ function renderDashboard(data, { roadmap = roadmapCache?.roadmap || null, archiv
     ${bestandsTag ? renderPhasenVerlauf(data, { abschluesse: false, stichtag: bestandsTag }) : ''}
     ${renderFuss(data)}
   `;
-  const options = { snapshot: data, roadmap, stichtag, heute: berlinDay(new Date()), archiv };
+  const options = { snapshot: data, roadmap, stichtag, heute: berlinDay(new Date()), archiv, kuerzel: REPO_KUERZEL };
   for (const [id, name] of [
     ['reporting-wochenmonitoring', 'ReportingWochenmonitoring'],
     ['reporting-nachfassen', 'ReportingNachfassen'],

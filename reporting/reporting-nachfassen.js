@@ -1,23 +1,22 @@
-/* #295: isolated follow-up module for integration by #297.
- * Load reporting-nachfassen.css alongside this file, then call
- * window.ReportingNachfassen.mount(host, { snapshot, roadmap, stichtag }).
- * stichtag is an injected YYYY-MM-DD Berlin calendar day for the selected
- * snapshot. No clock, fetch, global element IDs or writes to source objects.
- * Returns { destroy() }; remounting the same host cleans up its previous view.
- * Schema/fixtures: docs/reporting-datenvertrag.md (#294).
+/* Gezielt nachfassen (#313): open issues longer than 30 calendar days in the
+ * same status, in three blocks (In Review, Blocked, Liegt bei uns), longest
+ * first. ReportingNachfassen.mount(host, {snapshot, roadmap, stichtag, kuerzel})
+ * returns {destroy()}. No fetch, no clock, no issue titles (public page).
+ * Duration: status_beobachtet_seit without a gap is exact to the day. With
+ * status_beobachtung_luecke the issue was already in this status when daily
+ * observation began (16.08.2026), so the duration is a lower bound ("≥").
+ * Legacy snapshots without it fall back to status_seit ("ca.").
  */
 (function (global) {
   'use strict';
-  const PHASES = ['In Review', 'Bereit', 'In Progress', 'Beansprucht', 'Blocked'];
-  const GROUPS = [
-    ['beobachtet', 'Sicher beobachtet über 30 Tage'],
-    ['luecken', 'Beobachtung nicht vollständig belegt'],
-    ['naeherung', 'Mögliche weitere Fälle, Dauer näherungsweise'],
-    ['unbekannt', 'Dauer unbekannt'],
-  ];
-  const INSTANCES = new WeakMap();
   const DAY = 86400000;
-  const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+  const LIMIT = 30;
+  const BLOCKS = [
+    ['In Review', ['In Review'], 'wartet auf Abstimmung'],
+    ['Blocked', ['Blocked'], 'wartet auf andere'],
+    ['Liegt bei uns', ['In Progress', 'Beansprucht'], 'In Progress und Beansprucht'],
+  ];
+  const BOARD_URL = 'https://github.com/orgs/KORODUR-International/projects/1';
   const PRIORITY = { P0: 0, P1: 1, P2: 2, P3: 3 };
 
   function calendar(value) {
@@ -25,262 +24,116 @@
     const time = Date.parse(value + 'T00:00:00Z');
     return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === value ? time : null;
   }
-  function age(value, today) {
-    const start = calendar(value);
-    return start !== null && start <= today ? (today - start) / DAY : null;
-  }
-  function dateLabel(value) { return value.split('-').reverse().join('.'); }
-  function issueIdentity(row) {
+  const dateLabel = value => value.split('-').reverse().join('.');
+  function identity(row, kuerzel) {
     if (typeof row.repo !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9-]{0,38}\/[A-Za-z0-9_.-]{1,100}$/.test(row.repo)) return null;
     const [owner, repo] = row.repo.split('/');
     if (['.', '..'].includes(repo) || !Number.isSafeInteger(row.nummer) || row.nummer < 1) return null;
-    return { key: `${row.repo}#${row.nummer}`, label: `${row.repo}#${row.nummer}`,
+    const short = kuerzel && typeof kuerzel[row.repo] === 'string' ? kuerzel[row.repo] : repo;
+    return { key: `${row.repo}#${row.nummer}`, label: `${short}#${row.nummer}`, title: `${row.repo}#${row.nummer}`,
       url: `https://github.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/issues/${row.nummer}` };
   }
-  function milestoneIndex(roadmap) {
-    const available = Array.isArray(roadmap?.lanes);
-    const index = new Map();
-    if (available) for (const lane of roadmap.lanes) {
-      if (!Array.isArray(lane?.meilensteine)) continue;
-      for (const ms of lane.meilensteine) {
-        if (!ms || typeof ms.id !== 'string' || !SLUG.test(ms.id)) continue;
-        index.set(ms.id, index.has(ms.id) ? null : ms);
-      }
+  function duration(row, today) {
+    const observed = calendar(row.status_beobachtet_seit);
+    const legacy = calendar(row.status_seit);
+    const legacyOk = legacy !== null && legacy <= today;
+    if (observed !== null && observed <= today) {
+      if (row.status_beobachtung_luecke === false) return { days: (today - observed) / DAY, prefix: '' };
+      // Both dates are lower bounds here: status_seit started from updatedAt,
+      // which a status change always moves, so the earlier one wins.
+      const start = legacyOk ? Math.min(observed, legacy) : observed;
+      return { days: (today - start) / DAY, prefix: '≥ ' };
     }
-    return { available, index };
+    if (legacyOk) return { days: (today - legacy) / DAY, prefix: 'ca. ' };
+    return null;
   }
-  function assignments(row, lookup, today) {
-    const result = [];
-    const raw = Array.isArray(row.meilensteine) ? row.meilensteine : [];
-    let due = Infinity;
-    for (const id of new Set(raw)) {
-      if (typeof id !== 'string' || !SLUG.test(id)) {
-        result.push({ label: 'Ungültige Meilenstein-ID', note: 'Zuordnung prüfen' });
-        continue;
-      }
-      if (id === 'adhoc') { result.push({ label: 'Ad hoc' }); continue; }
-      const ms = lookup.index.get(id);
-      if (!ms) {
-        const note = !lookup.available ? 'Roadmap nicht verfügbar'
-          : lookup.index.has(id) ? 'ID nicht eindeutig' : 'ID nicht in Roadmap';
-        result.push({ label: id, note });
-        continue;
-      }
-      const entry = { label: typeof ms.titel === 'string' && ms.titel ? ms.titel : id,
-        url: `roadmap.html?sel=${encodeURIComponent(id)}` };
-      const day = calendar(ms.datum);
-      if (ms.status === 'erreicht') entry.note = 'Erreicht · Zuordnung prüfen';
-      else if (ms.status === 'entfallen') entry.note = 'Entfallen · Zuordnung prüfen';
-      else if (['offen', 'verschoben'].includes(ms.status)) {
-        if (day !== null) {
-          due = Math.min(due, day);
-          entry.note = dateLabel(ms.datum) + (day < today ? ' · überfällig' : day === today ? ' · heute fällig' : '');
-        } else entry.note = 'Termin folgt';
-      } else entry.note = 'Meilensteinstatus unbekannt';
-      result.push(entry);
+  function milestoneText(row, roadmap) {
+    const titles = new Map();
+    if (Array.isArray(roadmap?.lanes)) for (const lane of roadmap.lanes) for (const ms of lane?.meilensteine || []) {
+      if (typeof ms?.id === 'string' && typeof ms.titel === 'string' && ms.titel) titles.set(ms.id, ms.titel);
     }
-    if (!result.length) result.push({ label: 'Meilenstein fehlt' });
-    return { milestones: result, due };
+    const ids = Array.isArray(row.meilensteine) ? [...new Set(row.meilensteine.filter(id => typeof id === 'string' && id))] : [];
+    return ids.length ? ids.map(id => titles.get(id) || id).join(' · ') : '–';
   }
 
-  function duration(row, today, knownFormat) {
-    const observed = knownFormat ? age(row.status_beobachtet_seit, today) : null;
-    const estimated = age(row.status_seit, today);
-    if (observed !== null && row.status_beobachtung_luecke === false) {
-      return observed > 30 ? { group: 'beobachtet', days: observed,
-        note: `Status beobachtet seit ${dateLabel(row.status_beobachtet_seit)}` } : null;
+  function compile(snapshot, roadmap, today, kuerzel) {
+    const blocks = BLOCKS.map(([name, statuses, hint]) => ({ name, statuses, hint, rows: [] }));
+    let bereit = 0;
+    const seen = new Set();
+    for (const row of Array.isArray(snapshot?.items) ? snapshot.items : []) {
+      if (!row || typeof row !== 'object' || row.discarded === true || row.state === 'CLOSED') continue;
+      const id = identity(row, kuerzel);
+      if (!id || seen.has(id.key)) continue;
+      const info = duration(row, today);
+      if (!info || info.days <= LIMIT) continue;
+      seen.add(id.key);
+      if (row.status === 'Bereit') { bereit++; continue; }
+      const block = blocks.find(b => b.statuses.includes(row.status));
+      if (!block) continue;
+      block.rows.push({ id, ...info, status: row.status, milestones: milestoneText(row, roadmap),
+        priority: typeof row.prioritaet === 'string' && row.prioritaet in PRIORITY ? row.prioritaet : '' });
     }
-    if (knownFormat && (observed !== null || row.status_beobachtung_luecke === true)) {
-      if (observed !== null && observed > 30) return { group: 'luecken', days: observed,
-        note: row.status_beobachtung_luecke === true ? 'Beobachtung mit Lücken' : 'Lücken-Metadaten fehlen',
-        qualifier: 'seit Beobachtungsbeginn' };
-      if (estimated !== null && estimated > 30) return { group: 'luecken', days: estimated,
-        note: 'Dauer näherungsweise; Beobachtung mit Lücken', qualifier: 'näherungsweise' };
-      if (observed !== null || estimated !== null) return null;
-    }
-    if (estimated !== null) return estimated > 30 ? { group: 'naeherung', days: estimated,
-      qualifier: 'näherungsweise', note: 'Legacy-Näherung; kein belegter Statusbeginn' } : null;
-    return { group: 'unbekannt', days: null, note: 'Keine auswertbare Dauer vorhanden' };
+    for (const block of blocks) block.rows.sort((a, b) => b.days - a.days
+      || (PRIORITY[a.priority] ?? 9) - (PRIORITY[b.priority] ?? 9) || a.id.key.localeCompare(b.id.key));
+    return { blocks, bereit, available: Array.isArray(snapshot?.items) };
   }
 
-  function compile(snapshot, roadmap, today) {
-    const phases = Object.fromEntries(PHASES.map(status => [status,
-      Object.fromEntries(GROUPS.map(([key]) => [key, []]))]));
-    const available = Array.isArray(snapshot?.items);
-    const knownFormat = snapshot?._meta?.version === '3.4';
-    const lookup = milestoneIndex(roadmap);
-    const seen = new Map(), candidates = [], conflicts = new Map();
-    let invalid = 0;
-    for (const row of available ? snapshot.items : []) {
-      if (!row || typeof row !== 'object' || Array.isArray(row)) { invalid++; continue; }
-      if (!PHASES.includes(row.status) || row.discarded === true || row.state === 'CLOSED'
-          || row.stateReason === 'NOT_PLANNED' || row.state_reason === 'NOT_PLANNED') continue;
-      const identity = issueIdentity(row);
-      const relevant = [row.status, row.status_beobachtet_seit, row.status_beobachtung_luecke,
-        row.status_seit, row.prioritaet, Array.isArray(row.meilensteine) ? [...new Set(row.meilensteine)].sort() : []];
-      const signature = JSON.stringify(relevant);
-      if (identity && seen.has(identity.key)) {
-        if (seen.get(identity.key) !== signature) conflicts.set(identity.key, identity);
-        continue;
-      }
-      if (identity) seen.set(identity.key, signature);
-      candidates.push({ row, identity });
-    }
-    for (const { row, identity } of candidates) {
-      if (identity && conflicts.has(identity.key)) continue;
-      const info = identity ? duration(row, today, knownFormat)
-        : { group: 'unbekannt', days: null, note: 'Gültige Issue-Kennung fehlt; Dauer nicht sicher zuordenbar' };
-      if (!info) continue;
-      phases[row.status][info.group].push({ identity, ...info, ...assignments(row, lookup, today),
-        priority: PRIORITY[row.prioritaet] ?? 9, number: identity ? row.nummer : 0 });
-    }
-    for (const phase of Object.values(phases)) for (const list of Object.values(phase)) {
-      list.sort((a, b) => a.due - b.due || (b.days ?? -1) - (a.days ?? -1)
-        || a.priority - b.priority || (a.identity?.key.split('#')[0] || '').localeCompare(b.identity?.key.split('#')[0] || '')
-        || a.number - b.number);
-    }
-    return { phases, available, knownFormat, conflicts: [...conflicts.values()], invalid,
-      partial: snapshot?._meta?.board_vollstaendig === false };
-  }
-
-  function mount(host, { snapshot, roadmap, stichtag } = {}) {
-    if (!host?.ownerDocument || typeof host.replaceChildren !== 'function') throw new TypeError('mount requires a DOM host element');
+  function mount(host, { snapshot, roadmap, stichtag, kuerzel } = {}) {
+    if (!host?.ownerDocument) throw new TypeError('mount requires a DOM host element');
     const doc = host.ownerDocument;
-    const restoreFocus = host.contains(doc.activeElement);
-    INSTANCES.get(host)?.destroy();
-    const cleanup = [];
-    let destroyed = false;
-    function element(tag, className, text) {
+    const el = (tag, className, text) => {
       const node = doc.createElement(tag);
       if (className) node.className = className;
       if (text !== undefined) node.textContent = text;
       return node;
-    }
-    function link(info, className) {
-      const node = element('a', className, info.label);
-      node.setAttribute('href', info.url);
-      if (info.url.startsWith('https://github.com/')) {
-        node.setAttribute('target', '_blank'); node.setAttribute('rel', 'noopener noreferrer');
-      }
-      return node;
-    }
-    function listen(node, type, callback) {
-      node.addEventListener(type, callback);
-      cleanup.push(() => node.removeEventListener(type, callback));
-    }
-    const root = element('section', 'reporting-nachfassen');
+    };
+    const link = (text, url, className) => {
+      const a = el('a', className, text);
+      a.setAttribute('href', url); a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener noreferrer');
+      return a;
+    };
+    const root = el('section', 'status-section reporting-nachfassen fade-in');
     root.setAttribute('aria-label', 'Gezielt nachfassen');
     host.replaceChildren(root);
-    const handle = { destroy() {
-      if (destroyed) return;
-      destroyed = true;
-      cleanup.forEach(remove => remove());
-      root.remove();
-      if (INSTANCES.get(host) === handle) INSTANCES.delete(host);
-    } };
-    INSTANCES.set(host, handle);
-    root.append(element('h2', 'rn-title', 'Gezielt nachfassen'));
+    const handle = { destroy() { root.remove(); } };
+    root.append(el('h3', 'status-section__title', 'GEZIELT NACHFASSEN'));
     const today = calendar(stichtag);
-    if (today === null) {
-      root.append(element('p', 'rn-notice', 'Der Stichtag fehlt oder ist ungültig. Die Statusdauer ist nicht auswertbar.'));
+    const data = today === null ? null : compile(snapshot, roadmap, today, kuerzel);
+    if (!data || !data.available) {
+      root.append(el('p', 'matrix__hinweis', 'Für diesen Stand gibt es keine auswertbaren Issue-Daten.'));
       return handle;
     }
-    const data = compile(snapshot, roadmap, today);
-    root.append(element('p', 'rn-intro', `Mehr als 30 Kalendertage im aktuellen Status · Stichtag ${dateLabel(stichtag)}`));
-    root.append(element('p', 'rn-note', 'Lange Dauer bedeutet nicht zwingend fehlende Arbeit. Beobachtungen und Näherungen werden getrennt ausgewiesen.'));
-    if (Array.isArray(roadmap?.lanes)) {
-      const planDate = calendar(roadmap.stand);
-      root.append(element('p', 'rn-note', `Roadmap: aktueller Plan · ${planDate === null
-        ? 'Stand unbekannt' : `Stand ${dateLabel(roadmap.stand)}`} · kein historischer Planstand des Snapshots.`));
-    }
-    if (!data.available) root.append(element('p', 'rn-notice', 'Für diesen Snapshot fehlen auswertbare Issue-Daten. Die Anzahl ist unbekannt.'));
-    if (data.available && !data.knownFormat) root.append(element('p', 'rn-notice',
-      /^3\.[0-3]$/.test(snapshot?._meta?.version || '')
-        ? 'Altformat: Die Statusdauer ist nur näherungsweise belegbar.'
-        : 'Unbekanntes Snapshot-Format: Beobachtungen sind nicht sicher auswertbar; vorhandene Näherungen bleiben getrennt.'));
-    if (data.partial) root.append(element('p', 'rn-notice', 'Unvollständige Datenbasis: Die Listen zeigen nur die vorliegenden Einträge.'));
-    if (data.invalid) root.append(element('p', 'rn-notice', `${data.invalid} Datensätze sind nicht auswertbar.`));
-    if (data.conflicts.length) {
-      const note = element('details', 'rn-uncertain');
-      note.append(element('summary', '', `${data.conflicts.length} widersprüchliche Kennung${data.conflicts.length === 1 ? '' : 'en'} · Statuszuordnung prüfen`));
-      const list = element('ul', 'rn-conflicts');
-      for (const identity of data.conflicts) {
-        const entry = element('li'); entry.append(link(identity)); list.append(entry);
-      }
-      note.append(list); root.append(note);
-    }
-    const controls = element('div', 'rn-statuses');
-    controls.setAttribute('role', 'group'); controls.setAttribute('aria-label', 'Status auswählen; Zahl der sicher beobachteten Fälle');
-    const panel = element('div', 'rn-panel');
-    const announcer = element('p', 'rn-sr');
-    announcer.setAttribute('role', 'status'); announcer.setAttribute('aria-live', 'polite'); announcer.setAttribute('aria-atomic', 'true');
-    const buttons = [];
-
-    function listRow(row) {
-      const li = element('li', 'rn-row');
-      const context = element('div', 'rn-context');
-      context.append(row.identity ? link(row.identity, 'rn-issue') : element('span', 'rn-issue', 'Eintrag ohne gültige Issue-Kennung'));
-      const milestones = element('ul', 'rn-milestones');
-      for (const ms of row.milestones) {
-        const entry = element('li', 'rn-milestone');
-        entry.append(ms.url ? link(ms) : element('span', '', ms.label));
-        if (ms.note) entry.append(element('span', 'rn-ms-note', ms.note));
-        milestones.append(entry);
-      }
-      context.append(milestones);
-      const duration = element('div', 'rn-duration');
-      duration.append(element('strong', '', row.days === null ? 'Dauer unbekannt' : `${row.days} Kalendertage`));
-      if (row.qualifier) duration.append(element('span', '', row.qualifier));
-      duration.append(element('span', 'rn-note', row.note));
-      li.append(context, duration);
-      return li;
-    }
-    function select(index, focus = false) {
-      if (destroyed) return;
-      const phase = PHASES[index], groups = data.phases[phase];
-      buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
-      panel.replaceChildren();
-      panel.append(element('h3', 'rn-phase', phase));
-      if (data.available) for (const [key, label] of GROUPS) {
-        const entries = groups[key];
-        if (key !== 'beobachtet' && !entries.length) continue;
-        const section = element(key === 'beobachtet' ? 'section' : 'details', key === 'beobachtet' ? 'rn-proven' : 'rn-uncertain');
-        section.setAttribute('data-gruppe', key);
-        section.append(element(key === 'beobachtet' ? 'h4' : 'summary', 'rn-group-title', `${label} · ${entries.length}`));
-        if (!entries.length) section.append(element('p', 'rn-empty', `Keine sicher beobachteten Fälle über 30 Tage in ${phase} in den vorliegenden Daten.`));
-        else {
-          const list = element('ol', 'rn-list');
-          for (const row of entries) list.append(listRow(row));
-          section.append(list);
+    root.append(el('p', 'matrix__hinweis', `Seit über ${LIMIT} Tagen im selben Status, längste zuerst · Stand ${dateLabel(stichtag)}`));
+    const grid = el('div', 'rn-blocks');
+    for (const block of data.blocks) {
+      const col = el('div', 'rn-block');
+      col.setAttribute('data-block', block.name);
+      const head = el('div', 'rn-block__head');
+      head.append(el('span', 'rn-block__name', block.name), el('span', 'rn-block__count', String(block.rows.length)));
+      col.append(head, el('div', 'rn-block__hint', block.hint));
+      if (!block.rows.length) col.append(el('p', 'rn-empty', 'Nichts über 30 Tage.'));
+      else {
+        const list = el('ol', 'rn-list');
+        for (const row of block.rows) {
+          const li = el('li', 'rn-row');
+          const top = el('div', 'rn-row__top');
+          const a = link(row.id.label, row.id.url, 'rn-issue'); a.setAttribute('title', row.id.title);
+          top.append(a, el('span', 'rn-days', `${row.prefix}${row.days} Tage`));
+          if (row.priority) top.append(el('span', 'rn-prio', row.priority));
+          if (block.statuses.length > 1) top.append(el('span', 'rn-status', row.status));
+          li.append(top, el('div', 'rn-ms', row.milestones));
+          list.append(li);
         }
-        panel.append(section);
+        col.append(list);
       }
-      const unknown = data.available ? '' : 'Anzahl unbekannt. ';
-      announcer.textContent = `${phase}. ${unknown}${data.available ? `${groups.beobachtet.length} sicher beobachtete Fälle über 30 Tage; `
-        + `${groups.luecken.length} mit unvollständiger Beobachtung, ${groups.naeherung.length} Näherungen, ${groups.unbekannt.length} mit unbekannter Dauer.` : ''}`;
-      if (focus) buttons[index].focus();
+      grid.append(col);
     }
-    PHASES.forEach((phase, index) => {
-      const button = element('button', 'rn-status', phase);
-      button.setAttribute('type', 'button'); button.setAttribute('data-status', phase);
-      button.setAttribute('aria-label', `${phase}: ${data.available
-        ? `${data.phases[phase].beobachtet.length} sicher beobachtete Fälle über 30 Tage` : 'Anzahl unbekannt'}`);
-      if (data.available) button.append(element('span', 'rn-count', String(data.phases[phase].beobachtet.length)));
-      listen(button, 'click', () => select(index));
-      listen(button, 'keydown', event => {
-        let next;
-        if (event.key === 'ArrowRight') next = (index + 1) % PHASES.length;
-        else if (event.key === 'ArrowLeft') next = (index + PHASES.length - 1) % PHASES.length;
-        else if (event.key === 'Home') next = 0;
-        else if (event.key === 'End') next = PHASES.length - 1;
-        else return;
-        event.preventDefault(); select(next, true);
-      });
-      buttons.push(button); controls.append(button);
-    });
-    root.append(controls, panel, announcer);
-    select(0, restoreFocus);
+    root.append(grid);
+    const foot = el('p', 'matrix__hinweis rn-foot');
+    foot.append(el('span', '', `≥ heißt: mindestens so lange, der genaue Beginn liegt vor den Tages-Snapshots. Bereit wird nicht gelistet: ${data.bereit} Bereit-Issues liegen über ${LIMIT} Tage, `));
+    foot.append(link('Board', BOARD_URL), el('span', '', '.'));
+    root.append(foot);
     return handle;
   }
-  global.ReportingNachfassen = Object.freeze({ mount });
+  global.ReportingNachfassen = Object.freeze({ mount, compile });
 })(window);

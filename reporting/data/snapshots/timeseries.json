@@ -2657,8 +2657,8 @@
   },
   {
     "date": "2026-09-28",
-    "items": 1024,
-    "done": 679,
+    "items": 1025,
+    "done": 680,
     "in_progress": 27,
     "open": 157,
     "blocked": 17,
@@ -2668,7 +2668,7 @@
     "bereit": 57,
     "by_owner": {
       "Human": 118,
-      "Claude": 639,
+      "Claude": 640,
       "Either": 265,
       "none": 2
     },
@@ -2681,7 +2681,7 @@
       "Blocked": 17,
       "On Hold": 11,
       "Später": 69,
-      "Done": 743,
+      "Done": 744,
       "none": 0
     },
     "meilenstein": {

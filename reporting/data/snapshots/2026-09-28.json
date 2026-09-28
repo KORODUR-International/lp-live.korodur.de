@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-28",
-    "generated_at": "2026-09-28T13:29:44.398721+00:00",
+    "generated_at": "2026-09-28T15:51:13.669778+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -9,8 +9,8 @@
     "version": "3.4"
   },
   "totals": {
-    "items": 1024,
-    "done": 679,
+    "items": 1025,
+    "done": 680,
     "in_progress": 27,
     "open": 157,
     "blocked": 17,
@@ -28,18 +28,18 @@
     "Blocked": 17,
     "On Hold": 11,
     "Später": 69,
-    "Done": 743,
+    "Done": 744,
     "none": 0
   },
   "by_owner": {
     "Human": 118,
-    "Claude": 639,
+    "Claude": 640,
     "Either": 265,
     "none": 2
   },
   "by_priority": {
     "P0": 17,
-    "P1": 481,
+    "P1": 482,
     "P2": 433,
     "P3": 90,
     "none": 3
@@ -82,7 +82,7 @@
     },
     "done": {
       "P0": 14,
-      "P1": 365,
+      "P1": 366,
       "P2": 248,
       "P3": 49,
       "none": 3
@@ -91,8 +91,8 @@
   "areas": [
     {
       "name": "Marketing",
-      "total": 450,
-      "done": 307,
+      "total": 451,
+      "done": 308,
       "in_progress": 18,
       "open": 53,
       "blocked": 9,
@@ -101,7 +101,7 @@
       "discarded": 38,
       "by_owner": {
         "Human": 50,
-        "Claude": 276,
+        "Claude": 277,
         "Either": 123,
         "none": 1
       }
@@ -258,8 +258,8 @@
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 158,
-      "done": 124,
+      "total": 159,
+      "done": 125,
       "in_progress": 3,
       "open": 16,
       "blocked": 0,
@@ -268,7 +268,7 @@
       "discarded": 7,
       "by_owner": {
         "Human": 16,
-        "Claude": 113,
+        "Claude": 114,
         "Either": 29,
         "none": 0
       },
@@ -281,7 +281,7 @@
         "Blocked": 0,
         "On Hold": 1,
         "Später": 7,
-        "Done": 131,
+        "Done": 132,
         "none": 0
       }
     },
@@ -5055,13 +5055,13 @@
     "2026-09-23": 9,
     "2026-09-24": 14,
     "2026-09-25": 51,
-    "2026-09-28": 15
+    "2026-09-28": 16
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
-    "2026-09": 235
+    "2026-09": 236
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -5078,7 +5078,7 @@
     "2026-W37": 44,
     "2026-W38": 65,
     "2026-W39": 111,
-    "2026-W40": 15
+    "2026-W40": 16
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#4",
@@ -5449,6 +5449,7 @@
     "KORODUR-International/korodur-review-reporting#3",
     "KORODUR-International/korodur-review-reporting#303",
     "KORODUR-International/korodur-review-reporting#305",
+    "KORODUR-International/korodur-review-reporting#307",
     "KORODUR-International/korodur-review-reporting#34",
     "KORODUR-International/korodur-review-reporting#35",
     "KORODUR-International/korodur-review-reporting#37",
@@ -5955,6 +5956,14 @@
         "closed_at": "2026-09-28T13:28:37Z"
       },
       {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 307,
+        "bereich": "Marketing",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-28T15:49:17Z"
+      },
+      {
         "repo": "sfleischmann-3steps2/KORODUR-Website",
         "nummer": 550,
         "bereich": "Marketing",
@@ -6041,7 +6050,7 @@
       "leer": 0
     },
     "erledigt": {
-      "auf": 186,
+      "auf": 187,
       "adhoc": 46,
       "leer": 447
     },
@@ -6117,7 +6126,7 @@
         "leer": 2
       },
       "2026-W40": {
-        "auf": 15,
+        "auf": 16,
         "adhoc": 0,
         "leer": 0
       }
@@ -6485,7 +6494,7 @@
       },
       "web-design-preview": {
         "offen": 7,
-        "erledigt": 11
+        "erledigt": 12
       },
       "web-dpi-uebernahme": {
         "offen": 10,
@@ -6493,7 +6502,7 @@
       },
       "web-empfehlungen": {
         "offen": 3,
-        "erledigt": 5
+        "erledigt": 6
       },
       "web-industrieboden": {
         "offen": 2,
@@ -6513,7 +6522,7 @@
       },
       "web-loesungsfinder": {
         "offen": 3,
-        "erledigt": 17
+        "erledigt": 18
       },
       "web-pdp": {
         "offen": 5,
@@ -6521,7 +6530,7 @@
       },
       "web-portfolio": {
         "offen": 1,
-        "erledigt": 0
+        "erledigt": 1
       },
       "web-refdesign": {
         "offen": 1,
@@ -6539,7 +6548,7 @@
     "basis": "board_bestand",
     "von": "2026-08-31",
     "bis": "2026-09-28",
-    "stand": "2026-09-28T13:29:44.398721+00:00",
+    "stand": "2026-09-28T15:51:13.669778+00:00",
     "vollstaendig": false,
     "tage": {
       "2026-09-09": 1,
@@ -6556,7 +6565,7 @@
       "2026-09-23": 9,
       "2026-09-24": 14,
       "2026-09-25": 51,
-      "2026-09-28": 15
+      "2026-09-28": 16
     },
     "issues": [
       {
@@ -8846,6 +8855,19 @@
           "ueb-website-enfr",
           "ueb-tds-enfr",
           "pdb-dop-13813-enfr"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 307,
+        "closed_at": "2026-09-28T15:49:17+00:00",
+        "datum": "2026-09-28",
+        "bereich": "Marketing",
+        "meilensteine": [
+          "web-design-preview",
+          "web-loesungsfinder",
+          "web-empfehlungen",
+          "web-portfolio"
         ]
       },
       {

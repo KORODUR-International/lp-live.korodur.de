@@ -778,6 +778,12 @@ h1, h2, h3, h4, h5 {
 .rm-lane__zone { position: relative; height: 96px; }
 .rm-lane__next { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border-left: 2px solid var(--mid-gray); padding: 4px 8px; }
 .rm-chip { font-size: .68rem; color: var(--primary); background: var(--light-gray); border-radius: 20px; padding: 2px 9px; text-align: center; }
+.rm-chip--fold summary { cursor: pointer; list-style: none; white-space: nowrap; }
+.rm-chip--fold summary::-webkit-details-marker { display: none; }
+.rm-chip--fold summary::after { content: ' ▸'; }
+.rm-chip--fold[open] summary::after { content: ' ▾'; }
+.rm-chip--fold summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 20px; }
+.rm-chip__text { display: block; margin-top: 4px; }
 
 .rm-grid-v { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--light-gray); }
 .rm-today { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--primary); opacity: .55; }

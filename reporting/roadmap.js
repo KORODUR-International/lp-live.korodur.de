@@ -373,7 +373,7 @@ function laneRowHtml(lane) {
       ${ms.map((m, i) => labelHtml(m, i)).join('')}
       ${ms.map(m => markerHtml(m, lane.id, color)).join('')}
     </div>
-    <div class="rm-lane__next">${zoomDef().outlook && lane.weiter2027 ? `<span class="rm-chip">→ ${esc(lane.weiter2027)}</span>` : ''}</div>
+    <div class="rm-lane__next">${zoomDef().outlook && lane.weiter2027 ? `<details class="rm-chip rm-chip--fold"><summary title="${esc(lane.weiter2027)}">→ Ausblick</summary><span class="rm-chip__text">${esc(lane.weiter2027)}</span></details>` : ''}</div>
   </div>`;
 }
 

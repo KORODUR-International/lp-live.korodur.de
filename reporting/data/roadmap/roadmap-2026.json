@@ -1,7 +1,7 @@
 {
-  "version": "1.20",
+  "version": "1.21",
   "stand": "2026-09-28",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst.",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -203,11 +203,11 @@
           "datum": "2026-09-28",
           "titel": "Designvorschau für die GBL fertig",
           "typ": "meilenstein",
-          "status": "verschoben",
-          "klaerung": true,
-          "details": "Die Gestaltungsrichtung und exemplarische Produkt- und Referenzdetails sind umgesetzt. Für die GBL am 30.09. werden die priorisierten Restarbeiten und ein geprüfter Präsentationspfad bis Montag, 28.09., zusammengeführt: Startseite, Menübereiche, Kontakt, Produkt- und Referenzverknüpfungen. Die Referenzübersicht erhält einen kompakten Einstieg; Variantenentscheidungen bleiben sichtbar. Screenshots bilden die Präsentationsgrundlage, eine Live-Demo ist optional. Der frühere Zieltag war 25.09.",
-          "abhaengigkeit": "Hochauflösende Originaldatei für das bestehende Key Visual, offene Variantenentscheidungen und abschließender Seiten-/Linkcheck",
-          "confidence": "mittel"
+          "status": "erreicht",
+          "klaerung": false,
+          "details": "Gestaltungsrichtung, Startseite, Bereiche, Referenzübersicht sowie exemplarische Produkt- und Referenzdetails sind für die GBL am 30.09. umgesetzt; der letzte Durchgang wurde am 28.09.2026 eingearbeitet (Website #650, #693, #740, #741). Die Prüfung des Demopfads mit Screenshots (#695) läuft als GBL-Vorbereitung weiter und trägt den Meilenstein nicht. Der frühere Zieltag war 25.09.",
+          "confidence": "hoch",
+          "erreichtAm": "2026-09-28"
         },
         {
           "id": "web-daten",
@@ -225,11 +225,12 @@
           "datum": "2026-10-15",
           "titel": "Lösungsfinder: Ablauf und Entscheidungslogik abgestimmt",
           "typ": "meilenstein",
-          "status": "verschoben",
-          "klaerung": true,
-          "confidence": "mittel",
-          "details": "In der Roadmap-Abstimmung am 22.09. auf Mitte Oktober gelegt. Die Durchsicht des Ablaufs und die abschließende Kollegenrunde sind getrennt von den Produktempfehlungen. Notwendige Korrekturen sind eingearbeitet; der konkrete Abstimmungstermin ist noch zu vereinbaren.",
-          "issue": "sfleischmann-3steps2/KORODUR-Website#546"
+          "status": "erreicht",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Ablauf und Entscheidungslogik sind in der Abstimmung am 25.09.2026 abgestimmt und am selben Tag umgesetzt (Website #696). Offen bleiben gestalterische Details der Schritte (#606); die Produktempfehlungen sind ein eigener Meilenstein. Geplant war Mitte Oktober.",
+          "issue": "sfleischmann-3steps2/KORODUR-Website#546",
+          "erreichtAm": "2026-09-25"
         },
         {
           "id": "web-freeze",
@@ -242,23 +243,45 @@
           "details": "Termin aufgehoben mit dem DPI-Beschluss vom 18.08.2026: Content-Freeze und muttersprachliche Prüfung werden mit der Launch-Definition neu terminiert. Die Zuständigkeit bleibt geklärt: alle internationalen Übersetzungen laufen über eine zentrale Koordination, die die Prüfung je Land beauftragt."
         },
         {
+          "id": "web-produktauswahl",
+          "datum": "2026-09-28",
+          "titel": "Produktauswahl für die Website steht",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "erreichtAm": "2026-09-28",
+          "klaerung": false,
+          "confidence": "mittel",
+          "details": "Am 28.09.2026 aus dem Portfolio-Meilenstein herausgelöst: welche Produkte auf die neue Website kommen, ist festgelegt. Der Tag der Festlegung ist nicht eigens belegt; eingetragen ist die Bestätigung in der Roadmap-Abstimmung vom 28.09.2026. Systeme und Value Added Products laufen im Portfolio-Meilenstein weiter."
+        },
+        {
           "id": "web-portfolio",
           "datum": "2026-10-31",
-          "titel": "Produkt- und Systemportfolio für die Website abgestimmt",
+          "titel": "Systeme und Value Added Products für die Website abgestimmt",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "abhaengigkeit": "Fachliche Abnahme durch die Technik; konkreter Prüfungstermin noch zu vereinbaren",
-          "details": "Zieltermin Ende Oktober, keine zugesagte Abnahmefrist. Die Prüfung soll ab Mitte Oktober beginnen. Abgestimmt sind die Auswahl aktiver Produkte und Nischenprodukte, zusätzlich dargestellte Systeme und Verfahren, Produktarten samt Zuordnungen sowie die Bildauswahl. Notwendige Korrekturen sind dokumentiert und zur Umsetzung zugeordnet. Technische Kennwerte und Dokumentenfreigaben folgen separat aus dem Projekt Digitale Produktinformationen."
+          "abhaengigkeit": "Fachliche Abnahme durch die Technik; endgültige VAP-Liste aus DPI (pdb-vap); konkreter Prüfungstermin noch zu vereinbaren",
+          "details": "Zieltermin Ende Oktober, keine zugesagte Abnahmefrist. Die Produktauswahl steht bereits (eigener Meilenstein, erreicht). Offen sind die zusätzlich dargestellten Systeme und Verfahren, die Definition der Value Added Products, Produktarten samt Zuordnungen sowie die Bildauswahl. Die VAP-Definition wird mit dem DPI-Meilenstein pdb-vap gemeinsam geführt, nicht doppelt. Technische Kennwerte und Dokumentenfreigaben folgen separat aus dem Projekt Digitale Produktinformationen."
+        },
+        {
+          "id": "web-ergebnisseite",
+          "datum": "2026-09-25",
+          "titel": "Lösungsfinder: Ergebnisseite fertig",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "erreichtAm": "2026-09-25",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Am 28.09.2026 aus dem Meilenstein zu den Empfehlungen herausgelöst. Die Ergebnisseite ist nach der Abstimmung vom 25.09.2026 umgesetzt: offene Darstellung, Kacheln mit Datenblatt, kompakte Mobilansicht, hervorgehobener Anfrage-Block (Website #698, #708, #710, alle am 25.09. geschlossen). Geplant war sie zusammen mit den Empfehlungen bis 31.10.; das Datum ist der Erreicht-Tag."
         },
         {
           "id": "web-empfehlungen",
           "datum": "2026-10-31",
-          "titel": "Lösungsfinder: Empfehlungen freigegeben und Ergebnisseite fertig",
+          "titel": "Lösungsfinder: Empfehlungen fachlich freigegeben",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": false,
-          "details": "Aus fachlich abgestimmten Auswahlregeln entsteht zunächst ein gekennzeichneter Prüfentwurf für das aktive Sortiment. Expertenprüfung, Korrekturen und geprüfte Beispieldurchläufe schließen den Meilenstein ab. Zieltermin, keine bereits zugesagte Abnahmefrist.",
+          "details": "Aus fachlich abgestimmten Auswahlregeln entsteht ein gekennzeichneter Prüfentwurf für das aktive Sortiment (Entscheidungsbaum über Produkteigenschaften, Wege ohne Empfehlung zur Durchsicht). Expertenprüfung, Korrekturen und geprüfte Beispieldurchläufe schließen den Meilenstein ab. Die Ergebnisseite ist seit 28.09.2026 ein eigener, erreichter Meilenstein. Zieltermin, keine bereits zugesagte Abnahmefrist.",
           "abhaengigkeit": "Fachliche Auswahlregeln und Expertenprüfung der Produktempfehlungen"
         },
         {

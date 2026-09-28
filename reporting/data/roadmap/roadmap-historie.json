@@ -77,7 +77,7 @@
     "web-design-preview": {
       "lane": "Website",
       "datum": "2026-09-28",
-      "status": "verschoben",
+      "status": "erreicht",
       "titel": "Designvorschau für die GBL fertig"
     },
     "web-daten": {
@@ -89,7 +89,7 @@
     "web-loesungsfinder": {
       "lane": "Website",
       "datum": "2026-10-15",
-      "status": "verschoben",
+      "status": "erreicht",
       "titel": "Lösungsfinder: Ablauf und Entscheidungslogik abgestimmt"
     },
     "web-freeze": {
@@ -98,17 +98,29 @@
       "status": "entfallen",
       "titel": "Muttersprachliche Prüfung Go-Live-Umfang abgeschlossen; Content-Freeze"
     },
+    "web-produktauswahl": {
+      "lane": "Website",
+      "datum": "2026-09-28",
+      "status": "erreicht",
+      "titel": "Produktauswahl für die Website steht"
+    },
     "web-portfolio": {
       "lane": "Website",
       "datum": "2026-10-31",
       "status": "offen",
-      "titel": "Produkt- und Systemportfolio für die Website abgestimmt"
+      "titel": "Systeme und Value Added Products für die Website abgestimmt"
+    },
+    "web-ergebnisseite": {
+      "lane": "Website",
+      "datum": "2026-09-25",
+      "status": "erreicht",
+      "titel": "Lösungsfinder: Ergebnisseite fertig"
     },
     "web-empfehlungen": {
       "lane": "Website",
       "datum": "2026-10-31",
       "status": "offen",
-      "titel": "Lösungsfinder: Empfehlungen freigegeben und Ergebnisseite fertig"
+      "titel": "Lösungsfinder: Empfehlungen fachlich freigegeben"
     },
     "web-industrieboden": {
       "lane": "Website",
@@ -5001,6 +5013,60 @@
       "feld": "status",
       "alt": "offen",
       "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "web-ergebnisseite",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-25"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "web-produktauswahl",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-09-28"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "web-design-preview",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "verschoben",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "web-empfehlungen",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Lösungsfinder: Empfehlungen freigegeben und Ergebnisseite fertig",
+      "neu": "Lösungsfinder: Empfehlungen fachlich freigegeben"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "web-loesungsfinder",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "verschoben",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "web-portfolio",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Produkt- und Systemportfolio für die Website abgestimmt",
+      "neu": "Systeme und Value Added Products für die Website abgestimmt"
     }
   ],
   "kennzahlen": {

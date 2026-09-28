@@ -1,7 +1,7 @@
 {
-  "version": "1.18",
-  "stand": "2026-09-25",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären.",
+  "version": "1.19",
+  "stand": "2026-09-28",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -458,7 +458,7 @@
         "ende": "2026-12-31"
       },
       "stil": "normal",
-      "weiter2027": true,
+      "weiter2027": "Automatisierte Dokumenterzeugung, weitere Sprachen und Übergabe an die Technik; Verpackungen und Chatbots bis Ende 2027; Digitaler Produktpass als Vision 2028.",
       "meilensteine": [
         {
           "id": "pdb-m1",
@@ -590,11 +590,55 @@
           "datum": null,
           "titel": "DoPs für drei Normen in DE, danach EN und FR bereitgestellt",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Leistungserklärungen nach EN 13813, EN 1504-3 und EN 998-1 entstehen aus validierten Daten. Deutsche Fassungen gehen vor, danach Englisch und Französisch. Das Quartal ist ein Planungsfenster ohne zugesagten Tagesabschluss.",
+          "details": "Aufgeteilt am 28.09.2026 in vier terminierte Meilensteine: EN 13813 auf Deutsch (15.10.) sowie Englisch und Französisch (12.11.), EN 1504-3 und EN 998-1 auf Deutsch (29.10.) sowie Englisch und Französisch (26.11.). Leistungserklärungen nach EN 13813, EN 1504-3 und EN 998-1 entstehen aus validierten Daten. Deutsche Fassungen gehen vor, danach Englisch und Französisch. Das Quartal ist ein Planungsfenster ohne zugesagten Tagesabschluss.",
           "abhaengigkeit": "Produktdatenvalidierung, normbezogene Freigaben sowie Sprachprüfung und Versions-/Archivkonzept",
           "zielzeitraum": "Q4 2026"
+        },
+        {
+          "id": "pdb-dop-13813-de",
+          "datum": "2026-10-15",
+          "titel": "Leistungserklärungen EN 13813 auf Deutsch generiert",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "mittel",
+          "abhaengigkeit": "Fachliche Freigabe der Produktdaten durch die Technik",
+          "details": "Die deutschen Leistungserklärungen nach EN 13813 entstehen im beschlossenen Design aus validierten Daten. Der Termin ist der Startpunkt für die englische und französische Fassung vier Wochen später."
+        },
+        {
+          "id": "pdb-dop-13813-enfr",
+          "datum": "2026-11-12",
+          "titel": "Leistungserklärungen EN 13813 auf Englisch und Französisch",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "mittel",
+          "abhaengigkeit": "Deutsche Fassung EN 13813 generiert; Sprachprüfung",
+          "details": "Vier Wochen nach der deutschen Fassung liegen Englisch und Französisch vor."
+        },
+        {
+          "id": "pdb-dop-weitere-de",
+          "datum": "2026-10-29",
+          "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Deutsch generiert",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "niedrig",
+          "abhaengigkeit": "Fachliche Freigabe der Produktdaten durch die Technik; eigener Termin für diese Normen noch offen",
+          "details": "Die beiden weiteren Normen ziehen zwei Wochen nach EN 13813 nach. Ob sie einen eigenen Termin bekommen, ist noch offen; der Tag ist ein Planwert."
+        },
+        {
+          "id": "pdb-dop-weitere-enfr",
+          "datum": "2026-11-26",
+          "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Englisch und Französisch",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "niedrig",
+          "abhaengigkeit": "Deutsche Fassungen EN 1504-3 und EN 998-1 generiert; Sprachprüfung",
+          "details": "Vier Wochen nach den deutschen Fassungen liegen Englisch und Französisch vor. Planwert, abhängig vom deutschen Termin."
         },
         {
           "id": "pdb-vap",

@@ -142,6 +142,27 @@ function pct(iso) {
 }
 const inWindow = iso => { const x = pct(iso); return x >= 0 && x <= 100; };
 
+// Planungsfenster (#303): ein offener Meilenstein ohne Datum, dessen
+// `zielzeitraum` Quartale nennt („Q4 2026", „Q4 2026 bis Q1 2027"), bekommt
+// einen hohlen Marker in der Mitte des Fensters. Das ist keine Tagesfrist:
+// kein Verzug, kein Datum im Label. Reine Jahresangaben („2027") bleiben
+// ohne Marker, sie sagen über die Lage im Jahr nichts.
+function fensterMitte(zielzeitraum) {
+  const q = [...String(zielzeitraum || '').matchAll(/Q([1-4])\s*(\d{4})/g)];
+  if (!q.length) return null;
+  const quartalStart = t => new Date(Number(t[2]), (Number(t[1]) - 1) * 3, 1, 12);
+  const von = quartalStart(q[0]);
+  const letztes = quartalStart(q[q.length - 1]);
+  const bis = new Date(letztes.getFullYear(), letztes.getMonth() + 3, 1, 12);
+  const mitte = new Date((von.getTime() + bis.getTime()) / 2);
+  return mitte.getFullYear() + '-' + String(mitte.getMonth() + 1).padStart(2, '0') + '-' + String(mitte.getDate()).padStart(2, '0');
+}
+const imFenster = m => !m.datum && m.status === 'offen' && Boolean(fensterMitte(m.zielzeitraum));
+// Position auf dem Zeitstrahl: das Datum, sonst die Fenstermitte.
+const posIso = m => m.datum || (imFenster(m) ? fensterMitte(m.zielzeitraum) : null);
+// Lesbarer Termin für Tooltip und Screenreader.
+const terminTxt = m => m.datum ? fmtDate(m.datum) : (m.zielzeitraum ? 'Planungsfenster ' + m.zielzeitraum : fmtDate(null));
+
 // Monate im aktiven Fenster: [{label, leftPct, widthPct}]
 function monthsInWindow() {
   const z = zoomDef();
@@ -187,10 +208,10 @@ function progressBarHtml(p, color, big) {
 
 function visibleMs(list) {
   return list.filter(m => {
-    if (m.status === 'entfallen' || !m.datum) return false;
+    if (m.status === 'entfallen' || !posIso(m)) return false;
     if (!state.decisions && m.typ === 'entscheidung') return false;
     if (!state.achieved && m.status === 'erreicht') return false;
-    return inWindow(m.datum);
+    return inWindow(posIso(m));
   });
 }
 // Fortschritt eines Bereichs ueber alle seine Lanes. Diese Summe gibt es
@@ -249,22 +270,23 @@ function findMs(id) {
 
 /* --- Marker-HTML --- */
 function markerHtml(m, laneId, color) {
-  const x = pct(m.datum);
+  const x = pct(posIso(m));
   const late = isLate(m);
   const cls = ['rm-marker', 'rm-marker--' + m.typ];
   if (m.status === 'erreicht') cls.push('is-done');
   if (m.status === 'verschoben') cls.push('is-moved');
   if (late) cls.push('is-late');
+  if (imFenster(m)) cls.push('is-window');
   if (state.selected && state.selected.kind === 'ms' && state.selected.id === m.id) cls.push('is-selected');
   // Verzug färbt den Marker über --rm-c ein, statt einen vierten Ring zu legen:
   // is-moved und is-selected belegen die box-shadow-Ebene bereits.
   const c = late ? 'var(--danger)' : color;
   return `<button type="button" class="${cls.join(' ')}" style="left:${x}%;--rm-c:${c}"
     data-ms="${esc(m.id)}" data-lane="${esc(laneId || '')}"
-    aria-label="${esc(m.titel)} (${fmtDate(m.datum)}${late ? ', ' + LATE_LABEL : ''})"></button>`;
+    aria-label="${esc(m.titel)} (${terminTxt(m)}${late ? ', ' + LATE_LABEL : ''})"></button>`;
 }
 function labelHtml(m, idx) {
-  const x = pct(m.datum);
+  const x = pct(posIso(m));
   const side = idx % 2 === 0 ? 'above' : 'below';
   // Ausgangslage ist immer mittig unter dem Marker. Ob links- oder
   // rechtsbuendig geankert werden muss, entscheidet ankerLabel() nach dem
@@ -277,7 +299,7 @@ function labelHtml(m, idx) {
   const moved = m.status === 'verschoben' ? ' (verschoben)' : '';
   const lateCls = isLate(m) ? ' is-late' : '';
   return `<button type="button" class="rm-mslabel rm-mslabel--${side}" data-ms="${esc(m.id)}" data-x="${x}" style="${anchor}">
-    <span class="rm-mslabel__d${lateCls}">${fmtShort(m.datum)}</span> ${done}${warn}<b>${esc(m.titel)}</b>${confSymbolHtml(m.confidence)}${moved}
+    <span class="rm-mslabel__d${lateCls}">${m.datum ? fmtShort(m.datum) : esc(m.zielzeitraum)}</span> ${done}${warn}<b>${esc(m.titel)}</b>${confSymbolHtml(m.confidence)}${moved}
   </button>`;
 }
 
@@ -516,7 +538,7 @@ function undatierteHtml() {
 function tableHtml() {
   const rows = [];
   DATA.lanes.forEach(l => l.meilensteine.forEach(m => rows.push({ m, area: areaName(l.area), lane: l.name })));
-  rows.sort((a, b) => (a.m.datum || '9999').localeCompare(b.m.datum || '9999'));
+  rows.sort((a, b) => (posIso(a.m) || '9999').localeCompare(posIso(b.m) || '9999'));
   return `
   <details class="rm-tablewrap">
     <summary>Tabellenansicht: alle Meilensteine chronologisch (${rows.length})</summary>
@@ -527,7 +549,7 @@ function tableHtml() {
           const late = isLate(r.m);
           return `
         <tr class="${r.m.status === 'entfallen' ? 'is-gone' : ''}">
-          <td class="rm-table__d${late ? ' is-late' : ''}">${fmtDate(r.m.datum)}</td>
+          <td class="rm-table__d${late ? ' is-late' : ''}">${terminTxt(r.m)}</td>
           <td>${esc(r.area)}</td>
           <td>${esc(r.lane)}</td>
           <td class="proj-table__name">${r.m.klaerung ? '⚠ ' : ''}${esc(r.m.titel)}</td>
@@ -551,6 +573,7 @@ function legendHtml() {
     <span class="rm-legend__item"><span class="rm-shape rm-shape--dash"></span> läuft im Hintergrund / nicht committed bzw. vorläufig</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--late"></span> Termin überschritten</span>
     <span class="rm-legend__item"><span class="rm-shape rm-shape--moved"></span> verschoben</span>
+    <span class="rm-legend__item"><span class="rm-shape rm-shape--window"></span> Planungsfenster ohne Tagesfrist, mittig im Fenster gesetzt</span>
     <span class="rm-legend__item">⚠ Abhängigkeit / zu klären</span>
     <span class="rm-legend__item">✓ erreicht</span>
     <span class="rm-legend__item">Confidence: <span class="rm-conf rm-conf--hoch">●●●</span> hoch · <span class="rm-conf rm-conf--mittel">●●○</span> mittel · <span class="rm-conf rm-conf--niedrig">●○○</span> niedrig</span>
@@ -633,7 +656,7 @@ function bindTooltip(root) {
       if (!hit) return;
       const { m, lane } = hit;
       tip.innerHTML = `
-        <div class="rm-tip__date">${fmtDate(m.datum)} · ${esc(areaName(lane.area))} · ${esc(lane.name)}</div>
+        <div class="rm-tip__date">${terminTxt(m)} ·${esc(areaName(lane.area))} · ${esc(lane.name)}</div>
         <div class="rm-tip__title">${m.status === 'erreicht' ? '✓ ' : ''}${esc(m.titel)}</div>
         ${isLate(m) ? `<div class="rm-tip__late">Termin überschritten</div>` : ''}
         ${m.confidence ? `<div class="rm-tip__conf">Confidence: ${CONF_LABEL[m.confidence]} ${confSymbolHtml(m.confidence)}</div>` : ''}

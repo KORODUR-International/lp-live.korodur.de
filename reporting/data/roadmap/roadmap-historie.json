@@ -281,8 +281,32 @@
     "pdb-dop-q4": {
       "lane": "Digitale Produktinformationen (DPI)",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "DoPs für drei Normen in DE, danach EN und FR bereitgestellt"
+    },
+    "pdb-dop-13813-de": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": "2026-10-15",
+      "status": "offen",
+      "titel": "Leistungserklärungen EN 13813 auf Deutsch generiert"
+    },
+    "pdb-dop-13813-enfr": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": "2026-11-12",
+      "status": "offen",
+      "titel": "Leistungserklärungen EN 13813 auf Englisch und Französisch"
+    },
+    "pdb-dop-weitere-de": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": "2026-10-29",
+      "status": "offen",
+      "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Deutsch generiert"
+    },
+    "pdb-dop-weitere-enfr": {
+      "lane": "Digitale Produktinformationen (DPI)",
+      "datum": "2026-11-26",
+      "status": "offen",
+      "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Englisch und Französisch"
     },
     "pdb-vap": {
       "lane": "Digitale Produktinformationen (DPI)",
@@ -4722,6 +4746,51 @@
       "feld": null,
       "alt": "2026-08-31",
       "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "pdb-dop-13813-de",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "pdb-dop-13813-enfr",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-12"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "pdb-dop-weitere-de",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-29"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "pdb-dop-weitere-enfr",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-26"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "pdb-dop-q4",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
     }
   ],
   "kennzahlen": {

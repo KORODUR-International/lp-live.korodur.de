@@ -714,6 +714,7 @@ h1, h2, h3, h4, h5 {
 .rm-shape--dash { width: 22px; border-top: 2px dashed var(--muted); }
 .rm-shape--late { width: 9px; height: 9px; background: var(--danger); transform: rotate(45deg); border-radius: 2px; }
 .rm-shape--moved { width: 9px; height: 9px; background: var(--muted); transform: rotate(45deg); border-radius: 2px; box-shadow: 0 0 0 2px var(--white), 0 0 0 3.5px var(--warning); margin: 0 3px; }
+.rm-shape--window { width: 9px; height: 9px; background: var(--white); border: 2px dashed var(--muted); transform: rotate(45deg); border-radius: 2px; margin: 0 3px; }
 
 /* Chart-Grundgerüst */
 .rm-chart { padding: 10px 0 22px; margin-bottom: 16px; }
@@ -802,6 +803,8 @@ h1, h2, h3, h4, h5 {
 .rm-marker--entscheidung.is-done::after { transform: none; color: var(--rm-c); }
 .rm-marker.is-moved { box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--warning); }
 .rm-marker.is-selected { box-shadow: 0 0 0 2px var(--white), 0 0 0 4.5px var(--secondary); }
+/* Planungsfenster (#303): hohl und gestrichelt, damit er nicht wie eine Tagesfrist liest */
+.rm-marker.is-window { background: var(--white); border: 2px dashed var(--rm-c); }
 .rm-marker:hover { filter: brightness(1.12); }
 
 .rm-mslabel {

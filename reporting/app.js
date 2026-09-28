@@ -1,8 +1,8 @@
 /**
- * Goal-oriented reporting (#297, concept #25).
- * This shell owns loading, snapshot dates and module lifecycles. Each module
- * renders public roadmap text and neutral issue identities from read-only data.
- * Historical pure renderers remain below for compatibility, outside the page.
+ * KORODUR Work Cockpit Reporting (#309): the pre-#299 page (rings, phases per
+ * repo, stock history) plus two modules, Woche im Verlauf (this week against
+ * the previous one) and Gezielt nachfassen. The shell owns loading, snapshot
+ * dates and module lifecycles. Counts only, no issue titles, no free text.
  */
 
 // In dev: symlink src/data -> ../data; in production (GitHub Pages): data/ is at root
@@ -504,21 +504,6 @@ function renderKopf(data) {
   const datum = data._meta && data._meta.snapshot_date;
   const { vortag, vorwoche } = deltaRefs(datum || '');
 
-  // Erledigt in der KW des angezeigten Standes, Delta gegen die Vorwoche.
-  const kw = isoWeekKey(datum);
-  let erledigt = null, erledigtChip = '', kwNr = '';
-  if (kw && data.done_by_week) {
-    erledigt = data.done_by_week[kw] || 0;
-    kwNr = String(parseInt(kw.split('-W')[1], 10));
-    const dV = new Date(datum + 'T00:00:00Z');
-    dV.setUTCDate(dV.getUTCDate() - 7);
-    const vorDatum = dV.toISOString().slice(0, 10);
-    const kwVor = isoWeekKey(vorDatum);
-    if (kwVor) {
-      erledigtChip = chipHtml(erledigt - (data.done_by_week[kwVor] || 0), 'W', vorDatum);
-    }
-  }
-
   const kachel = (label, wert, opts = {}) => wert == null ? '' : `
       <div class="kpi-card kpi-card--k ${opts.warn && wert > 0 ? 'kpi-card--warn' : ''} fade-in">
         <div class="kpi-card__label">${label}</div>
@@ -558,7 +543,6 @@ function renderKopf(data) {
     </div>
     ${renderRinge(data)}
     <div class="kpi-row kpi-row--kopf kpi-row--kopf-klein">
-      ${kachel(kwNr ? 'Erledigt / KW ' + kwNr : 'Erledigt / KW', erledigt, { chips: erledigtChip })}
       ${msKachel}
     </div>
   `;
@@ -1435,20 +1419,18 @@ function renderDashboard(data, { roadmap = roadmapCache?.roadmap || null, archiv
   const stichtag = reportingStichtag(data);
   const bestandsTag = reportingBestandsStichtag(data);
   main.innerHTML = `
-    <h1 class="reporting-title">Reporting</h1>
-    <div id="reporting-ueberblick" class="reporting-module"></div>
+    ${renderKopf(data)}
     <div id="reporting-wochenmonitoring" class="reporting-module"></div>
     <div id="reporting-nachfassen" class="reporting-module"></div>
-    <details class="reporting-depth">
-      <summary>Bestandsverläufe vertiefen</summary>
-      <p class="matrix__hinweis">Wochen-Endstände offener Phasen bis zum ausgewählten Datenstand. Bestände sind keine Abschlüsse und kein Zielnachweis.</p>
-      ${bestandsTag ? renderPhasenVerlauf(data, { abschluesse: false, stichtag: bestandsTag }) : '<p>Für diesen Stand ist der Verlauf nicht verfügbar.</p>'}
+    <details class="status-section reporting-matrix" open>
+      <summary class="status-section__title">PHASEN JE REPO</summary>
+      <div id="matrix-host">${renderMatrix(data, roadmap)}</div>
     </details>
-    <footer class="footer">KORODUR Work Cockpit Reporting · <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank" rel="noopener noreferrer">GitHub</a></footer>
+    ${bestandsTag ? renderPhasenVerlauf(data, { abschluesse: false, stichtag: bestandsTag }) : ''}
+    ${renderFuss(data)}
   `;
   const options = { snapshot: data, roadmap, stichtag, heute: berlinDay(new Date()), archiv };
   for (const [id, name] of [
-    ['reporting-ueberblick', 'ReportingUeberblick'],
     ['reporting-wochenmonitoring', 'ReportingWochenmonitoring'],
     ['reporting-nachfassen', 'ReportingNachfassen'],
   ]) {

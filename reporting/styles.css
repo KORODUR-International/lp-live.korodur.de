@@ -1921,6 +1921,12 @@ td.red-wk__sum small { display: block; color: var(--muted); font-size: .72rem; }
 .red-spaeter b { color: var(--primary); text-transform: uppercase; letter-spacing: .06em; font-size: .72rem; }
 .red-kacheln .kpi-card__unit { margin-left: 6px; }
 
+/* Phasen je Repo einklappbar (#309): die Karte ist das details-Element, die innere Karte verliert Rahmen und Titel. */
+.reporting-matrix > summary { cursor: pointer; margin-bottom: 0; }
+.reporting-matrix[open] > summary { margin-bottom: 16px; }
+.reporting-matrix #matrix-host > .status-section { box-shadow: none; padding: 0; margin: 0; }
+.reporting-matrix #matrix-host > .status-section > .status-section__title { display: none; }
+
 /* Goal-oriented reporting shell (#297). */
 .reporting-title { margin: 0 0 1rem; font-size: 1.5rem; }
 .sidebar__item:focus-visible { outline: 3px solid #087991; outline-offset: -3px; }

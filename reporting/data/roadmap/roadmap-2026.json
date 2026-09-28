@@ -1,7 +1,7 @@
 {
-  "version": "1.19",
+  "version": "1.20",
   "stand": "2026-09-28",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl.",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -608,17 +608,6 @@
           "details": "Die deutschen Leistungserklärungen nach EN 13813 entstehen im beschlossenen Design aus validierten Daten. Der Termin ist der Startpunkt für die englische und französische Fassung vier Wochen später."
         },
         {
-          "id": "pdb-dop-13813-enfr",
-          "datum": "2026-11-12",
-          "titel": "Leistungserklärungen EN 13813 auf Englisch und Französisch",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
-          "confidence": "mittel",
-          "abhaengigkeit": "Deutsche Fassung EN 13813 generiert; Sprachprüfung",
-          "details": "Vier Wochen nach der deutschen Fassung liegen Englisch und Französisch vor."
-        },
-        {
           "id": "pdb-dop-weitere-de",
           "datum": "2026-10-29",
           "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Deutsch generiert",
@@ -628,17 +617,6 @@
           "confidence": "niedrig",
           "abhaengigkeit": "Fachliche Freigabe der Produktdaten durch die Technik; eigener Termin für diese Normen noch offen",
           "details": "Die beiden weiteren Normen ziehen zwei Wochen nach EN 13813 nach. Ob sie einen eigenen Termin bekommen, ist noch offen; der Tag ist ein Planwert."
-        },
-        {
-          "id": "pdb-dop-weitere-enfr",
-          "datum": "2026-11-26",
-          "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Englisch und Französisch",
-          "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
-          "confidence": "niedrig",
-          "abhaengigkeit": "Deutsche Fassungen EN 1504-3 und EN 998-1 generiert; Sprachprüfung",
-          "details": "Vier Wochen nach den deutschen Fassungen liegen Englisch und Französisch vor. Planwert, abhängig vom deutschen Termin."
         },
         {
           "id": "pdb-vap",
@@ -1312,9 +1290,9 @@
       "id": "uebersetzungen",
       "area": "international",
       "name": "Übersetzungen",
-      "hinweis": "2026 ist Trainingsjahr. Übersetzungsarbeit folgt den freigegebenen bzw. fertig ausgearbeiteten deutschen Paketen. Für Referenzen sind zehn EN- und FR-Fassungen bis 15.12. mit Veröffentlichung auf bestehendem WordPress vorgesehen. Weitere Website-Pakete behalten ihre eigenen Abhängigkeiten; Broschürensprachen und -termine werden nach DE-Freigabe entschieden.",
-      "kurz": "Trainingsjahr 2026: Übersetzungen folgen den DE-Paketen; zehn Referenzen bis 15.12. in EN und FR live.",
-      "erreichtHeisst": "Italienische Erstfassungen der technischen Datenblätter der Kernprodukte erstellt und zur Sprachabstimmung übergeben; Sprachagenten werden trainiert. Zehn intern freigegebene Referenzen sind bis 15.12. auf Englisch und Französisch übersetzt und auf bestehendem WordPress live. Weitere Übersetzungen folgen den jeweiligen DE-Paketen. Kein eigenständiger strategischer Internationalisierungs-Meilenstein 2026.",
+      "hinweis": "2026 ist Trainingsjahr. Übersetzungen sind Folgemeilensteine der Fachthemen: vier Wochen nach der deutschen Abnahme sind Englisch und Französisch fertig. Leistungserklärungen im November, Website und technische Datenblätter im ersten Quartal 2027. Für Referenzen sind zehn EN- und FR-Fassungen bis 15.12. mit Veröffentlichung auf bestehendem WordPress vorgesehen; Broschürensprachen und -termine werden nach DE-Freigabe entschieden.",
+      "kurz": "Folgemeilensteine: Englisch und Französisch vier Wochen nach der deutschen Abnahme; zehn Referenzen bis 15.12. live.",
+      "erreichtHeisst": "Italienische Erstfassungen der technischen Datenblätter der Kernprodukte erstellt und zur Sprachabstimmung übergeben; Sprachagenten werden trainiert. Leistungserklärungen liegen vier Wochen nach der deutschen Fassung auf Englisch und Französisch vor. Zehn intern freigegebene Referenzen sind bis 15.12. auf Englisch und Französisch übersetzt und auf bestehendem WordPress live. Kein eigenständiger strategischer Internationalisierungs-Meilenstein 2026.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -1322,6 +1300,50 @@
       "stil": "parallel",
       "weiter2027": "Website V1 DE/EN/FR; weitere Sprach- und Länderplanung sowie Broschüren nach vereinbarter DE-Abnahme.",
       "meilensteine": [
+        {
+          "id": "pdb-dop-13813-enfr",
+          "datum": "2026-11-12",
+          "titel": "Leistungserklärungen EN 13813 auf Englisch und Französisch",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "mittel",
+          "abhaengigkeit": "Deutsche Fassung EN 13813 generiert; Sprachprüfung",
+          "details": "Vier Wochen nach der deutschen Fassung liegen Englisch und Französisch vor. Folgemeilenstein der deutschen Fassung aus der Lane Digitale Produktinformationen."
+        },
+        {
+          "id": "pdb-dop-weitere-enfr",
+          "datum": "2026-11-26",
+          "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Englisch und Französisch",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "niedrig",
+          "abhaengigkeit": "Deutsche Fassungen EN 1504-3 und EN 998-1 generiert; Sprachprüfung",
+          "details": "Vier Wochen nach den deutschen Fassungen liegen Englisch und Französisch vor. Planwert, abhängig vom deutschen Termin. Folgemeilenstein der deutschen Fassung aus der Lane Digitale Produktinformationen."
+        },
+        {
+          "id": "ueb-website-enfr",
+          "datum": null,
+          "titel": "Website V1 auf Englisch und Französisch übersetzt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Deutsche Abnahme der Website-Bereiche; Englisch und Französisch vier Wochen danach",
+          "zielzeitraum": "Q1 2027",
+          "details": "Folgemeilenstein der Website: vier Wochen nach der deutschen Abnahme sind Englisch und Französisch fertig, rechtzeitig vor dem Launch von Website V1. Übersetzt wird mit den trainierten sprachspezifischen Agenten; zusätzliche fachliche oder muttersprachliche Abnahme wird je Bereich entschieden."
+        },
+        {
+          "id": "ueb-tds-enfr",
+          "datum": null,
+          "titel": "Technische Datenblätter auf Englisch und Französisch",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Deutsche Freigabe der technischen Datenblätter (HE 3, danach VAP); Englisch und Französisch vier Wochen danach",
+          "zielzeitraum": "Q1 2027",
+          "details": "Folgemeilenstein aus der Lane Digitale Produktinformationen: vier Wochen nach der deutschen Freigabe liegen die technischen Datenblätter auf Englisch und Französisch vor."
+        },
         {
           "id": "ueb-tds-it",
           "datum": "2026-09-20",
@@ -1359,9 +1381,9 @@
           "datum": null,
           "titel": "Industrieboden einschließlich Neubau und Sanierung: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1369,9 +1391,9 @@
           "datum": null,
           "titel": "Industrieboden einschließlich Neubau und Sanierung: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1379,9 +1401,9 @@
           "datum": null,
           "titel": "Betonsanierung / Rapid Set: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1389,9 +1411,9 @@
           "datum": null,
           "titel": "Betonsanierung / Rapid Set: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1399,9 +1421,9 @@
           "datum": null,
           "titel": "MICROTOP / Trinkwasserbehälter: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1409,9 +1431,9 @@
           "datum": null,
           "titel": "MICROTOP / Trinkwasserbehälter: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1419,9 +1441,9 @@
           "datum": null,
           "titel": "Katzenstreu: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1429,9 +1451,9 @@
           "datum": null,
           "titel": "Katzenstreu: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1439,9 +1461,9 @@
           "datum": null,
           "titel": "3D-Betondruck: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1449,9 +1471,9 @@
           "datum": null,
           "titel": "3D-Betondruck: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1459,9 +1481,9 @@
           "datum": null,
           "titel": "Infrastruktur: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1469,9 +1491,9 @@
           "datum": null,
           "titel": "Infrastruktur: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1479,9 +1501,9 @@
           "datum": null,
           "titel": "Spezialmörtel: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "V1-Umfang Spezialmörtel entscheiden; eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1489,9 +1511,9 @@
           "datum": null,
           "titel": "Spezialmörtel: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "V1-Umfang Spezialmörtel entscheiden; eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1499,9 +1521,9 @@
           "datum": null,
           "titel": "Produkt- und Systemseiten: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1509,9 +1531,9 @@
           "datum": null,
           "titel": "Produkt- und Systemseiten: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1519,9 +1541,9 @@
           "datum": null,
           "titel": "Referenzseiten: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung. Erstpaket von zehn Referenzen bis 15.12.2026 ist separat terminiert; weitere Referenzseiten für Website V1 bleiben anschließend zu planen.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung. Erstpaket von zehn Referenzen bis 15.12.2026 ist separat terminiert; weitere Referenzseiten für Website V1 bleiben anschließend zu planen.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1529,9 +1551,9 @@
           "datum": null,
           "titel": "Referenzseiten: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung. Erstpaket von zehn Referenzen bis 15.12.2026 ist separat terminiert; weitere Referenzseiten für Website V1 bleiben anschließend zu planen.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung. Erstpaket von zehn Referenzen bis 15.12.2026 ist separat terminiert; weitere Referenzseiten für Website V1 bleiben anschließend zu planen.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1539,9 +1561,9 @@
           "datum": null,
           "titel": "Startseite, Kontakt und Unternehmen: Englisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {
@@ -1549,9 +1571,9 @@
           "datum": null,
           "titel": "Startseite, Kontakt und Unternehmen: Französisch ausgearbeitet",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "entfallen",
           "klaerung": true,
-          "details": "Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
+          "details": "Zusammengefasst am 28.09.2026 im Meilenstein „Website V1 auf Englisch und Französisch übersetzt“ (ueb-website-enfr). Übersetzung mit den trainierten sprachspezifischen Agenten anhand der eigenen deutschen Fassung; Vollständigkeit, Terminologie und Darstellung prüfen. Eventuelle zusätzliche fachliche oder muttersprachliche Abnahme je Bereich entscheiden. Übersetzungsstart ist keine Veröffentlichungsgenehmigung.",
           "abhaengigkeit": "eigene deutsche Fassung dieses Pakets fertig; anschließend Übersetzung terminieren"
         },
         {

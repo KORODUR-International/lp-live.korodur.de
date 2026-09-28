@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-28",
-    "generated_at": "2026-09-28T13:05:57.267691+00:00",
+    "generated_at": "2026-09-28T13:29:44.398721+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -9,10 +9,10 @@
     "version": "3.4"
   },
   "totals": {
-    "items": 1022,
-    "done": 678,
-    "in_progress": 25,
-    "open": 158,
+    "items": 1024,
+    "done": 679,
+    "in_progress": 27,
+    "open": 157,
     "blocked": 17,
     "on_hold": 11,
     "spaeter": 69,
@@ -22,24 +22,24 @@
   "by_status": {
     "Backlog": 97,
     "Bereit": 57,
-    "Beansprucht": 4,
-    "In Progress": 13,
-    "In Review": 12,
+    "Beansprucht": 3,
+    "In Progress": 14,
+    "In Review": 13,
     "Blocked": 17,
     "On Hold": 11,
     "Später": 69,
-    "Done": 742,
+    "Done": 743,
     "none": 0
   },
   "by_owner": {
     "Human": 118,
-    "Claude": 637,
+    "Claude": 639,
     "Either": 265,
     "none": 2
   },
   "by_priority": {
-    "P0": 16,
-    "P1": 480,
+    "P0": 17,
+    "P1": 481,
     "P2": 433,
     "P3": 90,
     "none": 3
@@ -48,14 +48,14 @@
     "open": {
       "P0": 0,
       "P1": 58,
-      "P2": 87,
+      "P2": 86,
       "P3": 13,
       "none": 0
     },
     "in_progress": {
-      "P0": 1,
+      "P0": 2,
       "P1": 20,
-      "P2": 4,
+      "P2": 5,
       "P3": 0,
       "none": 0
     },
@@ -82,7 +82,7 @@
     },
     "done": {
       "P0": 14,
-      "P1": 364,
+      "P1": 365,
       "P2": 248,
       "P3": 49,
       "none": 3
@@ -91,17 +91,17 @@
   "areas": [
     {
       "name": "Marketing",
-      "total": 449,
+      "total": 450,
       "done": 307,
-      "in_progress": 16,
-      "open": 54,
+      "in_progress": 18,
+      "open": 53,
       "blocked": 9,
       "on_hold": 5,
       "spaeter": 20,
       "discarded": 38,
       "by_owner": {
         "Human": 50,
-        "Claude": 275,
+        "Claude": 276,
         "Either": 123,
         "none": 1
       }
@@ -125,8 +125,8 @@
     },
     {
       "name": "Internationalisierung",
-      "total": 57,
-      "done": 24,
+      "total": 58,
+      "done": 25,
       "in_progress": 1,
       "open": 7,
       "blocked": 0,
@@ -135,7 +135,7 @@
       "discarded": 2,
       "by_owner": {
         "Human": 5,
-        "Claude": 25,
+        "Claude": 26,
         "Either": 27,
         "none": 0
       }
@@ -258,8 +258,8 @@
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 157,
-      "done": 123,
+      "total": 158,
+      "done": 124,
       "in_progress": 3,
       "open": 16,
       "blocked": 0,
@@ -268,7 +268,7 @@
       "discarded": 7,
       "by_owner": {
         "Human": 16,
-        "Claude": 112,
+        "Claude": 113,
         "Either": 29,
         "none": 0
       },
@@ -281,7 +281,7 @@
         "Blocked": 0,
         "On Hold": 1,
         "Später": 7,
-        "Done": 130,
+        "Done": 131,
         "none": 0
       }
     },
@@ -289,8 +289,8 @@
       "name": "KORODUR-International/korodur-referenzverzeichnis",
       "total": 111,
       "done": 71,
-      "in_progress": 8,
-      "open": 21,
+      "in_progress": 9,
+      "open": 20,
       "blocked": 2,
       "on_hold": 2,
       "spaeter": 4,
@@ -304,9 +304,9 @@
       "by_status": {
         "Backlog": 16,
         "Bereit": 3,
-        "Beansprucht": 2,
+        "Beansprucht": 1,
         "In Progress": 3,
-        "In Review": 5,
+        "In Review": 6,
         "Blocked": 2,
         "On Hold": 2,
         "Später": 4,
@@ -316,9 +316,9 @@
     },
     {
       "name": "KORODUR-International/korodur-digitale-produktinformationen",
-      "total": 109,
+      "total": 110,
       "done": 66,
-      "in_progress": 0,
+      "in_progress": 1,
       "open": 15,
       "blocked": 6,
       "on_hold": 1,
@@ -326,7 +326,7 @@
       "discarded": 6,
       "by_owner": {
         "Human": 13,
-        "Claude": 59,
+        "Claude": 60,
         "Either": 37,
         "none": 0
       },
@@ -334,7 +334,7 @@
         "Backlog": 12,
         "Bereit": 3,
         "Beansprucht": 0,
-        "In Progress": 0,
+        "In Progress": 1,
         "In Review": 0,
         "Blocked": 6,
         "On Hold": 1,
@@ -1649,6 +1649,21 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "org-lernprozess"
+      ]
+    },
+    {
+      "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+      "nummer": 177,
+      "status": "In Progress",
+      "bereich": "Marketing",
+      "prioritaet": "P0",
+      "owner_typ": "Claude",
+      "bearbeiter": "Claude Korodur",
+      "status_seit": "2026-09-28",
+      "status_beobachtet_seit": "2026-09-28",
+      "status_beobachtung_luecke": false,
+      "meilensteine": [
+        "adhoc"
       ]
     },
     {
@@ -3090,7 +3105,7 @@
     {
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 196,
-      "status": "Beansprucht",
+      "status": "In Review",
       "bereich": "Marketing",
       "prioritaet": "P2",
       "owner_typ": "Either",
@@ -5040,13 +5055,13 @@
     "2026-09-23": 9,
     "2026-09-24": 14,
     "2026-09-25": 51,
-    "2026-09-28": 14
+    "2026-09-28": 15
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
-    "2026-09": 234
+    "2026-09": 235
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -5063,7 +5078,7 @@
     "2026-W37": 44,
     "2026-W38": 65,
     "2026-W39": 111,
-    "2026-W40": 14
+    "2026-W40": 15
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#4",
@@ -5433,6 +5448,7 @@
     "KORODUR-International/korodur-review-reporting#297",
     "KORODUR-International/korodur-review-reporting#3",
     "KORODUR-International/korodur-review-reporting#303",
+    "KORODUR-International/korodur-review-reporting#305",
     "KORODUR-International/korodur-review-reporting#34",
     "KORODUR-International/korodur-review-reporting#35",
     "KORODUR-International/korodur-review-reporting#37",
@@ -5813,6 +5829,14 @@
     "referenz": "2026-09-27",
     "neu": [
       {
+        "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+        "nummer": 177,
+        "bereich": "Marketing",
+        "prioritaet": "P0",
+        "owner_typ": "Claude",
+        "status": "In Progress"
+      },
+      {
         "repo": "KORODUR-International/korodur-operating-model",
         "nummer": 164,
         "bereich": "AI & Infrastruktur",
@@ -5834,7 +5858,7 @@
         "bereich": "Marketing",
         "prioritaet": "P2",
         "owner_typ": "Either",
-        "status": "Beansprucht"
+        "status": "In Review"
       },
       {
         "repo": "sfleischmann-3steps2/KORODUR-Website",
@@ -5923,6 +5947,14 @@
         "closed_at": "2026-09-28T13:04:30Z"
       },
       {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 305,
+        "bereich": "Internationalisierung",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-28T13:28:37Z"
+      },
+      {
         "repo": "sfleischmann-3steps2/KORODUR-Website",
         "nummer": 550,
         "bereich": "Marketing",
@@ -6005,11 +6037,11 @@
     "feldSeit": "2026-09-11",
     "bestand": {
       "auf": 221,
-      "adhoc": 59,
+      "adhoc": 60,
       "leer": 0
     },
     "erledigt": {
-      "auf": 185,
+      "auf": 186,
       "adhoc": 46,
       "leer": 447
     },
@@ -6085,7 +6117,7 @@
         "leer": 2
       },
       "2026-W40": {
-        "auf": 14,
+        "auf": 15,
         "adhoc": 0,
         "leer": 0
       }
@@ -6203,6 +6235,10 @@
         "offen": 17,
         "erledigt": 16
       },
+      "pdb-dop-13813-enfr": {
+        "offen": 0,
+        "erledigt": 1
+      },
       "pdb-dop-q4": {
         "offen": 5,
         "erledigt": 2
@@ -6319,6 +6355,10 @@
         "offen": 1,
         "erledigt": 0
       },
+      "ueb-tds-enfr": {
+        "offen": 0,
+        "erledigt": 1
+      },
       "ueb-tds-it": {
         "offen": 2,
         "erledigt": 2
@@ -6402,6 +6442,10 @@
       "ueb-web-spezialmoertel-fr": {
         "offen": 1,
         "erledigt": 0
+      },
+      "ueb-website-enfr": {
+        "offen": 0,
+        "erledigt": 1
       },
       "vp-definition": {
         "offen": 3,
@@ -6495,7 +6539,7 @@
     "basis": "board_bestand",
     "von": "2026-08-31",
     "bis": "2026-09-28",
-    "stand": "2026-09-28T13:05:57.267691+00:00",
+    "stand": "2026-09-28T13:29:44.398721+00:00",
     "vollstaendig": false,
     "tage": {
       "2026-09-09": 1,
@@ -6512,7 +6556,7 @@
       "2026-09-23": 9,
       "2026-09-24": 14,
       "2026-09-25": 51,
-      "2026-09-28": 14
+      "2026-09-28": 15
     },
     "issues": [
       {
@@ -8790,6 +8834,18 @@
           "pdb-epd",
           "pdb-vap",
           "pdb-tds-he3-vap"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 305,
+        "closed_at": "2026-09-28T13:28:37+00:00",
+        "datum": "2026-09-28",
+        "bereich": "Internationalisierung",
+        "meilensteine": [
+          "ueb-website-enfr",
+          "ueb-tds-enfr",
+          "pdb-dop-13813-enfr"
         ]
       },
       {

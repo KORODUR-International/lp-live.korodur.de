@@ -290,23 +290,11 @@
       "status": "offen",
       "titel": "Leistungserklärungen EN 13813 auf Deutsch generiert"
     },
-    "pdb-dop-13813-enfr": {
-      "lane": "Digitale Produktinformationen (DPI)",
-      "datum": "2026-11-12",
-      "status": "offen",
-      "titel": "Leistungserklärungen EN 13813 auf Englisch und Französisch"
-    },
     "pdb-dop-weitere-de": {
       "lane": "Digitale Produktinformationen (DPI)",
       "datum": "2026-10-29",
       "status": "offen",
       "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Deutsch generiert"
-    },
-    "pdb-dop-weitere-enfr": {
-      "lane": "Digitale Produktinformationen (DPI)",
-      "datum": "2026-11-26",
-      "status": "offen",
-      "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Englisch und Französisch"
     },
     "pdb-vap": {
       "lane": "Digitale Produktinformationen (DPI)",
@@ -650,6 +638,30 @@
       "status": "offen",
       "titel": "Strategie CRM-Datenfundament 2027 steht"
     },
+    "pdb-dop-13813-enfr": {
+      "lane": "Übersetzungen",
+      "datum": "2026-11-12",
+      "status": "offen",
+      "titel": "Leistungserklärungen EN 13813 auf Englisch und Französisch"
+    },
+    "pdb-dop-weitere-enfr": {
+      "lane": "Übersetzungen",
+      "datum": "2026-11-26",
+      "status": "offen",
+      "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Englisch und Französisch"
+    },
+    "ueb-website-enfr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Website V1 auf Englisch und Französisch übersetzt"
+    },
+    "ueb-tds-enfr": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Technische Datenblätter auf Englisch und Französisch"
+    },
     "ueb-tds-it": {
       "lane": "Übersetzungen",
       "datum": "2026-09-20",
@@ -671,121 +683,121 @@
     "ueb-web-industrieboden-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Industrieboden einschließlich Neubau und Sanierung: Englisch ausgearbeitet"
     },
     "ueb-web-industrieboden-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Industrieboden einschließlich Neubau und Sanierung: Französisch ausgearbeitet"
     },
     "ueb-web-rapidset-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Betonsanierung / Rapid Set: Englisch ausgearbeitet"
     },
     "ueb-web-rapidset-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Betonsanierung / Rapid Set: Französisch ausgearbeitet"
     },
     "ueb-web-microtop-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "MICROTOP / Trinkwasserbehälter: Englisch ausgearbeitet"
     },
     "ueb-web-microtop-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "MICROTOP / Trinkwasserbehälter: Französisch ausgearbeitet"
     },
     "ueb-web-katzenstreu-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Katzenstreu: Englisch ausgearbeitet"
     },
     "ueb-web-katzenstreu-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Katzenstreu: Französisch ausgearbeitet"
     },
     "ueb-web-3ddruck-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "3D-Betondruck: Englisch ausgearbeitet"
     },
     "ueb-web-3ddruck-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "3D-Betondruck: Französisch ausgearbeitet"
     },
     "ueb-web-infrastruktur-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Infrastruktur: Englisch ausgearbeitet"
     },
     "ueb-web-infrastruktur-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Infrastruktur: Französisch ausgearbeitet"
     },
     "ueb-web-spezialmoertel-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Spezialmörtel: Englisch ausgearbeitet"
     },
     "ueb-web-spezialmoertel-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Spezialmörtel: Französisch ausgearbeitet"
     },
     "ueb-web-portfolio-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Produkt- und Systemseiten: Englisch ausgearbeitet"
     },
     "ueb-web-portfolio-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Produkt- und Systemseiten: Französisch ausgearbeitet"
     },
     "ueb-web-referenzen-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Referenzseiten: Englisch ausgearbeitet"
     },
     "ueb-web-referenzen-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Referenzseiten: Französisch ausgearbeitet"
     },
     "ueb-web-rahmen-en": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Startseite, Kontakt und Unternehmen: Englisch ausgearbeitet"
     },
     "ueb-web-rahmen-fr": {
       "lane": "Übersetzungen",
       "datum": null,
-      "status": "offen",
+      "status": "entfallen",
       "titel": "Startseite, Kontakt und Unternehmen: Französisch ausgearbeitet"
     },
     "ueb-ref-10-en": {
@@ -4787,6 +4799,204 @@
       "festgestellt": "2026-09-28",
       "id": "pdb-dop-q4",
       "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-tds-enfr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-website-enfr",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-3ddruck-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-3ddruck-fr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-industrieboden-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-industrieboden-fr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-infrastruktur-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-infrastruktur-fr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-katzenstreu-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-katzenstreu-fr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-microtop-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-microtop-fr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-portfolio-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-portfolio-fr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-rahmen-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-rahmen-fr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-rapidset-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-rapidset-fr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-referenzen-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-referenzen-fr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-spezialmoertel-en",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "entfallen"
+    },
+    {
+      "festgestellt": "2026-09-28",
+      "id": "ueb-web-spezialmoertel-fr",
+      "lane": "Übersetzungen",
       "typ": "geaendert",
       "feld": "status",
       "alt": "offen",

@@ -1,0 +1,27 @@
+/* Fokus nächste 14 Tage (#315) */
+.reporting-fokus .fk-list { list-style: none; margin: 12px 0 8px; padding: 0; }
+.reporting-fokus .fk-ms { padding: 12px 0 12px 14px; border-left: 3px solid var(--secondary, #009fe3); border-bottom: 1px solid #e3e8ee; }
+.reporting-fokus .fk-ms--late { border-left-color: var(--danger, #d64545); }
+.reporting-fokus .fk-ms__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.reporting-fokus .fk-when { font-size: .78rem; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 150px; color: var(--muted, #526579); }
+.reporting-fokus .fk-ms--late .fk-when { color: var(--danger, #d64545); }
+.reporting-fokus .fk-titel { font-weight: 700; color: var(--primary, #002d59); text-decoration: none; }
+.reporting-fokus .fk-titel:hover, .reporting-fokus .fk-titel:focus-visible { text-decoration: underline; }
+.reporting-fokus .fk-tag { font-size: .68rem; background: #eef2f6; color: var(--muted, #526579); border-radius: 3px; padding: 1px 6px; }
+.reporting-fokus .fk-tag--warn { background: #fdf0e1; color: #9a5b00; font-weight: 700; }
+.reporting-fokus .fk-lane { font-size: .75rem; color: var(--muted, #526579); margin: 2px 0 6px; }
+.reporting-fokus .fk-groups { display: flex; flex-direction: column; gap: 4px; }
+.reporting-fokus .fk-group { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: .85rem; }
+.reporting-fokus .fk-group__name { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted, #526579); width: 80px; flex: none; }
+.reporting-fokus .fk-group[data-gruppe="Blocked"] .fk-group__name { color: #c77700; }
+.reporting-fokus .fk-chip { display: inline-flex; align-items: baseline; gap: 4px; }
+.reporting-fokus .fk-issue { font-weight: 700; color: var(--secondary, #009fe3); text-decoration: none; }
+.reporting-fokus .fk-issue:hover, .reporting-fokus .fk-issue:focus-visible { text-decoration: underline; }
+.reporting-fokus .fk-sub { font-size: .68rem; color: var(--muted, #526579); }
+.reporting-fokus .fk-stale { font-size: .68rem; background: #eef2f6; border-radius: 3px; padding: 0 4px; color: var(--muted, #526579); }
+.reporting-fokus .fk-stock { font-size: .78rem; color: var(--muted, #526579); padding-left: 90px; }
+.reporting-fokus .fk-empty { color: var(--muted, #526579); }
+@media (max-width: 600px) {
+  .reporting-fokus .fk-group__name { width: 100%; }
+  .reporting-fokus .fk-stock { padding-left: 0; }
+}

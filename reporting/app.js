@@ -1,7 +1,7 @@
 /**
  * KORODUR Work Cockpit Reporting (#309): the pre-#299 page (rings, phases per
  * repo, stock history) plus two modules, Woche im Verlauf (this week against
- * the previous one) and Gezielt nachfassen. The shell owns loading, snapshot
+ * the previous one) and Fokus nächste 14 Tage (#315). The shell owns loading, snapshot
  * dates and module lifecycles. Counts only, no issue titles, no free text.
  */
 
@@ -1421,7 +1421,7 @@ function renderDashboard(data, { roadmap = roadmapCache?.roadmap || null, archiv
   main.innerHTML = `
     ${renderKopf(data)}
     <div id="reporting-wochenmonitoring" class="reporting-module"></div>
-    <div id="reporting-nachfassen" class="reporting-module"></div>
+    <div id="reporting-fokus" class="reporting-module"></div>
     <details class="status-section reporting-matrix" open>
       <summary class="status-section__title">PHASEN JE REPO</summary>
       <div id="matrix-host">${renderMatrix(data, roadmap)}</div>
@@ -1432,7 +1432,7 @@ function renderDashboard(data, { roadmap = roadmapCache?.roadmap || null, archiv
   const options = { snapshot: data, roadmap, stichtag, heute: berlinDay(new Date()), archiv, kuerzel: REPO_KUERZEL };
   for (const [id, name] of [
     ['reporting-wochenmonitoring', 'ReportingWochenmonitoring'],
-    ['reporting-nachfassen', 'ReportingNachfassen'],
+    ['reporting-fokus', 'ReportingFokus'],
   ]) {
     const host = document.getElementById(id), module = globalThis[name];
     if (module) reportingHandles.push(module.mount(host, options));

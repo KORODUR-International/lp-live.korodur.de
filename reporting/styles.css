@@ -1089,7 +1089,16 @@ h1, h2, h3, h4, h5 {
 .rf-goals .rf-goal { padding: 22px; margin-bottom: 0; }
 .rf-goals .rf-goal__value { margin: 16px 0; }
 .rf-goals .rf-warn { color: #ffd58a; }
-@media (max-width: 900px) { .rf-goals { grid-template-columns: 1fr; } }
+.rf-goals--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rf-goals--1 { grid-template-columns: minmax(0, 1fr); }
+/* Etappenmarke im Zielbalken (#319) */
+.rf-goal__bahn { position: relative; }
+.rf-goal__etappe {
+  position: absolute; top: -4px; bottom: -4px; width: 3px; margin-left: -1.5px;
+  background: var(--white); border-radius: 2px;
+}
+.rf-goal__etappen { font-size: .76rem; color: #8fb4d6; margin-top: 10px; }
+@media (max-width: 900px) { .rf-goals, .rf-goals--2 { grid-template-columns: 1fr; } }
 
 .rf-goal {
   background: linear-gradient(135deg, var(--primary), #00437f);
@@ -1496,6 +1505,47 @@ details.tbl th:first-child, details.tbl td:first-child { text-align: left; }
 @media (max-width: 760px) {
   .ringe { grid-template-columns: 1fr 1fr; }
   .ring-tab { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* Kopfzeile (#319): Meilenstein-Donut links, Ringe mit schmaler Tabelle rechts */
+.kopf-zeile {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+.kopf-zeile--ohne-ms { grid-template-columns: minmax(0, 1fr); }
+.kopf-zeile .ringe {
+  margin-bottom: 0;
+  grid-template-columns: minmax(130px, 170px) max-content minmax(130px, 170px);
+  justify-content: space-evenly;
+}
+.kopf-zeile .ring-tab { width: auto; }
+.kopf-zeile .ring-tab th, .kopf-zeile .ring-tab td { padding: 5px 10px; }
+.ms-donut {
+  background: var(--white);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  border-top: 4px solid var(--ampel);
+}
+.ms-donut--gruen { --ampel: var(--success); }
+.ms-donut--gelb { --ampel: var(--warning); }
+.ms-donut--rot { --ampel: var(--danger); }
+.ms-donut__label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); align-self: flex-start; }
+.ms-donut__svg { width: 100%; max-width: 150px; height: auto; display: block; margin: 8px auto 4px; }
+.ms-donut__seg.ms-stack__seg--auf { stroke: var(--secondary); }
+.ms-donut__seg.ms-stack__seg--adhoc { stroke: var(--mid-gray); }
+.ms-donut__seg.ms-stack__seg--leer { stroke: #8a939b; }
+.ms-donut__zielmarke { stroke: var(--primary); stroke-width: 2.5; stroke-linecap: round; }
+.ms-donut__wert { font-size: 28px; font-weight: 800; fill: var(--ampel); }
+.ms-donut__ziel { font-size: .75rem; font-weight: 700; color: var(--primary); }
+.ms-donut__detail { font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.35; }
+.ms-donut__chips { margin-top: 6px; }
+@media (max-width: 1000px) {
+  .kopf-zeile { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Phasen-Repo-Matrix */

@@ -1,13 +1,14 @@
 /* ============================================
-   KORODUR Work Cockpit Reporting, Sichtbarkeit (Issue #317, davor #141/#234)
-   Social-Kennzahlen unten an der Reporting-Seite: der 4-Wochen-Block
+   KORODUR Work Cockpit, Sichtbarkeit (Issue #317/#319, davor #141/#234)
+   Social-Kennzahlen unten an der Redaktion-Seite (seit #319, davor kurz
+   unten an der Reporting-Seite): der 4-Wochen-Block
    (LinkedIn aus dem Export, Facebook und Instagram aus dem Meta-Zeitraum,
    Issue #234) und die Wochenansicht mit Zeitverlauf. Die Render-Funktionen
    stammen unverändert aus src/redaktion.js, wo sie seit Issue #274 nicht
    mehr eingebunden waren.
    Quelle: data/social/timeseries.json und data/social/meta-zeitraeume.json,
    geschrieben von scripts/import_social.py (Workflow social_import.yml).
-   Unabhängig vom gewählten Board-Snapshot: gezeigt wird immer der jüngste
+   Unabhängig vom Redaktions-Snapshot: gezeigt wird immer der jüngste
    Import. ReportingSichtbarkeit.mount(host) lädt selbst und liefert
    {destroy()}; fehlen die Daten, bleibt der Aufbau-Zustand stehen.
    ============================================ */

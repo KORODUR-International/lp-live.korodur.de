@@ -7,8 +7,8 @@
    "beitraege": Datum, Status, Kanal, Thema, hat_person).
    Keine Beitragstitel, keine Personen: die Seite ist öffentlich.
    Die Sichtbarkeits-Blöcke (renderZeitraum, renderSichtbarkeit, Chart aus
-   data/social/) sind seit Issue #317 nach src/reporting-sichtbarkeit.js
-   umgezogen und stehen unten auf der Reporting-Seite.
+   data/social/) liegen seit Issue #317 in src/reporting-sichtbarkeit.js;
+   seit Issue #319 hängt das Modul unten an diese Seite (#redaktion-sichtbarkeit).
    In dev: symlink src/data -> ../data; in production: data/ liegt im Root.
    Zielbild: konzepte/mockup-redaktion-arbeitstool-2026-09-23.html.
    ============================================ */
@@ -55,9 +55,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!snapRes.ok) throw new Error('no-data');
     const snap = await snapRes.json();
 
-    // Die Sichtbarkeit (data/social/) steht seit Issue #317 auf der
-    // Reporting-Seite (src/reporting-sichtbarkeit.js), nicht hier.
     renderRedaktion(snap);
+    mountSichtbarkeit();
     const meta = document.getElementById('header-meta');
     if (meta) meta.textContent = `Snapshot: ${redFormatDate(snap._meta.snapshot_date)} · Quelle: Notion-Redaktionsplan`;
   } catch {
@@ -181,7 +180,7 @@ function renderRedaktion(d) {
       </div>
     </div>
     ${renderWochenChart(m)}
-    ${renderSpaeter()}
+    <div id="redaktion-sichtbarkeit"></div>
 
     <div class="footer">
       Redaktions-Segment &middot; Quelle: Notion-Redaktionsplan (Aggregat und anonymisierte Beitragsliste, keine Titel, keine Personen)
@@ -706,13 +705,14 @@ function renderWochenChart(m) {
     </div>`;
 }
 
-// ─── 7 · Später ──────────────────────────────────────
-function renderSpaeter() {
-  return `
-    <div class="red-spaeter fade-in">
-      <b>Sp&auml;ter</b>
-      <span>Sichtbarkeit (Impressions, Interaktionen, Follower) zieht auf eine eigene Seite &bdquo;Wirkung&ldquo; um, sobald die Zahlen automatisch aus LinkedIn und Meta kommen (korodur-redaktion#44). Bis dahin: monatlicher Analytics-Review aus den Plattform-Exporten.</span>
-    </div>`;
+// ─── 7 · Sichtbarkeit (Issue #319) ──────────────────
+// Social-Kennzahlen aus data/social/, unabhängig vom Redaktions-Snapshot:
+// src/reporting-sichtbarkeit.js lädt selbst. Fehlt das Modul, bleibt der
+// Platz leer, die Redaktion steht trotzdem.
+function mountSichtbarkeit() {
+  const host = document.getElementById('redaktion-sichtbarkeit');
+  const modul = globalThis.ReportingSichtbarkeit;
+  if (host && modul) modul.mount(host);
 }
 
 // ─── Beitragszahl je Woche (Issue #233) ──────────────

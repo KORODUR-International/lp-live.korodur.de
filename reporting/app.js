@@ -506,13 +506,6 @@ function renderKopf(data) {
   const datum = data._meta && data._meta.snapshot_date;
   const { vortag, vorwoche } = deltaRefs(datum || '');
 
-  const kachel = (label, wert, opts = {}) => wert == null ? '' : `
-      <div class="kpi-card kpi-card--k ${opts.warn && wert > 0 ? 'kpi-card--warn' : ''} fade-in">
-        <div class="kpi-card__label">${label}</div>
-        <div class="kpi-card__value ${opts.warn && wert > 0 ? 'kpi-card__value--warn' : ''}${opts.accent ? ' kpi-card__value--accent' : ''}">${wert}</div>
-        <div class="kpi-card__detail">${opts.detail || ''}${opts.chips || ''}</div>
-      </div>`;
-
   // Alte Snapshots tragen im source-String ein Em-Dash (U+2014); seit #181
   // schreibt der Fetcher einen Mittelpunkt. Fuer die Anzeige normalisieren.
   const quelle = ((data._meta && data._meta.source) || 'KORODUR Work Cockpit').replace(/\u2014/g, '·');
@@ -520,9 +513,10 @@ function renderKopf(data) {
     ? new Date(data._meta.generated_at).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })
     : '';
 
-  // Meilenstein-Anteil (#227): Anteil der offenen Items, die auf einen
-  // Roadmap-Meilenstein einzahlen. Alte Snapshots kennen den Block nicht,
-  // dann entfaellt die Kachel, statt 0 % zu behaupten.
+  // Meilenstein-Anteil (#227) als Donut mit Ampel gegen das Ziel (#319):
+  // Anteil der offenen Items, die auf einen Roadmap-Meilenstein einzahlen.
+  // Alte Snapshots kennen den Block nicht, dann entfaellt die Kachel, statt
+  // 0 % zu behaupten.
   const msB = data.meilenstein && data.meilenstein.bestand;
   const msWert = msAnteil(msB);
   let msKachel = '';
@@ -532,10 +526,14 @@ function renderKopf(data) {
     const msChips =
       (refTms != null ? chipHtml(msWert - refTms, 'T', vortag.date, false, ' Punkte') : '') +
       (refWms != null ? chipHtml(msWert - refWms, 'W', vorwoche.date, false, ' Punkte') : '');
-    msKachel = kachel('Auf Meilenstein', msWert + '&thinsp;%', {
-      detail: `${msB.auf} von ${msB.auf + msB.adhoc + msB.leer} offenen · ${msB.adhoc} adhoc · ${msB.leer} unklassifiziert `,
-      chips: msChips,
-    });
+    msKachel = `
+      <div class="ms-donut ms-donut--${msAmpel(msWert)}">
+        <div class="ms-donut__label">Auf Meilenstein</div>
+        ${msDonutSvg(msB, msWert)}
+        <div class="ms-donut__ziel">Ziel mindestens ${MS_ZIEL}&thinsp;%</div>
+        <div class="ms-donut__detail">${msB.auf} von ${msSumme(msB)} offenen · ${msB.adhoc} adhoc · ${msB.leer} unklassifiziert</div>
+        <div class="ms-donut__chips">${msChips}</div>
+      </div>`;
   }
 
   return `
@@ -543,11 +541,51 @@ function renderKopf(data) {
       <h1 class="kopf__titel">Reporting</h1>
       <p class="kopf__stand">Stand ${formatSnapshotLabel(datum || '')}${zeit ? ', ' + zeit + ' Uhr' : ''} · ${quelle}</p>
     </div>
-    ${renderRinge(data)}
-    <div class="kpi-row kpi-row--kopf kpi-row--kopf-klein">
+    <div class="kopf-zeile${msKachel ? '' : ' kopf-zeile--ohne-ms'}">
       ${msKachel}
+      ${renderRinge(data)}
     </div>
   `;
+}
+
+// ─── Meilenstein-Donut (#319) ────────────────────────
+// Ziel und Ampel nach Entscheidung Steffi vom 29.09.2026: mindestens 75 %
+// der offenen Items auf einem Meilenstein; gruen ab 75, gelb ab 65, darunter rot.
+const MS_ZIEL = 75;
+const MS_GELB_AB = 65;
+
+function msAmpel(wert) {
+  if (wert >= MS_ZIEL) return 'gruen';
+  if (wert >= MS_GELB_AB) return 'gelb';
+  return 'rot';
+}
+
+function msDonutSvg(b, wert) {
+  const summe = msSumme(b);
+  const r = 52, breite = 16, mitte = r + breite / 2 + 6, c = 2 * Math.PI * r;
+  let versatz = 0;
+  const stuecke = MS_TOPF.map(([k, label, cls]) => {
+    const n = b[k] || 0;
+    if (!n) return '';
+    const laenge = (n / summe) * c;
+    const sichtbar = Math.max(laenge - (n === summe ? 0 : RING_LUECKE), 0.8);
+    const svg = `<circle cx="${mitte}" cy="${mitte}" r="${r}" fill="none" class="ms-donut__seg ${cls}"
+        stroke-width="${breite}" stroke-dasharray="${sichtbar.toFixed(2)} ${(c - sichtbar).toFixed(2)}"
+        stroke-dashoffset="${(-versatz).toFixed(2)}" transform="rotate(-90 ${mitte} ${mitte})"><title>${n} ${label} (${Math.round((n / summe) * 100)} %)</title></circle>`;
+    versatz += laenge;
+    return svg;
+  }).join('');
+  // Zielmarke: radialer Strich bei 75 % des Umfangs, im Uhrzeigersinn ab 12 Uhr.
+  const w = (MS_ZIEL / 100) * 2 * Math.PI - Math.PI / 2;
+  const punkt = rr => [(mitte + rr * Math.cos(w)).toFixed(2), (mitte + rr * Math.sin(w)).toFixed(2)];
+  const [x1, y1] = punkt(r - breite / 2 - 4), [x2, y2] = punkt(r + breite / 2 + 4);
+  const groesse = mitte * 2;
+  return `
+    <svg class="ms-donut__svg" viewBox="0 0 ${groesse} ${groesse}" role="img" aria-label="${wert} Prozent der offenen Items auf einem Meilenstein, Ziel ${MS_ZIEL} Prozent">
+      ${stuecke}
+      <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="ms-donut__zielmarke"><title>Ziel ${MS_ZIEL} %</title></line>
+      <text x="${mitte}" y="${mitte + 9}" text-anchor="middle" class="ms-donut__wert">${wert}&thinsp;%</text>
+    </svg>`;
 }
 
 // ─── Phasen-Repo-Matrix ──────────────────────────────
@@ -592,7 +630,8 @@ function projektAktiv(p) {
 }
 
 // Projekt-Repos der Roadmap, nach Bereich (#237, Entscheidung Steffi
-// 14.09.2026): je Projekt ein Repo, Organisation & Enablement trägt zwei
+// 14.09.2026), in der Bereichsreihenfolge der Roadmap und damit der
+// Priorisierung von links nach rechts (#319): je Projekt ein Repo, Organisation & Enablement trägt zwei
 // (Operating Model und Review & Reporting), CRM trägt zwei Lanes. Alle
 // übrigen Repos laufen ins Sammelbecken; sie gehen nach und nach in die
 // Projekt-Repos über. `lanes` sind die IDs aus roadmap-2026.json und
@@ -603,20 +642,20 @@ const ROADMAP_PROJEKTE = [
     { repos: ['sfleischmann-3steps2/KORODUR-Website'], lanes: ['website'] },
     { repos: ['KORODUR-International/korodur-redaktion'], lanes: ['content'] },
   ] },
-  { bereich: 'CRM & Sales Ops', projekte: [
-    { repos: ['KORODUR-International/korodur-crm'], lanes: ['vertriebsprozess', 'crm-daten'] },
-  ] },
   { bereich: 'Wissensaufbau', projekte: [
     { repos: ['KORODUR-International/korodur-digitale-produktinformationen', 'KORODUR-International/korodur-produktdatenbank'], lanes: ['pdb'] },
     { repos: ['KORODUR-International/korodur-referenzverzeichnis'], lanes: ['referenzen'] },
-  ] },
-  { bereich: 'Internationalisierung', projekte: [
-    { repos: ['KORODUR-International/korodur-translation'], lanes: ['uebersetzungen'] },
   ] },
   { bereich: 'AI & Infrastruktur', projekte: [
     { repos: ['KORODUR-International/korodur-lokale-ki'], lanes: ['lokale-ki'] },
     { repos: ['KORODUR-International/korodur-operating-model'], lanes: ['orga'] },
     { repos: ['KORODUR-International/korodur-review-reporting'], lanes: ['orga'] },
+  ] },
+  { bereich: 'CRM & Sales Ops', projekte: [
+    { repos: ['KORODUR-International/korodur-crm'], lanes: ['vertriebsprozess', 'crm-daten'] },
+  ] },
+  { bereich: 'Internationalisierung', projekte: [
+    { repos: ['KORODUR-International/korodur-translation'], lanes: ['uebersetzungen'] },
   ] },
 ];
 const MATRIX_MEILENSTEINE = 3;
@@ -1429,14 +1468,12 @@ function renderDashboard(data, { roadmap = roadmapCache?.roadmap || null, archiv
       <div id="matrix-host">${renderMatrix(data, roadmap)}</div>
     </details>
     ${bestandsTag ? renderPhasenVerlauf(data, { abschluesse: false, stichtag: bestandsTag }) : ''}
-    <div id="reporting-sichtbarkeit" class="reporting-module"></div>
     ${renderFuss(data)}
   `;
   const options = { snapshot: data, roadmap, stichtag, heute: berlinDay(new Date()), archiv, kuerzel: REPO_KUERZEL };
   for (const [id, name] of [
     ['reporting-wochenmonitoring', 'ReportingWochenmonitoring'],
     ['reporting-fokus', 'ReportingFokus'],
-    ['reporting-sichtbarkeit', 'ReportingSichtbarkeit'],
   ]) {
     const host = document.getElementById(id), module = globalThis[name];
     if (module) reportingHandles.push(module.mount(host, options));

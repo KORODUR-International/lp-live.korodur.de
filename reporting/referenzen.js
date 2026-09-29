@@ -168,15 +168,9 @@ function renderReferenzen(d) {
 
     ${renderZiel(d)}
     ${renderBestandKacheln(d, t)}
-    ${renderProzess(d, t)}
-    ${renderGesamtbestand(d, t)}
-    <div class="split-row">
-      ${renderDatenschuld(d)}
-      ${renderFreigabe(d)}
-    </div>
+    ${renderUnbekannterStatus(t)}
     ${renderEinsatzbereiche(d)}
     ${renderZulauf(d)}
-    ${renderRefTrend()}
 
     <div class="footer">
       Referenz-Segment &middot; Quelle: Notion-Referenzverzeichnis (nur Aggregatzahlen)
@@ -186,6 +180,16 @@ function renderReferenzen(d) {
       &middot; <a href="https://github.com/KORODUR-International/korodur-review-reporting" target="_blank">GitHub</a>
     </div>
   `;
+}
+
+// Seit #319 steht die Seite nur noch aus Ziel, Bestand, Abdeckung und
+// Zulauf. Die Warnung über unbekannte Status stand im Gesamtbestand und
+// bleibt als Absicherung eigenständig: ohne sie fehlten solche Referenzen
+// still in allen Kacheln.
+function renderUnbekannterStatus(t) {
+  if (!((t.unbekannt || 0) > 0)) return '';
+  return `<p class="rf-nv"><b>${t.unbekannt} Referenzen tragen einen Status, den das Mapping in
+    <code>scripts/fetch_referenzen.py</code> nicht kennt.</b> Sie fehlen in allen Kacheln oben.</p>`;
 }
 
 // ─── Band 1: Jahresziel ──────────────────────────────
@@ -201,29 +205,34 @@ function renderZiel(d) {
     {datum: '2026-12-15', zielwert: 20, messgroesse: 'de_intern'},
     {datum: '2026-12-15', zielwert: 10, messgroesse: 'en_fr_live'},
   ];
-  const cards = termine.map(m => {
-    const measure = z?.[m.messgroesse];
+  // Zwei Kacheln statt drei (#319): die internen Freigaben laufen gegen das
+  // größte DE-Ziel, die kleineren Termine stehen als Etappenmarke im Balken.
+  const intern = termine.filter(m => m.messgroesse !== 'en_fr_live')
+    .sort((a, b) => a.zielwert - b.zielwert || a.datum.localeCompare(b.datum));
+  const live = termine.filter(m => m.messgroesse === 'en_fr_live');
+  const datum = iso => iso.split('-').reverse().join('.');
+  const karte = (label, measure, ziel, etappen) => {
     const known = measure?.messbar === true && Number.isFinite(measure.wert);
-    const live = m.messgroesse === 'en_fr_live';
-    const label = live ? 'Davon EN und FR live' : 'DE intern freigegeben';
-    const date = m.datum.split('-').reverse().join('.');
+    const marken = etappen.map(e => `<span class="rf-goal__etappe" style="left:${refPct(e.zielwert, ziel.zielwert)}%"
+        title="${e.zielwert} bis ${refEsc(datum(e.datum))}"></span>`).join('');
+    const legende = etappen.length
+      ? `<div class="rf-goal__etappen">${etappen.map(e => `Etappe ${e.zielwert} bis ${refEsc(datum(e.datum))}`).join(' &middot; ')} &middot; Ziel ${ziel.zielwert} bis ${refEsc(datum(ziel.datum))}</div>`
+      : `<div class="rf-goal__etappen">Ziel bis ${refEsc(datum(ziel.datum))}</div>`;
     return `<div class="rf-goal">
-      <div class="rf-goal__label">${label} bis ${refEsc(date)}</div>
-      <div class="rf-goal__value">${known ? measure.wert : 'n. v.'} <small>von ${m.zielwert}</small></div>
-      ${known ? `<div class="rf-goal__track"><div class="rf-goal__seg" style="width:${Math.min(refPct(measure.wert, m.zielwert), 100)}%;background:#7dd0a5"></div></div>`
-        : '<p class="rf-warn">Noch nicht nachweisbar</p>'}
-      <div class="rf-goal__note">${live
-        ? 'Zehn eindeutige Referenzen aus den internen Freigaben, jeweils in beiden Sprachen auf der bestehenden WordPress-Seite. Übersetzt bedeutet noch nicht live.'
-        : 'Technik und einbringender Vertrieb haben intern freigegeben. Entwürfe zählen nicht; dieselbe Menge wird gegen das Oktober- und das Dezemberziel gemessen.'}</div>
+      <div class="rf-goal__label">${label}</div>
+      <div class="rf-goal__value">${known ? measure.wert : 'n. v.'} <small>von ${ziel.zielwert}</small></div>
+      ${known ? `<div class="rf-goal__bahn"><div class="rf-goal__track"><div class="rf-goal__seg" style="width:${Math.min(refPct(measure.wert, ziel.zielwert), 100)}%;background:#7dd0a5"></div></div>${marken}</div>`
+        : '<p class="rf-warn">Noch nicht messbar</p>'}
+      ${legende}
     </div>`;
-  }).join('');
+  };
+  const cards = [
+    intern.length ? karte('DE intern freigegeben', z?.de_intern, intern[intern.length - 1], intern.slice(0, -1)) : '',
+    ...live.map(m => karte('Übersetzt und live, EN und FR', z?.en_fr_live, m, [])),
+  ].join('');
   return `<div class="band fade-in"><h3>Referenzziele 2026</h3><span>Alle Prioritäten, einschließlich leerer Priorität</span></div>
-    <div class="rf-goals fade-in">${cards}</div>
-    <p class="rf-verdict">Neue Zählbasis seit 23.09.2026. Interne Freigabe, Erlaubnis zur Veröffentlichung und tatsächliche Veröffentlichung sind getrennt.
-      Als Freigaben zählen der Status „Freigabe da (fachlich &amp; rechtlich)“ oder eine finale DE-Datei mit Status „finale Version DE“ bzw. „Veröffentlicht“; markierte Dubletten und der Website-Altbestand zählen nicht.
-      Ein übernommener Veröffentlichungsstatus allein belegt keine interne Freigabe.</p>
+    <div class="rf-goals rf-goals--${Math.max(1, (intern.length ? 1 : 0) + live.length)} fade-in">${cards}</div>
     ${!z ? '<p class="rf-nv">Die neue Zählbasis ist in diesem Snapshot noch nicht erhoben. Historische Werte werden nicht umgerechnet.</p>' : ''}
-    ${z?.en_fr_live?.grund ? `<p class="rf-nv">${refEsc(z.en_fr_live.grund)}</p>` : ''}
     ${!z && d.ziel ? `<details><summary>Historische Zählung: nur Prio A, Stand ${refEsc(d._meta?.snapshot_date || '')}</summary>${renderHistorischesZiel(d)}</details>` : ''}`;
 }
 
@@ -572,12 +581,8 @@ function renderEinsatzbereiche(d) {
     </div>
   `).join('');
 
-  // Alles, was nicht zu den sechs beschlossenen Bereichen gehoert. Trinkwasser
-  // steht getrennt, der Rest ist offene Zuordnung.
-  const rest = items.filter(i => !REF_EINSATZBEREICHE.some(e => e.name === i.name));
-  const trinkwasser = rest.find(i => i.name === REF_EIGENER_BEREICH);
-  const offen = rest.filter(i => i.name !== REF_EIGENER_BEREICH);
-  const ohneBereich = ((d.datenschuld || {}).nennungen || {}).ohne_einsatzbereich || 0;
+  // Trinkwasser und die offene Zuordnung stehen seit #319 nicht mehr auf der
+  // Seite; die Tabelle zeigt nur die sechs beschlossenen Bereiche.
 
   return `
     <div class="band fade-in">
@@ -604,32 +609,6 @@ function renderEinsatzbereiche(d) {
       </p>
     </div>
 
-    ${trinkwasser ? `
-    <div class="status-section fade-in">
-      <h3 class="status-section__title">EIGENER BEREICH: TRINKWASSER, ${trinkwasser.nennungen} REFERENZEN</h3>
-      <p class="rf-text">
-        Trinkwasserbeh&auml;lter sind MICROTOP: eigene Produktreihe, eigene Zielgruppe
-        (Kommunen und Ingenieurb&uuml;ros), eigener Kaufprozess. Kein Industrieboden,
-        deshalb kein Einsatzbereich in der Tabelle oben und kein Weg dorthin im
-        Industriebodenl&ouml;sungsfinder.
-      </p>
-      <p class="rf-verdict">Nicht zu verwechseln mit Trinkwasserdichtigkeit als Anforderung
-      in einer Produktionshalle. Zwei verschiedene Dinge mit demselben Wortbestandteil.</p>
-    </div>` : ''}
-
-    ${(offen.length || ohneBereich) ? `
-    <div class="status-section fade-in">
-      <h3 class="status-section__title">NOCH OFFEN IN DER ZUORDNUNG</h3>
-      <p class="rf-text">
-        ${[
-          ohneBereich ? `${ohneBereich} ohne Einsatzbereich` : '',
-          ...offen.map(i => `${i.nennungen} ${refEsc(i.name)}`),
-        ].filter(Boolean).join(' &middot; ')}.
-        Diese Bereiche geh&ouml;ren nicht zum beschlossenen Modell und werden je Objekt
-        entschieden
-        (<a href="https://github.com/KORODUR-International/korodur-referenzverzeichnis/issues/37" target="_blank">Referenzverzeichnis#37</a>).
-      </p>
-    </div>` : ''}
   `;
 }
 

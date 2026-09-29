@@ -5,10 +5,10 @@
       "2026-08-31",
       "2026-09-06"
     ],
-    "generated_at": "2026-09-14T10:31:37.291781+00:00",
+    "generated_at": "2026-09-29T09:21:25.666257+00:00",
     "tage_linkedin": 7,
     "quellen": {
-      "linkedin": "imports/social/2026-09-14",
+      "linkedin": "imports/social/2026-09-29",
       "meta": null
     }
   },
@@ -17,11 +17,11 @@
     "impressions": 938,
     "impressions_unique": 559,
     "clicks": 22,
-    "reactions": 49,
+    "reactions": 31,
     "comments": 0,
     "shares": 1,
-    "interactions": 50,
-    "engagement_rate": 0.0768
+    "interactions": 32,
+    "engagement_rate": 0.0576
   },
   "facebook": {
     "posts": null,

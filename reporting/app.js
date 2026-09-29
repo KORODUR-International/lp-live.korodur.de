@@ -3,6 +3,8 @@
  * repo, stock history) plus two modules, Woche im Verlauf (this week against
  * the previous one) and Fokus nächste 14 Tage (#315). The shell owns loading, snapshot
  * dates and module lifecycles. Counts only, no issue titles, no free text.
+ * At the very bottom sits Sichtbarkeit (#317): social figures from
+ * data/social/, independent of the selected board snapshot.
  */
 
 // In dev: symlink src/data -> ../data; in production (GitHub Pages): data/ is at root
@@ -1427,12 +1429,14 @@ function renderDashboard(data, { roadmap = roadmapCache?.roadmap || null, archiv
       <div id="matrix-host">${renderMatrix(data, roadmap)}</div>
     </details>
     ${bestandsTag ? renderPhasenVerlauf(data, { abschluesse: false, stichtag: bestandsTag }) : ''}
+    <div id="reporting-sichtbarkeit" class="reporting-module"></div>
     ${renderFuss(data)}
   `;
   const options = { snapshot: data, roadmap, stichtag, heute: berlinDay(new Date()), archiv, kuerzel: REPO_KUERZEL };
   for (const [id, name] of [
     ['reporting-wochenmonitoring', 'ReportingWochenmonitoring'],
     ['reporting-fokus', 'ReportingFokus'],
+    ['reporting-sichtbarkeit', 'ReportingSichtbarkeit'],
   ]) {
     const host = document.getElementById(id), module = globalThis[name];
     if (module) reportingHandles.push(module.mount(host, options));

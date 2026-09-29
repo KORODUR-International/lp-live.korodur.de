@@ -5,23 +5,23 @@
       "2026-09-07",
       "2026-09-13"
     ],
-    "generated_at": "2026-09-14T10:31:37.291781+00:00",
-    "tage_linkedin": 6,
+    "generated_at": "2026-09-29T09:21:25.666257+00:00",
+    "tage_linkedin": 7,
     "quellen": {
-      "linkedin": "imports/social/2026-09-14",
+      "linkedin": "imports/social/2026-09-29",
       "meta": null
     }
   },
   "linkedin": {
     "posts": 0,
-    "impressions": 1106,
-    "impressions_unique": 625,
-    "clicks": 24,
-    "reactions": 37,
+    "impressions": 1200,
+    "impressions_unique": 684,
+    "clicks": 28,
+    "reactions": 38,
     "comments": 2,
     "shares": 3,
-    "interactions": 42,
-    "engagement_rate": 0.0597
+    "interactions": 43,
+    "engagement_rate": 0.0592
   },
   "facebook": {
     "posts": null,

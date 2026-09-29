@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-09-28",
+  "letzteFeststellung": "2026-09-29",
   "stand": {
     "con-workflow": {
       "lane": "Social Media & Redaktion",
@@ -5067,6 +5067,15 @@
       "feld": "titel",
       "alt": "Produkt- und Systemportfolio für die Website abgestimmt",
       "neu": "Systeme und Value Added Products für die Website abgestimmt"
+    },
+    {
+      "festgestellt": "2026-09-29",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-31",
+      "neu": "2026-08-31"
     }
   ],
   "kennzahlen": {
@@ -5207,7 +5216,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 28,
+      "stehengelassen": 29,
       "ueberfaelligSeit": "2026-08-31"
     },
     "con-q4planung": {

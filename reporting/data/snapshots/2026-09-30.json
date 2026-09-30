@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-30",
-    "generated_at": "2026-09-30T06:16:00.744969+00:00",
+    "generated_at": "2026-09-30T06:19:22.730996+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -6508,7 +6508,7 @@
     "basis": "board_bestand",
     "von": "2026-08-31",
     "bis": "2026-09-30",
-    "stand": "2026-09-30T06:16:00.744969+00:00",
+    "stand": "2026-09-30T06:19:22.730996+00:00",
     "vollstaendig": false,
     "tage": {
       "2026-09-09": 1,

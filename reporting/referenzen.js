@@ -42,10 +42,6 @@ const REF_BUCKETS = [
   { key: 'veroeffentlicht', label: 'Veröffentlicht', color: 'var(--success)',
     statuses: ['Veröffentlicht'] },
 ];
-// Der aktive Prozess laesst Veroeffentlicht bewusst weg: mit 130 Altbestaenden
-// im Balken erschlaegt er jede andere Stufe und die Grafik sagt nichts mehr
-// ueber die laufende Arbeit (Zielbild v4, abgenommen 30.07.2026).
-const REF_PROZESS = REF_BUCKETS.filter(b => b.key !== 'veroeffentlicht');
 const REF_OHNE_STATUS = { key: 'ohne_status', label: 'Ohne Status', color: 'var(--danger)' };
 
 // Strategische Prioritaet der Einsatzbereiche (Steffi, 30.07.2026). Nicht zu
@@ -66,39 +62,10 @@ const REF_EINSATZBEREICHE = [
   { name: 'Parkdeck & Tiefgarage', prio: 5 },
   { name: 'Verkauf & Ausstellung', prio: 6 },
 ];
-// Eigene Produktreihe (MICROTOP), eigene Zielgruppe, kein Industrieboden.
-// Steht deshalb ausserhalb der Tabelle und bekommt einen eigenen Hinweis.
-const REF_EIGENER_BEREICH = 'Trinkwasser';
-
 // Ursprung des Website-Harvests. Spiegelt URSPRUNG_IMPORT in
 // scripts/fetch_referenzen.py und trennt in v1 den geerbten Altbestand von der
 // eigenen Arbeitsmenge, solange "Veroeffentlicht am" fehlt.
 const REF_ALTBESTAND = 'Website';
-
-// Öffentlich inkl PR (seit 23.09.2026, rr#290): vollumfänglich einsetzbar,
-// auch Social Media und PR; Öffentlich allein heißt Website ja, Social nein.
-// Dunkelgrün per dataviz-Validator gegen --success geprüft (ΔE 19,9).
-const REF_FREIGABE_ORDER = [
-  { name: 'Öffentlich inkl PR', color: '#146c3a' },
-  { name: 'Öffentlich', color: 'var(--success)' },
-  { name: 'Öffentlich (anonymisiert)', color: '#7dd0a5' },
-  { name: 'Zur Veröffentlichung', color: 'var(--secondary)' },
-  { name: 'Intern', color: 'var(--muted)' },
-  { name: 'Freigabe offen', color: 'var(--warn)' },
-  { name: 'Freigabe abgelehnt', color: 'var(--danger)' },
-  { name: '(ohne)', color: 'var(--mid-gray)' },
-];
-
-// Kennzahlen im Zeitverlauf. datenschuld_eintraege ist bewusst dabei: sinkt sie
-// nicht, arbeiten wir an der Datenpflege vorbei.
-const REF_TREND = [
-  { key: 'gesamt', label: 'Gesamt', color: 'var(--primary)' },
-  { key: 'veroeffentlicht', label: 'Veröffentlicht', color: 'var(--success)' },
-  { key: 'offen', label: 'Offen', color: 'var(--muted)' },
-  { key: 'in_arbeit', label: 'In Arbeit', color: 'var(--secondary)' },
-  { key: 'ohne_status', label: 'Ohne Status', color: 'var(--danger)' },
-  { key: 'datenschuld_eintraege', label: 'Datenschuld', color: 'var(--warn)' },
-];
 
 let refSeries = [];
 
@@ -143,7 +110,8 @@ function refFormatDate(key) {
 }
 
 // Ein fehlender Wert ist keine Null. "n. v." sagt "nicht gemessen", eine 0
-// wuerde eine Messung behaupten, die es nicht gibt (Durchsatz, v1).
+// wuerde eine Messung behaupten, die es nicht gibt (Durchsatz vor der
+// Zaehlbasis alle_prioritaeten).
 function refFehlt(v) {
   return (v === null || v === undefined || Number.isNaN(v)) ? 'n.&nbsp;v.' : v;
 }
@@ -183,7 +151,9 @@ function renderReferenzen(d) {
 }
 
 // Seit #319 steht die Seite nur noch aus Ziel, Bestand, Abdeckung und
-// Zulauf. Die Warnung über unbekannte Status stand im Gesamtbestand und
+// Zulauf; mit #321 sind die übrigen Blöcke samt Code gelöscht, die Liste
+// steht in docs/kennzahlen-referenzen.md Abschnitt 0. Die Warnung über
+// unbekannte Status stand im Gesamtbestand und
 // bleibt als Absicherung eigenständig: ohne sie fehlten solche Referenzen
 // still in allen Kacheln.
 function renderUnbekannterStatus(t) {
@@ -350,189 +320,6 @@ function refStatusListe(d, bucket) {
   return teile.join(' &middot; ');
 }
 
-// ─── Band 3: der aktive Prozess ──────────────────────
-function renderProzess(d, t) {
-  const zeilen = REF_PROZESS.concat([REF_OHNE_STATUS]);
-  const max = Math.max(1, ...zeilen.map(b => t[b.key] || 0));
-  const aktiv = REF_PROZESS.reduce((s, b) => s + (t[b.key] || 0), 0) + (t.ohne_status || 0);
-
-  const rows = zeilen.map(b => {
-    const c = t[b.key] || 0;
-    const pct = refPct(c, max);
-    const sub = b.key === 'ohne_status'
-      ? 'Kein Bearbeitungsstatus gesetzt, z&auml;hlt als Triage-Schuld'
-      : refStatusListe(d, b);
-    return `
-      <div class="rf-chain">
-        <div class="rf-chain__n"${b.key === 'ohne_status' ? ' style="color:var(--danger)"' : ''}>${b.label}</div>
-        <div class="rf-chain__t"><div class="rf-chain__b" style="width:${pct}%;background:${b.color}"></div></div>
-        <div class="rf-chain__v">${c}</div>
-      </div>
-      <div class="rf-chain__sub">${sub}</div>
-    `;
-  }).join('');
-
-  return `
-    <div class="band fade-in"><h3>Woran es h&auml;ngt</h3><span>der aktive Prozess, ohne Ver&ouml;ffentlichtes</span></div>
-    <div class="status-section fade-in">
-      ${rows}
-      <p class="rf-verdict">
-        <b>Ver&ouml;ffentlichtes ist hier bewusst raus.</b> Mit ${t.veroeffentlicht || 0} im Balken
-        erschl&auml;gt der Altbestand jede andere Stufe und die Grafik sagt nichts mehr &uuml;ber
-        die laufende Arbeit. Was hier steht, ist die Arbeitsmenge: ${aktiv} Referenzen.
-        ${refStauSatz(t)}
-      </p>
-    </div>
-  `;
-}
-
-// Der Satz beschreibt, was die Balken zeigen, und wird aus den Zahlen
-// abgeleitet statt festgeschrieben. Sonst steht in vier Wochen eine Aussage
-// auf der Seite, die die Grafik daneben widerlegt.
-function refStauSatz(t) {
-  const zwischen = (t.in_arbeit || 0) + (t.in_abnahme || 0) + (t.freigegeben || 0);
-  if (!zwischen) {
-    return 'Zwischen Warteschlange und Freigabe liegt derzeit keine einzige.';
-  }
-  const besetzt = REF_PROZESS.filter(b => b.key !== 'offen' && (t[b.key] || 0) > 0);
-  // Die Aufschluesselung nur dann, wenn sie etwas hinzufuegt. Bei einer
-  // einzigen besetzten Stufe wiederholt die Klammer nur die Zahl davor.
-  const stufen = besetzt.length > 1
-    ? ` (${besetzt.map(b => `${t[b.key]} ${refEsc(b.label)}`).join(', ')})`
-    : '';
-  return `Davon ${t.offen || 0} in der Warteschlange und ${zwischen} in Bearbeitung${stufen}.`;
-}
-
-// ─── Band 4: Gesamtbestand, Altbestand gegen eigene Leistung ──
-// Solange "Veroeffentlicht am" fehlt, ist Ursprung = Website die einzige
-// Trennlinie zwischen geerbtem Bestand und eigener Arbeit (Entscheidung
-// 03.08.2026). Sie steht deshalb hier und nicht in einer Fussnote.
-function renderGesamtbestand(d, t) {
-  const gesamt = d.gesamt ?? 0;
-  if (!gesamt) return '';
-  const ursprung = d.by_ursprung || {};
-  const alt = ursprung[REF_ALTBESTAND] || 0;
-  const eigen = gesamt - alt;
-
-  // Der Balken stapelt nach Ursprung, nicht nach Status. Die Verteilung ueber
-  // die Bearbeitungsstufen steht schon in der Kachelreihe und in der Kette;
-  // ein dritter Statusbalken direkt ueber einer Ursprungs-Legende hat frueher
-  // nur zwei Dimensionen vermischt.
-  const stapel = [
-    { c: alt, label: `Altbestand (${REF_ALTBESTAND})`, color: 'var(--mid-gray)', dunkel: true },
-    { c: eigen, label: 'Eigene Arbeitsmenge', color: 'var(--secondary)' },
-  ].filter(s => s.c > 0).map(s => {
-    const pct = refPct(s.c, gesamt);
-    return `<div style="width:${pct}%;background:${s.color}${s.dunkel ? ';color:var(--primary)' : ''}"
-                 title="${refEsc(s.label)}: ${s.c}">${pct > 5 ? s.c : ''}</div>`;
-  }).join('');
-
-  const eigenDetail = Object.entries(ursprung)
-    .filter(([k]) => k !== REF_ALTBESTAND)
-    .sort((a, b) => b[1] - a[1])
-    .map(([k, v]) => `${refEsc(k)} ${v}`).join(' &middot; ');
-
-  return `
-    <div class="band fade-in"><h3>Gesamtbestand</h3><span>${gesamt} Referenzen, Altbestand gegen eigene Arbeitsmenge</span></div>
-    <div class="status-section fade-in">
-      <div class="rf-stack">${stapel}</div>
-      <div class="rf-stack__key">
-        <div class="rf-stack__item" style="border-color:var(--mid-gray)">
-          <b>${alt}</b><span>Altbestand von korodur.de, Ursprung ${refEsc(REF_ALTBESTAND)}.
-          Zählt in die Gesamtzahl. Für die neuen Freigabeziele ist ein interner Nachweis erforderlich.</span>
-        </div>
-        <div class="rf-stack__item" style="border-color:var(--secondary)">
-          <b>${eigen}</b><span>Eigene Arbeitsmenge, alles au&szlig;erhalb des Website-Imports.
-          ${eigenDetail || 'Ursprung nicht erfasst'}.</span>
-        </div>
-      </div>
-      <p class="rf-verdict">
-        <b>Warum diese Trennung:</b> Der Ursprung zeigt, welche Referenzen von der Website übernommen wurden.
-        Er ersetzt keine interne Freigabe. Auch eine übernommene Referenz kann nach Bearbeitung und
-        dokumentierter interner Freigabe zum neuen Ziel beitragen.
-        ${(t.unbekannt || 0) > 0
-          ? `<b class="rf-warn"> ${t.unbekannt} Referenzen tragen einen Status, den das Mapping in
-             <code>scripts/fetch_referenzen.py</code> nicht kennt.</b> Sie fehlen in allen Kacheln oben.`
-          : ''}
-      </p>
-    </div>
-  `;
-}
-
-// ─── Band 5a: Datenschuld ────────────────────────────
-function renderDatenschuld(d) {
-  const ds = d.datenschuld || {};
-  const n = ds.nennungen || {};
-  const betroffen = ds.eintraege_betroffen || 0;
-  const gesamt = ds.eintraege_gesamt || d.gesamt || 0;
-
-  const zeilen = [
-    ['Ohne Bearbeitungsstatus', n.ohne_status, 'nicht im Prozess verortet'],
-    ['Freigabe offen', n.freigabe_offen, 'darf noch nicht nach drau&szlig;en'],
-    ['Ohne Produkt-Relation', n.ohne_produkt_relation, 'kein Produkt zugeordnet'],
-    ['Ohne Einsatzbereich', n.ohne_einsatzbereich, 'taucht in keiner Abdeckung auf'],
-  ].filter(([, v]) => v !== undefined);
-
-  const max = Math.max(1, ...zeilen.map(([, v]) => v || 0));
-
-  return `
-    <div class="status-section fade-in split-row__col">
-      <h3 class="status-section__title">DATENSCHULD</h3>
-      <p class="chart-note">
-        ${betroffen} von ${gesamt} Referenzen haben mindestens eine offene Stelle.
-        Eine Referenz kann mehrere tragen, die Balken z&auml;hlen deshalb Nennungen
-        (${ds.nennungen_gesamt ?? 0}), nicht Referenzen.
-      </p>
-      ${zeilen.map(([label, v, hint]) => `
-        <div class="rf-ds">
-          <div class="rf-ds__n">${label}</div>
-          <div class="rf-ds__t"><div class="rf-ds__b" style="width:${refPct(v || 0, max)}%"></div></div>
-          <div class="rf-ds__v">${v || 0}</div>
-          <div class="rf-ds__h">${hint}</div>
-        </div>
-      `).join('')}
-    </div>
-  `;
-}
-
-// ─── Band 5b: Freigabestatus ─────────────────────────
-function renderFreigabe(d) {
-  const f = d.freigabestatus || {};
-  const bekannt = REF_FREIGABE_ORDER.map(o => [o, f[o.name] || 0]);
-  // Ein Wert, den die Liste oben nicht kennt, wird nicht verschluckt.
-  const unbekannt = Object.entries(f).filter(([k]) => !REF_FREIGABE_ORDER.some(o => o.name === k));
-  const summe = bekannt.reduce((s, [, v]) => s + v, 0) + unbekannt.reduce((s, [, v]) => s + v, 0);
-  if (!summe) return '';
-
-  const draussen = (f['Öffentlich inkl PR'] || 0) + (f['Öffentlich'] || 0)
-    + (f['Öffentlich (anonymisiert)'] || 0);
-
-  const segs = bekannt.filter(([, v]) => v > 0).map(([o, v]) => {
-    const pct = refPct(v, summe);
-    return `<div class="funnel__seg" style="flex-grow:${v};background:${o.color}"
-                 title="${refEsc(o.name)}: ${v}">${pct > 6 ? v : ''}</div>`;
-  }).join('');
-
-  const legend = bekannt.map(([o, v]) =>
-    `<span class="status-legend__item"><span class="status-legend__dot" style="background:${o.color}"></span>${refEsc(o.name)}: ${v}</span>`
-  ).join('') + unbekannt.map(([k, v]) =>
-    `<span class="status-legend__item"><span class="status-legend__dot" style="background:var(--danger)"></span>${refEsc(k)}: ${v}</span>`
-  ).join('');
-
-  return `
-    <div class="status-section fade-in split-row__col">
-      <h3 class="status-section__title">FREIGABESTATUS</h3>
-      <p class="chart-note">
-        Wie viel vom Bestand &uuml;berhaupt nach drau&szlig;en darf. Rein menschliche
-        Entscheidung, unabh&auml;ngig vom Bearbeitungsstatus.
-        ${draussen} von ${summe} sind öffentlich nutzbar. Das ist keine Aussage über interne DE-Abnahme oder tatsächliche Live-Veröffentlichung.
-      </p>
-      <div class="funnel">${segs}</div>
-      <div class="status-legend">${legend}</div>
-    </div>
-  `;
-}
-
 // ─── Band 6: Abdeckung nach Einsatzbereich ───────────
 // Sortiert nach strategischer Prioritaet, nicht nach Anzahl. Genau das ist die
 // Aussage: die Reihenfolge der Zeilen ist der Anspruch, die Laenge der Balken
@@ -631,123 +418,92 @@ function refAbdeckungVerdict(kern) {
     ${fmt(schnittOben)} Nennungen, die ${unten.length} mit der niedrigsten auf ${fmt(schnittUnten)}.`;
 }
 
-// ─── Band 7: Zulauf je Monat ─────────────────────────
+// ─── Band 7: Zulauf gegen Netto-Durchsatz je Monat ───
+// Durchsatz brutto braeuchte Datumsfelder je Stufe, die es bewusst nicht gibt
+// (rv#35). Gemessen wird deshalb netto aus der Tageszeitreihe: Stand der
+// intern freigegebenen DE-Master am Monatsende minus Stand am Vormonatsende
+// (#321). Nur Snapshots auf der Zaehlbasis alle_prioritaeten zaehlen; die
+// alte Prio-A-Zaehlung wird nicht angeschlossen. Fehlt das Vormonatsende,
+// ist der Monat ein Teilmonat ab dem ersten Snapshot und traegt dieses Datum.
+function refNettoDurchsatz(series) {
+  const monate = new Map();
+  for (const r of series || []) {
+    if (r.ziel_basis !== 'alle_prioritaeten' || !Number.isFinite(r.ziel_de_intern)) continue;
+    const k = r.date.slice(0, 7);
+    const m = monate.get(k);
+    if (m) m.letzter = r; else monate.set(k, { erster: r, letzter: r });
+  }
+  const vormonat = k => {
+    const [y, m] = k.split('-').map(Number);
+    return m === 1 ? `${y - 1}-12` : `${y}-${String(m - 1).padStart(2, '0')}`;
+  };
+  const out = {};
+  for (const [k, m] of monate) {
+    const vor = monate.get(vormonat(k));
+    const start = vor ? vor.letzter : m.erster;
+    out[k] = {
+      wert: m.letzter.ziel_de_intern - start.ziel_de_intern,
+      ab: vor ? null : m.erster.date,
+      bis: m.letzter.date,
+    };
+  }
+  return out;
+}
+
+// Eine Monatssaeule. Nicht gemessen ist nicht null: ohne Wert kein Balken,
+// sondern "n. v." (Entscheidung 03.08.2026).
+function refMonatsSaeule(k, wert, { farbe, max, vorzeichen = false, zusatz = '' }) {
+  const [y, m] = k.split('-');
+  const gemessen = Number.isFinite(wert);
+  const text = !gemessen ? refFehlt(null) : (vorzeichen && wert > 0 ? `+${wert}` : wert);
+  const balken = gemessen
+    ? `<div class="month-chart__bar" style="height:${Math.max(refPct(Math.abs(wert), max), 2)}%;background:${wert < 0 ? 'var(--danger)' : farbe}"></div>`
+    : '';
+  return `
+    <div class="month-chart__col" title="${refEsc(k)}: ${gemessen ? wert : 'nicht gemessen'}">
+      <div class="month-chart__bar-wrap">
+        <div class="month-chart__value">${text}</div>
+        ${balken}
+      </div>
+      <div class="month-chart__label">${REF_MONTHS_KURZ[parseInt(m, 10) - 1]}<br><small>${zusatz || y}</small></div>
+    </div>`;
+}
+
 function renderZulauf(d) {
   const zl = d.zulauf || {};
   const je = zl.je_monat || {};
-  const keys = Object.keys(je).sort();
-  const du = d.durchsatz || {};
+  const netto = refNettoDurchsatz(refSeries);
+  const keys = [...new Set([...Object.keys(je), ...Object.keys(netto)])].sort();
+  if (!keys.length) return '';
 
-  // Durchsatz ist heute nicht messbar. Der Hinweis steht bewusst vor dem
-  // Leer-Guard: faellt der Zulauf weg, ist die fehlende Messung die einzige
-  // Aussage, die die Sektion noch hat, und darf nicht mit verschwinden.
-  const durchsatzHinweis = du.messbar === false
-    ? `<p class="rf-nv">
-         <b>Durchsatz je Monat: ${refFehlt(null)}</b>
-         ${refEsc(du.grund || '')} Sobald die Datumsfelder stehen, kommt die zweite
-         Kurve additiv dazu. Bis dahin zeichnen wir keine Nulllinie, sie w&uuml;rde
-         eine Leistung von null behaupten, die niemand gemessen hat.
-       </p>`
-    : '';
-
-  if (!keys.length) {
-    if (!durchsatzHinweis) return '';
-    return `
-      <div class="band fade-in"><h3>Zulauf gegen Durchsatz</h3><span>je Monat</span></div>
-      <div class="status-section fade-in">${durchsatzHinweis}</div>
-    `;
-  }
-
-  const max = Math.max(1, ...keys.map(k => je[k]));
-  const cols = keys.map(k => {
-    const [y, m] = k.split('-');
-    const v = je[k] || 0;
-    return `
-      <div class="month-chart__col" title="${refEsc(k)}: ${v}">
-        <div class="month-chart__bar-wrap">
-          <div class="month-chart__value">${v}</div>
-          <div class="month-chart__bar" style="height:${Math.max(refPct(v, max), 2)}%"></div>
-        </div>
-        <div class="month-chart__label">${REF_MONTHS_KURZ[parseInt(m, 10) - 1]}<br><small>${y}</small></div>
-      </div>
-    `;
-  }).join('');
+  const kurz = iso => { const m = /^\d{4}-(\d{2})-(\d{2})$/.exec(iso || ''); return m ? `${m[2]}.${m[1]}.` : ''; };
+  const maxZ = Math.max(1, ...keys.map(k => je[k] || 0));
+  const zulauf = keys.map(k => refMonatsSaeule(k, je[k], { farbe: 'var(--secondary)', max: maxZ })).join('');
+  const maxN = Math.max(1, ...Object.values(netto).map(n => Math.abs(n.wert)));
+  const durchsatz = keys.map(k => refMonatsSaeule(k, netto[k]?.wert, {
+    farbe: 'var(--success)', max: maxN, vorzeichen: true,
+    zusatz: netto[k]?.ab ? `ab ${kurz(netto[k].ab)}` : '',
+  })).join('');
+  const letzter = Object.values(netto).map(n => n.bis).sort().pop();
 
   return `
     <div class="band fade-in"><h3>Zulauf gegen Durchsatz</h3><span>je Monat, Website-Import herausgerechnet</span></div>
     <div class="status-section fade-in">
       <p class="chart-note">
-        Neue Referenzen im Verzeichnis, Basis ${refEsc(zl.basis || '')}.
+        <b>Zulauf:</b> neue Referenzen im Verzeichnis, Basis ${refEsc(zl.basis || '')}.
         ${zl.ausgeschlossen ? `${zl.ausgeschlossen} Eintr&auml;ge mit Ursprung ${refEsc(zl.ohne_ursprung || 'Website')} sind
         herausgerechnet, sie kamen alle in einem einzigen Import und w&uuml;rden jede Monatskurve platt walzen.` : ''}
       </p>
-      <div class="month-chart">${cols}</div>
-      ${durchsatzHinweis}
-    </div>
-  `;
-}
-
-// ─── Band 8: Zeitverlauf ─────────────────────────────
-function renderRefTrend() {
-  if (!refSeries || refSeries.length < 2) {
-    return `
-      <div class="band fade-in"><h3>Entwicklung im Zeitverlauf</h3><span>t&auml;glicher Snapshot</span></div>
-      <div class="status-section fade-in">
-        <p class="trend-empty">
-          Die Verlaufskurve baut sich t&auml;glich auf. Ab dem zweiten Snapshot
-          erscheinen hier Bestand, Ver&ouml;ffentlichtes, offene Referenzen und
-          die Datenschuld.
-        </p>
-      </div>
-    `;
-  }
-
-  const W = 820, H = 280, padL = 34, padR = 18, padT = 16, padB = 30;
-  const s = refSeries;
-  const t0 = new Date(s[0].date).getTime();
-  const tN = new Date(s[s.length - 1].date).getTime();
-  const span = Math.max(1, tN - t0);
-  const maxVal = Math.max(1, ...s.flatMap(r => REF_TREND.map(m => r[m.key] || 0)));
-  const yMax = Math.ceil(maxVal * 1.1 / 5) * 5 || 5;
-  const sx = d => padL + ((new Date(d).getTime() - t0) / span) * (W - padL - padR);
-  const sy = v => padT + (1 - v / yMax) * (H - padT - padB);
-
-  const grid = [0, 0.5, 1].map(f => {
-    const v = Math.round(yMax * f);
-    const y = sy(v);
-    return `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" class="trend__grid"/>
-            <text x="${padL - 6}" y="${y + 3}" class="trend__ytick">${v}</text>`;
-  }).join('');
-
-  const lines = REF_TREND.map(m => {
-    const pts = s.map(r => `${sx(r.date).toFixed(1)},${sy(r[m.key] || 0).toFixed(1)}`).join(' ');
-    const last = s[s.length - 1];
-    return `
-      <polyline points="${pts}" fill="none" stroke-width="2.5"
-                stroke-linejoin="round" stroke-linecap="round" style="stroke:${m.color}"/>
-      <circle cx="${sx(last.date).toFixed(1)}" cy="${sy(last[m.key] || 0).toFixed(1)}" r="3.2" style="fill:${m.color}"/>
-    `;
-  }).join('');
-
-  const short = d => { const m = /^\d{4}-(\d{2})-(\d{2})$/.exec(d); return m ? `${m[2]}.${m[1]}.` : d; };
-  const tickIdx = [...new Set([0, Math.floor((s.length - 1) / 2), s.length - 1])];
-  const xticks = tickIdx.map(i =>
-    `<text x="${sx(s[i].date).toFixed(1)}" y="${H - 8}" class="trend__xtick"
-           text-anchor="${i === 0 ? 'start' : i === s.length - 1 ? 'end' : 'middle'}">${short(s[i].date)}</text>`
-  ).join('');
-
-  const legend = REF_TREND.map(m =>
-    `<span class="trend-legend__item"><span class="trend-legend__dot" style="background:${m.color}"></span>${m.label}</span>`
-  ).join('');
-
-  return `
-    <div class="band fade-in"><h3>Entwicklung im Zeitverlauf</h3><span>${s.length} Tagessnapshots</span></div>
-    <div class="status-section fade-in">
-      <svg class="trend-chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img"
-           aria-label="Verlauf der Referenz-Kennzahlen">
-        ${grid}${lines}${xticks}
-      </svg>
-      <div class="trend-legend">${legend}</div>
+      <div class="month-chart">${zulauf}</div>
+      <p class="chart-note rf-note-top">
+        <b>Netto-Durchsatz:</b> Ver&auml;nderung der intern freigegebenen DE-Master vom Vormonatsende
+        zum Monatsende, aus den t&auml;glichen Snapshots. Netto hei&szlig;t: eine R&uuml;ckstufung z&auml;hlt
+        dagegen. Gemessen seit Einf&uuml;hrung der Z&auml;hlbasis &uuml;ber alle Priorit&auml;ten am 23.09.2026;
+        davor steht ${refFehlt(null)}, nicht 0.${letzter ? ` Letzter Snapshot: ${kurz(letzter)}` : ''}
+      </p>
+      <div class="month-chart">${durchsatz}</div>
+      ${Object.keys(netto).length ? '' : `<p class="rf-nv"><b>Netto-Durchsatz: ${refFehlt(null)}</b>
+        Die Zeitreihe enth&auml;lt noch keinen Snapshot auf der Z&auml;hlbasis &uuml;ber alle Priorit&auml;ten.</p>`}
     </div>
   `;
 }

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-09-30",
-    "generated_at": "2026-09-30T06:19:22.730996+00:00",
+    "generated_at": "2026-09-30T10:52:48.870570+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -9,9 +9,9 @@
     "version": "3.4"
   },
   "totals": {
-    "items": 1050,
-    "done": 709,
-    "in_progress": 21,
+    "items": 1051,
+    "done": 711,
+    "in_progress": 20,
     "open": 143,
     "blocked": 23,
     "on_hold": 13,
@@ -23,24 +23,24 @@
     "Backlog": 93,
     "Bereit": 45,
     "Beansprucht": 5,
-    "In Progress": 11,
+    "In Progress": 10,
     "In Review": 10,
     "Blocked": 23,
     "On Hold": 13,
     "Später": 70,
-    "Done": 780,
+    "Done": 782,
     "none": 0
   },
   "by_owner": {
     "Human": 118,
-    "Claude": 660,
+    "Claude": 661,
     "Either": 270,
     "none": 2
   },
   "by_priority": {
     "P0": 19,
     "P1": 496,
-    "P2": 441,
+    "P2": 442,
     "P3": 91,
     "none": 3
   },
@@ -54,7 +54,7 @@
     },
     "in_progress": {
       "P0": 1,
-      "P1": 16,
+      "P1": 15,
       "P2": 4,
       "P3": 0,
       "none": 0
@@ -82,8 +82,8 @@
     },
     "done": {
       "P0": 16,
-      "P1": 379,
-      "P2": 262,
+      "P1": 380,
+      "P2": 263,
       "P3": 49,
       "none": 3
     }
@@ -160,8 +160,8 @@
     {
       "name": "AI & Infrastruktur",
       "total": 286,
-      "done": 224,
-      "in_progress": 4,
+      "done": 225,
+      "in_progress": 3,
       "open": 41,
       "blocked": 0,
       "on_hold": 2,
@@ -176,8 +176,8 @@
     },
     {
       "name": "Strategie",
-      "total": 38,
-      "done": 24,
+      "total": 39,
+      "done": 25,
       "in_progress": 2,
       "open": 9,
       "blocked": 0,
@@ -186,7 +186,7 @@
       "discarded": 0,
       "by_owner": {
         "Human": 5,
-        "Claude": 16,
+        "Claude": 17,
         "Either": 17,
         "none": 0
       }
@@ -258,9 +258,9 @@
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 166,
-      "done": 131,
-      "in_progress": 3,
+      "total": 167,
+      "done": 133,
+      "in_progress": 2,
       "open": 17,
       "blocked": 0,
       "on_hold": 1,
@@ -268,7 +268,7 @@
       "discarded": 7,
       "by_owner": {
         "Human": 16,
-        "Claude": 120,
+        "Claude": 121,
         "Either": 30,
         "none": 0
       },
@@ -276,12 +276,12 @@
         "Backlog": 11,
         "Bereit": 6,
         "Beansprucht": 0,
-        "In Progress": 2,
+        "In Progress": 1,
         "In Review": 1,
         "Blocked": 0,
         "On Hold": 1,
         "Später": 7,
-        "Done": 138,
+        "Done": 140,
         "none": 0
       }
     },
@@ -3310,21 +3310,6 @@
     },
     {
       "repo": "KORODUR-International/korodur-review-reporting",
-      "nummer": 241,
-      "status": "In Progress",
-      "bereich": "AI & Infrastruktur",
-      "prioritaet": "P1",
-      "owner_typ": "Claude",
-      "bearbeiter": "Claude Korodur",
-      "status_seit": "2026-09-15",
-      "status_beobachtet_seit": "2026-09-15",
-      "status_beobachtung_luecke": false,
-      "meilensteine": [
-        "adhoc"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 279,
       "status": "In Review",
       "bereich": "Strategie",
@@ -4890,13 +4875,14 @@
     "2026-09-24": 14,
     "2026-09-25": 51,
     "2026-09-28": 25,
-    "2026-09-29": 20
+    "2026-09-29": 20,
+    "2026-09-30": 2
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
-    "2026-09": 265
+    "2026-09": 267
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -4913,7 +4899,7 @@
     "2026-W37": 44,
     "2026-W38": 65,
     "2026-W39": 111,
-    "2026-W40": 45
+    "2026-W40": 47
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#4",
@@ -5273,6 +5259,7 @@
     "KORODUR-International/korodur-review-reporting#233",
     "KORODUR-International/korodur-review-reporting#234",
     "KORODUR-International/korodur-review-reporting#237",
+    "KORODUR-International/korodur-review-reporting#241",
     "KORODUR-International/korodur-review-reporting#245",
     "KORODUR-International/korodur-review-reporting#247",
     "KORODUR-International/korodur-review-reporting#252",
@@ -5309,6 +5296,7 @@
     "KORODUR-International/korodur-review-reporting#317",
     "KORODUR-International/korodur-review-reporting#319",
     "KORODUR-International/korodur-review-reporting#321",
+    "KORODUR-International/korodur-review-reporting#324",
     "KORODUR-International/korodur-review-reporting#34",
     "KORODUR-International/korodur-review-reporting#35",
     "KORODUR-International/korodur-review-reporting#37",
@@ -5892,11 +5880,28 @@
       },
       {
         "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 241,
+        "bereich": "AI & Infrastruktur",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "von": "In Progress",
+        "closed_at": "2026-09-30T06:25:51Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
         "nummer": 321,
         "bereich": "AI & Infrastruktur",
         "prioritaet": "P2",
         "owner_typ": "Either",
         "closed_at": "2026-09-29T15:19:40Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 324,
+        "bereich": "Strategie",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "closed_at": "2026-09-30T09:10:16Z"
       },
       {
         "repo": "KORODUR-International/korodur-translation",
@@ -6006,12 +6011,12 @@
     "feldSeit": "2026-09-11",
     "bestand": {
       "auf": 210,
-      "adhoc": 60,
+      "adhoc": 59,
       "leer": 0
     },
     "erledigt": {
-      "auf": 207,
-      "adhoc": 55,
+      "auf": 208,
+      "adhoc": 56,
       "leer": 447
     },
     "je_woche": {
@@ -6086,8 +6091,8 @@
         "leer": 2
       },
       "2026-W40": {
-        "auf": 36,
-        "adhoc": 9,
+        "auf": 37,
+        "adhoc": 10,
         "leer": 0
       }
     },
@@ -6202,7 +6207,7 @@
       },
       "pdb-dop": {
         "offen": 16,
-        "erledigt": 18
+        "erledigt": 19
       },
       "pdb-dop-13813-enfr": {
         "offen": 0,
@@ -6508,7 +6513,7 @@
     "basis": "board_bestand",
     "von": "2026-08-31",
     "bis": "2026-09-30",
-    "stand": "2026-09-30T06:19:22.730996+00:00",
+    "stand": "2026-09-30T10:52:48.870570+00:00",
     "vollstaendig": false,
     "tage": {
       "2026-09-09": 1,
@@ -6526,7 +6531,8 @@
       "2026-09-24": 14,
       "2026-09-25": 51,
       "2026-09-28": 25,
-      "2026-09-29": 20
+      "2026-09-29": 20,
+      "2026-09-30": 2
     },
     "issues": [
       {
@@ -9211,6 +9217,26 @@
         "bereich": "Marketing",
         "meilensteine": [
           "web-refdesign"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 241,
+        "closed_at": "2026-09-30T06:25:51+00:00",
+        "datum": "2026-09-30",
+        "bereich": "AI & Infrastruktur",
+        "meilensteine": [
+          "adhoc"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 324,
+        "closed_at": "2026-09-30T09:10:16+00:00",
+        "datum": "2026-09-30",
+        "bereich": "Strategie",
+        "meilensteine": [
+          "pdb-dop"
         ]
       }
     ],

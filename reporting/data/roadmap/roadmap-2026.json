@@ -1,7 +1,7 @@
 {
-  "version": "1.21",
-  "stand": "2026-09-28",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen.",
+  "version": "1.22",
+  "stand": "2026-09-30",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen. Version 1.22 (30.09.2026): Struktur und Design der Leistungserklärungen EN 13813 am 28.09. erreicht.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -499,11 +499,11 @@
           "datum": "2026-09-29",
           "titel": "Leistungserklärungen (DoP) EN 13813: Struktur und Design beschlossen",
           "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
+          "status": "erreicht",
+          "klaerung": false,
           "confidence": "mittel",
-          "abhaengigkeit": "Antwort der technischen Leitung auf die letzte offene Frage und dokumentierter Abschluss",
-          "details": "Struktur und Design sind laut Abstimmung vom 25.09. grundsätzlich vereinbart. Eine letzte Frage ist noch zu schließen; der Abschluss wird für Montag, 28.09., erwartet, ist aber noch nicht belegt. Der bestehende Zieltag 29.09. bleibt bis zur Bestätigung stehen. Die Freigabe einzelner Produktdaten und die Generierung des Gesamtbestands folgen getrennt in Q4."
+          "details": "Struktur und Design sind beschlossen: Nach der Abstimmung vom 25.09. hat die technische Leitung am 28.09. die letzte offene Frage beantwortet. Die Freigabe einzelner Produktdaten und die Generierung des Gesamtbestands folgen getrennt in Q4.",
+          "erreichtAm": "2026-09-28"
         },
         {
           "id": "pdb-m2",

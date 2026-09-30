@@ -227,7 +227,7 @@
     "pdb-dop": {
       "lane": "Digitale Produktinformationen (DPI)",
       "datum": "2026-09-29",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Leistungserklärungen (DoP) EN 13813: Struktur und Design beschlossen"
     },
     "pdb-m2": {
@@ -5094,6 +5094,15 @@
       "feld": null,
       "alt": "2026-09-29",
       "neu": "2026-09-29"
+    },
+    {
+      "festgestellt": "2026-09-30",
+      "id": "pdb-dop",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
     }
   ],
   "kennzahlen": {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-10-01",
+  "letzteFeststellung": "2026-10-02",
   "stand": {
     "con-workflow": {
       "lane": "Social Media & Redaktion",
@@ -5145,6 +5145,33 @@
       "feld": null,
       "alt": "2026-09-30",
       "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-10-02",
+      "id": "ki-setup-gf",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-09-30",
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-10-02",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-31",
+      "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-10-02",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-09-30",
+      "neu": "2026-09-30"
     }
   ],
   "kennzahlen": {
@@ -5201,7 +5228,7 @@
       "verschiebungen": 2,
       "tageGesamt": 46,
       "letzteVerschiebung": "2026-08-25",
-      "stehengelassen": 2,
+      "stehengelassen": 3,
       "ueberfaelligSeit": "2026-08-24"
     },
     "web-pdp": {
@@ -5285,7 +5312,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 31,
+      "stehengelassen": 32,
       "ueberfaelligSeit": "2026-08-31"
     },
     "con-q4planung": {
@@ -5355,7 +5382,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 1,
+      "stehengelassen": 2,
       "ueberfaelligSeit": "2026-09-30"
     }
   }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-10-02",
+  "letzteFeststellung": "2026-10-03",
   "stand": {
     "con-workflow": {
       "lane": "Social Media & Redaktion",
@@ -130,8 +130,8 @@
     },
     "web-hosting": {
       "lane": "Website",
-      "datum": "2026-11-15",
-      "status": "offen",
+      "datum": "2026-11-06",
+      "status": "verschoben",
       "titel": "Hoster für die neue Website gewählt und eingerichtet"
     },
     "web-pdp": {
@@ -514,8 +514,8 @@
     },
     "org-daten-notion": {
       "lane": "Organisation & Enablement",
-      "datum": "2026-11-30",
-      "status": "offen",
+      "datum": "2026-11-06",
+      "status": "verschoben",
       "titel": "Frühjahrsputz Daten und Notion"
     },
     "org-lernprozess-ausbau": {
@@ -5172,6 +5172,71 @@
       "feld": null,
       "alt": "2026-09-30",
       "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-10-03",
+      "id": "org-daten-notion",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-30",
+      "neu": "2026-11-06",
+      "tage": -24
+    },
+    {
+      "festgestellt": "2026-10-03",
+      "id": "org-daten-notion",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-03",
+      "id": "web-hosting",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-15",
+      "neu": "2026-11-06",
+      "tage": -9
+    },
+    {
+      "festgestellt": "2026-10-03",
+      "id": "web-hosting",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-03",
+      "id": "ki-setup-gf",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-09-30",
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-10-03",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-31",
+      "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-10-03",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-09-30",
+      "neu": "2026-09-30"
     }
   ],
   "kennzahlen": {
@@ -5228,7 +5293,7 @@
       "verschiebungen": 2,
       "tageGesamt": 46,
       "letzteVerschiebung": "2026-08-25",
-      "stehengelassen": 3,
+      "stehengelassen": 4,
       "ueberfaelligSeit": "2026-08-24"
     },
     "web-pdp": {
@@ -5312,7 +5377,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 32,
+      "stehengelassen": 33,
       "ueberfaelligSeit": "2026-08-31"
     },
     "con-q4planung": {
@@ -5382,8 +5447,22 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 2,
+      "stehengelassen": 3,
       "ueberfaelligSeit": "2026-09-30"
+    },
+    "org-daten-notion": {
+      "verschiebungen": 1,
+      "tageGesamt": -24,
+      "letzteVerschiebung": "2026-10-03",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-hosting": {
+      "verschiebungen": 1,
+      "tageGesamt": -9,
+      "letzteVerschiebung": "2026-10-03",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
     }
   }
 }

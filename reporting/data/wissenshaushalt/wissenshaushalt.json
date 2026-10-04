@@ -1,9 +1,9 @@
 {
   "version": 1,
   "stand": {
-    "gemessen_am": "2026-10-03T06:00:12Z",
+    "gemessen_am": "2026-10-04T06:36:15Z",
     "om_commit": "dc7b366081442fd5e0c31ad100ff384e52cf7924",
-    "repos_aus_snapshot": "2026-10-03",
+    "repos_aus_snapshot": "2026-10-04",
     "anweisungsschicht": [
       {
         "datei": "claude-config/CLAUDE.md",
@@ -219,7 +219,7 @@
       "ernte_faellig": false,
       "zeichen": 21401,
       "aeltester": "2026-09-25",
-      "alter_tage": 8
+      "alter_tage": 9
     }
   },
   "verlauf": [
@@ -1738,6 +1738,43 @@
         "abschnitte": 12,
         "zeichen": 21401,
         "alter_tage": 8
+      }
+    },
+    {
+      "gemessen_am": "2026-10-04T06:36:15Z",
+      "om_commit": "dc7b366081442fd5e0c31ad100ff384e52cf7924",
+      "dateien": {
+        "claude-config/CLAUDE.md": 18252,
+        "claude-config/references/agenten-und-workflows.md": 8278,
+        "claude-config/references/board.md": 12943,
+        "claude-config/references/externe-kommunikation.md": 3035,
+        "claude-config/references/git-und-worktrees.md": 11997,
+        "claude-config/references/kontext-und-strategie.md": 2749,
+        "claude-config/references/mac-tooling.md": 8745,
+        "claude-config/references/notion-ids.md": 6254,
+        "claude-config/references/notion.md": 13699,
+        "claude-config/references/praesentationen.md": 9477,
+        "claude-config/references/render-und-messen.md": 11897,
+        "claude-config/references/texte-und-content.md": 1149
+      },
+      "repos": {
+        "KORODUR-International/korodur-ausschreibungstexte": 5236,
+        "KORODUR-International/korodur-corporate-design": 5547,
+        "KORODUR-International/korodur-crm": 4246,
+        "KORODUR-International/korodur-digitale-produktinformationen": 22156,
+        "KORODUR-International/korodur-military": 4914,
+        "KORODUR-International/korodur-operating-model": 4315,
+        "KORODUR-International/korodur-redaktion": 6606,
+        "KORODUR-International/korodur-referenzverzeichnis": 20926,
+        "KORODUR-International/korodur-review-reporting": 3070,
+        "KORODUR-International/korodur-skills": 4053,
+        "KORODUR-International/korodur-translation": 14421,
+        "sfleischmann-3steps2/KORODUR-Website": 25382
+      },
+      "korb": {
+        "abschnitte": 12,
+        "zeichen": 21401,
+        "alter_tage": 9
       }
     }
   ]

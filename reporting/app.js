@@ -283,14 +283,15 @@ function weekRangeTitle(key) {
 }
 
 // ─── Area display meta (emoji) ───────────────────────
+// Namen seit 10.10.2026 (korodur-operating-model#173); Altnamen bildet
+// scripts/fetch_snapshot.py (AREA_ALIASES) schon beim Snapshot ab.
 const AREA_META = {
-  'Marketing':              { emoji: '📣' },
-  'CRM & Sales Ops':        { emoji: '📊' },
-  'Internationalisierung':  { emoji: '🌍' },
-  'Wissensaufbau':          { emoji: '📚' },
-  'AI & Infrastruktur':     { emoji: '🤖' },
   'Strategie':              { emoji: '🎯' },
-  'Redaktion':              { emoji: '📝' },
+  'Marketing':              { emoji: '📣' },
+  'Vertrieb':               { emoji: '📊' },
+  'Technik':                { emoji: '📚' },
+  'Export':                 { emoji: '🌍' },
+  'AI & Enablement':        { emoji: '🤖' },
   'Nicht zugeordnet':       { emoji: '❓' },
 };
 function areaMeta(name) {
@@ -641,20 +642,20 @@ const ROADMAP_PROJEKTE = [
   { bereich: 'Marketing', projekte: [
     { repos: ['sfleischmann-3steps2/KORODUR-Website'], lanes: ['website'] },
     { repos: ['KORODUR-International/korodur-redaktion'], lanes: ['content'] },
-  ] },
-  { bereich: 'Wissensaufbau', projekte: [
-    { repos: ['KORODUR-International/korodur-digitale-produktinformationen', 'KORODUR-International/korodur-produktdatenbank'], lanes: ['pdb'] },
     { repos: ['KORODUR-International/korodur-referenzverzeichnis'], lanes: ['referenzen'] },
   ] },
-  { bereich: 'AI & Infrastruktur', projekte: [
+  { bereich: 'Technik', projekte: [
+    { repos: ['KORODUR-International/korodur-digitale-produktinformationen', 'KORODUR-International/korodur-produktdatenbank'], lanes: ['pdb'] },
+  ] },
+  { bereich: 'AI & Enablement', projekte: [
     { repos: ['KORODUR-International/korodur-lokale-ki'], lanes: ['lokale-ki'] },
     { repos: ['KORODUR-International/korodur-operating-model'], lanes: ['orga'] },
     { repos: ['KORODUR-International/korodur-review-reporting'], lanes: ['orga'] },
   ] },
-  { bereich: 'CRM & Sales Ops', projekte: [
+  { bereich: 'Vertrieb', projekte: [
     { repos: ['KORODUR-International/korodur-crm'], lanes: ['vertriebsprozess', 'crm-daten'] },
   ] },
-  { bereich: 'Internationalisierung', projekte: [
+  { bereich: 'Export', projekte: [
     { repos: ['KORODUR-International/korodur-translation'], lanes: ['uebersetzungen'] },
   ] },
 ];
@@ -1549,7 +1550,7 @@ async function segReferenzen() {
   const z = d.ziel || {};
   const ziel = z.zielwert || 0;
   const erarbeitet = z.ab_de_freigabe || 0;
-  // Ampel am Jahresziel, nicht am Bestand: der Bestand ist ueberwiegend
+  // Ampel an der Zielzahl, nicht am Bestand: der Bestand ist ueberwiegend
   // Altbestand und sagt nichts ueber unseren Fortschritt.
   const state = !ziel ? 'warn'
     : erarbeitet >= ziel ? 'ok'
@@ -1559,7 +1560,7 @@ async function segReferenzen() {
     <a class="seg-card" href="referenzen.html">
       <span class="ampel ampel--${state}"></span>
       <span class="seg-card__name">🏗️ Referenzen</span>
-      <span class="seg-card__kpi">Jahresziel <strong>${erarbeitet}/${ziel}</strong> Prio&nbsp;A</span>
+      <span class="seg-card__kpi">Zielzahl <strong>${erarbeitet}/${ziel}</strong> Prio&nbsp;A</span>
       <span class="seg-card__kpi">Bestand <strong>${d.gesamt ?? 0}</strong></span>
       <span class="seg-card__kpi">In Arbeit <strong>${t.in_arbeit || 0}</strong></span>
       <span class="seg-card__kpi">Datenschuld <strong>${(d.datenschuld || {}).eintraege_betroffen ?? 0}</strong></span>

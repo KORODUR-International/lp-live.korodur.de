@@ -162,7 +162,7 @@ function renderUnbekannterStatus(t) {
     <code>scripts/fetch_referenzen.py</code> nicht kennt.</b> Sie fehlen in allen Kacheln oben.</p>`;
 }
 
-// ─── Band 1: Jahresziel ──────────────────────────────
+// ─── Band 1: Zielzahl ────────────────────────────────
 // Ein Balken gegen die 20, zweifarbig. ab_de_freigabe ist kumulativ und
 // enthaelt die veroeffentlichten mit, deshalb ist der helle Abschnitt die
 // Differenz und nicht der Rohwert (sonst stuende der Fortschritt doppelt drin).
@@ -225,11 +225,11 @@ function renderHistorischesZiel(d) {
     .join(' &middot; ');
 
   return `
-    <div class="band fade-in"><h3>Historisches Jahresziel</h3><span>${ziel} Prio-A-Referenzen</span></div>
+    <div class="band fade-in"><h3>Historische Zielzahl</h3><span>${ziel} Prio-A-Referenzen</span></div>
     <div class="rf-goal fade-in">
       <div class="rf-goal__top">
         <div>
-          <div class="rf-goal__label">Fortschritt gegen das Jahresziel, nur Priorit&auml;t ${refEsc(z.prioritaet || 'high')}</div>
+          <div class="rf-goal__label">Fortschritt gegen die Zielzahl, nur Priorit&auml;t ${refEsc(z.prioritaet || 'high')}</div>
           <div class="rf-goal__value">${erarbeitet} <small>von ${ziel} Prio&nbsp;A</small></div>
         </div>
         <div class="rf-goal__side">

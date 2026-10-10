@@ -1,7 +1,7 @@
 {
-  "version": "1.24",
-  "stand": "2026-10-02",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen. Version 1.22 (30.09.2026): Struktur und Design der Leistungserklärungen EN 13813 am 28.09. erreicht. Version 1.23 (30.09.2026): Wahl und Einrichtung des Website-Hosters als eigener Meilenstein bis 15.11. Version 1.24 (02.10.2026): Daten- und Notion-Clean-up für die Arbeitswoche 02. bis 06.11. geplant; Abschlussziel 06.11. statt 30.11. Website-Host einschließlich Repository-Anbindung und Dokumentablage ebenfalls bis 06.11. statt 15.11.; Website-Go-live bleibt getrennt.",
+  "version": "1.26",
+  "stand": "2026-10-10",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen. Version 1.22 (30.09.2026): Struktur und Design der Leistungserklärungen EN 13813 am 28.09. erreicht. Version 1.23 (30.09.2026): Wahl und Einrichtung des Website-Hosters als eigener Meilenstein bis 15.11. Version 1.24 (02.10.2026): Daten- und Notion-Clean-up für die Arbeitswoche 02. bis 06.11. geplant; Abschlussziel 06.11. statt 30.11. Website-Host einschließlich Repository-Anbindung und Dokumentablage ebenfalls bis 06.11. statt 15.11.; Website-Go-live bleibt getrennt. Version 1.25 (10.10.2026): Area-Namen Marketing, Technik, Vertrieb, Export und AI & Enablement, wie im Board-Feld Bereich (korodur-operating-model#173); IDs unverändert. Version 1.26 (10.10.2026): Das Jahresziel Referenzen gehört zur Area Marketing, wie in Notion.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -11,13 +11,13 @@
   "areas": [
     {
       "id": "marketing",
-      "name": "WiP: Marketing",
+      "name": "Marketing",
       "farbe": "#2a78d6",
       "farbeDunkel": "#3987e5"
     },
     {
       "id": "wissensaufbau",
-      "name": "WiP: Wissensaufbau",
+      "name": "Technik",
       "farbe": "#1baf7a",
       "farbeDunkel": "#199e70"
     },
@@ -29,13 +29,13 @@
     },
     {
       "id": "crm",
-      "name": "WiP: CRM & Sales Operations",
+      "name": "Vertrieb",
       "farbe": "#eda100",
       "farbeDunkel": "#c98500"
     },
     {
       "id": "international",
-      "name": "WiP: Internationalisierung",
+      "name": "Export",
       "farbe": "#008300",
       "farbeDunkel": "#008300"
     }
@@ -742,7 +742,7 @@
     },
     {
       "id": "referenzen",
-      "area": "wissensaufbau",
+      "area": "marketing",
       "name": "Referenzen",
       "hinweis": "Interne DE-Freigabe und nachgelagerte Übersetzung/Veröffentlichung sind getrennt. One-Pager und Social werden bereits genutzt; Website-Darstellung und Datenstruktur werden darauf abgestimmt. Alle Prioritäten einschließlich leerer Werte zählen zu den Mengenzielen.",
       "erreichtHeisst": "Interner Referenzprozess und anschließender Übersetzungs-/Publikationsprozess abgestimmt; Datenstruktur und Website-Anbindung umgesetzt. Zehn DE-One-Pager bis 15.10., zwanzig insgesamt bis 15.12. intern freigegeben; zehn davon bis 15.12. in EN und FR auf bestehendem WordPress live. Automotive und Rapid Set auf Deutsch final freigegeben, Highlight fertig und Presseverteilung erfolgt; Referenzen-Strategie 2027 steht.",

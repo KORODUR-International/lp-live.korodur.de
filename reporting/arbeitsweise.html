@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KORODUR Work Cockpit · Arbeitsweise</title>
-  <link rel="stylesheet" href="styles.css?v=9e9c2ebd">
+  <link rel="stylesheet" href="styles.css?v=378b723c">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
@@ -37,27 +37,52 @@
           <p>Diese Seite ist die Übersicht, nicht das Regelwerk. Sie zeigt, welche Ebenen es gibt, was ein Issue tragen muss und in welchen Takten wir steuern. Verbindlich ist die <a href="https://github.com/KORODUR-International/korodur-operating-model/blob/main/docs/ARBEITSWEISE.md" target="_blank" rel="noopener">ARBEITSWEISE im Operating-Model-Repo</a>; bei Abweichung gilt sie, nicht diese Seite.</p>
         </div>
 
-        <h2 class="aw-h2"><span class="aw-num">1</span>Die fünf Ebenen</h2>
-        <p class="aw-sub">Unternehmensziele und Jahresziele sind zwei verschiedene Ebenen. Unternehmensziele sind der bereichsübergreifende Kompass über 2026 hinaus, Jahresziele die konkreten Vorhaben dieses Jahres, identisch mit den Arbeitssträngen der Roadmap. Jede Arbeit ist über genau eine Kette nach oben erklärbar.</p>
+        <h2 class="aw-h2"><span class="aw-num">1</span>Die Ebenen: von der Vision bis zur Aufgabe</h2>
+        <p class="aw-sub">Von oben nach unten, je Ebene ein Satz und ein fester Ort. Oben steht, wohin wir wollen, unten, was wir dafür tun. Status und Termine leben nur auf den Ebenen E5 und E6 (Roadmap, Board), nie in Miro. Jede Arbeit ist über genau eine Kette nach oben erklärbar. Die Jahresplanung ist die Menge der Meilensteine eines Jahres, keine eigene Ebene: am 31.12. passiert nichts, die Planung ist fließend.</p>
+
+        <div class="aw-level aw-level--compass">
+          <div class="aw-level-head">
+            <span class="aw-badge">F</span>
+            <h3>Fundament (das Warum)</h3>
+            <span class="aw-leitfrage">„Wer wollen wir sein?"</span>
+          </div>
+          <div class="aw-meta">
+            <div><b>Horizont</b>2030</div>
+            <div><b>Zuhause</b>Miro-Mutter-Board, Rahmen 1</div>
+            <div><b>Pflege</b>mit der Geschäftsführung</div>
+          </div>
+          <div class="aw-cols">
+            <ul class="aw-ok">
+              <li><b>Vision:</b> unser Zielbild 2030</li>
+              <li><b>Mission:</b> wofür wir da sind und was wir dafür jeden Tag tun</li>
+            </ul>
+            <ul class="aw-ok">
+              <li><b>Werte:</b> wie wir zusammenarbeiten und auftreten</li>
+              <li><b>Kompetenzfelder:</b> die Felder, in denen wir Spezialist sind</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">Die Programme setzen das Fundament in Stoßrichtungen um</span></div>
 
         <div class="aw-level aw-level--compass">
           <div class="aw-level-head">
             <span class="aw-badge">E1</span>
-            <h3>Unternehmensziele (der Kompass)</h3>
+            <h3>Programme Z1 bis Z6 (der Kompass)</h3>
             <span class="aw-leitfrage">„Wohin entwickeln wir das Unternehmen?"</span>
           </div>
           <div class="aw-meta">
-            <div><b>Horizont</b>mehrjährig, über 2026 hinaus</div>
-            <div><b>Zuhause</b>Notion (eine Seite je Ziel)</div>
-            <div><b>Anzahl</b>6, flach geführt</div>
+            <div><b>Horizont</b>mehrjährig, bis 2030</div>
+            <div><b>Zuhause</b>Notion-Datenbank Programme (eine Seite je Programm) · Miro-Mutter-Board, Rahmen 2</div>
+            <div><b>Vorgabe</b>Geschäftsführung</div>
           </div>
           <div class="aw-catlabel">Wirkung am Markt</div>
           <span class="aw-pill">Z1 Sichtbarkeit</span><span class="aw-pill">Z3 Internationalisierung</span>
           <div class="aw-catlabel">Fundament &amp; Befähiger</div>
-          <span class="aw-pill aw-pill--f">Z2 Digitalisierung &amp; KI</span><span class="aw-pill aw-pill--f">Z4 Zusammenarbeit Technik-Vertrieb-Marketing</span><span class="aw-pill aw-pill--f">Z5 Unternehmenswissen</span><span class="aw-pill aw-pill--f">Z6 Transparenz</span>
+          <span class="aw-pill aw-pill--f">Z2 Digitalisierung &amp; KI</span><span class="aw-pill aw-pill--f">Z4 Zusammenarbeit Technik-Vertrieb-Marketing</span><span class="aw-pill aw-pill--f">Z5 Unternehmenswissen</span><span class="aw-pill aw-pill--f">Z6 Transparenz &amp; Messbarkeit</span>
         </div>
 
-        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">Jede Area zahlt auf definierte Unternehmensziele ein</span></div>
+        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">Jede Area zahlt auf definierte Programme ein</span></div>
 
         <div class="aw-level">
           <div class="aw-level-head">
@@ -67,34 +92,59 @@
           </div>
           <div class="aw-meta">
             <div><b>Horizont</b>dauerhaft</div>
-            <div><b>Zuhause</b>Notion Docking-Pages</div>
-            <div><b>Anzahl</b>5 Areas, am Board 7 Bereiche</div>
+            <div><b>Zuhause</b>Notion Area-Seite · Miro-Spalte und Strategie-Board je Area · Board-Feld Bereich</div>
+            <div><b>Anzahl</b>6, je mit Owner</div>
           </div>
-          <p class="aw-sub" style="margin:0;">Areas sind Marketing, Wissensaufbau, CRM &amp; Sales Operations, Internationalisierung und AI &amp; Infrastruktur. Das Board-Feld <b>Bereich</b> sitzt eine Stufe feiner und kennt zusätzlich Strategie und Redaktion. Sieben gegen fünf ist damit die erwartete Struktur, keine Lücke.</p>
+          <p class="aw-sub" style="margin:0;">Strategie, Marketing, Vertrieb, Technik, Export und AI &amp; Enablement. Das Board-Feld <b>Bereich</b> führt seit dem 10.10.2026 genau dieselben sechs Namen.</p>
         </div>
 
-        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">Jedes Jahresziel gehört zu genau einer Area</span></div>
+        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">Jedes strategische Projekt gehört zu genau einer Area</span></div>
 
         <div class="aw-level">
           <div class="aw-level-head">
             <span class="aw-badge">E3</span>
-            <h3>Jahresziele 2026 = Roadmap-Lanes (die Vorhaben)</h3>
-            <span class="aw-leitfrage">„Was erreichen wir dieses Jahr?"</span>
+            <h3>Strategische Projekte (die Roadmap-Lanes)</h3>
+            <span class="aw-leitfrage">„Was bringen wir strategisch nach vorne?"</span>
           </div>
           <div class="aw-meta">
-            <div><b>Horizont</b>dieses Kalenderjahr</div>
-            <div><b>Zuhause</b>Roadmap (Stand) · Notion (Formulierung)</div>
-            <div><b>Anzahl</b>9, eins je Arbeitsstrang</div>
+            <div><b>Horizont</b>meist mehrjährig, bis das Ziel erreicht ist</div>
+            <div><b>Zuhause</b>Notion-Datenbank Strategische Projekte · Roadmap-Lane · Miro-Zettel</div>
+            <div><b>Anzahl</b>11 (10 Lanes plus Transparenz &amp; Messbarkeit)</div>
           </div>
           <div class="aw-cols">
             <ul class="aw-ok">
-              <li>Jahresziel = Lane: dieselbe Einheit in Roadmap, Reporting und Notion, ein Name, ein Stand</li>
-              <li>Je Lane ein prüfbares <b>„Erreicht heißt …"</b> (Feld <code>erreichtHeisst</code> in der Roadmap-Datei, Quelle der Notion-Jahresziele)</li>
-              <li><b>Abstimmungsanker:</b> die Roadmap ist verbindlich abgestimmt, jede Abweichung wird dort dokumentiert und im Freitagslauf besprochen</li>
+              <li>Ein Vorhaben, das wir strategisch nach vorne bringen und deshalb auf der Roadmap führen, z. B. Website, Referenzen, Digitale Produktinformationen</li>
+              <li>Sein Ziel ist ein Ergebnis oder ein etablierter Prozess, beschrieben als <b>„Erreicht heißt …"</b> (Feld <code>erreichtHeisst</code> in der Roadmap-Datei, gespiegelt nach Notion)</li>
+              <li>Ist das Ziel erreicht, verlässt es die Roadmap und läuft im Betrieb der Area weiter</li>
+              <li>In Miro zeigt die Höhe eines Zettels die Priorität</li>
             </ul>
             <ul class="aw-no">
               <li>keine Detail-Termine (die liegen an den Meilensteinen)</li>
-              <li>keine stillen Abweichungen: was von der Roadmap abweicht, steht in der Roadmap</li>
+              <li>kein Status in Miro und auf den Projektseiten: was von der Roadmap abweicht, steht in der Roadmap</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="aw-connector"><span class="aw-arrow">▲</span><span class="aw-rel">Jedes Teilprojekt gehört zu genau einem strategischen Projekt</span></div>
+
+        <div class="aw-level">
+          <div class="aw-level-head">
+            <span class="aw-badge">E4</span>
+            <h3>Teilprojekte (das Endliche)</h3>
+            <span class="aw-leitfrage">„Welches abgegrenzte Stück liefern wir?"</span>
+          </div>
+          <div class="aw-meta">
+            <div><b>Horizont</b>mit Anfang und Ende, danach archiviert</div>
+            <div><b>Zuhause</b>Notion-Unterseite des strategischen Projekts · Miro nur auf dem Strategie-Board der Area</div>
+            <div><b>Roadmap</b>noch keine eigene Ebene in der Datei</div>
+          </div>
+          <div class="aw-cols">
+            <ul class="aw-ok">
+              <li>Beispiele: Leistungserklärung aus der Datenbank generieren und übersetzen; Military-Broschüre</li>
+              <li>Bündelt die Meilensteine, die zu ihm gehören</li>
+            </ul>
+            <ul class="aw-no">
+              <li>keine Dauerstruktur: nach dem Ende ins Archiv</li>
             </ul>
           </div>
         </div>
@@ -103,14 +153,14 @@
 
         <div class="aw-level">
           <div class="aw-level-head">
-            <span class="aw-badge">E4</span>
+            <span class="aw-badge">E5</span>
             <h3>Meilensteine (die Roadmap)</h3>
             <span class="aw-leitfrage">„Was wird bis wann fertig?"</span>
           </div>
           <div class="aw-meta">
             <div><b>Horizont</b>terminiert (Datum + Confidence)</div>
-            <div><b>Zuhause</b>GitHub führend (<code>roadmap-2026.json</code>)</div>
-            <div><b>Anzahl</b>97 in 9 Lanes</div>
+            <div><b>Zuhause</b>GitHub führend (<code>roadmap-2026.json</code>) · Notion als generierte Sicht in der Projektseite</div>
+            <div><b>Jahresplanung</b>alle Meilensteine, die in ein Jahr fallen</div>
           </div>
           <div class="aw-cols">
             <ul class="aw-ok">
@@ -129,13 +179,13 @@
 
         <div class="aw-level">
           <div class="aw-level-head">
-            <span class="aw-badge">E5</span>
-            <h3>Issues (der Maschinenraum)</h3>
+            <span class="aw-badge">E6</span>
+            <h3>Aufgaben (der Maschinenraum)</h3>
             <span class="aw-leitfrage">„Wer macht was als Nächstes?"</span>
           </div>
           <div class="aw-meta">
             <div><b>Horizont</b>ein Arbeitsgang mit prüfbarem Ergebnis</div>
-            <div><b>Zuhause</b>GitHub Issues auf dem Work Cockpit</div>
+            <div><b>Zuhause</b>GitHub Issues auf dem Work Cockpit · Notion-Aufgaben-DB für Zuarbeiten</div>
             <div><b>Pflege-Takt</b>laufend</div>
           </div>
           <div class="aw-cols">
@@ -154,15 +204,17 @@
         <h2 class="aw-h2"><span class="aw-num">2</span>Der rote Faden</h2>
         <p class="aw-sub">Ein Beispiel, durchgängig von oben nach unten. Passt ein Element in keine Kette, gehört es auf die Ideen-Seite oder wird verworfen.</p>
         <div class="aw-thread">
-          <div class="aw-step"><b>E1 Unternehmensziel</b><span>Z1 Sichtbarkeit</span></div>
+          <div class="aw-step"><b>E1 Programm</b><span>Z1 Sichtbarkeit</span></div>
           <div class="aw-tarrow">→</div>
           <div class="aw-step"><b>E2 Area</b><span>Marketing</span></div>
           <div class="aw-tarrow">→</div>
-          <div class="aw-step"><b>E3 Jahresziel / Lane</b><span>Website: live, dreisprachig</span></div>
+          <div class="aw-step"><b>E3 Strategisches Projekt</b><span>Website</span></div>
           <div class="aw-tarrow">→</div>
-          <div class="aw-step"><b>E4 Meilenstein</b><span><code>web-pdp</code> PDP-Konzept</span></div>
+          <div class="aw-step"><b>E4 Teilprojekt</b><span>Produktdetailseite (PDP)</span></div>
           <div class="aw-tarrow">→</div>
-          <div class="aw-step"><b>E5 Issue</b><span>PDP-Template bauen · Feld Meilensteine <code>web-pdp</code></span></div>
+          <div class="aw-step"><b>E5 Meilenstein</b><span><code>web-pdp</code> PDP-Design steht</span></div>
+          <div class="aw-tarrow">→</div>
+          <div class="aw-step"><b>E6 Aufgabe</b><span>PDP-Template bauen · Feld Meilensteine <code>web-pdp</code></span></div>
         </div>
 
         <h2 class="aw-h2"><span class="aw-num">3</span>Status-Modell am Board</h2>
@@ -208,7 +260,7 @@
           <tr><th>Takt</th><th>Umfang</th><th>Artefakt</th></tr>
           <tr><td class="aw-sys">täglich abends<br>15 Minuten</td><td>Board-Delta zum Vortag: was erledigt ist je Meilenstein, was zu Kollegen geht, Entsperr-Kandidaten, dazu das Hygiene-Aufräumpaket aus dem Montagnacht-Lauf</td><td>keins; Board- und Notion-Schreibaktionen erst nach Freigabe</td></tr>
           <tr><td class="aw-sys">freitags<br>45 Minuten</td><td>sechs Phasen: Loop schließen, Delta seit dem letzten Anker, Meilenstein-Abgleich, Entscheiden per Fragen, Pruning, Recap</td><td>Run-Log unter <code>termine/</code>, Roadmap-PR bei Bedarf</td></tr>
-          <tr><td class="aw-sys">monatlich<br>im ersten Freitagslauf zwischen dem 1. und 14.</td><td>Roadmap-Vollabgleich, Ernte der Learnings, Regelbündel, Notion-Sync der Jahresziele</td><td>ein PR an der ARBEITSWEISE mit Änderungslog-Eintrag</td></tr>
+          <tr><td class="aw-sys">monatlich<br>im ersten Freitagslauf zwischen dem 1. und 14.</td><td>Roadmap-Vollabgleich, Ernte der Learnings, Regelbündel, Notion-Sync der strategischen Projekte</td><td>ein PR an der ARBEITSWEISE mit Änderungslog-Eintrag</td></tr>
         </table></div>
         <p class="aw-sub" style="margin-top:12px;">Regeltext ändert sich nur im Monatsblock, gebündelt als ein PR. Was zwischendurch auffällt, wird im Run-Log gesammelt, nicht sofort umgesetzt. Einzige Ausnahme ist akuter Schaden, also eine Regel, die gerade falsche Ergebnisse erzeugt.</p>
 
@@ -216,9 +268,9 @@
         <p class="aw-sub">Nicht mehr Struktur, sondern harte Regeln, wo etwas leben darf.</p>
         <div class="aw-rules">
           <div class="aw-rule"><b>Ein Zuhause je Information.</b> Jede Informationsart hat genau eine Ebene und genau ein System. Alles andere ist Sicht oder Roll-up, nie Kopie.</div>
-          <div class="aw-rule"><b>Verknüpfung nur eine Ebene nach oben.</b> Issue → Meilenstein → Jahresziel → Unternehmensziel. Keine Sprünge, keine Doppel-Verlinkung.</div>
-          <div class="aw-rule"><b>Status lebt nur unten.</b> Fortschritt wird an Issues und Meilensteinen erfasst. E1 bis E3 zeigen Roll-ups und werden nie manuell auf „x %" gepflegt.</div>
-          <div class="aw-rule"><b>Termine nur an E4 und E5.</b> Meilensteine und Issues haben Daten. Jahresziele haben den Jahreshorizont, Unternehmensziele sind terminlos.</div>
+          <div class="aw-rule"><b>Verknüpfung nur eine Ebene nach oben.</b> Aufgabe → Meilenstein → strategisches Projekt → Area → Programm. Keine Sprünge, keine Doppel-Verlinkung.</div>
+          <div class="aw-rule"><b>Status lebt nur unten.</b> Fortschritt wird an Issues und Meilensteinen erfasst. E1 bis E4 zeigen Roll-ups und werden nie manuell auf „x %" gepflegt.</div>
+          <div class="aw-rule"><b>Termine nur an E5 und E6.</b> Meilensteine und Aufgaben haben Daten. Strategische Projekte laufen, bis ihr Ziel erreicht ist, Programme sind terminlos.</div>
         </div>
 
         <h2 class="aw-h2"><span class="aw-num">7</span>Was zum 14.09.2026 entfallen ist</h2>

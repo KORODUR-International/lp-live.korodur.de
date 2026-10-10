@@ -735,7 +735,8 @@ h1, h2, h3, h4, h5 {
 .rm-months__next { display: flex; align-items: center; justify-content: center; font-size: .74rem; color: var(--muted); border-left: 2px solid var(--mid-gray); }
 
 /* Kopfzeile ist keine Raster-Zeile mehr: sie darf die ganze Breite nutzen,
-   sonst bricht 'CRM & Sales Operations' samt Summe in der 260-px-Spalte um. */
+   sonst bricht ein langer Area-Name samt Summe in der 260-px-Spalte um
+   (Anlass war der Name der Vertriebs-Area bis 10.10.2026). */
 .rm-areahead { margin-top: 24px; display: block; }
 .rm-areahead__label { display: flex; align-items: center; gap: 8px; font-size: .82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; color: var(--primary); }
 .rm-swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex: none; }

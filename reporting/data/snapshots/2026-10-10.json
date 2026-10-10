@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-10-10",
-    "generated_at": "2026-10-10T06:39:43.638245+00:00",
+    "generated_at": "2026-10-10T15:25:08.036291+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -9,38 +9,38 @@
     "version": "3.4"
   },
   "totals": {
-    "items": 1113,
-    "done": 738,
-    "in_progress": 22,
-    "open": 177,
+    "items": 1124,
+    "done": 747,
+    "in_progress": 25,
+    "open": 176,
     "blocked": 21,
     "on_hold": 13,
     "spaeter": 71,
     "discarded": 71,
-    "bereit": 44
+    "bereit": 43
   },
   "by_status": {
     "Backlog": 127,
-    "Bereit": 44,
+    "Bereit": 43,
     "Beansprucht": 6,
-    "In Progress": 10,
-    "In Review": 12,
+    "In Progress": 12,
+    "In Review": 13,
     "Blocked": 21,
     "On Hold": 13,
     "Später": 71,
-    "Done": 809,
+    "Done": 818,
     "none": 0
   },
   "by_owner": {
     "Human": 123,
-    "Claude": 677,
-    "Either": 309,
+    "Claude": 684,
+    "Either": 313,
     "none": 4
   },
   "by_priority": {
     "P0": 27,
-    "P1": 527,
-    "P2": 458,
+    "P1": 530,
+    "P2": 466,
     "P3": 96,
     "none": 5
   },
@@ -48,14 +48,14 @@
     "open": {
       "P0": 2,
       "P1": 77,
-      "P2": 83,
+      "P2": 82,
       "P3": 15,
       "none": 0
     },
     "in_progress": {
       "P0": 2,
       "P1": 18,
-      "P2": 2,
+      "P2": 5,
       "P3": 0,
       "none": 0
     },
@@ -82,32 +82,49 @@
     },
     "done": {
       "P0": 22,
-      "P1": 389,
-      "P2": 269,
+      "P1": 392,
+      "P2": 275,
       "P3": 53,
       "none": 5
     }
   },
   "areas": [
     {
+      "name": "Strategie",
+      "total": 47,
+      "done": 30,
+      "in_progress": 5,
+      "open": 9,
+      "blocked": 0,
+      "on_hold": 0,
+      "spaeter": 3,
+      "discarded": 0,
+      "by_owner": {
+        "Human": 5,
+        "Claude": 22,
+        "Either": 20,
+        "none": 0
+      }
+    },
+    {
       "name": "Marketing",
-      "total": 513,
-      "done": 337,
-      "in_progress": 14,
-      "open": 85,
+      "total": 539,
+      "done": 354,
+      "in_progress": 15,
+      "open": 91,
       "blocked": 9,
       "on_hold": 5,
-      "spaeter": 19,
-      "discarded": 44,
+      "spaeter": 20,
+      "discarded": 45,
       "by_owner": {
-        "Human": 53,
-        "Claude": 299,
-        "Either": 160,
+        "Human": 58,
+        "Claude": 311,
+        "Either": 169,
         "none": 1
       }
     },
     {
-      "name": "CRM & Sales Ops",
+      "name": "Vertrieb",
       "total": 34,
       "done": 9,
       "in_progress": 0,
@@ -124,24 +141,7 @@
       }
     },
     {
-      "name": "Internationalisierung",
-      "total": 61,
-      "done": 27,
-      "in_progress": 0,
-      "open": 4,
-      "blocked": 2,
-      "on_hold": 3,
-      "spaeter": 22,
-      "discarded": 3,
-      "by_owner": {
-        "Human": 5,
-        "Claude": 29,
-        "Either": 27,
-        "none": 0
-      }
-    },
-    {
-      "name": "Wissensaufbau",
+      "name": "Technik",
       "total": 149,
       "done": 90,
       "in_progress": 2,
@@ -158,53 +158,36 @@
       }
     },
     {
-      "name": "AI & Infrastruktur",
-      "total": 287,
-      "done": 229,
+      "name": "Export",
+      "total": 61,
+      "done": 27,
+      "in_progress": 0,
+      "open": 4,
+      "blocked": 2,
+      "on_hold": 3,
+      "spaeter": 22,
+      "discarded": 3,
+      "by_owner": {
+        "Human": 5,
+        "Claude": 29,
+        "Either": 27,
+        "none": 0
+      }
+    },
+    {
+      "name": "AI & Enablement",
+      "total": 291,
+      "done": 234,
       "in_progress": 3,
-      "open": 38,
+      "open": 37,
       "blocked": 0,
       "on_hold": 2,
       "spaeter": 4,
       "discarded": 11,
       "by_owner": {
         "Human": 19,
-        "Claude": 226,
-        "Either": 42,
-        "none": 0
-      }
-    },
-    {
-      "name": "Strategie",
-      "total": 42,
-      "done": 27,
-      "in_progress": 3,
-      "open": 9,
-      "blocked": 0,
-      "on_hold": 0,
-      "spaeter": 3,
-      "discarded": 0,
-      "by_owner": {
-        "Human": 5,
-        "Claude": 19,
-        "Either": 18,
-        "none": 0
-      }
-    },
-    {
-      "name": "Redaktion",
-      "total": 24,
-      "done": 16,
-      "in_progress": 0,
-      "open": 6,
-      "blocked": 0,
-      "on_hold": 0,
-      "spaeter": 1,
-      "discarded": 1,
-      "by_owner": {
-        "Human": 5,
-        "Claude": 11,
-        "Either": 8,
+        "Claude": 229,
+        "Either": 43,
         "none": 0
       }
     },
@@ -258,8 +241,8 @@
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 170,
-      "done": 134,
+      "total": 173,
+      "done": 137,
       "in_progress": 3,
       "open": 18,
       "blocked": 0,
@@ -268,7 +251,7 @@
       "discarded": 7,
       "by_owner": {
         "Human": 16,
-        "Claude": 122,
+        "Claude": 125,
         "Either": 32,
         "none": 0
       },
@@ -281,7 +264,7 @@
         "Blocked": 0,
         "On Hold": 1,
         "Später": 7,
-        "Done": 141,
+        "Done": 144,
         "none": 0
       }
     },
@@ -345,37 +328,37 @@
     },
     {
       "name": "KORODUR-International/korodur-operating-model",
-      "total": 88,
-      "done": 76,
-      "in_progress": 0,
-      "open": 9,
+      "total": 94,
+      "done": 80,
+      "in_progress": 3,
+      "open": 8,
       "blocked": 0,
       "on_hold": 1,
       "spaeter": 0,
       "discarded": 2,
       "by_owner": {
         "Human": 6,
-        "Claude": 69,
-        "Either": 13,
+        "Claude": 71,
+        "Either": 17,
         "none": 0
       },
       "by_status": {
         "Backlog": 5,
-        "Bereit": 4,
+        "Bereit": 3,
         "Beansprucht": 0,
-        "In Progress": 0,
-        "In Review": 0,
+        "In Progress": 2,
+        "In Review": 1,
         "Blocked": 0,
         "On Hold": 1,
         "Später": 0,
-        "Done": 78,
+        "Done": 82,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-skills",
-      "total": 57,
-      "done": 50,
+      "total": 59,
+      "done": 52,
       "in_progress": 0,
       "open": 5,
       "blocked": 0,
@@ -384,7 +367,7 @@
       "discarded": 1,
       "by_owner": {
         "Human": 1,
-        "Claude": 51,
+        "Claude": 53,
         "Either": 4,
         "none": 1
       },
@@ -397,7 +380,7 @@
         "Blocked": 0,
         "On Hold": 1,
         "Später": 0,
-        "Done": 51,
+        "Done": 53,
         "none": 0
       }
     },
@@ -756,7 +739,7 @@
       "repo": "KORODUR-International/korodur-ausschreibungstexte",
       "nummer": 11,
       "status": "Bereit",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -771,7 +754,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 4,
       "status": "Später",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -786,7 +769,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 5,
       "status": "Später",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -801,7 +784,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 6,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -817,7 +800,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 7,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P3",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -847,7 +830,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 10,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -862,7 +845,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 14,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": "Human",
@@ -877,7 +860,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 15,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -907,7 +890,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 18,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -922,7 +905,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 23,
       "status": "Bereit",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -937,7 +920,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 24,
       "status": "Später",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P3",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -952,7 +935,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 25,
       "status": "Bereit",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -967,7 +950,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 27,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P3",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -982,7 +965,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 29,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -997,7 +980,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 31,
       "status": "Bereit",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1027,7 +1010,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 34,
       "status": "Bereit",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1042,7 +1025,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 37,
       "status": "Später",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1057,7 +1040,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 38,
       "status": "Später",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1072,7 +1055,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 39,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1087,7 +1070,7 @@
       "repo": "KORODUR-International/korodur-crm",
       "nummer": 40,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1105,7 +1088,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 3,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1121,7 +1104,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 4,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P3",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1137,7 +1120,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 5,
       "status": "On Hold",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1152,7 +1135,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 25,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": "Human",
@@ -1168,7 +1151,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 28,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1184,7 +1167,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 56,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1199,7 +1182,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 57,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1214,7 +1197,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 60,
       "status": "Bereit",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1229,7 +1212,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 61,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P3",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1244,7 +1227,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 71,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1259,7 +1242,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 82,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": "Claude Korodur",
@@ -1274,7 +1257,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 101,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1292,7 +1275,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 102,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": "Human",
@@ -1307,7 +1290,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 113,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": "Claude Korodur",
@@ -1387,7 +1370,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 120,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1417,7 +1400,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 141,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1432,7 +1415,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 154,
       "status": "Bereit",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1448,7 +1431,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 156,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1467,7 +1450,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 157,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": "Claude Korodur",
@@ -1486,7 +1469,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 158,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1501,7 +1484,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 159,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1516,7 +1499,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 160,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P3",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1531,7 +1514,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 168,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1546,7 +1529,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 169,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1564,7 +1547,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 170,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1579,7 +1562,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 171,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1594,7 +1577,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 172,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1609,7 +1592,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 173,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1624,7 +1607,7 @@
       "repo": "KORODUR-International/korodur-digitale-produktinformationen",
       "nummer": 174,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P3",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1654,7 +1637,7 @@
       "repo": "KORODUR-International/korodur-konzepte",
       "nummer": 2,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1714,7 +1697,7 @@
       "repo": "KORODUR-International/korodur-konzepte",
       "nummer": 13,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1819,7 +1802,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 7,
       "status": "In Progress",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": "Claude Korodur",
@@ -1834,7 +1817,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 8,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1849,7 +1832,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 9,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1864,7 +1847,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 10,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1879,7 +1862,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 11,
       "status": "Beansprucht",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": "Human",
@@ -1894,7 +1877,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 12,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1909,7 +1892,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 19,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1924,7 +1907,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 20,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -1939,7 +1922,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 21,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1954,7 +1937,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 24,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1969,7 +1952,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 25,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -1984,7 +1967,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 26,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -1999,7 +1982,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 27,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -2014,7 +1997,7 @@
       "repo": "KORODUR-International/korodur-lokale-ki",
       "nummer": 31,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -2044,7 +2027,7 @@
       "repo": "KORODUR-International/korodur-operating-model",
       "nummer": 5,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": "Human",
@@ -2072,21 +2055,6 @@
     },
     {
       "repo": "KORODUR-International/korodur-operating-model",
-      "nummer": 54,
-      "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
-      "prioritaet": "P2",
-      "owner_typ": "Human",
-      "bearbeiter": null,
-      "status_seit": "2026-09-11",
-      "status_beobachtet_seit": "2026-09-12",
-      "status_beobachtung_luecke": false,
-      "meilensteine": [
-        "org-lernprozess-ausbau"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-operating-model",
       "nummer": 71,
       "status": "Backlog",
       "bereich": "Strategie",
@@ -2105,7 +2073,7 @@
       "repo": "KORODUR-International/korodur-operating-model",
       "nummer": 84,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2120,7 +2088,7 @@
       "repo": "KORODUR-International/korodur-operating-model",
       "nummer": 102,
       "status": "On Hold",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P3",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -2135,7 +2103,7 @@
       "repo": "KORODUR-International/korodur-operating-model",
       "nummer": 145,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2150,7 +2118,7 @@
       "repo": "KORODUR-International/korodur-operating-model",
       "nummer": 162,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -2165,7 +2133,7 @@
       "repo": "KORODUR-International/korodur-operating-model",
       "nummer": 164,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2174,6 +2142,51 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "adhoc"
+      ]
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 172,
+      "status": "In Review",
+      "bereich": "Strategie",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": "Claude Korodur",
+      "status_seit": "2026-10-10",
+      "status_beobachtet_seit": "2026-10-10",
+      "status_beobachtung_luecke": false,
+      "meilensteine": [
+        "org-daten-notion"
+      ]
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 176,
+      "status": "In Progress",
+      "bereich": "Marketing",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": "Claude Korodur",
+      "status_seit": "2026-10-10",
+      "status_beobachtet_seit": "2026-10-10",
+      "status_beobachtung_luecke": false,
+      "meilensteine": [
+        "org-daten-notion"
+      ]
+    },
+    {
+      "repo": "KORODUR-International/korodur-operating-model",
+      "nummer": 180,
+      "status": "In Progress",
+      "bereich": "Strategie",
+      "prioritaet": "P2",
+      "owner_typ": "Either",
+      "bearbeiter": "Claude Korodur",
+      "status_seit": "2026-10-10",
+      "status_beobachtet_seit": "2026-10-10",
+      "status_beobachtung_luecke": false,
+      "meilensteine": [
+        "org-daten-notion"
       ]
     },
     {
@@ -2300,7 +2313,7 @@
       "repo": "KORODUR-International/korodur-redaktion",
       "nummer": 26,
       "status": "Bereit",
-      "bereich": "Redaktion",
+      "bereich": "Marketing",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -2315,7 +2328,7 @@
       "repo": "KORODUR-International/korodur-redaktion",
       "nummer": 29,
       "status": "Bereit",
-      "bereich": "Redaktion",
+      "bereich": "Marketing",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -2330,7 +2343,7 @@
       "repo": "KORODUR-International/korodur-redaktion",
       "nummer": 35,
       "status": "Beansprucht",
-      "bereich": "Redaktion",
+      "bereich": "Marketing",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": "Claude Korodur",
@@ -2345,7 +2358,7 @@
       "repo": "KORODUR-International/korodur-redaktion",
       "nummer": 41,
       "status": "Bereit",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -2360,7 +2373,7 @@
       "repo": "KORODUR-International/korodur-redaktion",
       "nummer": 42,
       "status": "Backlog",
-      "bereich": "Redaktion",
+      "bereich": "Marketing",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -2375,7 +2388,7 @@
       "repo": "KORODUR-International/korodur-redaktion",
       "nummer": 43,
       "status": "Backlog",
-      "bereich": "Redaktion",
+      "bereich": "Marketing",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2390,7 +2403,7 @@
       "repo": "KORODUR-International/korodur-redaktion",
       "nummer": 44,
       "status": "Später",
-      "bereich": "Redaktion",
+      "bereich": "Marketing",
       "prioritaet": "P3",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2405,7 +2418,7 @@
       "repo": "KORODUR-International/korodur-redaktion",
       "nummer": 45,
       "status": "Backlog",
-      "bereich": "Redaktion",
+      "bereich": "Marketing",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2620,7 +2633,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 90,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2635,7 +2648,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 93,
       "status": "In Review",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": "Human",
@@ -2650,7 +2663,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 104,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": "Claude Korodur",
@@ -2695,7 +2708,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 121,
       "status": "In Review",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": "Claude Korodur",
@@ -2742,7 +2755,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 156,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -2772,7 +2785,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 180,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2787,7 +2800,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 181,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2802,7 +2815,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 182,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2818,7 +2831,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 183,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2833,7 +2846,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 184,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2848,7 +2861,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 185,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -2879,7 +2892,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 188,
       "status": "Beansprucht",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": "Claude Korodur",
@@ -2940,7 +2953,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 200,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": "Claude Korodur",
@@ -2982,7 +2995,7 @@
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 207,
       "status": "Später",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -3104,7 +3117,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 23,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P3",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3119,7 +3132,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 25,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3134,7 +3147,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 45,
       "status": "Später",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3150,7 +3163,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 46,
       "status": "Später",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P3",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3181,7 +3194,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 50,
       "status": "On Hold",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P3",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3196,7 +3209,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 53,
       "status": "Später",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P3",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -3212,7 +3225,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 71,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3257,7 +3270,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 99,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": "Human",
@@ -3274,7 +3287,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 118,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -3319,7 +3332,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 131,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3334,7 +3347,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 153,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3349,7 +3362,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 161,
       "status": "Bereit",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -3365,7 +3378,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 193,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P3",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3380,7 +3393,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 204,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3395,7 +3408,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 230,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3425,7 +3438,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 289,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3456,7 +3469,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 310,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P3",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3486,7 +3499,7 @@
       "repo": "KORODUR-International/korodur-review-reporting",
       "nummer": 329,
       "status": "In Review",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": "Human",
@@ -3503,7 +3516,7 @@
       "repo": "KORODUR-International/korodur-skills",
       "nummer": 1,
       "status": "On Hold",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P3",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -3518,7 +3531,7 @@
       "repo": "KORODUR-International/korodur-skills",
       "nummer": 114,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3533,7 +3546,7 @@
       "repo": "KORODUR-International/korodur-skills",
       "nummer": 115,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3548,7 +3561,7 @@
       "repo": "KORODUR-International/korodur-skills",
       "nummer": 116,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3563,7 +3576,7 @@
       "repo": "KORODUR-International/korodur-skills",
       "nummer": 117,
       "status": "Backlog",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3578,7 +3591,7 @@
       "repo": "KORODUR-International/korodur-skills",
       "nummer": 119,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3593,7 +3606,7 @@
       "repo": "KORODUR-International/korodur-translation",
       "nummer": 18,
       "status": "On Hold",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P1",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3608,7 +3621,7 @@
       "repo": "KORODUR-International/korodur-translation",
       "nummer": 23,
       "status": "In Review",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": "Human",
@@ -3623,7 +3636,7 @@
       "repo": "KORODUR-International/korodur-translation",
       "nummer": 26,
       "status": "Blocked",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -3638,7 +3651,7 @@
       "repo": "KORODUR-International/korodur-translation",
       "nummer": 36,
       "status": "On Hold",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3653,7 +3666,7 @@
       "repo": "KORODUR-International/korodur-translation",
       "nummer": 43,
       "status": "Blocked",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -3668,7 +3681,7 @@
       "repo": "KORODUR-International/korodur-translation",
       "nummer": 44,
       "status": "On Hold",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3683,7 +3696,7 @@
       "repo": "KORODUR-International/korodur-translation",
       "nummer": 51,
       "status": "Bereit",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3698,7 +3711,7 @@
       "repo": "KORODUR-International/korodur-vertrieb",
       "nummer": 1,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3713,7 +3726,7 @@
       "repo": "KORODUR-International/korodur-vertrieb",
       "nummer": 2,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -3728,7 +3741,7 @@
       "repo": "KORODUR-International/korodur-vertrieb",
       "nummer": 3,
       "status": "Bereit",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P3",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -3848,7 +3861,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 239,
       "status": "Backlog",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3863,7 +3876,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 242,
       "status": "Später",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P2",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -3983,7 +3996,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 379,
       "status": "On Hold",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": "Human",
@@ -4033,7 +4046,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 405,
       "status": "Blocked",
-      "bereich": "Wissensaufbau",
+      "bereich": "Technik",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -4140,7 +4153,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 486,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -4264,7 +4277,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 579,
       "status": "Später",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P3",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -4309,7 +4322,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 587,
       "status": "Bereit",
-      "bereich": "AI & Infrastruktur",
+      "bereich": "AI & Enablement",
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
@@ -4480,7 +4493,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 655,
       "status": "Später",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4510,7 +4523,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 657,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4528,7 +4541,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 658,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4546,7 +4559,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 659,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4561,7 +4574,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 660,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4576,7 +4589,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 661,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4591,7 +4604,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 662,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4606,7 +4619,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 663,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4621,7 +4634,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 664,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4636,7 +4649,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 665,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4651,7 +4664,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 666,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4666,7 +4679,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 667,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4681,7 +4694,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 668,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4696,7 +4709,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 669,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4714,7 +4727,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 670,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4732,7 +4745,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 671,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4747,7 +4760,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 672,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4762,7 +4775,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 673,
       "status": "Backlog",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4779,7 +4792,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 674,
       "status": "Backlog",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4796,7 +4809,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 675,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4811,7 +4824,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 676,
       "status": "Später",
-      "bereich": "Internationalisierung",
+      "bereich": "Export",
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
@@ -4856,7 +4869,7 @@
       "repo": "sfleischmann-3steps2/KORODUR-Website",
       "nummer": 711,
       "status": "Backlog",
-      "bereich": "CRM & Sales Ops",
+      "bereich": "Vertrieb",
       "prioritaet": "P3",
       "owner_typ": "Human",
       "bearbeiter": null,
@@ -5464,14 +5477,15 @@
     "2026-10-05": 3,
     "2026-10-06": 17,
     "2026-10-08": 1,
-    "2026-10-09": 1
+    "2026-10-09": 1,
+    "2026-10-10": 9
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
     "2026-09": 270,
-    "2026-10": 23
+    "2026-10": 32
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -5489,7 +5503,7 @@
     "2026-W38": 65,
     "2026-W39": 111,
     "2026-W40": 51,
-    "2026-W41": 22
+    "2026-W41": 31
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#4",
@@ -5652,6 +5666,9 @@
     "KORODUR-International/korodur-operating-model#163",
     "KORODUR-International/korodur-operating-model#165",
     "KORODUR-International/korodur-operating-model#17",
+    "KORODUR-International/korodur-operating-model#173",
+    "KORODUR-International/korodur-operating-model#175",
+    "KORODUR-International/korodur-operating-model#178",
     "KORODUR-International/korodur-operating-model#2",
     "KORODUR-International/korodur-operating-model#22",
     "KORODUR-International/korodur-operating-model#25",
@@ -5667,6 +5684,7 @@
     "KORODUR-International/korodur-operating-model#45",
     "KORODUR-International/korodur-operating-model#48",
     "KORODUR-International/korodur-operating-model#50",
+    "KORODUR-International/korodur-operating-model#54",
     "KORODUR-International/korodur-operating-model#56",
     "KORODUR-International/korodur-operating-model#58",
     "KORODUR-International/korodur-operating-model#59",
@@ -5907,6 +5925,9 @@
     "KORODUR-International/korodur-review-reporting#321",
     "KORODUR-International/korodur-review-reporting#324",
     "KORODUR-International/korodur-review-reporting#327",
+    "KORODUR-International/korodur-review-reporting#332",
+    "KORODUR-International/korodur-review-reporting#334",
+    "KORODUR-International/korodur-review-reporting#336",
     "KORODUR-International/korodur-review-reporting#34",
     "KORODUR-International/korodur-review-reporting#35",
     "KORODUR-International/korodur-review-reporting#37",
@@ -5947,6 +5968,8 @@
     "KORODUR-International/korodur-skills#101",
     "KORODUR-International/korodur-skills#110",
     "KORODUR-International/korodur-skills#12",
+    "KORODUR-International/korodur-skills#120",
+    "KORODUR-International/korodur-skills#122",
     "KORODUR-International/korodur-skills#14",
     "KORODUR-International/korodur-skills#17",
     "KORODUR-International/korodur-skills#2",
@@ -6322,6 +6345,30 @@
         "status": "In Review"
       },
       {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 172,
+        "bereich": "Strategie",
+        "prioritaet": "P2",
+        "owner_typ": "Either",
+        "status": "In Review"
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 176,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Either",
+        "status": "In Progress"
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 180,
+        "bereich": "Strategie",
+        "prioritaet": "P2",
+        "owner_typ": "Either",
+        "status": "In Progress"
+      },
+      {
         "repo": "KORODUR-International/korodur-redaktion",
         "nummer": 63,
         "bereich": "Marketing",
@@ -6340,7 +6387,7 @@
       {
         "repo": "KORODUR-International/korodur-referenzverzeichnis",
         "nummer": 207,
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "prioritaet": "P2",
         "owner_typ": "Human",
         "status": "Später"
@@ -6388,7 +6435,7 @@
       {
         "repo": "KORODUR-International/korodur-skills",
         "nummer": 119,
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "prioritaet": "P2",
         "owner_typ": "Either",
         "status": "Backlog"
@@ -6396,7 +6443,7 @@
       {
         "repo": "KORODUR-International/korodur-vertrieb",
         "nummer": 1,
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "prioritaet": "P2",
         "owner_typ": "Either",
         "status": "Backlog"
@@ -6404,7 +6451,7 @@
       {
         "repo": "KORODUR-International/korodur-vertrieb",
         "nummer": 2,
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "prioritaet": "P2",
         "owner_typ": "Either",
         "status": "Backlog"
@@ -6412,7 +6459,7 @@
       {
         "repo": "KORODUR-International/korodur-vertrieb",
         "nummer": 3,
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "prioritaet": "P3",
         "owner_typ": "Human",
         "status": "Bereit"
@@ -6431,6 +6478,39 @@
     ],
     "erledigt": [
       {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 54,
+        "bereich": "AI & Enablement",
+        "prioritaet": "P2",
+        "owner_typ": "Human",
+        "von": "Bereit",
+        "closed_at": "2026-10-10T14:08:21Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 173,
+        "bereich": "Strategie",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-10T11:37:33Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 175,
+        "bereich": "AI & Enablement",
+        "prioritaet": "P2",
+        "owner_typ": "Either",
+        "closed_at": "2026-10-10T13:34:16Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 178,
+        "bereich": "Strategie",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-10T15:23:33Z"
+      },
+      {
         "repo": "KORODUR-International/korodur-redaktion",
         "nummer": 61,
         "bereich": "Marketing",
@@ -6438,6 +6518,46 @@
         "owner_typ": "Claude",
         "von": "In Progress",
         "closed_at": "2026-10-09T12:56:21Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 332,
+        "bereich": "AI & Enablement",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-10T11:34:37Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 334,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-10T12:08:14Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 336,
+        "bereich": "Strategie",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-10T15:23:38Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-skills",
+        "nummer": 120,
+        "bereich": "AI & Enablement",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-10T14:06:00Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-skills",
+        "nummer": 122,
+        "bereich": "AI & Enablement",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-10T14:03:29Z"
       }
     ],
     "verworfen": [],
@@ -6446,13 +6566,13 @@
   "meilenstein": {
     "feldSeit": "2026-09-11",
     "bestand": {
-      "auf": 232,
+      "auf": 234,
       "adhoc": 66,
       "leer": 6
     },
     "erledigt": {
-      "auf": 220,
-      "adhoc": 69,
+      "auf": 226,
+      "adhoc": 72,
       "leer": 449
     },
     "je_woche": {
@@ -6532,8 +6652,8 @@
         "leer": 0
       },
       "2026-W41": {
-        "auf": 8,
-        "adhoc": 12,
+        "auf": 14,
+        "adhoc": 15,
         "leer": 2
       }
     },
@@ -6619,16 +6739,16 @@
         "erledigt": 0
       },
       "org-daten-notion": {
-        "offen": 13,
-        "erledigt": 0
+        "offen": 16,
+        "erledigt": 3
       },
       "org-lernprozess": {
         "offen": 9,
         "erledigt": 63
       },
       "org-lernprozess-ausbau": {
-        "offen": 19,
-        "erledigt": 24
+        "offen": 18,
+        "erledigt": 27
       },
       "org-notion": {
         "offen": 6,
@@ -6958,7 +7078,7 @@
     "basis": "board_bestand",
     "von": "2026-09-07",
     "bis": "2026-10-10",
-    "stand": "2026-10-10T06:39:43.638245+00:00",
+    "stand": "2026-10-10T15:25:08.036291+00:00",
     "vollstaendig": false,
     "tage": {
       "2026-09-09": 1,
@@ -6982,7 +7102,8 @@
       "2026-10-05": 3,
       "2026-10-06": 17,
       "2026-10-08": 1,
-      "2026-10-09": 1
+      "2026-10-09": 1,
+      "2026-10-10": 9
     },
     "issues": [
       {
@@ -6998,7 +7119,7 @@
         "nummer": 4,
         "closed_at": "2026-09-11T18:58:48+00:00",
         "datum": "2026-09-11",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7018,7 +7139,7 @@
         "nummer": 61,
         "closed_at": "2026-09-11T12:15:09+00:00",
         "datum": "2026-09-11",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7028,7 +7149,7 @@
         "nummer": 63,
         "closed_at": "2026-09-11T12:21:07+00:00",
         "datum": "2026-09-11",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7068,7 +7189,7 @@
         "nummer": 82,
         "closed_at": "2026-09-11T13:10:15+00:00",
         "datum": "2026-09-11",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7078,7 +7199,7 @@
         "nummer": 226,
         "closed_at": "2026-09-11T13:11:58+00:00",
         "datum": "2026-09-11",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7088,7 +7209,7 @@
         "nummer": 65,
         "closed_at": "2026-09-11T10:29:22+00:00",
         "datum": "2026-09-11",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7098,7 +7219,7 @@
         "nummer": 66,
         "closed_at": "2026-09-11T10:16:41+00:00",
         "datum": "2026-09-11",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7108,7 +7229,7 @@
         "nummer": 67,
         "closed_at": "2026-09-11T10:29:22+00:00",
         "datum": "2026-09-11",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7118,7 +7239,7 @@
         "nummer": 45,
         "closed_at": "2026-09-11T10:32:41+00:00",
         "datum": "2026-09-11",
-        "bereich": "Internationalisierung",
+        "bereich": "Export",
         "meilensteine": [
           "ueb-tds-it"
         ]
@@ -7138,7 +7259,7 @@
         "nummer": 64,
         "closed_at": "2026-09-12T09:52:04+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7148,7 +7269,7 @@
         "nummer": 65,
         "closed_at": "2026-09-12T12:08:05+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7158,7 +7279,7 @@
         "nummer": 73,
         "closed_at": "2026-09-12T08:34:57+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7168,7 +7289,7 @@
         "nummer": 74,
         "closed_at": "2026-09-12T08:25:40+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7178,7 +7299,7 @@
         "nummer": 75,
         "closed_at": "2026-09-12T08:52:18+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7188,7 +7309,7 @@
         "nummer": 76,
         "closed_at": "2026-09-12T09:52:04+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7198,7 +7319,7 @@
         "nummer": 77,
         "closed_at": "2026-09-12T12:20:39+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7208,7 +7329,7 @@
         "nummer": 78,
         "closed_at": "2026-09-12T14:09:48+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7218,7 +7339,7 @@
         "nummer": 79,
         "closed_at": "2026-09-12T14:19:10+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7228,7 +7349,7 @@
         "nummer": 80,
         "closed_at": "2026-09-12T14:45:32+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7238,7 +7359,7 @@
         "nummer": 86,
         "closed_at": "2026-09-12T15:48:41+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7248,7 +7369,7 @@
         "nummer": 91,
         "closed_at": "2026-09-12T09:52:15+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7258,7 +7379,7 @@
         "nummer": 94,
         "closed_at": "2026-09-12T09:56:35+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7268,7 +7389,7 @@
         "nummer": 100,
         "closed_at": "2026-09-12T11:58:26+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7278,7 +7399,7 @@
         "nummer": 227,
         "closed_at": "2026-09-12T14:04:28+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7288,7 +7409,7 @@
         "nummer": 228,
         "closed_at": "2026-09-12T14:04:15+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7378,7 +7499,7 @@
         "nummer": 568,
         "closed_at": "2026-09-12T14:12:35+00:00",
         "datum": "2026-09-12",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-repos"
         ]
@@ -7418,7 +7539,7 @@
         "nummer": 85,
         "closed_at": "2026-09-13T07:19:31+00:00",
         "datum": "2026-09-13",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7428,7 +7549,7 @@
         "nummer": 149,
         "closed_at": "2026-09-14T10:49:05+00:00",
         "datum": "2026-09-14",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7438,7 +7559,7 @@
         "nummer": 214,
         "closed_at": "2026-09-14T11:31:28+00:00",
         "datum": "2026-09-14",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7448,7 +7569,7 @@
         "nummer": 233,
         "closed_at": "2026-09-14T09:32:00+00:00",
         "datum": "2026-09-14",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "con-kpi"
         ]
@@ -7458,7 +7579,7 @@
         "nummer": 234,
         "closed_at": "2026-09-14T10:31:23+00:00",
         "datum": "2026-09-14",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "con-kpi"
         ]
@@ -7468,7 +7589,7 @@
         "nummer": 237,
         "closed_at": "2026-09-14T11:31:18+00:00",
         "datum": "2026-09-14",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7478,7 +7599,7 @@
         "nummer": 77,
         "closed_at": "2026-09-14T06:19:20+00:00",
         "datum": "2026-09-14",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7519,7 +7640,7 @@
         "nummer": 4,
         "closed_at": "2026-09-15T12:02:19+00:00",
         "datum": "2026-09-15",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7529,7 +7650,7 @@
         "nummer": 35,
         "closed_at": "2026-09-15T12:06:38+00:00",
         "datum": "2026-09-15",
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "meilensteine": [
           "dat-mvp"
         ]
@@ -7539,7 +7660,7 @@
         "nummer": 62,
         "closed_at": "2026-09-15T04:52:45+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop",
           "web-pdp"
@@ -7550,7 +7671,7 @@
         "nummer": 91,
         "closed_at": "2026-09-15T10:43:33+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "org-notion"
         ]
@@ -7560,7 +7681,7 @@
         "nummer": 93,
         "closed_at": "2026-09-15T10:43:15+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -7570,7 +7691,7 @@
         "nummer": 94,
         "closed_at": "2026-09-15T10:38:19+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop",
           "web-daten"
@@ -7581,7 +7702,7 @@
         "nummer": 95,
         "closed_at": "2026-09-15T12:45:53+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop",
           "web-daten"
@@ -7592,7 +7713,7 @@
         "nummer": 96,
         "closed_at": "2026-09-15T14:57:47+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -7602,7 +7723,7 @@
         "nummer": 103,
         "closed_at": "2026-09-15T12:07:09+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "adhoc"
         ]
@@ -7622,7 +7743,7 @@
         "nummer": 107,
         "closed_at": "2026-09-15T14:26:51+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -7632,7 +7753,7 @@
         "nummer": 110,
         "closed_at": "2026-09-15T14:57:36+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -7652,7 +7773,7 @@
         "nummer": 108,
         "closed_at": "2026-09-15T12:07:03+00:00",
         "datum": "2026-09-15",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-repos"
         ]
@@ -7662,7 +7783,7 @@
         "nummer": 111,
         "closed_at": "2026-09-15T21:40:16+00:00",
         "datum": "2026-09-15",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7672,7 +7793,7 @@
         "nummer": 30,
         "closed_at": "2026-09-15T12:06:45+00:00",
         "datum": "2026-09-15",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "vp-pilot"
         ]
@@ -7682,7 +7803,7 @@
         "nummer": 164,
         "closed_at": "2026-09-15T12:06:57+00:00",
         "datum": "2026-09-15",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "ref-prozess"
         ]
@@ -7692,7 +7813,7 @@
         "nummer": 247,
         "closed_at": "2026-09-15T21:27:18+00:00",
         "datum": "2026-09-15",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7702,7 +7823,7 @@
         "nummer": 80,
         "closed_at": "2026-09-15T20:22:14+00:00",
         "datum": "2026-09-15",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7742,7 +7863,7 @@
         "nummer": 112,
         "closed_at": "2026-09-16T07:02:30+00:00",
         "datum": "2026-09-16",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7752,7 +7873,7 @@
         "nummer": 114,
         "closed_at": "2026-09-16T05:15:20+00:00",
         "datum": "2026-09-16",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7762,7 +7883,7 @@
         "nummer": 115,
         "closed_at": "2026-09-16T05:10:42+00:00",
         "datum": "2026-09-16",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7772,7 +7893,7 @@
         "nummer": 121,
         "closed_at": "2026-09-16T07:29:42+00:00",
         "datum": "2026-09-16",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7782,7 +7903,7 @@
         "nummer": 245,
         "closed_at": "2026-09-16T05:10:09+00:00",
         "datum": "2026-09-16",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7792,7 +7913,7 @@
         "nummer": 252,
         "closed_at": "2026-09-16T09:32:17+00:00",
         "datum": "2026-09-16",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7802,7 +7923,7 @@
         "nummer": 81,
         "closed_at": "2026-09-16T11:16:18+00:00",
         "datum": "2026-09-16",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7812,7 +7933,7 @@
         "nummer": 83,
         "closed_at": "2026-09-16T06:40:08+00:00",
         "datum": "2026-09-16",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7822,7 +7943,7 @@
         "nummer": 123,
         "closed_at": "2026-09-17T10:05:13+00:00",
         "datum": "2026-09-17",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7832,7 +7953,7 @@
         "nummer": 124,
         "closed_at": "2026-09-17T10:04:47+00:00",
         "datum": "2026-09-17",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7842,7 +7963,7 @@
         "nummer": 125,
         "closed_at": "2026-09-17T11:08:03+00:00",
         "datum": "2026-09-17",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7852,7 +7973,7 @@
         "nummer": 129,
         "closed_at": "2026-09-17T15:25:08+00:00",
         "datum": "2026-09-17",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7862,7 +7983,7 @@
         "nummer": 130,
         "closed_at": "2026-09-17T15:25:33+00:00",
         "datum": "2026-09-17",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7882,7 +8003,7 @@
         "nummer": 167,
         "closed_at": "2026-09-17T10:35:34+00:00",
         "datum": "2026-09-17",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "ref-formate"
         ]
@@ -7912,7 +8033,7 @@
         "nummer": 255,
         "closed_at": "2026-09-17T09:50:02+00:00",
         "datum": "2026-09-17",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7922,7 +8043,7 @@
         "nummer": 60,
         "closed_at": "2026-09-18T09:32:33+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7932,7 +8053,7 @@
         "nummer": 110,
         "closed_at": "2026-09-18T09:32:34+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7942,7 +8063,7 @@
         "nummer": 128,
         "closed_at": "2026-09-18T06:52:09+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -7952,7 +8073,7 @@
         "nummer": 131,
         "closed_at": "2026-09-18T09:22:49+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7962,7 +8083,7 @@
         "nummer": 134,
         "closed_at": "2026-09-18T11:01:11+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7972,7 +8093,7 @@
         "nummer": 138,
         "closed_at": "2026-09-18T11:01:26+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -7982,7 +8103,7 @@
         "nummer": 32,
         "closed_at": "2026-09-18T07:35:43+00:00",
         "datum": "2026-09-18",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "con-kpi"
         ]
@@ -7992,7 +8113,7 @@
         "nummer": 34,
         "closed_at": "2026-09-18T07:35:53+00:00",
         "datum": "2026-09-18",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "con-q4planung",
           "con-kpi"
@@ -8003,7 +8124,7 @@
         "nummer": 37,
         "closed_at": "2026-09-18T11:00:22+00:00",
         "datum": "2026-09-18",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "con-q4planung",
           "con-kpi"
@@ -8014,7 +8135,7 @@
         "nummer": 225,
         "closed_at": "2026-09-18T05:39:32+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8024,7 +8145,7 @@
         "nummer": 257,
         "closed_at": "2026-09-18T09:23:42+00:00",
         "datum": "2026-09-18",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "con-kpi"
         ]
@@ -8034,7 +8155,7 @@
         "nummer": 87,
         "closed_at": "2026-09-18T06:18:34+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8044,7 +8165,7 @@
         "nummer": 88,
         "closed_at": "2026-09-18T09:21:58+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8074,7 +8195,7 @@
         "nummer": 612,
         "closed_at": "2026-09-18T07:19:28+00:00",
         "datum": "2026-09-18",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "web-launch1"
         ]
@@ -8084,7 +8205,7 @@
         "nummer": 1,
         "closed_at": "2026-09-21T11:48:04+00:00",
         "datum": "2026-09-21",
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "meilensteine": [
           "vp-reporting"
         ]
@@ -8094,7 +8215,7 @@
         "nummer": 3,
         "closed_at": "2026-09-21T11:49:04+00:00",
         "datum": "2026-09-21",
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "meilensteine": [
           "ref-prozess"
         ]
@@ -8104,7 +8225,7 @@
         "nummer": 125,
         "closed_at": "2026-09-21T10:21:39+00:00",
         "datum": "2026-09-21",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -8114,7 +8235,7 @@
         "nummer": 39,
         "closed_at": "2026-09-21T11:56:06+00:00",
         "datum": "2026-09-21",
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "meilensteine": [
           "vp-definition",
           "vp-workshop"
@@ -8145,7 +8266,7 @@
         "nummer": 106,
         "closed_at": "2026-09-21T11:49:32+00:00",
         "datum": "2026-09-21",
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "meilensteine": [
           "dat-regeltermin",
           "dat-testlauf",
@@ -8178,7 +8299,7 @@
         "nummer": 12,
         "closed_at": "2026-09-21T12:47:35+00:00",
         "datum": "2026-09-21",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8306,7 +8427,7 @@
         "nummer": 133,
         "closed_at": "2026-09-22T17:11:59+00:00",
         "datum": "2026-09-22",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -8316,7 +8437,7 @@
         "nummer": 134,
         "closed_at": "2026-09-22T16:44:29+00:00",
         "datum": "2026-09-22",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -8326,7 +8447,7 @@
         "nummer": 142,
         "closed_at": "2026-09-22T10:19:05+00:00",
         "datum": "2026-09-22",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8336,7 +8457,7 @@
         "nummer": 176,
         "closed_at": "2026-09-22T15:35:02+00:00",
         "datum": "2026-09-22",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "ref-ausbau"
         ]
@@ -8346,7 +8467,7 @@
         "nummer": 177,
         "closed_at": "2026-09-22T16:43:53+00:00",
         "datum": "2026-09-22",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "ref-ausbau",
           "ref-prozess"
@@ -8367,7 +8488,7 @@
         "nummer": 264,
         "closed_at": "2026-09-22T17:58:04+00:00",
         "datum": "2026-09-22",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": []
       },
       {
@@ -8385,7 +8506,7 @@
         "nummer": 74,
         "closed_at": "2026-09-22T10:18:37+00:00",
         "datum": "2026-09-22",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8395,7 +8516,7 @@
         "nummer": 76,
         "closed_at": "2026-09-22T14:12:38+00:00",
         "datum": "2026-09-22",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8405,7 +8526,7 @@
         "nummer": 91,
         "closed_at": "2026-09-22T09:28:46+00:00",
         "datum": "2026-09-22",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8415,7 +8536,7 @@
         "nummer": 94,
         "closed_at": "2026-09-22T10:30:05+00:00",
         "datum": "2026-09-22",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8425,7 +8546,7 @@
         "nummer": 97,
         "closed_at": "2026-09-22T15:32:26+00:00",
         "datum": "2026-09-22",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "ref-prozess"
         ]
@@ -8465,7 +8586,7 @@
         "nummer": 90,
         "closed_at": "2026-09-23T09:20:57+00:00",
         "datum": "2026-09-23",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop",
           "web-pdp"
@@ -8486,7 +8607,7 @@
         "nummer": 269,
         "closed_at": "2026-09-23T09:18:02+00:00",
         "datum": "2026-09-23",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "ref-prozess",
           "ref-ausbau",
@@ -8520,7 +8641,7 @@
         "nummer": 274,
         "closed_at": "2026-09-23T14:25:41+00:00",
         "datum": "2026-09-23",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "con-kpi"
         ]
@@ -8561,7 +8682,7 @@
         "nummer": 51,
         "closed_at": "2026-09-24T10:10:30+00:00",
         "datum": "2026-09-24",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-repos"
         ]
@@ -8571,7 +8692,7 @@
         "nummer": 85,
         "closed_at": "2026-09-24T09:39:09+00:00",
         "datum": "2026-09-24",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "web-dpi-uebernahme"
         ]
@@ -8581,7 +8702,7 @@
         "nummer": 89,
         "closed_at": "2026-09-24T09:39:17+00:00",
         "datum": "2026-09-24",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8591,7 +8712,7 @@
         "nummer": 127,
         "closed_at": "2026-09-24T09:39:27+00:00",
         "datum": "2026-09-24",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "adhoc"
         ]
@@ -8611,7 +8732,7 @@
         "nummer": 151,
         "closed_at": "2026-09-24T18:12:48+00:00",
         "datum": "2026-09-24",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -8621,7 +8742,7 @@
         "nummer": 152,
         "closed_at": "2026-09-24T18:12:40+00:00",
         "datum": "2026-09-24",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "adhoc"
         ]
@@ -8631,7 +8752,7 @@
         "nummer": 153,
         "closed_at": "2026-09-24T18:12:56+00:00",
         "datum": "2026-09-24",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -8701,7 +8822,7 @@
         "nummer": 164,
         "closed_at": "2026-09-25T07:44:39+00:00",
         "datum": "2026-09-25",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "adhoc"
         ]
@@ -8711,7 +8832,7 @@
         "nummer": 165,
         "closed_at": "2026-09-25T07:44:47+00:00",
         "datum": "2026-09-25",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -8721,7 +8842,7 @@
         "nummer": 99,
         "closed_at": "2026-09-25T21:08:53+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8731,7 +8852,7 @@
         "nummer": 132,
         "closed_at": "2026-09-25T21:03:43+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8741,7 +8862,7 @@
         "nummer": 144,
         "closed_at": "2026-09-25T20:50:03+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8751,7 +8872,7 @@
         "nummer": 146,
         "closed_at": "2026-09-25T14:04:04+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -8761,7 +8882,7 @@
         "nummer": 151,
         "closed_at": "2026-09-25T20:43:33+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8771,7 +8892,7 @@
         "nummer": 152,
         "closed_at": "2026-09-25T21:13:10+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8781,7 +8902,7 @@
         "nummer": 153,
         "closed_at": "2026-09-25T21:17:35+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8791,7 +8912,7 @@
         "nummer": 154,
         "closed_at": "2026-09-25T21:38:44+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -8811,7 +8932,7 @@
         "nummer": 163,
         "closed_at": "2026-09-25T19:23:12+00:00",
         "datum": "2026-09-25",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8821,7 +8942,7 @@
         "nummer": 173,
         "closed_at": "2026-09-25T18:52:26+00:00",
         "datum": "2026-09-25",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "adhoc"
         ]
@@ -8831,7 +8952,7 @@
         "nummer": 35,
         "closed_at": "2026-09-25T20:53:28+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -8852,7 +8973,7 @@
         "nummer": 282,
         "closed_at": "2026-09-25T11:34:45+00:00",
         "datum": "2026-09-25",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "ref-10-de",
           "ref-ausbau"
@@ -8863,7 +8984,7 @@
         "nummer": 285,
         "closed_at": "2026-09-25T13:02:07+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -8873,7 +8994,7 @@
         "nummer": 287,
         "closed_at": "2026-09-25T13:14:39+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -8883,7 +9004,7 @@
         "nummer": 290,
         "closed_at": "2026-09-25T14:09:44+00:00",
         "datum": "2026-09-25",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "ref-10-de"
         ]
@@ -8893,7 +9014,7 @@
         "nummer": 294,
         "closed_at": "2026-09-25T18:58:40+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8903,7 +9024,7 @@
         "nummer": 295,
         "closed_at": "2026-09-25T19:22:24+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8913,7 +9034,7 @@
         "nummer": 296,
         "closed_at": "2026-09-25T20:06:21+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8923,7 +9044,7 @@
         "nummer": 297,
         "closed_at": "2026-09-25T21:07:02+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8933,7 +9054,7 @@
         "nummer": 61,
         "closed_at": "2026-09-25T15:19:21+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -8943,7 +9064,7 @@
         "nummer": 64,
         "closed_at": "2026-09-25T14:29:21+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -8953,7 +9074,7 @@
         "nummer": 70,
         "closed_at": "2026-09-25T15:28:36+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8963,7 +9084,7 @@
         "nummer": 71,
         "closed_at": "2026-09-25T15:10:18+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8973,7 +9094,7 @@
         "nummer": 72,
         "closed_at": "2026-09-25T17:52:03+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8983,7 +9104,7 @@
         "nummer": 73,
         "closed_at": "2026-09-25T18:27:44+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -8993,7 +9114,7 @@
         "nummer": 75,
         "closed_at": "2026-09-25T16:01:08+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9003,7 +9124,7 @@
         "nummer": 78,
         "closed_at": "2026-09-25T17:23:51+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9013,7 +9134,7 @@
         "nummer": 99,
         "closed_at": "2026-09-25T15:24:18+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -9023,7 +9144,7 @@
         "nummer": 100,
         "closed_at": "2026-09-25T15:09:52+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -9033,7 +9154,7 @@
         "nummer": 101,
         "closed_at": "2026-09-25T14:29:12+00:00",
         "datum": "2026-09-25",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "ref-10-de"
         ]
@@ -9043,7 +9164,7 @@
         "nummer": 110,
         "closed_at": "2026-09-25T17:30:58+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9203,7 +9324,7 @@
         "nummer": 729,
         "closed_at": "2026-09-25T19:55:58+00:00",
         "datum": "2026-09-25",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -9213,7 +9334,7 @@
         "nummer": 32,
         "closed_at": "2026-09-28T07:11:23+00:00",
         "datum": "2026-09-28",
-        "bereich": "CRM & Sales Ops",
+        "bereich": "Vertrieb",
         "meilensteine": [
           "vp-pilot"
         ]
@@ -9223,7 +9344,7 @@
         "nummer": 155,
         "closed_at": "2026-09-28T07:45:23+00:00",
         "datum": "2026-09-28",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop",
           "pdb-dop-q4"
@@ -9264,7 +9385,7 @@
         "nummer": 303,
         "closed_at": "2026-09-28T13:04:30+00:00",
         "datum": "2026-09-28",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop-q4",
           "pdb-epd",
@@ -9277,7 +9398,7 @@
         "nummer": 305,
         "closed_at": "2026-09-28T13:28:37+00:00",
         "datum": "2026-09-28",
-        "bereich": "Internationalisierung",
+        "bereich": "Export",
         "meilensteine": [
           "ueb-website-enfr",
           "ueb-tds-enfr",
@@ -9302,7 +9423,7 @@
         "nummer": 309,
         "closed_at": "2026-09-28T16:28:18+00:00",
         "datum": "2026-09-28",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9312,7 +9433,7 @@
         "nummer": 313,
         "closed_at": "2026-09-28T17:11:21+00:00",
         "datum": "2026-09-28",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9322,7 +9443,7 @@
         "nummer": 315,
         "closed_at": "2026-09-28T17:45:43+00:00",
         "datum": "2026-09-28",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9493,7 +9614,7 @@
         "nummer": 183,
         "closed_at": "2026-09-29T08:43:08+00:00",
         "datum": "2026-09-29",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -9503,7 +9624,7 @@
         "nummer": 187,
         "closed_at": "2026-09-29T09:24:02+00:00",
         "datum": "2026-09-29",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop",
           "pdb-dop-q4"
@@ -9524,7 +9645,7 @@
         "nummer": 87,
         "closed_at": "2026-09-29T18:07:22+00:00",
         "datum": "2026-09-29",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9534,7 +9655,7 @@
         "nummer": 93,
         "closed_at": "2026-09-29T18:16:36+00:00",
         "datum": "2026-09-29",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9544,7 +9665,7 @@
         "nummer": 149,
         "closed_at": "2026-09-29T18:03:55+00:00",
         "datum": "2026-09-29",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9554,7 +9675,7 @@
         "nummer": 163,
         "closed_at": "2026-09-29T18:16:59+00:00",
         "datum": "2026-09-29",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9564,7 +9685,7 @@
         "nummer": 46,
         "closed_at": "2026-09-29T09:20:50+00:00",
         "datum": "2026-09-29",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "adhoc"
         ]
@@ -9584,7 +9705,7 @@
         "nummer": 317,
         "closed_at": "2026-09-29T09:21:06+00:00",
         "datum": "2026-09-29",
-        "bereich": "Redaktion",
+        "bereich": "Marketing",
         "meilensteine": [
           "adhoc"
         ]
@@ -9594,7 +9715,7 @@
         "nummer": 319,
         "closed_at": "2026-09-29T11:12:40+00:00",
         "datum": "2026-09-29",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -9604,7 +9725,7 @@
         "nummer": 321,
         "closed_at": "2026-09-29T15:19:40+00:00",
         "datum": "2026-09-29",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -9614,7 +9735,7 @@
         "nummer": 50,
         "closed_at": "2026-09-29T14:48:03+00:00",
         "datum": "2026-09-29",
-        "bereich": "Internationalisierung",
+        "bereich": "Export",
         "meilensteine": [
           "ueb-ref-10-en"
         ]
@@ -9624,7 +9745,7 @@
         "nummer": 53,
         "closed_at": "2026-09-29T15:19:53+00:00",
         "datum": "2026-09-29",
-        "bereich": "Internationalisierung",
+        "bereich": "Export",
         "meilensteine": [
           "ueb-ref-10-en"
         ]
@@ -9634,7 +9755,7 @@
         "nummer": 728,
         "closed_at": "2026-09-29T15:49:47+00:00",
         "datum": "2026-09-29",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -9684,7 +9805,7 @@
         "nummer": 241,
         "closed_at": "2026-09-30T06:25:51+00:00",
         "datum": "2026-09-30",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -9765,7 +9886,7 @@
         "nummer": 58,
         "closed_at": "2026-10-06T17:18:45+00:00",
         "datum": "2026-10-06",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -9775,7 +9896,7 @@
         "nummer": 140,
         "closed_at": "2026-10-06T18:18:12+00:00",
         "datum": "2026-10-06",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "pdb-dop"
         ]
@@ -9785,7 +9906,7 @@
         "nummer": 175,
         "closed_at": "2026-10-06T17:15:31+00:00",
         "datum": "2026-10-06",
-        "bereich": "Wissensaufbau",
+        "bereich": "Technik",
         "meilensteine": [
           "org-lernprozess"
         ]
@@ -9821,7 +9942,7 @@
         "nummer": 29,
         "closed_at": "2026-10-06T06:55:14+00:00",
         "datum": "2026-10-06",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-lernprozess-ausbau"
         ]
@@ -9831,7 +9952,7 @@
         "nummer": 30,
         "closed_at": "2026-10-06T07:00:45+00:00",
         "datum": "2026-10-06",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "org-repos"
         ]
@@ -9851,7 +9972,7 @@
         "nummer": 120,
         "closed_at": "2026-10-06T07:41:52+00:00",
         "datum": "2026-10-06",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -9861,7 +9982,7 @@
         "nummer": 165,
         "closed_at": "2026-10-06T07:09:09+00:00",
         "datum": "2026-10-06",
-        "bereich": "AI & Infrastruktur",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]
@@ -9943,6 +10064,96 @@
         "closed_at": "2026-10-09T12:56:21+00:00",
         "datum": "2026-10-09",
         "bereich": "Marketing",
+        "meilensteine": [
+          "adhoc"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 54,
+        "closed_at": "2026-10-10T14:08:21+00:00",
+        "datum": "2026-10-10",
+        "bereich": "AI & Enablement",
+        "meilensteine": [
+          "org-lernprozess-ausbau"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 173,
+        "closed_at": "2026-10-10T11:37:33+00:00",
+        "datum": "2026-10-10",
+        "bereich": "Strategie",
+        "meilensteine": [
+          "org-daten-notion"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 175,
+        "closed_at": "2026-10-10T13:34:16+00:00",
+        "datum": "2026-10-10",
+        "bereich": "AI & Enablement",
+        "meilensteine": [
+          "org-lernprozess-ausbau"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 178,
+        "closed_at": "2026-10-10T15:23:33+00:00",
+        "datum": "2026-10-10",
+        "bereich": "Strategie",
+        "meilensteine": [
+          "adhoc"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 332,
+        "closed_at": "2026-10-10T11:34:37+00:00",
+        "datum": "2026-10-10",
+        "bereich": "AI & Enablement",
+        "meilensteine": [
+          "org-daten-notion"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 334,
+        "closed_at": "2026-10-10T12:08:14+00:00",
+        "datum": "2026-10-10",
+        "bereich": "Marketing",
+        "meilensteine": [
+          "org-daten-notion"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 336,
+        "closed_at": "2026-10-10T15:23:38+00:00",
+        "datum": "2026-10-10",
+        "bereich": "Strategie",
+        "meilensteine": [
+          "adhoc"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-skills",
+        "nummer": 120,
+        "closed_at": "2026-10-10T14:06:00+00:00",
+        "datum": "2026-10-10",
+        "bereich": "AI & Enablement",
+        "meilensteine": [
+          "org-lernprozess-ausbau"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-skills",
+        "nummer": 122,
+        "closed_at": "2026-10-10T14:03:29+00:00",
+        "datum": "2026-10-10",
+        "bereich": "AI & Enablement",
         "meilensteine": [
           "adhoc"
         ]

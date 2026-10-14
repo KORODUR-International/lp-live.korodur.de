@@ -1,9 +1,9 @@
 {
   "version": 1,
   "stand": {
-    "gemessen_am": "2026-10-13T07:19:39Z",
-    "om_commit": "9c0c7e663d3a10d7753745b8b4f9b340356cb338",
-    "repos_aus_snapshot": "2026-10-13",
+    "gemessen_am": "2026-10-14T05:45:14Z",
+    "om_commit": "ea0e16c4c6ffcb0b024f9d98360571c3a6be4348",
+    "repos_aus_snapshot": "2026-10-14",
     "anweisungsschicht": [
       {
         "datei": "claude-config/CLAUDE.md",
@@ -14,14 +14,14 @@
       },
       {
         "datei": "claude-config/references/agenten-und-workflows.md",
-        "zeichen": 10407,
+        "zeichen": 11104,
         "budget": null,
         "ziel": 12000,
         "gemessen": true
       },
       {
         "datei": "claude-config/references/board.md",
-        "zeichen": 12936,
+        "zeichen": 12916,
         "budget": 12943,
         "ziel": 12000,
         "gemessen": true
@@ -35,21 +35,21 @@
       },
       {
         "datei": "claude-config/references/git-und-worktrees.md",
-        "zeichen": 11997,
+        "zeichen": 11974,
         "budget": null,
         "ziel": 12000,
         "gemessen": true
       },
       {
         "datei": "claude-config/references/kontext-und-strategie.md",
-        "zeichen": 3529,
+        "zeichen": 4754,
         "budget": null,
         "ziel": 12000,
         "gemessen": true
       },
       {
         "datei": "claude-config/references/mac-tooling.md",
-        "zeichen": 8745,
+        "zeichen": 9115,
         "budget": null,
         "ziel": 12000,
         "gemessen": true
@@ -63,21 +63,21 @@
       },
       {
         "datei": "claude-config/references/notion.md",
-        "zeichen": 13699,
+        "zeichen": 13685,
         "budget": 13699,
         "ziel": 12000,
         "gemessen": true
       },
       {
         "datei": "claude-config/references/praesentationen.md",
-        "zeichen": 9477,
+        "zeichen": 10050,
         "budget": null,
         "ziel": 12000,
         "gemessen": true
       },
       {
         "datei": "claude-config/references/render-und-messen.md",
-        "zeichen": 11897,
+        "zeichen": 11873,
         "budget": null,
         "ziel": 12000,
         "gemessen": true
@@ -222,12 +222,12 @@
     ],
     "korb": {
       "datei": "claude-config/learnings.md",
-      "abschnitte": 23,
+      "abschnitte": 1,
       "schwelle": 40,
       "ernte_faellig": false,
-      "zeichen": 33129,
-      "aeltester": "2026-09-25",
-      "alter_tage": 18
+      "zeichen": 10377,
+      "aeltester": "2026-10-13",
+      "alter_tage": 1
     }
   },
   "verlauf": [
@@ -2206,6 +2206,45 @@
         "abschnitte": 23,
         "zeichen": 33129,
         "alter_tage": 18
+      }
+    },
+    {
+      "gemessen_am": "2026-10-14T05:45:14Z",
+      "om_commit": "ea0e16c4c6ffcb0b024f9d98360571c3a6be4348",
+      "dateien": {
+        "claude-config/CLAUDE.md": 18249,
+        "claude-config/references/agenten-und-workflows.md": 11104,
+        "claude-config/references/board.md": 12916,
+        "claude-config/references/externe-kommunikation.md": 3035,
+        "claude-config/references/git-und-worktrees.md": 11974,
+        "claude-config/references/kontext-und-strategie.md": 4754,
+        "claude-config/references/mac-tooling.md": 9115,
+        "claude-config/references/notion-ids.md": 6644,
+        "claude-config/references/notion.md": 13685,
+        "claude-config/references/praesentationen.md": 10050,
+        "claude-config/references/render-und-messen.md": 11873,
+        "claude-config/references/texte-und-content.md": 1149
+      },
+      "repos": {
+        "KORODUR-International/korodur-ausschreibungstexte": 5236,
+        "KORODUR-International/korodur-corporate-design": 5547,
+        "KORODUR-International/korodur-crm": 4246,
+        "KORODUR-International/korodur-digitale-produktinformationen": 23444,
+        "KORODUR-International/korodur-lokale-ki": 6027,
+        "KORODUR-International/korodur-military": 4914,
+        "KORODUR-International/korodur-operating-model": 4315,
+        "KORODUR-International/korodur-redaktion": 6606,
+        "KORODUR-International/korodur-referenzverzeichnis": 20926,
+        "KORODUR-International/korodur-review-reporting": 3070,
+        "KORODUR-International/korodur-skills": 4053,
+        "KORODUR-International/korodur-translation": 14421,
+        "KORODUR-International/korodur-vertrieb": 7379,
+        "sfleischmann-3steps2/KORODUR-Website": 25347
+      },
+      "korb": {
+        "abschnitte": 1,
+        "zeichen": 10377,
+        "alter_tage": 1
       }
     }
   ]

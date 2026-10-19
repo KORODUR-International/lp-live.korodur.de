@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-10-18",
+  "letzteFeststellung": "2026-10-19",
   "stand": {
     "con-workflow": {
       "lane": "Social Media & Redaktion",
@@ -5768,6 +5768,60 @@
       "feld": null,
       "alt": "2026-10-10",
       "neu": "2026-10-10"
+    },
+    {
+      "festgestellt": "2026-10-19",
+      "id": "ki-setup-gf",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-09-30",
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-10-19",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-31",
+      "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-10-19",
+      "id": "pdb-dop-13813-de",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-10-15",
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-10-19",
+      "id": "ref-10-de",
+      "lane": "Referenzen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-10-15",
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-10-19",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-09-30",
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-10-19",
+      "id": "vp-pilot",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-10-10",
+      "neu": "2026-10-10"
     }
   ],
   "kennzahlen": {
@@ -5824,7 +5878,7 @@
       "verschiebungen": 2,
       "tageGesamt": 46,
       "letzteVerschiebung": "2026-08-25",
-      "stehengelassen": 19,
+      "stehengelassen": 20,
       "ueberfaelligSeit": "2026-08-24"
     },
     "web-pdp": {
@@ -5894,7 +5948,7 @@
       "verschiebungen": 1,
       "tageGesamt": 17,
       "letzteVerschiebung": "2026-08-25",
-      "stehengelassen": 8,
+      "stehengelassen": 9,
       "ueberfaelligSeit": "2026-10-10"
     },
     "web-loesungsfinder": {
@@ -5908,7 +5962,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 48,
+      "stehengelassen": 49,
       "ueberfaelligSeit": "2026-08-31"
     },
     "con-q4planung": {
@@ -5978,7 +6032,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 18,
+      "stehengelassen": 19,
       "ueberfaelligSeit": "2026-09-30"
     },
     "org-daten-notion": {
@@ -5999,14 +6053,14 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 3,
+      "stehengelassen": 4,
       "ueberfaelligSeit": "2026-10-15"
     },
     "ref-10-de": {
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 3,
+      "stehengelassen": 4,
       "ueberfaelligSeit": "2026-10-15"
     }
   }

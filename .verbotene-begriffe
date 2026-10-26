@@ -1,0 +1,28 @@
+# Begriffs-Gate, lp-live.korodur.de
+# ==================================
+# Diese Datei hält fest, was tot ist; scripts/check_begriffe.py bricht ab,
+# wenn es in einer versionierten Datei wieder auftaucht.
+#
+# Format
+#   [begriffe]   eine Zeile = ein verbotener Begriff, als Teilstring gesucht.
+#                Mit Präfix "re:" wird der Rest als regulärer Ausdruck gelesen.
+#   [ausnahmen]  Pfade, die nicht geprüft werden. Wörtlich, sonst als Muster.
+#
+# Einzelfall-Ausnahmen: "begriffe-gate:ok" am Zeilenende mit Begründung,
+# "begriffe-gate:historisch" in den ersten 20 Zeilen einer Datei.
+#
+# Herkunft: Liste aus korodur-vertrieb, Commit 3062706 (09.10.2026),
+# übernommen am 26.10.2026 für lp-live.korodur.de#1. Beide Begriffe gelten
+# hier: die Landing Pages zeigen den Firmennamen öffentlich, und reporting/
+# bekommt täglich Namen und Titel aus Board, Roadmap und Notion gespiegelt.
+
+[begriffe]
+
+# ── Transkriptionsfehler der Notion-Aufnahme (09.10.2026) ──
+# Die Spracherkennung schreibt den Firmennamen falsch; in Protokollen und
+# Auswertungen steht immer KORODUR.
+Corodur
+Korridoreinstreuung
+
+[ausnahmen]
+.verbotene-begriffe

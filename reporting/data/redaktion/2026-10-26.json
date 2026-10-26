@@ -1,0 +1,430 @@
+{
+  "_meta": {
+    "snapshot_date": "2026-10-26",
+    "generated_at": "2026-10-26T05:43:57.142808+00:00",
+    "source": "Notion, KORODUR Redaktionsplan (Aggregat)",
+    "version": "2.0",
+    "unbekannte_status": {},
+    "datumsquelle": "geplant"
+  },
+  "gesamt": 114,
+  "totals": {
+    "ideen": 46,
+    "in_arbeit": 0,
+    "in_pruefung": 0,
+    "freigegeben": 13,
+    "eingeplant": 2,
+    "gepostet": 48,
+    "abgelehnt": 5,
+    "unbekannt": 0
+  },
+  "by_status": {
+    "Idee": 1,
+    "offen": 43,
+    "Info erforderlich": 2,
+    "In Prüfung": 0,
+    "freigegeben": 13,
+    "eingeplant & getimed": 7,
+    "gepostet": 43,
+    "abgelehnt": 5
+  },
+  "gepostet_ohne_datum": 0,
+  "gepostet_mit_datum": 48,
+  "eingeplant_erschienen": 5,
+  "puffer": 15,
+  "puffer_ziel": [
+    10,
+    15
+  ],
+  "vorlauf_wochen": 0.4,
+  "geplant_zukunft": 2,
+  "frequenz": {
+    "posted_28_tage": 8,
+    "posted_28_tage_linkedin": 8,
+    "pro_woche": 2.0,
+    "pro_woche_linkedin": 2.0,
+    "ziel_linkedin": [
+      2,
+      3
+    ]
+  },
+  "posted_by_week": {
+    "2026-W34": 3,
+    "2026-W35": 2,
+    "2026-W36": 2,
+    "2026-W37": 3,
+    "2026-W38": 2,
+    "2026-W39": 3,
+    "2026-W40": 2,
+    "2026-W41": 2,
+    "2026-W42": 2,
+    "2026-W43": 2
+  },
+  "posted_by_week_linkedin": {
+    "2026-W34": 3,
+    "2026-W35": 2,
+    "2026-W36": 2,
+    "2026-W37": 3,
+    "2026-W38": 2,
+    "2026-W39": 3,
+    "2026-W40": 2,
+    "2026-W41": 2,
+    "2026-W42": 2,
+    "2026-W43": 2
+  },
+  "posted_by_week_fenster_wochen": 10,
+  "laufende_woche_linkedin": {
+    "week": "2026-W44",
+    "erschienen": 0,
+    "eingeplant": 2
+  },
+  "kampagnen_verfuegbar": false,
+  "kampagnen": [],
+  "freigegeben_mit_termin": 9,
+  "freigegeben_ohne_termin": 4,
+  "offen_ohne_person": 0,
+  "in_pruefung_seit": null,
+  "in_pruefung_hoechst_seit": 0,
+  "slots": [
+    1,
+    4
+  ],
+  "beitraege_ab": "2026-09-28",
+  "beitraege": [
+    {
+      "datum": "2026-09-28",
+      "status": "gepostet",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-10-01",
+      "status": "gepostet",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Know How"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-10-05",
+      "status": "gepostet",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-10-08",
+      "status": "gepostet",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Know How"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-10-12",
+      "status": "gepostet",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-10-15",
+      "status": "gepostet",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Know How"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-10-19",
+      "status": "gepostet",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-10-22",
+      "status": "gepostet",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Messe"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-10-26",
+      "status": "eingeplant & getimed",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Know How"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-10-29",
+      "status": "eingeplant & getimed",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-11-02",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Image"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-11-05",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-11-09",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Know How"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-11-12",
+      "status": "offen",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Messe"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-11-18",
+      "status": "offen",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Messe"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-11-26",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Image"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-03",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Image"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-07",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-07",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-07",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-10",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Image"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-11",
+      "status": "offen",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Neuigkeiten"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-17",
+      "status": "Info erforderlich",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-24",
+      "status": "offen",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Neuigkeiten"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2027-01-01",
+      "status": "offen",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Neuigkeiten"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2027-01-11",
+      "status": "offen",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Messe"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2027-04-14",
+      "status": "offen",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Messe"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2027-04-26",
+      "status": "offen",
+      "kanal": [
+        "Linkedin"
+      ],
+      "thema": [
+        "Messe"
+      ],
+      "hat_person": true
+    }
+  ]
+}

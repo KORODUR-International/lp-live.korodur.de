@@ -1,0 +1,32 @@
+name: Begriffs-Gate
+
+# Bricht ab, wenn eine beschlossen-tote Schreibweise wieder in einer
+# versionierten Datei auftaucht. Die Liste steht in .verbotene-begriffe.
+# scripts/check_begriffe.py ist eine Kopie aus
+# korodur-digitale-produktinformationen (Commit 4bf02a4, 19.08.2026),
+# beim Anlegen des Repos am 09.10.2026 uebernommen.
+#
+# Herkunft in lp-live.korodur.de: kopiert aus korodur-vertrieb, Commit
+# 3062706 (09.10.2026), übernommen am 26.10.2026 für lp-live.korodur.de#1.
+# scripts/check_begriffe.py ist byte-gleich, diese Datei auch, bis auf
+# diesen Absatz; der Absatz darüber ist der Kopfkommentar der Quelle.
+# Der Workflow prüft nur. Der Pages-Deploy (Build-Typ legacy, Branch main)
+# hängt nicht an ihm und bleibt Steffis Gate.
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+  begriffe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verbotene Begriffe pruefen
+        run: python3 scripts/check_begriffe.py

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-10-26",
+  "letzteFeststellung": "2026-10-27",
   "stand": {
     "con-workflow": {
       "lane": "Social Media & Redaktion",
@@ -106,8 +106,8 @@
     },
     "web-portfolio": {
       "lane": "Website",
-      "datum": "2026-10-31",
-      "status": "offen",
+      "datum": "2026-12-15",
+      "status": "verschoben",
       "titel": "Systeme und Value Added Products für die Website abgestimmt"
     },
     "web-ergebnisseite": {
@@ -118,19 +118,19 @@
     },
     "web-empfehlungen": {
       "lane": "Website",
-      "datum": "2026-10-31",
-      "status": "offen",
+      "datum": "2026-12-15",
+      "status": "verschoben",
       "titel": "Lösungsfinder: Empfehlungen fachlich freigegeben"
     },
     "web-industrieboden": {
       "lane": "Website",
-      "datum": "2026-11-10",
-      "status": "offen",
+      "datum": "2026-12-15",
+      "status": "verschoben",
       "titel": "Industrieboden, Neubau und Sanierung ausgearbeitet"
     },
     "web-hosting": {
       "lane": "Website",
-      "datum": "2026-11-06",
+      "datum": "2026-12-15",
       "status": "verschoben",
       "titel": "Hoster für die neue Website gewählt und eingerichtet"
     },
@@ -166,8 +166,8 @@
     },
     "web-refdesign": {
       "lane": "Website",
-      "datum": "2026-10-31",
-      "status": "offen",
+      "datum": "2026-12-15",
+      "status": "verschoben",
       "titel": "Referenzdetailseiten gestalterisch abgestimmt"
     },
     "web-kontakt": {
@@ -202,27 +202,201 @@
     },
     "mk-cd-v1": {
       "lane": "Marke & Kommunikationsmittel",
-      "datum": "2026-10-31",
-      "status": "offen",
+      "datum": "2026-11-15",
+      "status": "verschoben",
       "titel": "Corporate Design V1: Bestand gesichtet, modular zentral abgelegt"
     },
     "mk-mockups": {
       "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-12-15",
+      "status": "verschoben",
+      "titel": "Produkt-Mockups des aktiven Sortiments für die neue Website"
+    },
+    "mk-empco-sofort": {
+      "lane": "Marke & Kommunikationsmittel",
       "datum": "2026-10-31",
       "status": "offen",
-      "titel": "Produkt-Mockups des aktiven Sortiments für die neue Website"
+      "titel": "EmpCo: Sofortmaßnahmen umgesetzt, keine unbelegte Umweltaussage mehr öffentlich"
+    },
+    "mk-empco-print": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "EmpCo: Printsachen eingestuft, kritische zurückgezogen"
+    },
+    "mk-empco-gf": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": null,
+      "status": "offen",
+      "titel": "EmpCo: Entscheidungen der Geschäftsführung mit Fachanwalt"
+    },
+    "mk-empco-belege": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": null,
+      "status": "offen",
+      "titel": "EmpCo: belegbare Umweltaussagen mit der Technik geklärt"
+    },
+    "mk-empco-pruefschritt": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": null,
+      "status": "offen",
+      "titel": "EmpCo: Prüfschritt für neue Umweltaussagen verankert"
+    },
+    "mk-print-empco": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "Industrieboden- und Rapid-Set-Broschüre EmpCo-fest gedruckt"
+    },
+    "mk-steckbrief": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Produktsteckbrief als Baustein für die Vertriebskommunikation"
+    },
+    "mk-sanierungskatalog": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": null,
+      "status": "offen",
+      "titel": "Sanierungskatalog mit der Geschäftsführung abgestimmt"
+    },
+    "mk-kommunikation-2027": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Kommunikationsaufbau Vertrieb 2027 abgestimmt"
     },
     "mk-cd-rollout": {
       "lane": "Marke & Kommunikationsmittel",
       "datum": null,
       "status": "offen",
-      "titel": "Corporate Design auf Messe und Print ausgerollt"
+      "titel": "Corporate Design auf Messe ausgerollt"
+    },
+    "mk-ppt": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": null,
+      "status": "offen",
+      "titel": "Präsentationsvorlage für Vertrieb und Marketing ausgerollt"
     },
     "mk-assets": {
       "lane": "Marke & Kommunikationsmittel",
       "datum": null,
       "status": "offen",
       "titel": "Verzeichnis aller Druck-, PDF- und Marketingmaterialien"
+    },
+    "ref-erstkontakt": {
+      "lane": "Referenzen",
+      "datum": "2026-08-07",
+      "status": "erreicht",
+      "titel": "Erstkontakt-Runde Außendienst abgeschlossen, Interview-Termine stehen"
+    },
+    "ref-triage": {
+      "lane": "Referenzen",
+      "datum": "2026-08-31",
+      "status": "entfallen",
+      "titel": "Referenz-Triage für den Launch abgeschlossen"
+    },
+    "ref-crm-pull": {
+      "lane": "Referenzen",
+      "datum": "2026-09-13",
+      "status": "entfallen",
+      "titel": "Referenz-Pull aus dem CRM (lesend)"
+    },
+    "ref-index": {
+      "lane": "Referenzen",
+      "datum": "2026-09-30",
+      "status": "entfallen",
+      "titel": "Master-Index Altbestand abgeschlossen"
+    },
+    "ref-prozess": {
+      "lane": "Referenzen",
+      "datum": "2026-09-30",
+      "status": "erreicht",
+      "titel": "Prozess bis interne DE-Freigabe abgestimmt"
+    },
+    "ref-formate": {
+      "lane": "Referenzen",
+      "datum": "2026-10-15",
+      "status": "erreicht",
+      "titel": "One-Pager- und Social-Format stehen und werden genutzt"
+    },
+    "ref-monat": {
+      "lane": "Referenzen",
+      "datum": "2026-10-15",
+      "status": "entfallen",
+      "titel": "Format Referenz des Monats startet"
+    },
+    "ref-10-de": {
+      "lane": "Referenzen",
+      "datum": "2026-10-15",
+      "status": "offen",
+      "titel": "Zehn DE-One-Pager intern freigegeben"
+    },
+    "ref-publikationsprozess": {
+      "lane": "Referenzen",
+      "datum": "2026-11-30",
+      "status": "verschoben",
+      "titel": "Übersetzungs- und Publikationsprozess definiert"
+    },
+    "ref-datenstruktur": {
+      "lane": "Referenzen",
+      "datum": "2026-11-30",
+      "status": "verschoben",
+      "titel": "Referenzdatenstruktur und Property Registry bereinigt"
+    },
+    "ref-notion-anbindung": {
+      "lane": "Referenzen",
+      "datum": "2026-12-15",
+      "status": "verschoben",
+      "titel": "Notion-Anbindung der neuen Website umgesetzt"
+    },
+    "ref-highlight": {
+      "lane": "Referenzen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Erste Highlight-Referenz ausgearbeitet"
+    },
+    "ref-ausbau": {
+      "lane": "Referenzen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Zwanzig DE-One-Pager insgesamt intern freigegeben"
+    },
+    "ref-10-live": {
+      "lane": "Referenzen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Zehn intern freigegebene Referenzen in EN und FR live"
+    },
+    "ref-automotive-de": {
+      "lane": "Referenzen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Automotive-Referenzbroschüre auf Deutsch final freigegeben"
+    },
+    "ref-rapidset-de": {
+      "lane": "Referenzen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Rapid-Set-Referenzbroschüre auf Deutsch final freigegeben"
+    },
+    "ref-strategie-2027": {
+      "lane": "Referenzen",
+      "datum": "2026-12-20",
+      "status": "offen",
+      "titel": "Referenzen-Strategie 2027 abgestimmt"
+    },
+    "ref-presse": {
+      "lane": "Referenzen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Highlight-Referenz an Presse verteilt"
+    },
+    "ref-prozess-doku": {
+      "lane": "Referenzen",
+      "datum": null,
+      "status": "offen",
+      "titel": "Referenzprozess auf einer DIN-A4-Seite dokumentiert"
     },
     "pdb-m1": {
       "lane": "Digitale Produktinformationen (DPI)",
@@ -305,13 +479,13 @@
     "pdb-dop-13813-de": {
       "lane": "Digitale Produktinformationen (DPI)",
       "datum": "2026-10-15",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Leistungserklärungen EN 13813 auf Deutsch generiert"
     },
     "pdb-dop-weitere-de": {
       "lane": "Digitale Produktinformationen (DPI)",
-      "datum": "2026-10-29",
-      "status": "offen",
+      "datum": "2026-11-30",
+      "status": "verschoben",
       "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Deutsch generiert"
     },
     "pdb-vap": {
@@ -362,120 +536,6 @@
       "status": "offen",
       "titel": "Vision Digitaler Produktpass definieren"
     },
-    "ref-erstkontakt": {
-      "lane": "Referenzen",
-      "datum": "2026-08-07",
-      "status": "erreicht",
-      "titel": "Erstkontakt-Runde Außendienst abgeschlossen, Interview-Termine stehen"
-    },
-    "ref-triage": {
-      "lane": "Referenzen",
-      "datum": "2026-08-31",
-      "status": "entfallen",
-      "titel": "Referenz-Triage für den Launch abgeschlossen"
-    },
-    "ref-crm-pull": {
-      "lane": "Referenzen",
-      "datum": "2026-09-13",
-      "status": "entfallen",
-      "titel": "Referenz-Pull aus dem CRM (lesend)"
-    },
-    "ref-index": {
-      "lane": "Referenzen",
-      "datum": "2026-09-30",
-      "status": "entfallen",
-      "titel": "Master-Index Altbestand abgeschlossen"
-    },
-    "ref-prozess": {
-      "lane": "Referenzen",
-      "datum": "2026-09-30",
-      "status": "erreicht",
-      "titel": "Prozess bis interne DE-Freigabe abgestimmt"
-    },
-    "ref-formate": {
-      "lane": "Referenzen",
-      "datum": "2026-10-15",
-      "status": "erreicht",
-      "titel": "One-Pager- und Social-Format stehen und werden genutzt"
-    },
-    "ref-monat": {
-      "lane": "Referenzen",
-      "datum": "2026-10-15",
-      "status": "entfallen",
-      "titel": "Format Referenz des Monats startet"
-    },
-    "ref-10-de": {
-      "lane": "Referenzen",
-      "datum": "2026-10-15",
-      "status": "offen",
-      "titel": "Zehn DE-One-Pager intern freigegeben"
-    },
-    "ref-publikationsprozess": {
-      "lane": "Referenzen",
-      "datum": "2026-10-31",
-      "status": "offen",
-      "titel": "Übersetzungs- und Publikationsprozess definiert"
-    },
-    "ref-datenstruktur": {
-      "lane": "Referenzen",
-      "datum": "2026-10-31",
-      "status": "offen",
-      "titel": "Referenzdatenstruktur und Property Registry bereinigt"
-    },
-    "ref-notion-anbindung": {
-      "lane": "Referenzen",
-      "datum": "2026-10-31",
-      "status": "offen",
-      "titel": "Notion-Anbindung der neuen Website umgesetzt"
-    },
-    "ref-highlight": {
-      "lane": "Referenzen",
-      "datum": "2026-11-15",
-      "status": "verschoben",
-      "titel": "Erste Highlight-Referenz ausgearbeitet"
-    },
-    "ref-ausbau": {
-      "lane": "Referenzen",
-      "datum": "2026-12-15",
-      "status": "offen",
-      "titel": "Zwanzig DE-One-Pager insgesamt intern freigegeben"
-    },
-    "ref-10-live": {
-      "lane": "Referenzen",
-      "datum": "2026-12-15",
-      "status": "offen",
-      "titel": "Zehn intern freigegebene Referenzen in EN und FR live"
-    },
-    "ref-automotive-de": {
-      "lane": "Referenzen",
-      "datum": "2026-12-15",
-      "status": "offen",
-      "titel": "Automotive-Referenzbroschüre auf Deutsch final freigegeben"
-    },
-    "ref-rapidset-de": {
-      "lane": "Referenzen",
-      "datum": "2026-12-15",
-      "status": "offen",
-      "titel": "Rapid-Set-Referenzbroschüre auf Deutsch final freigegeben"
-    },
-    "ref-strategie-2027": {
-      "lane": "Referenzen",
-      "datum": "2026-12-20",
-      "status": "offen",
-      "titel": "Referenzen-Strategie 2027 abgestimmt"
-    },
-    "ref-presse": {
-      "lane": "Referenzen",
-      "datum": null,
-      "status": "offen",
-      "titel": "Highlight-Referenz an Presse verteilt"
-    },
-    "ref-prozess-doku": {
-      "lane": "Referenzen",
-      "datum": null,
-      "status": "offen",
-      "titel": "Referenzprozess auf einer DIN-A4-Seite dokumentiert"
-    },
     "org-repo": {
       "lane": "Organisation & Enablement",
       "datum": "2026-07-20",
@@ -508,8 +568,8 @@
     },
     "org-lernprozess": {
       "lane": "Organisation & Enablement",
-      "datum": "2026-10-31",
-      "status": "offen",
+      "datum": "2026-11-30",
+      "status": "verschoben",
       "titel": "Feedback- und Lernprozess etabliert"
     },
     "org-daten-notion": {
@@ -556,7 +616,7 @@
     },
     "ki-vision": {
       "lane": "Lokale KI",
-      "datum": "2026-10-31",
+      "datum": null,
       "status": "offen",
       "titel": "Vision + Konzept: lokale KI im Netzwerk"
     },
@@ -574,7 +634,7 @@
     },
     "vp-workshop": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-10-30",
+      "datum": "2026-11-30",
       "status": "verschoben",
       "titel": "Prozess mit der Vertriebsleitung fixiert"
     },
@@ -586,8 +646,8 @@
     },
     "vp-kpi": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-10-31",
-      "status": "offen",
+      "datum": "2026-11-30",
+      "status": "verschoben",
       "titel": "KPI-Set Vertrieb definiert"
     },
     "vp-rapidmail": {
@@ -664,8 +724,8 @@
     },
     "pdb-dop-weitere-enfr": {
       "lane": "Übersetzungen",
-      "datum": "2026-11-26",
-      "status": "offen",
+      "datum": "2026-12-28",
+      "status": "verschoben",
       "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Englisch und Französisch"
     },
     "ueb-website-enfr": {
@@ -6200,6 +6260,455 @@
       "feld": null,
       "alt": "2026-10-10",
       "neu": "2026-10-10"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-empco-belege",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-empco-gf",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-empco-print",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-empco-pruefschritt",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-empco-sofort",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-10-31"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-kommunikation-2027",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-ppt",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-print-empco",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-sanierungskatalog",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-steckbrief",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "ki-vision",
+      "lane": "Lokale KI",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": null,
+      "tage": null
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-cd-rollout",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Corporate Design auf Messe und Print ausgerollt",
+      "neu": "Corporate Design auf Messe ausgerollt"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-cd-v1",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-11-15",
+      "tage": 15
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-cd-v1",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-mockups",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-12-15",
+      "tage": 45
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "mk-mockups",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "org-lernprozess",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-11-30",
+      "tage": 30
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "org-lernprozess",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "pdb-dop-13813-de",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "pdb-dop-weitere-de",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-29",
+      "neu": "2026-11-30",
+      "tage": 32
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "pdb-dop-weitere-de",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "pdb-dop-weitere-enfr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-26",
+      "neu": "2026-12-28",
+      "tage": 32
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "pdb-dop-weitere-enfr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "ref-datenstruktur",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-11-30",
+      "tage": 30
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "ref-datenstruktur",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "ref-highlight",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-15",
+      "neu": null,
+      "tage": null
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "ref-highlight",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "verschoben",
+      "neu": "offen"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "ref-notion-anbindung",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-12-15",
+      "tage": 45
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "ref-notion-anbindung",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "ref-publikationsprozess",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-11-30",
+      "tage": 30
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "ref-publikationsprozess",
+      "lane": "Referenzen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "vp-kpi",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-11-30",
+      "tage": 30
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "vp-kpi",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "vp-workshop",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-30",
+      "neu": "2026-11-30",
+      "tage": 31
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "web-empfehlungen",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-12-15",
+      "tage": 45
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "web-empfehlungen",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "web-hosting",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-06",
+      "neu": "2026-12-15",
+      "tage": 39
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "web-industrieboden",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-10",
+      "neu": "2026-12-15",
+      "tage": 35
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "web-industrieboden",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "web-portfolio",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-12-15",
+      "tage": 45
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "web-portfolio",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "web-refdesign",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-10-31",
+      "neu": "2026-12-15",
+      "tage": 45
+    },
+    {
+      "festgestellt": "2026-10-26",
+      "id": "web-refdesign",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-27",
+      "id": "ki-setup-gf",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-09-30",
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-10-27",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-08-31",
+      "neu": "2026-08-31"
+    },
+    {
+      "festgestellt": "2026-10-27",
+      "id": "ref-10-de",
+      "lane": "Referenzen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-10-15",
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-10-27",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-09-30",
+      "neu": "2026-09-30"
+    },
+    {
+      "festgestellt": "2026-10-27",
+      "id": "vp-pilot",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-10-10",
+      "neu": "2026-10-10"
     }
   ],
   "kennzahlen": {
@@ -6256,7 +6765,7 @@
       "verschiebungen": 2,
       "tageGesamt": 46,
       "letzteVerschiebung": "2026-08-25",
-      "stehengelassen": 27,
+      "stehengelassen": 28,
       "ueberfaelligSeit": "2026-08-24"
     },
     "web-pdp": {
@@ -6326,7 +6835,7 @@
       "verschiebungen": 1,
       "tageGesamt": 17,
       "letzteVerschiebung": "2026-08-25",
-      "stehengelassen": 16,
+      "stehengelassen": 17,
       "ueberfaelligSeit": "2026-10-10"
     },
     "web-loesungsfinder": {
@@ -6340,7 +6849,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 56,
+      "stehengelassen": 57,
       "ueberfaelligSeit": "2026-08-31"
     },
     "con-q4planung": {
@@ -6372,16 +6881,16 @@
       "ueberfaelligSeit": null
     },
     "ref-highlight": {
-      "verschiebungen": 1,
+      "verschiebungen": 2,
       "tageGesamt": 15,
-      "letzteVerschiebung": "2026-09-23",
+      "letzteVerschiebung": "2026-10-26",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
     "web-refdesign": {
-      "verschiebungen": 1,
-      "tageGesamt": 0,
-      "letzteVerschiebung": "2026-09-23",
+      "verschiebungen": 2,
+      "tageGesamt": 45,
+      "letzteVerschiebung": "2026-10-26",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -6393,9 +6902,9 @@
       "ueberfaelligSeit": null
     },
     "vp-workshop": {
-      "verschiebungen": 1,
-      "tageGesamt": 30,
-      "letzteVerschiebung": "2026-09-25",
+      "verschiebungen": 2,
+      "tageGesamt": 61,
+      "letzteVerschiebung": "2026-10-26",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -6410,7 +6919,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 26,
+      "stehengelassen": 27,
       "ueberfaelligSeit": "2026-09-30"
     },
     "org-daten-notion": {
@@ -6421,9 +6930,9 @@
       "ueberfaelligSeit": null
     },
     "web-hosting": {
-      "verschiebungen": 1,
-      "tageGesamt": -9,
-      "letzteVerschiebung": "2026-10-03",
+      "verschiebungen": 2,
+      "tageGesamt": 30,
+      "letzteVerschiebung": "2026-10-26",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -6438,8 +6947,99 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 11,
+      "stehengelassen": 12,
       "ueberfaelligSeit": "2026-10-15"
+    },
+    "ki-vision": {
+      "verschiebungen": 1,
+      "tageGesamt": 0,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "mk-cd-v1": {
+      "verschiebungen": 1,
+      "tageGesamt": 15,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "mk-mockups": {
+      "verschiebungen": 1,
+      "tageGesamt": 45,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "org-lernprozess": {
+      "verschiebungen": 1,
+      "tageGesamt": 30,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "pdb-dop-weitere-de": {
+      "verschiebungen": 1,
+      "tageGesamt": 32,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "pdb-dop-weitere-enfr": {
+      "verschiebungen": 1,
+      "tageGesamt": 32,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "ref-datenstruktur": {
+      "verschiebungen": 1,
+      "tageGesamt": 30,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "ref-notion-anbindung": {
+      "verschiebungen": 1,
+      "tageGesamt": 45,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "ref-publikationsprozess": {
+      "verschiebungen": 1,
+      "tageGesamt": 30,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "vp-kpi": {
+      "verschiebungen": 1,
+      "tageGesamt": 30,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-empfehlungen": {
+      "verschiebungen": 1,
+      "tageGesamt": 45,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-industrieboden": {
+      "verschiebungen": 1,
+      "tageGesamt": 35,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-portfolio": {
+      "verschiebungen": 1,
+      "tageGesamt": 45,
+      "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
     }
   }
 }

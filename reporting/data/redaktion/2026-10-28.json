@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-10-28",
-    "generated_at": "2026-10-28T06:35:36.330273+00:00",
+    "generated_at": "2026-10-28T16:03:26.364632+00:00",
     "source": "Notion, KORODUR Redaktionsplan (Aggregat)",
     "version": "2.0",
     "unbekannte_status": {},
@@ -24,13 +24,13 @@
     "Info erforderlich": 2,
     "In Prüfung": 0,
     "freigegeben": 13,
-    "eingeplant & getimed": 7,
-    "gepostet": 43,
+    "eingeplant & getimed": 6,
+    "gepostet": 44,
     "abgelehnt": 5
   },
   "gepostet_ohne_datum": 0,
   "gepostet_mit_datum": 49,
-  "eingeplant_erschienen": 6,
+  "eingeplant_erschienen": 5,
   "puffer": 14,
   "puffer_ziel": [
     10,
@@ -177,7 +177,7 @@
     },
     {
       "datum": "2026-10-26",
-      "status": "eingeplant & getimed",
+      "status": "gepostet",
       "kanal": [
         "Linkedin",
         "Fb/Insta"

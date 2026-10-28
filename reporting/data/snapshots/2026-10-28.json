@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-10-28",
-    "generated_at": "2026-10-28T06:35:35.145542+00:00",
+    "generated_at": "2026-10-28T16:03:24.800153+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -9,52 +9,52 @@
     "version": "3.4"
   },
   "totals": {
-    "items": 1279,
-    "done": 838,
-    "in_progress": 30,
-    "open": 223,
+    "items": 1290,
+    "done": 848,
+    "in_progress": 29,
+    "open": 225,
     "blocked": 28,
     "on_hold": 14,
     "spaeter": 74,
     "discarded": 72,
-    "bereit": 49
+    "bereit": 48
   },
   "by_status": {
-    "Backlog": 158,
-    "Bereit": 49,
-    "Beansprucht": 16,
+    "Backlog": 162,
+    "Bereit": 48,
+    "Beansprucht": 15,
     "In Progress": 12,
-    "In Review": 18,
+    "In Review": 17,
     "Blocked": 28,
     "On Hold": 14,
     "Später": 74,
-    "Done": 910,
+    "Done": 920,
     "none": 0
   },
   "by_owner": {
-    "Human": 132,
-    "Claude": 797,
-    "Either": 344,
+    "Human": 133,
+    "Claude": 803,
+    "Either": 348,
     "none": 6
   },
   "by_priority": {
     "P0": 39,
-    "P1": 616,
-    "P2": 517,
+    "P1": 623,
+    "P2": 521,
     "P3": 99,
     "none": 8
   },
   "by_status_priority": {
     "open": {
       "P0": 3,
-      "P1": 95,
+      "P1": 97,
       "P2": 109,
       "P3": 16,
       "none": 0
     },
     "in_progress": {
       "P0": 2,
-      "P1": 21,
+      "P1": 20,
       "P2": 6,
       "P3": 0,
       "none": 1
@@ -82,8 +82,8 @@
     },
     "done": {
       "P0": 33,
-      "P1": 448,
-      "P2": 296,
+      "P1": 454,
+      "P2": 300,
       "P3": 55,
       "none": 6
     }
@@ -91,8 +91,8 @@
   "areas": [
     {
       "name": "Strategie",
-      "total": 50,
-      "done": 34,
+      "total": 51,
+      "done": 35,
       "in_progress": 5,
       "open": 8,
       "blocked": 0,
@@ -101,25 +101,25 @@
       "discarded": 0,
       "by_owner": {
         "Human": 5,
-        "Claude": 25,
+        "Claude": 26,
         "Either": 20,
         "none": 0
       }
     },
     {
       "name": "Marketing",
-      "total": 613,
-      "done": 399,
+      "total": 619,
+      "done": 403,
       "in_progress": 15,
-      "open": 111,
+      "open": 113,
       "blocked": 14,
       "on_hold": 6,
       "spaeter": 22,
       "discarded": 46,
       "by_owner": {
-        "Human": 60,
-        "Claude": 363,
-        "Either": 189,
+        "Human": 61,
+        "Claude": 367,
+        "Either": 190,
         "none": 1
       }
     },
@@ -142,18 +142,18 @@
     },
     {
       "name": "Technik",
-      "total": 175,
-      "done": 105,
-      "in_progress": 4,
-      "open": 27,
+      "total": 178,
+      "done": 107,
+      "in_progress": 3,
+      "open": 29,
       "blocked": 10,
       "on_hold": 3,
       "spaeter": 16,
       "discarded": 10,
       "by_owner": {
         "Human": 21,
-        "Claude": 109,
-        "Either": 45,
+        "Claude": 110,
+        "Either": 47,
         "none": 0
       }
     },
@@ -176,10 +176,10 @@
     },
     {
       "name": "AI & Enablement",
-      "total": 331,
-      "done": 255,
+      "total": 332,
+      "done": 258,
       "in_progress": 4,
-      "open": 55,
+      "open": 53,
       "blocked": 0,
       "on_hold": 2,
       "spaeter": 4,
@@ -187,7 +187,7 @@
       "by_owner": {
         "Human": 22,
         "Claude": 264,
-        "Either": 45,
+        "Either": 46,
         "none": 0
       }
     },
@@ -241,8 +241,8 @@
     },
     {
       "name": "KORODUR-International/korodur-review-reporting",
-      "total": 178,
-      "done": 141,
+      "total": 179,
+      "done": 142,
       "in_progress": 3,
       "open": 19,
       "blocked": 0,
@@ -251,7 +251,7 @@
       "discarded": 7,
       "by_owner": {
         "Human": 16,
-        "Claude": 130,
+        "Claude": 131,
         "Either": 32,
         "none": 0
       },
@@ -264,28 +264,28 @@
         "Blocked": 0,
         "On Hold": 1,
         "Später": 7,
-        "Done": 148,
+        "Done": 149,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-digitale-produktinformationen",
-      "total": 154,
-      "done": 102,
+      "total": 157,
+      "done": 103,
       "in_progress": 1,
-      "open": 21,
+      "open": 23,
       "blocked": 7,
       "on_hold": 1,
       "spaeter": 16,
       "discarded": 6,
       "by_owner": {
         "Human": 13,
-        "Claude": 95,
-        "Either": 44,
+        "Claude": 96,
+        "Either": 46,
         "none": 2
       },
       "by_status": {
-        "Backlog": 15,
+        "Backlog": 17,
         "Bereit": 3,
         "Beansprucht": 3,
         "In Progress": 1,
@@ -293,7 +293,7 @@
         "Blocked": 7,
         "On Hold": 1,
         "Später": 16,
-        "Done": 108,
+        "Done": 109,
         "none": 0
       }
     },
@@ -329,8 +329,8 @@
     {
       "name": "KORODUR-International/korodur-operating-model",
       "total": 116,
-      "done": 91,
-      "in_progress": 3,
+      "done": 92,
+      "in_progress": 2,
       "open": 19,
       "blocked": 0,
       "on_hold": 1,
@@ -347,32 +347,32 @@
         "Bereit": 5,
         "Beansprucht": 1,
         "In Progress": 0,
-        "In Review": 3,
+        "In Review": 2,
         "Blocked": 0,
         "On Hold": 1,
         "Später": 0,
-        "Done": 93,
+        "Done": 94,
         "none": 0
       }
     },
     {
       "name": "KORODUR-International/korodur-redaktion",
-      "total": 90,
-      "done": 51,
+      "total": 96,
+      "done": 55,
       "in_progress": 7,
-      "open": 24,
+      "open": 26,
       "blocked": 3,
       "on_hold": 1,
       "spaeter": 3,
       "discarded": 1,
       "by_owner": {
-        "Human": 5,
-        "Claude": 46,
-        "Either": 38,
+        "Human": 6,
+        "Claude": 50,
+        "Either": 39,
         "none": 1
       },
       "by_status": {
-        "Backlog": 15,
+        "Backlog": 17,
         "Bereit": 6,
         "Beansprucht": 3,
         "In Progress": 5,
@@ -380,7 +380,7 @@
         "Blocked": 3,
         "On Hold": 1,
         "Später": 3,
-        "Done": 52,
+        "Done": 56,
         "none": 0
       }
     },
@@ -444,10 +444,10 @@
     },
     {
       "name": "KORODUR-International/korodur-lokale-ki",
-      "total": 33,
-      "done": 16,
+      "total": 34,
+      "done": 19,
       "in_progress": 1,
-      "open": 16,
+      "open": 14,
       "blocked": 0,
       "on_hold": 0,
       "spaeter": 0,
@@ -455,19 +455,19 @@
       "by_owner": {
         "Human": 9,
         "Claude": 18,
-        "Either": 6,
+        "Either": 7,
         "none": 0
       },
       "by_status": {
         "Backlog": 11,
-        "Bereit": 4,
-        "Beansprucht": 1,
+        "Bereit": 3,
+        "Beansprucht": 0,
         "In Progress": 0,
         "In Review": 1,
         "Blocked": 0,
         "On Hold": 0,
         "Später": 0,
-        "Done": 16,
+        "Done": 19,
         "none": 0
       }
     },
@@ -864,7 +864,7 @@
       "status_beobachtet_seit": "2026-10-14",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ref-prozess"
+        "ref-publikationsprozess"
       ]
     },
     {
@@ -954,7 +954,7 @@
       "status_beobachtet_seit": "2026-10-14",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "web-loesungsfinder"
+        "web-empfehlungen"
       ]
     },
     {
@@ -999,7 +999,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "org-repos"
+        "org-daten-notion"
       ]
     },
     {
@@ -1014,7 +1014,7 @@
       "status_beobachtet_seit": "2026-08-20",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "org-repos"
+        "org-daten-notion"
       ]
     },
     {
@@ -1044,7 +1044,7 @@
       "status_beobachtet_seit": "2026-09-11",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "vp-pilot"
+        "mk-cd-rollout"
       ]
     },
     {
@@ -1120,8 +1120,7 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "vp-workshop",
-        "vp-definition",
-        "vp-pilot"
+        "vp-definition"
       ],
       "blocked_by": [
         "KORODUR-International/korodur-crm#25"
@@ -1139,7 +1138,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop",
+        "pdb-betrieb",
         "web-dpi-uebernahme"
       ]
     },
@@ -1155,7 +1154,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop",
+        "pdb-betrieb",
         "web-dpi-uebernahme"
       ]
     },
@@ -1187,7 +1186,7 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "web-dpi-uebernahme",
-        "pdb-dop"
+        "pdb-betrieb"
       ]
     },
     {
@@ -1203,7 +1202,7 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "web-dpi-uebernahme",
-        "web-loesungsfinder"
+        "web-empfehlungen"
       ]
     },
     {
@@ -1218,7 +1217,7 @@
       "status_beobachtet_seit": "2026-08-26",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop"
+        "pdb-dop-weitere-de"
       ]
     },
     {
@@ -1233,7 +1232,7 @@
       "status_beobachtet_seit": "2026-08-26",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop"
+        "pdb-dop-weitere-de"
       ]
     },
     {
@@ -1278,7 +1277,7 @@
       "status_beobachtet_seit": "2026-08-27",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop"
+        "pdb-dop-weitere-de"
       ]
     },
     {
@@ -1341,8 +1340,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop",
-        "pdb-dop-q4"
+        "pdb-dop-weitere-de"
       ],
       "blocked_by": [
         "KORODUR-International/korodur-translation#26"
@@ -1375,7 +1373,6 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "mk-verpackung",
         "pdb-verpackung"
       ]
     },
@@ -1451,7 +1448,7 @@
       "status_beobachtet_seit": "2026-09-23",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop"
+        "pdb-dop-weitere-de"
       ]
     },
     {
@@ -1466,8 +1463,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop",
-        "pdb-dop-q4"
+        "pdb-dop-weitere-de"
       ]
     },
     {
@@ -1482,8 +1478,7 @@
       "status_beobachtet_seit": "2026-09-29",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop",
-        "pdb-dop-q4"
+        "pdb-dop-weitere-de"
       ]
     },
     {
@@ -1651,7 +1646,7 @@
       "status_beobachtet_seit": "2026-10-13",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-m3"
+        "pdb-tds-he3-vap"
       ]
     },
     {
@@ -1666,7 +1661,7 @@
       "status_beobachtet_seit": "2026-10-20",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-m3"
+        "pdb-tds-he3-vap"
       ]
     },
     {
@@ -1696,7 +1691,7 @@
       "status_beobachtet_seit": "2026-10-15",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "adhoc"
+        "pdb-dop-weitere-de"
       ]
     },
     {
@@ -1726,8 +1721,7 @@
       "status_beobachtet_seit": "2026-10-21",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-stammdaten",
-        "pdb-tds"
+        "pdb-tds-he3-vap"
       ]
     },
     {
@@ -1742,8 +1736,7 @@
       "status_beobachtet_seit": "2026-10-21",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-stammdaten",
-        "pdb-tds"
+        "pdb-tds-he3-vap"
       ]
     },
     {
@@ -1758,8 +1751,7 @@
       "status_beobachtet_seit": "2026-10-21",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-stammdaten",
-        "pdb-tds"
+        "pdb-tds-he3-vap"
       ],
       "blocked_by": [
         "KORODUR-International/korodur-digitale-produktinformationen#236"
@@ -1807,7 +1799,7 @@
       "status_beobachtet_seit": "2026-10-21",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-stammdaten"
+        "pdb-tds-he3-vap"
       ]
     },
     {
@@ -1838,6 +1830,38 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "web-portfolio"
+      ]
+    },
+    {
+      "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+      "nummer": 267,
+      "status": "Backlog",
+      "bereich": "Technik",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null,
+      "status_seit": "2026-10-28",
+      "status_beobachtet_seit": "2026-10-28",
+      "status_beobachtung_luecke": false,
+      "meilensteine": [
+        "pdb-dop-weitere-de",
+        "pdb-dop-weitere-enfr"
+      ]
+    },
+    {
+      "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+      "nummer": 268,
+      "status": "Backlog",
+      "bereich": "Technik",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null,
+      "status_seit": "2026-10-28",
+      "status_beobachtet_seit": "2026-10-28",
+      "status_beobachtung_luecke": false,
+      "meilensteine": [
+        "pdb-tds-he3-vap",
+        "ueb-tds-enfr"
       ]
     },
     {
@@ -2018,7 +2042,8 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "mk-assets",
-        "mk-cd-rollout"
+        "mk-cd-rollout",
+        "mk-steckbrief"
       ]
     },
     {
@@ -2034,7 +2059,8 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "mk-assets",
-        "mk-cd-rollout"
+        "mk-cd-rollout",
+        "mk-steckbrief"
       ]
     },
     {
@@ -2080,7 +2106,7 @@
       "status_beobachtet_seit": "2026-10-14",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2095,7 +2121,7 @@
       "status_beobachtet_seit": "2026-10-06",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2110,7 +2136,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2125,7 +2151,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2140,7 +2166,7 @@
       "status_beobachtet_seit": "2026-10-14",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2155,7 +2181,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2170,7 +2196,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2185,7 +2211,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2200,7 +2226,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2215,7 +2241,7 @@
       "status_beobachtet_seit": "2026-10-06",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2230,7 +2256,7 @@
       "status_beobachtet_seit": "2026-10-06",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2245,7 +2271,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2260,38 +2286,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ki-test"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-lokale-ki",
-      "nummer": 31,
-      "status": "Backlog",
-      "bereich": "AI & Enablement",
-      "prioritaet": "P2",
-      "owner_typ": "Human",
-      "bearbeiter": null,
-      "status_seit": "2026-09-25",
-      "status_beobachtet_seit": "2026-09-25",
-      "status_beobachtung_luecke": false,
-      "meilensteine": [
-        "ki-setup-gf"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-lokale-ki",
-      "nummer": 36,
-      "status": "Beansprucht",
-      "bereich": "AI & Enablement",
-      "prioritaet": "P1",
-      "owner_typ": "Human",
-      "bearbeiter": "Human",
-      "status_seit": "2026-10-12",
-      "status_beobachtet_seit": "2026-10-13",
-      "status_beobachtung_luecke": false,
-      "meilensteine": [
-        "ki-setup-gf",
-        "ki-test"
+        "ki-jahresende"
       ]
     },
     {
@@ -2311,17 +2306,17 @@
     },
     {
       "repo": "KORODUR-International/korodur-lokale-ki",
-      "nummer": 40,
-      "status": "Bereit",
+      "nummer": 55,
+      "status": "Backlog",
       "bereich": "AI & Enablement",
       "prioritaet": "P1",
-      "owner_typ": "Human",
+      "owner_typ": "Either",
       "bearbeiter": null,
-      "status_seit": "2026-10-13",
-      "status_beobachtet_seit": "2026-10-14",
+      "status_seit": "2026-10-28",
+      "status_beobachtet_seit": "2026-10-28",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ki-test"
+        "ki-abruf"
       ]
     },
     {
@@ -2381,7 +2376,6 @@
       "status_beobachtet_seit": "2026-09-11",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "org-notion",
         "org-daten-notion"
       ]
     },
@@ -2597,21 +2591,6 @@
     },
     {
       "repo": "KORODUR-International/korodur-operating-model",
-      "nummer": 206,
-      "status": "In Review",
-      "bereich": "Technik",
-      "prioritaet": "P1",
-      "owner_typ": "Claude",
-      "bearbeiter": "Claude Korodur",
-      "status_seit": "2026-10-20",
-      "status_beobachtet_seit": "2026-10-21",
-      "status_beobachtung_luecke": false,
-      "meilensteine": [
-        "dat-regeltermin"
-      ]
-    },
-    {
-      "repo": "KORODUR-International/korodur-operating-model",
       "nummer": 207,
       "status": "Backlog",
       "bereich": "Technik",
@@ -2622,7 +2601,7 @@
       "status_beobachtet_seit": "2026-10-21",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "dat-regeltermin"
+        "org-lernprozess-ausbau"
       ]
     },
     {
@@ -2637,7 +2616,7 @@
       "status_beobachtet_seit": "2026-10-21",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "dat-regeltermin"
+        "org-lernprozess-ausbau"
       ]
     },
     {
@@ -2682,7 +2661,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "con-vollbetrieb"
+        "con-jahresplanung"
       ]
     },
     {
@@ -2757,7 +2736,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "con-vollbetrieb"
+        "con-jahresplanung"
       ]
     },
     {
@@ -2802,7 +2781,7 @@
       "status_beobachtet_seit": "2026-08-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "con-vollbetrieb"
+        "con-jahresplanung"
       ]
     },
     {
@@ -2832,7 +2811,7 @@
       "status_beobachtet_seit": "2026-09-17",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "con-q4planung"
+        "con-jahresplanung"
       ]
     },
     {
@@ -2922,7 +2901,8 @@
       "status_beobachtet_seit": "2026-10-01",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "adhoc"
+        "mk-empco-belege",
+        "mk-empco-pruefschritt"
       ]
     },
     {
@@ -2937,7 +2917,8 @@
       "status_beobachtet_seit": "2026-10-01",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "adhoc"
+        "mk-empco-belege",
+        "mk-empco-pruefschritt"
       ]
     },
     {
@@ -3009,7 +2990,7 @@
       "status_beobachtet_seit": "2026-10-21",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-tds"
+        "pdb-tds-he3-vap"
       ]
     },
     {
@@ -3232,6 +3213,37 @@
       ]
     },
     {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 147,
+      "status": "Backlog",
+      "bereich": "Marketing",
+      "prioritaet": "P1",
+      "owner_typ": "Either",
+      "bearbeiter": null,
+      "status_seit": "2026-10-28",
+      "status_beobachtet_seit": "2026-10-28",
+      "status_beobachtung_luecke": false,
+      "meilensteine": [
+        "ref-rapidset-de",
+        "ueb-ref-rapidset"
+      ]
+    },
+    {
+      "repo": "KORODUR-International/korodur-redaktion",
+      "nummer": 148,
+      "status": "Backlog",
+      "bereich": "Marketing",
+      "prioritaet": "P2",
+      "owner_typ": "Human",
+      "bearbeiter": null,
+      "status_seit": "2026-10-28",
+      "status_beobachtet_seit": "2026-10-28",
+      "status_beobachtung_luecke": false,
+      "meilensteine": [
+        "con-katzenstreu"
+      ]
+    },
+    {
       "repo": "KORODUR-International/korodur-referenzverzeichnis",
       "nummer": 4,
       "status": "Backlog",
@@ -3258,7 +3270,6 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ref-prozess",
         "ref-publikationsprozess"
       ]
     },
@@ -3364,7 +3375,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "ref-prozess",
+        "ref-publikationsprozess",
         "ref-prozess-doku"
       ],
       "blocked_by": [
@@ -3612,7 +3623,7 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "ref-datenstruktur",
-        "ref-prozess"
+        "ref-publikationsprozess"
       ]
     },
     {
@@ -3642,7 +3653,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ref-prozess",
+        "ref-publikationsprozess",
         "ref-prozess-doku"
       ]
     },
@@ -3820,7 +3831,6 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "org-notion",
         "org-daten-notion"
       ]
     },
@@ -3836,7 +3846,6 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "org-notion",
         "org-daten-notion"
       ]
     },
@@ -3897,7 +3906,6 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "org-notion",
         "org-daten-notion"
       ]
     },
@@ -3913,7 +3921,6 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "org-notion",
         "org-daten-notion"
       ]
     },
@@ -3959,7 +3966,6 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "org-notion",
         "org-daten-notion"
       ]
     },
@@ -4005,7 +4011,7 @@
       "status_beobachtet_seit": "2026-08-16",
       "status_beobachtung_luecke": true,
       "meilensteine": [
-        "con-kpi"
+        "con-analytics-auto"
       ]
     },
     {
@@ -4020,8 +4026,7 @@
       "status_beobachtet_seit": "2026-09-10",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop",
-        "pdb-dop-q4",
+        "pdb-dop-weitere-de",
         "pdb-tds-auto"
       ]
     },
@@ -4037,7 +4042,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-strategie"
+        "adhoc"
       ]
     },
     {
@@ -4113,7 +4118,7 @@
       "status_beobachtung_luecke": true,
       "meilensteine": [
         "web-dpi-uebernahme",
-        "pdb-dop"
+        "pdb-betrieb"
       ]
     },
     {
@@ -4452,7 +4457,7 @@
       "status_beobachtet_seit": "2026-10-23",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "org-notion",
+        "org-daten-notion",
         "wissensaufbau"
       ]
     },
@@ -4513,7 +4518,7 @@
       "status_beobachtet_seit": "2026-09-30",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-dop"
+        "pdb-dop-weitere-enfr"
       ]
     },
     {
@@ -4558,7 +4563,7 @@
       "status_beobachtet_seit": "2026-09-30",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-tds-it"
+        "adhoc"
       ]
     },
     {
@@ -5114,7 +5119,7 @@
       "status_beobachtet_seit": "2026-09-12",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "org-repos"
+        "org-daten-notion"
       ]
     },
     {
@@ -5208,7 +5213,7 @@
       "status_beobachtet_seit": "2026-09-23",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "web-design-preview"
+        "web-launchdef"
       ]
     },
     {
@@ -5313,7 +5318,6 @@
       "status_beobachtet_seit": "2026-09-18",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "web-design-preview",
         "web-launchdef"
       ]
     },
@@ -5378,7 +5382,7 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "web-refdesign",
-        "web-design-preview"
+        "web-launchdef"
       ]
     },
     {
@@ -5438,7 +5442,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-industrieboden-en"
+        "ueb-website-enfr"
       ],
       "blocked_by": [
         "sfleischmann-3steps2/KORODUR-Website#653"
@@ -5456,7 +5460,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-industrieboden-fr"
+        "ueb-website-enfr"
       ],
       "blocked_by": [
         "sfleischmann-3steps2/KORODUR-Website#653"
@@ -5474,7 +5478,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-rapidset-en"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5489,7 +5493,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-rapidset-fr"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5504,7 +5508,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-microtop-en"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5519,7 +5523,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-microtop-fr"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5534,7 +5538,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-katzenstreu-en"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5549,7 +5553,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-katzenstreu-fr"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5564,7 +5568,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-3ddruck-en"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5579,7 +5583,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-3ddruck-fr"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5594,7 +5598,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-infrastruktur-en"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5609,7 +5613,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-infrastruktur-fr"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5624,7 +5628,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-spezialmoertel-en"
+        "ueb-website-enfr"
       ],
       "blocked_by": [
         "sfleischmann-3steps2/KORODUR-Website#656"
@@ -5642,7 +5646,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-spezialmoertel-fr"
+        "ueb-website-enfr"
       ],
       "blocked_by": [
         "sfleischmann-3steps2/KORODUR-Website#656"
@@ -5660,7 +5664,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-portfolio-en"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5675,7 +5679,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-portfolio-fr"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5691,7 +5695,7 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "ueb-ref-10-en",
-        "ueb-web-referenzen-en",
+        "ueb-website-enfr",
         "ref-10-live"
       ]
     },
@@ -5708,7 +5712,7 @@
       "status_beobachtung_luecke": false,
       "meilensteine": [
         "ueb-ref-10-fr",
-        "ueb-web-referenzen-fr",
+        "ueb-website-enfr",
         "ref-10-live"
       ]
     },
@@ -5724,7 +5728,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-rahmen-en"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5739,7 +5743,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "ueb-web-rahmen-fr"
+        "ueb-website-enfr"
       ]
     },
     {
@@ -5769,7 +5773,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "web-design-preview"
+        "web-launchdef"
       ]
     },
     {
@@ -6474,14 +6478,15 @@
     "2026-10-22": 12,
     "2026-10-25": 2,
     "2026-10-26": 13,
-    "2026-10-27": 3
+    "2026-10-27": 3,
+    "2026-10-28": 10
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
     "2026-09": 271,
-    "2026-10": 123
+    "2026-10": 133
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -6502,7 +6507,7 @@
     "2026-W41": 35,
     "2026-W42": 36,
     "2026-W43": 35,
-    "2026-W44": 16
+    "2026-W44": 26
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#12",
@@ -6600,6 +6605,7 @@
     "KORODUR-International/korodur-digitale-produktinformationen#259",
     "KORODUR-International/korodur-digitale-produktinformationen#26",
     "KORODUR-International/korodur-digitale-produktinformationen#261",
+    "KORODUR-International/korodur-digitale-produktinformationen#265",
     "KORODUR-International/korodur-digitale-produktinformationen#27",
     "KORODUR-International/korodur-digitale-produktinformationen#31",
     "KORODUR-International/korodur-digitale-produktinformationen#32",
@@ -6653,8 +6659,11 @@
     "KORODUR-International/korodur-lokale-ki#29",
     "KORODUR-International/korodur-lokale-ki#3",
     "KORODUR-International/korodur-lokale-ki#30",
+    "KORODUR-International/korodur-lokale-ki#31",
+    "KORODUR-International/korodur-lokale-ki#36",
     "KORODUR-International/korodur-lokale-ki#37",
     "KORODUR-International/korodur-lokale-ki#4",
+    "KORODUR-International/korodur-lokale-ki#40",
     "KORODUR-International/korodur-lokale-ki#43",
     "KORODUR-International/korodur-lokale-ki#5",
     "KORODUR-International/korodur-lokale-ki#51",
@@ -6709,6 +6718,7 @@
     "KORODUR-International/korodur-operating-model#195",
     "KORODUR-International/korodur-operating-model#2",
     "KORODUR-International/korodur-operating-model#205",
+    "KORODUR-International/korodur-operating-model#206",
     "KORODUR-International/korodur-operating-model#211",
     "KORODUR-International/korodur-operating-model#213",
     "KORODUR-International/korodur-operating-model#22",
@@ -6772,7 +6782,11 @@
     "KORODUR-International/korodur-redaktion#14",
     "KORODUR-International/korodur-redaktion#141",
     "KORODUR-International/korodur-redaktion#142",
+    "KORODUR-International/korodur-redaktion#145",
+    "KORODUR-International/korodur-redaktion#149",
     "KORODUR-International/korodur-redaktion#15",
+    "KORODUR-International/korodur-redaktion#151",
+    "KORODUR-International/korodur-redaktion#153",
     "KORODUR-International/korodur-redaktion#19",
     "KORODUR-International/korodur-redaktion#30",
     "KORODUR-International/korodur-redaktion#32",
@@ -7006,6 +7020,7 @@
     "KORODUR-International/korodur-review-reporting#346",
     "KORODUR-International/korodur-review-reporting#35",
     "KORODUR-International/korodur-review-reporting#350",
+    "KORODUR-International/korodur-review-reporting#353",
     "KORODUR-International/korodur-review-reporting#37",
     "KORODUR-International/korodur-review-reporting#39",
     "KORODUR-International/korodur-review-reporting#4",
@@ -7428,11 +7443,51 @@
         "status": "Backlog"
       },
       {
+        "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+        "nummer": 267,
+        "bereich": "Technik",
+        "prioritaet": "P1",
+        "owner_typ": "Either",
+        "status": "Backlog"
+      },
+      {
+        "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+        "nummer": 268,
+        "bereich": "Technik",
+        "prioritaet": "P1",
+        "owner_typ": "Either",
+        "status": "Backlog"
+      },
+      {
+        "repo": "KORODUR-International/korodur-lokale-ki",
+        "nummer": 55,
+        "bereich": "AI & Enablement",
+        "prioritaet": "P1",
+        "owner_typ": "Either",
+        "status": "Backlog"
+      },
+      {
         "repo": "KORODUR-International/korodur-redaktion",
         "nummer": 139,
         "bereich": "Marketing",
         "prioritaet": "P2",
         "owner_typ": "Either",
+        "status": "Backlog"
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 147,
+        "bereich": "Marketing",
+        "prioritaet": "P1",
+        "owner_typ": "Either",
+        "status": "Backlog"
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 148,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Human",
         "status": "Backlog"
       },
       {
@@ -7457,6 +7512,50 @@
     ],
     "erledigt": [
       {
+        "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+        "nummer": 265,
+        "bereich": "Technik",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-28T11:38:37Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-lokale-ki",
+        "nummer": 31,
+        "bereich": "AI & Enablement",
+        "prioritaet": "P2",
+        "owner_typ": "Human",
+        "von": "Backlog",
+        "closed_at": "2026-10-28T15:17:09Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-lokale-ki",
+        "nummer": 36,
+        "bereich": "AI & Enablement",
+        "prioritaet": "P1",
+        "owner_typ": "Human",
+        "von": "Beansprucht",
+        "closed_at": "2026-10-28T15:17:13Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-lokale-ki",
+        "nummer": 40,
+        "bereich": "AI & Enablement",
+        "prioritaet": "P1",
+        "owner_typ": "Human",
+        "von": "Bereit",
+        "closed_at": "2026-10-28T16:00:57Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 206,
+        "bereich": "Technik",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "von": "In Review",
+        "closed_at": "2026-10-28T11:03:31Z"
+      },
+      {
         "repo": "KORODUR-International/korodur-redaktion",
         "nummer": 141,
         "bereich": "Marketing",
@@ -7473,6 +7572,46 @@
         "closed_at": "2026-10-27T09:46:08Z"
       },
       {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 145,
+        "bereich": "Marketing",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-28T09:54:39Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 149,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-28T15:21:28Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 151,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-28T15:31:15Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 153,
+        "bereich": "Marketing",
+        "prioritaet": "P2",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-28T15:57:34Z"
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 353,
+        "bereich": "Strategie",
+        "prioritaet": "P1",
+        "owner_typ": "Claude",
+        "closed_at": "2026-10-28T15:17:54Z"
+      },
+      {
         "repo": "KORODUR-International/korodur-skills",
         "nummer": 140,
         "bereich": "Nicht zugeordnet",
@@ -7487,13 +7626,13 @@
   "meilenstein": {
     "feldSeit": "2026-09-11",
     "bestand": {
-      "auf": 275,
-      "adhoc": 87,
+      "auf": 277,
+      "adhoc": 86,
       "leer": 7
     },
     "erledigt": {
-      "auf": 284,
-      "adhoc": 96,
+      "auf": 290,
+      "adhoc": 100,
       "leer": 458
     },
     "je_woche": {
@@ -7588,30 +7727,30 @@
         "leer": 1
       },
       "2026-W44": {
-        "auf": 11,
-        "adhoc": 1,
+        "auf": 17,
+        "adhoc": 5,
         "leer": 4
       }
     },
     "je_id": {
       "con-analytics-auto": {
-        "offen": 1,
+        "offen": 2,
         "erledigt": 0
       },
       "con-jahresplanung": {
-        "offen": 4,
+        "offen": 8,
         "erledigt": 0
       },
       "con-katzenstreu": {
-        "offen": 1,
+        "offen": 2,
         "erledigt": 0
       },
       "con-kpi": {
-        "offen": 1,
+        "offen": 0,
         "erledigt": 8
       },
       "con-q4planung": {
-        "offen": 1,
+        "offen": 0,
         "erledigt": 3
       },
       "con-styleguide": {
@@ -7619,7 +7758,7 @@
         "erledigt": 6
       },
       "con-vollbetrieb": {
-        "offen": 3,
+        "offen": 0,
         "erledigt": 1
       },
       "crm-web-bestandskunden": {
@@ -7639,8 +7778,8 @@
         "erledigt": 3
       },
       "dat-regeltermin": {
-        "offen": 3,
-        "erledigt": 2
+        "offen": 0,
+        "erledigt": 3
       },
       "dat-strategie": {
         "offen": 0,
@@ -7654,33 +7793,45 @@
         "offen": 0,
         "erledigt": 2
       },
-      "ki-jahresende": {
+      "ki-abruf": {
         "offen": 1,
         "erledigt": 0
       },
+      "ki-jahresende": {
+        "offen": 14,
+        "erledigt": 0
+      },
       "ki-setup-gf": {
-        "offen": 2,
-        "erledigt": 1
+        "offen": 0,
+        "erledigt": 3
       },
       "ki-test": {
-        "offen": 15,
-        "erledigt": 3
+        "offen": 0,
+        "erledigt": 5
       },
       "mk-assets": {
         "offen": 7,
         "erledigt": 0
       },
       "mk-cd-rollout": {
-        "offen": 13,
+        "offen": 14,
         "erledigt": 16
       },
       "mk-cd-v1": {
         "offen": 3,
         "erledigt": 2
       },
+      "mk-empco-belege": {
+        "offen": 2,
+        "erledigt": 0
+      },
       "mk-empco-gf": {
         "offen": 0,
-        "erledigt": 2
+        "erledigt": 3
+      },
+      "mk-empco-pruefschritt": {
+        "offen": 2,
+        "erledigt": 0
       },
       "mk-kommunikation-2027": {
         "offen": 1,
@@ -7690,12 +7841,12 @@
         "offen": 4,
         "erledigt": 0
       },
-      "mk-verpackung": {
-        "offen": 1,
+      "mk-steckbrief": {
+        "offen": 2,
         "erledigt": 0
       },
       "org-daten-notion": {
-        "offen": 16,
+        "offen": 20,
         "erledigt": 6
       },
       "org-lernprozess": {
@@ -7703,19 +7854,19 @@
         "erledigt": 64
       },
       "org-lernprozess-ausbau": {
-        "offen": 27,
-        "erledigt": 38
+        "offen": 29,
+        "erledigt": 39
       },
       "org-notion": {
-        "offen": 7,
+        "offen": 0,
         "erledigt": 2
       },
       "org-repos": {
-        "offen": 3,
+        "offen": 0,
         "erledigt": 6
       },
       "pdb-betrieb": {
-        "offen": 2,
+        "offen": 6,
         "erledigt": 0
       },
       "pdb-chatbots": {
@@ -7723,7 +7874,7 @@
         "erledigt": 0
       },
       "pdb-dop": {
-        "offen": 13,
+        "offen": 0,
         "erledigt": 24
       },
       "pdb-dop-13813-enfr": {
@@ -7731,16 +7882,20 @@
         "erledigt": 1
       },
       "pdb-dop-q4": {
-        "offen": 4,
+        "offen": 0,
         "erledigt": 5
+      },
+      "pdb-dop-weitere-de": {
+        "offen": 10,
+        "erledigt": 0
+      },
+      "pdb-dop-weitere-enfr": {
+        "offen": 2,
+        "erledigt": 0
       },
       "pdb-epd": {
         "offen": 2,
         "erledigt": 1
-      },
-      "pdb-m3": {
-        "offen": 2,
-        "erledigt": 0
       },
       "pdb-produktpass": {
         "offen": 1,
@@ -7755,11 +7910,11 @@
         "erledigt": 0
       },
       "pdb-stammdaten": {
-        "offen": 4,
+        "offen": 0,
         "erledigt": 5
       },
       "pdb-tds": {
-        "offen": 4,
+        "offen": 0,
         "erledigt": 7
       },
       "pdb-tds-auto": {
@@ -7767,7 +7922,7 @@
         "erledigt": 0
       },
       "pdb-tds-he3-vap": {
-        "offen": 3,
+        "offen": 11,
         "erledigt": 3
       },
       "pdb-vap": {
@@ -7815,7 +7970,7 @@
         "erledigt": 0
       },
       "ref-prozess": {
-        "offen": 5,
+        "offen": 0,
         "erledigt": 7
       },
       "ref-prozess-doku": {
@@ -7823,11 +7978,11 @@
         "erledigt": 0
       },
       "ref-publikationsprozess": {
-        "offen": 4,
+        "offen": 8,
         "erledigt": 0
       },
       "ref-rapidset-de": {
-        "offen": 2,
+        "offen": 3,
         "erledigt": 0
       },
       "ref-strategie-2027": {
@@ -7847,103 +8002,19 @@
         "erledigt": 0
       },
       "ueb-ref-rapidset": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-strategie": {
-        "offen": 1,
+        "offen": 2,
         "erledigt": 0
       },
       "ueb-tds-enfr": {
-        "offen": 0,
+        "offen": 1,
         "erledigt": 3
       },
       "ueb-tds-it": {
-        "offen": 1,
+        "offen": 0,
         "erledigt": 2
       },
-      "ueb-web-3ddruck-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-3ddruck-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-industrieboden-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-industrieboden-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-infrastruktur-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-infrastruktur-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-katzenstreu-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-katzenstreu-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-microtop-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-microtop-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-portfolio-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-portfolio-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-rahmen-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-rahmen-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-rapidset-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-rapidset-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-referenzen-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-referenzen-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-spezialmoertel-en": {
-        "offen": 1,
-        "erledigt": 0
-      },
-      "ueb-web-spezialmoertel-fr": {
-        "offen": 1,
-        "erledigt": 0
-      },
       "ueb-website-enfr": {
-        "offen": 1,
+        "offen": 21,
         "erledigt": 1
       },
       "vp-definition": {
@@ -7955,7 +8026,7 @@
         "erledigt": 0
       },
       "vp-pilot": {
-        "offen": 2,
+        "offen": 0,
         "erledigt": 2
       },
       "vp-rapidmail": {
@@ -7983,7 +8054,7 @@
         "erledigt": 3
       },
       "web-design-preview": {
-        "offen": 4,
+        "offen": 0,
         "erledigt": 14
       },
       "web-dpi-uebernahme": {
@@ -7991,7 +8062,7 @@
         "erledigt": 2
       },
       "web-empfehlungen": {
-        "offen": 3,
+        "offen": 5,
         "erledigt": 7
       },
       "web-hosting": {
@@ -8011,11 +8082,11 @@
         "erledigt": 1
       },
       "web-launchdef": {
-        "offen": 22,
+        "offen": 25,
         "erledigt": 7
       },
       "web-loesungsfinder": {
-        "offen": 2,
+        "offen": 0,
         "erledigt": 19
       },
       "web-pdp": {
@@ -8048,7 +8119,7 @@
     "basis": "board_bestand",
     "von": "2026-09-28",
     "bis": "2026-10-28",
-    "stand": "2026-10-28T06:35:35.145542+00:00",
+    "stand": "2026-10-28T16:03:24.800153+00:00",
     "vollstaendig": true,
     "tage": {
       "2026-09-28": 25,
@@ -8081,7 +8152,7 @@
       "2026-10-25": 2,
       "2026-10-26": 13,
       "2026-10-27": 3,
-      "2026-10-28": 0
+      "2026-10-28": 10
     },
     "issues": [
       {
@@ -9812,6 +9883,107 @@
         "datum": "2026-10-27",
         "bereich": "Nicht zugeordnet",
         "meilensteine": []
+      },
+      {
+        "repo": "KORODUR-International/korodur-digitale-produktinformationen",
+        "nummer": 265,
+        "closed_at": "2026-10-28T11:38:37+00:00",
+        "datum": "2026-10-28",
+        "bereich": "Technik",
+        "meilensteine": [
+          "adhoc"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-lokale-ki",
+        "nummer": 31,
+        "closed_at": "2026-10-28T15:17:09+00:00",
+        "datum": "2026-10-28",
+        "bereich": "AI & Enablement",
+        "meilensteine": [
+          "ki-setup-gf"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-lokale-ki",
+        "nummer": 36,
+        "closed_at": "2026-10-28T15:17:13+00:00",
+        "datum": "2026-10-28",
+        "bereich": "AI & Enablement",
+        "meilensteine": [
+          "ki-setup-gf",
+          "ki-test"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-lokale-ki",
+        "nummer": 40,
+        "closed_at": "2026-10-28T16:00:57+00:00",
+        "datum": "2026-10-28",
+        "bereich": "AI & Enablement",
+        "meilensteine": [
+          "ki-test"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-operating-model",
+        "nummer": 206,
+        "closed_at": "2026-10-28T11:03:31+00:00",
+        "datum": "2026-10-28",
+        "bereich": "Technik",
+        "meilensteine": [
+          "dat-regeltermin"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 145,
+        "closed_at": "2026-10-28T09:54:39+00:00",
+        "datum": "2026-10-28",
+        "bereich": "Marketing",
+        "meilensteine": [
+          "mk-empco-gf"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 149,
+        "closed_at": "2026-10-28T15:21:28+00:00",
+        "datum": "2026-10-28",
+        "bereich": "Marketing",
+        "meilensteine": [
+          "adhoc"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 151,
+        "closed_at": "2026-10-28T15:31:15+00:00",
+        "datum": "2026-10-28",
+        "bereich": "Marketing",
+        "meilensteine": [
+          "adhoc"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-redaktion",
+        "nummer": 153,
+        "closed_at": "2026-10-28T15:57:34+00:00",
+        "datum": "2026-10-28",
+        "bereich": "Marketing",
+        "meilensteine": [
+          "adhoc"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 353,
+        "closed_at": "2026-10-28T15:17:54+00:00",
+        "datum": "2026-10-28",
+        "bereich": "Strategie",
+        "meilensteine": [
+          "org-lernprozess-ausbau"
+        ]
       }
     ],
     "datenluecken": {

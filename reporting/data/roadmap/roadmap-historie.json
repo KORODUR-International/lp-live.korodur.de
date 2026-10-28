@@ -215,7 +215,7 @@
     "mk-empco-sofort": {
       "lane": "Marke & Kommunikationsmittel",
       "datum": "2026-10-31",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "EmpCo: Sofortmaßnahmen umgesetzt, keine unbelegte Umweltaussage mehr öffentlich"
     },
     "mk-empco-print": {
@@ -226,9 +226,9 @@
     },
     "mk-empco-gf": {
       "lane": "Marke & Kommunikationsmittel",
-      "datum": null,
-      "status": "offen",
-      "titel": "EmpCo: Entscheidungen der Geschäftsführung mit Fachanwalt"
+      "datum": "2026-10-27",
+      "status": "erreicht",
+      "titel": "EmpCo: Entscheidungsvorlage für die Geschäftsführung mit Stellungnahme des Fachanwalts"
     },
     "mk-empco-belege": {
       "lane": "Marke & Kommunikationsmittel",
@@ -245,7 +245,7 @@
     "mk-print-empco": {
       "lane": "Marke & Kommunikationsmittel",
       "datum": "2026-11-30",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Industrieboden- und Rapid-Set-Broschüre EmpCo-fest gedruckt"
     },
     "mk-steckbrief": {
@@ -605,14 +605,20 @@
     "ki-test": {
       "lane": "Lokale KI",
       "datum": "2026-08-31",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Use Case 1 im Testing"
     },
     "ki-setup-gf": {
       "lane": "Lokale KI",
       "datum": "2026-09-30",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Setup Laptop Geschäftsführung"
+    },
+    "ki-abruf": {
+      "lane": "Lokale KI",
+      "datum": "2026-11-10",
+      "status": "offen",
+      "titel": "Nächtlicher Abruf läuft im Dauerbetrieb"
     },
     "ki-vision": {
       "lane": "Lokale KI",
@@ -628,20 +634,20 @@
     },
     "vp-definition": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-09-30",
+      "datum": "2026-11-06",
       "status": "verschoben",
       "titel": "Eigenes Kampagnen-Playbook, Präsentation und Konzeptpapier final"
     },
     "vp-workshop": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-11-30",
+      "datum": "2026-11-15",
       "status": "verschoben",
       "titel": "Prozess mit der Vertriebsleitung fixiert"
     },
     "vp-pilot": {
       "lane": "Vertriebsprozess & Kampagnen",
       "datum": "2026-10-10",
-      "status": "verschoben",
+      "status": "erreicht",
       "titel": "Messe-Pilot durchlaufen"
     },
     "vp-kpi": {
@@ -661,6 +667,18 @@
       "datum": "2026-11-30",
       "status": "offen",
       "titel": "Prozess im Unternehmen implementiert"
+    },
+    "vp-kampagnen-2027": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Erste Kampagnen 2027 festgelegt"
+    },
+    "vp-auswertung-2026": {
+      "lane": "Vertriebsprozess & Kampagnen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Kampagnen-Auswertung 2026 liegt vor"
     },
     "vp-reporting": {
       "lane": "Vertriebsprozess & Kampagnen",
@@ -719,7 +737,7 @@
     "pdb-dop-13813-enfr": {
       "lane": "Übersetzungen",
       "datum": "2026-11-12",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "Leistungserklärungen EN 13813 auf Englisch und Französisch"
     },
     "pdb-dop-weitere-enfr": {
@@ -901,6 +919,12 @@
       "datum": null,
       "status": "offen",
       "titel": "Rapid Set-Broschüre nach DE-Freigabe übersetzt"
+    },
+    "ueb-print-empco": {
+      "lane": "Übersetzungen",
+      "datum": null,
+      "status": "offen",
+      "titel": "EmpCo-feste Broschüren in weiteren Sprachen"
     }
   },
   "aenderungen": [
@@ -6754,6 +6778,144 @@
       "feld": null,
       "alt": "2026-10-10",
       "neu": "2026-10-10"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "ki-abruf",
+      "lane": "Lokale KI",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-10"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "ueb-print-empco",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "ki-setup-gf",
+      "lane": "Lokale KI",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "ki-test",
+      "lane": "Lokale KI",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "mk-empco-gf",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": null,
+      "neu": "2026-10-27",
+      "tage": null
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "mk-empco-gf",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "mk-empco-gf",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "EmpCo: Entscheidungen der Geschäftsführung mit Fachanwalt",
+      "neu": "EmpCo: Entscheidungsvorlage für die Geschäftsführung mit Stellungnahme des Fachanwalts"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "mk-empco-sofort",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "mk-print-empco",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "pdb-dop-13813-enfr",
+      "lane": "Übersetzungen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "vp-auswertung-2026",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "vp-kampagnen-2027",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "vp-pilot",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "verschoben",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "vp-workshop",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-30",
+      "neu": "2026-11-15",
+      "tage": -15
+    },
+    {
+      "festgestellt": "2026-10-28",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-09-30",
+      "neu": "2026-11-06",
+      "tage": 37
     }
   ],
   "kennzahlen": {
@@ -6807,9 +6969,9 @@
       "ueberfaelligSeit": "2026-07-31"
     },
     "vp-definition": {
-      "verschiebungen": 2,
-      "tageGesamt": 46,
-      "letzteVerschiebung": "2026-08-25",
+      "verschiebungen": 3,
+      "tageGesamt": 83,
+      "letzteVerschiebung": "2026-10-28",
       "stehengelassen": 29,
       "ueberfaelligSeit": "2026-08-24"
     },
@@ -6947,9 +7109,9 @@
       "ueberfaelligSeit": null
     },
     "vp-workshop": {
-      "verschiebungen": 2,
-      "tageGesamt": 61,
-      "letzteVerschiebung": "2026-10-26",
+      "verschiebungen": 3,
+      "tageGesamt": 46,
+      "letzteVerschiebung": "2026-10-28",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -7083,6 +7245,13 @@
       "verschiebungen": 1,
       "tageGesamt": 45,
       "letzteVerschiebung": "2026-10-26",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "mk-empco-gf": {
+      "verschiebungen": 1,
+      "tageGesamt": 0,
+      "letzteVerschiebung": "2026-10-28",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     }

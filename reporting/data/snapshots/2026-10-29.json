@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-10-29",
-    "generated_at": "2026-10-29T21:08:58.674727+00:00",
+    "generated_at": "2026-10-29T21:27:03.509198+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -4068,7 +4068,8 @@
       "status_beobachtet_seit": "2026-10-29",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "adhoc"
+        "ueb-strategie-kickoff",
+        "ueb-strategie-entwurf"
       ]
     },
     {
@@ -8223,8 +8224,8 @@
   "meilenstein": {
     "feldSeit": "2026-09-11",
     "bestand": {
-      "auf": 287,
-      "adhoc": 76,
+      "auf": 288,
+      "adhoc": 75,
       "leer": 5
     },
     "erledigt": {
@@ -8638,6 +8639,14 @@
         "offen": 3,
         "erledigt": 0
       },
+      "ueb-strategie-entwurf": {
+        "offen": 1,
+        "erledigt": 0
+      },
+      "ueb-strategie-kickoff": {
+        "offen": 1,
+        "erledigt": 0
+      },
       "ueb-tds-enfr": {
         "offen": 2,
         "erledigt": 4
@@ -8768,7 +8777,7 @@
     "basis": "board_bestand",
     "von": "2026-09-28",
     "bis": "2026-10-29",
-    "stand": "2026-10-29T21:08:58.674727+00:00",
+    "stand": "2026-10-29T21:27:03.509198+00:00",
     "vollstaendig": true,
     "tage": {
       "2026-09-28": 25,

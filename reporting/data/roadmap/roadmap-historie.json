@@ -991,6 +991,18 @@
       "datum": null,
       "status": "offen",
       "titel": "TDS-Paket EN/FR muttersprachlich geprüft"
+    },
+    "ueb-strategie-kickoff": {
+      "lane": "Übersetzungen",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "Export-Kick-off Internationalisierung 2027+"
+    },
+    "ueb-strategie-entwurf": {
+      "lane": "Übersetzungen",
+      "datum": "2026-12-15",
+      "status": "offen",
+      "titel": "Strategieentwurf Internationalisierung 2027+"
     }
   },
   "aenderungen": [
@@ -7296,6 +7308,24 @@
       "feld": "titel",
       "alt": "Präsentationsvorlage für Vertrieb und Marketing ausgerollt",
       "neu": "PPT-Masterslides für die Kollegen nutzbar"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "ueb-strategie-entwurf",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-15"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "ueb-strategie-kickoff",
+      "lane": "Übersetzungen",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
     }
   ],
   "kennzahlen": {

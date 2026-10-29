@@ -1303,5 +1303,20 @@
     "ziel_de_intern": 4,
     "ziel_en_fr_live": null,
     "datenschuld_eintraege": 123
+  },
+  {
+    "date": "2026-10-29",
+    "gesamt": 241,
+    "offen": 88,
+    "in_arbeit": 8,
+    "in_abnahme": 12,
+    "freigegeben": 4,
+    "veroeffentlicht": 129,
+    "ohne_status": 0,
+    "unbekannt": 0,
+    "ziel_basis": "alle_prioritaeten",
+    "ziel_de_intern": 4,
+    "ziel_en_fr_live": null,
+    "datenschuld_eintraege": 123
   }
 ]

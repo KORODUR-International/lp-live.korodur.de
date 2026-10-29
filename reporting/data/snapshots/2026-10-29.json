@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-10-29",
-    "generated_at": "2026-10-29T06:43:32.149655+00:00",
+    "generated_at": "2026-10-29T09:19:21.506878+00:00",
     "source": "GitHub Projects v2 · KORODUR Work Cockpit",
     "org": "KORODUR-International",
     "project_number": 1,
@@ -10,8 +10,8 @@
   },
   "totals": {
     "items": 1299,
-    "done": 851,
-    "in_progress": 30,
+    "done": 852,
+    "in_progress": 29,
     "open": 227,
     "blocked": 28,
     "on_hold": 14,
@@ -23,12 +23,12 @@
     "Backlog": 163,
     "Bereit": 49,
     "Beansprucht": 15,
-    "In Progress": 13,
+    "In Progress": 12,
     "In Review": 17,
     "Blocked": 28,
     "On Hold": 14,
     "Später": 77,
-    "Done": 923,
+    "Done": 924,
     "none": 0
   },
   "by_owner": {
@@ -54,7 +54,7 @@
     },
     "in_progress": {
       "P0": 2,
-      "P1": 21,
+      "P1": 20,
       "P2": 6,
       "P3": 0,
       "none": 1
@@ -82,7 +82,7 @@
     },
     "done": {
       "P0": 33,
-      "P1": 455,
+      "P1": 456,
       "P2": 302,
       "P3": 55,
       "none": 6
@@ -143,8 +143,8 @@
     {
       "name": "Technik",
       "total": 183,
-      "done": 107,
-      "in_progress": 4,
+      "done": 108,
+      "in_progress": 3,
       "open": 32,
       "blocked": 10,
       "on_hold": 3,
@@ -242,8 +242,8 @@
     {
       "name": "KORODUR-International/korodur-review-reporting",
       "total": 180,
-      "done": 142,
-      "in_progress": 4,
+      "done": 143,
+      "in_progress": 3,
       "open": 19,
       "blocked": 0,
       "on_hold": 1,
@@ -259,12 +259,12 @@
         "Backlog": 13,
         "Bereit": 6,
         "Beansprucht": 0,
-        "In Progress": 2,
+        "In Progress": 1,
         "In Review": 2,
         "Blocked": 0,
         "On Hold": 1,
         "Später": 7,
-        "Done": 149,
+        "Done": 150,
         "none": 0
       }
     },
@@ -1554,7 +1554,7 @@
       "status_beobachtet_seit": "2026-09-25",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-vap"
+        "pdb-tds-he3-vap"
       ],
       "blocked_by": [
         "KORODUR-International/korodur-digitale-produktinformationen#158",
@@ -1863,9 +1863,8 @@
       "status_beobachtet_seit": "2026-10-28",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-vap-umfang",
-        "pdb-tds-struktur",
         "pdb-vap",
+        "pdb-tds-struktur",
         "pdb-tds-he3-vap",
         "pdb-tds-abnahme",
         "ueb-tds-enfr",
@@ -1880,11 +1879,11 @@
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
-      "status_seit": "2026-10-28",
+      "status_seit": "2026-10-29",
       "status_beobachtet_seit": "2026-10-29",
       "status_beobachtung_luecke": false,
       "meilensteine": [
-        "pdb-vap-umfang"
+        "pdb-vap"
       ]
     },
     {
@@ -1895,7 +1894,7 @@
       "prioritaet": "P1",
       "owner_typ": "Human",
       "bearbeiter": null,
-      "status_seit": "2026-10-28",
+      "status_seit": "2026-10-29",
       "status_beobachtet_seit": "2026-10-29",
       "status_beobachtung_luecke": false,
       "meilensteine": [
@@ -1913,7 +1912,7 @@
       "prioritaet": "P1",
       "owner_typ": "Claude",
       "bearbeiter": null,
-      "status_seit": "2026-10-28",
+      "status_seit": "2026-10-29",
       "status_beobachtet_seit": "2026-10-29",
       "status_beobachtung_luecke": false,
       "meilensteine": [
@@ -1933,7 +1932,7 @@
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
-      "status_seit": "2026-10-28",
+      "status_seit": "2026-10-29",
       "status_beobachtet_seit": "2026-10-29",
       "status_beobachtung_luecke": false,
       "meilensteine": [
@@ -4357,24 +4356,6 @@
       ]
     },
     {
-      "repo": "KORODUR-International/korodur-review-reporting",
-      "nummer": 357,
-      "status": "In Progress",
-      "bereich": "Technik",
-      "prioritaet": "P1",
-      "owner_typ": "Either",
-      "bearbeiter": "Claude Private",
-      "status_seit": "2026-10-28",
-      "status_beobachtet_seit": "2026-10-29",
-      "status_beobachtung_luecke": false,
-      "meilensteine": [
-        "pdb-vap",
-        "pdb-tds-he3-vap",
-        "pdb-dop-weitere-de",
-        "ueb-tds-enfr"
-      ]
-    },
-    {
       "repo": "KORODUR-International/korodur-skills",
       "nummer": 1,
       "status": "On Hold",
@@ -4716,7 +4697,7 @@
       "prioritaet": "P2",
       "owner_typ": "Either",
       "bearbeiter": null,
-      "status_seit": "2026-10-28",
+      "status_seit": "2026-10-29",
       "status_beobachtet_seit": "2026-10-29",
       "status_beobachtung_luecke": false,
       "meilensteine": [
@@ -4734,7 +4715,7 @@
       "prioritaet": "P2",
       "owner_typ": "Human",
       "bearbeiter": null,
-      "status_seit": "2026-10-28",
+      "status_seit": "2026-10-29",
       "status_beobachtet_seit": "2026-10-29",
       "status_beobachtung_luecke": false,
       "meilensteine": [
@@ -6597,14 +6578,15 @@
     "2026-10-25": 2,
     "2026-10-26": 13,
     "2026-10-27": 3,
-    "2026-10-28": 13
+    "2026-10-28": 13,
+    "2026-10-29": 1
   },
   "done_by_month": {
     "2026-06": 126,
     "2026-07": 75,
     "2026-08": 243,
     "2026-09": 271,
-    "2026-10": 136
+    "2026-10": 137
   },
   "done_by_week": {
     "2026-W24": 34,
@@ -6625,7 +6607,7 @@
     "2026-W41": 35,
     "2026-W42": 36,
     "2026-W43": 35,
-    "2026-W44": 29
+    "2026-W44": 30
   },
   "done_ids": [
     "KORODUR-International/korodur-ausschreibungstexte#12",
@@ -7140,6 +7122,7 @@
     "KORODUR-International/korodur-review-reporting#35",
     "KORODUR-International/korodur-review-reporting#350",
     "KORODUR-International/korodur-review-reporting#353",
+    "KORODUR-International/korodur-review-reporting#357",
     "KORODUR-International/korodur-review-reporting#37",
     "KORODUR-International/korodur-review-reporting#39",
     "KORODUR-International/korodur-review-reporting#4",
@@ -7588,14 +7571,6 @@
         "status": "Später"
       },
       {
-        "repo": "KORODUR-International/korodur-review-reporting",
-        "nummer": 357,
-        "bereich": "Technik",
-        "prioritaet": "P1",
-        "owner_typ": "Either",
-        "status": "In Progress"
-      },
-      {
         "repo": "KORODUR-International/korodur-skills",
         "nummer": 142,
         "bereich": "Marketing",
@@ -7631,6 +7606,14 @@
         "closed_at": "2026-10-28T19:13:22Z"
       },
       {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 357,
+        "bereich": "Technik",
+        "prioritaet": "P1",
+        "owner_typ": "Either",
+        "closed_at": "2026-10-29T09:14:05Z"
+      },
+      {
         "repo": "sfleischmann-3steps2/KORODUR-Website",
         "nummer": 820,
         "bereich": "Marketing",
@@ -7655,12 +7638,12 @@
   "meilenstein": {
     "feldSeit": "2026-09-11",
     "bestand": {
-      "auf": 284,
+      "auf": 283,
       "adhoc": 85,
       "leer": 7
     },
     "erledigt": {
-      "auf": 292,
+      "auf": 293,
       "adhoc": 101,
       "leer": 458
     },
@@ -7756,7 +7739,7 @@
         "leer": 1
       },
       "2026-W44": {
-        "auf": 19,
+        "auf": 20,
         "adhoc": 6,
         "leer": 4
       }
@@ -7919,8 +7902,8 @@
         "erledigt": 5
       },
       "pdb-dop-weitere-de": {
-        "offen": 11,
-        "erledigt": 0
+        "offen": 10,
+        "erledigt": 1
       },
       "pdb-dop-weitere-enfr": {
         "offen": 2,
@@ -7960,19 +7943,15 @@
       },
       "pdb-tds-he3-vap": {
         "offen": 13,
-        "erledigt": 3
+        "erledigt": 4
       },
       "pdb-tds-struktur": {
         "offen": 2,
         "erledigt": 0
       },
       "pdb-vap": {
-        "offen": 4,
-        "erledigt": 1
-      },
-      "pdb-vap-umfang": {
-        "offen": 2,
-        "erledigt": 0
+        "offen": 3,
+        "erledigt": 2
       },
       "pdb-verpackung": {
         "offen": 5,
@@ -8051,8 +8030,8 @@
         "erledigt": 0
       },
       "ueb-tds-enfr": {
-        "offen": 3,
-        "erledigt": 3
+        "offen": 2,
+        "erledigt": 4
       },
       "ueb-tds-it": {
         "offen": 0,
@@ -8160,11 +8139,6 @@
       }
     },
     "unbekannt": {
-      "pdb-dop-bereitstellung": 2,
-      "pdb-tds-abnahme": 2,
-      "pdb-tds-struktur": 2,
-      "pdb-vap-umfang": 2,
-      "ueb-tds-sprachpruefung": 2,
       "wissensaufbau": 1
     }
   },
@@ -8173,7 +8147,7 @@
     "basis": "board_bestand",
     "von": "2026-09-28",
     "bis": "2026-10-29",
-    "stand": "2026-10-29T06:43:32.149655+00:00",
+    "stand": "2026-10-29T09:19:21.506878+00:00",
     "vollstaendig": true,
     "tage": {
       "2026-09-28": 25,
@@ -8207,7 +8181,7 @@
       "2026-10-26": 13,
       "2026-10-27": 3,
       "2026-10-28": 13,
-      "2026-10-29": 0
+      "2026-10-29": 1
     },
     "issues": [
       {
@@ -10068,6 +10042,19 @@
         "bereich": "Marketing",
         "meilensteine": [
           "web-industrieboden"
+        ]
+      },
+      {
+        "repo": "KORODUR-International/korodur-review-reporting",
+        "nummer": 357,
+        "closed_at": "2026-10-29T09:14:05+00:00",
+        "datum": "2026-10-29",
+        "bereich": "Technik",
+        "meilensteine": [
+          "pdb-vap",
+          "pdb-tds-he3-vap",
+          "pdb-dop-weitere-de",
+          "ueb-tds-enfr"
         ]
       }
     ],

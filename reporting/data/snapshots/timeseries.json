@@ -3743,8 +3743,8 @@
   {
     "date": "2026-10-29",
     "items": 1299,
-    "done": 851,
-    "in_progress": 30,
+    "done": 852,
+    "in_progress": 29,
     "open": 227,
     "blocked": 28,
     "on_hold": 14,
@@ -3761,16 +3761,16 @@
       "Backlog": 163,
       "Bereit": 49,
       "Beansprucht": 15,
-      "In Progress": 13,
+      "In Progress": 12,
       "In Review": 17,
       "Blocked": 28,
       "On Hold": 14,
       "Später": 77,
-      "Done": 923,
+      "Done": 924,
       "none": 0
     },
     "meilenstein": {
-      "auf": 284,
+      "auf": 283,
       "adhoc": 85,
       "leer": 7
     }

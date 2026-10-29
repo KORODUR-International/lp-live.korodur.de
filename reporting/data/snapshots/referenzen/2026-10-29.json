@@ -1,21 +1,23 @@
 {
   "_meta": {
     "snapshot_date": "2026-10-29",
-    "generated_at": "2026-10-29T06:43:38.321636+00:00",
+    "generated_at": "2026-10-29T09:19:26.516977+00:00",
     "source": "Notion: KORODUR Referenzverzeichnis (Aggregat)",
     "version": "2.0",
     "hinweis": "Nur Aggregate. Objekttitel, Personen-, Betreiber-, Verarbeiter-, GU- und Architektennamen sowie Orte werden bewusst nicht gelesen.",
-    "unbekannte_status": {}
+    "unbekannte_status": {
+      "Fertig - Freigabe steht aus": 3
+    }
   },
   "gesamt": 241,
   "totals": {
     "offen": 88,
     "in_arbeit": 8,
-    "in_abnahme": 12,
+    "in_abnahme": 9,
     "freigegeben": 4,
     "veroeffentlicht": 129,
     "ohne_status": 0,
-    "unbekannt": 0
+    "unbekannt": 3
   },
   "by_status": {
     "offen": 87,
@@ -27,11 +29,12 @@
     "V1 Entwurf fertig": 0,
     "V1 Feedback da": 0,
     "V2 Entwurf fertig": 9,
-    "V2 Feedback da": 3,
+    "V2 Feedback da": 0,
     "Freigabe da (fachlich & rechtlich)": 1,
     "finale Version DE": 3,
     "Veröffentlicht": 129,
-    "(ohne)": 0
+    "(ohne)": 0,
+    "Fertig - Freigabe steht aus": 3
   },
   "by_ursprung": {
     "Website": 130,
@@ -42,10 +45,11 @@
   },
   "freigabestatus": {
     "Öffentlich": 103,
-    "Freigabe offen": 96,
+    "Freigabe offen": 94,
     "Öffentlich (anonymisiert)": 32,
     "(ohne)": 5,
     "Intern": 3,
+    "Freigabe abgelehnt": 2,
     "Zur Veröffentlichung": 2
   },
   "ziele": {
@@ -107,10 +111,10 @@
     "nennungen": {
       "ohne_status": 0,
       "ohne_produkt_relation": 65,
-      "freigabe_offen": 96,
+      "freigabe_offen": 94,
       "ohne_einsatzbereich": 89
     },
-    "nennungen_gesamt": 250,
+    "nennungen_gesamt": 248,
     "eintraege_betroffen": 123,
     "eintraege_gesamt": 241
   },

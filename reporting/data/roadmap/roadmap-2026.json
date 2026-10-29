@@ -1,7 +1,7 @@
 {
-  "version": "1.32",
-  "stand": "2026-10-28",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen. Version 1.22 (30.09.2026): Struktur und Design der Leistungserklärungen EN 13813 am 28.09. erreicht. Version 1.23 (30.09.2026): Wahl und Einrichtung des Website-Hosters als eigener Meilenstein bis 15.11. Version 1.24 (02.10.2026): Daten- und Notion-Clean-up für die Arbeitswoche 02. bis 06.11. geplant; Abschlussziel 06.11. statt 30.11. Website-Host einschließlich Repository-Anbindung und Dokumentablage ebenfalls bis 06.11. statt 15.11.; Website-Go-live bleibt getrennt. Version 1.25 (10.10.2026): Area-Namen Marketing, Technik, Vertrieb, Export und AI & Enablement, wie im Board-Feld Bereich (korodur-operating-model#173); IDs unverändert. Version 1.26 (10.10.2026): Das Jahresziel Referenzen gehört zur Area Marketing, wie in Notion. Version 1.28 (13.10.2026): Die Lane Übersetzungen nennt keine italienischen Datenblätter mehr; im Umlauf sind nur Deutsch, Englisch und Französisch, weitere Sprachen warten auf die Digitalen Produktinformationen. Version 1.29 (20.10.2026): EmpCo (Umweltaussagen nach UWG) und der Kommunikationsaufbau für den Vertrieb stehen in der Lane Marke & Kommunikationsmittel; Print und Messe aus 2027 vorgezogen, Reihenfolge Website und Druckdokumente, dann Messe, dann Präsentationsvorlage; Corporate Design als Grundlage vorgezogen. Lane Referenzen zu den Marketing-Lanes gestellt. Leistungserklärungen EN 13813 auf Deutsch am 14.10. erreicht. Termine bis Mitte November nach dem Board-Abgleich verschoben (korodur-review-reporting#348). Version 1.31 (28.10.2026): Abgleich mit dem Board; erreicht sind die EmpCo-Sofortmaßnahmen, der EmpCo-feste Druck von Industrieboden- und Rapid-Set-Broschüre, die Entscheidungsvorlage EmpCo für die Geschäftsführung, die Leistungserklärungen EN 13813 auf Englisch und Französisch sowie Use Case 1 und das Setup am GF-Laptop. Neu sind der nächtliche Abruf der lokalen KI, die Übersetzung der EmpCo-festen Broschüren, die ersten Kampagnen 2027 und die Kampagnen-Auswertung 2026; der Messe-Pilot ist erreicht, die Abstimmung des Kampagnenprozesses steht bis 15.11. Version 1.32 (28.10.2026): Die eigenen Kampagnenunterlagen (vp-definition) stehen auf 06.11.; Steffi prüft die Zwischenstände vorher selbst, die Teamabstimmung bleibt am 15.11.",
+  "version": "1.33",
+  "stand": "2026-10-29",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen. Version 1.22 (30.09.2026): Struktur und Design der Leistungserklärungen EN 13813 am 28.09. erreicht. Version 1.23 (30.09.2026): Wahl und Einrichtung des Website-Hosters als eigener Meilenstein bis 15.11. Version 1.24 (02.10.2026): Daten- und Notion-Clean-up für die Arbeitswoche 02. bis 06.11. geplant; Abschlussziel 06.11. statt 30.11. Website-Host einschließlich Repository-Anbindung und Dokumentablage ebenfalls bis 06.11. statt 15.11.; Website-Go-live bleibt getrennt. Version 1.25 (10.10.2026): Area-Namen Marketing, Technik, Vertrieb, Export und AI & Enablement, wie im Board-Feld Bereich (korodur-operating-model#173); IDs unverändert. Version 1.26 (10.10.2026): Das Jahresziel Referenzen gehört zur Area Marketing, wie in Notion. Version 1.28 (13.10.2026): Die Lane Übersetzungen nennt keine italienischen Datenblätter mehr; im Umlauf sind nur Deutsch, Englisch und Französisch, weitere Sprachen warten auf die Digitalen Produktinformationen. Version 1.29 (20.10.2026): EmpCo (Umweltaussagen nach UWG) und der Kommunikationsaufbau für den Vertrieb stehen in der Lane Marke & Kommunikationsmittel; Print und Messe aus 2027 vorgezogen, Reihenfolge Website und Druckdokumente, dann Messe, dann Präsentationsvorlage; Corporate Design als Grundlage vorgezogen. Lane Referenzen zu den Marketing-Lanes gestellt. Leistungserklärungen EN 13813 auf Deutsch am 14.10. erreicht. Termine bis Mitte November nach dem Board-Abgleich verschoben (korodur-review-reporting#348). Version 1.31 (28.10.2026): Abgleich mit dem Board; erreicht sind die EmpCo-Sofortmaßnahmen, der EmpCo-feste Druck von Industrieboden- und Rapid-Set-Broschüre, die Entscheidungsvorlage EmpCo für die Geschäftsführung, die Leistungserklärungen EN 13813 auf Englisch und Französisch sowie Use Case 1 und das Setup am GF-Laptop. Neu sind der nächtliche Abruf der lokalen KI, die Übersetzung der EmpCo-festen Broschüren, die ersten Kampagnen 2027 und die Kampagnen-Auswertung 2026; der Messe-Pilot ist erreicht, die Abstimmung des Kampagnenprozesses steht bis 15.11. Version 1.32 (28.10.2026): Die eigenen Kampagnenunterlagen (vp-definition) stehen auf 06.11.; Steffi prüft die Zwischenstände vorher selbst, die Teamabstimmung bleibt am 15.11. Version 1.33 (29.10.2026): DPI-Planung nach Review: deutsche DoPs mit validierten Daten bis 10.11., EN/FR generiert bis 15.11., alle vier Sprachfassungen geprüft, unterzeichnet und intern bereitgestellt bis 30.11. Portfolio-Klarheit über VAP und nachzuziehende Produkte bis 15.11. TDS-Struktur bis 10.12.; deutsches TDS-Paket bis Jahresende, Ziel 20.12., mit HE 3 oder dem bestätigten VAP-Umfang. Abnahme und EN/FR im Januar 2027, Sprachprüfung gegebenenfalls bis Ende Februar.",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -407,8 +407,9 @@
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "details": "Die Website verwendet die jeweils freigegebenen technischen Kennwerte und Dokumente aus DPI. Portfolio-Abnahme und Layout können vorher erfolgen.",
-          "abhaengigkeit": "Leistungserklärungen und technische Datenblätter sowie relevante Produktdaten aus DPI freigegeben"
+          "details": "Die Website übernimmt in Q1 2027 die jeweils freigegebenen technischen Kennwerte und Dokumente aus DPI. DoPs werden bis 30.11.2026 intern bereitgestellt; neue deutsche TDS folgen nach der Dokumentabnahme im Januar, EN/FR nach ihrer Freigabe einschließlich muttersprachlicher Prüfung, gegebenenfalls bis Ende Februar. Portfolio-Abnahme und Layout können vorher erfolgen.",
+          "abhaengigkeit": "Freigegebene DPI-Dokumente und Daten je Sprache; bei neuen TDS Dokumentabnahme und muttersprachliche Prüfung der EN-/FR-Fassungen",
+          "zielzeitraum": "Q1 2027"
         }
       ]
     },
@@ -796,15 +797,15 @@
       "id": "pdb",
       "area": "wissensaufbau",
       "name": "Digitale Produktinformationen (DPI)",
-      "hinweis": "Planungsstand der abgestimmten Präsentation vom 24.09.2026: Dokumente und validierte Produktdaten zuerst, Website-Anbindung im Planungsfenster Februar 2027. Automatisierung, Sprachen und Betriebsübergabe folgen 2027. Sicherheitsdatenblätter sind noch nicht terminiert; der Digitale Produktpass 2028 ist eine zu definierende Vision.",
-      "kurz": "Q4: DoPs, EPD-Deckblätter und VAP-Validierung; TDS bis Q1 2027, weitere DPI-Ausbaustufen ab 2027.",
-      "erreichtHeisst": "Leistungserklärungen nach EN 13813, EN 1504-3 und EN 998-1 zuerst in DE, danach EN und FR; EPDs mit einheitlichem Deckblatt und validierte VAP-Produktdaten sind die Q4-Ziele. Technische Datenblätter beginnen mit HE 3 und folgen für die VAP bis Q1 2027. Freigaben, Website-Übernahme und spätere Automatisierung sind getrennte Ergebnisse.",
+      "hinweis": "Planungsstand 29.10.2026: DoPs DE mit validierten DB1-Daten bis 10.11., EN/FR generiert bis 15.11.; das Paket DE/EN/FR/PL bis 30.11. geprüft, unterzeichnet und intern bereitgestellt. Portfolio-Klarheit bis 15.11. TDS-Struktur bis 10.12.; deutsches Paket zum Jahresende, Ziel 20.12., mit HE 3 oder dem noch zu bestätigenden VAP-Umfang. Dokumentabnahme folgt im Januar 2027; Website-Übernahme in Q1.",
+      "kurz": "DoPs bis November; Portfolio bis 15.11., TDS-Struktur bis 10.12., deutsches TDS-Paket zum Jahresende.",
+      "erreichtHeisst": "DoPs für den bestätigten Produkt-/Normumfang sind aus validierten DB1-Daten generiert: DE bis 10.11., EN/FR bis 15.11.; DE/EN/FR/PL bis 30.11. geprüft, unterzeichnet und für Vertrieb/Marketing bereitgestellt. Bis 15.11. stehen VAP-Auswahl und Reihenfolge weiterer Produkte fest. Die TDS-Grundstruktur einschließlich PDP-Grundlage steht bis 10.12.; das deutsche TDS-Paket wird zum Jahresende erstellt, Ziel 20.12. Ob HE 3 oder alle festgelegten VAP dazugehört, wird mit der Portfolio-Klärung entschieden. Abnahme und EN/FR folgen im Januar 2027, Sprachprüfung gegebenenfalls bis Ende Februar.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
       },
       "stil": "normal",
-      "weiter2027": "Automatisierte Dokumenterzeugung, weitere Sprachen und Übergabe an die Technik; Verpackungen und Chatbots bis Ende 2027; Digitaler Produktpass als Vision 2028.",
+      "weiter2027": "Abnahme des deutschen TDS-Pakets und EN/FR-Übersetzung im Januar, muttersprachliche Prüfung gegebenenfalls bis Ende Februar; PL nach Exportentscheidung. Website-Übernahme in Q1. Weitere Produkte, Kann-Angaben und zusätzliche Vertriebsanforderungen nach Abstimmung; Automatisierung und Betriebsübergabe bleiben eigene Ausbaustufen.",
       "meilensteine": [
         {
           "id": "pdb-m1",
@@ -851,14 +852,13 @@
         {
           "id": "pdb-epd",
           "datum": null,
-          "titel": "EPDs mit einheitlichem Deckblatt im KORODUR-Design",
+          "titel": "EPD-Deckblätter nach abgestimmtem Umfang bereitgestellt",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
           "confidence": "mittel",
-          "abhaengigkeit": "Lieferbarer und freigegebener EPD-Bestand sowie abgestimmtes Deckblatt",
-          "details": "Die vorliegenden und freigegebenen Umweltproduktdeklarationen erhalten ein einheitliches Deckblatt. Die abgestimmte Planung vom 24.09. nennt Q4 2026 und ersetzt den bisherigen konkreten Zieltag 31.10. Die Erstellung der Deklarationen selbst bleibt bei der Technik.",
-          "zielzeitraum": "Q4 2026"
+          "abhaengigkeit": "Anforderungen, Produkt-/Dokumentumfang, EPD-Bestand und Lieferform durch die Technik geklärt",
+          "details": "Vor der Umsetzung werden Erwartungen an das Deckblatt, betroffene Produkte und Dokumente, ein Einzel- oder mehrere Deckblätter sowie die Lieferform geklärt: Word-Vorlage oder generierte PDFs. Danach werden Muster, Freigabeweg und Termin vereinbart. Der bisherige Q4-Rahmen ist bis zur Klärung keine Lieferzusage; die Erstellung der eigentlichen EPDs bleibt bei der Technik."
         },
         {
           "id": "pdb-msds",
@@ -956,36 +956,34 @@
         },
         {
           "id": "pdb-dop-weitere-de",
-          "datum": "2026-11-30",
-          "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Deutsch generiert",
+          "datum": "2026-11-10",
+          "titel": "DoPs auf Deutsch generiert, verwendete DB1-Daten validiert",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": true,
           "confidence": "niedrig",
-          "abhaengigkeit": "Fachliche Freigabe der Produktdaten durch die Technik; eigener Termin für diese Normen noch offen",
-          "details": "Die beiden weiteren Normen ziehen zwei Wochen nach EN 13813 nach. Ob sie einen eigenen Termin bekommen, ist noch offen; der Tag ist ein Planwert. Am 20.10.2026 nach dem Board-Abgleich verschoben; die Vorlagen für beide Normen stehen bereit."
+          "abhaengigkeit": "Bestätigter Produkt-/Normumfang und Freigabelisten für die tatsächlich verwendeten Daten; funktionsfähige Vorlagen",
+          "details": "Für den bestätigten Umfang nach EN 13813, EN 998-1 und EN 1504-3 sind die verwendeten Daten über Freigabelisten fachlich bestätigt und in DB1 nachvollziehbar übernommen. Die deutschen Erklärungen sind daraus per Template generiert. Bereits erreichte EN-13813-Ergebnisse bleiben erhalten. Offene Produkt-/Normfragen sind benannt; die spätere Portfolio-Priorisierung ersetzt keine Datenfreigabe. EN/FR-Generierung folgt bis 15.11., Unterschrift und interne Bereitstellung bis 30.11."
         },
         {
           "id": "pdb-vap",
-          "datum": null,
-          "titel": "VAP-Produktdaten fachlich validiert",
-          "typ": "meilenstein",
+          "datum": "2026-11-15",
+          "titel": "Portfolio geklärt: VAP-Auswahl und Reihenfolge weiterer Produkte",
+          "typ": "entscheidung",
           "status": "offen",
           "klaerung": true,
-          "details": "Der bestätigte VAP-Umfang ist nachvollziehbar fachlich geprüft. Ein eingerichtetes Statusfeld oder eine View allein erfüllt dieses Ergebnis nicht.",
-          "abhaengigkeit": "Endgültige VAP-Liste, befugte Validatoren und vereinbarter Prüfungsumfang",
-          "zielzeitraum": "Q4 2026"
+          "details": "Die technische Leitung legt fest, welche Produkte VAP sind und welche aktiven beziehungsweise Nischenprodukte später folgen. Diese Priorisierung gilt für DoPs und TDS. Für das erste neue TDS-Paket wird ausdrücklich entschieden: HE 3 als Pilot oder alle bestätigten VAP. Der Vorschlag eines Sortimentstatus ist noch keine umgesetzte Datenbankänderung. Eine Portfolio-Entscheidung bestätigt nicht pauschal alle Produktdaten.",
+          "abhaengigkeit": "Bestätigte Produktliste, Priorisierung und Umfang des ersten TDS-Pakets"
         },
         {
           "id": "pdb-tds-he3-vap",
-          "datum": null,
-          "titel": "Technische Datenblätter: HE 3, danach VAP",
+          "datum": "2026-12-20",
+          "titel": "Deutsches TDS-Paket generiert: HE 3 oder bestätigte VAP",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "details": "Zuerst wird das technische Datenblatt für HE 3 ausgearbeitet und abgestimmt, danach folgen die VAP. Fachlich freigegebene Daten und konsistente Dokumentstruktur sind Voraussetzung.",
-          "abhaengigkeit": "Abgestimmtes TDS-Zielbild, validierte Produktdaten, technischer Review und Renderer",
-          "zielzeitraum": "Q4 2026 bis Q1 2027"
+          "details": "Zum Jahresende, Ziel 20.12.2026, sind deutsche TDS aus der abgestimmten Struktur und den dafür validierten DB1-Werten generiert. Der Umfang wird bis Mitte November festgelegt: HE 3 als Pilot oder alle bestätigten VAP. Keine pauschale Zusage aller VAP vor dieser Entscheidung. Die fertigen Dokumente werden im Januar 2027 abgenommen; Übersetzungen und muttersprachliche Prüfung folgen separat.",
+          "abhaengigkeit": "Entschiedener Paketumfang, TDS-Struktur bis 10.12. und über Freigabelisten bestätigte verwendete Werte"
         },
         {
           "id": "pdb-sdb",
@@ -1051,6 +1049,37 @@
           "details": "Der Digitale Produktpass ist eine noch zu definierende Vision. Daraus folgt weder ein zugesagter Liefertermin noch eine Aussage zu gesetzlichen Stichtagen.",
           "abhaengigkeit": "Fachliches Zielbild, Anforderungen und Projektumfang noch festzulegen",
           "zielzeitraum": "2028 (Vision)"
+        },
+        {
+          "id": "pdb-tds-struktur",
+          "datum": "2026-12-10",
+          "titel": "TDS-Grundstruktur einschließlich PDP-Grundlage steht",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Aufbau und Pflichtangaben des technischen Datenblatts stehen einschließlich der Grundlage für Produktdetailseiten. HE 3 dient als Muster für Struktur und Design. Für das vereinbarte erste Paket werden nur die tatsächlich verwendeten Werte themenweise über Freigabelisten bestätigt. Die Abnahme der fertigen Dokumente folgt im Januar.",
+          "abhaengigkeit": "Abstimmung der Pflichtangaben und Struktur mit der Technik"
+        },
+        {
+          "id": "pdb-dop-bereitstellung",
+          "datum": "2026-11-30",
+          "titel": "DoPs für drei Normen in vier Sprachen unterzeichnet und intern bereitgestellt",
+          "typ": "schluessel",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Die DoPs des bestätigten Produktumfangs für EN 13813, EN 998-1 und EN 1504-3 liegen in DE, EN, FR und PL geprüft und unterzeichnet vor und sind für Vertrieb und Marketing zugänglich. DE ist bis 10.11., EN/FR bis 15.11. generiert; PL und abschließende Übersetzungsprüfung folgen bis Ende November. Ob zusätzliche DoPs erforderlich sind, ist geklärt. Website-Übernahme bleibt Q1 2027.",
+          "abhaengigkeit": "Bestätigter Produkt-/Normumfang, Entscheidung über weitere DoPs, validierte Daten, unterschriebene Sprachfassungen und vereinbarter Ablageweg"
+        },
+        {
+          "id": "pdb-tds-abnahme",
+          "datum": null,
+          "titel": "Deutsches TDS-Paket abgenommen",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "zielzeitraum": "Januar 2027",
+          "details": "Das zum Jahresende erstellte deutsche Paket, HE 3 oder der bestätigte VAP-Umfang, wird im Januar fachlich abgenommen. Korrekturen fließen in Daten und Vorlagen zurück. Je Dokument liegt anschließend die freigegebene Bezugsfassung für EN/FR vor. Datenfreigabe und Dokumentabnahme bleiben getrennt.",
+          "abhaengigkeit": "Deutsches TDS-Paket erstellt; fachliche Prüfung und Korrekturrunden vereinbart"
         }
       ]
     },
@@ -1470,15 +1499,15 @@
       "id": "uebersetzungen",
       "area": "international",
       "name": "Übersetzungen",
-      "hinweis": "2026 ist Trainingsjahr. Übersetzungen sind Folgemeilensteine der Fachthemen: vier Wochen nach der deutschen Abnahme sind Englisch und Französisch fertig. Leistungserklärungen im November, Website und technische Datenblätter im ersten Quartal 2027. Für Referenzen sind zehn EN- und FR-Fassungen bis 15.12. mit Veröffentlichung auf bestehendem WordPress vorgesehen; Broschürensprachen und -termine werden nach DE-Freigabe entschieden.",
-      "kurz": "Folgemeilensteine: Englisch und Französisch vier Wochen nach der deutschen Abnahme; zehn Referenzen bis 15.12. live.",
-      "erreichtHeisst": "Technische Datenblätter sind nur auf Deutsch, Englisch und Französisch im Umlauf, weitere Sprachen warten auf die Digitalen Produktinformationen; Sprachagenten werden trainiert. Leistungserklärungen liegen vier Wochen nach der deutschen Fassung auf Englisch und Französisch vor. Zehn intern freigegebene Referenzen sind bis 15.12. auf Englisch und Französisch übersetzt und auf bestehendem WordPress live. Kein eigenständiger strategischer Internationalisierungs-Meilenstein 2026.",
+      "hinweis": "2026 ist Trainingsjahr. Für die DoPs gilt: EN/FR bis 15.11. generiert, das gesamte DE/EN/FR/PL-Paket bis 30.11. geprüft, unterzeichnet und bereitgestellt. Für das erste TDS-Paket folgen EN/FR im Januar 2027, muttersprachliche Prüfung gegebenenfalls bis Ende Februar; PL nach Exportentscheidung. Die übrigen bestätigten Sprachpakete und Referenztermine bleiben bestehen.",
+      "kurz": "DoPs EN/FR bis 15.11. generiert, vier Sprachen bis 30.11. bereitgestellt; TDS EN/FR ab Januar 2027.",
+      "erreichtHeisst": "Die DoPs des bestätigten Umfangs sind bis 15.11. in EN/FR generiert und bis 30.11. in DE/EN/FR/PL geprüft, unterzeichnet und intern bereitgestellt. Für das erste deutsche TDS-Paket folgen EN/FR im Januar 2027 und die muttersprachliche Prüfung gegebenenfalls bis Ende Februar; PL wird mit Export geklärt. Zehn intern freigegebene Referenzen sind bis 15.12. auf Englisch und Französisch übersetzt und auf bestehendem WordPress live. Weitere Sprach- und Länderplanung bleibt gesondert.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
       },
       "stil": "parallel",
-      "weiter2027": "Website V1 DE/EN/FR; weitere Sprach- und Länderplanung sowie Broschüren nach vereinbarter DE-Abnahme.",
+      "weiter2027": "Erstes TDS-Paket: EN/FR im Januar, muttersprachliche Prüfung gegebenenfalls bis Ende Februar; PL nach Exportentscheidung. Website V1 DE/EN/FR; weitere Sprach- und Länderplanung sowie Broschüren nach vereinbarter deutscher Abnahme.",
       "meilensteine": [
         {
           "id": "pdb-dop-13813-enfr",
@@ -1494,14 +1523,14 @@
         },
         {
           "id": "pdb-dop-weitere-enfr",
-          "datum": "2026-12-28",
-          "titel": "Leistungserklärungen EN 1504-3 und EN 998-1 auf Englisch und Französisch",
+          "datum": "2026-11-15",
+          "titel": "DoPs auf Englisch und Französisch generiert",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": true,
           "confidence": "niedrig",
-          "abhaengigkeit": "Deutsche Fassungen EN 1504-3 und EN 998-1 generiert; Sprachprüfung",
-          "details": "Vier Wochen nach den deutschen Fassungen liegen Englisch und Französisch vor. Planwert, abhängig vom deutschen Termin. Folgemeilenstein der deutschen Fassung aus der Lane Digitale Produktinformationen. Am 20.10.2026 mit der deutschen Fassung verschoben (vier Wochen danach)."
+          "abhaengigkeit": "Deutsche Bezugsfassungen aus validierten Daten und EN-/FR-Vorlagen",
+          "details": "Für den bestätigten Drei-Normen-Umfang sind die EN-/FR-Fassungen aus den deutschen Bezugsfassungen generiert. Dies ist der Generierungsstand; abschließende Sprachprüfung, PL, Unterschrift und interne Bereitstellung folgen bis 30.11."
         },
         {
           "id": "ueb-website-enfr",
@@ -1517,13 +1546,13 @@
         {
           "id": "ueb-tds-enfr",
           "datum": null,
-          "titel": "Technische Datenblätter auf Englisch und Französisch",
+          "titel": "TDS-Paket auf Englisch und Französisch erstellt",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "abhaengigkeit": "Deutsche Freigabe der technischen Datenblätter (HE 3, danach VAP); Englisch und Französisch vier Wochen danach",
-          "zielzeitraum": "Q1 2027",
-          "details": "Folgemeilenstein aus der Lane Digitale Produktinformationen: vier Wochen nach der deutschen Freigabe liegen die technischen Datenblätter auf Englisch und Französisch vor. Umfang Deutsch, Englisch und Französisch; weitere Sprachen klärt Marketing in Ruhe mit dem Export (28.10.2026)."
+          "abhaengigkeit": "Abgenommenes deutsches TDS-Paket mit bestätigtem Produktumfang",
+          "zielzeitraum": "Januar 2027",
+          "details": "Im Januar 2027 werden die Dokumente des bestätigten ersten TDS-Pakets aus der abgenommenen deutschen Bezugsfassung ins Englische und Französische übersetzt. Die muttersprachliche Prüfung folgt separat, gegebenenfalls bis Ende Februar. PL bleibt eine Exportentscheidung."
         },
         {
           "id": "ueb-tds-it",
@@ -1807,6 +1836,17 @@
           "abhaengigkeit": "Sprachprüfung der Entwürfe durch Muttersprachler; Sprachen und Reihenfolge mit dem Export",
           "issue": "KORODUR-International/korodur-redaktion#123",
           "details": "Folgemeilenstein von mk-print-empco: Rapid-Set-Broschüre auf Englisch, Französisch, Spanisch und Polnisch (Entwürfe liegen vor). Die Industrieboden-Broschüre ist auf Englisch bereits gedruckt. Nicht verwechseln mit ueb-ref-rapidset, der Referenzbroschüre."
+        },
+        {
+          "id": "ueb-tds-sprachpruefung",
+          "datum": null,
+          "titel": "TDS-Paket EN/FR muttersprachlich geprüft",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "zielzeitraum": "gegebenenfalls bis Ende Februar 2027",
+          "details": "Die im Januar erstellten EN-/FR-Fassungen des bestätigten Pakets werden muttersprachlich geprüft; Rückmeldungen werden eingearbeitet. Ende Februar ist ein mögliches Planungsfenster, Prüfer und Rückläufe sind noch zu vereinbaren. PL nur nach Exportentscheidung.",
+          "abhaengigkeit": "Übersetzte EN-/FR-Fassungen, benannte muttersprachliche Prüfer und bestätigte Rücklauffristen"
         }
       ]
     }

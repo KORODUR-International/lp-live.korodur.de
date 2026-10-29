@@ -3742,36 +3742,36 @@
   },
   {
     "date": "2026-10-29",
-    "items": 1314,
-    "done": 868,
-    "in_progress": 30,
-    "open": 226,
-    "blocked": 27,
+    "items": 1322,
+    "done": 874,
+    "in_progress": 29,
+    "open": 204,
+    "blocked": 26,
     "on_hold": 14,
-    "spaeter": 77,
+    "spaeter": 103,
     "discarded": 72,
-    "bereit": 50,
+    "bereit": 23,
     "by_owner": {
       "Human": 136,
-      "Claude": 821,
-      "Either": 351,
+      "Claude": 825,
+      "Either": 355,
       "none": 6
     },
     "by_status": {
-      "Backlog": 161,
-      "Bereit": 50,
+      "Backlog": 166,
+      "Bereit": 23,
       "Beansprucht": 15,
-      "In Progress": 13,
+      "In Progress": 12,
       "In Review": 17,
-      "Blocked": 27,
+      "Blocked": 26,
       "On Hold": 14,
-      "Später": 77,
-      "Done": 940,
+      "Später": 103,
+      "Done": 946,
       "none": 0
     },
     "meilenstein": {
-      "auf": 282,
-      "adhoc": 85,
+      "auf": 288,
+      "adhoc": 81,
       "leer": 7
     }
   }

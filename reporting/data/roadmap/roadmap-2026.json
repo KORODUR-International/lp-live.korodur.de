@@ -1,5 +1,5 @@
 {
-  "version": "1.35",
+  "version": "1.36",
   "stand": "2026-10-29",
   "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen. Version 1.22 (30.09.2026): Struktur und Design der Leistungserklärungen EN 13813 am 28.09. erreicht. Version 1.23 (30.09.2026): Wahl und Einrichtung des Website-Hosters als eigener Meilenstein bis 15.11. Version 1.24 (02.10.2026): Daten- und Notion-Clean-up für die Arbeitswoche 02. bis 06.11. geplant; Abschlussziel 06.11. statt 30.11. Website-Host einschließlich Repository-Anbindung und Dokumentablage ebenfalls bis 06.11. statt 15.11.; Website-Go-live bleibt getrennt. Version 1.25 (10.10.2026): Area-Namen Marketing, Technik, Vertrieb, Export und AI & Enablement, wie im Board-Feld Bereich (korodur-operating-model#173); IDs unverändert. Version 1.26 (10.10.2026): Das Jahresziel Referenzen gehört zur Area Marketing, wie in Notion. Version 1.28 (13.10.2026): Die Lane Übersetzungen nennt keine italienischen Datenblätter mehr; im Umlauf sind nur Deutsch, Englisch und Französisch, weitere Sprachen warten auf die Digitalen Produktinformationen. Version 1.29 (20.10.2026): EmpCo (Umweltaussagen nach UWG) und der Kommunikationsaufbau für den Vertrieb stehen in der Lane Marke & Kommunikationsmittel; Print und Messe aus 2027 vorgezogen, Reihenfolge Website und Druckdokumente, dann Messe, dann Präsentationsvorlage; Corporate Design als Grundlage vorgezogen. Lane Referenzen zu den Marketing-Lanes gestellt. Leistungserklärungen EN 13813 auf Deutsch am 14.10. erreicht. Termine bis Mitte November nach dem Board-Abgleich verschoben (korodur-review-reporting#348). Version 1.31 (28.10.2026): Abgleich mit dem Board; erreicht sind die EmpCo-Sofortmaßnahmen, der EmpCo-feste Druck von Industrieboden- und Rapid-Set-Broschüre, die Entscheidungsvorlage EmpCo für die Geschäftsführung, die Leistungserklärungen EN 13813 auf Englisch und Französisch sowie Use Case 1 und das Setup am GF-Laptop. Neu sind der nächtliche Abruf der lokalen KI, die Übersetzung der EmpCo-festen Broschüren, die ersten Kampagnen 2027 und die Kampagnen-Auswertung 2026; der Messe-Pilot ist erreicht, die Abstimmung des Kampagnenprozesses steht bis 15.11. Version 1.32 (28.10.2026): Die eigenen Kampagnenunterlagen (vp-definition) stehen auf 06.11.; Steffi prüft die Zwischenstände vorher selbst, die Teamabstimmung bleibt am 15.11. Version 1.33 (29.10.2026): DPI-Planung nach Review: deutsche DoPs mit validierten Daten bis 10.11., EN/FR generiert bis 15.11., alle vier Sprachfassungen geprüft, unterzeichnet und intern bereitgestellt bis 30.11. Portfolio-Klarheit über VAP und nachzuziehende Produkte bis 15.11. TDS-Struktur bis 10.12.; deutsches TDS-Paket bis Jahresende, Ziel 20.12., mit HE 3 oder dem bestätigten VAP-Umfang. Abnahme und EN/FR im Januar 2027, Sprachprüfung gegebenenfalls bis Ende Februar.",
   "zeitraum": {
@@ -450,15 +450,15 @@
       "id": "marke",
       "area": "marketing",
       "name": "Marke & Kommunikationsmittel",
-      "hinweis": "Getrennt von der Redaktion, die verantwortet, was veröffentlicht wird: hier entstehen Gestaltung und Kommunikationsmittel. Corporate Design modular und zentral abgelegt (Website und Online, Visuals, Ikonographie, PDF-Dokumente intern und extern), Verpackung und Produkt-Mockups, Print und Messe. Seit Oktober 2026 dazu: Umweltaussagen rechtssicher nach EmpCo (UWG-Novelle seit 27.09.2026) und der Kommunikationsaufbau für den Vertrieb aus wiederverwendbaren Bausteinen (Produktsteckbrief, Referenz, Know-how, Grafik). EmpCo zieht Print und Messe aus 2027 vor; Reihenfolge: Website und Druckdokumente, dann Messe, dann Präsentationsvorlage.",
-      "kurz": "Corporate Design, EmpCo, Vertriebskommunikation, Print und Messe: Gestaltung getrennt von der Redaktion.",
-      "erreichtHeisst": "Corporate Design V1 gesichtet und modular zentral abgelegt; Sofortmaßnahmen EmpCo umgesetzt und kritische Printsachen zurückgezogen; Industrieboden- und Rapid-Set-Broschüre EmpCo-fest gedruckt; Produktsteckbrief als Baustein steht; Produkt-Mockups des aktiven Sortiments liegen für die neue Website vor.",
+      "hinweis": "Vertrieb und Marketing vermitteln Produkte und Anwendungen mit abgestimmten Inhalten und einheitlichen Gestaltungsbausteinen für Website, Print, Präsentationen und Messe. Nach der EmpCo-Bereinigung entstehen fünf priorisierte Druckstücke in Deutsch. Parallel werden die vorhandenen Gestaltungsgrundlagen zu einem gemeinsamen CD-Manual zusammengeführt, Masterslides sowie eine Rapid-Set-Mutterpräsentation erstellt und die Katzenstreu-Präsentation mit Bedarfsklärung abgeschlossen. Marketing legt die Gestaltung fest; vor dem Rollout wird sie der Geschäftsführung gezeigt. Weitere Sprachfassungen werden je Material mit dem Export festgelegt.",
+      "kurz": "Einheitliches CD-Manual, fünf Druckstücke, Masterslides und Vertriebspräsentationen bis Jahresende 2026.",
+      "erreichtHeisst": "CD-Grundregeln bis 15.11. und vollständiges Manual bis Jahresende; fünf priorisierte Printstücke in DE freigegeben, gedruckt und bereitgestellt; Masterslides und Rapid-Set-Mutterpräsentation nutzbar. Katzenstreu-Präsentation und Bedarfsklärung bis 30.11.; weiterer Kommunikationsbedarf priorisiert. EmpCo-Bereinigung, Produktsteckbrief und Website-Mockups bleiben Teil des Jahresumfangs.",
       "balken": {
         "start": "2026-09-23",
         "ende": "2026-12-31"
       },
       "stil": "normal",
-      "weiter2027": "Messeauftritt im Corporate Design (Q1), danach Präsentationsvorlage ausgerollt; Prüfschritt für Umweltaussagen im Alltag; übrige Produkte als Steckbrief, Know-how-Texte und Grafiken nach Bedarf; Verzeichnis aller Druck-, PDF- und Marketingmaterialien mit aktuellem Stand",
+      "weiter2027": "Weiterer Messeauftritt im Corporate Design (Q1); zusätzliche Vertriebsunterlagen und Sprachfassungen nach Bedarfsabgleich; Prüfschritt für Umweltaussagen im Alltag; übrige Produkte als Steckbrief, Know-how-Texte und Grafiken nach Bedarf; Verzeichnis aller Druck-, PDF- und Marketingmaterialien mit aktuellem Stand",
       "meilensteine": [
         {
           "id": "mk-verpackung",
@@ -474,11 +474,12 @@
         {
           "id": "mk-cd-v1",
           "datum": "2026-11-15",
-          "titel": "Corporate Design V1: Bestand gesichtet, modular zentral abgelegt",
+          "titel": "Corporate Design V1: gemeinsame Grundregeln festgelegt",
           "typ": "meilenstein",
           "status": "verschoben",
-          "klaerung": false,
-          "details": "Alles bisher Erstellte liegt gemeinsam auf dem Tisch (Präsentationen, Datenblätter, Leistungserklärungen, Print). Je Modul ist festgehalten, ob der Stil gefunden ist; die gefundenen Module liegen an einem zentralen Ort, an den sich auch Agenten halten. Die Bildgenerierung ist zurückgestellt. Am 20.10.2026 auf 15.11. gesetzt und als Grundlage vorgezogen: Website, Druckdokumente und Messe brauchen ein schlüssiges Design. Die Präsentationsvorlage Fassung 2 ist fertig, hat aber keine Priorität."
+          "klaerung": true,
+          "details": "Ziel 15.11.2026: Vorhandene Gestaltung sichten, Widersprüche auflösen und gemeinsame Grundregeln für Website, PPT, Dokumente intern und extern, Broschüren, Flyer und Roll-ups festlegen. Marketing verantwortet die Gestaltung; vor dem Rollout wird sie der Geschäftsführung gezeigt. Vorhandene PPT-Vorlage und Druckstücke dienen als Grundlage. Die Kennzeichnung von KI-Bildern wird anhand geltender Vorgaben geprüft. Das vollständige Manual entsteht parallel an den Anwendungen bis Jahresende.",
+          "abhaengigkeit": "Abgleich der bestehenden Gestaltung und der offenen Anwendungsregeln im Marketing"
         },
         {
           "id": "mk-mockups",
@@ -497,7 +498,7 @@
           "status": "erreicht",
           "klaerung": false,
           "confidence": "hoch",
-          "details": "Rot-Funde der Website entfernt, Händlerschreiben verschickt, Datenblätter DE, EN und FR bereinigt, LinkedIn-Altbeiträge bereinigt, Altbestand Ware nach § 15 UWG dokumentiert (bis 14.10.2026 erledigt). Die zwei Restfunde auf der Website (Datenblatt DOT Europe Concrete Mix, Vergleichsflyer Epoxidharz) sind entfernt (Steffi, 28.10.2026).",
+          "details": "Rot-Funde der Website entfernt, Händlerschreiben verschickt, Datenblätter DE, EN und FR bereinigt, LinkedIn-Altbeiträge bereinigt, Altbestand Ware nach § 15 UWG dokumentiert (bis 14.10.2026 erledigt). Die zwei Restfunde auf der Website (Datenblatt DOT Europe Concrete Mix, Vergleichsflyer Epoxidharz) sind entfernt (Stand 28.10.2026).",
           "erreichtAm": "2026-10-14"
         },
         {
@@ -582,7 +583,7 @@
           "typ": "entscheidung",
           "status": "offen",
           "klaerung": false,
-          "details": "Welche Druckstücke, Präsentationen und Bausteine 2027 in welcher Reihenfolge entstehen, gemeinsam mit dem Vertrieb festgelegt."
+          "details": "Der weitere Bedarf an Broschüren, Flyern und Messeausstattung ist mit dem Vertrieb geklärt und für 2027 priorisiert. Die fünf bereits abgestimmten Printstücke des Jahrespakets 2026 werden nicht erneut zur Auswahl gestellt. Die Katzenstreu-Bedarfsklärung bis 30.11. liefert einen Teil des Ergebnisses."
         },
         {
           "id": "mk-cd-rollout",
@@ -593,18 +594,57 @@
           "klaerung": true,
           "abhaengigkeit": "Corporate Design V1 (mk-cd-v1) und EmpCo-feste Druckdokumente (mk-print-empco)",
           "zielzeitraum": "Q1 2027",
-          "details": "Durch EmpCo aus 2027 vorgezogen. Print kommt zuerst (mk-print-empco), danach der Messeauftritt im modularen Corporate Design einschließlich überarbeiteter Messeausstattung."
+          "details": "Der weitere Messeauftritt wird im modularen Corporate Design einschließlich überarbeiteter Messeausstattung umgesetzt. Der bereits priorisierte Rapid-Set-Sortiments-Roll-up gehört zum Printpaket 2026 (mk-print-de-2026); das gesamte Messepaket bleibt Q1 2027."
         },
         {
           "id": "mk-ppt",
-          "datum": null,
-          "titel": "Präsentationsvorlage für Vertrieb und Marketing ausgerollt",
+          "datum": "2026-12-31",
+          "titel": "PPT-Masterslides für die Kollegen nutzbar",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "zielzeitraum": "Q2 2027",
-          "abhaengigkeit": "Corporate Design V1 (mk-cd-v1); nach Website, Druckdokumenten und Messe",
-          "details": "Die Vorlage Fassung 2 im Stil des Markenfundaments liegt vor (Oktober 2026). Ausrollen und Überführen der Vertriebspräsentationen haben bewusst nachrangige Priorität."
+          "abhaengigkeit": "Gemeinsame CD-Grundregeln (mk-cd-v1), Anwendungstest und Vorstellung bei der Geschäftsführung vor Rollout",
+          "details": "Ziel Jahresende 2026, als 31.12. dargestellt: Die vorhandene Vorlage Fassung 2 ist zu einem bearbeitbaren Masterslides-Set für die Kollegen ausgearbeitet, im Marketing abgestimmt und bereitgestellt. Die Gestaltung wird vor dem Rollout der Geschäftsführung gezeigt. Gegenüber dem bisherigen Q2-2027-Fenster vorgezogen. Die Rapid-Set-Mutterpräsentation ist ein eigenes inhaltliches Ergebnis; die Überführung aller Altpräsentationen ist damit nicht zugesagt."
+        },
+        {
+          "id": "mk-print-de-2026",
+          "datum": "2026-12-31",
+          "titel": "Fünf priorisierte Printstücke in Deutsch gedruckt und verfügbar",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Inhaltliche Klärung je Stück, geeignete Bilder, Fachprüfung nach Bedarf, Druckfreigabe und Produktion",
+          "details": "Jahresziel 2026: Sanierungsbroschüre, ASPHALT-REPAIR-MIX-Flyer, Rapid-Set-Sortiments-Roll-up, Landwirtschafts-Flyer und MORTAR-MIX-Pflasterfugen-Flyer sind in DE freigegeben, gedruckt und für den Vertrieb verfügbar. Auswahl und Prioritätsfolge sind bereits abgestimmt. Einfache EmpCo-Korrekturen können unabhängig von noch offenen Fachfragen anderer Stücke laufen. Zusätzliche Sprachen werden je Material mit dem Export festgelegt und sind keine pauschale Voraussetzung für den DE-Abschluss."
+        },
+        {
+          "id": "mk-cd-manual",
+          "datum": "2026-12-31",
+          "titel": "Corporate-Design-Manual für alle vereinbarten Medien vollständig",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Gemeinsame Grundregeln (mk-cd-v1), Anwendungsbeispiele aus Print und PPT, geprüfte Regel zur KI-Bildkennzeichnung",
+          "details": "Ziel Jahresende: Ein zentral zugängliches Manual führt Website, PPT, Dokumente intern und extern, Broschüren, Flyer und Roll-ups zusammen. Es enthält gemeinsame Regeln, begründete Unterschiede je Medium und verwendbare Beispiele. Marketing stimmt die Gestaltung ab und zeigt sie vor dem Rollout der Geschäftsführung. Die laufende Print- und PPT-Arbeit entwickelt die Beispiele parallel; sie wartet nicht auf den Abschluss des gesamten Manuals."
+        },
+        {
+          "id": "mk-rs-ppt",
+          "datum": "2026-12-31",
+          "titel": "Rapid-Set-Mutterpräsentation auf Deutsch nutzbar",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Gemeinsame CD-Grundregeln, vorhandene Vorlage, validierte Produktinhalte und Vertriebsabstimmung",
+          "details": "Ziel Jahresende: Eine abgestimmte, bearbeitbare Rapid-Set-Mutterpräsentation steht dem Vertrieb zur Verfügung. Produktinhalte, Referenzen, Navigation und EmpCo-Bereinigung sind geprüft; offene technische Aussagen sind geklärt oder aus der Einsatzfassung entfernt. Die vorhandene Produktvorstellung und PPT-Vorlage sind Ausgangspunkt. Weitere Sprachen werden nach Bedarf mit dem Export festgelegt."
+        },
+        {
+          "id": "mk-katze-praesentation",
+          "datum": "2026-11-30",
+          "titel": "Katzenstreu-Präsentation geliefert und weiterer Materialbedarf geklärt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Rückmeldung der Katzenstreu-Abteilung zu Präsentation und weiterem Vertriebsbedarf",
+          "details": "Die vorhandene Präsentation ist mit der Katzenstreu-Abteilung abgestimmt und auf Deutsch abgeliefert. Der Bedarf an weiteren Broschüren, Flyern und Messeausstattung ist geklärt. Das Ergebnis ermöglicht die anschließende Konzept- und Strategiearbeit für 2027; diese ist kein zusätzliches Fertig-Kriterium für den November-Meilenstein. Der Website-Auftritt bleibt im Website-Projekt verankert."
         },
         {
           "id": "mk-assets",

@@ -222,7 +222,7 @@
       "lane": "Marke & Kommunikationsmittel",
       "datum": "2026-11-15",
       "status": "verschoben",
-      "titel": "Corporate Design V1: Bestand gesichtet, modular zentral abgelegt"
+      "titel": "Corporate Design V1: gemeinsame Grundregeln festgelegt"
     },
     "mk-mockups": {
       "lane": "Marke & Kommunikationsmittel",
@@ -292,9 +292,33 @@
     },
     "mk-ppt": {
       "lane": "Marke & Kommunikationsmittel",
-      "datum": null,
+      "datum": "2026-12-31",
       "status": "offen",
-      "titel": "Präsentationsvorlage für Vertrieb und Marketing ausgerollt"
+      "titel": "PPT-Masterslides für die Kollegen nutzbar"
+    },
+    "mk-print-de-2026": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-12-31",
+      "status": "offen",
+      "titel": "Fünf priorisierte Printstücke in Deutsch gedruckt und verfügbar"
+    },
+    "mk-cd-manual": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-12-31",
+      "status": "offen",
+      "titel": "Corporate-Design-Manual für alle vereinbarten Medien vollständig"
+    },
+    "mk-rs-ppt": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-12-31",
+      "status": "offen",
+      "titel": "Rapid-Set-Mutterpräsentation auf Deutsch nutzbar"
+    },
+    "mk-katze-praesentation": {
+      "lane": "Marke & Kommunikationsmittel",
+      "datum": "2026-11-30",
+      "status": "offen",
+      "titel": "Katzenstreu-Präsentation geliefert und weiterer Materialbedarf geklärt"
     },
     "mk-assets": {
       "lane": "Marke & Kommunikationsmittel",
@@ -7208,6 +7232,70 @@
       "alt": "2026-12-15",
       "neu": "2026-11-06",
       "tage": -39
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "mk-cd-manual",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-31"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "mk-katze-praesentation",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-11-30"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "mk-print-de-2026",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-31"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "mk-rs-ppt",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2026-12-31"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "mk-cd-v1",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Corporate Design V1: Bestand gesichtet, modular zentral abgelegt",
+      "neu": "Corporate Design V1: gemeinsame Grundregeln festgelegt"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "mk-ppt",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": null,
+      "neu": "2026-12-31",
+      "tage": null
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "mk-ppt",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Präsentationsvorlage für Vertrieb und Marketing ausgerollt",
+      "neu": "PPT-Masterslides für die Kollegen nutzbar"
     }
   ],
   "kennzahlen": {
@@ -7564,6 +7652,13 @@
     "web-bereiche": {
       "verschiebungen": 1,
       "tageGesamt": 16,
+      "letzteVerschiebung": "2026-10-29",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "mk-ppt": {
+      "verschiebungen": 1,
+      "tageGesamt": 0,
       "letzteVerschiebung": "2026-10-29",
       "stehengelassen": 0,
       "ueberfaelligSeit": null

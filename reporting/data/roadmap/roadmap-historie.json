@@ -130,7 +130,7 @@
     },
     "web-hosting": {
       "lane": "Website",
-      "datum": "2026-12-15",
+      "datum": "2026-11-06",
       "status": "verschoben",
       "titel": "Hoster für die neue Website gewählt und eingerichtet"
     },
@@ -7198,6 +7198,16 @@
       "feld": "titel",
       "alt": "Referenzdetailseiten gestalterisch abgestimmt",
       "neu": "Referenzverzeichnis: Umfang, Gestaltung und Funktion abgestimmt"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-hosting",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-12-15",
+      "neu": "2026-11-06",
+      "tage": -39
     }
   ],
   "kennzahlen": {
@@ -7419,9 +7429,9 @@
       "ueberfaelligSeit": null
     },
     "web-hosting": {
-      "verschiebungen": 2,
-      "tageGesamt": 30,
-      "letzteVerschiebung": "2026-10-26",
+      "verschiebungen": 3,
+      "tageGesamt": -9,
+      "letzteVerschiebung": "2026-10-29",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },

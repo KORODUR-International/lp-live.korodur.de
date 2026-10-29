@@ -769,6 +769,8 @@ h1, h2, h3, h4, h5 {
   font-size: .86rem; font-weight: 700; color: var(--primary); cursor: pointer;
 }
 .rm-lane__name:hover { color: var(--secondary); text-decoration: underline; }
+.rm-planungsstand { font-size: .7rem; color: var(--muted); line-height: 1.35; font-variant-numeric: tabular-nums; }
+.rm-planungsstand time { white-space: nowrap; }
 .rm-lane__note { font-size: .7rem; color: var(--muted); line-height: 1.35; }
 /* Kurzsatz mit vollem Hinweis im Tooltip: leise markiert, damit der Hover gefunden wird */
 .rm-lane__note--mehr { cursor: help; text-decoration: underline dotted var(--mid-gray); text-underline-offset: 2px; }

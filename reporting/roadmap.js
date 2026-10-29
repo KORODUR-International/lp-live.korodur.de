@@ -323,6 +323,13 @@ function noteHtml(lane) {
     ? `<div class="rm-lane__note rm-lane__note--mehr" data-note="${esc(lane.id)}" tabindex="0">${esc(text)}</div>`
     : `<div class="rm-lane__note">${esc(text)}</div>`;
 }
+function planungsstandHtml(lane) {
+  const datum = lane.planungAktualisiertAm;
+  const stand = datum
+    ? `<time datetime="${esc(datum)}">${esc(fmtDate(datum))}</time>`
+    : 'noch nicht erfasst';
+  return `<div class="rm-planungsstand">Planung aktualisiert: ${stand}</div>`;
+}
 function laneRowHtml(lane) {
   const color = areaOf(lane.area).farbe;
   const z = zoomDef();
@@ -360,6 +367,7 @@ function laneRowHtml(lane) {
   <div class="rm-row rm-lane${selCls}">
     <div class="rm-lane__label">
       <button type="button" class="rm-lane__name" data-lanebtn="${esc(lane.id)}">${esc(lane.name)}</button>
+      ${planungsstandHtml(lane)}
       ${noteHtml(lane)}
       <div class="rm-lane__progress">
         ${progressBarHtml(p, color)}
@@ -459,6 +467,7 @@ function detailHtml() {
         <span class="rm-detail__meta">${esc(areaName(lane.area))}${zeitraumTxt}${lane.weiter2027 ? ' · 2027: ' + esc(lane.weiter2027) : ''} · Fortschritt ${p.done}/${p.total}${p.late ? ` · <span class="rm-late">${p.late} ${LATE_LABEL}</span>` : ''}</span>
         <button type="button" class="rm-detail__close" data-close aria-label="Schließen">×</button>
       </div>
+      ${planungsstandHtml(lane)}
       ${lane.hinweis ? `<p class="rm-detail__note">${esc(lane.hinweis)}</p>` : ''}
       <ul class="rm-detail__list">
         ${lane.meilensteine.map(m => `

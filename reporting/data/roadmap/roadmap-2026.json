@@ -1,5 +1,5 @@
 {
-  "version": "1.33",
+  "version": "1.34",
   "stand": "2026-10-29",
   "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen. Version 1.22 (30.09.2026): Struktur und Design der Leistungserklärungen EN 13813 am 28.09. erreicht. Version 1.23 (30.09.2026): Wahl und Einrichtung des Website-Hosters als eigener Meilenstein bis 15.11. Version 1.24 (02.10.2026): Daten- und Notion-Clean-up für die Arbeitswoche 02. bis 06.11. geplant; Abschlussziel 06.11. statt 30.11. Website-Host einschließlich Repository-Anbindung und Dokumentablage ebenfalls bis 06.11. statt 15.11.; Website-Go-live bleibt getrennt. Version 1.25 (10.10.2026): Area-Namen Marketing, Technik, Vertrieb, Export und AI & Enablement, wie im Board-Feld Bereich (korodur-operating-model#173); IDs unverändert. Version 1.26 (10.10.2026): Das Jahresziel Referenzen gehört zur Area Marketing, wie in Notion. Version 1.28 (13.10.2026): Die Lane Übersetzungen nennt keine italienischen Datenblätter mehr; im Umlauf sind nur Deutsch, Englisch und Französisch, weitere Sprachen warten auf die Digitalen Produktinformationen. Version 1.29 (20.10.2026): EmpCo (Umweltaussagen nach UWG) und der Kommunikationsaufbau für den Vertrieb stehen in der Lane Marke & Kommunikationsmittel; Print und Messe aus 2027 vorgezogen, Reihenfolge Website und Druckdokumente, dann Messe, dann Präsentationsvorlage; Corporate Design als Grundlage vorgezogen. Lane Referenzen zu den Marketing-Lanes gestellt. Leistungserklärungen EN 13813 auf Deutsch am 14.10. erreicht. Termine bis Mitte November nach dem Board-Abgleich verschoben (korodur-review-reporting#348). Version 1.31 (28.10.2026): Abgleich mit dem Board; erreicht sind die EmpCo-Sofortmaßnahmen, der EmpCo-feste Druck von Industrieboden- und Rapid-Set-Broschüre, die Entscheidungsvorlage EmpCo für die Geschäftsführung, die Leistungserklärungen EN 13813 auf Englisch und Französisch sowie Use Case 1 und das Setup am GF-Laptop. Neu sind der nächtliche Abruf der lokalen KI, die Übersetzung der EmpCo-festen Broschüren, die ersten Kampagnen 2027 und die Kampagnen-Auswertung 2026; der Messe-Pilot ist erreicht, die Abstimmung des Kampagnenprozesses steht bis 15.11. Version 1.32 (28.10.2026): Die eigenen Kampagnenunterlagen (vp-definition) stehen auf 06.11.; Steffi prüft die Zwischenstände vorher selbst, die Teamabstimmung bleibt am 15.11. Version 1.33 (29.10.2026): DPI-Planung nach Review: deutsche DoPs mit validierten Daten bis 10.11., EN/FR generiert bis 15.11., alle vier Sprachfassungen geprüft, unterzeichnet und intern bereitgestellt bis 30.11. Portfolio-Klarheit über VAP und nachzuziehende Produkte bis 15.11. TDS-Struktur bis 10.12.; deutsches TDS-Paket bis Jahresende, Ziel 20.12., mit HE 3 oder dem bestätigten VAP-Umfang. Abnahme und EN/FR im Januar 2027, Sprachprüfung gegebenenfalls bis Ende Februar.",
   "zeitraum": {
@@ -166,15 +166,15 @@
       "id": "website",
       "area": "marketing",
       "name": "Website",
-      "hinweis": "Website-Runde 22.09.: Designvorschau im September, Portfolio und Lösungsfinder im Oktober, Industrieboden im November, weitere Bereiche bis Mitte Dezember. Ausarbeitung, fachliche Vorabstimmung und finale Abnahme sind getrennt. Technische Daten und Dokumente hängen an DPI; Übersetzungen starten je Bereich mit der eigenen deutschen Fassung.",
-      "kurz": "Website V1 im Q1-Rahmen; Februar 2027 ist das aktuelle Planungsfenster, der Starttermin bleibt offen.",
-      "erreichtHeisst": "Designvorschau vorbereitet; Produkt- und Systemportfolio abgestimmt; Lösungsfinder-Logik und Empfehlungen geprüft; Industrieboden und weitere Bereiche ausgearbeitet und fachlich vorab abgestimmt; PDP-Design steht. Finale Abnahmen je Bereich und die technische Datenübernahme bleiben gesondert sichtbar.",
+      "hinweis": "Planungsreview 29.10.: Industrieboden bis Mitte Dezember erstmals mit Marketing und Technik validiert; danach Vertriebstest mit Rücklaufziel Ende Januar. Feedback einarbeiten und deutsche Pakete abschließen, anschließend EN/FR je Paket. Hosting gilt für die ganze Website; das Notion-CMS wird zunächst mit einem Inhaltspaket erprobt. Neue TDS sind Startvoraussetzung, deren Pflichtumfang wird gemeinsam mit DPI festgelegt.",
+      "kurz": "Erste Validierung Mitte Dezember, Vertriebsrücklauf Ende Januar; V1-Start folgt aus Freigaben und DPI-Bereitschaft.",
+      "erreichtHeisst": "V1 in DE, EN und FR veröffentlicht: Homepage, Bereiche, Produkt- und Referenzverzeichnis sowie Unternehmen funktionieren mit geprüften Inhalten; aktuelle Dokumente und OnePager sind verfügbar, Anfragen gelangen über das Kontaktformular ins CRM. Produktdaten, Referenzen und redaktionelle Inhalte kommen aus Notion. Rechtliche Anforderungen und Barrierefreiheit sind geprüft. Neue TDS im gemeinsam mit DPI festgelegten Startumfang liegen vor. Der Lösungsfinder ist für V1 vorgesehen; eine Verschiebung erfordert eine bewusste Entscheidung. Produktsysteme dürfen bei Bedarf in V2 folgen.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
       },
       "stil": "normal",
-      "weiter2027": "V1-Launch DE/EN/FR in Q1; CRM-Kontaktformular kurz vor Start",
+      "weiter2027": "Vertriebsrücklauf Ende Januar; DE-Abschluss, EN/FR und V1-Start nach bestätigter Bereitschaft",
       "meilensteine": [
         {
           "id": "web-struktur",
@@ -255,13 +255,14 @@
         },
         {
           "id": "web-portfolio",
-          "datum": "2026-12-15",
-          "titel": "Systeme und Value Added Products für die Website abgestimmt",
+          "datum": "2026-11-30",
+          "titel": "Website-Portfolio abgestimmt",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": true,
-          "abhaengigkeit": "Fachliche Abnahme durch die Technik; endgültige VAP-Liste aus DPI (pdb-vap); konkreter Prüfungstermin noch zu vereinbaren",
-          "details": "Zieltermin Ende Oktober, keine zugesagte Abnahmefrist. Die Produktauswahl steht bereits (eigener Meilenstein, erreicht). Offen sind die zusätzlich dargestellten Systeme und Verfahren, die Definition der Value Added Products, Produktarten samt Zuordnungen sowie die Bildauswahl. Die VAP-Definition wird mit dem DPI-Meilenstein pdb-vap gemeinsam geführt, nicht doppelt. Technische Kennwerte und Dokumentenfreigaben folgen separat aus dem Projekt Digitale Produktinformationen. Am 20.10.2026 nach dem Board-Abgleich verschoben; der Website-Launch liegt im Planungsfenster Februar 2027."
+          "abhaengigkeit": "Aktueller Portfolioabgleich mit DPI; fachliche Prüfung der Produktzuordnungen; Termin für die separate DPI-Startpaket-Entscheidung noch zu vereinbaren",
+          "details": "Die historisch erreichte Produktauswahl bleibt erhalten. Aktuelle Produkte, VAP, Produktarten und Bilder werden mit DPI abgeglichen. Produktsysteme dürfen bei Bedarf in V2 folgen. Ziel 30.11. aus der Portfolio-Abstimmung vom 27.10. gilt ausschließlich für diesen Portfolioabgleich, nicht für das neue TDS-Startpaket; keine zugesagte fachliche Abnahmefrist, ersetzt den abweichenden 15.12.-Eintrag. Website und DPI klären separat den verbindlichen Umfang neuer TDS je Launchsprache und vereinbaren dafür erst einen Zieltermin (#651). Das Pflichtpaket bleibt Voraussetzung für die Datenübernahme und den Website-Start. Umsetzung und Dokumentfreigaben folgen separat.",
+          "issue": "sfleischmann-3steps2/KORODUR-Website#651"
         },
         {
           "id": "web-ergebnisseite",
@@ -277,21 +278,21 @@
         {
           "id": "web-empfehlungen",
           "datum": "2026-12-15",
-          "titel": "Lösungsfinder: Empfehlungen fachlich freigegeben",
+          "titel": "Lösungsfinder: Produktempfehlungen erstmals fachlich validiert",
           "typ": "meilenstein",
           "status": "verschoben",
-          "klaerung": false,
-          "details": "Aus fachlich abgestimmten Auswahlregeln entsteht ein gekennzeichneter Prüfentwurf für das aktive Sortiment (Entscheidungsbaum über Produkteigenschaften, Wege ohne Empfehlung zur Durchsicht). Expertenprüfung, Korrekturen und geprüfte Beispieldurchläufe schließen den Meilenstein ab. Die Ergebnisseite ist seit 28.09.2026 ein eigener, erreichter Meilenstein. Zieltermin, keine bereits zugesagte Abnahmefrist. Am 20.10.2026 nach dem Board-Abgleich verschoben; der Website-Launch liegt im Planungsfenster Februar 2027.",
-          "abhaengigkeit": "Fachliche Auswahlregeln und Expertenprüfung der Produktempfehlungen"
+          "klaerung": true,
+          "details": "Ablauf und Ergebnisseite sind bereits erreicht. Offen sind passende Produktempfehlungen für Neubau und Sanierung. Die fachliche Koordination klärt diese mit der Technik; geprüfte Beispiele und verbleibende Grenzen werden dokumentiert. Der bestehende Zieltermin Mitte Dezember ist mit den Prüfern abzustimmen. Anschließender Vertriebstest und mögliche Nachprüfung gehören zur finalen Freigabe. V1 ist gewünscht; eine spätere Veröffentlichung erfordert eine bewusste Rückfallentscheidung.",
+          "abhaengigkeit": "Fachliche Produktauswahl, bestätigte Prüfer und Rückläufe; aktives Umsetzungspaket bleibt bestehen"
         },
         {
           "id": "web-industrieboden",
           "datum": "2026-12-15",
-          "titel": "Industrieboden, Neubau und Sanierung ausgearbeitet",
+          "titel": "Industrieboden, Neubau und Sanierung erstmals validiert",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": false,
-          "details": "Drei Seiten vollständig und aus redaktioneller Sicht stimmig ausgearbeitet sowie fachlich vorab abgestimmt. Finale fachliche Abnahmen werden gesondert geklärt. Der Lösungsfinder ist ein eigener Arbeitsstrang. Am 20.10.2026 nach dem Board-Abgleich verschoben; der Website-Launch liegt im Planungsfenster Februar 2027."
+          "details": "Ziel Mitte Dezember: aus Marketing- und Techniksicht aufbereitet, mit fachlicher Koordination abgestimmt und erste Kollegenrückmeldungen berücksichtigt. Erforderliche Technikfragen werden gezielt geklärt. Das ist die erste Validierung als Grundlage für den Vertriebstest, keine finale Gesamtabnahme. Finale DE-Fassung folgt nach Rücklauf und Einarbeitung."
         },
         {
           "id": "web-hosting",
@@ -301,7 +302,7 @@
           "status": "verschoben",
           "klaerung": true,
           "abhaengigkeit": "Hoster-Wahl und Zugänge, Betriebsverantwortung, abgestimmte Dokumentstruktur; Datei-Upload-Endpunkt als Anforderung und Datenschutzerklärung passend zu Anbieter und Diensten",
-          "details": "Hoster gewählt und Umgebung eingerichtet, Website-Repository angebunden und Dokumentablage mit geregelter Pflege und Zugriffen praktisch geprüft. Termin am 02.10. von 15.11. auf 06.11.2026 vorgezogen. Interne Arbeitsunterlagen und veröffentlichte Downloads sind unterscheidbar. Website-Go-live und Redirect-Umschaltung bleiben ein separater späterer Schritt. Am 20.10.2026 nach dem Board-Abgleich verschoben; der Website-Launch liegt im Planungsfenster Februar 2027."
+          "details": "Hoster und Umgebung für die gesamte Website, Repository-Anbindung sowie dauerhafte Dokumentablage mit geregelten Zugriffen und Pflege einrichten und prüfen. Repository-Umzug bleibt Teil der Vorbereitung. Der CMS-Inhaltspilot begrenzt die Infrastruktur nicht auf einen Bereich. 15.12. bleibt ein abzustimmender Roadmap-Wert; der Auftragsstand vom 02.10. nennt dagegen den bestätigten 06.11. Dieser Terminwiderspruch ist noch aufzulösen, im aktuellen Review wurde kein Ersatztermin beschlossen. Website-Go-live und Redirect-Umschaltung folgen separat."
         },
         {
           "id": "web-pdp",
@@ -326,13 +327,13 @@
         },
         {
           "id": "web-bereiche",
-          "datum": "2026-12-15",
-          "titel": "Weitere Bereichsseiten ausgearbeitet",
+          "datum": "2026-12-31",
+          "titel": "Katzenstreu, 3D-Betondruck, Rapid Set und MICROTOP erstmals validiert",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "verschoben",
           "klaerung": false,
-          "details": "Nach Industrieboden als Vorlage zuerst Betonsanierung/Rapid Set und MICROTOP/Trinkwasserbehälter, danach Katzenstreu, 3D-Betondruck und Infrastruktur. Ausgearbeitet und fachlich vorab abgestimmt; finale Abnahme separat. Spezialmörtel: reduzierte V1-Fassung oder V2 noch zu entscheiden.",
-          "abhaengigkeit": "Industrieboden als Vorlage; Inhalte für 3D-Betondruck; Scope-Entscheidung Spezialmörtel"
+          "details": "Ziel bis Jahresende: die vier benannten Inhalte ausgearbeitet, intern abgestimmt und erstmals validiert. Umfang gegenüber dem pauschalen 15.12.-Eintrag präzisiert. Finale Teamabnahme folgt separat. Infrastruktur und Spezialbaustoffe bleiben V1-Bereichsseiten; ihre Detailtiefe und Fertigstellung werden gesondert geklärt.",
+          "abhaengigkeit": "Geeignete Inhalte und fachliche Klärung je Bereich; vorhandene Vorlage nutzen, eigenständig fertige Pakete können vorangehen"
         },
         {
           "id": "web-launch1",
@@ -342,7 +343,7 @@
           "status": "offen",
           "klaerung": true,
           "confidence": "mittel",
-          "details": "Die aktualisierte DPI-Planung nennt Februar 2027 als Integrations- und Veröffentlichungsfenster innerhalb des bisherigen Q1-Rahmens. Kein zugesagtes Tagesdatum; der öffentliche Start folgt auf bestätigte Launchbereitschaft für DE, EN und FR.",
+          "details": "Februar 2027 bleibt ein vorläufiges Planungsfenster im Q1-Zielrahmen. Vertrieb liefert möglichst bis Ende Januar Rücklauf; dessen Einarbeitung, DE-Abschluss, Übersetzung und Sprachprüfung folgen je Paket. Neue TDS im noch festzulegenden Startumfang müssen vorliegen; gültige Bestandsdokumente ersetzen diese Pflicht nicht. Der öffentliche Start folgt auf nachgewiesene Bereitschaft, auch wenn sich das Planungsfenster dadurch verschiebt.",
           "zielzeitraum": "Februar 2027 (Planungsfenster innerhalb Q1)",
           "abhaengigkeit": "Launchbereitschaft und konkreter Starttermin bestätigt"
         },
@@ -354,18 +355,18 @@
           "status": "offen",
           "klaerung": true,
           "confidence": "mittel",
-          "abhaengigkeit": "Dokumenten- und Datenbereitschaft aus DPI; erforderliche Freigaben und technische Launch-Vorbereitung",
-          "details": "Der bisherige Entscheidungspunkt Ende November ist durch den Zielrahmen Q1 2027 ersetzt. Der konkrete Starttermin folgt aus Dokumenten- und Datenbereitschaft, den je Bereich erforderlichen Freigaben, EN/FR-Fassungen sowie Betriebs- und Kontaktformularbereitschaft.",
+          "abhaengigkeit": "Abgeschlossene Inhalte und Prüfungen, neue TDS im abgestimmten DPI-Startumfang, technische und betriebliche Bereitschaft",
+          "details": "Startbereitschaft wird anhand der V1-Pflichten nachgewiesen: finale DE-Pakete nach Rücklauf, geprüfte EN-/FR-Fassungen, Daten und neue TDS im vereinbarten Umfang, Referenzfilter und OnePager, Notion-Anbindung, Unternehmen, Betrieb und Salesforce-Formular. Rechtliche Gesamtprüfung einschließlich EmpCo und Barrierefreiheit berücksichtigen. Rücklauf Ende Januar ist noch kein DE-Abschluss und kein Startdatum.",
           "zielzeitraum": "Q1 2027"
         },
         {
           "id": "web-refdesign",
           "datum": "2026-12-15",
-          "titel": "Referenzdetailseiten gestalterisch abgestimmt",
+          "titel": "Referenzverzeichnis: Umfang, Gestaltung und Funktion abgestimmt",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": true,
-          "details": "Referenzdarstellung nach der Designvorschau gestalterisch geglättet. Website, One-Pager und benötigte Daten passen zusammen; bildreiche und knappe Referenzen sind auf Desktop und Mobil geprüft. Vorhandenes Inhaltskonzept bleibt Grundlage. Am 20.10.2026 nach dem Board-Abgleich verschoben; der Website-Launch liegt im Planungsfenster Februar 2027.",
+          "details": "Referenzübersicht und Detailseiten samt Filterumfang, OnePager-Zuordnung und veröffentlichbarem Bestand sind geklärt. Website und PDF passen zusammen; bildreiche und knappe Referenzen werden auf Desktop und Mobil geprüft. Vorhandenes Konzept und Umsetzung bleiben Grundlage. Der bestehende Zieltermin 15.12. ist noch abzustimmen; V1 verlangt geprüfte Filter und funktionierende OnePager-Downloads aus dem angebundenen Referenzverzeichnis.",
           "abhaengigkeit": "Designrichtung der GBL-Vorschau sowie Referenzdatenvertrag und fachlich geprüfte Inhalte"
         },
         {
@@ -385,7 +386,7 @@
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "details": "One-Pager mit vorgeschlagener Seitenstruktur, groben Inhaltsstichpunkten und konkreten Entscheidungsfragen; auf dem vorhandenen Konzept aufbauen.",
+          "details": "Vorhandenen Konzeptentwurf weiter abstimmen, Menüstruktur, Inhalte und Entscheidungsfragen klären. Dieser Meilenstein liefert die Entscheidungsvorlage; für V1 müssen die daraus folgenden Unternehmensseiten vollständig aufgebaut und geprüft sein.",
           "abhaengigkeit": "Konzept ausarbeiten und Übergabetermin vor Weihnachten vereinbaren",
           "zielzeitraum": "Vor Weihnachten 2026"
         },
@@ -396,7 +397,7 @@
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "details": "Durchlauf vom Absenden bis zum Eingang im CRM geprüft, einschließlich Fehlerfall und abgestimmter Datenzuordnung. Kurz vor dem Website-Start, Priorität P2.",
+          "details": "Eingebundenes Kontaktformular übergibt Anfragen direkt an Salesforce. Felder, Zielprozess, technische Anbindung und Verantwortung klären; Durchlauf bis zum CRM-Eingang einschließlich Fehlerfällen prüfen. Pflicht für V1. Ein Plugin ist bislang keine bestätigte Umsetzungslösung.",
           "abhaengigkeit": "CRM-Zielprozess und Formularfelder abgestimmt; Termin an den Website-Start koppeln",
           "zielzeitraum": "Q1 2027, vor Website-Start"
         },
@@ -407,9 +408,41 @@
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "details": "Die Website übernimmt in Q1 2027 die jeweils freigegebenen technischen Kennwerte und Dokumente aus DPI. DoPs werden bis 30.11.2026 intern bereitgestellt; neue deutsche TDS folgen nach der Dokumentabnahme im Januar, EN/FR nach ihrer Freigabe einschließlich muttersprachlicher Prüfung, gegebenenfalls bis Ende Februar. Portfolio-Abnahme und Layout können vorher erfolgen.",
-          "abhaengigkeit": "Freigegebene DPI-Dokumente und Daten je Sprache; bei neuen TDS Dokumentabnahme und muttersprachliche Prüfung der EN-/FR-Fassungen",
+          "details": "Freigegebene technische Kennwerte und aktuelle Dokumente aus DPI übernehmen und auf richtige Zuordnung sowie Downloads prüfen. Neue TDS sind zwingend; ihr launchrelevanter Produkt- und Sprachumfang wird gemeinsam mit DPI festgelegt. DoPs, neue TDS, technische Deckblätter und aktuelle Broschüren berücksichtigen. EN/FR-TDS können nach DPI-Planung erst Ende Februar sprachlich geprüft vorliegen; daraus folgt keine feste Launchzusage. Portfolio- und Designarbeit können vorher abgeschlossen werden.",
+          "abhaengigkeit": "Verbindlicher DPI-Startumfang, freigegebene Daten und Dokumente je Launchsprache einschließlich erforderlicher TDS-Prüfungen",
           "zielzeitraum": "Q1 2027"
+        },
+        {
+          "id": "web-cms-pilot",
+          "datum": null,
+          "titel": "Notion-CMS mit validiertem Inhaltspaket erprobt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "zielzeitraum": "Q4 2026",
+          "details": "Vorhandenes CMS-Konzept umsetzen und ein geeignetes validiertes Paket mit Datenmodell, Zugriffen, Freigabestatus, Übernahme und Aktualisierung praktisch prüfen. Anschließend weitere validierte Inhalte übernehmen. Der Pilot ist keine automatische Veröffentlichung oder finale Freigabe aller Inhalte.",
+          "abhaengigkeit": "CMS-Zugänge und Rechte, ausgewähltes validiertes Inhaltspaket, geeignete Dateiablage"
+        },
+        {
+          "id": "web-vertriebsruecklauf",
+          "datum": "2027-01-31",
+          "titel": "Rücklauf aus dem Vertriebstest gesammelt",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "details": "Ziel Ende Januar 2027, als Monatsende dargestellt: Rückmeldungen aus der breit beteiligten Vertriebsmannschaft liegen gesammelt und den geprüften Paketen zugeordnet vor. Marketing organisiert den Rücklauf; Format und Teilnehmerkreis werden noch festgelegt. Frühere Pakete dürfen früher starten. Einarbeitung und finale Abnahme folgen danach.",
+          "abhaengigkeit": "Erste Validierung je Paket, organisierte Übergabe und Rücklaufweg"
+        },
+        {
+          "id": "web-de-abschluss",
+          "datum": null,
+          "titel": "Deutsche V1-Pakete nach Rücklauf abgeschlossen",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "zielzeitraum": "Q1 2027, je Paket nach Rücklauf",
+          "details": "Rückmeldungen sind bewertet, Änderungen eingearbeitet und nötige fachliche Nachprüfungen abgeschlossen. Finale Teamabstimmung und Freigabe des konkreten deutschen Stands sind dokumentiert. Erst danach startet EN/FR für das jeweilige Paket; früher fertige Pakete warten nicht auf die gesamte Website.",
+          "abhaengigkeit": "Vertriebs- und Fachrücklauf je Paket, Einarbeitung und finale DE-Freigabe"
         }
       ]
     },
@@ -1539,9 +1572,9 @@
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "abhaengigkeit": "Deutsche Abnahme der Website-Bereiche; Englisch und Französisch vier Wochen danach",
+          "abhaengigkeit": "Je Paket fertige und freigegebene deutsche Fassung nach erforderlichem Rücklauf; EN-/FR-Prüfung und Kapazität vereinbaren",
           "zielzeitraum": "Q1 2027",
-          "details": "Folgemeilenstein der Website: vier Wochen nach der deutschen Abnahme sind Englisch und Französisch fertig, rechtzeitig vor dem Launch von Website V1. Übersetzt wird mit den trainierten sprachspezifischen Agenten; zusätzliche fachliche oder muttersprachliche Abnahme wird je Bereich entschieden."
+          "details": "Übersetzung startet je abgeschlossenem deutschen Paket, nachdem Rückmeldungen eingearbeitet und nötige Freigaben erteilt sind. Früher fertige Pakete können früher starten. Vollständigkeit, Terminologie und Darstellung sowie erforderliche fachliche oder muttersprachliche Prüfungen sind nachzuweisen. Die frühere pauschale Vier-Wochen-Annahme ist keine bestätigte Frist; belastbare Liefertermine bleiben zu vereinbaren. Das separate Erstpaket von zehn Referenzen für die bestehende Website behält seine eigene Planung."
         },
         {
           "id": "ueb-tds-enfr",

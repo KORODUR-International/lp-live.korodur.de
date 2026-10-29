@@ -106,9 +106,9 @@
     },
     "web-portfolio": {
       "lane": "Website",
-      "datum": "2026-12-15",
+      "datum": "2026-11-30",
       "status": "verschoben",
-      "titel": "Systeme und Value Added Products für die Website abgestimmt"
+      "titel": "Website-Portfolio abgestimmt"
     },
     "web-ergebnisseite": {
       "lane": "Website",
@@ -120,13 +120,13 @@
       "lane": "Website",
       "datum": "2026-12-15",
       "status": "verschoben",
-      "titel": "Lösungsfinder: Empfehlungen fachlich freigegeben"
+      "titel": "Lösungsfinder: Produktempfehlungen erstmals fachlich validiert"
     },
     "web-industrieboden": {
       "lane": "Website",
       "datum": "2026-12-15",
       "status": "verschoben",
-      "titel": "Industrieboden, Neubau und Sanierung ausgearbeitet"
+      "titel": "Industrieboden, Neubau und Sanierung erstmals validiert"
     },
     "web-hosting": {
       "lane": "Website",
@@ -148,9 +148,9 @@
     },
     "web-bereiche": {
       "lane": "Website",
-      "datum": "2026-12-15",
-      "status": "offen",
-      "titel": "Weitere Bereichsseiten ausgearbeitet"
+      "datum": "2026-12-31",
+      "status": "verschoben",
+      "titel": "Katzenstreu, 3D-Betondruck, Rapid Set und MICROTOP erstmals validiert"
     },
     "web-launch1": {
       "lane": "Website",
@@ -168,7 +168,7 @@
       "lane": "Website",
       "datum": "2026-12-15",
       "status": "verschoben",
-      "titel": "Referenzdetailseiten gestalterisch abgestimmt"
+      "titel": "Referenzverzeichnis: Umfang, Gestaltung und Funktion abgestimmt"
     },
     "web-kontakt": {
       "lane": "Website",
@@ -193,6 +193,24 @@
       "datum": null,
       "status": "offen",
       "titel": "Freigegebene Produktdaten und Dokumente auf Website übernommen"
+    },
+    "web-cms-pilot": {
+      "lane": "Website",
+      "datum": null,
+      "status": "offen",
+      "titel": "Notion-CMS mit validiertem Inhaltspaket erprobt"
+    },
+    "web-vertriebsruecklauf": {
+      "lane": "Website",
+      "datum": "2027-01-31",
+      "status": "offen",
+      "titel": "Rücklauf aus dem Vertriebstest gesammelt"
+    },
+    "web-de-abschluss": {
+      "lane": "Website",
+      "datum": null,
+      "status": "offen",
+      "titel": "Deutsche V1-Pakete nach Rücklauf abgeschlossen"
     },
     "mk-verpackung": {
       "lane": "Marke & Kommunikationsmittel",
@@ -7079,6 +7097,107 @@
       "feld": "titel",
       "alt": "Technische Datenblätter auf Englisch und Französisch",
       "neu": "TDS-Paket auf Englisch und Französisch erstellt"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-cms-pilot",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-de-abschluss",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": null
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-vertriebsruecklauf",
+      "lane": "Website",
+      "typ": "neu",
+      "feld": null,
+      "alt": null,
+      "neu": "2027-01-31"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-bereiche",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-12-15",
+      "neu": "2026-12-31",
+      "tage": 16
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-bereiche",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-bereiche",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Weitere Bereichsseiten ausgearbeitet",
+      "neu": "Katzenstreu, 3D-Betondruck, Rapid Set und MICROTOP erstmals validiert"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-empfehlungen",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Lösungsfinder: Empfehlungen fachlich freigegeben",
+      "neu": "Lösungsfinder: Produktempfehlungen erstmals fachlich validiert"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-industrieboden",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Industrieboden, Neubau und Sanierung ausgearbeitet",
+      "neu": "Industrieboden, Neubau und Sanierung erstmals validiert"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-portfolio",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-12-15",
+      "neu": "2026-11-30",
+      "tage": -15
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-portfolio",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Systeme und Value Added Products für die Website abgestimmt",
+      "neu": "Website-Portfolio abgestimmt"
+    },
+    {
+      "festgestellt": "2026-10-29",
+      "id": "web-refdesign",
+      "lane": "Website",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Referenzdetailseiten gestalterisch abgestimmt",
+      "neu": "Referenzverzeichnis: Umfang, Gestaltung und Funktion abgestimmt"
     }
   ],
   "kennzahlen": {
@@ -7405,9 +7524,9 @@
       "ueberfaelligSeit": null
     },
     "web-portfolio": {
-      "verschiebungen": 1,
-      "tageGesamt": 45,
-      "letzteVerschiebung": "2026-10-26",
+      "verschiebungen": 2,
+      "tageGesamt": 30,
+      "letzteVerschiebung": "2026-10-29",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -7428,6 +7547,13 @@
     "pdb-vap": {
       "verschiebungen": 1,
       "tageGesamt": 0,
+      "letzteVerschiebung": "2026-10-29",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "web-bereiche": {
+      "verschiebungen": 1,
+      "tageGesamt": 16,
       "letzteVerschiebung": "2026-10-29",
       "stehengelassen": 0,
       "ueberfaelligSeit": null

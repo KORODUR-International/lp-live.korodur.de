@@ -26,7 +26,8 @@ const REF_MONTHS_KURZ = [
 // sonst benennen die Unterzeilen Status, die es nicht mehr gibt.
 // tests/test_referenzen_render.mjs vergleicht beide Listen und wird rot, wenn
 // sie auseinanderlaufen.
-// Dreizehn Stufen seit 22.09.2026 (rv#177); davor zwölf (rr#211). Die zehn
+// Vierzehn Stufen seit 29.10.2026 (rr#359), dreizehn seit 22.09.2026
+// (rv#177); davor zwölf (rr#211). Die zehn
 // Altnamen (Zu Bearbeiten, In Bearbeitung - inhaltlich, Onepager erstellt,
 // DE-Freigabe und so weiter) gibt es in Notion nicht mehr. Die Bucket-Keys
 // bleiben unveraendert, damit die Zeitreihe und die Sparklines durchlaufen.
@@ -37,6 +38,10 @@ const REF_BUCKETS = [
     statuses: ['RAW: Info+Bilder da', 'Informationen fehlen', 'STRUCTURED: Info', 'Fragen VOR V1 beantwortet'] },
   { key: 'in_abnahme', label: 'In Abnahme', color: '#6b5b95',
     statuses: ['V1 Entwurf fertig', 'V1 Feedback da', 'V2 Entwurf fertig', 'V2 Feedback da'] },
+  // Seit 29.10.2026 (rr#359): inhaltlich fertig und anonymisiert nutzbar, die
+  // Freigabe liegt beim Vertrieb. Nicht freigegeben, keine finale Version DE.
+  { key: 'fertig_freigabe_offen', label: 'fertig, Freigabe offen', color: 'var(--warning)',
+    statuses: ['Fertig - Freigabe steht aus'] },
   { key: 'freigegeben', label: 'Freigegeben', color: '#7dd0a5',
     statuses: ['Freigabe da (fachlich & rechtlich)', 'finale Version DE'] },
   { key: 'veroeffentlicht', label: 'Veröffentlicht', color: 'var(--success)',
@@ -181,7 +186,14 @@ function renderZiel(d) {
     .sort((a, b) => a.zielwert - b.zielwert || a.datum.localeCompare(b.datum));
   const live = termine.filter(m => m.messgroesse === 'en_fr_live');
   const datum = iso => iso.split('-').reverse().join('.');
-  const karte = (label, measure, ziel, etappen) => {
+  // Fertig mit offener Freigabe zählt nicht aufs Ziel (rr#359), steht aber
+  // als eigene Zahl daneben: fertig ist nicht gleich freigegeben.
+  const offen = z?.fertig_freigabe_offen;
+  const daneben = Number.isFinite(offen?.wert)
+    ? `<div class="rf-goal__daneben"><b>${offen.wert}</b> fertig, Freigabe offen
+        <small>daneben, nicht im Ziel: anonymisiert nutzbar, keine finale Version DE</small></div>`
+    : '';
+  const karte = (label, measure, ziel, etappen, zusatz = '') => {
     const known = measure?.messbar === true && Number.isFinite(measure.wert);
     const marken = etappen.map(e => `<span class="rf-goal__etappe" style="left:${refPct(e.zielwert, ziel.zielwert)}%"
         title="${e.zielwert} bis ${refEsc(datum(e.datum))}"></span>`).join('');
@@ -194,10 +206,11 @@ function renderZiel(d) {
       ${known ? `<div class="rf-goal__bahn"><div class="rf-goal__track"><div class="rf-goal__seg" style="width:${Math.min(refPct(measure.wert, ziel.zielwert), 100)}%;background:#7dd0a5"></div></div>${marken}</div>`
         : '<p class="rf-warn">Noch nicht messbar</p>'}
       ${legende}
+      ${zusatz}
     </div>`;
   };
   const cards = [
-    intern.length ? karte('DE intern freigegeben', z?.de_intern, intern[intern.length - 1], intern.slice(0, -1)) : '',
+    intern.length ? karte('DE intern freigegeben', z?.de_intern, intern[intern.length - 1], intern.slice(0, -1), daneben) : '',
     ...live.map(m => karte('Übersetzt und live, EN und FR', z?.en_fr_live, m, [])),
   ].join('');
   return `<div class="band fade-in"><h3>Referenzziele 2026</h3><span>Alle Prioritäten, einschließlich leerer Priorität</span></div>

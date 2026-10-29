@@ -1099,6 +1099,9 @@ h1, h2, h3, h4, h5 {
   background: var(--white); border-radius: 2px;
 }
 .rf-goal__etappen { font-size: .76rem; color: #8fb4d6; margin-top: 10px; }
+.rf-goal__daneben { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.12); font-size: .9rem; color: #b9c6d4; }
+.rf-goal__daneben b { font-size: 1.4rem; color: var(--warning); margin-right: 4px; }
+.rf-goal__daneben small { display: block; font-size: .74rem; color: #8fb4d6; margin-top: 4px; }
 @media (max-width: 900px) { .rf-goals, .rf-goals--2 { grid-template-columns: 1fr; } }
 
 .rf-goal {

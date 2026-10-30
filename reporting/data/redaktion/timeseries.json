@@ -1135,12 +1135,12 @@
     "ideen": 46,
     "in_arbeit": 0,
     "in_pruefung": 0,
-    "freigegeben": 13,
-    "eingeplant": 0,
+    "freigegeben": 10,
+    "eingeplant": 3,
     "gepostet": 50,
     "abgelehnt": 5,
     "unbekannt": 0,
     "puffer": 13,
-    "vorlauf_wochen": 0.0
+    "vorlauf_wochen": 1.4
   }
 ]

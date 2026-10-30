@@ -1322,8 +1322,8 @@
   },
   {
     "date": "2026-10-30",
-    "gesamt": 221,
-    "offen": 67,
+    "gesamt": 229,
+    "offen": 75,
     "in_arbeit": 8,
     "in_abnahme": 8,
     "fertig_freigabe_offen": 4,
@@ -1334,6 +1334,6 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 4,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 103
+    "datenschuld_eintraege": 111
   }
 ]

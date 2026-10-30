@@ -1,15 +1,15 @@
 {
   "_meta": {
     "snapshot_date": "2026-10-30",
-    "generated_at": "2026-10-30T06:44:39.667764+00:00",
+    "generated_at": "2026-10-30T15:44:02.301154+00:00",
     "source": "Notion: KORODUR Referenzverzeichnis (Aggregat)",
     "version": "2.0",
     "hinweis": "Nur Aggregate. Objekttitel, Personen-, Betreiber-, Verarbeiter-, GU- und Architektennamen sowie Orte werden bewusst nicht gelesen.",
     "unbekannte_status": {}
   },
-  "gesamt": 221,
+  "gesamt": 229,
   "totals": {
-    "offen": 67,
+    "offen": 75,
     "in_arbeit": 8,
     "in_abnahme": 8,
     "fertig_freigabe_offen": 4,
@@ -19,7 +19,7 @@
     "unbekannt": 0
   },
   "by_status": {
-    "offen": 66,
+    "offen": 74,
     "Bilder sind da": 1,
     "RAW: Info+Bilder da": 3,
     "Informationen fehlen": 5,
@@ -37,14 +37,14 @@
   },
   "by_ursprung": {
     "Website": 130,
-    "Vertriebsmeeting": 56,
+    "Vertriebsmeeting": 64,
     "Manuell": 19,
     "Formular": 15,
     "Bilderordner": 1
   },
   "freigabestatus": {
     "Öffentlich": 103,
-    "Freigabe offen": 75,
+    "Freigabe offen": 83,
     "Öffentlich (anonymisiert)": 32,
     "(ohne)": 6,
     "Intern": 3,
@@ -97,7 +97,7 @@
       "2026-07": 24,
       "2026-08": 0,
       "2026-09": 2,
-      "2026-10": 52
+      "2026-10": 60
     },
     "basis": "Übermittelt am (created_time)",
     "ohne_ursprung": "Website",
@@ -112,30 +112,30 @@
   "datenschuld": {
     "nennungen": {
       "ohne_status": 1,
-      "ohne_produkt_relation": 58,
-      "freigabe_offen": 75,
-      "ohne_einsatzbereich": 70
+      "ohne_produkt_relation": 66,
+      "freigabe_offen": 83,
+      "ohne_einsatzbereich": 72
     },
-    "nennungen_gesamt": 204,
-    "eintraege_betroffen": 103,
-    "eintraege_gesamt": 221
+    "nennungen_gesamt": 222,
+    "eintraege_betroffen": 111,
+    "eintraege_gesamt": 229
   },
   "einsatzbereiche": {
-    "nennungen_gesamt": 178,
-    "eintraege_mit_nennung": 151,
-    "eintraege_gesamt": 221,
+    "nennungen_gesamt": 184,
+    "eintraege_mit_nennung": 157,
+    "eintraege_gesamt": 229,
     "items": [
       {
         "name": "Verkauf & Ausstellung",
-        "nennungen": 46
+        "nennungen": 47
       },
       {
         "name": "Infrastruktur",
-        "nennungen": 42
+        "nennungen": 44
       },
       {
         "name": "Industrie & Produktion",
-        "nennungen": 29
+        "nennungen": 31
       },
       {
         "name": "Lager & Logistik",
@@ -151,7 +151,7 @@
       },
       {
         "name": "Parkdeck & Tiefgarage",
-        "nennungen": 8
+        "nennungen": 9
       }
     ]
   }

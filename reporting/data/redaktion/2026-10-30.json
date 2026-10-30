@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-10-30",
-    "generated_at": "2026-10-30T06:44:35.998245+00:00",
+    "generated_at": "2026-10-30T15:43:58.253499+00:00",
     "source": "Notion, KORODUR Redaktionsplan (Aggregat)",
     "version": "2.0",
     "unbekannte_status": {},
@@ -12,8 +12,8 @@
     "ideen": 46,
     "in_arbeit": 0,
     "in_pruefung": 0,
-    "freigegeben": 13,
-    "eingeplant": 0,
+    "freigegeben": 10,
+    "eingeplant": 3,
     "gepostet": 50,
     "abgelehnt": 5,
     "unbekannt": 0
@@ -23,21 +23,21 @@
     "offen": 43,
     "Info erforderlich": 2,
     "In Prüfung": 0,
-    "freigegeben": 13,
-    "eingeplant & getimed": 6,
-    "gepostet": 44,
+    "freigegeben": 10,
+    "eingeplant & getimed": 8,
+    "gepostet": 45,
     "abgelehnt": 5
   },
   "gepostet_ohne_datum": 0,
   "gepostet_mit_datum": 50,
-  "eingeplant_erschienen": 6,
+  "eingeplant_erschienen": 5,
   "puffer": 13,
   "puffer_ziel": [
     10,
     15
   ],
-  "vorlauf_wochen": 0.0,
-  "geplant_zukunft": 0,
+  "vorlauf_wochen": 1.4,
+  "geplant_zukunft": 3,
   "frequenz": {
     "posted_28_tage": 8,
     "posted_28_tage_linkedin": 8,
@@ -80,7 +80,7 @@
   },
   "kampagnen_verfuegbar": false,
   "kampagnen": [],
-  "freigegeben_mit_termin": 9,
+  "freigegeben_mit_termin": 6,
   "freigegeben_ohne_termin": 4,
   "offen_ohne_person": 0,
   "in_pruefung_seit": null,
@@ -177,7 +177,7 @@
     },
     {
       "datum": "2026-10-29",
-      "status": "eingeplant & getimed",
+      "status": "gepostet",
       "kanal": [
         "Linkedin",
         "Fb/Insta"
@@ -189,7 +189,7 @@
     },
     {
       "datum": "2026-11-02",
-      "status": "freigegeben",
+      "status": "eingeplant & getimed",
       "kanal": [
         "Linkedin",
         "Fb/Insta"
@@ -201,7 +201,7 @@
     },
     {
       "datum": "2026-11-05",
-      "status": "freigegeben",
+      "status": "eingeplant & getimed",
       "kanal": [
         "Linkedin",
         "Fb/Insta"
@@ -213,7 +213,7 @@
     },
     {
       "datum": "2026-11-09",
-      "status": "freigegeben",
+      "status": "eingeplant & getimed",
       "kanal": [
         "Linkedin",
         "Fb/Insta"
@@ -236,6 +236,18 @@
       "hat_person": true
     },
     {
+      "datum": "2026-11-16",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Image"
+      ],
+      "hat_person": true
+    },
+    {
       "datum": "2026-11-18",
       "status": "offen",
       "kanal": [
@@ -249,18 +261,6 @@
     },
     {
       "datum": "2026-11-26",
-      "status": "freigegeben",
-      "kanal": [
-        "Linkedin",
-        "Fb/Insta"
-      ],
-      "thema": [
-        "Image"
-      ],
-      "hat_person": true
-    },
-    {
-      "datum": "2026-12-03",
       "status": "freigegeben",
       "kanal": [
         "Linkedin",

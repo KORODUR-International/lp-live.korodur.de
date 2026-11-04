@@ -3949,5 +3949,40 @@
       "adhoc": 76,
       "leer": 2
     }
+  },
+  {
+    "date": "2026-11-04",
+    "items": 1361,
+    "done": 926,
+    "in_progress": 33,
+    "open": 185,
+    "blocked": 26,
+    "on_hold": 14,
+    "spaeter": 101,
+    "discarded": 76,
+    "bereit": 7,
+    "by_owner": {
+      "Human": 136,
+      "Claude": 861,
+      "Either": 354,
+      "none": 10
+    },
+    "by_status": {
+      "Backlog": 169,
+      "Bereit": 7,
+      "Beansprucht": 9,
+      "In Progress": 14,
+      "In Review": 19,
+      "Blocked": 26,
+      "On Hold": 14,
+      "Später": 101,
+      "Done": 1002,
+      "none": 0
+    },
+    "meilenstein": {
+      "auf": 281,
+      "adhoc": 76,
+      "leer": 2
+    }
   }
 ]

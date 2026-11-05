@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-11-04",
+  "letzteFeststellung": "2026-11-05",
   "stand": {
     "con-workflow": {
       "lane": "Social Media & Redaktion",
@@ -7380,6 +7380,15 @@
       "feld": null,
       "alt": "2026-10-15",
       "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-11-05",
+      "id": "ref-10-de",
+      "lane": "Referenzen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-10-15",
+      "neu": "2026-10-15"
     }
   ],
   "kennzahlen": {
@@ -7618,7 +7627,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 20,
+      "stehengelassen": 21,
       "ueberfaelligSeit": "2026-10-15"
     },
     "ki-vision": {

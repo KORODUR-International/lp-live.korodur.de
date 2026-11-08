@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-11-07",
+  "letzteFeststellung": "2026-11-08",
   "stand": {
     "con-workflow": {
       "lane": "Social Media & Redaktion",
@@ -7434,6 +7434,42 @@
       "feld": null,
       "alt": "2026-11-06",
       "neu": "2026-11-06"
+    },
+    {
+      "festgestellt": "2026-11-08",
+      "id": "org-daten-notion",
+      "lane": "Organisation & Enablement",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-11-06",
+      "neu": "2026-11-06"
+    },
+    {
+      "festgestellt": "2026-11-08",
+      "id": "ref-10-de",
+      "lane": "Referenzen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-10-15",
+      "neu": "2026-10-15"
+    },
+    {
+      "festgestellt": "2026-11-08",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-11-06",
+      "neu": "2026-11-06"
+    },
+    {
+      "festgestellt": "2026-11-08",
+      "id": "web-hosting",
+      "lane": "Website",
+      "typ": "stehengelassen",
+      "feld": null,
+      "alt": "2026-11-06",
+      "neu": "2026-11-06"
     }
   ],
   "kennzahlen": {
@@ -7490,7 +7526,7 @@
       "verschiebungen": 3,
       "tageGesamt": 83,
       "letzteVerschiebung": "2026-10-28",
-      "stehengelassen": 30,
+      "stehengelassen": 31,
       "ueberfaelligSeit": "2026-08-24"
     },
     "web-pdp": {
@@ -7651,14 +7687,14 @@
       "verschiebungen": 1,
       "tageGesamt": -24,
       "letzteVerschiebung": "2026-10-03",
-      "stehengelassen": 1,
+      "stehengelassen": 2,
       "ueberfaelligSeit": "2026-11-06"
     },
     "web-hosting": {
       "verschiebungen": 3,
       "tageGesamt": -9,
       "letzteVerschiebung": "2026-10-29",
-      "stehengelassen": 1,
+      "stehengelassen": 2,
       "ueberfaelligSeit": "2026-11-06"
     },
     "pdb-dop-13813-de": {
@@ -7672,7 +7708,7 @@
       "verschiebungen": 0,
       "tageGesamt": 0,
       "letzteVerschiebung": null,
-      "stehengelassen": 23,
+      "stehengelassen": 24,
       "ueberfaelligSeit": "2026-10-15"
     },
     "ki-vision": {

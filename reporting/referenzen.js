@@ -40,7 +40,10 @@ const REF_BUCKETS = [
     statuses: ['V1 Entwurf fertig', 'V1 Feedback da', 'V2 Entwurf fertig', 'V2 Feedback da'] },
   // Seit 29.10.2026 (rr#359): inhaltlich fertig und anonymisiert nutzbar, die
   // Freigabe liegt beim Vertrieb. Nicht freigegeben, keine finale Version DE.
-  { key: 'fertig_freigabe_offen', label: 'fertig, Freigabe offen', color: 'var(--warning)',
+  // Die Kachel zählt den reinen Status einschließlich Website-Altbestand und
+  // heißt deshalb anders als „wartet auf Freigabe“ auf der Zielkarte, die
+  // ohne Altbestand zählt (rr#374, Korrekturrunde 08.11.2026).
+  { key: 'fertig_freigabe_offen', label: 'Freigabe steht aus, mit Altbestand', color: 'var(--warning)',
     statuses: ['Fertig - Freigabe steht aus'] },
   { key: 'freigegeben', label: 'Freigegeben', color: '#7dd0a5',
     statuses: ['Freigabe da (fachlich & rechtlich)', 'finale Version DE'] },
@@ -180,19 +183,12 @@ function renderZiel(d) {
     {datum: '2026-12-15', zielwert: 20, messgroesse: 'de_intern'},
     {datum: '2026-12-15', zielwert: 10, messgroesse: 'en_fr_live'},
   ];
-  // Zwei Kacheln statt drei (#319): die internen Freigaben laufen gegen das
-  // größte DE-Ziel, die kleineren Termine stehen als Etappenmarke im Balken.
+  // Zwei Kacheln statt drei (#319): das DE-Ziel läuft gegen den größten
+  // Termin, die kleineren Termine stehen als Etappenmarke im Balken.
   const intern = termine.filter(m => m.messgroesse !== 'en_fr_live')
     .sort((a, b) => a.zielwert - b.zielwert || a.datum.localeCompare(b.datum));
   const live = termine.filter(m => m.messgroesse === 'en_fr_live');
   const datum = iso => iso.split('-').reverse().join('.');
-  // Fertig mit offener Freigabe zählt nicht aufs Ziel (rr#359), steht aber
-  // als eigene Zahl daneben: fertig ist nicht gleich freigegeben.
-  const offen = z?.fertig_freigabe_offen;
-  const daneben = Number.isFinite(offen?.wert)
-    ? `<div class="rf-goal__daneben"><b>${offen.wert}</b> fertig, Freigabe offen
-        <small>daneben, nicht im Ziel: anonymisiert nutzbar, keine finale Version DE</small></div>`
-    : '';
   const karte = (label, measure, ziel, etappen, zusatz = '') => {
     const known = measure?.messbar === true && Number.isFinite(measure.wert);
     const marken = etappen.map(e => `<span class="rf-goal__etappe" style="left:${refPct(e.zielwert, ziel.zielwert)}%"
@@ -210,13 +206,129 @@ function renderZiel(d) {
     </div>`;
   };
   const cards = [
-    intern.length ? karte('DE intern freigegeben', z?.de_intern, intern[intern.length - 1], intern.slice(0, -1), daneben) : '',
+    intern.length ? renderStufenKarte(z, intern, datum, d._meta?.snapshot_date || '') : '',
     ...live.map(m => karte('Übersetzt und live, EN und FR', z?.en_fr_live, m, [])),
   ].join('');
   return `<div class="band fade-in"><h3>Referenzziele 2026</h3><span>Alle Prioritäten, einschließlich leerer Priorität</span></div>
     <div class="rf-goals rf-goals--${Math.max(1, (intern.length ? 1 : 0) + live.length)} fade-in">${cards}</div>
     ${!z ? '<p class="rf-nv">Die neue Zählbasis ist in diesem Snapshot noch nicht erhoben. Historische Werte werden nicht umgerechnet.</p>' : ''}
     ${!z && d.ziel ? `<details><summary>Historische Zählung: nur Prio A, Stand ${refEsc(d._meta?.snapshot_date || '')}</summary>${renderHistorischesZiel(d)}</details>` : ''}`;
+}
+
+// ─── Jahresziel in zwei Stufen (rr#374) ──────────────
+// Beschluss Steffi, 08.11.2026: Stufe 1 = inhaltlich fertig und intern
+// fachlich freigegeben (ab "Fertig - Freigabe steht aus"), Stufe 2 =
+// Freigabesituation geklärt, öffentlich oder nur intern (ab "Freigabe da
+// (fachlich & rechtlich)"). Beide gegen dieselben Termine; erledigt heißt
+// erst Stufe 2. Stufe 1 umfasst Stufe 2; die Menge dazwischen wartet auf
+// Freigabe.
+//
+// Ein Snapshot vor der Umstellung führt keine Stufenfelder. Dann leitet die
+// Seite sie aus vorhandenen Feldern ab (Stufe 2 = de_intern, Stufe 1 =
+// de_intern plus fertig_freigabe_offen) und sagt das dazu; fehlt
+// fertig_freigabe_offen, bleibt Stufe 1 "n. v." statt 0.
+function refStufen(z) {
+  const zahl = m => (m?.messbar === true && Number.isFinite(m.wert)) ? m.wert : null;
+  if (z?.stufe_1 && z?.stufe_2) {
+    return { s1: zahl(z.stufe_1), s2: zahl(z.stufe_2), abgeleitet: false };
+  }
+  const de = zahl(z?.de_intern);
+  const offen = Number.isFinite(z?.fertig_freigabe_offen?.wert) ? z.fertig_freigabe_offen.wert : null;
+  return {
+    s1: de !== null && offen !== null ? de + offen : null,
+    s2: de,
+    abgeleitet: de !== null,
+  };
+}
+
+// Wert einer Stufe in einer Zeile der Zeitreihe (rr#374, Korrekturrunde).
+// Stufe 2 ist dieselbe Regel wie ziel_de_intern, das die Zeitreihe seit dem
+// 23.09.2026 auf der Zählbasis alle_prioritaeten führt. Stufe 1 gibt es nur,
+// wo die Zeitreihe ziel_stufe_1 führt (gemessen oder aus dem Tages-Snapshot
+// abgeleitet, ab 29.10.2026). Kein Wert wird geschätzt oder aus der anderen
+// Stufe übernommen; die Bestandsspalte fertig_freigabe_offen der Zeitreihe
+// enthält Altbestand und ist deshalb keine Quelle für Stufe 1.
+function refStufeAm(r, stufe) {
+  if (!r || r.ziel_basis !== 'alle_prioritaeten') return null;
+  if (stufe === 1) return Number.isFinite(r.ziel_stufe_1) ? r.ziel_stufe_1 : null;
+  if (Number.isFinite(r.ziel_stufe_2)) return r.ziel_stufe_2;
+  return Number.isFinite(r.ziel_de_intern) ? r.ziel_de_intern : null;
+}
+
+// Verlauf einer Stufe: alle messbaren Tage der Zeitreihe und der Tag des
+// angezeigten Snapshots mit dem Wert der Karte; er ersetzt eine Zeile
+// desselben Datums.
+function refStufenVerlauf(series, stufe, heute, aktuell) {
+  const punkte = (series || [])
+    .filter(r => r.date && r.date !== heute)
+    .map(r => ({ date: r.date, wert: refStufeAm(r, stufe) }))
+    .filter(p => p.wert !== null);
+  if (heute && aktuell !== null) punkte.push({ date: heute, wert: aktuell });
+  return punkte.sort((a, b) => a.date.localeCompare(b.date));
+}
+
+// Eine Termin-Zeile je Stufe. Ein Termin, der noch nicht verstrichen ist,
+// zeigt den heutigen Stand ("erreicht" oder "fehlen N"). Ein verstrichener
+// Termin zeigt den Wert am Stichtag aus der Zeitreihe und das Datum, seit dem
+// das Ziel ununterbrochen erreicht ist. Reicht diese Strecke bis zum ersten
+// messbaren Tag zurück, ist der Tag des Erreichens nicht bekannt, und die
+// Zeile sagt "spätestens". Fehlt der Wert am Stichtag, steht genau das da.
+function refTerminZeile(t, heute, verlauf, aktuell, datum) {
+  const tag = refEsc(datum(t.datum));
+  if (!heute || heute <= t.datum) {
+    const termin = `${t.zielwert} zum ${tag}`;
+    if (aktuell === null) return `${termin}: ${refFehlt(null)}`;
+    return aktuell >= t.zielwert ? `${termin} erreicht` : `${termin}: fehlen ${t.zielwert - aktuell}`;
+  }
+  const amStichtag = verlauf.find(p => p.date === t.datum);
+  const ab = verlauf.length && verlauf[0].date > t.datum
+    ? ` (Zeitreihe dieser Stufe erst ab ${refEsc(datum(verlauf[0].date))})` : '';
+  const kopf = amStichtag
+    ? `${tag}: ${amStichtag.wert} von ${t.zielwert}`
+    : `${tag}: Wert am Stichtag nicht messbar${ab}`;
+  if (aktuell === null) return `${kopf}, heute ${refFehlt(null)}`;
+  if (aktuell < t.zielwert) return `${kopf}, noch nicht erreicht, fehlen ${t.zielwert - aktuell}`;
+  let i = verlauf.length - 1;
+  while (i > 0 && verlauf[i - 1].wert >= t.zielwert) i -= 1;
+  return `${kopf}, erreicht ${i === 0 ? 'spätestens ' : ''}am ${refEsc(datum(verlauf[i].date))}`;
+}
+
+function renderStufenKarte(z, intern, datum, heute = '') {
+  const ziel = intern[intern.length - 1];
+  const etappen = intern.slice(0, -1);
+  const { s1, s2, abgeleitet } = refStufen(z);
+  const wartet = s1 !== null && s2 !== null ? Math.max(0, s1 - s2) : null;
+  const stand = (wert, stufe) => {
+    const verlauf = refStufenVerlauf(refSeries, stufe, heute, wert);
+    return intern.map(t => refTerminZeile(t, heute, verlauf, wert, datum)).join('<br>');
+  };
+  const wert = (v, text) => `<div style="flex:1 1 240px"><div class="rf-goal__value">${v === null ? 'n. v.' : v} <small>von ${ziel.zielwert}</small></div>
+      <div class="rf-goal__etappen">${text}</div></div>`;
+  const marken = etappen.map(e => `<span class="rf-goal__etappe" style="left:${refPct(e.zielwert, ziel.zielwert)}%"
+      title="${e.zielwert} bis ${refEsc(datum(e.datum))}"></span>`).join('');
+  const w2 = s2 === null ? 0 : Math.min(refPct(s2, ziel.zielwert), 100);
+  const wW = wartet === null ? 0 : Math.min(refPct(wartet, ziel.zielwert), 100 - w2);
+  const balken = s2 === null ? '<p class="rf-warn">Noch nicht messbar</p>'
+    : `<div class="rf-goal__bahn"><div class="rf-goal__track"><div class="rf-goal__seg" style="width:${w2}%;background:#7dd0a5"></div><div class="rf-goal__seg" style="width:${wW}%;background:var(--warning)"></div></div>${marken}</div>`;
+  const legende = `<div class="rf-goal__leg">
+      <span><i style="background:#7dd0a5"></i>Stufe 2, erledigt: ${refFehlt(s2)}</span>
+      <span><i style="background:var(--warning)"></i>wartet auf Freigabe: ${refFehlt(wartet)}</span>
+    </div>`;
+  const termine = `<div class="rf-goal__etappen">${etappen.map(e => `Etappe ${e.zielwert} bis ${refEsc(datum(e.datum))}`).join(' &middot; ')}${etappen.length ? ' &middot; ' : ''}Ziel ${ziel.zielwert} bis ${refEsc(datum(ziel.datum))}, gleiche Termine für beide Stufen</div>`;
+  return `<div class="rf-goal">
+      <div class="rf-goal__label">DE-Referenzen in zwei Stufen</div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 32px">
+        ${wert(s1, `<b>Stufe 1:</b> inhaltlich fertig und intern fachlich freigegeben<br>${stand(s1, 1)}`)}
+        ${wert(s2, `<b>Stufe 2:</b> Freigabesituation geklärt, öffentlich oder nur intern<br>${stand(s2, 2)}`)}
+      </div>
+      ${balken}
+      ${legende}
+      ${termine}
+      <div class="rf-goal__note"><b>Erledigt heißt erst Stufe 2.</b> Stufe 1 zeigt den Fortschritt der Arbeit,
+        die Menge dazwischen wartet nur noch auf die Klärung der Freigabe.${abgeleitet
+          ? ' Dieser Snapshot führt die Stufen noch nicht selbst; sie sind aus der bisherigen Zielzahl und der Menge, die auf Freigabe wartet, abgeleitet.'
+          : ''}</div>
+    </div>`;
 }
 
 function renderHistorischesZiel(d) {
@@ -434,8 +546,10 @@ function refAbdeckungVerdict(kern) {
 // ─── Band 7: Zulauf gegen Netto-Durchsatz je Monat ───
 // Durchsatz brutto braeuchte Datumsfelder je Stufe, die es bewusst nicht gibt
 // (rv#35). Gemessen wird deshalb netto aus der Tageszeitreihe: Stand der
-// intern freigegebenen DE-Master am Monatsende minus Stand am Vormonatsende
-// (#321). Nur Snapshots auf der Zaehlbasis alle_prioritaeten zaehlen; die
+// DE-Master in Stufe 2 (ziel_de_intern) am Monatsende minus Stand am Vormonatsende
+// (#321). Bei Stufe 2 bleibt er bis zur Wiedervorlage im Monatsblock Anfang
+// Dezember 2026 (Beschluss 08.11.2026, rr#374). Nur Snapshots auf der
+// Zaehlbasis alle_prioritaeten zaehlen; die
 // alte Prio-A-Zaehlung wird nicht angeschlossen. Fehlt das Vormonatsende,
 // ist der Monat ein Teilmonat ab dem ersten Snapshot und traegt dieses Datum.
 function refNettoDurchsatz(series) {
@@ -509,7 +623,7 @@ function renderZulauf(d) {
       </p>
       <div class="month-chart">${zulauf}</div>
       <p class="chart-note rf-note-top">
-        <b>Netto-Durchsatz:</b> Ver&auml;nderung der intern freigegebenen DE-Master vom Vormonatsende
+        <b>Netto-Durchsatz:</b> Ver&auml;nderung der DE-Master in Stufe 2 (Freigabesituation gekl&auml;rt) vom Vormonatsende
         zum Monatsende, aus den t&auml;glichen Snapshots. Netto hei&szlig;t: eine R&uuml;ckstufung z&auml;hlt
         dagegen. Gemessen seit Einf&uuml;hrung der Z&auml;hlbasis &uuml;ber alle Priorit&auml;ten am 23.09.2026;
         davor steht ${refFehlt(null)}, nicht 0.${letzter ? ` Letzter Snapshot: ${kurz(letzter)}` : ''}

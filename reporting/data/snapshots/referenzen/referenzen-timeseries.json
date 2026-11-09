@@ -1318,7 +1318,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 4,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 103
+    "datenschuld_eintraege": 103,
+    "ziel_stufe_1": 8,
+    "ziel_stufe_2": 4,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-10-30",
@@ -1334,7 +1337,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 4,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 111
+    "datenschuld_eintraege": 111,
+    "ziel_stufe_1": 8,
+    "ziel_stufe_2": 4,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-10-31",
@@ -1350,7 +1356,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 4,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 111
+    "datenschuld_eintraege": 111,
+    "ziel_stufe_1": 8,
+    "ziel_stufe_2": 4,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-11-01",
@@ -1366,7 +1375,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 4,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 111
+    "datenschuld_eintraege": 111,
+    "ziel_stufe_1": 8,
+    "ziel_stufe_2": 4,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-11-02",
@@ -1382,7 +1394,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 4,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 111
+    "datenschuld_eintraege": 111,
+    "ziel_stufe_1": 8,
+    "ziel_stufe_2": 4,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-11-03",
@@ -1398,7 +1413,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 4,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 111
+    "datenschuld_eintraege": 111,
+    "ziel_stufe_1": 8,
+    "ziel_stufe_2": 4,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-11-04",
@@ -1414,7 +1432,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 5,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 111
+    "datenschuld_eintraege": 111,
+    "ziel_stufe_1": 13,
+    "ziel_stufe_2": 5,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-11-05",
@@ -1430,7 +1451,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 8,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 108
+    "datenschuld_eintraege": 108,
+    "ziel_stufe_1": 13,
+    "ziel_stufe_2": 8,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-11-06",
@@ -1446,7 +1470,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 8,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 108
+    "datenschuld_eintraege": 108,
+    "ziel_stufe_1": 13,
+    "ziel_stufe_2": 8,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-11-07",
@@ -1462,7 +1489,10 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 12,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 110
+    "datenschuld_eintraege": 110,
+    "ziel_stufe_1": 14,
+    "ziel_stufe_2": 12,
+    "ziel_stufen_quelle": "abgeleitet"
   },
   {
     "date": "2026-11-08",
@@ -1478,6 +1508,29 @@
     "ziel_basis": "alle_prioritaeten",
     "ziel_de_intern": 12,
     "ziel_en_fr_live": null,
-    "datenschuld_eintraege": 110
+    "datenschuld_eintraege": 110,
+    "ziel_stufe_1": 14,
+    "ziel_stufe_2": 12,
+    "ziel_stufen_quelle": "abgeleitet"
+  },
+  {
+    "date": "2026-11-09",
+    "gesamt": 232,
+    "offen": 79,
+    "in_arbeit": 8,
+    "in_abnahme": 2,
+    "fertig_freigabe_offen": 2,
+    "freigegeben": 12,
+    "veroeffentlicht": 129,
+    "ohne_status": 0,
+    "unbekannt": 0,
+    "ziel_basis": "alle_prioritaeten",
+    "ziel_de_intern": 12,
+    "ziel_en_fr_live": null,
+    "ziel_stufe_1": 14,
+    "ziel_stufe_2": 12,
+    "ziel_stufen_quelle": "gemessen",
+    "datenschuld_eintraege": 110,
+    "ziel_stufen_umstellung": true
   }
 ]

@@ -1532,5 +1532,24 @@
     "ziel_stufen_quelle": "gemessen",
     "datenschuld_eintraege": 110,
     "ziel_stufen_umstellung": true
+  },
+  {
+    "date": "2026-11-10",
+    "gesamt": 230,
+    "offen": 73,
+    "in_arbeit": 12,
+    "in_abnahme": 2,
+    "fertig_freigabe_offen": 2,
+    "freigegeben": 12,
+    "veroeffentlicht": 129,
+    "ohne_status": 0,
+    "unbekannt": 0,
+    "ziel_basis": "alle_prioritaeten",
+    "ziel_de_intern": 12,
+    "ziel_en_fr_live": null,
+    "ziel_stufe_1": 14,
+    "ziel_stufe_2": 12,
+    "ziel_stufen_quelle": "gemessen",
+    "datenschuld_eintraege": 106
   }
 ]

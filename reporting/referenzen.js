@@ -118,8 +118,7 @@ function refFormatDate(key) {
 }
 
 // Ein fehlender Wert ist keine Null. "n. v." sagt "nicht gemessen", eine 0
-// wuerde eine Messung behaupten, die es nicht gibt (Durchsatz vor der
-// Zaehlbasis alle_prioritaeten).
+// wuerde eine Messung behaupten, die es nicht gibt.
 function refFehlt(v) {
   return (v === null || v === undefined || Number.isNaN(v)) ? 'n.&nbsp;v.' : v;
 }
@@ -543,48 +542,20 @@ function refAbdeckungVerdict(kern) {
     ${fmt(schnittOben)} Nennungen, die ${unten.length} mit der niedrigsten auf ${fmt(schnittUnten)}.`;
 }
 
-// ─── Band 7: Zulauf gegen Netto-Durchsatz je Monat ───
-// Durchsatz brutto braeuchte Datumsfelder je Stufe, die es bewusst nicht gibt
-// (rv#35). Gemessen wird deshalb netto aus der Tageszeitreihe: Stand der
-// DE-Master in Stufe 2 (ziel_de_intern) am Monatsende minus Stand am Vormonatsende
-// (#321). Bei Stufe 2 bleibt er bis zur Wiedervorlage im Monatsblock Anfang
-// Dezember 2026 (Beschluss 08.11.2026, rr#374). Nur Snapshots auf der
-// Zaehlbasis alle_prioritaeten zaehlen; die
-// alte Prio-A-Zaehlung wird nicht angeschlossen. Fehlt das Vormonatsende,
-// ist der Monat ein Teilmonat ab dem ersten Snapshot und traegt dieses Datum.
-function refNettoDurchsatz(series) {
-  const monate = new Map();
-  for (const r of series || []) {
-    if (r.ziel_basis !== 'alle_prioritaeten' || !Number.isFinite(r.ziel_de_intern)) continue;
-    const k = r.date.slice(0, 7);
-    const m = monate.get(k);
-    if (m) m.letzter = r; else monate.set(k, { erster: r, letzter: r });
-  }
-  const vormonat = k => {
-    const [y, m] = k.split('-').map(Number);
-    return m === 1 ? `${y - 1}-12` : `${y}-${String(m - 1).padStart(2, '0')}`;
-  };
-  const out = {};
-  for (const [k, m] of monate) {
-    const vor = monate.get(vormonat(k));
-    const start = vor ? vor.letzter : m.erster;
-    out[k] = {
-      wert: m.letzter.ziel_de_intern - start.ziel_de_intern,
-      ab: vor ? null : m.erster.date,
-      bis: m.letzter.date,
-    };
-  }
-  return out;
-}
+// ─── Band 7: Zulauf je Monat ─────────────────────────
+// Der Netto-Durchsatz (rr#321) stand bis zum 09.11.2026 daneben und ist mit
+// rr#381 entfallen (Beschluss Steffi, 09.11.2026). Snapshots und Zeitreihe
+// laufen weiter; Definition und Rückweg-Commit stehen in
+// docs/kennzahlen-referenzen.md Abschnitt 3.
 
 // Eine Monatssaeule. Nicht gemessen ist nicht null: ohne Wert kein Balken,
 // sondern "n. v." (Entscheidung 03.08.2026).
-function refMonatsSaeule(k, wert, { farbe, max, vorzeichen = false, zusatz = '' }) {
+function refMonatsSaeule(k, wert, { farbe, max }) {
   const [y, m] = k.split('-');
   const gemessen = Number.isFinite(wert);
-  const text = !gemessen ? refFehlt(null) : (vorzeichen && wert > 0 ? `+${wert}` : wert);
+  const text = gemessen ? wert : refFehlt(null);
   const balken = gemessen
-    ? `<div class="month-chart__bar" style="height:${Math.max(refPct(Math.abs(wert), max), 2)}%;background:${wert < 0 ? 'var(--danger)' : farbe}"></div>`
+    ? `<div class="month-chart__bar" style="height:${Math.max(refPct(wert, max), 2)}%;background:${farbe}"></div>`
     : '';
   return `
     <div class="month-chart__col" title="${refEsc(k)}: ${gemessen ? wert : 'nicht gemessen'}">
@@ -592,29 +563,21 @@ function refMonatsSaeule(k, wert, { farbe, max, vorzeichen = false, zusatz = '' 
         <div class="month-chart__value">${text}</div>
         ${balken}
       </div>
-      <div class="month-chart__label">${REF_MONTHS_KURZ[parseInt(m, 10) - 1]}<br><small>${zusatz || y}</small></div>
+      <div class="month-chart__label">${REF_MONTHS_KURZ[parseInt(m, 10) - 1]}<br><small>${y}</small></div>
     </div>`;
 }
 
 function renderZulauf(d) {
   const zl = d.zulauf || {};
   const je = zl.je_monat || {};
-  const netto = refNettoDurchsatz(refSeries);
-  const keys = [...new Set([...Object.keys(je), ...Object.keys(netto)])].sort();
+  const keys = Object.keys(je).sort();
   if (!keys.length) return '';
 
-  const kurz = iso => { const m = /^\d{4}-(\d{2})-(\d{2})$/.exec(iso || ''); return m ? `${m[2]}.${m[1]}.` : ''; };
   const maxZ = Math.max(1, ...keys.map(k => je[k] || 0));
   const zulauf = keys.map(k => refMonatsSaeule(k, je[k], { farbe: 'var(--secondary)', max: maxZ })).join('');
-  const maxN = Math.max(1, ...Object.values(netto).map(n => Math.abs(n.wert)));
-  const durchsatz = keys.map(k => refMonatsSaeule(k, netto[k]?.wert, {
-    farbe: 'var(--success)', max: maxN, vorzeichen: true,
-    zusatz: netto[k]?.ab ? `ab ${kurz(netto[k].ab)}` : '',
-  })).join('');
-  const letzter = Object.values(netto).map(n => n.bis).sort().pop();
 
   return `
-    <div class="band fade-in"><h3>Zulauf gegen Durchsatz</h3><span>je Monat, Website-Import herausgerechnet</span></div>
+    <div class="band fade-in"><h3>Zulauf je Monat</h3><span>Website-Import herausgerechnet</span></div>
     <div class="status-section fade-in">
       <p class="chart-note">
         <b>Zulauf:</b> neue Referenzen im Verzeichnis, Basis ${refEsc(zl.basis || '')}.
@@ -622,15 +585,6 @@ function renderZulauf(d) {
         herausgerechnet, sie kamen alle in einem einzigen Import und w&uuml;rden jede Monatskurve platt walzen.` : ''}
       </p>
       <div class="month-chart">${zulauf}</div>
-      <p class="chart-note rf-note-top">
-        <b>Netto-Durchsatz:</b> Ver&auml;nderung der DE-Master in Stufe 2 (Freigabesituation gekl&auml;rt) vom Vormonatsende
-        zum Monatsende, aus den t&auml;glichen Snapshots. Netto hei&szlig;t: eine R&uuml;ckstufung z&auml;hlt
-        dagegen. Gemessen seit Einf&uuml;hrung der Z&auml;hlbasis &uuml;ber alle Priorit&auml;ten am 23.09.2026;
-        davor steht ${refFehlt(null)}, nicht 0.${letzter ? ` Letzter Snapshot: ${kurz(letzter)}` : ''}
-      </p>
-      <div class="month-chart">${durchsatz}</div>
-      ${Object.keys(netto).length ? '' : `<p class="rf-nv"><b>Netto-Durchsatz: ${refFehlt(null)}</b>
-        Die Zeitreihe enth&auml;lt noch keinen Snapshot auf der Z&auml;hlbasis &uuml;ber alle Priorit&auml;ten.</p>`}
     </div>
   `;
 }

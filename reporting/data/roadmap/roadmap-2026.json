@@ -1,7 +1,7 @@
 {
-  "version": "1.39",
-  "stand": "2026-10-30",
-  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen. Version 1.22 (30.09.2026): Struktur und Design der Leistungserklärungen EN 13813 am 28.09. erreicht. Version 1.23 (30.09.2026): Wahl und Einrichtung des Website-Hosters als eigener Meilenstein bis 15.11. Version 1.24 (02.10.2026): Daten- und Notion-Clean-up für die Arbeitswoche 02. bis 06.11. geplant; Abschlussziel 06.11. statt 30.11. Website-Host einschließlich Repository-Anbindung und Dokumentablage ebenfalls bis 06.11. statt 15.11.; Website-Go-live bleibt getrennt. Version 1.25 (10.10.2026): Area-Namen Marketing, Technik, Vertrieb, Export und AI & Enablement, wie im Board-Feld Bereich (korodur-operating-model#173); IDs unverändert. Version 1.26 (10.10.2026): Das Jahresziel Referenzen gehört zur Area Marketing, wie in Notion. Version 1.28 (13.10.2026): Die Lane Übersetzungen nennt keine italienischen Datenblätter mehr; im Umlauf sind nur Deutsch, Englisch und Französisch, weitere Sprachen warten auf die Digitalen Produktinformationen. Version 1.29 (20.10.2026): EmpCo (Umweltaussagen nach UWG) und der Kommunikationsaufbau für den Vertrieb stehen in der Lane Marke & Kommunikationsmittel; Print und Messe aus 2027 vorgezogen, Reihenfolge Website und Druckdokumente, dann Messe, dann Präsentationsvorlage; Corporate Design als Grundlage vorgezogen. Lane Referenzen zu den Marketing-Lanes gestellt. Leistungserklärungen EN 13813 auf Deutsch am 14.10. erreicht. Termine bis Mitte November nach dem Board-Abgleich verschoben (korodur-review-reporting#348). Version 1.31 (28.10.2026): Abgleich mit dem Board; erreicht sind die EmpCo-Sofortmaßnahmen, der EmpCo-feste Druck von Industrieboden- und Rapid-Set-Broschüre, die Entscheidungsvorlage EmpCo für die Geschäftsführung, die Leistungserklärungen EN 13813 auf Englisch und Französisch sowie Use Case 1 und das Setup am GF-Laptop. Neu sind der nächtliche Abruf der lokalen KI, die Übersetzung der EmpCo-festen Broschüren, die ersten Kampagnen 2027 und die Kampagnen-Auswertung 2026; der Messe-Pilot ist erreicht, die Abstimmung des Kampagnenprozesses steht bis 15.11. Version 1.32 (28.10.2026): Die eigenen Kampagnenunterlagen (vp-definition) stehen auf 06.11.; Steffi prüft die Zwischenstände vorher selbst, die Teamabstimmung bleibt am 15.11. Version 1.33 (29.10.2026): DPI-Planung nach Review: deutsche DoPs mit validierten Daten bis 10.11., EN/FR generiert bis 15.11., alle vier Sprachfassungen geprüft, unterzeichnet und intern bereitgestellt bis 30.11. Portfolio-Klarheit über VAP und nachzuziehende Produkte bis 15.11. TDS-Struktur bis 10.12.; deutsches TDS-Paket bis Jahresende, Ziel 20.12., mit HE 3 oder dem bestätigten VAP-Umfang. Abnahme und EN/FR im Januar 2027, Sprachprüfung gegebenenfalls bis Ende Februar. Version 1.39 (30.10.2026): Widersprüchliche Erreicht-Aussagen zum Feedback- und Lernprozess im Ausbaupaket berichtigt. Aktuelle Status, Zieltermine und verbleibender Prüfbedarf unverändert.",
+  "version": "1.45",
+  "stand": "2026-11-09",
+  "hinweis": "Kernschwerpunkte-Roadmap 2026 mit Ausblick 2027. Version 1.13 (22.09.2026): externe Fixpunkte entfallen, Bereiche neu sortiert, AI & Infrastruktur heißt AI & Enablement, CRM-Datenfundament to be defined mit Strategie-Entscheidung Mitte Dezember. Version 1.15 (23.09.2026): Marketing-Abstimmung eingepflegt, neue Lane Marke & Kommunikationsmittel, die Redaktions-Lane heißt Social Media & Redaktion, erste Meilensteine 2027 unter Termin folgt. Nicht terminierte Meilensteine stehen mit ihrer Abhängigkeit unter Termin folgt. Version 1.18 (25.09.2026): Erreicht-Aussagen für zehn interne DE-Referenzfreigaben und den etablierten Feedback- und Lernprozess zurückgenommen; Zählung beziehungsweise gelebte Praxis noch zu klären. Version 1.19 (28.09.2026): Leistungserklärungen mit Terminen, EN 13813 auf Deutsch bis 15.10., Englisch und Französisch vier Wochen später; EN 1504-3 und EN 998-1 zwei Wochen nach EN 13813. Meilensteine mit Quartalsfenster stehen als hohler Marker mittig im Fenster auf dem Zeitstrahl. Version 1.20 (28.09.2026): Übersetzungen als Folgemeilensteine der Fachthemen, Englisch und Französisch vier Wochen nach der deutschen Abnahme; Leistungserklärungen EN/FR aus DPI hierher verschoben, Website-Einzelpakete zu einem Meilenstein zusammengefasst. Version 1.21 (28.09.2026): Website-Abstimmung eingepflegt, Designvorschau und Lösungsfinder-Ablauf erreicht; Ergebnisseite und Produktauswahl als erreichte Teile aus Empfehlungen und Portfolio herausgelöst, Empfehlungen sowie Systeme und Value Added Products bleiben bis 31.10. offen. Version 1.22 (30.09.2026): Struktur und Design der Leistungserklärungen EN 13813 am 28.09. erreicht. Version 1.23 (30.09.2026): Wahl und Einrichtung des Website-Hosters als eigener Meilenstein bis 15.11. Version 1.24 (02.10.2026): Daten- und Notion-Clean-up für die Arbeitswoche 02. bis 06.11. geplant; Abschlussziel 06.11. statt 30.11. Website-Host einschließlich Repository-Anbindung und Dokumentablage ebenfalls bis 06.11. statt 15.11.; Website-Go-live bleibt getrennt. Version 1.25 (10.10.2026): Area-Namen Marketing, Technik, Vertrieb, Export und AI & Enablement, wie im Board-Feld Bereich (korodur-operating-model#173); IDs unverändert. Version 1.26 (10.10.2026): Das Jahresziel Referenzen gehört zur Area Marketing, wie in Notion. Version 1.28 (13.10.2026): Die Lane Übersetzungen nennt keine italienischen Datenblätter mehr; im Umlauf sind nur Deutsch, Englisch und Französisch, weitere Sprachen warten auf die Digitalen Produktinformationen. Version 1.29 (20.10.2026): EmpCo (Umweltaussagen nach UWG) und der Kommunikationsaufbau für den Vertrieb stehen in der Lane Marke & Kommunikationsmittel; Print und Messe aus 2027 vorgezogen, Reihenfolge Website und Druckdokumente, dann Messe, dann Präsentationsvorlage; Corporate Design als Grundlage vorgezogen. Lane Referenzen zu den Marketing-Lanes gestellt. Leistungserklärungen EN 13813 auf Deutsch am 14.10. erreicht. Termine bis Mitte November nach dem Board-Abgleich verschoben (korodur-review-reporting#348). Version 1.31 (28.10.2026): Abgleich mit dem Board; erreicht sind die EmpCo-Sofortmaßnahmen, der EmpCo-feste Druck von Industrieboden- und Rapid-Set-Broschüre, die Entscheidungsvorlage EmpCo für die Geschäftsführung, die Leistungserklärungen EN 13813 auf Englisch und Französisch sowie Use Case 1 und das Setup am GF-Laptop. Neu sind der nächtliche Abruf der lokalen KI, die Übersetzung der EmpCo-festen Broschüren, die ersten Kampagnen 2027 und die Kampagnen-Auswertung 2026; der Messe-Pilot ist erreicht, die Abstimmung des Kampagnenprozesses steht bis 15.11. Version 1.32 (28.10.2026): Die eigenen Kampagnenunterlagen (vp-definition) stehen auf 06.11.; die Projektleitung prüft die Zwischenstände vorher selbst, die Teamabstimmung bleibt am 15.11. Version 1.33 (29.10.2026): DPI-Planung nach Review: deutsche DoPs mit validierten Daten bis 10.11., EN/FR generiert bis 15.11., alle vier Sprachfassungen geprüft, unterzeichnet und intern bereitgestellt bis 30.11. Portfolio-Klarheit über VAP und nachzuziehende Produkte bis 15.11. TDS-Struktur bis 10.12.; deutsches TDS-Paket bis Jahresende, Ziel 20.12., mit HE 3 oder dem bestätigten VAP-Umfang. Abnahme und EN/FR im Januar 2027, Sprachprüfung gegebenenfalls bis Ende Februar. Version 1.39 (30.10.2026): Widersprüchliche Erreicht-Aussagen zum Feedback- und Lernprozess im Ausbaupaket berichtigt. Aktuelle Status, Zieltermine und verbleibender Prüfbedarf unverändert. Version 1.40 (08.11.2026): Abgleich vor der GBL am 10.11. (korodur-review-reporting#377). Erreicht sind der nächtliche Abruf der lokalen KI im Dauerbetrieb und zehn DE-Referenzen in Stufe 2. Neu und erreicht: Leistungserklärungen EN 13813 auf Polnisch (28.10.) und der Produktordner 2026 DE und EN, seit 04.11. digital abrufbar. Das eigene Kampagnen-Playbook steht auf 13.11., der Website-Hoster auf 20.11. Die Projektpause vom 29.10. ist aufgehoben; die Jahresziele bleiben, ein ehrlicher Abgleich folgt in zwei Wochen. Version 1.41 (09.11.2026): Die deutschen Mengenziele der Referenzen zählen in zwei Stufen, inhaltlich fertig und intern fachlich freigegeben sowie zusätzlich Freigabesituation geklärt; erreicht ist ein Ziel erst mit der zweiten Stufe. Titel und Texte der Referenz-Meilensteine und der davon abgeleiteten Übersetzungs-Meilensteine sind darauf umgestellt; Termine und Status bleiben unverändert. Version 1.42 (09.11.2026): Die Roadmap nennt Rollen statt Personennamen und Ziele statt Ist-Ständen; Details und Abhängigkeiten der Meilensteine sowie ältere Versionssätze sind darauf bereinigt, Titel, Termine und Status bleiben unverändert. Version 1.43 (09.11.2026): Deutsche DoPs nach EN 1504-3 und EN 998-1 (pdb-dop-weitere-de) auf 20.11. gesetzt, wie in den versendeten GBL-Notes; dritte Verschiebung, Abstimmung mit der Technik nach Regel 6 am 13.11. (korodur-review-reporting#377). Version 1.44 (09.11.2026): Termine der Leistungserklärungen nach der Abstimmung mit der Technik am 09.11. (Regel 6): EN 13813 in vier Sprachen unterzeichnet bis 27.11. (neuer Meilenstein), EN 998-1 und EN 1504-3 auf Deutsch, Englisch und Französisch bis 01.12., Bereitstellung bis 11.12., Polnisch für EN 998-1 und EN 1504-3 bis Ende Dezember; neuer Entscheidungseintrag zu den Produktnamen der Eco-Design-Produkte bis 23.11. (korodur-review-reporting#390).",
   "zeitraum": {
     "start": "2026-07-01",
     "ende": "2026-12-31",
@@ -297,13 +297,13 @@
         },
         {
           "id": "web-hosting",
-          "datum": "2026-11-06",
+          "datum": "2026-11-20",
           "titel": "Hoster für die neue Website gewählt und eingerichtet",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": true,
           "abhaengigkeit": "Hoster-Wahl und Zugänge, Betriebsverantwortung, abgestimmte Dokumentstruktur; Datei-Upload-Endpunkt als Anforderung und Datenschutzerklärung passend zu Anbieter und Diensten",
-          "details": "Hoster und Umgebung für die gesamte Website, Repository-Anbindung sowie dauerhafte Dokumentablage mit geregelten Zugriffen und Pflege einrichten und prüfen. Repository-Umzug bleibt Teil der Vorbereitung. Der CMS-Inhaltspilot begrenzt die Infrastruktur nicht auf einen Bereich. Einrichtung bis 06.11.2026 am 29.10. erneut bestätigt; der abweichende, bisher abzustimmende Roadmap-Wert 15.12. ist damit aufgehoben. Klärungsbedarf bleibt für Anbieter, Zugänge, Betriebsverantwortung und Dokumentstruktur. Website-Go-live und Redirect-Umschaltung folgen separat."
+          "details": "Hoster und Umgebung für die gesamte Website, Repository-Anbindung sowie dauerhafte Dokumentablage mit geregelten Zugriffen und Pflege einrichten und prüfen. Repository-Umzug bleibt Teil der Vorbereitung. Der CMS-Inhaltspilot begrenzt die Infrastruktur nicht auf einen Bereich. Einrichtung bis 06.11.2026 am 29.10. erneut bestätigt; der abweichende, bisher abzustimmende Roadmap-Wert 15.12. ist damit aufgehoben. Klärungsbedarf bleibt für Anbieter, Zugänge, Betriebsverantwortung und Dokumentstruktur. Website-Go-live und Redirect-Umschaltung folgen separat. Am 08.11.2026 auf 20.11. gesetzt: Der Anbieter ist nicht entschieden (Abwägung Cloudflare und Hetzner mit der IT, Gespräch 09.11.2026; Website#777). Neu als Anforderung: Login für das Work Cockpit."
         },
         {
           "id": "web-pdp",
@@ -444,9 +444,20 @@
           "zielzeitraum": "Q1 2027, je Paket nach Rücklauf",
           "details": "Rückmeldungen sind bewertet, Änderungen eingearbeitet und nötige fachliche Nachprüfungen abgeschlossen. Finale Teamabstimmung und Freigabe des konkreten deutschen Stands sind dokumentiert. Erst danach startet EN/FR für das jeweilige Paket; früher fertige Pakete warten nicht auf die gesamte Website.",
           "abhaengigkeit": "Vertriebs- und Fachrücklauf je Paket, Einarbeitung und finale DE-Freigabe"
+        },
+        {
+          "id": "web-dokumentengenerator-konzept",
+          "datum": "2026-12-11",
+          "titel": "Konzept Dokumenten-Generator als Download-Center liegt als Entscheidungsvorlage vor",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": true,
+          "confidence": "mittel",
+          "abhaengigkeit": "Ist-Bestand der Dokumentablage in der Produktdatenbank; Abstimmung im Architektur-Termin mit der Technik im Januar 2027",
+          "details": "Der digitale Produktordner wird zum Dokumenten-Generator: Produkte, Dokumentarten und Sprache wählen, ein PDF erhalten. Das Konzept legt ein Dokumentregister, ein Auswahlmodul und zwei Auslieferungen fest, zuerst ein Staging des Produktordners, später das Download-Center der neuen Website (web-dpi-uebernahme). Interne Dokumente und Login erst auf dem Website-Host. Entwurf bis 11.12., Abstimmung im Januar (korodur-produktkatalog#39, #40)."
         }
       ],
-      "planungAktualisiertAm": "2026-10-29"
+      "planungAktualisiertAm": "2026-11-09"
     },
     {
       "id": "marke",
@@ -525,6 +536,16 @@
           "erreichtAm": "2026-10-27"
         },
         {
+          "id": "mk-empco-produktnamen",
+          "datum": "2026-11-23",
+          "titel": "EmpCo: Produktnamen der Eco-Design-Produkte entschieden",
+          "typ": "entscheidung",
+          "status": "offen",
+          "klaerung": true,
+          "abhaengigkeit": "Entscheidung der Geschäftsführung auf Grundlage der Vorlage (mk-empco-gf)",
+          "details": "Die Geschäftsführung entscheidet, wie die Eco-Design-Produkte mit „green“ im Namen künftig heißen. Vorlage und Entwürfe liegen vor (mk-empco-gf). Die noch ausstehende EPD reicht die Technik erst nach der Entscheidung ein, weil der Produktname im verifizierten Dokument feststeht. Wird ein Produkt mit bestehender EPD umbenannt, klärt die Technik, ob eine Herstellererklärung genügt oder eine neue EPD nötig ist."
+        },
+        {
           "id": "mk-empco-belege",
           "datum": null,
           "titel": "EmpCo: belegbare Umweltaussagen mit der Technik geklärt",
@@ -556,6 +577,17 @@
           "confidence": "mittel",
           "details": "Die zwei Schnellläufer aus der Printsachen-Inventur sind überarbeitet, gestaltet und in Druck gegeben. An ihnen entsteht das Bausteinsystem, nicht vor ihnen. Erreicht am 26.10.2026: Industrieboden-Broschüre EmpCo-konform gestaltet und gedruckt, auf Englisch ebenfalls; Rapid-Set-Broschüre am 26.10. in Druck gegeben. Weitere Sprachen stehen in der Lane Übersetzungen (ueb-print-empco).",
           "erreichtAm": "2026-10-26"
+        },
+        {
+          "id": "mk-produktordner-2026",
+          "datum": "2026-11-04",
+          "titel": "Produktordner 2026 DE und EN neu montiert und digital abrufbar",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "klaerung": false,
+          "confidence": "hoch",
+          "details": "Produktordner 2026 auf Deutsch und Englisch aus den bereinigten Einzelblättern neu montiert, Sichtprüfung über 134 Dokumente eingearbeitet, Probedruck bestanden; seit 04.11.2026 als digitaler Produktordner mit Download abrufbar (korodur-redaktion#107, #120; korodur-produktkatalog#1, #2). Die Rundmail an kaufende Händler läuft getrennt.",
+          "erreichtAm": "2026-11-04"
         },
         {
           "id": "mk-steckbrief",
@@ -658,16 +690,27 @@
           "abhaengigkeit": "Corporate Design V1 (mk-cd-v1); Aufbau als Datenbank in Notion",
           "zielzeitraum": "2027",
           "details": "Alle Druck-, PDF- und Marketingmaterialien sind aufgelistet und verwaltet, jeweils mit aktuellem Stand. Wer etwas zu einem Thema sucht, sieht, welche Materialien es gibt."
+        },
+        {
+          "id": "mk-produktordner-export",
+          "datum": "2026-11-27",
+          "titel": "Digitaler Produktordner nach Export-Feedback unter produktordner.korodur.de, mit Broschüren und Flyern",
+          "typ": "meilenstein",
+          "status": "offen",
+          "klaerung": false,
+          "confidence": "mittel",
+          "abhaengigkeit": "Subdomain-Eintrag durch die IT; Broschüren und Flyer nur nach EmpCo-Freigabe",
+          "details": "Der digitale Produktordner übernimmt das Feedback des Exports vom 09.11.2026: verständliche Titel ohne Kapitelnummern, Kernprodukte oben, Dokumentart je Blatt sichtbar, zusätzlich die fertigen Broschüren und Flyer, Pflasterbau-Vierseiter digital entfernt. Erreichbar unter produktordner.korodur.de. Der gedruckte Ordner bleibt unverändert (korodur-produktkatalog#31, #32, #33, #38)."
         }
       ],
-      "planungAktualisiertAm": "2026-10-29"
+      "planungAktualisiertAm": "2026-11-09"
     },
     {
       "id": "referenzen",
       "area": "marketing",
       "name": "Referenzen",
-      "hinweis": "Interne DE-Freigabe und nachgelagerte Übersetzung/Veröffentlichung sind getrennt. One-Pager und Social werden bereits genutzt; Website-Darstellung und Datenstruktur werden darauf abgestimmt. Alle Prioritäten einschließlich leerer Werte zählen zu den Mengenzielen.",
-      "erreichtHeisst": "Interner Referenzprozess und anschließender Übersetzungs-/Publikationsprozess abgestimmt; Datenstruktur und Website-Anbindung umgesetzt. Zehn DE-One-Pager bis 15.10., zwanzig insgesamt bis 15.12. intern freigegeben; zehn davon bis 15.12. in EN und FR auf bestehendem WordPress live. Automotive und Rapid Set auf Deutsch final freigegeben, Highlight fertig und Presseverteilung erfolgt; Referenzen-Strategie 2027 steht.",
+      "hinweis": "Die deutschen Mengenziele zählen in zwei Stufen: Stufe 1 heißt inhaltlich fertig und intern fachlich freigegeben, Stufe 2 heißt zusätzlich, dass geklärt ist, ob die Referenz öffentlich oder nur intern genutzt werden darf. Erreicht ist ein Mengenziel erst mit Stufe 2; Stufe 1 zeigt, wie weit die Arbeit ist. Dubletten und der von der alten Website übernommene Bestand zählen in keiner Stufe. Übersetzung und Veröffentlichung folgen getrennt danach. One-Pager und Social werden bereits genutzt; Website-Darstellung und Datenstruktur werden darauf abgestimmt. Alle Prioritäten einschließlich leerer Werte zählen zu den Mengenzielen.",
+      "erreichtHeisst": "Interner Referenzprozess und anschließender Übersetzungs-/Publikationsprozess abgestimmt; Datenstruktur und Website-Anbindung umgesetzt. Zehn DE-One-Pager bis 15.10., zwanzig insgesamt bis 15.12. in Stufe 2, also inhaltlich fertig, intern fachlich freigegeben und mit geklärter Freigabesituation; zehn davon bis 15.12. in EN und FR auf bestehendem WordPress live. Automotive und Rapid Set auf Deutsch final freigegeben, Highlight fertig und Presseverteilung erfolgt; Referenzen-Strategie 2027 steht.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -751,11 +794,12 @@
         {
           "id": "ref-10-de",
           "datum": "2026-10-15",
-          "titel": "Zehn DE-One-Pager intern freigegeben",
+          "titel": "Zehn DE-One-Pager: Stufe 1 inhaltlich fertig, Stufe 2 Freigabe geklärt",
           "typ": "meilenstein",
-          "status": "offen",
-          "klaerung": true,
-          "details": "Zehn eindeutige DE-One-Pager müssen intern durch Technik und einbringenden Vertrieb freigegeben sein. Die bisherige Zählung und die daraus abgeleitete Zielerreichung wurden am 25.09.2026 als falsch zurückgenommen. Der belastbare Ist-Stand ist offen und muss je Referenz anhand der tatsächlichen Freigaben neu geprüft werden; Finaldateien oder Veröffentlichungsstatus allein belegen das Ziel nicht. Dubletten zählen nicht. Zieltermin bleibt 15.10.2026."
+          "status": "erreicht",
+          "klaerung": false,
+          "details": "Zehn eindeutige DE-One-Pager, gezählt in zwei Stufen gegen dasselbe Ziel: Stufe 1 heißt inhaltlich fertig und intern fachlich freigegeben, Stufe 2 heißt zusätzlich, dass geklärt ist, ob die Referenz öffentlich oder nur intern genutzt werden darf. Erreicht ist der Meilenstein erst mit Stufe 2; Stufe 1 zeigt den Fortschritt der Arbeit. Grundlage ist der gepflegte Bearbeitungsstand im Referenzverzeichnis; Entwürfe und Dubletten zählen in keiner Stufe. Zieltermin bleibt 15.10.2026; Stufe 2 hat das Ziel am 07.11.2026 erreicht. Die Stände je Stufe zeigt der Reiter Referenzen.",
+          "erreichtAm": "2026-11-07"
         },
         {
           "id": "ref-publikationsprozess",
@@ -799,22 +843,22 @@
         {
           "id": "ref-ausbau",
           "datum": "2026-12-15",
-          "titel": "Zwanzig DE-One-Pager insgesamt intern freigegeben",
+          "titel": "Zwanzig DE-One-Pager insgesamt: Stufe 1 inhaltlich fertig, Stufe 2 Freigabe geklärt",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": false,
           "confidence": "mittel",
-          "details": "Zwanzig eindeutige Referenzen sind durch Technik und einbringenden Vertrieb intern freigegeben, über alle Prioritäten einschließlich leerer Werte. Entwürfe zählen nicht. Zehn davon müssen zusätzlich in EN und FR live sein; nicht alle zwanzig müssen drei Ausgabeformate erreichen."
+          "details": "Zwanzig eindeutige DE-Referenzen insgesamt, über alle Prioritäten einschließlich leerer Werte, gezählt in denselben zwei Stufen: Stufe 1 heißt inhaltlich fertig und intern fachlich freigegeben, Stufe 2 heißt zusätzlich, dass geklärt ist, ob die Referenz öffentlich oder nur intern genutzt werden darf. Erreicht ist der Meilenstein erst mit Stufe 2; Stufe 1 zeigt den Fortschritt der Arbeit. Entwürfe und Dubletten zählen nicht. Zehn davon müssen zusätzlich in EN und FR live sein; nicht alle zwanzig müssen drei Ausgabeformate erreichen."
         },
         {
           "id": "ref-10-live",
           "datum": "2026-12-15",
-          "titel": "Zehn intern freigegebene Referenzen in EN und FR live",
+          "titel": "Zehn Referenzen der Stufe 2 in EN und FR live",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
-          "details": "Zehn eindeutige Referenzen aus den zwanzig internen DE-Freigaben sind in BEIDEN Sprachen übersetzt und auf bestehendem WordPress live. Geprüfte URLs je Referenz und Sprache belegen das Ergebnis. Relaunch der neuen Website ist keine Voraussetzung.",
-          "abhaengigkeit": "Interne DE-Freigabe, Übersetzungen, erforderliche Publikationsfreigaben und Live-Nachweise"
+          "details": "Zehn eindeutige Referenzen aus den zwanzig DE-Referenzen der Stufe 2 (Freigabesituation geklärt) sind in BEIDEN Sprachen übersetzt und auf bestehendem WordPress live. Geprüfte URLs je Referenz und Sprache belegen das Ergebnis. Relaunch der neuen Website ist keine Voraussetzung.",
+          "abhaengigkeit": "DE-Referenz in Stufe 2, Übersetzungen, erforderliche Publikationsfreigaben und Live-Nachweise"
         },
         {
           "id": "ref-automotive-de",
@@ -868,7 +912,7 @@
         }
       ],
       "kurz": "DE-Freigaben, EN/FR-Veröffentlichungen, Broschüren und Highlight mit getrennten Abschlusskriterien.",
-      "planungAktualisiertAm": null
+      "planungAktualisiertAm": "2026-11-08"
     },
     {
       "id": "pdb",
@@ -1033,14 +1077,15 @@
         },
         {
           "id": "pdb-dop-weitere-de",
-          "datum": "2026-11-10",
+          "datum": "2026-12-01",
           "titel": "DoPs auf Deutsch generiert, verwendete DB1-Daten validiert",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": true,
           "confidence": "niedrig",
-          "abhaengigkeit": "Bestätigter Produkt-/Normumfang und Freigabelisten für die tatsächlich verwendeten Daten; funktionsfähige Vorlagen",
-          "details": "Für den bestätigten Umfang nach EN 13813, EN 998-1 und EN 1504-3 sind die verwendeten Daten über Freigabelisten fachlich bestätigt und in DB1 nachvollziehbar übernommen. Die deutschen Erklärungen sind daraus per Template generiert. Bereits erreichte EN-13813-Ergebnisse bleiben erhalten. Offene Produkt-/Normfragen sind benannt; die spätere Portfolio-Priorisierung ersetzt keine Datenfreigabe. EN/FR-Generierung folgt bis 15.11., Unterschrift und interne Bereitstellung bis 30.11."
+          "abhaengigkeit": "Bestätigter Produkt-/Normumfang und Freigabelisten für die tatsächlich verwendeten Daten; Antworten der Technik zu EN 998-1 und EN 1504-3; funktionsfähige Vorlagen",
+          "details": "Für den bestätigten Umfang nach EN 13813, EN 998-1 und EN 1504-3 sind die verwendeten Daten über Freigabelisten fachlich bestätigt und in DB1 nachvollziehbar übernommen. Die deutschen Erklärungen sind daraus per Template generiert. Bereits erreichte EN-13813-Ergebnisse bleiben erhalten. Offene Produkt-/Normfragen sind benannt; die spätere Portfolio-Priorisierung ersetzt keine Datenfreigabe. Die Technik klärt die offenen Datenfragen zu EN 998-1 und EN 1504-3 in der Woche ab 16.11.2026. Deutsch, Englisch und Französisch bis 01.12., Unterschrift und interne Bereitstellung bis 11.12. (pdb-dop-bereitstellung). Termin am 09.11.2026 nach Regel 6 mit der Technik abgestimmt.",
+          "issue": "KORODUR-International/korodur-review-reporting#390"
         },
         {
           "id": "pdb-vap",
@@ -1138,13 +1183,23 @@
           "abhaengigkeit": "Abstimmung der Pflichtangaben und Struktur mit der Technik"
         },
         {
-          "id": "pdb-dop-bereitstellung",
-          "datum": "2026-11-30",
-          "titel": "DoPs für drei Normen in vier Sprachen unterzeichnet und intern bereitgestellt",
-          "typ": "schluessel",
+          "id": "pdb-dop-13813-bereit",
+          "datum": "2026-11-27",
+          "titel": "Leistungserklärungen EN 13813 in vier Sprachen unterzeichnet und bereitgestellt",
+          "typ": "meilenstein",
           "status": "offen",
+          "klaerung": false,
+          "abhaengigkeit": "Unterschrift der technischen Leitung; abgestimmte Ablage für Vertrieb und Marketing",
+          "details": "Die Leistungserklärungen nach EN 13813 liegen auf Deutsch, Englisch, Französisch und Polnisch unterzeichnet vor und sind einmal an dem Ort abgelegt, den Vertrieb und Marketing nutzen. Die Unterschrift beginnt am 10.11.2026. Termin in der Abstimmung mit der Technik am 09.11.2026 vereinbart."
+        },
+        {
+          "id": "pdb-dop-bereitstellung",
+          "datum": "2026-12-11",
+          "titel": "DoPs unterzeichnet und intern bereitgestellt: EN 13813 in vier Sprachen, EN 998-1 und EN 1504-3 auf Deutsch, Englisch und Französisch",
+          "typ": "schluessel",
+          "status": "verschoben",
           "klaerung": true,
-          "details": "Die DoPs des bestätigten Produktumfangs für EN 13813, EN 998-1 und EN 1504-3 liegen in DE, EN, FR und PL geprüft und unterzeichnet vor und sind für Vertrieb und Marketing zugänglich. DE ist bis 10.11., EN/FR bis 15.11. generiert; PL und abschließende Übersetzungsprüfung folgen bis Ende November. Ob zusätzliche DoPs erforderlich sind, ist geklärt. Website-Übernahme bleibt Q1 2027.",
+          "details": "Die DoPs des bestätigten Produktumfangs liegen geprüft und unterzeichnet vor und sind für Vertrieb und Marketing zugänglich: EN 13813 auf Deutsch, Englisch, Französisch und Polnisch (bis 27.11., pdb-dop-13813-bereit), EN 998-1 und EN 1504-3 auf Deutsch, Englisch und Französisch; Polnisch für diese beiden Normen folgt bis Ende Dezember 2026. Ob zusätzliche DoPs erforderlich sind, ist geklärt. Website-Übernahme bleibt Q1 2027. Termin am 09.11.2026 mit der Technik abgestimmt.",
           "abhaengigkeit": "Bestätigter Produkt-/Normumfang, Entscheidung über weitere DoPs, validierte Daten, unterschriebene Sprachfassungen und vereinbarter Ablageweg"
         },
         {
@@ -1159,7 +1214,7 @@
           "abhaengigkeit": "Deutsches TDS-Paket erstellt; fachliche Prüfung und Korrekturrunden vereinbart"
         }
       ],
-      "planungAktualisiertAm": "2026-10-29"
+      "planungAktualisiertAm": "2026-11-09"
     },
     {
       "id": "orga",
@@ -1316,7 +1371,7 @@
           "klaerung": true,
           "confidence": "hoch",
           "issue": "KORODUR-International/korodur-lokale-ki#40",
-          "details": "Erreicht am 20.10.2026: Use Case 1 nach der Abstimmung mit Nikola Heckmann neu aufgestellt und aufgesetzt (korodur-lokale-ki#40, #45). Die Termine 31.08. und der Ersatz wurden vorher zweimal gerissen; nach Regel 6 kam die Abstimmung statt eines dritten Datums.",
+          "details": "Erreicht am 20.10.2026: Use Case 1 nach einer Abstimmung neu aufgestellt und aufgesetzt (korodur-lokale-ki#40, #45). Die Termine 31.08. und der Ersatz wurden vorher zweimal gerissen; nach Regel 6 kam die Abstimmung statt eines dritten Datums.",
           "abhaengigkeit": "Ungelöstes Schnittstellenproblem im Power-BI-Datenweg; von hier aus ist nichts zu tun, bis es gelöst ist",
           "erreichtAm": "2026-10-20"
         },
@@ -1338,11 +1393,12 @@
           "datum": "2026-11-10",
           "titel": "Nächtlicher Abruf läuft im Dauerbetrieb",
           "typ": "meilenstein",
-          "status": "offen",
+          "status": "erreicht",
           "klaerung": false,
           "confidence": "mittel",
           "issue": "KORODUR-International/korodur-lokale-ki#55",
-          "details": "Der nächtliche, kontinuierliche Abruf am GF-Laptop läuft ohne Eingriff von Hand; belegt durch fünf aufeinanderfolgende erfolgreiche Nachtläufe. Der Job selbst steht seit 22.10.2026 (korodur-lokale-ki#51, #53)."
+          "details": "Der nächtliche, kontinuierliche Abruf am GF-Laptop läuft ohne Eingriff von Hand; belegt durch fünf aufeinanderfolgende erfolgreiche Nachtläufe. Der Job selbst steht seit 22.10.2026 (korodur-lokale-ki#51, #53). Erreicht, festgestellt am 08.11.2026: Der Abruf läuft seit der Einrichtung am GF-Laptop am 30.10.2026 stabil (Bestätigung der Projektleitung, korodur-review-reporting#377).",
+          "erreichtAm": "2026-11-08"
         },
         {
           "id": "ki-vision",
@@ -1384,13 +1440,13 @@
       "meilensteine": [
         {
           "id": "vp-definition",
-          "datum": "2026-11-06",
+          "datum": "2026-11-13",
           "titel": "Eigenes Kampagnen-Playbook, Präsentation und Konzeptpapier final",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": false,
           "confidence": "mittel",
-          "details": "Bestätigter Neuzuschnitt vom 25.09.: Bis 30.09. liegen die eigenen Unterlagen final vor; vorhandene Fassungen werden zuerst geprüft. Außerdem wird die Teamrunde organisiert. Gemeinsame Prozessentscheidungen und Gegenzeichnung gehören zum separaten Folgemeilenstein. Die früheren Verschiebungen und der frühere breitere Umfang bleiben in der Historie sichtbar. Am 28.10.2026 auf 06.11. gesetzt: Zwischenstände liegen vor, Steffi prüft sie in der Woche ab 02.11. selbst, bevor sie mit dem Team abstimmt (vp-workshop, 15.11.).",
+          "details": "Bestätigter Neuzuschnitt vom 25.09.: Bis 30.09. liegen die eigenen Unterlagen final vor; vorhandene Fassungen werden zuerst geprüft. Außerdem wird die Teamrunde organisiert. Gemeinsame Prozessentscheidungen und Gegenzeichnung gehören zum separaten Folgemeilenstein. Die früheren Verschiebungen und der frühere breitere Umfang bleiben in der Historie sichtbar. Am 28.10.2026 auf 06.11. gesetzt: Zwischenstände liegen vor, die Projektleitung prüft sie in der Woche ab 02.11. selbst, bevor sie mit dem Team abgestimmt werden (vp-workshop, 15.11.). Am 08.11.2026 auf 13.11. gesetzt (Zusage der Projektleitung: bis Ende der nächsten Woche); die Teamabstimmung vp-workshop bleibt am 15.11.",
           "issue": "KORODUR-International/korodur-crm#40"
         },
         {
@@ -1401,7 +1457,7 @@
           "status": "verschoben",
           "klaerung": true,
           "confidence": "mittel",
-          "details": "Gemeinsame Abstimmung des Kampagnenprozesses mit Hubert Scheinost, Manuela und Jenny; fertig, wenn alle drei abgestimmt sind. Am 28.10.2026 auf 15.11. gesetzt, die Abstimmung war nach hinten gerückt.",
+          "details": "Gemeinsame Abstimmung des Kampagnenprozesses mit der Vertriebsleitung und zwei weiteren Beteiligten; fertig, wenn alle drei abgestimmt sind. Am 28.10.2026 auf 15.11. gesetzt, die Abstimmung war nach hinten gerückt.",
           "abhaengigkeit": "Finale eigene Unterlagen, Termin und Rückmeldungen des Teams beziehungsweise der Vertriebsleitung",
           "issue": "KORODUR-International/korodur-crm#40"
         },
@@ -1413,7 +1469,7 @@
           "status": "erreicht",
           "klaerung": true,
           "confidence": "hoch",
-          "details": "Messe-Pilot ArchiPoint vom 22. bis 24.09.2026 durchlaufen, von Steffi am 28.10.2026 als erledigt bestätigt. erreichtAm ist das Messeende; ein Tag für den Abschluss der Nachverfolgung ist nicht belegt.",
+          "details": "Messe-Pilot ArchiPoint vom 22. bis 24.09.2026 durchlaufen, von der Projektleitung am 28.10.2026 als erledigt bestätigt. erreichtAm ist das Messeende; ein Tag für den Abschluss der Nachverfolgung ist nicht belegt.",
           "abhaengigkeit": "Belegter Pilotstand und Nachverfolgung durch den Vertrieb",
           "issue": "KORODUR-International/korodur-crm#40",
           "erreichtAm": "2026-09-24"
@@ -1456,7 +1512,7 @@
           "klaerung": false,
           "confidence": "mittel",
           "details": "Klar ist, welche Kampagnen 2027 als erste laufen: Zielgruppe, Anlass und Zeitraum je Kampagne. Baut auf dem abgestimmten Kampagnenprozess auf (vp-workshop).",
-          "abhaengigkeit": "Kampagnenprozess mit Hubert Scheinost, Manuela und Jenny abgestimmt"
+          "abhaengigkeit": "Kampagnenprozess mit der Vertriebsleitung und den zwei weiteren Beteiligten abgestimmt"
         },
         {
           "id": "vp-auswertung-2026",
@@ -1583,7 +1639,7 @@
       "name": "Übersetzungen",
       "hinweis": "2026 ist Trainingsjahr. Für die DoPs gilt: EN/FR bis 15.11. generiert, das gesamte DE/EN/FR/PL-Paket bis 30.11. geprüft, unterzeichnet und bereitgestellt. Für das erste TDS-Paket folgen EN/FR im Januar 2027, muttersprachliche Prüfung gegebenenfalls bis Ende Februar; PL nach Exportentscheidung. Die übrigen bestätigten Sprachpakete und Referenztermine bleiben bestehen.",
       "kurz": "DoPs EN/FR bis 15.11. generiert, vier Sprachen bis 30.11. bereitgestellt; TDS EN/FR ab Januar 2027.",
-      "erreichtHeisst": "Die DoPs des bestätigten Umfangs sind bis 15.11. in EN/FR generiert und bis 30.11. in DE/EN/FR/PL geprüft, unterzeichnet und intern bereitgestellt. Für das erste deutsche TDS-Paket folgen EN/FR im Januar 2027 und die muttersprachliche Prüfung gegebenenfalls bis Ende Februar; PL wird mit Export geklärt. Zehn intern freigegebene Referenzen sind bis 15.12. auf Englisch und Französisch übersetzt und auf bestehendem WordPress live. Weitere Sprach- und Länderplanung bleibt gesondert.",
+      "erreichtHeisst": "Die DoPs des bestätigten Umfangs sind bis 15.11. in EN/FR generiert und bis 30.11. in DE/EN/FR/PL geprüft, unterzeichnet und intern bereitgestellt. Für das erste deutsche TDS-Paket folgen EN/FR im Januar 2027 und die muttersprachliche Prüfung gegebenenfalls bis Ende Februar; PL wird mit Export geklärt. Zehn Referenzen der Stufe 2 (inhaltlich fertig, Freigabesituation geklärt) sind bis 15.12. auf Englisch und Französisch übersetzt und auf bestehendem WordPress live. Weitere Sprach- und Länderplanung bleibt gesondert.",
       "balken": {
         "start": "2026-07-13",
         "ende": "2026-12-31"
@@ -1604,15 +1660,28 @@
           "erreichtAm": "2026-10-20"
         },
         {
+          "id": "pdb-dop-13813-pl",
+          "datum": "2026-10-28",
+          "titel": "Leistungserklärungen EN 13813 auf Polnisch",
+          "typ": "meilenstein",
+          "status": "erreicht",
+          "klaerung": false,
+          "confidence": "hoch",
+          "abhaengigkeit": "Deutsche Fassung EN 13813 generiert; muttersprachliche Prüfung",
+          "details": "38 Erklärungen auf Polnisch nach muttersprachlicher Prüfung des Musters generiert (korodur-digitale-produktinformationen#255, #265). Damit liegen die Leistungserklärungen EN 13813 in vier Sprachen vor; die Unterschrift der technischen Leitung läuft getrennt.",
+          "erreichtAm": "2026-10-28"
+        },
+        {
           "id": "pdb-dop-weitere-enfr",
-          "datum": "2026-11-15",
+          "datum": "2026-12-01",
           "titel": "DoPs auf Englisch und Französisch generiert",
           "typ": "meilenstein",
           "status": "verschoben",
           "klaerung": true,
           "confidence": "niedrig",
           "abhaengigkeit": "Deutsche Bezugsfassungen aus validierten Daten und EN-/FR-Vorlagen",
-          "details": "Für den bestätigten Drei-Normen-Umfang sind die EN-/FR-Fassungen aus den deutschen Bezugsfassungen generiert. Dies ist der Generierungsstand; abschließende Sprachprüfung, PL, Unterschrift und interne Bereitstellung folgen bis 30.11."
+          "details": "Für EN 998-1 und EN 1504-3 sind die EN-/FR-Fassungen aus den deutschen Bezugsfassungen generiert; Polnisch folgt für diese beiden Normen bis Ende Dezember 2026. Dies ist der Generierungsstand; abschließende Sprachprüfung, Unterschrift und interne Bereitstellung folgen bis 11.12. (pdb-dop-bereitstellung). Termin am 09.11.2026 nach Regel 6 mit der Technik abgestimmt.",
+          "issue": "KORODUR-International/korodur-review-reporting#390"
         },
         {
           "id": "ueb-website-enfr",
@@ -1871,22 +1940,22 @@
         {
           "id": "ueb-ref-10-en",
           "datum": "2026-12-15",
-          "titel": "Zehn intern freigegebene Referenzen auf Englisch übersetzt",
+          "titel": "Zehn Referenzen der Stufe 2 auf Englisch übersetzt",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
           "details": "Abgeleitetes Erstpaket der Referenzen: dieselben zehn DE-Master werden in Englisch fertiggestellt. Zusammen mit der jeweils anderen Sprache müssen sie bis 15.12. auf bestehendem WordPress live sein; der Live-Nachweis liegt beim Referenzziel. Weitere V1-Referenzseiten sind separat zu terminieren.",
-          "abhaengigkeit": "Interne DE-Freigabe je Referenz; Sprachprüfung und Publikationsworkflow"
+          "abhaengigkeit": "Stufe 2 je Referenz (Freigabesituation geklärt); Sprachprüfung und Publikationsworkflow"
         },
         {
           "id": "ueb-ref-10-fr",
           "datum": "2026-12-15",
-          "titel": "Zehn intern freigegebene Referenzen auf Französisch übersetzt",
+          "titel": "Zehn Referenzen der Stufe 2 auf Französisch übersetzt",
           "typ": "meilenstein",
           "status": "offen",
           "klaerung": true,
           "details": "Abgeleitetes Erstpaket der Referenzen: dieselben zehn DE-Master werden in Französisch fertiggestellt. Zusammen mit der jeweils anderen Sprache müssen sie bis 15.12. auf bestehendem WordPress live sein; der Live-Nachweis liegt beim Referenzziel. Weitere V1-Referenzseiten sind separat zu terminieren.",
-          "abhaengigkeit": "Interne DE-Freigabe je Referenz; Sprachprüfung und Publikationsworkflow"
+          "abhaengigkeit": "Stufe 2 je Referenz (Freigabesituation geklärt); Sprachprüfung und Publikationsworkflow"
         },
         {
           "id": "ueb-ref-automotive",
@@ -1949,7 +2018,7 @@
           "details": "Planungsziel Mitte Dezember: erster Entwurf aus Grundlagen, Ideation und Export-Kick-off; anschließend Abstimmung mit Exportleitung und Geschäftsführung."
         }
       ],
-      "planungAktualisiertAm": "2026-10-29"
+      "planungAktualisiertAm": "2026-11-09"
     }
   ],
   "geparkt": [

@@ -1301,15 +1301,15 @@
   },
   {
     "date": "2026-11-12",
-    "ideen": 32,
+    "ideen": 30,
     "in_arbeit": 0,
     "in_pruefung": 0,
-    "freigegeben": 21,
-    "eingeplant": 3,
+    "freigegeben": 17,
+    "eingeplant": 9,
     "gepostet": 53,
     "abgelehnt": 5,
     "unbekannt": 0,
-    "puffer": 24,
-    "vorlauf_wochen": 1.0
+    "puffer": 26,
+    "vorlauf_wochen": 4.0
   }
 ]

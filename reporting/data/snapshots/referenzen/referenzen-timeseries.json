@@ -1573,21 +1573,21 @@
   },
   {
     "date": "2026-11-12",
-    "gesamt": 230,
-    "offen": 73,
-    "in_arbeit": 12,
-    "in_abnahme": 2,
-    "fertig_freigabe_offen": 2,
-    "freigegeben": 12,
+    "gesamt": 231,
+    "offen": 74,
+    "in_arbeit": 9,
+    "in_abnahme": 5,
+    "fertig_freigabe_offen": 0,
+    "freigegeben": 14,
     "veroeffentlicht": 129,
     "ohne_status": 0,
     "unbekannt": 0,
     "ziel_basis": "alle_prioritaeten",
-    "ziel_de_intern": 12,
+    "ziel_de_intern": 14,
     "ziel_en_fr_live": null,
     "ziel_stufe_1": 14,
-    "ziel_stufe_2": 12,
+    "ziel_stufe_2": 14,
     "ziel_stufen_quelle": "gemessen",
-    "datenschuld_eintraege": 104
+    "datenschuld_eintraege": 99
   }
 ]

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "snapshot_date": "2026-11-12",
-    "generated_at": "2026-11-12T07:56:15.966414+00:00",
+    "generated_at": "2026-11-12T16:14:55.831792+00:00",
     "source": "Notion, KORODUR Redaktionsplan (Aggregat)",
     "version": "2.0",
     "unbekannte_status": {},
@@ -9,35 +9,35 @@
   },
   "gesamt": 114,
   "totals": {
-    "ideen": 32,
+    "ideen": 30,
     "in_arbeit": 0,
     "in_pruefung": 0,
-    "freigegeben": 21,
-    "eingeplant": 3,
+    "freigegeben": 17,
+    "eingeplant": 9,
     "gepostet": 53,
     "abgelehnt": 5,
     "unbekannt": 0
   },
   "by_status": {
     "Idee": 1,
-    "offen": 29,
-    "Info erforderlich": 2,
+    "offen": 25,
+    "Info erforderlich": 4,
     "In Prüfung": 0,
-    "freigegeben": 21,
-    "eingeplant & getimed": 8,
+    "freigegeben": 17,
+    "eingeplant & getimed": 14,
     "gepostet": 48,
     "abgelehnt": 5
   },
   "gepostet_ohne_datum": 0,
   "gepostet_mit_datum": 53,
   "eingeplant_erschienen": 5,
-  "puffer": 24,
+  "puffer": 26,
   "puffer_ziel": [
     10,
     15
   ],
-  "vorlauf_wochen": 1.0,
-  "geplant_zukunft": 3,
+  "vorlauf_wochen": 4.0,
+  "geplant_zukunft": 9,
   "frequenz": {
     "posted_28_tage": 8,
     "posted_28_tage_linkedin": 8,
@@ -80,9 +80,9 @@
   },
   "kampagnen_verfuegbar": false,
   "kampagnen": [],
-  "freigegeben_mit_termin": 2,
-  "freigegeben_ohne_termin": 19,
-  "offen_ohne_person": 1,
+  "freigegeben_mit_termin": 1,
+  "freigegeben_ohne_termin": 16,
+  "offen_ohne_person": 0,
   "in_pruefung_seit": null,
   "in_pruefung_hoechst_seit": 0,
   "slots": [
@@ -225,7 +225,7 @@
     },
     {
       "datum": "2026-11-23",
-      "status": "freigegeben",
+      "status": "eingeplant & getimed",
       "kanal": [
         "Linkedin",
         "Fb/Insta"
@@ -237,7 +237,7 @@
     },
     {
       "datum": "2026-11-26",
-      "status": "freigegeben",
+      "status": "eingeplant & getimed",
       "kanal": [
         "Linkedin",
         "Fb/Insta"
@@ -249,14 +249,32 @@
     },
     {
       "datum": "2026-11-30",
-      "status": "offen",
-      "kanal": [],
-      "thema": [],
-      "hat_person": false
+      "status": "eingeplant & getimed",
+      "kanal": [
+        "Fb/Insta",
+        "Linkedin"
+      ],
+      "thema": [
+        "Neuigkeiten",
+        "Image"
+      ],
+      "hat_person": true
     },
     {
-      "datum": "2026-12-11",
-      "status": "offen",
+      "datum": "2026-12-03",
+      "status": "eingeplant & getimed",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Know How"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-07",
+      "status": "eingeplant & getimed",
       "kanal": [
         "Linkedin",
         "Fb/Insta"
@@ -267,8 +285,32 @@
       "hat_person": true
     },
     {
-      "datum": "2026-12-24",
-      "status": "offen",
+      "datum": "2026-12-10",
+      "status": "eingeplant & getimed",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Referenz"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-17",
+      "status": "freigegeben",
+      "kanal": [
+        "Linkedin",
+        "Fb/Insta"
+      ],
+      "thema": [
+        "Know How"
+      ],
+      "hat_person": true
+    },
+    {
+      "datum": "2026-12-23",
+      "status": "Info erforderlich",
       "kanal": [
         "Linkedin",
         "Fb/Insta"
@@ -280,7 +322,7 @@
     },
     {
       "datum": "2027-01-01",
-      "status": "offen",
+      "status": "Info erforderlich",
       "kanal": [
         "Linkedin",
         "Fb/Insta"

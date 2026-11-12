@@ -226,7 +226,7 @@
     },
     "mk-cd-v1": {
       "lane": "Marke & Kommunikationsmittel",
-      "datum": "2026-11-15",
+      "datum": "2026-11-27",
       "status": "verschoben",
       "titel": "Corporate Design V1: gemeinsame Grundregeln festgelegt"
     },
@@ -257,7 +257,7 @@
     "mk-empco-produktnamen": {
       "lane": "Marke & Kommunikationsmittel",
       "datum": "2026-11-23",
-      "status": "offen",
+      "status": "erreicht",
       "titel": "EmpCo: Produktnamen der Eco-Design-Produkte entschieden"
     },
     "mk-empco-belege": {
@@ -556,8 +556,8 @@
     },
     "pdb-vap": {
       "lane": "Digitale Produktinformationen (DPI)",
-      "datum": "2026-11-15",
-      "status": "offen",
+      "datum": "2026-11-30",
+      "status": "verschoben",
       "titel": "Portfolio geklärt: VAP-Auswahl und Reihenfolge weiterer Produkte"
     },
     "pdb-tds-he3-vap": {
@@ -664,7 +664,7 @@
     },
     "org-daten-notion": {
       "lane": "Organisation & Enablement",
-      "datum": "2026-11-06",
+      "datum": "2026-12-15",
       "status": "verschoben",
       "titel": "Frühjahrsputz Daten und Notion"
     },
@@ -724,13 +724,13 @@
     },
     "vp-definition": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-11-13",
+      "datum": "2026-11-30",
       "status": "verschoben",
-      "titel": "Eigenes Kampagnen-Playbook, Präsentation und Konzeptpapier final"
+      "titel": "Kampagnen-Playbook am Fall Rechenzentren: Präsentation und Konzeptpapier final"
     },
     "vp-workshop": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-11-15",
+      "datum": "2026-12-15",
       "status": "verschoben",
       "titel": "Prozess mit der Vertriebsleitung fixiert"
     },
@@ -742,7 +742,7 @@
     },
     "vp-kpi": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-11-30",
+      "datum": "2027-01-31",
       "status": "verschoben",
       "titel": "KPI-Set Vertrieb definiert"
     },
@@ -754,8 +754,8 @@
     },
     "vp-dod": {
       "lane": "Vertriebsprozess & Kampagnen",
-      "datum": "2026-11-30",
-      "status": "offen",
+      "datum": "2027-01-31",
+      "status": "verschoben",
       "titel": "Prozess im Unternehmen implementiert"
     },
     "vp-kampagnen-2027": {
@@ -7746,6 +7746,112 @@
       "feld": null,
       "alt": "2026-11-06",
       "neu": "2026-11-06"
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "mk-cd-v1",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-15",
+      "neu": "2026-11-27",
+      "tage": 12
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "mk-empco-produktnamen",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "erreicht"
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "org-daten-notion",
+      "lane": "Organisation & Enablement",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-06",
+      "neu": "2026-12-15",
+      "tage": 39
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "pdb-vap",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-15",
+      "neu": "2026-11-30",
+      "tage": 15
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "pdb-vap",
+      "lane": "Digitale Produktinformationen (DPI)",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-13",
+      "neu": "2026-11-30",
+      "tage": 17
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "vp-definition",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "titel",
+      "alt": "Eigenes Kampagnen-Playbook, Präsentation und Konzeptpapier final",
+      "neu": "Kampagnen-Playbook am Fall Rechenzentren: Präsentation und Konzeptpapier final"
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "vp-dod",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-30",
+      "neu": "2027-01-31",
+      "tage": 62
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "vp-dod",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "status",
+      "alt": "offen",
+      "neu": "verschoben"
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "vp-kpi",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-30",
+      "neu": "2027-01-31",
+      "tage": 62
+    },
+    {
+      "festgestellt": "2026-11-12",
+      "id": "vp-workshop",
+      "lane": "Vertriebsprozess & Kampagnen",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-15",
+      "neu": "2026-12-15",
+      "tage": 30
     }
   ],
   "kennzahlen": {
@@ -7799,9 +7905,9 @@
       "ueberfaelligSeit": "2026-07-31"
     },
     "vp-definition": {
-      "verschiebungen": 4,
-      "tageGesamt": 90,
-      "letzteVerschiebung": "2026-11-08",
+      "verschiebungen": 5,
+      "tageGesamt": 107,
+      "letzteVerschiebung": "2026-11-12",
       "stehengelassen": 31,
       "ueberfaelligSeit": "2026-08-24"
     },
@@ -7939,9 +8045,9 @@
       "ueberfaelligSeit": null
     },
     "vp-workshop": {
-      "verschiebungen": 3,
-      "tageGesamt": 46,
-      "letzteVerschiebung": "2026-10-28",
+      "verschiebungen": 4,
+      "tageGesamt": 76,
+      "letzteVerschiebung": "2026-11-12",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -7960,9 +8066,9 @@
       "ueberfaelligSeit": "2026-09-30"
     },
     "org-daten-notion": {
-      "verschiebungen": 1,
-      "tageGesamt": -24,
-      "letzteVerschiebung": "2026-10-03",
+      "verschiebungen": 2,
+      "tageGesamt": 15,
+      "letzteVerschiebung": "2026-11-12",
       "stehengelassen": 6,
       "ueberfaelligSeit": "2026-11-06"
     },
@@ -7995,9 +8101,9 @@
       "ueberfaelligSeit": null
     },
     "mk-cd-v1": {
-      "verschiebungen": 1,
-      "tageGesamt": 15,
-      "letzteVerschiebung": "2026-10-26",
+      "verschiebungen": 2,
+      "tageGesamt": 27,
+      "letzteVerschiebung": "2026-11-12",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -8051,9 +8157,9 @@
       "ueberfaelligSeit": null
     },
     "vp-kpi": {
-      "verschiebungen": 1,
-      "tageGesamt": 30,
-      "letzteVerschiebung": "2026-10-26",
+      "verschiebungen": 2,
+      "tageGesamt": 92,
+      "letzteVerschiebung": "2026-11-12",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -8093,9 +8199,9 @@
       "ueberfaelligSeit": null
     },
     "pdb-vap": {
-      "verschiebungen": 1,
-      "tageGesamt": 0,
-      "letzteVerschiebung": "2026-10-29",
+      "verschiebungen": 2,
+      "tageGesamt": 15,
+      "letzteVerschiebung": "2026-11-12",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
@@ -8117,6 +8223,13 @@
       "verschiebungen": 1,
       "tageGesamt": 11,
       "letzteVerschiebung": "2026-11-09",
+      "stehengelassen": 0,
+      "ueberfaelligSeit": null
+    },
+    "vp-dod": {
+      "verschiebungen": 1,
+      "tageGesamt": 62,
+      "letzteVerschiebung": "2026-11-12",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     }

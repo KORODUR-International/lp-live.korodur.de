@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "letzteFeststellung": "2026-11-12",
+  "letzteFeststellung": "2026-11-13",
   "stand": {
     "con-workflow": {
       "lane": "Social Media & Redaktion",
@@ -226,7 +226,7 @@
     },
     "mk-cd-v1": {
       "lane": "Marke & Kommunikationsmittel",
-      "datum": "2026-11-27",
+      "datum": "2026-11-30",
       "status": "verschoben",
       "titel": "Corporate Design V1: gemeinsame Grundregeln festgelegt"
     },
@@ -7852,6 +7852,16 @@
       "alt": "2026-11-15",
       "neu": "2026-12-15",
       "tage": 30
+    },
+    {
+      "festgestellt": "2026-11-13",
+      "id": "mk-cd-v1",
+      "lane": "Marke & Kommunikationsmittel",
+      "typ": "geaendert",
+      "feld": "datum",
+      "alt": "2026-11-27",
+      "neu": "2026-11-30",
+      "tage": 3
     }
   ],
   "kennzahlen": {
@@ -8101,9 +8111,9 @@
       "ueberfaelligSeit": null
     },
     "mk-cd-v1": {
-      "verschiebungen": 2,
-      "tageGesamt": 27,
-      "letzteVerschiebung": "2026-11-12",
+      "verschiebungen": 3,
+      "tageGesamt": 30,
+      "letzteVerschiebung": "2026-11-13",
       "stehengelassen": 0,
       "ueberfaelligSeit": null
     },
